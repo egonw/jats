@@ -1,0 +1,2114 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-021-00515-1</article-id>
+          <article-id pub-id-type="manuscript">515</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-021-00515-1</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Software</subject>
+            </subj-group>
+            <subj-group subj-group-type="article-collection" specific-use="Regular">
+              <subject>Citation Typing
+Ontology (CiTO) Pilot</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">IDSM ChemWebRDF: SPARQLing small-molecule datasets</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" corresp="yes" id="Au1">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-7038-544X</contrib-id>
+              <name>
+                <surname>Galgonek</surname>
+                <given-names>Jakub</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDs13321021005151_cor1">a</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au2">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-6066-973X</contrib-id>
+              <name>
+                <surname>Vondrášek</surname>
+                <given-names>Jiří</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.418892.e</institution-id>
+                <institution-id institution-id-type="ISNI">0000 0001 2188 4245</institution-id>
+                <institution content-type="org-name">Institute of Organic Chemistry and Biochemistry of the CAS</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Flemingovo náměstí 2</addr-line>
+              <addr-line content-type="postcode">166 10</addr-line>
+              <addr-line content-type="city">Prague 6</addr-line>
+              <country country="CZ">Czech Republic</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs13321021005151_cor1">
+              <label>a</label>
+              <email>jakub.galgonek@uochb.cas.cz</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>12</day>
+            <month>5</month>
+            <year>2021</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2021</year>
+          </pub-date>
+          <volume>13</volume>
+          <issue seq="38">1</issue>
+          <elocation-id>38</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>24</day>
+              <month>4</month>
+              <year>2021</year>
+            </date>
+            <date date-type="received">
+              <day>6</day>
+              <month>1</month>
+              <year>2021</year>
+            </date>
+            <date date-type="accepted">
+              <day>23</day>
+              <month>4</month>
+              <year>2021</year>
+            </date>
+            <date date-type="online">
+              <day>12</day>
+              <month>5</month>
+              <year>2021</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement>© The Author(s) 2021</copyright-statement>
+            <copyright-year>2021</copyright-year>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="url">http://creativecommons.org/licenses/by/4.0/</ext-link>. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="url">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated in a credit line to the data.</license-p>
+            </license>
+          </permissions>
+          <abstract id="Abs1" xml:lang="en">
+            <title>Abstract</title>
+            <p id="Par1">The Resource Description Framework (RDF), together with well-defined ontologies, significantly increases data interoperability and usability. The SPARQL query language was introduced to retrieve requested RDF data and to explore links between them. Among other useful features, SPARQL supports federated queries that combine multiple independent data source endpoints. This allows users to obtain insights that are not possible using only a single data source. Owing to all of these useful features, many biological and chemical databases present their data in RDF, and support SPARQL querying. In our project, we primary focused on PubChem, ChEMBL and ChEBI small-molecule datasets. These datasets are already being exported to RDF by their creators. However, none of them has an official and currently supported SPARQL endpoint. This omission makes it difficult to construct complex or federated queries that could access all of the datasets, thus underutilising the main advantage of the availability of RDF data. Our goal is to address this gap by integrating the datasets into one database called the Integrated Database of Small Molecules (IDSM) that will be accessible through a SPARQL endpoint. Beyond that, we will also focus on increasing mutual interoperability of the datasets. To realise the endpoint, we decided to implement an in-house developed SPARQL engine based on the PostgreSQL relational database for data storage. In our approach, data are stored in the traditional relational form, and the SPARQL engine translates incoming SPARQL queries into equivalent SQL queries. An important feature of the engine is that it optimises the resulting SQL queries. Together with optimisations performed by PostgreSQL, this allows efficient evaluations of SPARQL queries. The endpoint provides not only querying in the dataset, but also the compound substructure and similarity search supported by our Sachem project. Although the endpoint is accessible from an internet browser, it is mainly intended to be used for programmatic access by other services, for example as a part of federated queries. For regular users, we offer a rich web application called ChemWebRDF using the endpoint. The application is publicly available at <ext-link xlink:href="https://idsm.elixir-czech.cz/chemweb/" ext-link-type="url">https://idsm.elixir-czech.cz/chemweb/</ext-link>.</p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Small-molecule datasets</kwd>
+            <kwd>Resource Descriptor Framework</kwd>
+            <kwd>SPARQL</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Ministerstvo Školství, Mládeže a Telovýchovy</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/501100001823</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">LM2018131</award-id>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Ústav Organické Chemie a Biochemie, Akademie Ved Ceské Republiky</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/501100010099</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">RVO:61388963</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Vondrášek</surname>
+                  <given-names>Jiří</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>41</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2021</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2021</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>No</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2021</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>4</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>24</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2021_Article_515.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p id="Par2">The role of information has become crucially important in many aspects of human activities, including in life science research. The size of life science datasets, their complexity, and their number have increased continuously over time. Due to this increasing size and complexity of datasets, the user effort that is needed to obtain relevant data increases too, especially when data are spread out over multiple heterogeneous datasets. There still does not exist a general solution for this issue. This is partly due to the fact that datasets are often exported in different formats. Another important reason is that datasets often use different ontologies, meaning one thing can be expressed in different ways in different datasets. What is worse, property names can collide, i.e., a certain property name can in fact express different properties in different datasets. Last but not least, the precise semantics of properties used in a dataset is often documented with insufficient accuracy.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>ChEMBL data example</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig1_HTML.png" id="MO1" /></p></fig><fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>IDSM database schema</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig2_HTML.png" id="MO2" /></p></fig></p>
+          <p id="Par3">One of the approaches that can be used to improve the interoperability of datasets produced by heterogeneous providers is to adopt Linked Data principles [<xref ref-type="bibr" rid="CR1">1</xref>]. According to these principles, things should be identified by uniform identifiers, connected with useful information accessible from the Internet in standard formats over the HTTP protocol and interlinked with other relevant things. The Semantic Web technologies were introduced to implement this approach. The main technology is the Resource Description Framework (RDF) [<xref ref-type="bibr" rid="CR2">2</xref>, <xref ref-type="bibr" rid="CR3">3</xref>]. The framework is intended to represent information about resources where a resource is an abstraction of an entity in the world. In this framework, each piece of information is expressed as a subject-predicate-object triple denoting that the subject is related to the object, where the relation is denoted by the predicate. Although this basic concept is very simple, it is able to express very complex information as a set of such triples. A set of triples is often visualised as a connected graph with nodes representing subjects and objects and with labelled arcs representing predicates. An example of such an RDF graph can be seen in Fig. <xref rid="Fig1" ref-type="fig">1</xref>a. For comparison, the same information presented in the relational form is shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref>b.</p>
+          <p id="Par4">The RDF framework employs the Internationalised Resource Identifiers (IRIs) to identify resources [<xref ref-type="bibr" rid="CR4">4</xref>]. The IRIs have a global meaning which makes interlinking between various datasets easy and straightforward. The predicates are also identified by IRIs, which avoids the situation where a certain property name has different meanings in different datasets. A set of IRIs used for describing resources related to an area of interest is called an RDF vocabulary. The RDF Schema (RDFS) [<xref ref-type="bibr" rid="CR5">5</xref>] and Web Ontology Language (OWL) [<xref ref-type="bibr" rid="CR6">6</xref>] have been introduced for the definition of RDF vocabularies and ontologies, which helps to define the precise semantics of data. The SPARQL query language was introduced in order to support querying RDF datasets [<xref ref-type="bibr" rid="CR7">7</xref>]. One of its most important features is the federated query extension. It allows a SPARQL service to redirect a portion of a query to another SPARQL service, and to then combine obtained results with results from the rest of the query [<xref ref-type="bibr" rid="CR8">8</xref>]. This highly increases interoperability, because one query allows users to gather information from different datasets. Each SPARQL service listens for requests at a specific IRI that is generally known as a SPARQL endpoint [<xref ref-type="bibr" rid="CR9">9</xref>].</p>
+          <p id="Par5">Several former (currently discontinued) pioneering projects decided to take advantage of the fact that many life science datasets are publicly available for download, and they have converted these datasets into RDF. Bio2RDF [<xref ref-type="bibr" rid="CR10">10</xref>, <xref ref-type="bibr" rid="CR11">11</xref>] integrated data from some of the most popular public bioinformatics databases, and supported the conversion of primary resource entries into RDF on demand. Entries have been identified by IRIs in the generic form http://bio2rdf.org/namespace:id. Each namespace was associated with a JSP script connected to the appropriate primary resource in order to obtain information about an entity identified by the id used in an IRI, and to then return a result formatted in RDF. Chem2Bio2RDF [<xref ref-type="bibr" rid="CR12">12</xref>] was focused on the creation of a single RDF repository that aggregated data from multiple chemogenomics repositories (including small molecule, target, gene, pathway and drug information). Similarly, Linked Life Data [<xref ref-type="bibr" rid="CR13">13</xref>] was a platform converting public biomedical databases into RDF and accessing them through a single SPARQL endpoint. In addition to projects focused on converting and integrating multiple datasets, there were also projects focused on single datasets. For example, ChEMBL-RDF [<xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR15">15</xref>] was focused on converting the ChEMBL dataset into RDF, and then linking it with other existing RDF datasets.</p>
+          <p id="Par6">Some initiatives were established that focused on cooperation between various subjects that publish RDF datasets. Linking Open Drug Data (LODD) [<xref ref-type="bibr" rid="CR16">16</xref>, <xref ref-type="bibr" rid="CR17">17</xref>] was a task force within the World Wide Web Consortium’s (W3C) Health Care, and Life Sciences Interest Group (HCLS IG) aimed to create life science RDF datasets provided by individual participants. The datasets should be linked with each other, as well as with datasets provided by other Linked Data projects. Open PHACTS [<xref ref-type="bibr" rid="CR18">18</xref>] was a European initiative aimed to use Semantic Web technologies to develop a platform that improves collaboration between industry and public organisations focused on drug discovery.</p>
+          <p id="Par7">At present, many important life science datasets offer their data directly in the RDF. These include UniProt (database of protein sequences and associated detailed annotation) [<xref ref-type="bibr" rid="CR19">19</xref>], PubChem (open repository for chemical structures, biological activities and biomedical annotations) [<xref ref-type="bibr" rid="CR20">20</xref>], ChEMBL (bioactivity database) [<xref ref-type="bibr" rid="CR21">21</xref>, <xref ref-type="bibr" rid="CR22">22</xref>], ChEBI (database and ontology of chemical entities of biological interest) [<xref ref-type="bibr" rid="CR23">23</xref>], neXtProt (human protein database) [<xref ref-type="bibr" rid="CR24">24</xref>, <xref ref-type="bibr" rid="CR25">25</xref>], Rhea (database of expert-curated biochemical reactions) [<xref ref-type="bibr" rid="CR26">26</xref>], PDBj (protein database maintained by the Protein Data Bank Japan, a member of the worldwide Protein Data Bank) [<xref ref-type="bibr" rid="CR27">27</xref>], WikiPathways (database of biological pathways) [<xref ref-type="bibr" rid="CR28">28</xref>], DisGeNET (database of gene-disease associations) [<xref ref-type="bibr" rid="CR29">29</xref>, <xref ref-type="bibr" rid="CR30">30</xref>], and OMA (orthology database) [<xref ref-type="bibr" rid="CR31">31</xref>].</p>
+          <p id="Par8">A SPARQL endpoint for querying a dataset is often introduced together with the dataset. Some projects do not use their own SPARQL server but instead use a platform providing SPARQL endpoints for multiple datasets. The EBI RDF platform should coordinate RDF activities across the European Bioinformatics Institute (EBI), and it should also provide a SPARQL endpoint to querying resources available at the institute [<xref ref-type="bibr" rid="CR32">32</xref>]. Unfortunately, the platform has currently no funding, meaning its support is sporadic at best. The National Bioscience Database Center (NBDC) RDF portal aims to promote Japanese database development groups in order to expose their datasets in RDF [<xref ref-type="bibr" rid="CR33">33</xref>]. This portal offers SPARQL endpoints for these datasets and also, for example, for PubChem and UniProt.</p>
+          <p id="Par9">When RDF began to be used in life sciences, newly created RDF datasets often used ad-hoc ontologies typically reflecting the original format of the datasets. However, such ontologies do not allow good interoperability between datasets. To address this issue, ontologies designed to be interoperable began to gain more ground. Such ontologies were not developed to be used in a particular dataset. Instead, they were developed to describe a selected domain independently of individual datasets. The ontology should be general enough to be usable in any dataset focused on the given domain. Usage of such ontologies significantly improves interoperability between datasets.</p>
+          <p id="Par10">There are many ontologies focused on particular life science domains: BioAssay Ontology (BAO), describing chemical biology screening assays and their results for the purpose of categorising assays and data analysis [<xref ref-type="bibr" rid="CR34">34</xref>]; Protein Ontology (PRO), defining protein-related entities and showing relationships between them [<xref ref-type="bibr" rid="CR35">35</xref>]; Gene Ontology (GO), focused on functions of genes and gene products [<xref ref-type="bibr" rid="CR36">36</xref>]; Medical Subject Headings (MeSH), used for indexing, searching and cataloguing of biomedical and health-related information [<xref ref-type="bibr" rid="CR37">37</xref>]; Chemical Information Ontology (CHEMINF), specifying chemical information entities, e.g., chemical graphs and descriptors, algorithms and their software implementations, chemical data formats [<xref ref-type="bibr" rid="CR38">38</xref>]; Semanticscience Integrated Ontology (SIO), offering classes and relations to describe and relate objects, processes and their attributes with specific extensions in the biomedical domain [<xref ref-type="bibr" rid="CR39">39</xref>]; and the EDAM ontology, related to bioinformatics operations, types of data and identifiers, data formats and topics [<xref ref-type="bibr" rid="CR40">40</xref>]. All these listed ontologies are accessible through NCBO BioPortal that provides access to a library of biomedical ontologies, their subsets and user comments [<xref ref-type="bibr" rid="CR41">41</xref>].</p>
+          <p id="Par11">Life science datasets also widely use various general-purpose ontologies. They include, for example, Dublin Core Metadata Initiative (DCMI) Terms focused on cross-domain resource description in order to achieve easier search and retrieval [<xref ref-type="bibr" rid="CR42">42</xref>], FRBR-aligned Bibliographic Ontology (FaBiO) and Citation Typing Ontology (CiTO) designed for describing bibliographic resources and citations [<xref ref-type="bibr" rid="CR43">43</xref>], and Simple Knowledge Organization System (SKOS) providing a data model and vocabulary for expressing knowledge organisation systems [<xref ref-type="bibr" rid="CR44">44</xref>].</p>
+          <p id="Par12">Several standards to describe the content of datasets have been introduced as well. To describe life science datasets, their versions and file formats in which the datasets are available, the W3C Semantic Web for Health Care and Life Sciences (HCLS) Interest Group introduced a community profile for describing datasets [<xref ref-type="bibr" rid="CR45">45</xref>]. The profile is mainly based on more general vocabularies: the Data Catalog Vocabulary (DCAT) designed to facilitate interoperability between data catalogues [<xref ref-type="bibr" rid="CR46">46</xref>] and the Vocabulary of Interlinked Datasets (VOID) aimed for expressing metadata about RDF datasets [<xref ref-type="bibr" rid="CR47">47</xref>]. The SPARQL Service Description vocabulary has been introduced to describe SPARQL services [<xref ref-type="bibr" rid="CR48">48</xref>].</p>
+          <p id="Par13">Our project presented in this paper is focused on small-molecule datasets. The goal of the project is twofold: firstly to integrate various datasets into one database called the Integrated Database of Small Molecules (IDSM) accessible through a SPARQL endpoint, and secondly to improve mutual linking between the integrated datasets and their interoperability with other datasets that are referenced from these integrated datasets, when necessary. To enhance usability of the endpoint, the substructure and similarity search of compounds is also supported by utilisation of our Sachem project [<xref ref-type="bibr" rid="CR49">49</xref>, <xref ref-type="bibr" rid="CR50">50</xref>]. We also focus on the development of a web application named ChemWebRDF that allows users to write SPARQL queries and to explore data in a user-friendly way. In the first stage, we decided to use only datasets having RDF representations introduced directly by data providers. This is very important for us at this stage, as we do not want to create an unauthorized RDF form of a dataset. There is a very good reason for this. Some datasets have been converted into RDF by different teams (for example, ChEMBL [<xref ref-type="bibr" rid="CR11">11</xref>, <xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR15">15</xref>, <xref ref-type="bibr" rid="CR21">21</xref>] or MeSH [<xref ref-type="bibr" rid="CR51">51</xref>]). Although another RDF representation of a dataset can be very useful for a specific purpose of use, experience shows that such fragmentation decreases the overall interoperability as an unwanted side effect. We are currently focused on the following datasets: PubChem, ChEMBL and ChEBI. These datasets are well established, and have their RDF representations created directly by their providers. The other useful thing is that these datasets are already interlinked, so they represent a good basis for the creation of a service that will integrate various small-molecule datasets. Moreover, none of these datasets currently has an official and supported SPARQL endpoint.</p>
+          <p id="Par14">All three datasets are available for bulk download in RDF on their web sites. The PubChemRDF project additionally provides programmatic data access through RESTful interface that allows querying RDF triples [<xref ref-type="bibr" rid="CR20">20</xref>]. However, only one triple pattern is allowed in a query submitted by this interface. Since the beginning of 2020, the PubChem RDF data have been accessible through the NBDC RDF portal. However, it has updated the data only once since then. The ChEMBL datasets was accessible through official Linked Open Data platform for EBI data [<xref ref-type="bibr" rid="CR32">32</xref>]. Unfortunately, this platform is not currently supported, and it has not contained any ChEMBL data for a long time. As an unofficial replacement, the department of Bioinformatics (BiGCaT) at Maastricht University has recently started offering a SPARQL endpoint that mirrors the ChEMBL RDF dataset [<xref ref-type="bibr" rid="CR52">52</xref>].<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Definitions of namespace prefixes</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Prefix</p></th><th align="left"><p>Definition</p></th></tr></thead><tbody><tr><td align="left"><p>rdf:</p></td><td align="left"><p>http://www.w3.org/1999/02/22-rdf-syntax-ns#</p></td></tr><tr><td align="left"><p>rdfs:</p></td><td align="left"><p>http://www.w3.org/2000/01/rdf-schema#</p></td></tr><tr><td align="left"><p>xsd:</p></td><td align="left"><p>http://www.w3.org/2001/XMLSchema#</p></td></tr><tr><td align="left"><p>owl:</p></td><td align="left"><p>http://www.w3.org/2002/07/owl#</p></td></tr><tr><td align="left"><p>bao:</p></td><td align="left"><p>http://www.bioassayontology.org/bao#</p></td></tr><tr><td align="left"><p>bibo:</p></td><td align="left"><p>http://purl.org/ontology/bibo/</p></td></tr><tr><td align="left"><p>bp:</p></td><td align="left"><p>http://www.biopax.org/release/biopax-level3.owl#</p></td></tr><tr><td align="left"><p>cco:</p></td><td align="left"><p>http://rdf.ebi.ac.uk/terms/chembl#</p></td></tr><tr><td align="left"><p>chebix:</p></td><td align="left"><p>http://purl.obolibrary.org/obo/chebi#</p></td></tr><tr><td align="left"><p>cito:</p></td><td align="left"><p>http://purl.org/spar/cito/</p></td></tr><tr><td align="left"><p>cv:</p></td><td align="left"><p>http://nextprot.org/rdf/terminology/</p></td></tr><tr><td align="left"><p>dcterms:</p></td><td align="left"><p>http://purl.org/dc/terms/</p></td></tr><tr><td align="left"><p>fabio:</p></td><td align="left"><p>http://purl.org/spar/fabio/</p></td></tr><tr><td align="left"><p>cheminf:</p></td><td align="left"><p>http://semanticscience.org/resource/</p></td></tr><tr><td align="left"><p>meshv:</p></td><td align="left"><p>http://id.nlm.nih.gov/mesh/vocab#</p></td></tr><tr><td align="left"><p>nextprot:</p></td><td align="left"><p>http://nextprot.org/rdf#</p></td></tr><tr><td align="left"><p>obo:</p></td><td align="left"><p>http://purl.obolibrary.org/obo/</p></td></tr><tr><td align="left"><p>oboInOwl:</p></td><td align="left"><p>http://www.geneontology.org/formats/oboInOwl#</p></td></tr><tr><td align="left"><p>pdbo:</p></td><td align="left"><p>http://rdf.wwpdb.org/schema/pdbx-v40.owl#</p></td></tr><tr><td align="left"><p>rh:</p></td><td align="left"><p>http://rdf.rhea-db.org/</p></td></tr><tr><td align="left"><p>sachem:</p></td><td align="left"><p>http://bioinfo.uochb.cas.cz/rdf/v1.0/sachem#</p></td></tr><tr><td align="left"><p>sio:</p></td><td align="left"><p>http://semanticscience.org/resource/</p></td></tr><tr><td align="left"><p>source:</p></td><td align="left"><p>http://rdf.ncbi.nlm.nih.gov/pubchem/source/</p></td></tr><tr><td align="left"><p>skos:</p></td><td align="left"><p>http://www.w3.org/2004/02/skos/core#</p></td></tr><tr><td align="left"><p>taxon:</p></td><td align="left"><p>http://purl.uniprot.org/taxonomy/</p></td></tr><tr><td align="left"><p>uniprot:</p></td><td align="left"><p>http://purl.uniprot.org/uniprot/</p></td></tr><tr><td align="left"><p>up:</p></td><td align="left"><p>http://www.uniprot.org/core/</p></td></tr><tr><td align="left"><p>vocab:</p></td><td align="left"><p>http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#</p></td></tr></tbody></table></table-wrap></p>
+        </sec>
+        <sec id="Sec2">
+          <title>Implementation</title>
+          <p id="Par15">For convenience, prefixed names are used instead of the full IRIs in the following sections that describe the schema of the IDSM database and its use cases. The definitions of namespace prefixes used in the paper are summarised in Table <xref rid="Tab1" ref-type="table">1</xref>.</p>
+          <sec id="Sec3">
+            <title>Database schema</title>
+            <p id="Par16">The RDF schema of the IDSM database reflects RDF schemas of selected datasets (i.e., PubChem, ChEMBL and ChEBI) as we integrate datasets already exported to RDF.</p>
+            <p id="Par17">The PubChem dataset comprises three main parts: substances, compounds and bioassays. Substances are deposited into the dataset by chemical vendors (data sources). Different vendors can deposit the same chemical structure. Each deposited record is assigned a unique identifier. Substance records are standardised to compounds (class cheminf:SIO_010004) that represent a set of unique chemical structures. During this process, substances representing the same chemical entity are aggregated into a single compound, and links (predicate cheminf:CHEMINF_000477) between the substances and the corresponding compound are added. Screening data are deposited as bioassays (class bao:BAO_0000015). Biological assays are divided (predicate bao:BAO_0000209) into measure groups (class bao:BAO_0000040) containing (predicate obo:OBI_0000299) individual screening measurements represented by bioactivity endpoints (class bao:BAO_0003115). Measure groups can point at (predicate obo:RO_0000057) screened proteins (class bp:Protein) or genes (class bp:Gene). Each endpoint is linked (predicate obo:IAO_0000136) to the tested substance, as well as being linked (predicate vocab:PubChemAssayOutcome) to the screening outcome (class vocab:PubChemBioAssayOut-comeCategory). Endpoints can also refer (predicate cito:citesAsDataSource) to publication references (class fabio:Article) describing details of the measurements.</p>
+            <p id="Par18">ChEMBL is also focused on biological activities, but it uses a different ontology to express bioassay experiments. However, both datasets share a similar basic concept. Only unique and standardised substances (class cco:Substance) are stored in the ChEMBL dataset. Biological assays (class cco:Assay) are not divided into measure groups, and they are directly linked (predicate cco:hasTarget) to screened targets (class cco:Target). Targets include proteins and their complexes, organism, cell-lines, tissues, etc. Targets are divided (predicate cco:hasTargetComponent) into molecular components (class cco:TargetComponent)—usually proteins. Individual measurements are represented by activities (class cco:Activity) that are linked (predicate cco:hasActivity) from tested substances, as well as from assays to which they belong. In addition, it also contains information about drug mechanisms of actions (class cco:Mechanism). Mechanisms are specified by text descriptions (predicate cco:mechanismDescription, predicate cco:mechanismActionType). They are referenced from substances (predicate cco:hasMechanism) having the given actions, and are linked (predicate cco:hasTarget) to targets of these drug mechanisms. Alternatively, they are linked (predicate cco:hasBindingSite) to binding sites (class cco:BindingSite) on specified (predicate cco:hasTarget) targets. Documents (class cco:Document) with supporting information should be linked (predicate cco:hasDocument) from substances, assays and activities.</p>
+            <p id="Par19">Unlike the previous two datasets, the ChEBI dataset contains no assay data, and it is solely focused on creating a hierarchical classification of compounds. In ChEBI, each molecular entity is expressed as a class. Relations between ChEBI classes are then described in RDF using the Web Ontology Language (OWL). Hierarchy is denoted by the standard rdfs:subClassOf predicate. Other relations between ChEBI classes are described indirectly by using OWL restrictions. For example, ChEBI class X is a conjugate acid of ChEBI class Y if and only if, for each compound x from X, there is a compound y from Y, such that x is the conjugate acid of y. This fact is expressed in OWL in the following form: X is a subclass of the class of all individuals for which at least one value of the chebix:is_conjugate_acid_of predicate is an instance of the class Y.</p>
+            <p id="Par20">In addition to these three small-molecule datasets, the IDSM database also integrates ontologies that are used by these three datasets, including extensive MeSH [<xref ref-type="bibr" rid="CR37">37</xref>] and NCBITaxon [<xref ref-type="bibr" rid="CR53">53</xref>] ontologies.</p>
+            <p id="Par21">A simplified summary of the IDSM database RDF schema is shown as a graph in Fig. <xref rid="Fig2" ref-type="fig">2</xref>. Graph nodes represent resource classes, whereas arcs represent predicates used by the database to capture relation between resources. Each arc is oriented from its predicate domain to its predicate range. Nodes and arcs are labelled by IRIs of appropriate resource classes and predicates, respectively. Labels in parentheses were added to the IRIs where necessary for greater clarity. The colours of nodes are used to distinguish datasets. Green, blue and red colours are used to denote resources from PubChem, ChEMBL and ChEBI datasets, respectively. The orange colour denotes integrated ontologies, and yellow denotes other referenced datasets.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Dataset enhancement</title>
+            <p id="Par22">Datasets can contain additional data that are not exported to RDF by datasets creators. Since some parts of the additional data can be useful for better interoperability, we decided to integrate these parts into the IDSM database.</p>
+            <p id="Par23">We enhanced the IDSM database with all compound structures included in the selected small-molecule datasets. The structures are expressed in the MDL Molfile format. We present these structures in the same way that is used by PubChem to express the linkage from compound to the chemical descriptor resources (e.g., InChI, SMILES, ...). Similarly to other chemical descriptor resources, the MDL Molfile values are linked from these resources by the sio:has-value predicate, and these resources are linked to corresponding compounds by the sio:is-attribute-of predicate. The only difference is that these resources are typed as sio:SIO_011120 (molecular structure file).</p>
+            <p id="Par24">For PubChem bioassays, only their titles and sources are exported to RDF. Moreover, they are not exported for some of the bioassays. To increase the usability of the IDSM database, we decided to load the titles, source links and also bioassay specifications (including descriptions, protocols, and comments) for all PubChem bioassays. For better interoperability, we decided to employ standard BioAssay Ontology classes to export the bioassay specifications into RDF instead of creating new ones. We use the bao:BAO_0000522, bao:BAO_0000523 and bao:BAO_0000525 classes to denote bioassay descriptions, protocols and comments, respectively.</p>
+            <p id="Par25">We also added some triples that enhance the mutual integration of selected small-molecule datasets, even though they use different ontologies. The PubChem dataset integrates data coming from various sources, including ChEMBL. If two resources represent the same thing, the skos:exactMatch predicate can be used to map one resource to the other. And exactly this predicate is used by PubChem to establish links between PubChem substances coming from ChEMBL and corresponding substances in the ChEMBL dataset. Although PubChem integrates ChEMBL assays as well, links between the integrated bioassays and their original ones are not exported to RDF. Nevertheless, the origins of PubChem assays are stored in primary PubChem data. We decided to use these data to add appropriate links between PubChem bioassays and their corresponding ChEMBL ones. Not only does PubChem integrate bioassays from ChEMBL, but some assays are also integrated from PubChem to ChEMBL. The ChEMBL dataset uses dedicated resources to describe links between them. For better interoperability, we also enhanced the IDSM database by using the skos:exactMatch predicate in this case.</p>
+            <p id="Par26">Furthermore, each PubChem reference (class fabio:Article) contains a PubMed identifier (PMID) as a part of its IRI. Similarly, documents (class cco:Document) coming from ChEMBL are linked (predicate bibo:pmid) with their PubMed identifiers. Based on this information, we established skos:exactMatch mappings between instances sharing the same PubMed identifiers.</p>
+            <p id="Par27">In order to link PubChem substances and compounds with ChEBI compounds, the rdf:type predicate is used in the PubChem dataset. This reflects the fact that ChEBI compounds are defined as classes. We used information stored in the ChEMBL datasets to employ the same kind of linking between ChEMBL substances and ChEBI compounds.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Interoperability enhancements</title>
+            <p id="Par28">Because IRIs have a global meaning, it is theoretically very simple to reference a resource described in one RDF dataset from another RDF dataset—the dataset just uses the resource IRI to reference it. It presents an unambiguous and effective way to link resources coming from different datasets. Issues arise when there is no general agreement on which IRIs should be used to identify resources from a dataset. This typically happens in cases where there is no official and widely used RDF representation of the dataset. In such a situation, it is possible to use the Identifiers.org Resolution Service [<xref ref-type="bibr" rid="CR54">54</xref>], for example. This service allows the use of IRIs in the general form: https://identifiers.org/prefix:ID, where prefix is a registered identifier of a dataset, and id is a local accession identifier of a resource in the dataset. However, other approaches are also possible. This can lead to situations where two datasets use different ways to reference resources from another dataset. In such a situation, interoperability between these datasets is limited.</p>
+            <p id="Par29">We identified several such issues related to referencing that we solved in order to enhance interoperability between datasets. In the case where the integrated datasets used different (or inconvenient) ways to reference another dataset, we enhanced them so that they all use the same common way to reference the dataset. However, we left the original ways unaffected and still present in the datasets in order not to break interoperability with other services that may depend on this usage.</p>
+            <p id="Par30">To reference NCBI organismal taxa [<xref ref-type="bibr" rid="CR55">55</xref>], the Identifiers.org service is used by ChEMBL and PubChem datasets. Because there is no official RDF version of the dataset, we employed the OBO/OWL translation of the NCBI organismal taxonomy provided by the OBO Foundry [<xref ref-type="bibr" rid="CR53">53</xref>]. Unfortunately, this translation uses different IRIs for taxa. To address this issue, we improved ChEMBL and PubChem datasets to use these IRIs as well.</p>
+            <p id="Par31">The ChEMBL dataset uses the Identifiers.org service to also link the MeSH ontology. Nevertheless, the authorised RDF version of the MeSH ontology uses different IRIs to identify headings. Thus, the appropriate IRIs have been added to the ChEMBL dataset in this case as well. The PubChem already uses the authorised IRIs, therefore no changes were needed.</p>
+            <p id="Par32">The Identifiers.org service is used also by the ChEMBL dataset to link the PDB dataset. As for ChEMBL compounds and assays, dedicated resources are used to reference ChEMBL target components to PDB proteins. For better interoperability, links using the official ontology provided by Protein Data Bank Japan have been added to the ChEMBL dataset. Although the PubChem already uses the official ontology, it unfortunately uses an outdated version. Hence, links using the up-to-date ontology have been added to the PubChem dataset as well.</p>
+          </sec>
+          <sec id="Sec6">
+            <title>SPARQL engine</title>
+            <p id="Par33">To run a robust SPARQL endpoint, we experimented with several SPARQL engines during recent years, but none of them was fully sufficient for our purposes in terms of extensibility, reliability or efficiency. For this reason, we decided to implement an in-house SPARQL engine that supports the SPARQL 1.1 specification. For reliability, we use the well-established PostgreSQL relational database [<xref ref-type="bibr" rid="CR56">56</xref>] for data storage. In our approach, datasets are stored in a relational database using optimised database schemas designed specifically for the given datasets. Special mappings from relational database schemas to RDF datasets are introduced in order to present the stored data in the RDF form. These mappings are then used to translate SPARQL queries operating on RDF data to equivalent SQL queries operating on relational data. The approach is similar to the Linked Data Views from the Virtuoso database [<xref ref-type="bibr" rid="CR57">57</xref>], to the D2RQ mapping language [<xref ref-type="bibr" rid="CR58">58</xref>] and to the R2RML mapping language [<xref ref-type="bibr" rid="CR59">59</xref>] implemented, for example, in the Oracle Database [<xref ref-type="bibr" rid="CR60">60</xref>]. In our approach, each dataset mapping consists of two basic parts: <list list-type="order"><list-item><p id="Par34"><italic>IRI mappings describe mappings between IRIs and SQL datatypes.</italic> In RDF, all resources are identified by IRIs. However, it is very inefficient to store IRIs directly to a relational database and to use them to identify database records. For this reason, IRIs are mapped into more efficient SQL types. More precisely, all IRIs used to identify resources in the dataset are divided into disjunct classes, and for each IRI class there is a bijection defined between the class and SQL type(s). Values of these SQL types then can be used to identify resources stored in a relational database unambiguously and efficiently.</p></list-item><list-item><p id="Par35"><italic>Quad Mappings describe mappings between rows of tables and RDF triples.</italic> RDF datasets are organised into collections of RDF graphs that contain a set of RDF triples. Thus, RDF datasets can be viewed as a set of RDF quadruplets. In order to map the rows of a specified table into quadruplets, for each term in a quadruplet mapping (i.e., for subject, predicate, object and graph) it is specified from which column (or columns) the term is generated. If a term is an IRI, the information about its IRI class is also included.</p></list-item></list>Although a dataset mapping describes a conversion from a database schema of a relational database to an RDF dataset, the conversion is never performed directly, and the RDF dataset is never materialised. The real purpose is the opposite. The mapping is used to convert incoming SPARQL queries operated on the RDF dataset to SQL queries operated on the target relational database. For each triple pattern occurring in a SPARQL query, it is determined which quad mappings generate triples that can be matched by the pattern. These mappings are then used to generate simple SQL statements that select requested data specified by corresponding patterns. These SQL statements are joined into a SQL query respecting SPARQL semantics. To achieve maximum effectiveness, database schema constraints (e.g., primary and foreign keys), together with information about IRI classes, are used during the translation in order to produce optimised SQL queries.</p>
+            <p id="Par36">We have used a small portion of the ChEMBL data shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref> to demonstrate how the IDSM SPARQL engine works. In Fig. <xref rid="Fig1" ref-type="fig">1</xref>a, data are expressed in the form of an RDF graph. This particular piece of data describes information about four documents and two journals. Resources representing journals are typed as cco:Journal, and have been assigned short titles via the predicate bibo:shortTitle. Similarly, resources representing documents are typed as cco:Document, and have been assigned titles via the predicate dcterms:title. If a document was published in a journal, it is denoted by the predicate cco:hasJournal.</p>
+            <p id="Par37">As shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref>b, the same information can be expressed in a relational database by two tables. Table chembl.journals and table chembl.documents represent information about journals and documents, respectively. In both tables, each table row represents one resource. Individual resources are identified by integer values stored in appropriate id columns. These values were obtained from the resource IRIs by cutting off their non-numeric fixed parts. Resource titles are stored in relevant columns. The journal_id column referencing table chembl.journals is used to express links between document and journals.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>Basic idea of mapping and SPARQL query translation</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig3_HTML.png" id="MO3" /></p></fig><fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>SPARQL queries to observe how well is ChEMBL included by PubChem</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig4_HTML.png" id="MO4" /></p></fig></p>
+            <p id="Par38">The example relational database (Fig. <xref rid="Fig1" ref-type="fig">1</xref>b) can be simply mapped into RDF (Fig. <xref rid="Fig1" ref-type="fig">1</xref>a) and queried by SPARQL, as demonstrated in Fig. <xref rid="Fig3" ref-type="fig">3</xref>. The schema of the tables used by the example data is shown in Fig. <xref rid="Fig3" ref-type="fig">3</xref>a. The mapping in Fig. <xref rid="Fig3" ref-type="fig">3</xref>b is utilised to map this relational schema into RDF. Firstly, two IRI classes are defined, one for the journal IRIs and one for the document IRIs. The classes describe how integer identifiers are converted into IRIs by adding appropriate fixed prefixes. Secondly, a set of quad mapping is defined for each table. For example, quad mapping ‘iri:document(id) dcterms:title (title)^^xsd:string’ for table chembl.documents denotes that each row of the table is mapped on the triple having the subject generated from column id by IRI class iri:document, the predicate bibo:shortTitle, and the object with a value from column short_title typed as xsd:string. The triples are stored in the default RDF graph, and therefore the graph declaration is omitted from the quad mapping. For all quad mappings, there is the following condition: a table row is used for a quad mapping only if all required values are not null.</p>
+            <p id="Par39">The introduced mapping is used to translate a SPARQL query into an SQL query that generates an equivalent result. Quad mappings generating triples that can be matched by a triple pattern are selected for each triple pattern in the SPARQL query. These quad mappings are then used to generate SQL SELECT clauses to obtain requested data. The clauses are joined according to the SPARQL semantics to obtain the final result. For example, triple pattern ‘?document dcterms:title ?title’ can match triples generated by the quad mapping mentioned above. This quad mapping is then used to generate the appropriate SQL SELECT clause retrieving documents and their titles.</p>
+            <p id="Par40">A full translation of the example SPARQL query from Fig. <xref rid="Fig3" ref-type="fig">3</xref>c is shown in Fig. <xref rid="Fig3" ref-type="fig">3</xref>d. However, this translation can be optimised if the database schema in Fig. <xref rid="Fig3" ref-type="fig">3</xref>a is taken into account. Tables tab1 and tab2 are derived from the same table, and they are joined according to the table primary key. Thus, these two SQL SELECT clauses can be merged. Moreover, table tab3 derived from table chembl.journals is joined with table tab2 according to the foreign key journal_id that references the primary key in this table. For this reason, table tab3 can be eliminated in this case, because no additional information from table tab3 is required. Fig. <xref rid="Fig3" ref-type="fig">3</xref>e shows the final SQL query obtained after the optimisations are performed.</p>
+          </sec>
+          <sec id="Sec7">
+            <title>Loading datasets</title>
+            <p id="Par41">In spite of the fact that the selected datasets are exported to RDF, these data cannot be used to load datasets into the IDSM database without additional effort because our engine is not a native triple store. In general, three steps are needed to support a dataset due to the fact that a relational database is used to store data: <list list-type="order"><list-item><p id="Par42"><italic>Design an optimised relational schema.</italic> Although it is possible to define one table separately for each set of triples sharing the same predicate and linking resources of same classes, it is more efficient to use one table to store information coming from multiple kinds of triples (i.e., using different predicates). For example, the fact that a substance was tested in a measure group of a bioassay with a particular outcome is expressed by four triples in the PubChemRDF dataset. However, because all these triples are very closely related and none of them exists independently from the others, the same information can be expressed by one row of a table.</p></list-item><list-item><p id="Par43"><italic>Design mappings from the schema back into RDF.</italic> This step is closely related to the previous step and represents the inverse process. Each decision in the first step to represent a set of triples by a table leads to quad mappings in which this table is used to generate identical set of triples.</p></list-item><list-item><p id="Par44"><italic>Implement a loader that converts RDF data and stores them into the database.</italic> A particular way of loading data depends on formats that are used to export the selected dataset.</p></list-item></list>Although some datasets are also exported as SQL tables dump, and although the engine is general enough to employ these dumps, we prefer to load data that were exported to RDF rather than SQL dumps. Although these dumps allow loading data into a database to be a simple process, they offer no special support to perform updates, which are required to ensure that the IDSM database remains up-to-date when a new version of a dataset is released.</p>
+            <p id="Par45">We have implemented several loaders for loading RDF data into the IDSM database. Each loader is specially designed to load some part of data from a particular dataset. In general, loaders have to support various RDF serialisation formats (e.g., RDF/XML format [<xref ref-type="bibr" rid="CR61">61</xref>] or Turtle format [<xref ref-type="bibr" rid="CR62">62</xref>]). There are two basic approaches depending on the complexity of the loaded data. If a file contains only triples sharing the same predicate, a simple loader processing a stream of triples can be employed to extract and to store the requested data. If data stored in a file are more complex, a loader employs the Apache Jena [<xref ref-type="bibr" rid="CR63">63</xref>] to load the file into an in-memory RDF model. The model is then queried by the Jena SPARQL engine to extract the requested data. Similarly, if data are stored in a general XML file (e.g., PubChem bioassays), the file is loaded into memory as the Document Object Model (DOM), and the XML Path Language (XPath) [<xref ref-type="bibr" rid="CR64">64</xref>] is used to extract requested data from this model. In all three cases, the extracted data are compared with data already stored in the appropriate database tables, and requested updates are performed. Data are updated in a single database transaction. This way, an update can be performed automatically, and therefore datasets are never presented in an inconsistent state.</p>
+            <p id="Par46">All PubChem data available in RDF have been loaded into IDSM except compound similarities (predicates cheminf:CHEMINF_000482 and cheminf:CHEMINF_000483).</p>
+            <p id="Par47">The largest of the loaded datasets utilized by IDSM is PubChem, containing almost 300 million substances, approximately 100 million compounds and more than one million bioassays. The ChEMBL dataset contains approximately 2 million molecules and more than one million assays. And finally, ChEBI describes more than 100 thousand entities. Current exact numbers are on the project web site.</p>
+          </sec>
+          <sec id="Sec8">
+            <title>User interface</title>
+            <p id="Par48">The SPARQL endpoint of the service is <ext-link xlink:href="https://idsm.elixir-czech.cz/sparql/endpoint/idsm" ext-link-type="url">https://idsm.elixir-czech.cz/sparql/endpoint/idsm</ext-link>. Although the endpoint is accessible from an internet browser, it is mainly intended to be used for programmatic access by other services, for example, as a part of federated queries. For regular users, we offer the ChemWebRDF web application using the endpoint and located at <ext-link xlink:href="https://idsm.elixir-czech.cz/chemweb/" ext-link-type="url">https://idsm.elixir-czech.cz/chemweb/</ext-link>. The application helps users to edit a SPARQL query, it presents query results in a user-friendly way as retrieved resources are displayed together with additional information, and it allows users to walk through results in order to discover other relations. The application is based on our older approach [<xref ref-type="bibr" rid="CR65">65</xref>], except that it uses the new SPARQL engine.</p>
+            <p id="Par49">The user interface of the application is divided into three parts. The left part contains the SPARQL query editor. The query result is visualised in the central part of the application. And finally, the right part of the application is used to visualise details about the selected resource.</p>
+            <p id="Par50">The query editor is based on the third-party CodeMirror component [<xref ref-type="bibr" rid="CR66">66</xref>] that allows SPARQL syntax highlighting and auto-completion of predicates used in the IDSM database. The users can create a SPARQL query from scratch, or they can load a predefined query example that can be modified further. These examples were adopted from PubChemRDF use cases [<xref ref-type="bibr" rid="CR67">67</xref>]. Another possibility is to use the application query wizard that allows users to generate queries searching for compounds, bioassays, participants (proteins or genes) or their combinations.</p>
+            <p id="Par51">The result of a submitted query is shown as a result table in the central part of the application interface. Each variable used in the select clause of the query is represented by one column. Individual solution mappings forming single results are represented by rows. To present the result in a user-friendly way, a resource in the database can be associated with an item template written in the Velocity Template Language [<xref ref-type="bibr" rid="CR68">68</xref>]. If a variable is bound to a resource with an assigned item template, the item template is then used to visualise the appropriate table cell. Otherwise, the value itself is used as the cell content. The visualisation typically contains the resource label that is separately searched in the IDSM database by a SPARQL query specified in the template.</p>
+            <p id="Par52">Detailed information about a selected resource is provided on the right side of the application. The resource can be selected either by clicking on the appropriate cell in the result table or by typing its IRI directly. The Details tab is used for a detail visualisation of a supported resource that has been assigned a page template. If details about the resource are requested, the application uses the appropriate page template to generate details about the resource. The Properties tab is used to display all relations between the selected resource and other resources or values. It uses the given resource as a subject, and shows all predicates (properties) and objects (values) for which triples subject-predicate-object are stored in the IDSM database. There is also a tab with the application manual which contains more detailed information about the usage of the application.</p>
+          </sec>
+        </sec>
+        <sec id="Sec9">
+          <title>Results and discussion</title>
+          <p id="Par53">Based on the data loaded into the IDSM database and exposed as the SPARQL service, we would like to discuss the two following subjects. First, we will discuss the quality of interlinking between the loaded datasets. Secondly, we will show how the service can be used to solve complex cases.</p>
+          <p id="Par54">Because all prefixes used in the queries are predefined in our engine, we omit their definitions from the queries to make them shorter. As all triples are included in the IDSM database default graph, we also omit FROM clauses specifying queried graphs.</p>
+          <sec id="Sec10">
+            <title>Interconnectedness of PubChem and ChEMBL datasets</title>
+            <p id="Par55">Both the PubChem dataset and the ChEMBL dataset store results of biological assays. Moreover, as it has already been stated, the PubChem dataset includes and links data from ChEMBL (and to a lesser extent, vice-versa). We take advantage of the fact that both datasets are loaded in one SPARQL service, and we employ a set of SPARQL queries to examine how thoroughly the data from ChEMBL are included in the PubChem datasets. The SPARQL queries used for the examination are listed in Fig. <xref rid="Fig4" ref-type="fig">4</xref>, and they were evaluated against ChEMBL 27 and PubChem 2020-12-13.</p>
+            <p id="Par56">At first, we checked whether all ChEMBL substances are included in PubChem and denoted as coming from ChEMBL (Fig. <xref rid="Fig4" ref-type="fig">4</xref>a). Because substance can be deposited into PubChem without structures (which, however, are needed to standardise substances on PubChem compounds), we also checked whether all ChEMBL substances having structures are standardised to PubChem compounds having structures (Fig. <xref rid="Fig4" ref-type="fig">4</xref>b). In this case, we observed that there are 92 ChEMBL substances that do not satisfy this condition.</p>
+            <p id="Par57">As in the case of substances, we checked whether all ChEMBL assays (not coming from PubChem) are included in PubChem as PubChem bioassays denoted as coming from ChEMBL (Fig. <xref rid="Fig4" ref-type="fig">4</xref>c). In this case, we found 6 assays that are lost in PubChem. In addition, for ChEMBL assays included in PubChem, we also determined that all ChEMBL activities of these assays are included in PubChem as endpoints (Fig. <xref rid="Fig4" ref-type="fig">4</xref>d).</p>
+            <p id="Par58">Finally, we focused on documents as they are also crosslinked between both datasets. There are currently 8059 documents in ChEMBL that have not been assigned PubMed IDs (Fig. <xref rid="Fig4" ref-type="fig">4</xref>e). Unfortunately, these documents cannot be included in PubChem as it uses PubMed IDs to identify documents. Nevertheless, these documents represent only about one tenth of all documents in ChEMBL. As we observed, the remaining ChEMBL documents are fully included in PubChem (Fig. <xref rid="Fig4" ref-type="fig">4</xref>f).</p>
+            <p id="Par59">As it was demonstrated, ChEMBL substances and assays are properly included in PubChem. Thus, PubChem provides a different view of these data, as it employs different ontologies compared to ChEMBL. Nevertheless, loading ChEMBL into our database cannot be considered as redundant, since there are ChEMBL entities that are not included in PubChem (e.g., drug mechanism).</p>
+          </sec>
+          <sec id="Sec11">
+            <title>Use cases</title>
+            <p id="Par60">To demonstrate the usefulness of our service, we present several use cases that together employ all loaded datasets (i.e., PubChem, ChEMBL, and ChEBI). SPARQL queries solving the individual cases are shown in Figs. <xref rid="Fig5" ref-type="fig">5</xref>, <xref rid="Fig6" ref-type="fig">6</xref>, <xref rid="Fig7" ref-type="fig">7</xref>, <xref rid="Fig8" ref-type="fig">8</xref> and <xref rid="Fig9" ref-type="fig">9</xref>. It should also be noted that these queries do not explicitly load additional data about requested resources (e.g., their names), as these data are loaded automatically by our web interface that can be used to submit the presented queries.<fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p>SPARQL query selecting aspirin-like compounds active in bioassays having protein targets</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig5_HTML.png" id="MO5" /></p></fig><fig id="Fig6"><label>Fig. 6</label><caption xml:lang="en"><p>SPARQL query selecting proteins inhibited by cholinesterase inhibitors</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig6_HTML.png" id="MO6" /></p></fig></p>
+            <sec id="Sec12">
+              <title>Case 1: Aspirin-like compounds active in bioassays having protein targets</title>
+              <p id="Par61">The first case is an example of a SPARQL query (Fig. <xref rid="Fig5" ref-type="fig">5</xref>) generated by the web application wizard. The wizard is able to generate various queries selecting interlinked compounds, bioassays and their targets from PubChem according to specified constraints. In this case, the query identifies PubChem compounds that contain acetylsalicylic acid as their substructure and that are active in bioassays containing protein targets. The corresponding compounds, bioassays and their targets are then returned as the query result.</p>
+              <p id="Par62">To obtain compounds according to their structures, the integrated Sachem-based search of PubChem compounds is used (line 2). Because PubChem compounds represent a standardised set of chemical structures that are not directly linked with bioassays measurements, the obtained compounds are used to retrieve substances deposited by vendors (line 4). For these substances, relating endpoints, their measure groups and bioassays are selected (lines 5–7). The endpoints are constrained to select only active endpoints (line 9), and only protein targets of the measure groups are taken into account (lines 11–12).</p>
+              <p id="Par63">Although the query may look slightly complicated as it employs a nontrivial number of triple patterns to describe relatively simple task, the SPARQL engine is optimised for such types of queries. Therefore, the queries can be satisfactorily evaluated.</p>
+            </sec>
+            <sec id="Sec13">
+              <title>Case 2: Proteins inhibited by cholinesterase inhibitors</title>
+              <p id="Par64">The next case was adopted from the PubChemRDF site and illustrates how to select protein targets that are inhibited by cholinesterase inhibitors with an IC50 less than 10 <inline-formula id="IEq2"><alternatives><mml:math><mml:mi mathvariant="normal">μ</mml:mi></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\upmu$$\end{document}</tex-math><inline-graphic xlink:href="13321_2021_515_Article_IEq2.gif" /></alternatives></inline-formula>M [<xref ref-type="bibr" rid="CR67">67</xref>]. The cholinesterase inhibitors are selected from the ChEBI dataset, while the rest of data is selected from the PubChem dataset. Hence, the case simply demonstrates how the interconnection of PubChem and ChEBI can be employed to obtain requested information.</p>
+              <p id="Par65">The corresponding SPARQL query is listed in Fig. <xref rid="Fig6" ref-type="fig">6</xref>. The first part of the query (lines 2–5) selects all ChEBI classes annotated to have the cholinesterase inhibitor role that is identified by the ChEBI:37733 identifier. Based on these classes, the relevant PubChem substances are obtained (line 7). Consequently, measure groups and their endpoints related to the substances and having an IC50 less than 10 <inline-formula id="IEq3"><alternatives><mml:math><mml:mi mathvariant="normal">μ</mml:mi></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\upmu$$\end{document}</tex-math><inline-graphic xlink:href="13321_2021_515_Article_IEq3.gif" /></alternatives></inline-formula>M are identified (lines 9–13). Finally, protein targets of the endpoints are identified (lines 15–16) and returned as the query result.<fig id="Fig7"><label>Fig. 7</label><caption xml:lang="en"><p>SPARQL query summarising numbers of substances tested by protein targets</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig7_HTML.png" id="MO7" /></p></fig><fig id="Fig8"><label>Fig. 8</label><caption xml:lang="en"><p>SPARQL query selecting inhibitors of proteins catalysing reactions of cholesterol or its derivatives</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig8_HTML.png" id="MO8" /></p></fig><fig id="Fig9"><label>Fig. 9</label><caption xml:lang="en"><p>SPARQL query computing the numbers of bioassays with proteins expressed in the liver and involved in transport</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig9_HTML.png" id="MO9" /></p></fig></p>
+            </sec>
+            <sec id="Sec14">
+              <title>Case 3: Summarise numbers of substances tested by protein targets</title>
+              <p id="Par66">The third case is shown in Fig. <xref rid="Fig7" ref-type="fig">7</xref> and it is also adopted from the PubChemRDF site [<xref ref-type="bibr" rid="CR67">67</xref>]. It computes the total number of substances quantitatively tested (IC50) against each protein target.</p>
+              <p id="Par67">The core of the query (lines 2–5) specifies linking between substances and their endpoints belonging to measure groups having protein targets (line 7), whereas only IC50 endpoints (line 8) associated with measured values (line 9) are taken into account. Selected resources are then grouped according to the proteins (line 11), total numbers of tested substances are calculated (line 1), and these numbers are subsequently used to sort the final results (line 12).</p>
+              <p id="Par68">We include this case to demonstrate the ability of our SPARQL engine. On the PubChemRDF site, it is noted that the query may be time-consuming as it computes aggregate values for solutions retrieved by a conjunction of seven SPARQL patterns. Nevertheless, in our approach the query is transformed into a database execution plan where aggregates are computed from two efficient SQL joins of three tables: a table storing relations between substances, measure groups and endpoints; a table capturing protein targets of measure groups; and finally a table containing the measured values of endpoints. This allows the result to be obtained very quickly (in the order of tens of seconds).</p>
+              <p id="Par69">It is interesting to note that the pattern on line 2 is redundant. This is due to the fact that if a substance belongs to an endpoint (line 5), and this endpoint belongs to a measure group (line 3), then it is satisfied that the substance belongs to the measure group (line 2). Nevertheless, the native triple stores have no information about this dependency between patterns, so they have to evaluate this pattern even if it is unnecessary. In contrast, our engines use the same SQL table to describe relations between substances, measure groups and endpoints, so this redundant pattern is eliminated during the translation of the query.</p>
+            </sec>
+            <sec id="Sec15">
+              <title>Case 4: Inhibitors of proteins catalysing reactions of cholesterol or its derivatives</title>
+              <p id="Par70">The following case demonstrates the interoperability of the presented SPARQL service with other SPARQL services. The case extends an example available on the Rhea SPARQL endpoint site [<xref ref-type="bibr" rid="CR69">69</xref>]. The original example retrieves human proteins that catalyse Rhea reactions involving cholesterol or its derivatives. This example already uses other SPARQL services to obtain requested data. We extend this example to obtain inhibitors of retrieved catalysts.</p>
+              <p id="Par71">The final SPARQL query solving the extended task is shown in Fig. <xref rid="Fig8" ref-type="fig">8</xref>. Because the Rhea reaction database is built on the ChEBI, the IDSM/ChEBI service indexing ChEBI compounds is used first to obtain ChEBI compounds containing cholesterol as their substructure (lines 2–5). These compounds are then utilised by the Rhea service to identify reactions in which the compounds are involved (lines 7–11).</p>
+              <p id="Par72">Since UniProt is interlinked with Rhea reactions, the UniProt SPARQL service [<xref ref-type="bibr" rid="CR70">70</xref>] is then used to retrieve human proteins that catalyse identified reactions (lines 13–17). And finally, our service is used to select ChEMBL substances that are annotated as inhibitors of the selected proteins (lines 19–24).</p>
+              <p id="Par73">This case perfectly demonstrates how it is possible to obtain useful and complex information spread out across several sources. Four independent SPARQL services (each of them focused on different topic) have been interconnected by the query to solve the complex task.</p>
+            </sec>
+            <sec id="Sec16">
+              <title>Case 5: Numbers of bioassays with proteins expressed in liver and involved in transport</title>
+              <p id="Par74">The last case shows the interoperability of our service with another SPARQL service. The human protein database neXtProt contains many SPARQL examples on its site [<xref ref-type="bibr" rid="CR71">71</xref>]. We chose an example that selects proteins expressed in the liver and involved in transport, and we extended it to obtain the numbers of PubChem bioassays in which the individual proteins have been tested.</p>
+              <p id="Par75">At the beginning of the query (Fig. <xref rid="Fig9" ref-type="fig">9</xref>), the neXtProt service is employed to retrieve requested proteins (lines 2–11). Because PubChem is not directly linked with the neXtProt datasets, the UniProt identifiers of the proteins is also retrieved (line 9). Based on these UniProt identifiers, PubChem bioassays involving these proteins as their targets are identified (lines 13–15). Results are then aggregated according to proteins (line 17), and the number of bioassays is computed for each of the proteins (line 1). Query results are ordered according to these numbers of bioassays in descending order (line 18).</p>
+              <p id="Par76">This case well demonstrates that collaboration of the services is possible, even if they are not directly linked to each other. In this particular case, it is sufficient that both datasets are interlinked with UniProt proteins.</p>
+            </sec>
+          </sec>
+        </sec>
+        <sec id="Sec17" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p id="Par77">The paper introduced the Integrated Database of Small Molecules (IDSM) that is available as a SPARQL service based on an in-house SPARQL engine. This SPARQL service supports querying in the selected RDF small-molecule datasets, which include PubChem, ChEMBL and ChEBI. These datasets have been extended to improve their mutual interlinking. The usefulness of the service has been demonstrated with several examples that focused on the simultaneous use of multiple datasets supported by the service, as well as with examples focused on the interoperability between the service and other SPARQL services. It showed that the presented service can be used to solve complex tasks to obtain information spread out across several datasets. The SPARQL endpoint of the service is <ext-link xlink:href="https://idsm.elixir-czech.cz/sparql/endpoint/idsm" ext-link-type="url">https://idsm.elixir-czech.cz/sparql/endpoint/idsm</ext-link>. A rich web application supporting querying in a user-friendly way has been introduced as well. The application allows writing queries in a SPARQL query editor, and it uses a template-based approach to present query results together with other relevant data. This makes SPARQL querying more convenient for users. The application is available at <ext-link xlink:href="https://idsm.elixir-czech.cz/chemweb/" ext-link-type="url">https://idsm.elixir-czech.cz/chemweb/</ext-link>.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>This work was supported by the ELIXIR CZ research infrastructure project (MEYS Grant No: LM2018131), including access to computing and storage facilities.</p>
+        </ack>
+        <sec sec-type="author-contribution">
+          <title>Authors' contributions</title>
+          <p>JG and JV designed the software and study. JG implemented the software. JG wrote the manuscript. All authors participated in preparing the manuscript. All authors read and approved the final manuscript.</p>
+        </sec>
+        <sec>
+          <title>Funding</title>
+          <p>This project was supported by ELIXIR CZ (MEYS), Grant No. LM2018131. Funding for open access publication was provided by the Institute of Organic Chemistry and Biochemistry of the CAS, Project No. RVO:61388963.</p>
+        </sec>
+        <sec sec-type="data-availability">
+          <title>Availability of data and materials</title>
+          <p>All datasets used are publicly accessible on their web sites. The service is public and freely available. Project source codes and installation notes are available in repositories <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb/chemweb" ext-link-type="url">chemweb</ext-link>, <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb/pgsparql" ext-link-type="url">pgsparql</ext-link>, <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb/sachem" ext-link-type="url">sachem</ext-link>, <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb/loaders" ext-link-type="url">loaders</ext-link> and <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb/notes" ext-link-type="url">notes</ext-link> at <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb" ext-link-type="url">https://bioinfo.uochb.cas.cz/gitlab/chemdb</ext-link>.</p>
+        </sec>
+        <sec sec-type="ethics-statement">
+          <title>Declarations</title>
+          <sec id="FPar2" sec-type="COI-statement">
+            <title>Competing interests</title>
+            <p id="Par83">The authors declare that they have no competing interests.</p>
+          </sec>
+        </sec>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="other">Berners-Lee T (2009) Linked Data. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/DesignIssues/LinkedData.html" ext-link-type="url">https://www.w3.org/DesignIssues/LinkedData.html</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="other">Cyganiak R, Wood D, Lanthaler M (2014) RDF 1.1 Concepts and Abstract Syntax. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/" ext-link-type="url">https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="other">Schreiber G, Raimond, Y (2014) RDF 1.1 Primer. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2014/NOTE-rdf11-primer-20140624/" ext-link-type="url">https://www.w3.org/TR/2014/NOTE-rdf11-primer-20140624/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="other">Duerst M, Suignard M (2005) Internationalized Resource Identifiers (IRIs). <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://tools.ietf.org/html/rfc3987" ext-link-type="url">https://tools.ietf.org/html/rfc3987</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="other">Brickley D, Guha RV (2014) RDF Schema 1.1. <bold>[cito:citesAsAuthority]</bold> . <ext-link xlink:href="https://www.w3.org/TR/2014/REC-rdf-schema-20140225/" ext-link-type="url">https://www.w3.org/TR/2014/REC-rdf-schema-20140225/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="other">Group WOW (2012) OWL 2 Web Ontology Language Document Overview (Second Edition). <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2012/REC-owl2-overview-20121211/" ext-link-type="url">https://www.w3.org/TR/2012/REC-owl2-overview-20121211/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="other">Harris S, Seaborne A (2013) SPARQL 1.1 Query Language. <bold>[cito:citesAsAuthority]</bold> . <ext-link xlink:href="https://www.w3.org/TR/2013/REC-sparql11-query-20130321/" ext-link-type="url">https://www.w3.org/TR/2013/REC-sparql11-query-20130321/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="other">Prud’hommeaux E, Buil-Aranda C (2013) SPARQL 1.1 Federated Query. <bold>[cito:citesAsAuthority]</bold> . <ext-link xlink:href="https://www.w3.org/TR/2013/REC-sparql11-federated-query-20130321/" ext-link-type="url">https://www.w3.org/TR/2013/REC-sparql11-federated-query-20130321/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="other">Feigenbaum L, Williams GT, Clark KG, Torres E (2013) SPARQL 1.1 Protocol. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/" ext-link-type="url">https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Belleau</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Nolin</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <name>
+                    <surname>Tourigny</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Rigault</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Morissette</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Bio2RDF: towards a mashup to build bioinformatics knowledge systems</article-title>
+                <source>J Biomed Inform</source>
+                <year>2008</year>
+                <volume>41</volume>
+                <issue>5</issue>
+                <fpage>706</fpage>
+                <lpage>16</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.jbi.2008.03.004</pub-id>
+                <pub-id pub-id-type="pmid">18472304</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="other">Callahan A, Cruz-Toledo J, Ansell P, Dumontier M. Bio2RDF release 2: improved coverage, interoperability and provenance of life science linked data. The semantic web: semantics and big data, pp 200–212. Springer. <bold>[cito:citesAsAuthority]</bold></mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Dong</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Jiao</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhu</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                  <name>
+                    <surname>Ding</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Wild</surname>
+                    <given-names>DJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chem2Bio2RDF: a semantic framework for linking and data mining chemogenomic and systems chemical biology data</article-title>
+                <source>BMC Bioinformatics</source>
+                <year>2010</year>
+                <volume>11</volume>
+                <fpage>255</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXntFSku7s%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/1471-2105-11-255</pub-id>
+                <pub-id pub-id-type="pmid">20478034</pub-id>
+                <pub-id pub-id-type="pmcid">2881087</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="other">Momtchev V, Peychev D, Primov T, Georgiev G (2009) Expanding the pathway and interaction knowledge in linked life data. Semantic Web Challenge: 2009; Amsterdam. <bold>[cito:citesAsAuthority]</bold></mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                  <name>
+                    <surname>Alvarsson</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Andersson</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Eklund</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Lampa</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Lapins</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Spjuth</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Wikberg</surname>
+                    <given-names>JE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Linking the resource description framework to cheminformatics and proteochemometrics</article-title>
+                <source>J Biomed Semantics</source>
+                <year>2011</year>
+                <volume>2 Suppl 1</volume>
+                <fpage>6</fpage>
+                <pub-id pub-id-type="doi">10.1186/2041-1480-2-S1-S6</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                  <name>
+                    <surname>Waagmeester</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Spjuth</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Ansell</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Williams</surname>
+                    <given-names>AJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Tkachenko</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Hastings</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Wild</surname>
+                    <given-names>DJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The ChEMBL database as linked open data</article-title>
+                <source>J Cheminform</source>
+                <year>2013</year>
+                <volume>5</volume>
+                <issue>1</issue>
+                <fpage>23</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3sXhtFOmsbfO</pub-id>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-5-23</pub-id>
+                <pub-id pub-id-type="pmid">23657106</pub-id>
+                <pub-id pub-id-type="pmcid">3700754</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="other">Jentzsch A, Zhao J, Hassanzadeh O, Cheung K-H, Samwald M, Andersson B. Linking open drug data. In: I-SEMANTICS. <bold>[cito:citesAsAuthority]</bold></mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Samwald</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Jentzsch</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bouton</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Kallesoe</surname>
+                    <given-names>CS</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Hajagos</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Marshall</surname>
+                    <given-names>MS</given-names>
+                  </name>
+                  <name>
+                    <surname>Prud’hommeaux</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Hassenzadeh</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Pichler</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Stephens</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Linked open drug data for pharmaceutical research and development</article-title>
+                <source>J Cheminform</source>
+                <year>2011</year>
+                <volume>3</volume>
+                <issue>1</issue>
+                <fpage>19</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-3-19</pub-id>
+                <pub-id pub-id-type="pmid">21575203</pub-id>
+                <pub-id pub-id-type="pmcid">3121711</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Williams</surname>
+                    <given-names>AJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Harland</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Groth</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Pettifer</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Chichester</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                  <name>
+                    <surname>Evelo</surname>
+                    <given-names>CT</given-names>
+                  </name>
+                  <name>
+                    <surname>Blomberg</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Ecker</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Goble</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Mons</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Open PHACTS: semantic interoperability for drug discovery</article-title>
+                <source>Drug Discov Today</source>
+                <year>2012</year>
+                <volume>17</volume>
+                <issue>21–22</issue>
+                <fpage>1188</fpage>
+                <lpage>98</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.drudis.2012.05.016</pub-id>
+                <pub-id pub-id-type="pmid">22683805</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>The UniProt</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">UniProt: the universal protein knowledgebase</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2017</year>
+                <volume>45</volume>
+                <issue>D1</issue>
+                <fpage>158</fpage>
+                <lpage>169</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1cXhslWgs7c%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkw1099</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Fu</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Batchelor</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Dumontier</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Hastings</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Bolton</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">PubChemRDF: towards the semantic annotation of PubChem compound and substance databases</article-title>
+                <source>J Cheminform</source>
+                <year>2015</year>
+                <volume>7</volume>
+                <fpage>34</fpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-015-0084-4</pub-id>
+                <pub-id pub-id-type="pmid">26175801</pub-id>
+                <pub-id pub-id-type="pmcid">4500850</pub-id>
+                <comment>[cito:citesAsAuthority] [cito:usesDataFrom]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="other">Bento AP, Gaulton A, Hersey A, Bellis LJ, Chambers J, Davies M, Kruger FA, Light Y, Mak L, McGlinchey S, Nowotka M, Papadatos G, Santos R, Overington JP (2014) The ChEMBL bioactivity database: an update. Nucleic Acids Res 42(Database issue), 1083–1090. <ext-link xlink:href="https://doi.org/10.1093/nar/gkt1031" ext-link-type="doi">https://doi.org/10.1093/nar/gkt1031</ext-link>. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold></mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mendez</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Gaulton</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bento</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Chambers</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>De Veij</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Felix</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Magarinos</surname>
+                    <given-names>MP</given-names>
+                  </name>
+                  <name>
+                    <surname>Mosquera</surname>
+                    <given-names>JF</given-names>
+                  </name>
+                  <name>
+                    <surname>Mutowo</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Nowotka</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Gordillo-Maranon</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Hunter</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Junco</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Mugumbate</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Rodriguez-Lopez</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Atkinson</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Bosc</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Radoux</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Segura-Cabrera</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Hersey</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Leach</surname>
+                    <given-names>AR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ChEMBL: towards direct deposition of bioassay data</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2019</year>
+                <volume>47</volume>
+                <issue>D1</issue>
+                <fpage>930</fpage>
+                <lpage>940</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1MXhs1Gqtr%2FF</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gky1075</pub-id>
+                <comment>[cito:citesAsAuthority] [cito:usesDataFrom]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="other">Hastings J, de Matos P, Dekker A, Ennis M, Harsha B, Kale N, Muthukrishnan V, Owen G, Turner S, Williams M, Steinbeck C (2013) The ChEBI reference database and ontology for biologically relevant chemistry: enhancements for 2013. Nucleic Acids Res 41(Database issue), 456–463. <ext-link xlink:href="https://doi.org/10.1093/nar/gks1146" ext-link-type="doi">https://doi.org/10.1093/nar/gks1146</ext-link>. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold></mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="other">Gaudet P, Michel PA, Zahn-Zabal M, Cusin I, Duek PD, Evalet O, Gateau A, Gleizes A, Pereira M, Teixeira D, Zhang Y, Lane L, Bairoch A (2015) The neXtProt knowledgebase on human proteins: current status. Nucleic Acids Res 43(Database issue), 764–70. <ext-link xlink:href="https://doi.org/10.1093/nar/gku1178" ext-link-type="doi">https://doi.org/10.1093/nar/gku1178</ext-link>. <bold>[cito:citesAsAuthority]</bold></mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zahn-Zabal</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Michel</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                  <name>
+                    <surname>Gateau</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Nikitin</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Schaeffer</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Audot</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Gaudet</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Duek</surname>
+                    <given-names>PD</given-names>
+                  </name>
+                  <name>
+                    <surname>Teixeira</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>de Laval Rech</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Samarasinghe</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Bairoch</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Lane</surname>
+                    <given-names>L</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The neXtProt knowledgebase in 2020: data, tools and usability improvements</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2020</year>
+                <volume>48</volume>
+                <issue>D1</issue>
+                <fpage>328</fpage>
+                <lpage>334</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BB3cXhs1GltrjE</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkz995</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lombardot</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Morgat</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Axelsen</surname>
+                    <given-names>KB</given-names>
+                  </name>
+                  <name>
+                    <surname>Aimo</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Hyka-Nouspikel</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Niknejad</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Ignatchenko</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Xenarios</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Coudert</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Redaschi</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Bridge</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Updates in Rhea: SPARQLing biochemical reaction data</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2019</year>
+                <volume>47</volume>
+                <issue>D1</issue>
+                <fpage>596</fpage>
+                <lpage>600</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1MXhs1Clu73M</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gky876</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="other">Kinjo AR, Suzuki H, Yamashita R, Ikegawa Y, Kudou T, Igarashi R, Kengaku Y, Cho H, Standley DM, Nakagawa A, Nakamura H (2012) Protein Data Bank Japan (PDBj): maintaining a structural data archive and resource description framework format. Nucleic Acids Res 40(Database issue), 453–460. <ext-link xlink:href="https://doi.org/10.1093/nar/gkr811" ext-link-type="doi">https://doi.org/10.1093/nar/gkr811</ext-link>. <bold>[cito:citesAsAuthority]</bold></mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kutmon</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Riutta</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Nunes</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Hanspers</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                  <name>
+                    <surname>Bohler</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Melius</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Waagmeester</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Sinha</surname>
+                    <given-names>SR</given-names>
+                  </name>
+                  <name>
+                    <surname>Miller</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Coort</surname>
+                    <given-names>SL</given-names>
+                  </name>
+                  <name>
+                    <surname>Cirillo</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Smeets</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Evelo</surname>
+                    <given-names>CT</given-names>
+                  </name>
+                  <name>
+                    <surname>Pico</surname>
+                    <given-names>AR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">WikiPathways: capturing the full diversity of pathway knowledge</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2016</year>
+                <volume>44</volume>
+                <issue>D1</issue>
+                <fpage>488</fpage>
+                <lpage>94</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2sXhtV2nsrrE</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkv1024</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pinero</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Queralt-Rosinach</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Bravo</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Deu-Pons</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Bauer-Mehren</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Baron</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Sanz</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Furlong</surname>
+                    <given-names>LI</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">DisGeNET: a discovery platform for the dynamical exploration of human diseases and their genes</article-title>
+                <source>Database (Oxford)</source>
+                <year>2015</year>
+                <volume>2015</volume>
+                <fpage>028</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2MXotVagtrk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/database/bav028</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pinero</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Ramirez-Anguita</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                  <name>
+                    <surname>Sauch-Pitarch</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Ronzano</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Centeno</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Sanz</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Furlong</surname>
+                    <given-names>LI</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The DisGeNET knowledge platform for disease genomics: 2019 update</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2020</year>
+                <volume>48</volume>
+                <issue>D1</issue>
+                <fpage>845</fpage>
+                <lpage>855</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BB3cXhs1Glt73K</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkz1021</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Altenhoff</surname>
+                    <given-names>AM</given-names>
+                  </name>
+                  <name>
+                    <surname>Glover</surname>
+                    <given-names>NM</given-names>
+                  </name>
+                  <name>
+                    <surname>Train</surname>
+                    <given-names>CM</given-names>
+                  </name>
+                  <name>
+                    <surname>Kaleb</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Warwick Vesztrocy</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Dylus</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>de Farias</surname>
+                    <given-names>TM</given-names>
+                  </name>
+                  <name>
+                    <surname>Zile</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Stevenson</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Long</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Redestig</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Gonnet</surname>
+                    <given-names>GH</given-names>
+                  </name>
+                  <name>
+                    <surname>Dessimoz</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The OMA orthology database in 2018: retrieving evolutionary relationships among all domains of life through richer web and programmatic interfaces</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2018</year>
+                <volume>46</volume>
+                <issue>D1</issue>
+                <fpage>477</fpage>
+                <lpage>485</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1cXitlGjtbrJ</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkx1019</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jupp</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Malone</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Bolleman</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Brandizi</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Davies</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Garcia</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Gaulton</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Gehant</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Laibe</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Redaschi</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Wimalaratne</surname>
+                    <given-names>SM</given-names>
+                  </name>
+                  <name>
+                    <surname>Martin</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Le Novere</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Parkinson</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Birney</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Jenkinson</surname>
+                    <given-names>AM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The EBI RDF platform: linked open data for the life sciences</article-title>
+                <source>Bioinformatics</source>
+                <year>2014</year>
+                <volume>30</volume>
+                <issue>9</issue>
+                <fpage>1338</fpage>
+                <lpage>9</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2cXmvFCjsLc%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/btt765</pub-id>
+                <pub-id pub-id-type="pmid">24413672</pub-id>
+                <pub-id pub-id-type="pmcid">3998127</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="other">Kawashima S, Katayama T, Hatanaka H, Kushida T, Takagi T (2018) NBDC RDF portal: a comprehensive repository for semantic data in life sciences. Database (Oxford) 2018. <ext-link xlink:href="https://doi.org/10.1093/database/bay123" ext-link-type="doi">https://doi.org/10.1093/database/bay123</ext-link><bold>[cito:citesAsAuthority]</bold></mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="other">Abeyruwan S, Vempati UD, Kucuk-McGinty H, Visser U, Koleti A, Mir A, Sakurai K, Chung C, Bittker JA, Clemons PA, Brudz S, Siripala A, Morales AJ, Romacker M, Twomey D, Bureeva S, Lemmon V, Schurer SC (2014) Evolving BioAssay Ontology (BAO): modularization, integration and applications. J Biomed Semantics 5(Suppl 1 Proceedings of the Bio-Ontologies Spec Interest G), 5. <ext-link xlink:href="https://doi.org/10.1186/2041-1480-5-S1-S5" ext-link-type="doi">https://doi.org/10.1186/2041-1480-5-S1-S5</ext-link>. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold></mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Natale</surname>
+                    <given-names>DA</given-names>
+                  </name>
+                  <name>
+                    <surname>Arighi</surname>
+                    <given-names>CN</given-names>
+                  </name>
+                  <name>
+                    <surname>Blake</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Bona</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>SC</given-names>
+                  </name>
+                  <name>
+                    <surname>Christie</surname>
+                    <given-names>KR</given-names>
+                  </name>
+                  <name>
+                    <surname>Cowart</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>D’Eustachio</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Diehl</surname>
+                    <given-names>AD</given-names>
+                  </name>
+                  <name>
+                    <surname>Drabkin</surname>
+                    <given-names>HJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Duncan</surname>
+                    <given-names>WD</given-names>
+                  </name>
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Ren</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Ross</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Ruttenberg</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Shamovsky</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Smith</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>El-Sayed</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Wu</surname>
+                    <given-names>CH</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Protein Ontology (PRO): enhancing and scaling up the representation of protein entities</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2017</year>
+                <volume>45</volume>
+                <issue>D1</issue>
+                <fpage>339</fpage>
+                <lpage>346</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1cXhslWgsLw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkw1075</pub-id>
+                <comment>[cito:citesAsAuthority] [cito:usesDataFrom]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="other">The Gene Ontology C (2019) The Gene Ontology Resource: 20 years and still GOing strong. Nucleic Acids Res 47(D1):330–338. <ext-link xlink:href="https://doi.org/10.1093/nar/gky1055" ext-link-type="doi">https://doi.org/10.1093/nar/gky1055</ext-link>. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold></mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bushman</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Anderson</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Fu</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Transforming the medical subject headings into linked data: creating the authorized version of MeSH in RDF</article-title>
+                <source>J Libr Metadata</source>
+                <year>2015</year>
+                <volume>15</volume>
+                <issue>3–4</issue>
+                <fpage>157</fpage>
+                <lpage>176</lpage>
+                <pub-id pub-id-type="doi">10.1080/19386389.2015.1099967</pub-id>
+                <pub-id pub-id-type="pmid">26877832</pub-id>
+                <comment>[cito:citesAsAuthority] [cito:usesDataFrom]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hastings</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Chepelev</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Adams</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Dumontier</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The chemical information ontology: provenance and disambiguation for chemical data on the biological semantic web</article-title>
+                <source>PLoS One</source>
+                <year>2011</year>
+                <volume>6</volume>
+                <issue>10</issue>
+                <fpage>25513</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3MXhtlGmtLzF</pub-id>
+                <pub-id pub-id-type="doi">10.1371/journal.pone.0025513</pub-id>
+                <comment>[cito:citesAsAuthority] [cito:usesDataFrom]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Dumontier</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Baker</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Baran</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Callahan</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Chepelev</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Cruz-Toledo</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Del Rio</surname>
+                    <given-names>NR</given-names>
+                  </name>
+                  <name>
+                    <surname>Duck</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Furlong</surname>
+                    <given-names>LI</given-names>
+                  </name>
+                  <name>
+                    <surname>Keath</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Klassen</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>McCusker</surname>
+                    <given-names>JP</given-names>
+                  </name>
+                  <name>
+                    <surname>Queralt-Rosinach</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Samwald</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Villanueva-Rosales</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilkinson</surname>
+                    <given-names>MD</given-names>
+                  </name>
+                  <name>
+                    <surname>Hoehndorf</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The Semanticscience Integrated Ontology (SIO) for biomedical research and knowledge discovery</article-title>
+                <source>J Biomed Semantics</source>
+                <year>2014</year>
+                <volume>5</volume>
+                <issue>1</issue>
+                <fpage>14</fpage>
+                <pub-id pub-id-type="doi">10.1186/2041-1480-5-14</pub-id>
+                <pub-id pub-id-type="pmid">24602174</pub-id>
+                <pub-id pub-id-type="pmcid">4015691</pub-id>
+                <comment>[cito:citesAsAuthority] [cito:usesDataFrom]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ison</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Kalas</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Jonassen</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Bolser</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Uludag</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>McWilliam</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Malone</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Lopez</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Pettifer</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Rice</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">EDAM: an ontology of bioinformatics operations, types of data and identifiers, topics and formats</article-title>
+                <source>Bioinformatics</source>
+                <year>2013</year>
+                <volume>29</volume>
+                <issue>10</issue>
+                <fpage>1325</fpage>
+                <lpage>32</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3sXnvV2msbk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/btt113</pub-id>
+                <pub-id pub-id-type="pmid">23479348</pub-id>
+                <pub-id pub-id-type="pmcid">3654706</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Whetzel</surname>
+                    <given-names>PL</given-names>
+                  </name>
+                  <name>
+                    <surname>Noy</surname>
+                    <given-names>NF</given-names>
+                  </name>
+                  <name>
+                    <surname>Shah</surname>
+                    <given-names>NH</given-names>
+                  </name>
+                  <name>
+                    <surname>Alexander</surname>
+                    <given-names>PR</given-names>
+                  </name>
+                  <name>
+                    <surname>Nyulas</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Tudorache</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Musen</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">BioPortal: enhanced functionality via new Web services from the National Center for Biomedical Ontology to access and use ontologies in software applications</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2011</year>
+                <volume>39</volume>
+                <issue>Web Server issue</issue>
+                <fpage>541</fpage>
+                <lpage>5</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3MXosVOmsLw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkr469</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="other">Board DU (2020) DCMI Metadata Terms. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold> . <ext-link xlink:href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/" ext-link-type="url">https://www.dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Peroni</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Shotton</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">FaBiO and CiTO: ontologies for describing bibliographic resources and citations</article-title>
+                <source>J Web Semantics</source>
+                <year>2012</year>
+                <volume>17</volume>
+                <fpage>33</fpage>
+                <lpage>43</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.websem.2012.08.001</pub-id>
+                <comment>[cito:citesAsAuthority] [cito:usesDataFrom]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Baker</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Bechhofer</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Isaac</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Miles</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Schreiber</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Summers</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Key choices in the design of Simple Knowledge Organization System (SKOS)</article-title>
+                <source>J Web Semantics</source>
+                <year>2013</year>
+                <volume>20</volume>
+                <fpage>35</fpage>
+                <lpage>49</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.websem.2013.05.001</pub-id>
+                <comment>[cito:citesAsAuthority] [cito:usesDataFrom]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="other">Gray AJG, Baran J, Marshall MS, Dumontier M (2015) Dataset Descriptions: HCLS Community Profile. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2015/NOTE-hcls-dataset-20150514/" ext-link-type="url">https://www.w3.org/TR/2015/NOTE-hcls-dataset-20150514/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR46">
+              <label>46.</label>
+              <mixed-citation publication-type="other">Maali F, Erickson J (2014) Data Catalog Vocabulary (DCAT). <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2014/REC-vocab-dcat-20140116/" ext-link-type="url">https://www.w3.org/TR/2014/REC-vocab-dcat-20140116/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR47">
+              <label>47.</label>
+              <mixed-citation publication-type="other">Alexander K, Cyganiak R, Hausenblas M, Zhao J (2011) Describing Linked Datasets with the VoID Vocabulary. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2011/NOTE-void-20110303/" ext-link-type="url">https://www.w3.org/TR/2011/NOTE-void-20110303/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR48">
+              <label>48.</label>
+              <mixed-citation publication-type="other">Williams GT (2013) SPARQL 1.1 Service Description. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2013/REC-sparql11-service-description-20130321/" ext-link-type="url">https://www.w3.org/TR/2013/REC-sparql11-service-description-20130321/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR49">
+              <label>49.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kratochvil</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Vondrasek</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Galgonek</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Sachem: a chemical cartridge for high-performance substructure search</article-title>
+                <source>J Cheminform</source>
+                <year>2018</year>
+                <volume>10</volume>
+                <issue>1</issue>
+                <fpage>27</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1MXmtFWitLc%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13321-018-0282-y</pub-id>
+                <pub-id pub-id-type="pmid">29797000</pub-id>
+                <pub-id pub-id-type="pmcid">5966370</pub-id>
+                <comment>[cito:usesMethodIn]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR50">
+              <label>50.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kratochvil</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Vondrasek</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Galgonek</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Interoperable chemical structure search service</article-title>
+                <source>J Cheminform</source>
+                <year>2019</year>
+                <volume>11</volume>
+                <issue>1</issue>
+                <fpage>45</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1MXht1yktb3N</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13321-019-0367-2</pub-id>
+                <pub-id pub-id-type="pmid">31254167</pub-id>
+                <pub-id pub-id-type="pmcid">6599361</pub-id>
+                <comment>[cito:usesMethodIn]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR51">
+              <label>51.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Winnenburg</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Bodenreider</surname>
+                    <given-names>O</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Desiderata for an authoritative Representation of MeSH in RDF</article-title>
+                <source>AMIA Annu Symp Proc</source>
+                <year>2014</year>
+                <volume>2014</volume>
+                <fpage>1218</fpage>
+                <lpage>27</lpage>
+                <pub-id pub-id-type="pmid">25954433</pub-id>
+                <pub-id pub-id-type="pmcid">4419968</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR52">
+              <label>52.</label>
+              <mixed-citation publication-type="other">Snorql: A SPARQL Explorer for ChEMBL RDF. <ext-link xlink:href="https://chemblmirror.rdf.bigcat-bioinformatics.org/" ext-link-type="url">https://chemblmirror.rdf.bigcat-bioinformatics.org/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR53">
+              <label>53.</label>
+              <mixed-citation publication-type="other">NCBI organismal classification. <bold>[cito:usesDataFrom]</bold>. <ext-link xlink:href="http://www.obofoundry.org/ontology/ncbitaxon.html" ext-link-type="url">http://www.obofoundry.org/ontology/ncbitaxon.html</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR54">
+              <label>54.</label>
+              <mixed-citation publication-type="other">Llinares MB, Gomez JF, Juty N, Goble C, Wimalaratne SM, Hermjakob H (2020) Identifiers.org - Compact Identifier Services in the Cloud. Bioinformatics. <ext-link xlink:href="https://doi.org/10.1093/bioinformatics/btaa864" ext-link-type="doi">https://doi.org/10.1093/bioinformatics/btaa864</ext-link>. <bold>[cito:citesAsAuthority]</bold></mixed-citation>
+            </ref>
+            <ref id="CR55">
+              <label>55.</label>
+              <mixed-citation publication-type="other">Federhen S (2012) The NCBI Taxonomy database. Nucleic Acids Res 40(Database issue), 136–143. <ext-link xlink:href="https://doi.org/10.1093/nar/gkr1178" ext-link-type="doi">https://doi.org/10.1093/nar/gkr1178</ext-link>. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold></mixed-citation>
+            </ref>
+            <ref id="CR56">
+              <label>56.</label>
+              <mixed-citation publication-type="other">PostgreSQL. <bold>[cito:usesMethodIn]</bold>. <ext-link xlink:href="https://www.postgresql.org/about/" ext-link-type="url">https://www.postgresql.org/about/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR57">
+              <label>57.</label>
+              <mixed-citation publication-type="other">Team OSD. Mapping SQL Data to Linked Data Views. <bold>[cito:citesAsRelated]</bold>. <ext-link xlink:href="http://vos.openlinksw.com/owiki/wiki/VOS/VOSSQL2RDF" ext-link-type="url">http://vos.openlinksw.com/owiki/wiki/VOS/VOSSQL2RDF</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR58">
+              <label>58.</label>
+              <mixed-citation publication-type="other">Cyganiak R, Bizer C, Garbers J, Maresch O, Becker C (2012) The D2RQ Mapping Language. <bold>[cito:citesAsRelated]</bold> . <ext-link xlink:href="http://d2rq.org/d2rq-language" ext-link-type="url">http://d2rq.org/d2rq-language</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR59">
+              <label>59.</label>
+              <mixed-citation publication-type="other">Das S, Sundara S, Cyganiak R (2012) R2RML: RDB to RDF Mapping Language. <bold>[cito:citesAsRelated]</bold> . <ext-link xlink:href="https://www.w3.org/TR/2012/REC-r2rml-20120927/" ext-link-type="url">https://www.w3.org/TR/2012/REC-r2rml-20120927/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR60">
+              <label>60.</label>
+              <mixed-citation publication-type="other">RDF Views: Relational Data as RDF. <bold>[cito:citesAsRelated]</bold>. <ext-link xlink:href="https://docs.oracle.com/en/database/oracle/oracle-database/19/rdfrm/rdf-views.html" ext-link-type="url">https://docs.oracle.com/en/database/oracle/oracle-database/19/rdfrm/rdf-views.html</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR61">
+              <label>61.</label>
+              <mixed-citation publication-type="other">Gandon F, Schreiber G (2014) RDF 1.1 XML Syntax. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2014/REC-rdf-syntax-grammar-20140225/" ext-link-type="url">https://www.w3.org/TR/2014/REC-rdf-syntax-grammar-20140225/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR62">
+              <label>62.</label>
+              <mixed-citation publication-type="other">Prud’hommeaux E, Carothers G (2014) RDF 1.1 Turtle: Terse RDF Triple Language. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2014/REC-turtle-20140225/" ext-link-type="url">https://www.w3.org/TR/2014/REC-turtle-20140225/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR63">
+              <label>63.</label>
+              <mixed-citation publication-type="other">Apache Jena. <bold>[cito:usesMethodIn]</bold>. <ext-link xlink:href="https://jena.apache.org/" ext-link-type="url">https://jena.apache.org/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR64">
+              <label>64.</label>
+              <mixed-citation publication-type="other">Clark J, DeRose S (1999) XML Path Language (XPath) Version 1.0. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/1999/REC-xpath-19991116/" ext-link-type="url">https://www.w3.org/TR/1999/REC-xpath-19991116/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR65">
+              <label>65.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Galgonek</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Hurt</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Michlikova</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Onderka</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Schwarz</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Vondrasek</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Advanced SPARQL querying in small molecule databases</article-title>
+                <source>J Cheminform</source>
+                <year>2016</year>
+                <volume>8</volume>
+                <fpage>31</fpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-016-0144-4</pub-id>
+                <pub-id pub-id-type="pmid">27275187</pub-id>
+                <pub-id pub-id-type="pmcid">4893829</pub-id>
+                <comment>[cito:usesMethodIn]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR66">
+              <label>66.</label>
+              <mixed-citation publication-type="other">CodeMirror. <bold>[cito:usesMethodIn]</bold>. <ext-link xlink:href="https://codemirror.net/" ext-link-type="url">https://codemirror.net/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR67">
+              <label>67.</label>
+              <mixed-citation publication-type="other">PubChemRDF. <bold>[cito:usesDataFrom] [cito:citesAsDataSource]</bold>. <ext-link xlink:href="https://pubchemdocs.ncbi.nlm.nih.gov/rdf" ext-link-type="url">https://pubchemdocs.ncbi.nlm.nih.gov/rdf</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR68">
+              <label>68.</label>
+              <mixed-citation publication-type="other">The Apache Velocity Project - User Guide. <bold>[cito:usesMethodIn]</bold>. <ext-link xlink:href="https://velocity.apache.org/engine/2.2/user-guide.html" ext-link-type="url">https://velocity.apache.org/engine/2.2/user-guide.html</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR69">
+              <label>69.</label>
+              <mixed-citation publication-type="other">Rhea SPARQL endpoint. <bold>[cito:citesAsDataSource] [cito:usesMethodIn]</bold>. <ext-link xlink:href="https://sparql.rhea-db.org/sparql" ext-link-type="url">https://sparql.rhea-db.org/sparql</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR70">
+              <label>70.</label>
+              <mixed-citation publication-type="other">UniProt. <bold>[cito:usesMethodIn]</bold>. <ext-link xlink:href="https://sparql.uniprot.org/" ext-link-type="url">https://sparql.uniprot.org/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR71">
+              <label>71.</label>
+              <mixed-citation publication-type="other">neXtProt. <bold>[cito:citesAsDataSource] [cito:usesMethodIn]</bold>. <ext-link xlink:href="https://www.nextprot.org/" ext-link-type="url">https://www.nextprot.org/</ext-link></mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <notes notes-type="Misc">
+          <title>Publisher’s Note</title>
+          <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+        </notes>
+      </back>
+    </article>

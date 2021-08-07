@@ -5,3 +5,8 @@ JATS can be downloaded from the [Springer Nature API](https://dev.springernature
 
 http://api.springernature.com/openaccess/jats/doi/10.1186/s13321-020-00448-1?api_key=SecretKey
 
+There is a helpful Makefile (GNU make), wich can be run like this:
+
+```shell
+export SecretKey=${YOUR_KEY}
+make 

@@ -1,0 +1,2035 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-020-00464-1</article-id>
+          <article-id pub-id-type="manuscript">464</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-020-00464-1</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Methodology</subject>
+            </subj-group>
+            <subj-group subj-group-type="article-collection" specific-use="Regular">
+              <subject>Typing Ontology (CiTO) Pilot</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Predicting target profiles with confidence as a service using docking scores</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" corresp="yes" id="Au1">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-6877-3702</contrib-id>
+              <name>
+                <surname>Ahmed</surname>
+                <given-names>Laeeq</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDs13321020004641_cor1">a</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au2">
+              <name>
+                <surname>Alogheli</surname>
+                <given-names>Hiba</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au3">
+              <name>
+                <surname>McShane</surname>
+                <given-names>Staffan Arvidsson</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au4">
+              <name>
+                <surname>Alvarsson</surname>
+                <given-names>Jonathan</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au5">
+              <name>
+                <surname>Berg</surname>
+                <given-names>Arvid</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au6">
+              <name>
+                <surname>Larsson</surname>
+                <given-names>Anders</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff3">3</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au7">
+              <name>
+                <surname>Schaal</surname>
+                <given-names>Wesley</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au8">
+              <name>
+                <surname>Laure</surname>
+                <given-names>Erwin</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au9">
+              <name>
+                <surname>Spjuth</surname>
+                <given-names>Ola</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.5037.1</institution-id>
+                <institution-id institution-id-type="ISNI">0000000121581746</institution-id>
+                <institution content-type="org-division">Department of Electrical Engineering and Computational Science</institution>
+                <institution content-type="org-name">Royal Institute of Technology (KTH)</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Lindstedtsvägen 5</addr-line>
+              <addr-line content-type="postcode">10044</addr-line>
+              <addr-line content-type="city">Stockholm</addr-line>
+              <country country="SE">Sweden</country>
+            </aff>
+            <aff id="Aff2">
+              <label>2</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.8993.b</institution-id>
+                <institution-id institution-id-type="ISNI">0000 0004 1936 9457</institution-id>
+                <institution content-type="org-division">Department of Pharmaceutical Biosciences</institution>
+                <institution content-type="org-name">Uppsala University</institution>
+              </institution-wrap>
+              <addr-line content-type="postbox">Box 591</addr-line>
+              <addr-line content-type="postcode">75124</addr-line>
+              <addr-line content-type="city">Uppsala</addr-line>
+              <country country="SE">Sweden</country>
+            </aff>
+            <aff id="Aff3">
+              <label>3</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.8993.b</institution-id>
+                <institution-id institution-id-type="ISNI">0000 0004 1936 9457</institution-id>
+                <institution content-type="org-name">National Bioinformatics Infrastructure Sweden (NBIS), Department of Cell and Molecular Biology, Uppsala University</institution>
+              </institution-wrap>
+              <addr-line content-type="postbox">Box 596</addr-line>
+              <addr-line content-type="postcode">75124</addr-line>
+              <addr-line content-type="city">Uppsala</addr-line>
+              <country country="SE">Sweden</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs13321020004641_cor1">
+              <label>a</label>
+              <email>laeeq@kth.se</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>15</day>
+            <month>10</month>
+            <year>2020</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2020</year>
+          </pub-date>
+          <volume>12</volume>
+          <issue seq="62">1</issue>
+          <elocation-id>62</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>23</day>
+              <month>9</month>
+              <year>2020</year>
+            </date>
+            <date date-type="received">
+              <day>20</day>
+              <month>5</month>
+              <year>2020</year>
+            </date>
+            <date date-type="accepted">
+              <day>23</day>
+              <month>9</month>
+              <year>2020</year>
+            </date>
+            <date date-type="online">
+              <day>15</day>
+              <month>10</month>
+              <year>2020</year>
+            </date>
+          </history>
+          <pub-history>
+            <event event-type="Update">
+              <event-desc>In the original publication, in Reference 20 and 35 the acronyms QSAR and QSPR were erroneously changed to GSAR and GSPR. The article has been updated to rectify the errors.</event-desc>
+              <date>
+                <day>24</day>
+                <month>10</month>
+                <year>2020</year>
+              </date>
+            </event>
+          </pub-history>
+          <permissions>
+            <copyright-statement>© The Author(s) 2020. Corrected publication 2020</copyright-statement>
+            <copyright-year>2020</copyright-year>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="url">http://creativecommons.org/licenses/by/4.0/</ext-link>. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="url">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated in a credit line to the data.</license-p>
+            </license>
+          </permissions>
+          <abstract id="Abs1" xml:lang="en">
+            <title>Abstract</title>
+            <sec id="ASec1">
+              <title>Background</title>
+              <p id="Par1">Identifying and assessing ligand-target binding is a core component in early drug discovery as one or more unwanted interactions may be associated with safety issues.</p>
+            </sec>
+            <sec id="ASec2">
+              <title>Contributions</title>
+              <p id="Par2">We present an open-source, extendable web service for predicting target profiles with confidence using machine learning for a panel of 7 targets, where models are trained on molecular docking scores from a large virtual library. The method uses conformal prediction to produce valid measures of prediction efficiency for a particular confidence level. The service also offers the possibility to dock chemical structures to the panel of targets with QuickVina on individual compound basis.</p>
+            </sec>
+            <sec id="ASec3">
+              <title>Results</title>
+              <p id="Par3">The docking procedure and resulting models were validated by docking well-known inhibitors for each of the 7 targets using QuickVina. The model predictions showed comparable performance to molecular docking scores against an external validation set. The implementation as publicly available microservices on Kubernetes ensures resilience, scalability, and extensibility.<fig id="Figa" position="anchor"><p><graphic position="anchor" specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Figa_HTML.png" id="MO100" /></p></fig></p>
+            </sec>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Predicted target profiles</kwd>
+            <kwd>Virtual screening</kwd>
+            <kwd>Drug discovery</kwd>
+            <kwd>Conformal prediction</kwd>
+            <kwd>AutoDock Vina</kwd>
+            <kwd>Apache Spark</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Swedish e-science research centre</institution>
+                </institution-wrap>
+              </funding-source>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>eSSENCE</institution>
+                </institution-wrap>
+              </funding-source>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Kungliga Tekniska Hogskolan</institution>
+                </institution-wrap>
+              </funding-source>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>67</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2020</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2020</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2020</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>9</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>23</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2020_Article_464.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="CopyrightComment">
+          <title>Copyright comment</title>
+          <p>Corrected publication 2020</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Background</title>
+          <p id="Par14">Determining ligand-target binding is a vital part of the drug discovery process [<xref ref-type="bibr" rid="CR1">1</xref>]. A ligand can bind to multiple target proteins [<xref ref-type="bibr" rid="CR2">2</xref>] and may cause off-target effects [<xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR4">4</xref>]. Knowing the off-target effects of drugs can be beneficial especially in the initial stages of drug discovery. To determine drug-target interactions, pharmaceutical companies and academic institutions involved in drug discovery apply different techniques to detect drug-target interactions, including in-vitro pharmacological profiling [<xref ref-type="bibr" rid="CR5">5</xref>]. However, another interesting method is to build in-silico target profiles for ligands [<xref ref-type="bibr" rid="CR6">6</xref>][<xref ref-type="bibr" rid="CR7">7</xref>], which helps in understanding off-target effects as well as providing a novel opportunity to predict affinity of Novel Chemical Entities (NCEs) against a battery of targets.</p>
+          <p id="Par15">A common method to construct target profiles is to predict them using QSAR models based on interaction values available for known active ligands in large interaction databases like ChEMBL [<xref ref-type="bibr" rid="CR8">8</xref>] and ExCAPE-DB [<xref ref-type="bibr" rid="CR9">9</xref>]. Yu et al. [<xref ref-type="bibr" rid="CR10">10</xref>] presented a systematic approach for predicting drug-target interactions from heterogeneous biological data employing Random Forest and SVM. TargetNet [<xref ref-type="bibr" rid="CR11">11</xref>] is a web service for making prediction based drug-target interaction profiles using Naïve bayes based multi-target SAR models. In TargetNet, the molecules can be predicted against 623 SAR models. Bender et al. [<xref ref-type="bibr" rid="CR12">12</xref>] employs Bayesian based technique to prepare seventy QSAR models that were used to create target profiles to predict adverse off-target effects of drugs. TargetHunter [<xref ref-type="bibr" rid="CR13">13</xref>] is another web-based tool for predicting target profiles employing chemical similarity where the models were trained on ChEMBL data and successful predictions were made on examples taken from PubChem bioassays. The polypharmacology browser [<xref ref-type="bibr" rid="CR14">14</xref>] is another web-based tool for multiple fingerprint target prediction primarily based on ChEMBL bio-activity data.</p>
+          <p id="Par16">A key disadvantage with QSAR based modelling studies is their dependence on experimental data from the large interaction databases. Normally, the data has a strong bias towards active compounds i.e. on-target or intended effects [<xref ref-type="bibr" rid="CR15">15</xref>]. Based on this, it is counter-intuitive to use ligand’s on-target binding data to build target profiles for understanding off-target effects. So when studying adverse target reactions it becomes beneficial to find another way than to just look at data from the databases. Furthermore, in some of the earlier research efforts, openness of the source-code and extensibility of the web services is not completely clear.</p>
+          <p id="Par17">Another approach is to build models from molecular docking scores using a docking software and perform ligand predictions using the models. In [<xref ref-type="bibr" rid="CR15">15</xref>], LaBute et al. presented an approach to predict adverse drug reactions using scores produced by large-scale docking on High-Performance Computing machines. AutoDock Vina was used to dock 906 ligands out of which, 560 conformers were selected to train L1-regularized logistic regression models to predict 85 off-target effects. Similarly, Wallach et al. [<xref ref-type="bibr" rid="CR16">16</xref>] presents a method for logistic regression based model training using docking scores from eHiTS [<xref ref-type="bibr" rid="CR17">17</xref>] docking software for predicting side effects of drugs. Building predicted target profiles based on docking scores is less common because the docking scores are not considered to represent the real drug-target affinity, but large training datasets allows to make better decisions and can cover this weakness.</p>
+          <p id="Par18">One important limitation is lack of information about confidence on the predictions in both of the above mentioned approaches, i.e., ligand-target interaction based QSAR models and docking scores based models. Confidence on predictions are of critical importance because off-target drug reactions can directly effect human health.</p>
+          <p id="Par19">In this paper we introduce an extensible methodology for predicting target profiles with confidence, where models are trained on docking scores. The methodology is implemented using a microservices architecture with each target deployed as a Docker container (see Fig. <xref rid="Fig1" ref-type="fig">1</xref>). For orchestration we use Kubernetes managed by Rancher [<xref ref-type="bibr" rid="CR18">18</xref>] providing resilience and scalability. The result is an open-source extendable web service, and we demonstrate it with a panel of 7 targets where models are trained on QuickVina docking scores. We also show in this manuscript that target profiles built using docking scores has predictive properties, and that conformal prediction enables quantifying the confidence for each target in a panel.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Vision of the work.  The figure shows the vision of the work i.e. all targets would have a Docker container and these Docker containers would be fired up simultaneously in a Cloud environment. A compound of interest would be tested against all the targets and a target profile of the compound would be created</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Fig1_HTML.png" id="MO1" /></p></fig></p>
+        </sec>
+        <sec id="Sec2" sec-type="methods">
+          <title>Methods</title>
+          <sec id="Sec3">
+            <title>Data and tools</title>
+            <p id="Par20">We used the <italic>clean drug-like molecule library</italic>, downloaded from ZINC [<xref ref-type="bibr" rid="CR19">19</xref>] in ready-to-dock SDF format, preprocessed according to the protocol in [<xref ref-type="bibr" rid="CR19">19</xref>]. Two distinct datasets of <inline-formula id="IEq1"><alternatives><mml:math><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sim $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq1.gif" /></alternatives></inline-formula>2.3M molecules and 200K molecules were randomly sampled from the <italic>clean drug-like molecule library</italic> as the modelling set and the validation set respectively. The modelling set was used for modelling and internal testing and the validation set was used for external testing. The molecules were described using the signature molecular descriptor [<xref ref-type="bibr" rid="CR20">20</xref>]. A parallel signature descriptor [<xref ref-type="bibr" rid="CR21">21</xref>] implementation with Spark was employed and consecutive signature heights of 1–3, i.e., an atom at a distance of max 3 edges, were used. An earlier study [<xref ref-type="bibr" rid="CR22">22</xref>] identifies that signature heights of 1–3 works well with Support Vector Machine (SVM) [<xref ref-type="bibr" rid="CR23">23</xref>] based molecular classification. A fast version of Autodock Vina [<xref ref-type="bibr" rid="CR24">24</xref>], i.e. QuickVina 2 [<xref ref-type="bibr" rid="CR25">25</xref>] was used as the underlying docking tool.</p>
+            <p id="Par21">The 7 targets 1RT2, 1E66, 1QCF, 3ERD, 3LN1, 1BNU, 1B8O were selected from the safety-related targets in [<xref ref-type="bibr" rid="CR5">5</xref>] based on availability of good 3D structures for docking and known inhibitors. The PDB entry for each target was selected based on high resolution, i.e., 2.5 Åor better [<xref ref-type="bibr" rid="CR26">26</xref>]. Receptors and binding site information were downloaded from sc-pdb [<xref ref-type="bibr" rid="CR27">27</xref>] database and receptors were prepared using OpenBabel [<xref ref-type="bibr" rid="CR28">28</xref>]. Each receptor was docked and scored against its ligand from the receptor-ligand complex using root-mean-square-deviation (RMSD); an RMSD below 2.0 Åis considered to be a successful docking [<xref ref-type="bibr" rid="CR29">29</xref>]. Table <xref rid="Tab1" ref-type="table">1</xref> presents the final set of receptors, their PDB codes, resolution and RMSD against corresponding ligand.
+<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Selection of receptors: the table represents the selected receptors and how they were selected</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Target class</p></th><th align="left"><p>PDB entry</p></th><th align="left"><p>Resolution (Å)</p></th><th align="left"><p>RMSD (Å)</p></th></tr></thead><tbody><tr><td align="left"><p>HIV RT</p></td><td align="left"><p>1RT2</p></td><td align="left"><p>2.5</p></td><td align="left"><p>0.46</p></td></tr><tr><td align="left"><p>Acetylcholinesterase</p></td><td align="left"><p>1E66</p></td><td align="left"><p>2.1</p></td><td align="left"><p>0.34</p></td></tr><tr><td align="left"><p>HCK Tyrosine kinase</p></td><td align="left"><p>1QCF</p></td><td align="left"><p>2</p></td><td align="left"><p>0.29</p></td></tr><tr><td align="left"><p>Estrogen receptor</p></td><td align="left"><p>3ERD</p></td><td align="left"><p>2.03</p></td><td align="left"><p>0.57</p></td></tr><tr><td align="left"><p>Cyclooxygenase-2</p></td><td align="left"><p>3LN1</p></td><td align="left"><p>2.4</p></td><td align="left"><p>0.27</p></td></tr><tr><td align="left"><p>Carbonic anhydrase 2</p></td><td align="left"><p>1BNU</p></td><td align="left"><p>2.15</p></td><td align="left"><p>1.21</p></td></tr><tr><td align="left"><p>Purine nucleoside phosphorylase</p></td><td align="left"><p>1B8O</p></td><td align="left"><p>1.5</p></td><td align="left"><p>0.37</p></td></tr></tbody></table><table-wrap-foot><p>All the selected receptors must have resolution of 2.5 (Å) or under and RMSD of 2.0 (Å) or under</p></table-wrap-foot></table-wrap></p>
+            <p id="Par22">A set of well-known inhibitors for each of the receptors was compiled for testing purposes. The inhibitors were selected by reported affinity and downloaded from CHEMBL [<xref ref-type="bibr" rid="CR8">8</xref>] and Drugbank.ca. [<xref ref-type="bibr" rid="CR30">30</xref>] The average number of inhibitors in each set was <inline-formula id="IEq2"><alternatives><mml:math><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sim $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq2.gif" /></alternatives></inline-formula>50 with the minimum at 43 and maximum at 60 inhibitors. A set of 50 compounds with low affinity for one of the receptor with PDB-ID 1BNU was also downloaded from CHEMBL for testing purposes. A large number of less active compounds were found for the receptor 1BNU and therefore, it was the main target used for the cross reactivity. For a list of all the compounds used in the study and a comparison of the known active and inactive compounds for 1BNU, see Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Conformal prediction</title>
+            <p id="Par23">Conformal prediction is a mathematical framework proven to produce well calibrated predictions for given confidence levels, developed by Vovk et al. in [<xref ref-type="bibr" rid="CR31">31</xref>]. Instead of producing point estimates as most traditional learning algorithms, Conformal Prediction instead produces prediction regions or prediction sets. In classification the predictor outputs confidence p-values for each class, which together with the user-defined confidence level produces the final prediction set. In the binary classification setting, classes 0 and 1 translate into four possible prediction sets {0}, {1}, {0,1} and Ø (the empty set). The prediction sets are guaranteed to contain the true label of the object with a probability equal to the user-defined confidence level. For this guarantee to hold, the only assumption is that the observed data is exchangeable [<xref ref-type="bibr" rid="CR32">32</xref>]. Knowing that Conformal Predictors always produce valid predictions, one only has to care about the efficiency of the predictions. The efficiency of a Conformal Predictor can be defined and evaluated using various metrics, see [<xref ref-type="bibr" rid="CR33">33</xref>] for a thorough discussion on the most commonly used. We here define efficiency as the ratio of single-label prediction sets.</p>
+            <p id="Par24">In this work we are using Inductive Conformal Prediction (ICP), that works in the following way; training data is randomly partitioned into two disjoint sets called <italic>proper training set</italic> and <italic>calibration set</italic>. The proper training set is used to train the underlying learning model. The model is then used for predicting all observations in the calibration set and a <italic>nonconformity measure</italic>, a ‘strangeness measure’, is used for computing how <italic>conforming</italic> each observation is compared to the learned model. We use a Mondrian approach that treats classes individually and has been shown to have beneficial properties when working with unbalanced datasets [<xref ref-type="bibr" rid="CR34">34</xref>]. It is important to point out that conformal prediction delivers individual prediction intervals for each object predicted, and hence each prediction incorporates a measure of its confidence, implicitly offering a solution to the fuzzy concept of ’applicability domain’ [<xref ref-type="bibr" rid="CR35">35</xref>]. For further details on conformal prediction and its use in QSAR, we refer to previous studies [<xref ref-type="bibr" rid="CR32">32</xref>, <xref ref-type="bibr" rid="CR36">36</xref>].</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Modelling</title>
+            <p id="Par25">For building the machine learning (ML) models, we used our earlier work, an intelligent iterative conformal prediction based virtual screening (CPVS) [<xref ref-type="bibr" rid="CR37">37</xref>] strategy. A modified version of CPVS was used for modelling, whereas QuickVina [<xref ref-type="bibr" rid="CR25">25</xref>] was used for docking. CPVS is an SVM based, efficient, parallel, iterative virtual screening method. QuickVina is an opensource tool and therefore permits inclusions in web services to be used by everyone. In QuickVina, a ligand with a lower score is generally considered to have better affinity against a particular receptor, therefore, the labelling strategy in CPVS was modified accordingly, i.e., ligands with low scores were labelled as 1 (high-affinity) and ligands with high scores were labelled as 0 (low-affinity). A sample dataset was docked and sorted by docking scores and the top 10% and the bottom 10% of the molecules were used for model training. The rest of the strategy was same as given in the original CPVS method [<xref ref-type="bibr" rid="CR37">37</xref>]. The model training was performed in an iterative fashion until the model reaches the intended efficiency of 80 or above. During modelling, an average of <inline-formula id="IEq3"><alternatives><mml:math><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sim $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq3.gif" /></alternatives></inline-formula>0.53 million ligands were docked against each of the 7 receptors. In comparison to the mentioned studies (see Table <xref rid="Tab2" ref-type="table">2</xref>), the training set for modelling in our study was much larger, i.e., on average <inline-formula id="IEq4"><alternatives><mml:math><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq4_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sim $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq4.gif" /></alternatives></inline-formula>0.11 million ligands per receptor model. Each trained model was deployed as a Docker container with a REST API.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Training data size in earlier studies</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Study</p></th><th align="left"><p>Average training data per receptor</p></th></tr></thead><tbody><tr><td align="left"><p>Yu et al. [<xref ref-type="bibr" rid="CR10">10</xref>]</p></td><td align="left"><p>5415</p></td></tr><tr><td align="left"><p>TargetNet [<xref ref-type="bibr" rid="CR11">11</xref>]</p></td><td align="left"><p>175</p></td></tr><tr><td align="left"><p>Bender et al. [<xref ref-type="bibr" rid="CR12">12</xref>]</p></td><td align="left"><p>1432</p></td></tr><tr><td align="left"><p>TargetHunter [<xref ref-type="bibr" rid="CR13">13</xref>]</p></td><td align="left"><p>216.6</p></td></tr><tr><td align="left"><p>Polypharmacology browser [<xref ref-type="bibr" rid="CR14">14</xref>]</p></td><td align="left"><p>33.5</p></td></tr><tr><td align="left"><p>LaBute et al. [<xref ref-type="bibr" rid="CR15">15</xref>]</p></td><td align="left"><p>906</p></td></tr><tr><td align="left"><p>Wallach et al. [<xref ref-type="bibr" rid="CR16">16</xref>]</p></td><td align="left"><p>1236</p></td></tr></tbody></table></table-wrap></p>
+          </sec>
+          <sec id="Sec6">
+            <title>Web service</title>
+            <p id="Par26">We developed a Web service with a front-end that offers a graphical user interface (GUI) to input one or more chemical compounds in SMILES format and options to set the confidence level for predictions. The GUI communicates with all individual target model microservices, and delivers a panel of target predictions; HIGH, LOW or UNKNOWN docking score. The predictions are based on conformal p-values, i.e. if only p-value(0) <inline-formula id="IEq5"><alternatives><mml:math><mml:mrow><mml:mo>></mml:mo><mml:mspace width="3.33333pt" /><mml:mi>ϵ</mml:mi></mml:mrow></mml:math><tex-math id="IEq5_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$>~\epsilon $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq5.gif" /></alternatives></inline-formula>, then the output prediction is HIGH, if only p-value(1) <inline-formula id="IEq6"><alternatives><mml:math><mml:mrow><mml:mo>></mml:mo><mml:mspace width="3.33333pt" /><mml:mi>ϵ</mml:mi></mml:mrow></mml:math><tex-math id="IEq6_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$>~\epsilon $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq6.gif" /></alternatives></inline-formula>, then the output prediction is LOW and if both p-value(0) and p-value(1) are greater or less than  <inline-formula id="IEq7"><alternatives><mml:math><mml:mi>ϵ</mml:mi></mml:math><tex-math id="IEq7_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\epsilon $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq7.gif" /></alternatives></inline-formula>, the prediction is UNKNOWN, where <inline-formula id="IEq8"><alternatives><mml:math><mml:mrow><mml:mi>ϵ</mml:mi><mml:mspace width="3.33333pt" /><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:math><tex-math id="IEq8_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\epsilon ~= 1$$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq8.gif" /></alternatives></inline-formula> - confidence. An example of the predicted target profiles for two compounds is shown in Fig. <xref rid="Fig2" ref-type="fig">2</xref>. For QuickVina, a low-score prediction means high-affinity and vice versa. The actual p-values for the low-score and the high-score classifications are available by hovering over the prediction cells.<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p> Predicted profiles and molecular docking. The figure shows the predicted target profiles for two compounds against 7 receptors. The prediction is either low-scoring, high-scoring or unknown presented in green, red and blue color respectively. The prediction models were developed based on QuickVina docking scores. Following QuickVina, in general, a low-score prediction means high-affinity and vice versa. An unknown prediction means the model has either failed to recognize a class for the compound or the compound is predicted to be part of both classes with the given confidence level. The p-values for the low-score and high-score class are also available by hovering over the prediction cells, seen here in the black placeholder. A molecule of interest can then be docked against a particular receptor using QuickVina</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Fig2_HTML.png" id="MO2" /></p></fig></p>
+            <p id="Par27">Once target profiles are produced, the user can select individual compounds and invoke the molecular docking functionality to dock them. The time for docking a compound varies between 10 to 30 seconds on our system. We also provide a functionality for users to submit new receptors in PDBQT format to the system administrator and request inclusion in the system. This requires quite some work, and will be done as time permits.</p>
+            <sec id="Sec7">
+              <title>Implementation and deployment</title>
+              <p id="Par28">The REST API for the web service was implemented using microservices and the Play 2.0 [<xref ref-type="bibr" rid="CR38">38</xref>] web application framework using Scala language and deployed using Rancher [<xref ref-type="bibr" rid="CR18">18</xref>], an open-source platform for Kubernetes management, providing integrated tools for running containerized applications. Complete code for the web service REST API and GUI is available on Github [<xref ref-type="bibr" rid="CR39">39</xref>, <xref ref-type="bibr" rid="CR40">40</xref>]. For deploying the web service using Kubernetes, Docker containers were used to build an independent service for each receptor. Similarly a separate container was used for the MariaDB database that keeps the docking scores of all the docked ligands. A separate container was also build for the webservice GUI. A bash script [<xref ref-type="bibr" rid="CR41">41</xref>] was written to deploy all the Docker containers. The bash script applies all kubernetes yaml deployment descriptors that launch the Docker containers. The microservice architecture has many advantages, e.g. independent scaling of services based on usage, cross platform independence and several other inherited benefits of dockerization [<xref ref-type="bibr" rid="CR42">42</xref>]. All the Docker images are available on Docker Hub [<xref ref-type="bibr" rid="CR43">43</xref>] with appropriate tags [<xref ref-type="bibr" rid="CR44">44</xref>–<xref ref-type="bibr" rid="CR47">47</xref>]. Additionally, users can also create Docker images for new receptors using the Dockerfile available at [<xref ref-type="bibr" rid="CR48">48</xref>]. A tutorial is available in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref> explaining how to create and execute Docker images locally. The webpage for the PTPAAS microservice can be accessed at <ext-link xlink:href="http://ptpaas.service.pharmb.io" ext-link-type="url">http://ptpaas.service.pharmb.io</ext-link> and the models can also be accessed separately via an OpenAPI interface.</p>
+            </sec>
+          </sec>
+        </sec>
+        <sec id="Sec8" sec-type="results">
+          <title>Results</title>
+          <sec id="Sec9">
+            <title>Virtual screening evaluation</title>
+            <p id="Par29">In order to verify the virtual screening process, we separately docked well-known inhibitors (actives) for each of the 7 receptors using QuickVina and computed the enrichment factor for the inhibitors docking scores against the docking scores of the ligands docked during the modelling procedure. Enrichment factor is one of the most commonly used metrics for measuring the accuracy of virtual screening. Enrichment means where the position of the value is in the evaluated dataset in comparison to the compared dataset. The higher the enrichment factor, the better the performance of docking in identifying known inhibitors. Figure <xref rid="Fig3" ref-type="fig">3</xref> shows the docking enrichment results of QuickVina based CPVS for all the 7 receptors. The black dashed line represents ideal scores, the grey dotted line on the diagonal represents random scores, whereas the blue solid line represents the scores of the known inhibitors. For most of the receptors, the results show good or satisfactory enrichment i.e. well above what would be scores of random ligands and relatively closer to the ideal scores.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>Enrichment curves for Vina docking.  In order to verify the virtual screening process, well known inhibitors for each of the 7 receptors were docked using QuickVina and the enrichment factor was computed for the inhibitors docking scores against the docking scores of molecules docked during modelling procedure. Enrichment factor is one of the most common index used for measuring the success of Virtual Screening. Enrichment means where the value lies in the evaluated dataset in comparison to the compared dataset. The higher the enrichment factor, the better the performance of docking in identifying known inhibitors. The black dashed line represents ideal scores, the grey dotted line in the middle represents random scores whereas the blue solid line represents the scores of the inhibitors. For most of the receptors, the results show good or satisfactory enrichment</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Fig3_HTML.png" id="MO3" /></p></fig></p>
+            <p id="Par30">We also performed docking enrichment of inhibitors against docking scores of an external validation set which was not seen by the CPVS algorithm during modelling. The docking enrichment can be seen as blue solid line in Fig. <xref rid="Fig4" ref-type="fig">4</xref>. The enrichment shows satisfactory results and were used as baseline for evaluating model predictions.<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p> Predicted enrichment vs docking enrichment on the external validation set. The figure presents the comparison of docking enrichment in blue and predicted enrichment in red whereas the grey line in the figure represents random predictions. The comparison was used to evaluate the performance of CPVS models. The docking enrichment was created by comparing docking scores of well known inhibitors and docking scores of an external validation. Similarly the predicted enrichment was created by comparing predicted p-values for well-known inhibitors and the external validation set. AUC was also calculated and reported in the figure for comparison. Overall the CPVS models performed well and predicted enrichment is comparable to docking enrichment, except for receptor with PDB-ID 1B8O, when the predicted enrichment is a little worse than docked enrichment. The reason could be less number of known inhibitors in the top scored molecules, seen in the left bottom corner of the 1B8O graph</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Fig4_HTML.png" id="MO4" /></p></fig></p>
+          </sec>
+          <sec id="Sec10">
+            <title>Model evaluation</title>
+            <p id="Par31">The CPVS models were evaluated using multiple methods: (i) by comparing the docking and the predicted enrichment on the external validation set, (ii) by polypharmacology validation i.e. by predicting the activity of known inhibitors for multiple receptors and (iii) by computing the model efficiency.</p>
+            <sec id="Sec11">
+              <title>Predicted vs docking enrichment</title>
+              <p id="Par32">In Fig. <xref rid="Fig4" ref-type="fig">4</xref>, the red line represents the predicted enrichment on the external validation set and the grey line on the diagonal represents random predictions. To generate the predicted enrichment red line, we made predictions using the CPVS models, i.e., the p-values of the inhibitors and the external validation set for being predicted as either a low-scoring or a high-scoring ligand. The p-values were used to compute unary enrichment values by the following formula:<disp-formula id="Equ1"><alternatives><mml:math display="block"><mml:mrow><mml:mtable><mml:mtr><mml:mtd /><mml:mtd columnalign="left"><mml:mrow><mml:mtext>If</mml:mtext><mml:mspace width="0.166667em" /><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi mathvariant="italic">P</mml:mi><mml:mrow><mml:mi mathvariant="italic">low</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mo>></mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mrow><mml:mi mathvariant="italic">high</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow /></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mspace width="1em" /><mml:msub><mml:mi mathvariant="italic">P</mml:mi><mml:mrow><mml:mi mathvariant="italic">low</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mrow /><mml:mo>∗</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mn>1</mml:mn><mml:mo>-</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mrow><mml:mi mathvariant="italic">high</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow /></mml:mtd><mml:mtd columnalign="left"><mml:mtext>else</mml:mtext></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow /></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mspace width="1em" /><mml:mo>-</mml:mo><mml:msub><mml:mi mathvariant="italic">P</mml:mi><mml:mrow><mml:mi mathvariant="italic">high</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mrow /><mml:mo>∗</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mn>1</mml:mn><mml:mo>-</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mrow><mml:mi mathvariant="italic">low</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math><tex-math id="Equ1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned}&amp;\hbox {If} \, ({\textit{P}}_{{\textit{low}}{-}{\textit{scoring}}} > P_{{\textit{high}}{-}{\textit{scoring}}})\\&amp;\quad {\textit{P}}_{{\textit{low}}{-}{\textit{scoring}}} * (1- P_{{\textit{high}}-{\textit{scoring}}})\\&amp;\hbox {else}\\&amp;\quad -{\textit{P}}_{{\textit{high}}-{\textit{scoring}}} * (1- P_{{\textit{low}}-{\textit{scoring}}}) \end{aligned}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2020_464_Article_Equ1.gif" /></alternatives></disp-formula><fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p> Validating the model for the known in-actives for the receptor 1BNU. The figure presents the comparison of the docking enrichment in green and the predicted enrichment in magenta for the known in-active compounds. The comparison was used to validate the performance of the 1BNU receptor model for the known in-active compounds. The docking enrichment was created by comparing the docking scores of the known in-actives and the docking scores of the external validation set. Similarly the predicted enrichment was created by comparing the predicted p-values for the known in-actives and the p-values for the external validation set. AUC was also calculated and reported in the figure for comparison. Overall, the 1BNU model performed well and the predicted enrichment was comparable to the docking enrichment. The green line for the docking enrichment, which was below the random grey line, also confirms the validity of the virtual screening evaluation</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Fig5_HTML.png" id="MO6" /></p></fig></p>
+              <p id="Par33">These values were used to create predicted enrichment of known inhibitors against the external validation set. In comparing the predicted enrichment (red solid line) to the docking enrichment (blue solid line), the results were satisfactory for the most of the receptors except for PDB-ID 1B8O. Area under the enrichment curves (AUC) was also calculated and reported in Fig. <xref rid="Fig4" ref-type="fig">4</xref> for comparison.</p>
+              <p id="Par34">The number of the known inhibitors found in the top 10% and 20% of the docked molecules and the predicted ligands were also computed and presented in Table <xref rid="Tab3" ref-type="table">3</xref>. The average number of the known inhibitors, for all the receptors, found in the top 20% of the predicted ligands was 63% whereas it was 74% for the docked molecules. In the top 10% of the predicted ligands, the average number of known inhibitors found were 46% whereas in the top 10% of the docked molecules, it was 55%. Again, the receptor with PDB-ID 1B8O was an exception where only 11% of the inhibitors were found in the top 20% of the predicted ligands and none in the top 10%. Inspection of the PDB file for 1B8O did not reveal any obvious explanations for this. The docking works better for some receptors than others and in the case of 1B8O, not many inhibitors were found in the top most scoring ligands (see Fig. <xref rid="Fig4" ref-type="fig">4</xref>). This could be one reason of under-performing predicted enrichment for 1B8O.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>The table represents the model efficiency of predictions on the complete modelling set (from which training set was taken) and the external validation set</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>PDB entry</p></th><th align="left"><p>Eff on modelling set (%)</p></th><th align="left"><p>Eff on ext. val. set (%)</p></th><th align="left"><p>Inhibitors in top 10 (%) predicted ligands</p></th><th align="left"><p>Inhibitors in top 10 (%) docked molecules</p></th><th align="left"><p>Inhibitors in top 20 (%) predicted ligands</p></th><th align="left"><p>Inhibitors in top 20 (%) docked molecules</p></th></tr></thead><tbody><tr><td align="left"><p>1RT2</p></td><td align="left"><p>93</p></td><td align="left"><p>97</p></td><td align="left"><p>32</p></td><td align="left"><p>31</p></td><td align="left"><p>68</p></td><td align="left"><p>68</p></td></tr><tr><td align="left"><p>1E66</p></td><td align="left"><p>93</p></td><td align="left"><p>94</p></td><td align="left"><p>60</p></td><td align="left"><p>52</p></td><td align="left"><p>67</p></td><td align="left"><p>70</p></td></tr><tr><td align="left"><p>1QCF</p></td><td align="left"><p>86</p></td><td align="left"><p>93</p></td><td align="left"><p>65</p></td><td align="left"><p>65</p></td><td align="left"><p>73</p></td><td align="left"><p>79</p></td></tr><tr><td align="left"><p>3ERD</p></td><td align="left"><p>93</p></td><td align="left"><p>92</p></td><td align="left"><p>65</p></td><td align="left"><p>58</p></td><td align="left"><p>78</p></td><td align="left"><p>69</p></td></tr><tr><td align="left"><p>3LN1</p></td><td align="left"><p>98</p></td><td align="left"><p>98</p></td><td align="left"><p>50</p></td><td align="left"><p>82</p></td><td align="left"><p>68</p></td><td align="left"><p>86</p></td></tr><tr><td align="left"><p>1BNU</p></td><td align="left"><p>87</p></td><td align="left"><p>87</p></td><td align="left"><p>47</p></td><td align="left"><p>55</p></td><td align="left"><p>75</p></td><td align="left"><p>78</p></td></tr><tr><td align="left"><p>1B8O</p></td><td align="left"><p>94</p></td><td align="left"><p>94</p></td><td align="left"><p>0</p></td><td align="left"><p>43</p></td><td align="left"><p>11</p></td><td align="left"><p>73</p></td></tr><tr><td align="left"><p>Average</p></td><td align="left"><p>92</p></td><td align="left"><p>94</p></td><td align="left"><p>46</p></td><td align="left"><p>55</p></td><td align="left"><p>63</p></td><td align="left"><p>74</p></td></tr></tbody></table><table-wrap-foot><p>The last four columns represents the predicted and the docking enrichment factor for inhibitors, i.e., the percent inhibitors found in the top 10% and 20% of the database search</p></table-wrap-foot></table-wrap></p>
+              <p id="Par35">The methodology was also tested for known in-actives against the external validation set and the results are shown in Fig. <xref rid="Fig5" ref-type="fig">5</xref>. The green line represents the docking enrichment of the known in-actives of the 1BNU receptor against the external validation set and the magenta line represents the predicted enrichment of the known in-actives of the 1BNU receptor against the predictions of the external validation set. AUC was also computed and shown in Fig. <xref rid="Fig5" ref-type="fig">5</xref> for comparison. The result is satisfactory, with <inline-formula id="IEq9"><alternatives><mml:math><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq9_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sim $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq9.gif" /></alternatives></inline-formula>82% of the green line being below the random line. Similarly, the predicted enrichment for the known in-actives (magenta) shows encouraging results as <inline-formula id="IEq10"><alternatives><mml:math><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq10_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sim $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq10.gif" /></alternatives></inline-formula>98% of it appears below the random line and also near to the docking enrichment green line.</p>
+            </sec>
+            <sec id="Sec12">
+              <title>Polypharmacology validation</title>
+              <p id="Par36">Polypharmacology validation means testing the inhibition of the compounds for multiple targets or disease pathways. A total of 9 compounds were selected from CHEMBL [<xref ref-type="bibr" rid="CR8">8</xref>] that have a reasonable level of activity for two receptors as given in Table <xref rid="Tab4" ref-type="table">4</xref>. The results were quite good for 4 out of the 9 compounds that were correctly predicted as actives for both of the receptors and only one of the compound was predicted incorrectly as an inactive. In none of the examples, both the compounds were predicted incorrectly as an inactive.<table-wrap id="Tab4"><label>Table 4</label><caption xml:lang="en"><p>The table represents the predicted activity of known inhibitors for two compounds</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>CHEMBL ID</p></th><th align="left"><p>Receptor 1</p></th><th align="left"><p>Receptor 2</p></th><th align="left"><p>Prediction receptor 1</p></th><th align="left"><p>Prediction receptor 2</p></th></tr></thead><tbody><tr><td align="left"><p>CHEMBL118</p></td><td align="left"><p>3LN1</p></td><td align="left"><p>1BNU</p></td><td align="left"><p>Active</p></td><td align="left"><p>Active</p></td></tr><tr><td align="left"><p>CHEMBL122708</p></td><td align="left"><p>3ERD</p></td><td align="left"><p>1BNU</p></td><td align="left"><p>Active</p></td><td align="left"><p>Unknown</p></td></tr><tr><td align="left"><p>CHEMBL15841</p></td><td align="left"><p>3ERD</p></td><td align="left"><p>1BNU</p></td><td align="left"><p>active</p></td><td align="left"><p>Inactive</p></td></tr><tr><td align="left"><p>CHEMBL165</p></td><td align="left"><p>3ERD</p></td><td align="left"><p>1BNU</p></td><td align="left"><p>Active</p></td><td align="left"><p>Active</p></td></tr><tr><td align="left"><p>CHEMBL1782957</p></td><td align="left"><p>3ERD</p></td><td align="left"><p>1BNU</p></td><td align="left"><p>Active</p></td><td align="left"><p>Active</p></td></tr><tr><td align="left"><p>CHEMBL1782958</p></td><td align="left"><p>3ERD</p></td><td align="left"><p>1BNU</p></td><td align="left"><p>Active</p></td><td align="left"><p>Unknown</p></td></tr><tr><td align="left"><p>CHEMBL255863</p></td><td align="left"><p>1QCF</p></td><td align="left"><p>1BNU</p></td><td align="left"><p>Unknown</p></td><td align="left"><p>Active</p></td></tr><tr><td align="left"><p>CHEMBL4075710</p></td><td align="left"><p>3ERD</p></td><td align="left"><p>1BNU</p></td><td align="left"><p>Active</p></td><td align="left"><p>Active</p></td></tr><tr><td align="left"><p>CHEMBL66879</p></td><td align="left"><p>3ERD</p></td><td align="left"><p>1BNU</p></td><td align="left"><p>Active</p></td><td align="left"><p>Unknown</p></td></tr></tbody></table><table-wrap-foot><p>Following is the list of 9 compounds with reasonable amount of affinity for a couple of targets to perform polypharmacology validation</p></table-wrap-foot></table-wrap></p>
+            </sec>
+            <sec id="Sec13">
+              <title>Efficiency</title>
+              <p id="Par37">The models were also evaluated through the measure of efficiency. As mentioned before, the predictions from conformal prediction based classification could be either {0}, {1}, {0, 1} or Ø. Efficiency means the percentage of ligands predicted as low-scoring or high-scoring, i.e., <italic>single predictions</italic> out of the predictions on the complete dataset. Table <xref rid="Tab3" ref-type="table">3</xref> presents the efficiency of each of the 7 models that are used for predicting the target profiles. All the models created had an efficiency of 80 or higher as intended for both the modelling set and the external validation set. Further details about model efficiency and accuracy can be found in the CPVS paper [<xref ref-type="bibr" rid="CR37">37</xref>].</p>
+            </sec>
+          </sec>
+        </sec>
+        <sec id="Sec14" sec-type="discussion">
+          <title>Discussion</title>
+          <p id="Par38">Target profiles are utilized to understand the off-target effects of drugs in early stage of drug development. In this work, we present a new way to build prediction based target profiles. We build conformal prediction based machine learning models using the docking scores produced by QuickVina. The process was validated through virtual screening and model evaluation and overall recorded comparable results. Hence, the main finding is that building efficient models for predicting the target profiles are possible through docking scores.</p>
+          <p id="Par39">Although previous studies with predictions of ligand-target binding using the docking scores are available, a tool or a web service for predicting target profiles based on docking scores is unavailable to the best of our knowledge; the available web services make use of interaction values from databases. Our work opens up a new direction of using docking scores for predicting target profiles and it would be interesting to compare the two approaches in the future and investigate hybrid system.</p>
+          <p id="Par40">The PTPAAS system can be instantiated on other infrastructures such as public cloud providers or on-prem infrastructures (e.g. a company intranet), our deployment at <ext-link xlink:href="http://ptpaas.service.pharmb.io" ext-link-type="url">http://ptpaas.service.pharmb.io</ext-link> should be seen as a reference instance. The system has been designed with extensibility in mind, and new models can be deployed as micro services using Docker containers. Such new services (comprising models for new receptors) can be deployed in a similar way as shown for the reference instance on Kubernetes (code and instructions available on [<xref ref-type="bibr" rid="CR41">41</xref>]). In Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref> we show how users can build models using our previous method [<xref ref-type="bibr" rid="CR37">37</xref>] and then use the models to create service for a new receptor. Instructions are provided to deploy and add the Docker container for a new receptor to the service [<xref ref-type="bibr" rid="CR39">39</xref>].</p>
+          <p id="Par41">Openness and accessibility are important in science, and hence we switched from OEDocking used in the original CPVS method to QuickVina for docking in this study. The move to QuickVina was quite simple and suggests that the proposed methodology can be used with different docking methods with ease. However, QuickVina is slower and thus restricted us to build limited number of models especially with large datasets. In the future, we would like to add more receptor models, and we encourage the community to contribute to this goal.</p>
+        </sec>
+        <sec id="Sec15" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p id="Par42">In this paper we present a new methodology for building predicted target profiles using conformal prediction and docking scores from virtual screening. The method was validated through docking of well known inhibitors for each of the 7 receptors. Virtual screening enrichment graphs and model efficiency suggests that docking score based predicted target profiles are a new viable option. The method is made available as a web service with the primary objective to provide predicted target profiles whereas molecular docking is also provided to dock ligands of interest.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>Cloud resources were provided by SNIC Science Cloud (SSC) [<xref ref-type="bibr" rid="CR49">49</xref>] UPPMAX region under the projects SNIC 2018/10-5 and SNIC 2019/10-8.</p>
+        </ack>
+        <sec sec-type="author-contribution">
+          <title>Authors’ contributions</title>
+          <p>LA and OS designed the study. LA prepared the models and implemented the service. LA, OS and WS analyzed the results. LA, AB and AL deployed the web service. WS and HA contributed with expertise in bio medicine and computational chemistry respectively. SAMS and JA contributed with signature generation and conformal prediction. EL contributed with expertise in high-performance computing. All authors read and approved the final manuscript.</p>
+        </sec>
+        <sec>
+          <title>Funding</title>
+          <p>Open Access funding provided by Kungliga Tekniska Hogskolan. This project was supported by the Swedish e-Science Research Center (SeRC) and the strategic research programme eSSENCE.</p>
+        </sec>
+        <sec sec-type="data-availability">
+          <title>Availability of data and materials</title>
+          <p>The clean drug-like molecule library used for our benchmarks can be downloaded from ZINC [<xref ref-type="bibr" rid="CR19">19</xref>] in ready-to-dock SDF format. The Docker containers for each of the receptor microservice are available on Docker Hub with appropriate tags for each of the receptor and can be reached by searching <italic>cpvsapi</italic> on the Docker Hub website [<xref ref-type="bibr" rid="CR43">43</xref>]. Additionally, users can also create Docker images for new receptors using the Docker file available at [<xref ref-type="bibr" rid="CR48">48</xref>].</p>
+        </sec>
+        <sec sec-type="ethics-statement">
+          <sec id="FPar2" sec-type="COI-statement">
+            <title>Competing interests</title>
+            <p id="Par47">The authors declare that they have no competing interests.</p>
+          </sec>
+          <sec id="FPar3">
+            <title>Ethics approval and consent to participate</title>
+            <p id="Par48">Not applicable.</p>
+          </sec>
+        </sec>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Yıldırım</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <name>
+                    <surname>Goh</surname>
+                    <given-names>K-I</given-names>
+                  </name>
+                  <name>
+                    <surname>Cusick</surname>
+                    <given-names>ME</given-names>
+                  </name>
+                  <name>
+                    <surname>Barabási</surname>
+                    <given-names>A-L</given-names>
+                  </name>
+                  <name>
+                    <surname>Vidal</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Drug target network</article-title>
+                <source>Nat Biotechnol</source>
+                <year>2007</year>
+                <volume>25</volume>
+                <issue>10</issue>
+                <fpage>1119</fpage>
+                <pub-id pub-id-type="doi">10.1038/nbt1338</pub-id>
+                <pub-id pub-id-type="pmid">17921997</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hopkins</surname>
+                    <given-names>AL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Network pharmacology: the next paradigm in drug discovery</article-title>
+                <source>Nat Chem Biol</source>
+                <year>2008</year>
+                <volume>4</volume>
+                <issue>11</issue>
+                <fpage>682</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXht1Kgs7fK</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nchembio.118</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Peters</surname>
+                    <given-names>J-U</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Polypharmacology-foe or friend?</article-title>
+                <source>J Med Chem</source>
+                <year>2013</year>
+                <volume>56</volume>
+                <issue>22</issue>
+                <fpage>8955</fpage>
+                <lpage>8971</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3sXht1amtrnO</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm400856t</pub-id>
+                <pub-id pub-id-type="pmid">23919353</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ravikumar</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Aittokallio</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Improving the efficacy-safety balance of polypharmacology in multi-target drug discovery</article-title>
+                <source>Expert Opin Drug Discov</source>
+                <year>2018</year>
+                <volume>13</volume>
+                <issue>2</issue>
+                <fpage>179</fpage>
+                <lpage>192</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2sXhvFOntrfM</pub-id>
+                <pub-id pub-id-type="doi">10.1080/17460441.2018.1413089</pub-id>
+                <pub-id pub-id-type="pmid">29233023</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bowes</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Brown</surname>
+                    <given-names>AJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Hamon</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Jarolimek</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Sridhar</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Waldron</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Whitebread</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Reducing safety-related drug attrition: the use of in vitro pharmacological profiling</article-title>
+                <source>Nat Rev Drug Discov</source>
+                <year>2012</year>
+                <volume>11</volume>
+                <issue>12</issue>
+                <fpage>909</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC38XhslCnur%2FJ</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nrd3845</pub-id>
+                <pub-id pub-id-type="pmid">23197038</pub-id>
+                <comment>
+                  <bold>[cito:agreesWith]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cereto-Massagué</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Ojeda</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Valls</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Mulero</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Pujadas</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Garcia-Vallve</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Tools for in silico target fishing</article-title>
+                <source>Methods</source>
+                <year>2015</year>
+                <volume>71</volume>
+                <fpage>98</fpage>
+                <lpage>103</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.ymeth.2014.09.006</pub-id>
+                <pub-id pub-id-type="pmid">25277948</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sydow</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Burggraaff</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Szengel</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>van Vlijmen</surname>
+                    <given-names>HW</given-names>
+                  </name>
+                  <name>
+                    <surname>IJzerman</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>van Westen</surname>
+                    <given-names>GJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Volkamer</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Advances and challenges in computational target prediction</article-title>
+                <source>J Chemical Inf Model</source>
+                <year>2019</year>
+                <volume>59</volume>
+                <issue>5</issue>
+                <fpage>1728</fpage>
+                <lpage>1742</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1MXjslyhurc%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.8b00832</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gaulton</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bellis</surname>
+                    <given-names>LJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Bento</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Chambers</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Davies</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Hersey</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Light</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>McGlinchey</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Michalovich</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Al-Lazikani</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Chembl: a large-scale bioactivity database for drug discovery</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2011</year>
+                <volume>40</volume>
+                <issue>D1</issue>
+                <fpage>1100</fpage>
+                <lpage>1107</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gkr777</pub-id>
+                <comment>
+                  <bold>[cito:citesAsDataSource]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sun</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Jeliazkova</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Chupakhin</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Golib-Dzib</surname>
+                    <given-names>J-F</given-names>
+                  </name>
+                  <name>
+                    <surname>Engkvist</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Carlsson</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Wegner</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Ceulemans</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Georgiev</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Jeliazkov</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Excape-db: an integrated large scale dataset facilitating big data analysis in chemogenomics</article-title>
+                <source>J Cheminf</source>
+                <year>2017</year>
+                <volume>9</volume>
+                <issue>1</issue>
+                <fpage>17</fpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-017-0203-5</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Yu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhao</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Fang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhou</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A systematic prediction of multiple drug-target interactions from chemical, genomic, and pharmacological data</article-title>
+                <source>PloS ONE</source>
+                <year>2012</year>
+                <volume>7</volume>
+                <issue>5</issue>
+                <fpage>37608</fpage>
+                <pub-id pub-id-type="doi">10.1371/journal.pone.0037608</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Yao</surname>
+                    <given-names>Z-J</given-names>
+                  </name>
+                  <name>
+                    <surname>Dong</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Che</surname>
+                    <given-names>Y-J</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhu</surname>
+                    <given-names>M-F</given-names>
+                  </name>
+                  <name>
+                    <surname>Wen</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>N-N</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>A-P</given-names>
+                  </name>
+                  <name>
+                    <surname>Cao</surname>
+                    <given-names>D-S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Targetnet: a web service for predicting potential drug-target interaction profiling via multi-target SAR models</article-title>
+                <source>J Comput Aided Mol Des</source>
+                <year>2016</year>
+                <volume>30</volume>
+                <issue>5</issue>
+                <fpage>413</fpage>
+                <lpage>424</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC28Xnsleju78%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1007/s10822-016-9915-2</pub-id>
+                <pub-id pub-id-type="pmid">27167132</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bender</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Scheiber</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Glick</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Davies</surname>
+                    <given-names>JW</given-names>
+                  </name>
+                  <name>
+                    <surname>Azzaoui</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Hamon</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Urban</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Whitebread</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Jenkins</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Analysis of pharmacology data and the prediction of adverse drug reactions and off-target effects from chemical structure</article-title>
+                <source>ChemMedChem Chem Enab Drug Discov</source>
+                <year>2007</year>
+                <volume>2</volume>
+                <issue>6</issue>
+                <fpage>861</fpage>
+                <lpage>873</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXntVShu74%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Ma</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Wipf</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Su</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Xie</surname>
+                    <given-names>X-Q</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Targethunter: an in silico target identification tool for predicting therapeutic potential of small organic molecules based on chemogenomic database</article-title>
+                <source>AAPS J</source>
+                <year>2013</year>
+                <volume>15</volume>
+                <issue>2</issue>
+                <fpage>395</fpage>
+                <lpage>406</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3sXlsF2hsLk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1208/s12248-012-9449-z</pub-id>
+                <pub-id pub-id-type="pmid">23292636</pub-id>
+                <pub-id pub-id-type="pmcid">3675739</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Awale</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Reymond</surname>
+                    <given-names>J-L</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The polypharmacology browser: a web-based multi-fingerprint target prediction tool using chembl bioactivity data</article-title>
+                <source>J Cheminf</source>
+                <year>2017</year>
+                <volume>9</volume>
+                <issue>1</issue>
+                <fpage>11</fpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-017-0199-x</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>LaBute</surname>
+                    <given-names>MX</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Lenderman</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Bennion</surname>
+                    <given-names>BJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Wong</surname>
+                    <given-names>SE</given-names>
+                  </name>
+                  <name>
+                    <surname>Lightstone</surname>
+                    <given-names>FC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Adverse drug reaction prediction using scores produced by large-scale drug-protein target docking on high-performance computing machines</article-title>
+                <source>PloS ONE</source>
+                <year>2014</year>
+                <volume>9</volume>
+                <issue>9</issue>
+                <fpage>106298</fpage>
+                <pub-id pub-id-type="doi">10.1371/journal.pone.0106298</pub-id>
+                <comment>
+                  <bold>[cito:agreesWith]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wallach</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Jaitly</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Lilien</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A structure-based approach for mapping adverse drug reactions to the perturbation of underlying biological pathways</article-title>
+                <source>PloS ONE</source>
+                <year>2010</year>
+                <volume>5</volume>
+                <issue>8</issue>
+                <fpage>12063</fpage>
+                <pub-id pub-id-type="doi">10.1371/journal.pone.0012063</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zsoldos</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Reid</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Simon</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Sadjad</surname>
+                    <given-names>SB</given-names>
+                  </name>
+                  <name>
+                    <surname>Johnson</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ehits: a new fast, exhaustive flexible ligand docking system</article-title>
+                <source>J Mol Graph Modell</source>
+                <year>2007</year>
+                <volume>26</volume>
+                <issue>1</issue>
+                <fpage>198</fpage>
+                <lpage>212</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXntFygu7s%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.jmgm.2006.06.002</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="other">Run Kubernetes everywhere. <ext-link xlink:href="https://rancher.com/" ext-link-type="url">https://rancher.com/</ext-link>. <bold>[cito:usesMethodIn]</bold> (2019–2020)</mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Irwin</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Sterling</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Mysinger</surname>
+                    <given-names>MM</given-names>
+                  </name>
+                  <name>
+                    <surname>Bolstad</surname>
+                    <given-names>ES</given-names>
+                  </name>
+                  <name>
+                    <surname>Coleman</surname>
+                    <given-names>RG</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Zinc: a free tool to discover chemistry for biology</article-title>
+                <source>J Chem Inform Model</source>
+                <year>2012</year>
+                <volume>52</volume>
+                <issue>7</issue>
+                <fpage>1757</fpage>
+                <lpage>1768</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC38XmvFGnsrg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci3001277</pub-id>
+                <comment>
+                  <bold>[cito:citesAsDataSource]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Faulon</surname>
+                    <given-names>J-L</given-names>
+                  </name>
+                  <name>
+                    <surname>Visco</surname>
+                    <given-names>DP</given-names>
+                  </name>
+                  <name>
+                    <surname>Pophale</surname>
+                    <given-names>RS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The signature molecular descriptor. 1. Using extended valence sequences in QSAR and QSPR studies</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <issue>3</issue>
+                <fpage>707</fpage>
+                <lpage>720</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXitlams7k%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci020345w</pub-id>
+                <pub-id pub-id-type="pmid">12767129</pub-id>
+                <comment>
+                  <bold>[cito:citesAsAuthority]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="other">Capuccini M, Spark cheminformatics utils. <ext-link xlink:href="https://github.com/mcapuccini/spark-cheminformatics" ext-link-type="url">https://github.com/mcapuccini/spark-cheminformatics</ext-link>. <bold>[cito:usesMethodIn]</bold> (2015–2020)</mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Alvarsson</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Eklund</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Andersson</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Carlsson</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Spjuth</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Wikberg</surname>
+                    <given-names>JE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Benchmarking study of parameter variation when using signature fingerprints together with support vector machines</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2014</year>
+                <volume>54</volume>
+                <issue>11</issue>
+                <fpage>3211</fpage>
+                <lpage>3217</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2cXhslGgt7vI</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci500344v</pub-id>
+                <pub-id pub-id-type="pmid">25318024</pub-id>
+                <comment>
+                  <bold>[cito:agreesWith]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cortes</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Vapnik</surname>
+                    <given-names>V</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Support vector networks</article-title>
+                <source>Mach Learn</source>
+                <year>1995</year>
+                <volume>20</volume>
+                <issue>3</issue>
+                <fpage>273</fpage>
+                <lpage>297</lpage>
+                <comment>
+                  <bold>[cito:citesAsAuthority]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Trott</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Olson</surname>
+                    <given-names>AJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Autodock vina: improving the speed and accuracy of docking with a new scoring function, efficient optimization, and multithreading</article-title>
+                <source>J Comput Chem</source>
+                <year>2010</year>
+                <volume>31</volume>
+                <issue>2</issue>
+                <fpage>455</fpage>
+                <lpage>461</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXhsFGnur3O</pub-id>
+                <pub-id pub-id-type="pmid">19499576</pub-id>
+                <pub-id pub-id-type="pmcid">3041641</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Alhossary</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Handoko</surname>
+                    <given-names>SD</given-names>
+                  </name>
+                  <name>
+                    <surname>Mu</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Kwoh</surname>
+                    <given-names>C-K</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Fast, accurate, and reliable molecular docking with quickvina 2</article-title>
+                <source>Bioinformatics</source>
+                <year>2015</year>
+                <volume>31</volume>
+                <issue>13</issue>
+                <fpage>2214</fpage>
+                <lpage>2216</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC28XhtlamsrjJ</pub-id>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/btv082</pub-id>
+                <pub-id pub-id-type="pmid">25717194</pub-id>
+                <comment>
+                  <bold>[cito:usesMethodIn]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jones</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Glen</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                  <name>
+                    <surname>Leach</surname>
+                    <given-names>AR</given-names>
+                  </name>
+                  <name>
+                    <surname>Taylor</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Development and validation of a genetic algorithm for flexible docking</article-title>
+                <source>J Mol Biol</source>
+                <year>1997</year>
+                <volume>267</volume>
+                <issue>3</issue>
+                <fpage>727</fpage>
+                <lpage>748</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2sXis1KntLo%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1006/jmbi.1996.0897</pub-id>
+                <pub-id pub-id-type="pmid">9126849</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kellenberger</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Muller</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Schalon</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Bret</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Foata</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Rognan</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">sc-pdb: an annotated database of druggable binding sites from the protein data bank</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2006</year>
+                <volume>46</volume>
+                <issue>2</issue>
+                <fpage>717</fpage>
+                <lpage>727</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XjsFCgtQ%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci050372x</pub-id>
+                <pub-id pub-id-type="pmid">16563002</pub-id>
+                <comment>
+                  <bold>[cito:usesMethodIn]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>O’Boyle</surname>
+                    <given-names>NM</given-names>
+                  </name>
+                  <name>
+                    <surname>Banck</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>James</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <name>
+                    <surname>Morley</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Vandermeersch</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Open babel : an open chemical toolbox</article-title>
+                <source>J Cheminf</source>
+                <year>2011</year>
+                <volume>3</volume>
+                <issue>1</issue>
+                <fpage>33</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-3-33</pub-id>
+                <comment>
+                  <bold>[cito:usesMethodIn]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Andersson</surname>
+                    <given-names>CD</given-names>
+                  </name>
+                  <name>
+                    <surname>Thysell</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Lindström</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bylesjö</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Raubacher</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Linusson</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A multivariate approach to investigate docking parameters’ effects on docking performance</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <issue>4</issue>
+                <fpage>1673</fpage>
+                <lpage>1687</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXmtlOnur0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci6005596</pub-id>
+                <pub-id pub-id-type="pmid">17559207</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="other">Wishart DS, Knox C, Guo AC, Cheng D, Shrivastava S, Tzur D, Gautam B, Hassanali M (2007) Drugbank: a knowledgebase for drugs, drug actions and drug targets. Nucleic acids research 36(suppl<inline-formula id="IEq12"><alternatives><mml:math><mml:mi>_</mml:mi></mml:math><tex-math id="IEq12_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\_$$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq12.gif" /></alternatives></inline-formula>1):901–906 <bold>[cito:citesAsDataSource]</bold></mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Vovk</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Gammerman</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Shafer</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <source>Algorithmic learning in a random world</source>
+                <year>2005</year>
+                <publisher-loc>New York</publisher-loc>
+                <publisher-name>Springer</publisher-name>
+                <comment>
+                  <bold>[cito:citesAsAuthority]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Norinder</surname>
+                    <given-names>U</given-names>
+                  </name>
+                  <name>
+                    <surname>Carlsson</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Boyer</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Eklund</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Introducing conformal prediction in predictive modeling. a transparent and flexible alternative to applicability domain determination</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2014</year>
+                <volume>54</volume>
+                <issue>6</issue>
+                <fpage>1596</fpage>
+                <lpage>1603</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2cXntlGitrk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci5001168</pub-id>
+                <pub-id pub-id-type="pmid">24797111</pub-id>
+                <comment>
+                  <bold>[cito:agreesWith]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="other">Vovk V, Fedorova V, Nouretdinov I, Gammerman A (2016) Criteria of efficiency for conformal prediction. In: Symposium on conformal and probabilistic prediction with applications. Springer, pp 23–39. <bold>[cito:citesAsAuthority]</bold></mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Norinder</surname>
+                    <given-names>U</given-names>
+                  </name>
+                  <name>
+                    <surname>Boyer</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Binary classification of imbalanced datasets using conformal prediction</article-title>
+                <source>J Mol Graph Modell</source>
+                <year>2017</year>
+                <volume>72</volume>
+                <fpage>256</fpage>
+                <lpage>265</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2sXhsleltLc%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.jmgm.2017.01.008</pub-id>
+                <comment>
+                  <bold>[cito:agreesWith]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sahigara</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Mansouri</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Ballabio</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Mauri</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Consonni</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Todeschini</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comparison of different approaches to define the applicability domain of QSAR models</article-title>
+                <source>Molecules</source>
+                <year>2012</year>
+                <volume>17</volume>
+                <issue>5</issue>
+                <fpage>4791</fpage>
+                <lpage>4810</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC38Xntlehsrs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.3390/molecules17054791</pub-id>
+                <pub-id pub-id-type="pmid">22534664</pub-id>
+                <pub-id pub-id-type="pmcid">6268288</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gammerman</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Vovk</surname>
+                    <given-names>V</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Hedging predictions in machine learning</article-title>
+                <source>Comput J</source>
+                <year>2007</year>
+                <volume>50</volume>
+                <issue>2</issue>
+                <fpage>151</fpage>
+                <lpage>163</lpage>
+                <pub-id pub-id-type="doi">10.1093/comjnl/bxl065</pub-id>
+                <comment>arXiv:0611011. <bold>[cito:citesAsAuthority]</bold></comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ahmed</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Georgiev</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Capuccini</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Toor</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Schaal</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Laure</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Spjuth</surname>
+                    <given-names>O</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Efficient iterative virtual screening with apache spark and conformal prediction</article-title>
+                <source>J Cheminf</source>
+                <year>2018</year>
+                <volume>10</volume>
+                <issue>1</issue>
+                <fpage>8</fpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-018-0265-z</pub-id>
+                <comment>
+                  <bold>[cito:usesMethodIn][cito:extends]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Drobi</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Play2: a new era of web application development</article-title>
+                <source>IEEE Internet Comput</source>
+                <year>2012</year>
+                <volume>16</volume>
+                <issue>4</issue>
+                <fpage>89</fpage>
+                <lpage>94</lpage>
+                <pub-id pub-id-type="doi">10.1109/MIC.2012.84</pub-id>
+                <comment>
+                  <bold>[cito:usesMethodIn]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="other">Ahmed L. Rest API for CPVS. <ext-link xlink:href="https://github.com/laeeq80/cpvsAPI" ext-link-type="url">https://github.com/laeeq80/cpvsAPI</ext-link> (2019–2020)</mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="other">Ahmed L. User Interface for CPVSAPI. <ext-link xlink:href="https://github.com/laeeq80/cpvs-ui" ext-link-type="url">https://github.com/laeeq80/cpvs-ui</ext-link> (2019–2020)</mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="other">Larsson A. Kubernetes deployment of ptdpaas. <ext-link xlink:href="https://github.com/pharmbio/dpaas" ext-link-type="url">https://github.com/pharmbio/dpaas</ext-link>. <bold>[cito:usesMethodIn]</bold> (2019–2020)</mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Merkel</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Docker: lightweight Linux containers for consistent development and deployment</article-title>
+                <source>Linux J</source>
+                <year>2014</year>
+                <volume>2014</volume>
+                <issue>239</issue>
+                <fpage>2</fpage>
+                <comment>
+                  <bold>[cito:usesMethodIn]</bold>
+                </comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="other">Docker Hub. <ext-link xlink:href="https://hub.docker.com/" ext-link-type="url">https://hub.docker.com/</ext-link>. <bold>[cito:usesMethodIn]</bold> (2014–2020)</mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="other">Ahmed L. Docker Image for CPVS API on Docker Hub. <ext-link xlink:href="https://hub.docker.com/r/laeeq/cpvsapi" ext-link-type="url">https://hub.docker.com/r/laeeq/cpvsapi</ext-link> (2019–2020)</mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="other">Ahmed L. Docker Image for CPVS UI on Docker Hub. <ext-link xlink:href="https://hub.docker.com/r/laeeq/cpvs-ui" ext-link-type="url">https://hub.docker.com/r/laeeq/cpvs-ui</ext-link> (2019–2020)</mixed-citation>
+            </ref>
+            <ref id="CR46">
+              <label>46.</label>
+              <mixed-citation publication-type="other">Ahmed L. Docker Image for Custom MariaDB on Docker Hub. <ext-link xlink:href="https://hub.docker.com/r/laeeq/ligandprofiledb" ext-link-type="url">https://hub.docker.com/r/laeeq/ligandprofiledb</ext-link> (2019–2020)</mixed-citation>
+            </ref>
+            <ref id="CR47">
+              <label>47.</label>
+              <mixed-citation publication-type="other">Ahmed L. Docker Image on Docker Hub to Upload PDBQT file to the web service. <ext-link xlink:href="https://hub.docker.com/r/laeeq/uploadfile" ext-link-type="url">https://hub.docker.com/r/laeeq/uploadfile</ext-link> (2019–2020)</mixed-citation>
+            </ref>
+            <ref id="CR48">
+              <label>48.</label>
+              <mixed-citation publication-type="other">Ahmed L. Docker File for CPVSAPI Project. <ext-link xlink:href="https://github.com/laeeq80/cpvsDocker" ext-link-type="url">https://github.com/laeeq80/cpvsDocker</ext-link> (2018–2020)</mixed-citation>
+            </ref>
+            <ref id="CR49">
+              <label>49.</label>
+              <mixed-citation publication-type="other">Toor S, Lindberg M, Falman I, Vallin A, Mohill O, Freyhult P, Nilsson L, Agback M, Viklund L, Zazzik H, et al. (2017) Snic science cloud (ssc): a national-scale cloud infrastructure for swedish academia. In: 2017 IEEE 13th international conference on e-Science (e-Science), IEEE, New York, pp 219–227</mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec16">
+              <title>Supplementary information</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Supplementary information">
+                  <media xlink:href="MediaObjects/13321_2020_464_MOESM1_ESM.pdf" mimetype="application" mime-subtype="pdf">
+                    <caption xml:lang="en">
+                      <p><bold>Additional file 1.</bold> The file contains a step by step tutorial for running the CPVS API on a local system. It also explains the process of preparing new Docker images for new receptors. Secondly, the file contains various compounds used in the study. Thirdly, it includes property distribution of the known actives and inactives for the receptor 1BNU.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+          </app>
+        </app-group>
+        <glossary>
+          <title>Abbreviations</title>
+          <def-list>
+            <def-item>
+              <term>AUC</term>
+              <def>
+                <p id="Par4">Area under the curve</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>NCE</term>
+              <def>
+                <p id="Par5">Noval chemical entities</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>QSAR</term>
+              <def>
+                <p id="Par6">Qualitative structure activity relationship</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>SAR</term>
+              <def>
+                <p id="Par7">Structure activity relationship</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>SVM</term>
+              <def>
+                <p id="Par8">Support Vector Machines</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PTPAAS</term>
+              <def>
+                <p id="Par9">Predicting target profile as a service using docking scores</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CPVS</term>
+              <def>
+                <p id="Par10">Conformal prediction based virtual screening</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RMSD</term>
+              <def>
+                <p id="Par11">Root mean square deviation</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PDB</term>
+              <def>
+                <p id="Par12">Protein data bank</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>SMILES</term>
+              <def>
+                <p id="Par13">Simplified molecular input line entry specification</p>
+              </def>
+            </def-item>
+          </def-list>
+        </glossary>
+        <notes notes-type="Misc">
+          <title>Publisher's Note</title>
+          <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+        </notes>
+        <notes notes-type="ESMHint">
+          <title>Supplementary information</title>
+          <p><bold>Supplementary information</bold> accompanies this paper at <ext-link xlink:href="https://doi.org/10.1186/s13321-020-00464-1" ext-link-type="doi">https://doi.org/10.1186/s13321-020-00464-1</ext-link>.</p>
+        </notes>
+      </back>
+    </article>

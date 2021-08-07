@@ -1,0 +1,2143 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-021-00489-0</article-id>
+          <article-id pub-id-type="manuscript">489</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-021-00489-0</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+            <subj-group subj-group-type="article-collection" specific-use="Regular">
+              <subject>Citation Typing Ontology (CiTO) Pilot</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Empowering large chemical knowledge bases for exposomics: PubChemLite meets MetFrag</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" corresp="yes" id="Au1">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-6868-8145</contrib-id>
+              <name>
+                <surname>Schymanski</surname>
+                <given-names>Emma L.</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDs13321021004890_cor1">a</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au2">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-6662-4375</contrib-id>
+              <name>
+                <surname>Kondić</surname>
+                <given-names>Todor</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au3">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-7899-7192</contrib-id>
+              <name>
+                <surname>Neumann</surname>
+                <given-names>Steffen</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+              <xref ref-type="aff" rid="Aff3">3</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au4">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-1992-2086</contrib-id>
+              <name>
+                <surname>Thiessen</surname>
+                <given-names>Paul A.</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff4">4</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au5">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-6192-4632</contrib-id>
+              <name>
+                <surname>Zhang</surname>
+                <given-names>Jian</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff4">4</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au6">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-5959-6190</contrib-id>
+              <name>
+                <surname>Bolton</surname>
+                <given-names>Evan E.</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff4">4</xref>
+              <xref ref-type="corresp" rid="IDs13321021004890_cor6">f</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.16008.3f</institution-id>
+                <institution-id institution-id-type="ISNI">0000 0001 2295 9843</institution-id>
+                <institution content-type="org-division">Luxembourg Centre for Systems Biomedicine (LCSB)</institution>
+                <institution content-type="org-name">University of Luxembourg</institution>
+              </institution-wrap>
+              <addr-line content-type="street">6 avenue du Swing</addr-line>
+              <addr-line content-type="postcode">4367</addr-line>
+              <addr-line content-type="city">Belvaux</addr-line>
+              <country country="LU">Luxembourg</country>
+            </aff>
+            <aff id="Aff2">
+              <label>2</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.425084.f</institution-id>
+                <institution-id institution-id-type="ISNI">0000 0004 0493 728X</institution-id>
+                <institution content-type="org-division">Bioinformatics and Scientific Data</institution>
+                <institution content-type="org-name">Leibniz Institute of Plant Biochemistry (IPB Halle)</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">06120</addr-line>
+              <addr-line content-type="city">Halle</addr-line>
+              <country country="DE">Germany</country>
+            </aff>
+            <aff id="Aff3">
+              <label>3</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.9647.c</institution-id>
+                <institution-id institution-id-type="ISNI">0000 0004 7669 9786</institution-id>
+                <institution content-type="org-name">German Centre for Integrative Biodiversity Research (iDiv)</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Halle-Jena-Leipzig, Deutscher Platz 5e</addr-line>
+              <addr-line content-type="postcode">04103</addr-line>
+              <addr-line content-type="city">Leipzig</addr-line>
+              <country country="DE">Germany</country>
+            </aff>
+            <aff id="Aff4">
+              <label>4</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.280285.5</institution-id>
+                <institution-id institution-id-type="ISNI">0000 0004 0507 7840</institution-id>
+                <institution content-type="org-division">National Center for Biotechnology Information</institution>
+                <institution content-type="org-name">National Library of Medicine, National Institutes of Health</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">20894</addr-line>
+              <addr-line content-type="city">Bethesda</addr-line>
+              <addr-line content-type="state">MD</addr-line>
+              <country country="US">USA</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs13321021004890_cor1">
+              <label>a</label>
+              <email>emma.schymanski@uni.lu</email>
+            </corresp>
+            <corresp id="IDs13321021004890_cor6">
+              <label>f</label>
+              <email>bolton@ncbi.nlm.nih.gov</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>8</day>
+            <month>3</month>
+            <year>2021</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2021</year>
+          </pub-date>
+          <volume>13</volume>
+          <issue seq="19">1</issue>
+          <elocation-id>19</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>22</day>
+              <month>1</month>
+              <year>2021</year>
+            </date>
+            <date date-type="received">
+              <day>10</day>
+              <month>11</month>
+              <year>2020</year>
+            </date>
+            <date date-type="rev-recd">
+              <day>13</day>
+              <month>1</month>
+              <year>2021</year>
+            </date>
+            <date date-type="accepted">
+              <day>22</day>
+              <month>1</month>
+              <year>2021</year>
+            </date>
+            <date date-type="online">
+              <day>8</day>
+              <month>3</month>
+              <year>2021</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement>© The Author(s) 2021</copyright-statement>
+            <copyright-year>2021</copyright-year>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="url">http://creativecommons.org/licenses/by/4.0/</ext-link>. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="url">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated in a credit line to the data.</license-p>
+            </license>
+          </permissions>
+          <abstract id="Abs1" xml:lang="en">
+            <title>Abstract</title>
+            <p id="Par4">Compound (or chemical) databases are an invaluable resource for many scientific disciplines. Exposomics researchers need to find and identify relevant chemicals that cover the entirety of potential (chemical and other) exposures over entire lifetimes. This daunting task, with over 100 million chemicals in the largest chemical databases, coupled with broadly acknowledged knowledge gaps in these resources, leaves researchers faced with too much—yet not enough—information at the same time to perform comprehensive exposomics research. Furthermore, the improvements in analytical technologies and computational mass spectrometry workflows coupled with the rapid growth in databases and increasing demand for high throughput “big data” services from the research community present significant challenges for both data hosts and workflow developers. This article explores how to reduce candidate search spaces in non-target small molecule identification workflows, while increasing content usability in the context of environmental and exposomics analyses, so as to profit from the increasing size and information content of large compound databases, while increasing efficiency at the same time. In this article, these methods are explored using PubChem, the NORMAN Network Suspect List Exchange and the in silico fragmentation approach MetFrag. A subset of the PubChem database relevant for exposomics, PubChemLite, is presented as a database resource that can be (and has been) integrated into current workflows for high resolution mass spectrometry. Benchmarking datasets from earlier publications are used to show how experimental knowledge and existing datasets can be used to detect and fill gaps in compound databases to progressively improve large resources such as PubChem, and topic-specific subsets such as PubChemLite. PubChemLite is a living collection, updating as annotation content in PubChem is updated, and exported to allow direct integration into existing workflows such as MetFrag. The source code and files necessary to recreate or adjust this are jointly hosted between the research parties (see data availability statement). This effort shows that enhancing the FAIRness (Findability, Accessibility, Interoperability and Reusability) of open resources can mutually enhance several resources for whole community benefit. The authors explicitly welcome additional community input on ideas for future developments.</p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Chemical database</kwd>
+            <kwd>Compound database</kwd>
+            <kwd>Compound knowledge base</kwd>
+            <kwd>Cheminformatics</kwd>
+            <kwd>High resolution mass spectrometry</kwd>
+            <kwd>Identification</kwd>
+            <kwd>Environmental science</kwd>
+            <kwd>Exposomics</kwd>
+            <kwd>FAIR</kwd>
+            <kwd>Open science</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Fonds National de la Recherche Luxembourg</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/501100001866</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">A18/BM/12341006</award-id>
+              <principal-award-recipient />
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>U.S. National Library of Medicine</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/100000092</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">Intramural Research Program</award-id>
+              <principal-award-recipient />
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Bundesministerium für Bildung und Forschung</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/501100002347</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">031L0107</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Neumann</surname>
+                  <given-names>Steffen</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>19</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2021</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2021</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2021</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>22</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2021_Article_489.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+      </front>
+      <body>
+        <sec id="Sec1" sec-type="introduction">
+          <title>Introduction</title>
+          <p id="Par29">Compound (or chemical) databases are an invaluable resource for many scientific disciplines. Through the joint evolution over the last decade of high resolution mass spectrometry (HR-MS), cheminformatics techniques and openly available compound databases, a whole new world for identifying small molecules in complex samples has emerged. Despite many advances, chemical identification is still generally considered a bottleneck in many research fields (see e.g. [<xref ref-type="bibr" rid="CR1">1</xref>, <xref ref-type="bibr" rid="CR2">2</xref>]). Interest in the exposome [<xref ref-type="bibr" rid="CR3">3</xref>] and the related exposomics field has increased as awareness of the influence of the external environment on health and disease has increased [<xref ref-type="bibr" rid="CR4">4</xref>]. Exposomics requires researchers to find and identify relevant chemicals that cover the entirety of potential (chemical and other) exposures over entire lifetimes [<xref ref-type="bibr" rid="CR4">4</xref>–<xref ref-type="bibr" rid="CR6">6</xref>], significantly adding to the identification challenge.</p>
+          <p id="Par30">Scientific disciplines such as environmental science, metabolomics, forensics and exposomics are focusing increasingly on high throughput data exploration with high resolution mass spectrometry (HR-MS) techniques [<xref ref-type="bibr" rid="CR4">4</xref>, <xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR8">8</xref>]. Mass spectral libraries, which can be used to obtain rapid tentative identifications of relatively high confidence [<xref ref-type="bibr" rid="CR9">9</xref>–<xref ref-type="bibr" rid="CR11">11</xref>] still only cover a fraction of chemical information resources relevant in exposomics [<xref ref-type="bibr" rid="CR9">9</xref>], metabolomics [<xref ref-type="bibr" rid="CR12">12</xref>] or in complex samples in general [<xref ref-type="bibr" rid="CR13">13</xref>, <xref ref-type="bibr" rid="CR14">14</xref>]. This is especially true for HR-MS techniques, which are inherently limited by the availability of reference standards as well as the relative youth and lack of standardization in the field [<xref ref-type="bibr" rid="CR9">9</xref>]. Alternative methods to annotate detected exact masses in HR-MS studies beyond spectral library searching began emerging around 2010 by searching compound (i.e., chemical) databases for possible candidates using the exact mass or calculated molecular formula, and ranking these using in silico techniques to sort candidates using the measured fragmentation information. The plethora of identification methods now available are described and compared in detail elsewhere [<xref ref-type="bibr" rid="CR14">14</xref>–<xref ref-type="bibr" rid="CR17">17</xref>]. A wide variety of (generally open) compound databases are typically used as information sources for these identification efforts, containing anything between tens to hundreds of thousands (e.g. KEGG [<xref ref-type="bibr" rid="CR18">18</xref>], HMDB [<xref ref-type="bibr" rid="CR19">19</xref>, <xref ref-type="bibr" rid="CR20">20</xref>], CompTox [<xref ref-type="bibr" rid="CR21">21</xref>]) and tens of millions of structures (e.g. ChemSpider [<xref ref-type="bibr" rid="CR22">22</xref>] and PubChem [<xref ref-type="bibr" rid="CR23">23</xref>–<xref ref-type="bibr" rid="CR25">25</xref>]). Most of these resources and, consequently, the number of candidates per exact mass/formula, are expanding significantly over time. Typical queries with smaller databases return tens to hundreds of candidates, whereas typical queries with large databases such as PubChem now return thousands to tens of thousands of candidates per exact mass/formula query. For instance, querying HMDB, CompTox and PubChem with the formula C<sub>10</sub>H<sub>14</sub>N<sub>2</sub> via the MetFrag [<xref ref-type="bibr" rid="CR26">26</xref>, <xref ref-type="bibr" rid="CR27">27</xref>] web interface (12 August 2020) returns 4, 225 and 3704 candidates, respectively.</p>
+          <p id="Par31">A major challenge in correctly identifying a chemical based on exact mass (or formula) and fragmentation information alone arises due to the relatively little information conveyed in the fragmentation spectrum. During one open community evaluation approach, the 2016 Critical Assessment of Small Molecule Identification (CASMI) contest, participants were provided 208 challenges with fragmentation information and candidate query sets retrieved from ChemSpider [<xref ref-type="bibr" rid="CR16">16</xref>]. Using fragmentation information alone, participants were able to rank between 24 (11.5%) and 70 (33.7%) of these 208 challenges correctly in first place [<xref ref-type="bibr" rid="CR16">16</xref>]. However, combining this fragmentation information with other forms of information (e.g. references, retention time information) yielded up to 164 (78.8 %) challenges correctly ranked in first place when combining all participant methods over the same ChemSpider candidate sets [<xref ref-type="bibr" rid="CR16">16</xref>]. Separately, a detailed evaluation of MetFrag combining retention time information with various scoring terms available via ChemSpider (5 different literature terms) and PubChem (PubMed Count and Patent Count) for 473 environmentally relevant standards was performed. This revealed that ranking results were improved from 22 to 89% with ChemSpider and from 6 to 71% with PubChem (with 34 and 71 million entries respectively at the time) [<xref ref-type="bibr" rid="CR26">26</xref>]. In summary over these evaluations and more; better ranking performance is achieved with small, select databases, at the risk of missing the correct answer [<xref ref-type="bibr" rid="CR28">28</xref>], while the use of additional metadata (expert knowledge, additional context) is necessary to improve the results for practical use, especially when using very large compound databases to search for candidates.</p>
+          <p id="Par32">Another challenge, especially for exposomics, is database choice. Being a mix between metabolomics and environmental concepts and challenges, exposomics methods need, on the one hand, the biological context of pathway and metabolomics resources (generally small, specialist metabolite databases such as HMDB and KEGG), versus the wide coverage required to capture “chemical space” which, in environmental contexts, generally means PubChem or ChemSpider. Although recent works mention the need for an “exposomics database”, much of the necessary knowledge is already in the public domain to some extent, but under rapid development and scattered over an ever-growing number of resources. Notable recent developments include the CompTox Chemicals Dashboard, covering 882,000 (August 2020) environmentally and toxicologically-relevant compounds [<xref ref-type="bibr" rid="CR21">21</xref>] and the Blood Exposome Database [<xref ref-type="bibr" rid="CR29">29</xref>], which, although specifically designed for the blood matrix, still contains over 64,000 compounds. Large compound databases such as PubChem have content in common with many of the openly available smaller databases, but at a size of 109 million compounds (January 2021), PubChem also contains many (tens of) millions of entries that are not relevant to the exposomics context.</p>
+          <p id="Par33">Beyond the database choice, common criticisms of small molecule identification coupled to compound databases arising from users over the years include the fact that newly-discovered and/or relevant compounds such as emerging chemicals, transformation products and metabolites are missing from, or hard to add to, these databases for a typical researcher. If these compounds are present, these tend to have very low metadata scores and thus common environmental knowledge of transformations or emerging chemicals cannot often be found effectively during identification efforts. As a result (and also to increase efficiency), many groups in the environmental community have taken to compiling their own lists of relevant chemicals (commonly termed “suspect lists” within this community [<xref ref-type="bibr" rid="CR7">7</xref>]). The NORMAN Suspect List Exchange (NORMAN-SLE) [<xref ref-type="bibr" rid="CR30">30</xref>] is one initiative that arose to address NORMAN Network [<xref ref-type="bibr" rid="CR31">31</xref>, <xref ref-type="bibr" rid="CR32">32</xref>] member needs to exchange this information as a result of a collaborative trial in 2014 [<xref ref-type="bibr" rid="CR33">33</xref>], and to date is host to over 73 specialised NORMAN member contributed lists of chemicals of interest.</p>
+          <p id="Par34">With a view on this “current state”, this article investigates how very large compound databases, or knowledge bases, such as PubChem, could be empowered to support HR-MS-based small molecule identification efforts in the context of exposomics. This article describes initial collaborative efforts on how to improve the performance of the PubChem integration into the in silico identification approach MetFrag. Since the first release of MetFrag in 2010, PubChem has grown from 25 million to now 109 million compounds, with an accompanying steadily worsening rank performance and increasing strain on resources due to the rapidly increasing candidate numbers. Three main aspects of these collaborative discussions are presented in this article: (1) the creation of a small, exposomics-relevant subset of PubChem–named PubChemLite–for efficient candidate queries, which has already been integrated into existing HR-MS workflows and teaching efforts; (2) progressive integration of environmentally-relevant expert knowledge to mitigate identified knowledge gaps in PubChem annotation content, based on analysis of previous benchmarking sets and the NORMAN-SLE content; and (3) how annotation content can be leveraged for easier interpretation of results. As a result, this article focuses heavily on PubChem, MetFrag and the NORMAN-SLE, with the view that the ideas presented here could be extended to other knowledge bases and other in silico identification approaches based on HR-MS.</p>
+        </sec>
+        <sec id="Sec2">
+          <title>Results and discussion</title>
+          <sec id="Sec3">
+            <title>Creating “PubChemLite” for exposomics</title>
+            <p id="Par35">Since a very large proportion of the PubChem database (> 60%) is sourced from purchasable screening libraries from chemical vendors, where the chemicals are generally produced in relatively small amounts (e.g. mg) in a laboratory setting, the vast majority of these chemicals are highly unlikely to be detectable in either the environment or biological samples. Thus, instead of the current status quo, i.e. searching the entire PubChem database and using metadata scores to “up-prioritize” interesting candidates (i.e., processing tens of thousands of candidates per mass, to only obtain tens to hundreds of interesting entries), the first step investigated the creation of relevant subsets of PubChem for more efficient queries. This was done by selecting relevant sections of the “PubChem Compound Table of Contents” (PubChem Compound TOC) Classification [<xref ref-type="bibr" rid="CR34">34</xref>] as shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref>. Further details are given in the "<xref rid="Sec6" ref-type="sec">Methods</xref>" section.</p>
+            <p id="Par36">
+              <fig id="Fig1">
+                <label>Fig. 1</label>
+                <caption xml:lang="en">
+                  <p>PubChem Compound Table of Contents (TOC) Tree (2 Nov. 2020) from the PubChem Classification Browser [<xref ref-type="bibr" rid="CR34">34</xref>]. The contents (and categories) are updated regularly. Left: the top 22 categories (of the current total 524) are shown (default view). Yellow shading indicates the seven categories used in PubChemLite tier0 (“environmental” selection), the purple shading indicates the additional category used for PubChemLite tier1 (“exposomics”); red shading indicates the two categories that were added into the final PubChemLite exposomics selection. Right: Expansion of the “Agrochemical Information” and “Use and Manufacturing” sections as examples of sub-categories</p>
+                </caption>
+                <p>
+                  <graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_489_Fig1_HTML.png" />
+                </p>
+              </fig>
+            </p>
+            <p id="Par37">Initially, two versions of PubChemLite were created. The environmental selection (PubChemLite tier0), formed of the yellow-shaded categories in Fig. <xref rid="Fig1" ref-type="fig">1</xref>, shortened to “AgroChemInfo, DrugMedicInfo, FoodRelated, PharmacoInfo, SafetyInfo, ToxicityInfo, KnownUse”, whereas the exposomics selection (PubChemLite tier1) had the additional purple-shaded category, shortened to “BioPathway”, which contained the additional biological information categories relevant to metabolomics and exposomics. Entries were merged by InChIKey first block (the structural skeleton), and total Patent Counts and Literature Counts were calculated over the merged entries (full details in the "<xref rid="Sec6" ref-type="sec">Methods</xref>" section). Each category was added as an additional column, where each entry was assigned a value that was a (merged) count of the sub-categories, and a total annotation count column was also added, summing the presence in top categories only (for further details, see "<xref rid="Sec6" ref-type="sec">Methods</xref>"). Initial versions (20 November 2019 [<xref ref-type="bibr" rid="CR35">35</xref>]/14 January 2020 [<xref ref-type="bibr" rid="CR36">36</xref>]) contained 315,843/316,810 entries in tier0 (environmental collection) and 361,976/363,911 entries in tier1 (exposomics). In other words, the 103 M entries of PubChem (at the time) were collapsed down to two datasets of approximately 316 K and 360 K compounds. An RMarkdown file to visualize the content (categories and subcategories) of PubChemLite as an interactive sunburst plot (for a static version see Fig. <xref rid="Fig2" ref-type="fig">2</xref>) using the 14 January 2020 tier1 version is included as Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref> and is also available on the ECI GitLab pages [<xref ref-type="bibr" rid="CR37">37</xref>, <xref ref-type="bibr" rid="CR38">38</xref>]; further details are in the "<xref rid="Sec6" ref-type="sec">Methods</xref>" section below.</p>
+            <p id="Par38">
+              <fig id="Fig2">
+                <label>Fig. 2</label>
+                <caption xml:lang="en">
+                  <p>Sunburst plot of PubChemLite (14 January 2020 tier1 version [<xref ref-type="bibr" rid="CR36">36</xref>]) to visualise the content. Note many CIDs are in multiple sub-categories, and total counts include this duplication (i.e. the 5695 AgroChemInfo count corresponds with fewer unique CIDs, see below). An interactive version embedded in an RMarkdown file is available as Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>, the interactive plot plus code and example file is also available on the ECI GitLab pages [<xref ref-type="bibr" rid="CR37">37</xref>, <xref ref-type="bibr" rid="CR38">38</xref>]</p>
+                </caption>
+                <p>
+                  <graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_489_Fig2_HTML.png" />
+                </p>
+              </fig>
+            </p>
+            <p id="Par39">A benchmark dataset of 977 de-duplicated compounds (see Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>) was created by merging chemicals from previous evaluations [<xref ref-type="bibr" rid="CR16">16</xref>, <xref ref-type="bibr" rid="CR26">26</xref>] (predominantly environmentally relevant) as described in "<xref rid="Sec6" ref-type="sec">Methods</xref>". MetFrag was run with different versions of PubChemLite as well as CompTox (7 March 2019 release [<xref ref-type="bibr" rid="CR39">39</xref>]) using comparable scoring terms. A summary of the results shown in Fig. <xref rid="Fig3" ref-type="fig">3</xref> includes calculations both without (green) and with (blue) the use of MS/MS information (in silico fragmentation score and MS library matching scores). Further parameter details are given in the "<xref rid="Sec6" ref-type="sec">Methods</xref>" section, with tables included in Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>. Overall, CompTox and PubChemLite perform comparably; initially CompTox had fewer missing entries (grey shading) due to their earlier concerted efforts to add compounds of environmental interest, including transformation products (these gaps may well be smaller with the new data release). These gaps were closed progressively in PubChemLite as described in the next section “Identifying and Filling Gaps in PubChem Annotation Content”. Furthermore, early results (see Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>: Figures S1 and S2, Tables S1 and S2) showed that both versions of PubChemLite, tier0 and tier1, performed almost identically even on environmental substances of interest, such that finally, one “PubChemLite” for exposomics was created, equivalent to tier1 plus the two additional categories as shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref> [<xref ref-type="bibr" rid="CR40">40</xref>]. Results from this version are also shown in Fig. <xref rid="Fig3" ref-type="fig">3</xref>.</p>
+            <p id="Par40">
+              <fig id="Fig3">
+                <label>Fig. 3</label>
+                <caption xml:lang="en">
+                  <p>The ranking performance of various versions of PubChemLite versus CompTox using the merged benchmarking set (n = 977) with comparable metadata terms. Green: without MS/MS information. Blue: with MS/MS information (includes in silico fragmentation and MoNA library scoring terms). The increase in top ranks and decrease in missing entries with newer versions shows the influence of additional annotation content in PubChem (see Section “<xref rid="Sec2" ref-type="sec">Identifying and Filling Gaps in PubChem Annotation Content</xref>”). The script and associated data files to reproduce this plot are available on the ECI GitLab pages [<xref ref-type="bibr" rid="CR41">41</xref>, <xref ref-type="bibr" rid="CR42">42</xref>]. Figure template from [<xref ref-type="bibr" rid="CR43">43</xref>]</p>
+                </caption>
+                <p>
+                  <graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_489_Fig3_HTML.png" />
+                </p>
+              </fig>
+            </p>
+            <p id="Par41">The results in Fig. <xref rid="Fig3" ref-type="fig">3</xref> show that, while annotation information alone leads to good ranking performance (~ 70–73% ranked first, dark green shaded results), the MS/MS information is essential for further improvements (~ 79–83% ranked first, dark blue shaded results). This is discussed further below. The PubChemLite results on the two initial versions (20 November 2019 and 14 January 2020) also clearly show that ~ 8 % of the benchmark dataset were missing from PubChemLite. A detailed interrogation of the benchmark set of 977 reference standards from Eawag and UFZ revealed that—as commented by the community over many years—detailed annotation information was missing for well-known relevant transformation products in PubChem. This accounted for 37 of the 57 missing entries in the January 14, 2020 tier0 version and is discussed further in the next section.</p>
+          </sec>
+          <sec id="Sec200">
+            <title>Identifying and Filling Gaps in PubChem Annotation Content</title>
+            <p id="Par43">During previous evaluations of MetFrag specifically [<xref ref-type="bibr" rid="CR26">26</xref>], and in silico identification approaches for HR-MS in general during e.g. CASMI [<xref ref-type="bibr" rid="CR16">16</xref>], the focus has generally been on evaluating the methods themselves, aiming for objective evaluation. The use of identification approaches in typical real-life scenarios, however, often requires additional subjectiveness to provide <italic>interpretation</italic>, not just <italic>identification</italic>. Thus, the material in this article should not be viewed as an evaluation of MetFrag itself (which has not changed), but rather demonstrates how improving the underlying database and associated functionality can help to improve outcomes for users (i.e. the ability to find relevant chemicals) in the context of exposomics. In other words, this has been an opportunity to investigate and improve the annotation content (i.e. information content beyond structural properties) in PubChem for exposomics.</p>
+            <p id="Par44">As Fig. <xref rid="Fig3" ref-type="fig">3</xref> reveals, 57 chemicals from the benchmark set were missing in the early versions of PubChemLite, many of which were well-known transformation products in environmental studies. Since adding annotation content requires also sufficient provenance and evidence to support the annotation, the NORMAN-SLE [<xref ref-type="bibr" rid="CR30">30</xref>, <xref ref-type="bibr" rid="CR44">44</xref>], which now has its own Classification Browser [<xref ref-type="bibr" rid="CR45">45</xref>] in PubChem (see Fig. <xref rid="Fig4" ref-type="fig">4</xref>) was browsed for suitable suspect lists containing annotation content. Initial efforts concentrated on list S60 (SWISSPEST19) [<xref ref-type="bibr" rid="CR46">46</xref>], a list of pesticides and transformation products/metabolites documented by Kiefer et al. [<xref ref-type="bibr" rid="CR47">47</xref>]. This list contained parent-transformation product mappings, plus the link to information about agrochemical use (since the focus was on pesticides). The list was modified into a “predecessor/successor” mapping form (to avoid terminology clashes within other sections of PubChem) and added, with full provenance, into a new “Transformations” section in the individual PubChem records (see Fig. <xref rid="Fig5" ref-type="fig">5</xref>). Accompanying statements on “Agrochemical Transformations” within the agrochemical sections were also added, for example “Folpet has known environmental transformation products that include Phthalimide, Phthalamic acid, and Phthalic acid” [<xref ref-type="bibr" rid="CR48">48</xref>]. The PubChemLite version created 22 May 2020 [<xref ref-type="bibr" rid="CR49">49</xref>] included these new annotations, with fewer missing entries and slightly better ranks (see Fig. <xref rid="Fig3" ref-type="fig">3</xref>). Since this only focused on the agrochemicals (pesticides), the many pharmaceutical (and other) transformation products among the Eawag dataset were still missing. While these are all present in MassBank [<xref ref-type="bibr" rid="CR50">50</xref>] (S1 in the NORMAN-SLE [<xref ref-type="bibr" rid="CR51">51</xref>]), this dataset does not come with appropriate annotation content or provenance. Instead, the Supporting Information from Schollee et al. [<xref ref-type="bibr" rid="CR52">52</xref>] provided suitable parent-TP mappings to create the predecessor-successor tables, which was merged with the Eawag classification information (with permission and support from Juliane Hollender) and added as list S66 [<xref ref-type="bibr" rid="CR53">53</xref>]. This collection, together with list S68 HSDBTPS [<xref ref-type="bibr" rid="CR54">54</xref>], resulted in the greater coverage in the June 2020 [<xref ref-type="bibr" rid="CR49">49</xref>] and October 2020 [<xref ref-type="bibr" rid="CR40">40</xref>] versions (see Fig. <xref rid="Fig3" ref-type="fig">3</xref>), with only 16 missing entries (15 in October) remaining. These remaining 16 entries could not be clearly related to any specific NORMAN-SLE lists to add further annotation content at this stage; although annotation content is being progressively added in separate efforts—as is evident from the one less missing entry in October.</p>
+            <p id="Par45">
+              <fig id="Fig4">
+                <label>Fig. 4</label>
+                <caption xml:lang="en">
+                  <p>Screenshot of the NORMAN Suspect List Exchange Classification in PubChem (13 August 2020), including (partial) expansions of the S60, S66 and S68 lists, with the corresponding sections added to individual records indicated in green type</p>
+                </caption>
+                <p>
+                  <graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_489_Fig4_HTML.png" />
+                </p>
+              </fig>
+            </p>
+            <p id="Par46">
+              <fig id="Fig5">
+                <label>Fig. 5</label>
+                <caption xml:lang="en">
+                  <p>Transformations section in PubChem for Folpet (CID 8607) from SWISSPEST19 [<xref ref-type="bibr" rid="CR46">46</xref>]</p>
+                </caption>
+                <p>
+                  <graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_489_Fig5_HTML.png" />
+                </p>
+              </fig>
+            </p>
+          </sec>
+          <sec id="Sec4">
+            <title>Leveraging annotation content in exposomics</title>
+            <p id="Par47">The results presented in Fig. <xref rid="Fig3" ref-type="fig">3</xref> detailed the use of rather generic metadata terms (literature counts, patent counts, total annotation counts). However, one aim of setting up PubChemLite was not only to merge several “useful” categories for exposomics, but to leverage the information within these categories (providing <italic>interpretation</italic> about candidates in candidates sets). The smallest annotation category in PubChemLite, the agrochemicals, was taken as an additional benchmarking dataset (1336 chemicals, 22 Jan. 2020, see Additional file <xref ref-type="supplementary-material" rid="MOESM4">4</xref>) to investigate the influence of database size and the additional scoring terms on the ranking results. Since this was to mimic an environmental investigation interested in detecting agrochemicals (i.e. a “suspect screening” approach [<xref ref-type="bibr" rid="CR7">7</xref>]), the “agrochemical score”, i.e. how many agrochemical categories exist in PubChem for that chemical, was used as an additional scoring term in MetFrag (details in "<xref rid="Sec6" ref-type="sec">Methods</xref>"). The results are shown as the green entries in Fig. <xref rid="Fig6" ref-type="fig">6</xref>; the exact numbers are given in Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>: Table S3.</p>
+            <p id="Par48">
+              <fig id="Fig6">
+                <label>Fig. 6</label>
+                <caption xml:lang="en">
+                  <p>Green shading: Ranking performance of PubChemLite (14 Jan. 2020) in MetFrag using annotation score alone (no MS/MS information) with the Agrochemicals set from 14 Jan. 2020. Top: full PubChem (live query, 22 Jan. 2020 with 102,404,298 compounds). Second: PubChemLite tier1 with literature and patent scores and third: with the addition of the AgroChemScore (number of subcategories of agrochemical information available). The AgroChemScore is not (yet) available for the full database. Note: missing agrochemical entries are due to the presence of metals in some agrochemicals, which are excluded from MetFrag results (see "<xref rid="Sec6" ref-type="sec">Methods</xref>" for rules applied to create PubChemLite). Bottom in blue shading: Ranking performance of PubChemLite (12 Jun. 2020) in MetFrag using topic-specific annotation score plus MS/MS information on the subsets of the benchmarking containing agrochemical annotation information. The script and associated data files to reproduce this plot are available on the ECI GitLab pages [<xref ref-type="bibr" rid="CR41">41</xref>, <xref ref-type="bibr" rid="CR42">42</xref>]. Figure template from [<xref ref-type="bibr" rid="CR43">43</xref>]</p>
+                </caption>
+                <p>
+                  <graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_489_Fig6_HTML.png" />
+                </p>
+              </fig>
+            </p>
+            <p id="Par49">With a full PubChem query and using only literature and patent information to score, only 58% of entries were correctly ranked in first place (which is not unexpected, as e.g. pharmaceuticals, industrial chemicals or even metabolites with the same mass may have larger literature or patent counts). When the database was restricted to the candidates in PubChemLite using the same scoring terms (literature and patent counts), this increased to 70%. However, adding the Agrochemical Score improved this further to 79.2 %, demonstrating the potential usefulness of individual category-based scoring terms to help select relevant chemicals for further verification. In terms of computational efficiency, the last 101 queries (entries 1236–1336) of the Agrochemicals query took 11 min to complete with PubChemLite tier1 (query run 21 Jan. 2020), while the equivalent query with the full PubChem database and scoring terms took 164 min (query run 26 Jan. 2020). This results in approx. 6.5 s per query for PubChemLite, versus 97 sec per query for a full PubChem query (note: both queries were without fragmentation).</p>
+            <p id="Par50">Since this is purely annotation-based scoring, it is imperative to use additional experimental information such as fragmentation information and further verification with reference standards before any claims of higher confidence annotation are made [<xref ref-type="bibr" rid="CR11">11</xref>]. To address this, the benchmarking dataset (n = 977) used above (with MS/MS information available) was subset according to the availability of information in the Agrochemical Information category (creating a subset of n = 318), and evaluated with scoring terms relevant to the annotation type, as shown in the blue entry in Fig. <xref rid="Fig6" ref-type="fig">6</xref>. This mimics, to a certain extent, a typical suspect screening workflow where the main interest is in finding and confirming pesticides in an environmental sample. As shown, adding MS/MS information (MetFrag in silico fragmentation plus MoNA similarity score) increased the correctly ranked chemicals in first place to 90.6% for those agrochemicals that were also in the benchmarking set. If the database (in this case PubChemLite tier0 12 Jun. 2020 version) had been restricted to agrochemicals only this would have risen to 94.3%, as some non-agrochemical isomers still outscored several entries based on the literature and patent values. The performance would not be able to rise much higher than 94% with this dataset, however, since there are multiple agrochemical isomers present in the dataset where the less-well-known (but often structurally related) isomers ranked lower because of less supporting metadata. For instance, for secbutylazine (CID 23712), the candidate terbutylazine, CID 22206 was ranked first and secbutylazine, CID 23712 was third, while another isomer propazine CID 4937 was second. All three isomers were in the dataset. In this case, both the in silico fragmenter and MoNA similarity scores captured these three isomers in the correct order (secbutylazine first, terbutylazine second, propazine third), showing that the experimental evidence is still crucial in distinguishing isomers - or indicating whether they are indistinguishable on given evidence. Terbutylazine was correctly ranked first for its corresponding entry (see Table <xref rid="Tab1" ref-type="table">1</xref>).</p>
+            <p id="Par51">
+              <table-wrap id="Tab1">
+                <label>Table 1</label>
+                <caption xml:lang="en">
+                  <p>Candidate score distributions for three isomers/isobars of formula C<sub>9</sub>H<sub>16</sub>ClN<sub>5</sub> in the agrochemical dataset</p>
+                </caption>
+                <table frame="hsides" rules="groups">
+                  <thead>
+                    <tr>
+                      <th align="left">
+                        <p>Name (CID)</p>
+                      </th>
+                      <th align="left">
+                        <p>Terbutylazine (22,206)</p>
+                      </th>
+                      <th align="left">
+                        <p>Propazine (4937)</p>
+                      </th>
+                      <th align="left">
+                        <p>Secbutylazine (23,712)</p>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td align="left">
+                        <p>MetFrag Scores</p>
+                      </td>
+                      <td align="left">
+                        <p><italic>4.96</italic>; 3.45; 2.77; 1.93; 1.59</p>
+                      </td>
+                      <td align="left">
+                        <p>4.46; <italic>3.88</italic>; 2.27; 1.81; 1.58</p>
+                      </td>
+                      <td align="left">
+                        <p>4.96; 3.52; <italic>2.78</italic>; 1.92; 1.57</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left">
+                        <p>Fragmenter Score</p>
+                      </td>
+                      <td align="left">
+                        <p><italic>351</italic>; 250; 351; 239; 126</p>
+                      </td>
+                      <td align="left">
+                        <p>247; <italic>295</italic>; 251; 170; 106</p>
+                      </td>
+                      <td align="left">
+                        <p>398; 303; <italic>403</italic>; 272; 135</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left">
+                        <p>MoNA Similarity</p>
+                      </td>
+                      <td align="left">
+                        <p><italic>0.959</italic>; 0.672; 0.987; 0.0; 0.0</p>
+                      </td>
+                      <td align="left">
+                        <p>0.638; <italic>0.841</italic>; 0.661; 0.0; 0.0</p>
+                      </td>
+                      <td align="left">
+                        <p>0.971; 0.703; <italic>0.998</italic>; 0.0; 0.0</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left">
+                        <p>PubMed Count</p>
+                      </td>
+                      <td align="left">
+                        <p><italic>282</italic>; 127; 0; 11; 1</p>
+                      </td>
+                      <td align="left">
+                        <p>282; <italic>127</italic>; 0; 11; 1</p>
+                      </td>
+                      <td align="left">
+                        <p>282; 127; <italic>0</italic>; 11; 1</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left">
+                        <p>Patent Count</p>
+                      </td>
+                      <td align="left">
+                        <p><italic>10,935</italic>; 8900; 1990; 6636; 6861</p>
+                      </td>
+                      <td align="left">
+                        <p>10,935; <italic>8900</italic>; 1990; 6636; 6861</p>
+                      </td>
+                      <td align="left">
+                        <p>10,935; 8900; <italic>1990</italic>; 6636; 6861</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left">
+                        <p>Annotation Count</p>
+                      </td>
+                      <td align="left">
+                        <p><italic>5</italic>; 5; 4; 4; 5</p>
+                      </td>
+                      <td align="left">
+                        <p>5; <italic>5</italic>; 4; 4; 5</p>
+                      </td>
+                      <td align="left">
+                        <p>5; 5; <italic>4</italic>; 4; 5</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left">
+                        <p>AgroChemInfo</p>
+                      </td>
+                      <td align="left">
+                        <p><italic>5</italic>; 4; 3; 3; 3</p>
+                      </td>
+                      <td align="left">
+                        <p>5; <italic>4</italic>; 3; 3; 3</p>
+                      </td>
+                      <td align="left">
+                        <p>5; 4; <italic>3</italic>; 3; 3</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left">
+                        <p>Rank</p>
+                      </td>
+                      <td align="left">
+                        <p>1 of 37</p>
+                      </td>
+                      <td align="left">
+                        <p>2 of 37</p>
+                      </td>
+                      <td align="left">
+                        <p>3 of 37</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table-wrap-foot>
+                  <p>Values for the correct candidate in each case are italiczed. Only the scores for the top 5 candidates (of 37) are shown</p>
+                </table-wrap-foot>
+              </table-wrap>
+            </p>
+            <p id="Par52">Using this benchmarking dataset alone, taking PubChemLite and using the specific topic information for agrochemicals, most candidates were ranked 1st and the worst rank for a chemical was 3rd. Creating a similar pharmaceutical subset (as opposed to agrochemicals) using the “DrugMedicInfo” category yielded similar results (most ranked first, worst rank of 3rd ) using either DrugMedicInfo or PharmacoInfo as scoring terms (see Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>: Figure S3). For a more generic category such as ToxicityInfo, most were ranked 1st or 2nd, but the worst rank was 12, indicating that this term may be less selective (see Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>: Figure S3). Using patent and literature information alone (over the entire benchmark set), the worst rank was 27th, with 11 entries missing entirely. Thus, even though this dataset is of limited size (977 entries), the results indicate that there is a good chance that the top candidate will be among the Top 3 using PubChemLite for highly specific categories such as (agrochemicals, pharmaceuticals). On the other hand, more candidates will often have to be considered for less specific categories or questions (e.g. Toxicity Information) or when only the generic scoring terms are used. In the context of practical use of HR-MS for answering real life questions, e.g. the presence of well-known chemicals in environmental or patient samples, considering only a few candidates (e.g. 1–3) versus hundreds or even thousands of candidates per mass is a great step forward for higher throughput <italic>interpretation</italic> of non-target screening results and coming to meaningful conclusions quicker. It is expected that greater granularity in the annotation information will improve the interpretability and applicability of this information in the future (for instance toxicity information is currently often only “information is present” and not “the substance is toxic”); efforts are being made to achieve this (beyond the scope of the current article). Regular updates/deposition of relevant third-party data resources in PubChem such as HMDB, CompTox and the Blood Exposome database will help ensure that this content can be included and updated in PubChemLite.</p>
+            <p id="Par53">As a future perspective, the addition of extra information, such as partitioning information (e.g. log<italic>P</italic>, log<italic>K</italic><sub><italic>ow</italic></sub> or log<italic>D</italic>) and collision cross section (CCS) values, will also help in candidate selection in specific cases (although for isobars /isomers that are very similar, predictive values will often be very close). Efforts are currently underway to include XlogP3 [<xref ref-type="bibr" rid="CR55">55</xref>] in future versions of PubChemLite to integrate within the retention time model already present in MetFrag [<xref ref-type="bibr" rid="CR26">26</xref>]. Further, an initial version of PubChemLite (January 14, 2020 tier1) with CCS values contributed by CCSbase [<xref ref-type="bibr" rid="CR56">56</xref>, <xref ref-type="bibr" rid="CR57">57</xref>] is also available on Zenodo [<xref ref-type="bibr" rid="CR58">58</xref>] and in MetFrag web version [<xref ref-type="bibr" rid="CR27">27</xref>] and is currently being evaluated in separate work.</p>
+          </sec>
+        </sec>
+        <sec id="Sec5" sec-type="conclusion">
+          <title>Conclusions</title>
+          <p id="Par54">The need to cover the “entire chemical space” in exposomics research is a huge challenge for researchers and database resources alike (and currently unachievable – due to our inability to define chemical space completely). This article explores the use of annotation content of very large compound databases, i.e. compound knowledge bases, to create meaningful and efficient subsets relevant to specific use cases, specifically aimed at creating subsets of PubChem most relevant for exposomics. The resulting PubChemLite is a dynamic yet efficient database that grows as the respective (and relevant) annotation categories grow in PubChem, and is built and deposited regularly to allow integration with existing HR-MS identification approaches such as MetFrag [<xref ref-type="bibr" rid="CR27">27</xref>, <xref ref-type="bibr" rid="CR59">59</xref>] and comprehensive MS workflows such as patRoon [<xref ref-type="bibr" rid="CR60">60</xref>]. The subcategories present in PubChemLite allow end users a certain a degree of individual or sample-wide interpretation of the results, such that broad chemical categories become obvious amongst suggested candidates. These can be used as scoring terms or hard filters, depending on user choice, and subsets of the database could serve as large suspect lists if desired. PubChemLite is already in use in several research projects. Feedback on the approach and further integration into other resources and workflows is greatly welcomed. Further developments are being made behind the scenes to streamline the ideas presented in this manuscript for the community in other ways. The code and all necessary files are available (see availability statement), such that expert users can build and compile their own subsets of PubChem using any of the categories available in the PubChem Table of Contents Classification Browser [<xref ref-type="bibr" rid="CR34">34</xref>] by defining their own input “bit sets”.</p>
+          <p id="Par55">To address the “data gap” issue of highly-relevant compounds missing in existing compound databases (a broadly acknowledged weakness and argument frequently applied against using compound databases for HR-MS-based tentative identification efforts), this article also explores how knowledge gaps can be assessed and filled, as exemplified with environmentally-relevant information from the NORMAN Network. A coupled deposition and annotation workflow has been set-up between PubChem and the NORMAN-SLE, allowing the deposition of environmentally relevant substances into PubChem and the progressive integration of the accompanying (relevant) annotation content, with full traceability to the original data sources. The examples covered in detail here included transformation product and agrochemical use cases. Importantly, these integration efforts enhance both resources and help combine knowledge into a central location (thus increasing the FAIRness of the data) by reducing the isolation of the individual NORMAN-SLE lists while increasing the annotation (information) available in PubChem. The integration of content is occurring progressively with a focus on areas of high community interest and on those filling the largest gaps. Community input is very welcome to help focus these efforts to maximize the overall benefit. The content is available in a variety of formats across both resources for re-use.</p>
+          <p id="Par56">While PubChemLite is an immediately accessible stepping-stone for HR-MS-based exposomics research, it is still only a small part of efforts towards a bigger picture solution for the exposomics challenge. Enhancing the annotation content of compound knowledge bases is clearly one way of improving the useability of very large knowledge bases. Dynamic and easy-to-use ways to subset and/or order the chemicals based on this annotation content (beyond creation of a MetFrag-specific output file) will be needed to improve the useability further. At some point, specialist users will need to be able to tell chemical knowledge bases what they want to find to improve their search results for their specific use case, rather than just taking the “best match” based on generic scores such as literature or annotation counts. Future efforts, beyond enhancing annotation content, will include continuing conversations with users and the community to develop functionality that can be applied either on the database side, or the workflow side, or both, to truly empower large compound knowledge bases for exposomics research and move from just <italic>identification</italic> towards more detailed <italic>interpretation</italic> of HR-MS datasets.</p>
+        </sec>
+        <sec id="Sec6" sec-type="methods">
+          <title>Methods</title>
+          <sec id="Sec7">
+            <title>Creating PubChemLite for MetFrag</title>
+            <p id="Par57">MetFrag currently has PubChem integrated via the RESTful API as well as a local mirror. Of the typically thousands of candidates that are retrieved using exact mass (with ppm error margin) or molecular formula queries, several candidates are returned that are eventually discarded (e.g. disconnected structures, which cannot be observed at the input mass or formula in the mass spectrometer, or other structures that cannot be processed by MetFrag). Since high resolution mass spectrometry rarely yields information on stereochemistry (there are exceptions for some substances e.g. when chiral chromatography is used), it is the default behaviour of MetFrag and many other approaches to merge candidates by the first block of the InChIKey (i.e. the structural skeleton) and present the users results displaying the stereoisomer with the highest score. For candidates merged by InChIKey first blocks, any ranking is usually driven by metadata rather than fragmentation, which does not usually contain sufficient information to distinguish stereoisomers, except for some tautomers. In MetFrag, this stereoisomer filtering can be switched on or off as desired. However, for larger (or complex) structures, the presence of stereoisomers can dramatically inflate candidate numbers and reduce calculation efficiency, often for little final gain.</p>
+            <p id="Par58">To create subsets of PubChem by annotation content category, firstly a Table of Contents fingerprint (TOC FP) was created for each of the PubChem Compound TOC entries (each bit representing presence or absence of information in that category for a compound) along with metadata indicating the relationship between the bits (e.g., subcategories of a given annotation). Then, mapping files containing the desired TOC entries were created. Finally the relevant data (compound information, patent and literature scores, plus the TOC fingerprints) was extracted by the compound identifier (CID) from the respective PubChem download files [<xref ref-type="bibr" rid="CR61">61</xref>] using scripts that have been made available at the Environmental Cheminformatics group GitLab pages [<xref ref-type="bibr" rid="CR62">62</xref>].</p>
+            <p id="Par59">Following this, and considering the current, established MetFrag behaviour [<xref ref-type="bibr" rid="CR26">26</xref>], a set of rules was applied to the CIDs extracted from the TOC categories to generate a file that could be processed by MetFrag. Candidates that would be discarded later anyway (e.g. disconnected structures or other structures that cannot currently be processed by MetFrag) were discarded up front. Further, CIDs were collapsed by the first block to have one “best matching” CID and mappings to all related CIDs. The rules applied were the following:</p>
+            <p id="Par60">
+              <list list-type="order">
+                <list-item>
+                  <p id="Par61">Retrieve all CIDs in PubChem with the desired annotation categories;</p>
+                </list-item>
+                <list-item>
+                  <p id="Par62">Map all CIDs to corresponding parent CIDs to obtain the neutral form, where available, imputing the annotation to the parent;</p>
+                </list-item>
+                <list-item>
+                  <p id="Par63">Collapse by InChIKey first block (IKFB), imputing total annotation to the IKFB, retaining the “best” CID (the most annotated CID for the given IKFB) and listing all related CIDs in a separate column, thus grouping all CIDs with annotation available;</p>
+                </list-item>
+                <list-item>
+                  <p id="Par64">Remove all entries containing the following elements: Kr, Dy, Ir, La, Lu, Nd, Nb, Os, Pd, Pt, Pu, Pr, Re, Rh, Ru, Sm, Sc, Ag, Ta, Tc, Tb, Th, Tm, Ti, W, Ac, Am, Er, Eu, Gd, Hf, Ho, Xe, Yb, Rn, Sr, Be, Cm, Cf, Cs, Md, Pm, Fr, Pa, Np, Bk, Es, Fm, No, Lr, Rf, Db, Sg, Bh, Hs, Mt, Ds, Rg, Cn, Nh, Fl, Mc, Lv, Ts, Og;</p>
+                </list-item>
+                <list-item>
+                  <p id="Par65">Remove disconnected structures-as these will not be observed at the mass/formula of the query;</p>
+                </list-item>
+                <list-item>
+                  <p id="Par66">Remove charges from charged molecular formulae (but not the corresponding structures).</p>
+                </list-item>
+              </list>
+            </p>
+            <p id="Par67">These rules were selected for maximum efficiency, resulting in the following behaviour that should be considered when interpreting the results. Firstly, collapsing all annotated CIDs by IKFB could result in the inclusion of different isotopic states and/or charges, which may not be included otherwise in MetFrag queries initiated by exact mass/formula and could otherwise prevent these candidates appearing in PubChemLite queries at their true exact mass/formula. In the context of efficient screening of masses for environmental, metabolomics or exposomics studies, matches with differing isotopic states are unlikely to be found in large amounts in these studies. In the cases that isotopically labelled standards are used, or isotopically labelled experiments are performed, other data interrogation techniques are usually necessary/recommended to capture these peaks in advance of identification efforts. For differing charge states, since these are usually accounted for in the upstream workflow by adjusting the adduct state, the current behaviour ensures a consistent “base state” for adjustment of charge in other parts of the workflow. Secondly, mixtures are currently discarded from PubChemLite files, as this would require an additional degree of manipulation (splitting and re-merging of the entries), which was not accounted for in the current version as this affects &lt; 10K entries - of which a significant proportion are salts. It would be possible to address both issues in future versions should subsequent use cases deem this necessary. Finally, related CIDs are only included if that CID contains any annotation in at least one of the selected annotation categories. For example, the InChIKey first block HXKKHQJGJAFBHI has 6 related CIDs in PubChemLite tier 0 (14 Jan 2020 version: 4, 111033, 439938, 446260, 7311736, 44150279), while 9 CIDs (4, 439938, 446260, 4631415, 7311735, 7311736, 16655457, 123598986, 140936702) match this InChIKey first block in the PubChem search interface (search date 22 May 2020 [<xref ref-type="bibr" rid="CR63">63</xref>]).</p>
+            <p id="Par68">As PubChem is changing daily, both in terms of numbers of chemicals and their annotation content, PubChemLite will not remain static. Initial evaluations in this paper were done on the first archived versions, generated November 18th, 2019 [<xref ref-type="bibr" rid="CR35">35</xref>], with 640 category fingerprints generated on October 2nd, 2019. There were approximately 33 M entries with TOC annotations at this stage (e.g. 33,766,782 on October 29th, 2019). A second archived version, with additional scoring, was created January 14th, 2020 [<xref ref-type="bibr" rid="CR36">36</xref>] for further evaluation. By this time the fingerprint consisted of 652 categories (January 9th, 2020) and there were 35 M entries with TOC annotations (35,800,159 on 21 January 2020). The third major version, PubChemLite for exposomics (31 October, 2020) was based on a fingerprint of 524 categories (29 October 2020) and there were 49 M TOC annotations (49,493,641 on 2 November 2020). A breakdown of these files is given in Table <xref rid="Tab2" ref-type="table">2</xref>. These datasets are archived as versions 0.1.0, 0.2.0 and 0.3.0 on Zenodo [<xref ref-type="bibr" rid="CR35">35</xref>, <xref ref-type="bibr" rid="CR36">36</xref>, <xref ref-type="bibr" rid="CR40">40</xref>].</p>
+            <p id="Par69">
+              <table-wrap id="Tab2">
+                <label>Table 2</label>
+                <caption xml:lang="en">
+                  <p>The breakdown of the major PubChemLite versions by InChIKey First Blocks (IKFB) and CIDs</p>
+                </caption>
+                <table frame="hsides" rules="groups">
+                  <thead>
+                    <tr>
+                      <th align="left" />
+                      <th align="left" colspan="2">
+                        <p>18 Nov 2019</p>
+                      </th>
+                      <th align="left" colspan="2">
+                        <p>14 Jan 2020</p>
+                      </th>
+                      <th align="left">
+                        <p>31 Oct 2020</p>
+                      </th>
+                    </tr>
+                    <tr>
+                      <th align="left" />
+                      <th align="left">
+                        <p>Tier0</p>
+                      </th>
+                      <th align="left">
+                        <p>Tier1</p>
+                      </th>
+                      <th align="left">
+                        <p>Tier0</p>
+                      </th>
+                      <th align="left">
+                        <p>Tier1</p>
+                      </th>
+                      <th align="left">
+                        <p>Exposomics</p>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td align="left">
+                        <p>PubChemLite (by IKFB)</p>
+                      </td>
+                      <td align="left">
+                        <p>315,842</p>
+                      </td>
+                      <td align="left">
+                        <p>361,556</p>
+                      </td>
+                      <td align="left">
+                        <p>316,810</p>
+                      </td>
+                      <td align="left">
+                        <p>363,911</p>
+                      </td>
+                      <td align="left">
+                        <p>371,663</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left">
+                        <p>Eliminated (by IKFB)</p>
+                      </td>
+                      <td align="left">
+                        <p>12,056</p>
+                      </td>
+                      <td align="left">
+                        <p>12,762</p>
+                      </td>
+                      <td align="left">
+                        <p>11,979</p>
+                      </td>
+                      <td align="left">
+                        <p>12,682</p>
+                      </td>
+                      <td align="left">
+                        <p>12,971</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left">
+                        <p>Total (by IKFB)</p>
+                      </td>
+                      <td align="left">
+                        <p>327,898</p>
+                      </td>
+                      <td align="left">
+                        <p>374,318</p>
+                      </td>
+                      <td align="left">
+                        <p>328,789</p>
+                      </td>
+                      <td align="left">
+                        <p>376,593</p>
+                      </td>
+                      <td align="left">
+                        <p>384,634</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left">
+                        <p>Parent CIDs (or CID, if no parent)</p>
+                      </td>
+                      <td align="left">
+                        <p>377,278</p>
+                      </td>
+                      <td align="left">
+                        <p>430,246</p>
+                      </td>
+                      <td align="left">
+                        <p>378,581</p>
+                      </td>
+                      <td align="left">
+                        <p>432,645</p>
+                      </td>
+                      <td align="left">
+                        <p>431,067</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="left">
+                        <p>CIDs with desired annotation</p>
+                      </td>
+                      <td align="left">
+                        <p>402,746</p>
+                      </td>
+                      <td align="left">
+                        <p>458,621</p>
+                      </td>
+                      <td align="left">
+                        <p>405,285</p>
+                      </td>
+                      <td align="left">
+                        <p>462,356</p>
+                      </td>
+                      <td align="left">
+                        <p>462,838</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </table-wrap>
+            </p>
+            <p id="Par70">For the November 18, 2019 versions, an “FPSum” was calculated for all entries by adding the FP bits to give a maximum of 7 (tier0) or 8 (tier1). Individual columns for each annotation category were also created, so that the annotation categories could be used via the scoring term function in MetFrag, in addition to the patent and literature information. The resulting datasets (with preview) are available on Zenodo [<xref ref-type="bibr" rid="CR35">35</xref>]. For the January 14, 2020 and subsequent versions, “FPSum” was modified to “AnnoTotalCount”, so the column name better reflected the content, i.e. the availability of annotation categories for that entry. Additionally, individual columns were created for each annotation category, filled with values calculated by adding the category plus the number of subcategories present for that annotation, which ranged from 3 to 15 subcategories (Jan. 2020). The resulting datasets are on Zenodo [<xref ref-type="bibr" rid="CR36">36</xref>] and were integrated into the dropdown menu of local databases for MetFragWeb [<xref ref-type="bibr" rid="CR27">27</xref>]. PubChemLite was built approx. weekly following the January 14, 2020 format to test systems, with two versions used in this article to check additional annotation content (see results and [<xref ref-type="bibr" rid="CR49">49</xref>]). During evaluations, it became clear that two additional categories would be useful, one being “Identification” (present but previously overlooked) and the second being “Associated Disorders and Diseases” (not present when PubChemLite was officially drafted). Based on the evaluations showing little difference between tier0 and tier1, one version equivalent to tier1 plus these two additional categories has been built and released as “PubChemLite for exposomics” version 0.3.0 [<xref ref-type="bibr" rid="CR40">40</xref>] and integrated into MetFragWeb [<xref ref-type="bibr" rid="CR27">27</xref>] and patRoon [<xref ref-type="bibr" rid="CR60">60</xref>, <xref ref-type="bibr" rid="CR64">64</xref>]. Subsequent updates will be built and auto-committed to Zenodo (after passing build checks) to allow automatic updates for MetFragWeb [<xref ref-type="bibr" rid="CR27">27</xref>] and any workflows/users of the MetFrag command line (MetFragCL) version [<xref ref-type="bibr" rid="CR59">59</xref>] and other workflows like patRoon [<xref ref-type="bibr" rid="CR60">60</xref>].</p>
+          </sec>
+          <sec id="Sec8">
+            <title>Assessing PubChemLite</title>
+            <p id="Par71">The performance of PubChemLite was assessed using various datasets that were already used to evaluate MetFrag performance; CASMI 2016 [<xref ref-type="bibr" rid="CR16">16</xref>] and MetFrag Relaunched [<xref ref-type="bibr" rid="CR26">26</xref>] (hereafter MetFragRL). The CASMI2016 dataset consisted of 208 compound-MS/MS spectra pairs. The MetFragRL evaluation sets consisted of four groups of spectra measured under different conditions (datasets EA, EQEx, EQExPlus and UF, with n = 473, 289, 310 and 226, where n refers to the number of compound-MS/MS spectrum pairs). The calculations performed on the individual datasets are presented in Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>: Table S1 and Figure S1, alongside the previously published results. Since some compounds had mass spectra available in both modes, and there was some overlap between the different datasets, this corresponded to a total of 1298 (MetFragRL) and 1506 (MetFragRL + CASMI) compound-MS/MS pairs overall. Calculations performed on this set (comparing PubChemLite tiers and CompTox) are presented in Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>: Table S2 and Figure S2. For the purpose of clarity in the main manuscript, this set of 1506 was de-duplicated down to a set of 977 unique compounds by InChIKey First Block after accounting for multiple tautomeric forms, to eliminate any confusion due to the presence of duplicate spectra/modes. The MS/MS spectrum record number (the first-matching entry in the case of multiple spectra) was used to automatically extract and save the corresponding MS/MS peaks into the file using an R script, using the MS/MS spectra provided as SI for the respective studies, downloaded from the journal pages [<xref ref-type="bibr" rid="CR16">16</xref>, <xref ref-type="bibr" rid="CR26">26</xref>]. As all compounds were present in PubChem, additional compound information was filled in using PubChem web services via R functions. The final benchmarking file (hereafter “PCLite Benchmark” set) is available as Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref> and on the ECI GitLab pages, along with all associated code [<xref ref-type="bibr" rid="CR62">62</xref>].</p>
+            <p id="Par72">The PCLite Benchmark set was used to evaluate various versions of PubChemLite (dates: 18/11/2019 [<xref ref-type="bibr" rid="CR35">35</xref>], 14/01/2020 [<xref ref-type="bibr" rid="CR36">36</xref>], 22/05/2020 [<xref ref-type="bibr" rid="CR49">49</xref>], 12/06/2020 [<xref ref-type="bibr" rid="CR49">49</xref>] and 31/10/2020 [<xref ref-type="bibr" rid="CR40">40</xref>]) as well as the CompTox Chemicals Dashboard version from 7/03/2019 archived as MetFrag Local CSV (database) files [<xref ref-type="bibr" rid="CR39">39</xref>, <xref ref-type="bibr" rid="CR65">65</xref>]. Files are not yet available from the most recent CompTox release (but have been requested). The “Select Metadata” version of CompTox was used, which contained 857,615 entries, corresponding to 773,561 DTXCID InChIKeys and 773,232 InChIKey First Blocks associated with DTXCIDs (the CompTox “MS-ready” form [<xref ref-type="bibr" rid="CR66">66</xref>] of information used in MetFrag). All CompTox files from the given release contain the same number of entries, just with varying metadata content. All queries were run with exact mass plus 5 ppm error, additional scoring terms and other parameters as detailed in Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>: Table S4 and in the supporter scripts available on the ECI GitLab pages [<xref ref-type="bibr" rid="CR67">67</xref>].</p>
+          </sec>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>ELS acknowledges discussions with Rick Helmus (University of Amsterdam), Herbert Oberacher (Medical University of Innsbruck), Juliane Hollender (Eawag) and the Environmental Cheminformatics team (LCSB-ECI, University of Luxembourg). ELS &amp; SN are grateful for the hard work of Christoph Ruttkies and Sebastian Wolf (both formerly IPB Halle) on MetFrag over the years that has enabled this work. The work of all staff and contributors to PubChem, the NORMAN-SLE, and to open science in general, are also gratefully acknowledged.</p>
+        </ack>
+        <sec sec-type="author-contribution">
+          <title>Authors’ contributions</title>
+          <p>EEB &amp; ELS conceptualized PubChemLite and annotation gap analysis; EEB coded PubChemLite files, ELS the evaluation, SN integrated into the MetFrag infrastructure. EEB, ELS discussed and developed the manuscript and concepts, SN contributed. PAT developed the bit files; JZ, EEB, ELS and PAT integrated the NORMAN-SLE files, transformation and annotation content into PubChem; TK implemented regular builds and associated infrastructure at LCSB. All authors have contributed the final manuscript. All authors read and approved the final manuscript.</p>
+        </sec>
+        <sec>
+          <title>Funding</title>
+          <p>The work of EEB, PAT, and JZ was supported by the Intramural Research Program of the National Library of Medicine, National Institutes of Health. ELS and TK acknowledge funding support from the Luxembourg National Research Fund (FNR) for project A18/BM/12341006. SN acknowledges BMBF funding under grant number 031L0107.</p>
+        </sec>
+        <sec sec-type="data-availability">
+          <title>Availability of data and materials</title>
+          <p>All the files needed to generate PubChemLite are available and updated at least weekly on the PubChem FTP website (<ext-link xlink:href="https://ftp.ncbi.nlm.nih.gov/pubchem/" ext-link-type="url">https://ftp.ncbi.nlm.nih.gov/pubchem/</ext-link>) [<xref ref-type="bibr" rid="CR61">61</xref>], all code to create PubChemLite with selected bit lists is available from the Environmental Cheminformatics group GitLab repository (<ext-link xlink:href="https://git-r3lab.uni.lu/eci/pubchem/-/tree/master/pubchemlite" ext-link-type="url">https://git-r3lab.uni.lu/eci/pubchem/-/tree/master/pubchemlite</ext-link>) [<xref ref-type="bibr" rid="CR62">62</xref>]. Fixed versions of PubChemLite mentioned in this manuscript are all archived on Zenodo [<xref ref-type="bibr" rid="CR35">35</xref>, <xref ref-type="bibr" rid="CR36">36</xref>, <xref ref-type="bibr" rid="CR40">40</xref>, <xref ref-type="bibr" rid="CR49">49</xref>]. PubChemLite will be created and deposited to Zenodo at regular intervals following automatic checks [<xref ref-type="bibr" rid="CR69">69</xref>], to allow integration with MetFrag [<xref ref-type="bibr" rid="CR27">27</xref>], and offer download files for external users. The annotation content of the NORMAN-SLE (<ext-link xlink:href="https://www.norman-network.com/nds/SLE/" ext-link-type="url">https://www.norman-network.com/nds/SLE/</ext-link>) [<xref ref-type="bibr" rid="CR30">30</xref>] is being progressively added to PubChem [<xref ref-type="bibr" rid="CR45">45</xref>], with all data available on PubChem [<xref ref-type="bibr" rid="CR68">68</xref>] and Zenodo (<ext-link xlink:href="https://zenodo.org/communities/norman-sle" ext-link-type="url">https://zenodo.org/communities/norman-sle</ext-link>) [<xref ref-type="bibr" rid="CR44">44</xref>]. The addition of new substances deposited to the NORMAN-SLE to PubChem is automated through mapping files and updated monthly (or more regularly if needed).</p>
+        </sec>
+        <sec sec-type="ethics-statement">
+          <sec id="FPar1" sec-type="COI-statement">
+            <title>Competing interests</title>
+            <p id="Par90">The authors declare no competing interests.</p>
+          </sec>
+        </sec>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sévin</surname>
+                    <given-names>DC</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuehne</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Zamboni</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Sauer</surname>
+                    <given-names>U</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Biological insights through nontargeted metabolomics</article-title>
+                <source>Curr Opin Biotechnol</source>
+                <year>2015</year>
+                <volume>34</volume>
+                <fpage>1</fpage>
+                <lpage>8</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2cXhslOkt7jI</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.copbio.2014.10.001</pub-id>
+                <pub-id pub-id-type="pmid">25461505</pub-id>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ljoncheva</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Stepišnik</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Džeroski</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Kosjek</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Cheminformatics in MS-based environmental exposomics: Current achievements and future directions</article-title>
+                <source>Trends Environ Anal Chem</source>
+                <year>2020</year>
+                <volume>28</volume>
+                <fpage>e00099</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BB3cXhslejtLfP</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.teac.2020.e00099</pub-id>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wild</surname>
+                    <given-names>CP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Complementing the genome with an “exposome”: the outstanding challenge of environmental exposure measurement in molecular epidemiology</article-title>
+                <source>Cancer Epidemiol Biomarkers Prev</source>
+                <year>2005</year>
+                <volume>14</volume>
+                <fpage>1847</fpage>
+                <lpage>1850</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXnsl2lu7c%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1158/1055-9965.EPI-05-0456</pub-id>
+                <pub-id pub-id-type="pmid">16103423</pub-id>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Vermeulen</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Schymanski</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                  <name>
+                    <surname>Barabási</surname>
+                    <given-names>A-L</given-names>
+                  </name>
+                  <name>
+                    <surname>Miller</surname>
+                    <given-names>GW</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The exposome and health: Where chemistry meets biology</article-title>
+                <source>Science</source>
+                <year>2020</year>
+                <volume>367</volume>
+                <issue>6476</issue>
+                <fpage>392</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BB3cXhvValurg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1126/science.aay3164</pub-id>
+                <pub-id pub-id-type="pmid">31974245</pub-id>
+                <pub-id pub-id-type="pmcid">7227413</pub-id>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Miller</surname>
+                    <given-names>GW</given-names>
+                  </name>
+                  <name>
+                    <surname>Jones</surname>
+                    <given-names>DP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The nature of nurture: refining the definition of the ex1posome</article-title>
+                <source>Toxicol Sci</source>
+                <year>2014</year>
+                <volume>137</volume>
+                <fpage>1</fpage>
+                <lpage>2</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2cXkslGq</pub-id>
+                <pub-id pub-id-type="doi">10.1093/toxsci/kft251</pub-id>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Miller</surname>
+                    <given-names>GW</given-names>
+                  </name>
+                </person-group>
+                <source>The exposome: a new paradigm for the environment and health</source>
+                <year>2020</year>
+                <edition>2</edition>
+                <publisher-loc>Cambridge</publisher-loc>
+                <publisher-name>Academic Press</publisher-name>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hollender</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Schymanski</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                  <name>
+                    <surname>Singer</surname>
+                    <given-names>HP</given-names>
+                  </name>
+                  <name>
+                    <surname>Ferguson</surname>
+                    <given-names>PL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Nontarget screening with high resolution mass spectrometry in the environment: ready to go?</article-title>
+                <source>Environ Sci Technol</source>
+                <year>2017</year>
+                <volume>51</volume>
+                <fpage>11505</fpage>
+                <lpage>11512</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2sXhsVGjsLnL</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.est.7b02184</pub-id>
+                <pub-id pub-id-type="pmid">28877430</pub-id>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Aksenov</surname>
+                    <given-names>AA</given-names>
+                  </name>
+                  <name>
+                    <surname>da Silva</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Knight</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Global chemical analysis of biology by mass spectrometry</article-title>
+                <source>Nat Rev Chem</source>
+                <year>2017</year>
+                <volume>1</volume>
+                <fpage>0054</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1cXhtVyksb%2FN</pub-id>
+                <pub-id pub-id-type="doi">10.1038/s41570-017-0054</pub-id>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Oberacher</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Sasse</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Antignac</surname>
+                    <given-names>J-P</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">A European proposal for quality control and quality assurance of tandem mass spectral libraries</article-title>
+                <source>Environ Sci Eur</source>
+                <year>2020</year>
+                <volume>32</volume>
+                <fpage>43</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BB3cXkvF2nu78%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s12302-020-00314-9</pub-id>
+                <comment>[cito:citesAsAuthority]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Stein</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Mass spectral reference libraries: an ever-expanding resource for chemical identification</article-title>
+                <source>Anal Chem</source>
+                <year>2012</year>
+                <volume>84</volume>
+                <fpage>7274</fpage>
+                <lpage>7282</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC38XptFSrt7c%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ac301205z</pub-id>
+                <pub-id pub-id-type="pmid">22803687</pub-id>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schymanski</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                  <name>
+                    <surname>Jeon</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Gulde</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Identifying small molecules via high resolution mass spectrometry: communicating confidence</article-title>
+                <source>Environ Sci Technol</source>
+                <year>2014</year>
+                <volume>48</volume>
+                <fpage>2097</fpage>
+                <lpage>2098</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2cXhsVKrsbk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/es5002105</pub-id>
+                <pub-id pub-id-type="pmid">24476540</pub-id>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Frainay</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Schymanski</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Neumann</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Mind the gap: mapping mass spectral databases in genome-scale metabolic networks reveals poorly covered areas</article-title>
+                <source>Metabolites</source>
+                <year>2018</year>
+                <volume>8</volume>
+                <fpage>51</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1cXit1WmtL3F</pub-id>
+                <pub-id pub-id-type="doi">10.3390/metabo8030051</pub-id>
+                <pub-id pub-id-type="pmcid">6161000</pub-id>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cooper</surname>
+                    <given-names>BT</given-names>
+                  </name>
+                  <name>
+                    <surname>Yan</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Simón-Manso</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Hybrid search: a method for identifying metabolites absent from Tandem mass spectrometry libraries</article-title>
+                <source>Anal Chem</source>
+                <year>2019</year>
+                <volume>91</volume>
+                <issue>21</issue>
+                <fpage>13924</fpage>
+                <lpage>13932</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1MXhvFClu7fN</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.analchem.9b03415</pub-id>
+                <pub-id pub-id-type="pmid">31600070</pub-id>
+                <pub-id pub-id-type="pmcid">7299168</pub-id>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Blaženović</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Kind</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Ji</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Fiehn</surname>
+                    <given-names>O</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Software tools and approaches for compound identification of LC-MS/MS data in metabolomics</article-title>
+                <source>Metabolites</source>
+                <year>2018</year>
+                <volume>8</volume>
+                <fpage>31</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1cXhvV2lt73I</pub-id>
+                <pub-id pub-id-type="doi">10.3390/metabo8020031</pub-id>
+                <pub-id pub-id-type="pmcid">6027441</pub-id>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Blaženović</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Kind</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Torbašinović</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Comprehensive comparison of in silico MS/MS fragmentation tools of the CASMI contest: database boosting is needed to achieve 93 % accuracy</article-title>
+                <source>J Cheminform</source>
+                <year>2017</year>
+                <volume>9</volume>
+                <fpage>32</fpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-017-0219-x</pub-id>
+                <pub-id pub-id-type="pmid">29086039</pub-id>
+                <pub-id pub-id-type="pmcid">5445034</pub-id>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schymanski</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                  <name>
+                    <surname>Ruttkies</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Krauss</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Critical assessment of small molecule identification 2016: automated methods</article-title>
+                <source>J Cheminform</source>
+                <year>2017</year>
+                <volume>9</volume>
+                <fpage>22</fpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-017-0207-1</pub-id>
+                <pub-id pub-id-type="pmid">29086042</pub-id>
+                <pub-id pub-id-type="pmcid">5368104</pub-id>
+                <comment>(cito:citesAsAuthority) (cito:usesMethodIn) (cito:extends) (cito:usesDataFrom)</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Böcker</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Searching molecular structure databases using tandem MS data: are we there yet?</article-title>
+                <source>Curr Opin Chem Biol</source>
+                <year>2017</year>
+                <volume>36</volume>
+                <fpage>1</fpage>
+                <lpage>6</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC28XitFGit7%2FO</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.cbpa.2016.12.010</pub-id>
+                <pub-id pub-id-type="pmid">28025165</pub-id>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kanehisa</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Araki</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Goto</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">KEGG for linking genomes to life and the environment</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2007</year>
+                <volume>36</volume>
+                <fpage>D480</fpage>
+                <lpage>D484</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXhtVSku7k%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkm882</pub-id>
+                <pub-id pub-id-type="pmid">18077471</pub-id>
+                <pub-id pub-id-type="pmcid">2238879</pub-id>
+                <comment>cito:citesAsDataSource</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wishart</surname>
+                    <given-names>DS</given-names>
+                  </name>
+                  <name>
+                    <surname>Jewison</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Guo</surname>
+                    <given-names>AC</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">HMDB 3.0–The human metabolome database in 2013</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2013</year>
+                <volume>41</volume>
+                <fpage>D801</fpage>
+                <lpage>807</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC38XhvV2ktrnP</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gks1065</pub-id>
+                <pub-id pub-id-type="pmid">23161693</pub-id>
+                <comment>cito:citesAsDataSource</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wishart</surname>
+                    <given-names>DS</given-names>
+                  </name>
+                  <name>
+                    <surname>Feunang</surname>
+                    <given-names>YD</given-names>
+                  </name>
+                  <name>
+                    <surname>Marcu</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">HMDB 4.0: the human metabolome database for 2018</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2018</year>
+                <volume>46</volume>
+                <fpage>D608</fpage>
+                <lpage>D617</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1cXitlGisb%2FF</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkx1089</pub-id>
+                <pub-id pub-id-type="pmid">29140435</pub-id>
+                <comment>cito:citesAsDataSource</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Williams</surname>
+                    <given-names>AJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Grulke</surname>
+                    <given-names>CM</given-names>
+                  </name>
+                  <name>
+                    <surname>Edwards</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">The compTox chemistry dashboard: a community data resource for environmental chemistry</article-title>
+                <source>J Cheminform</source>
+                <year>2017</year>
+                <volume>9</volume>
+                <fpage>61</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1MXjtlejtrw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13321-017-0247-6</pub-id>
+                <pub-id pub-id-type="pmid">29185060</pub-id>
+                <pub-id pub-id-type="pmcid">5705535</pub-id>
+                <comment>[cito:citesAsDataSource] [cito:usesDataFrom]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pence</surname>
+                    <given-names>HE</given-names>
+                  </name>
+                  <name>
+                    <surname>Williams</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ChemSpider: an online chemical information resource</article-title>
+                <source>J Chem Educ</source>
+                <year>2010</year>
+                <volume>87</volume>
+                <fpage>1123</fpage>
+                <lpage>1124</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXhtV2jtr%2FF</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ed100697w</pub-id>
+                <comment>[cito:citesAsDataSource]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Thiessen</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                  <name>
+                    <surname>Bolton</surname>
+                    <given-names>EE</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">PubChem substance and compound databases</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2016</year>
+                <volume>44</volume>
+                <fpage>D1202</fpage>
+                <lpage>D1213</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2sXhtV2gu7bE</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkv951</pub-id>
+                <pub-id pub-id-type="pmid">26400175</pub-id>
+                <comment>[cito:citesAsDataSource] [cito:usesDataFrom]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Cheng</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">PubChem 2019 update: improved access to chemical data</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2019</year>
+                <volume>47</volume>
+                <fpage>D1102</fpage>
+                <lpage>D1109</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gky1033</pub-id>
+                <pub-id pub-id-type="pmid">30371825</pub-id>
+                <comment>cito:citesAsDataSource] [cito:usesDataFrom</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Cheng</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">PubChem in 2021: new data content and improved web interfaces</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2021</year>
+                <volume>49</volume>
+                <fpage>D1388</fpage>
+                <lpage>D1395</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gkaa971</pub-id>
+                <pub-id pub-id-type="pmid">33151290</pub-id>
+                <comment>cito:citesAsDataSource] [cito:usesDataFrom</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ruttkies</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Schymanski</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                  <name>
+                    <surname>Wolf</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">MetFrag relaunched: incorporating strategies beyond in silico fragmentation</article-title>
+                <source>J Cheminform</source>
+                <year>2016</year>
+                <volume>8</volume>
+                <fpage>3</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2sXmtVKltL0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13321-016-0115-9</pub-id>
+                <pub-id pub-id-type="pmid">26834843</pub-id>
+                <pub-id pub-id-type="pmcid">4732001</pub-id>
+                <comment>(cito:citesAsAuthority) (cito:usesMethodIn) (cito:extends) (cito:usesDataFrom)</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="other">IPB Halle (2020) MetFrag Web. <ext-link xlink:href="https://msbi.ipb-halle.de/MetFrag/" ext-link-type="url">https://msbi.ipb-halle.de/MetFrag/</ext-link>. Accessed 7 Jul 2020 <bold>([cito:discusses] [cito:extends])</bold></mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="other">Schymanski E, Neumann S (2013) CASMI: And the Winner is.. . Metabolites 3:412–439. <ext-link xlink:href="https://doi.org/10.3390/metabo3020412" ext-link-type="doi">https://doi.org/10.3390/metabo3020412</ext-link><bold>[cito:discusses]</bold></mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Barupal</surname>
+                    <given-names>DK</given-names>
+                  </name>
+                  <name>
+                    <surname>Fiehn</surname>
+                    <given-names>O</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Generating the blood exposome database using a comprehensive text mining and database fusion approach</article-title>
+                <source>Environ Health Perspect</source>
+                <year>2019</year>
+                <volume>127</volume>
+                <fpage>097008</fpage>
+                <pub-id pub-id-type="doi">10.1289/EHP4713</pub-id>
+                <pub-id pub-id-type="pmcid">6794490</pub-id>
+                <comment>(cito:citesAsDataSource) (cito:discusses)</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="other">NORMAN Network (2020) NORMAN Suspect List Exchange. <ext-link xlink:href="https://www.norman-network.com/nds/SLE/" ext-link-type="url">https://www.norman-network.com/nds/SLE/</ext-link>. Accessed 9 Jun 2019 <bold>([cito:citesAsDataSource] [cito:discusses] [cito:extends])</bold></mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="other">NORMAN Network (2020) NORMAN Network Website. <ext-link xlink:href="https://www.norman-network.com/" ext-link-type="url">https://www.norman-network.com/</ext-link>. Accessed 7 May 2020 <bold>[cito:discusses]</bold></mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Dulio</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>van Bavel</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Brorström-Lundén</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Emerging pollutants in the EU: 10 years of NORMAN in support of environmental policies and regulations</article-title>
+                <source>Environ Sci Eur</source>
+                <year>2018</year>
+                <volume>30</volume>
+                <fpage>5</fpage>
+                <pub-id pub-id-type="doi">10.1186/s12302-018-0135-3</pub-id>
+                <pub-id pub-id-type="pmid">29568720</pub-id>
+                <pub-id pub-id-type="pmcid">5846969</pub-id>
+                <comment>cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schymanski</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                  <name>
+                    <surname>Singer</surname>
+                    <given-names>HP</given-names>
+                  </name>
+                  <name>
+                    <surname>Slobodnik</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Non-target screening with high-resolution mass spectrometry: critical review using a collaborative trial on water analysis</article-title>
+                <source>Anal Bioanal Chem</source>
+                <year>2015</year>
+                <volume>407</volume>
+                <fpage>6237</fpage>
+                <lpage>6255</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2MXosFKjsr8%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1007/s00216-015-8681-7</pub-id>
+                <pub-id pub-id-type="pmid">25976391</pub-id>
+                <comment>(cito:citesAsAuthority) (cito:discusses) (cito:extends)</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="other">NCBI/NLM/NIH (2020) PubChem Table of Contents Classification Browser. <ext-link xlink:href="https://pubchem.ncbi.nlm.nih.gov/classification/#hid=72" ext-link-type="url">https://pubchem.ncbi.nlm.nih.gov/classification/#hid=72</ext-link>. Accessed 7 May 2020 <bold>([cito:usesDataFrom] [cito:discusses] [cito:citesAsMetadataDocument])</bold></mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="other">Bolton EE, Schymanski EL (2019) PubChemLite tier0 and tier1 (Version 0.1.0) [Data set]. <ext-link xlink:href="https://doi.org/10.5281/zenodo.3548654" ext-link-type="doi">https://doi.org/10.5281/zenodo.3548654</ext-link><bold>([cito:usesDataFrom] [cito:citesAsMetadataDocument])</bold></mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="other">Bolton EE, Schymanski E (2020) PubChemLite tier0 and tier1 (Version 0.2.0) [Data set]. <ext-link xlink:href="https://doi.org/10.5281/zenodo.3611238" ext-link-type="doi">https://doi.org/10.5281/zenodo.3611238</ext-link><bold>([cito:usesDataFrom] [cito:citesAsMetadataDocument])</bold></mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="other">Neumann S, Schymanski E (2020) Environmental Cheminformatics GitLab Pages: PubChemLite Visualise Sunburst Plot. <ext-link xlink:href="https://git-r3lab.uni.lu/eci/pubchem/-/tree/master/pubchemlite/R/visualise" ext-link-type="url">https://git-r3lab.uni.lu/eci/pubchem/-/tree/master/pubchemlite/R/visualise</ext-link>. Accessed 10 Nov 2020. <bold>[cito:citesAsMetadataDocument]</bold></mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="other">Neumann S, Schymanski E (2020) Environmental Cheminformatics GitLab Pages: PubChemLite visualise.Rmb. <ext-link xlink:href="https://git-r3lab.uni.lu/eci/pubchem/-/raw/master/pubchemlite/R/visualise/visualise.Rmd" ext-link-type="url">https://git-r3lab.uni.lu/eci/pubchem/-/raw/master/pubchemlite/R/visualise/visualise.Rmd</ext-link>. Accessed 10 Nov 2020. <bold>[cito:citesAsMetadataDocument]</bold></mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="other">US EPA (2020) CompTox MetFrag Files (EPA FTP Site) - CompTox MetFrag Download Files (FTP). <ext-link xlink:href="ftp://newftp.epa.gov/COMPTOX/Sustainable_Chemistry_Data/Chemistry_Dashboard/MetFrag_metadata_files/" ext-link-type="url">ftp://newftp.epa.gov/COMPTOX/Sustainable_Chemistry_Data/Chemistry_Dashboard/MetFrag_metadata_files/</ext-link>. Accessed 10 Nov 2020. <bold>([cito:usesDataFrom] [cito:citesAsMetadataDocument])</bold></mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="other">Bolton E, Schymanski E, Kondić T, Thiessen P, Zhang J (2020) PubChemLite for Exposomics (Version 0.3.0). <ext-link xlink:href="https://doi.org/10.5281/zenodo.4183801" ext-link-type="doi">https://doi.org/10.5281/zenodo.4183801</ext-link><bold>([cito:usesDataFrom] [cito:citesAsMetadataDocument])</bold></mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="other">Schymanski E (2020) PubChemLite Evaluation Plotting Script. <ext-link xlink:href="https://git-r3lab.uni.lu/eci/pubchem/-/raw/master/pubchemlite/R/PCLite_eval_support.R" ext-link-type="url">https://git-r3lab.uni.lu/eci/pubchem/-/raw/master/pubchemlite/R/PCLite_eval_support.R</ext-link>. Accessed 10 Nov 2020. <bold>[cito:citesAsMetadataDocument]</bold></mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="other">Schymanski E (2020) Environmental Cheminformatics GitLab Pages: PubChemLite Figures Folder. <ext-link xlink:href="https://git-r3lab.uni.lu/eci/pubchem/-/tree/master/pubchemlite/R/figures/" ext-link-type="url">https://git-r3lab.uni.lu/eci/pubchem/-/tree/master/pubchemlite/R/figures/</ext-link>. Accessed 27 Oct 2020 <bold>[cito:citesAsMetadataDocument]</bold></mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="other">Rahlf T (2014) Datendesign mit R: 100 Visualisierungsbeispiele (Data Design with R: 100 Visualisation Examples), 1st Edition. Open Source Press, Munich, Germany <bold>[cito:usesMethodIn]</bold></mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="other">NORMAN Network (2020) NORMAN Suspect List Exchange on Zenodo. <ext-link xlink:href="https://zenodo.org/communities/norman-sle/" ext-link-type="url">https://zenodo.org/communities/norman-sle/</ext-link>. Accessed 9 Jun 2019 <bold>([cito:citesAsDataSource] [cito:usesDataFrom])</bold></mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="other">Network NORMAN, NCBI/NLM/NIH (2020) NORMAN SLE Classification Browser. <ext-link xlink:href="https://pubchem.ncbi.nlm.nih.gov/classification/#hid=101" ext-link-type="url">https://pubchem.ncbi.nlm.nih.gov/classification/#hid=101</ext-link>. Accessed 7 May 2020 <bold>([cito:usesDataFrom] [cito:discusses] [cito:citesAsMetadataDocument])</bold></mixed-citation>
+            </ref>
+            <ref id="CR46">
+              <label>46.</label>
+              <mixed-citation publication-type="other">Kiefer K, Müller A, Singer H, Hollender J (2019) S60 | SWISSPEST19 | Swiss Pesticides and Metabolites from Kiefer et al 2019. <ext-link xlink:href="https://doi.org/10.5281/zenodo.3544760" ext-link-type="doi">https://doi.org/10.5281/zenodo.3544760</ext-link><bold>([cito:usesDataFrom] [cito:citesAsDataSource])</bold></mixed-citation>
+            </ref>
+            <ref id="CR47">
+              <label>47.</label>
+              <mixed-citation publication-type="other">Kiefer K, Müller A, Singer H, Hollender J (2019) New relevant pesticide transformation products in groundwater detected using target and suspect screening for agricultural and urban micropollutants with LC-HRMS. Water Research 165:114972. <ext-link xlink:href="https://doi.org/10.1016/j.watres.2019.114972" ext-link-type="doi">https://doi.org/10.1016/j.watres.2019.114972</ext-link><bold>([cito:citesAsDataSource] [cito:citesAsAuthority])</bold></mixed-citation>
+            </ref>
+            <ref id="CR48">
+              <label>48.</label>
+              <mixed-citation publication-type="other">NCBI/NLM/NIH (2020) PubChem Compound Folpet - Agrochemical Transformations Section. <ext-link xlink:href="https://pubchem.ncbi.nlm.nih.gov/compound/8607#section=Agrochemical-Transformations" ext-link-type="url">https://pubchem.ncbi.nlm.nih.gov/compound/8607#section=Agrochemical-Transformations</ext-link>. Accessed 20 Oct 2020 <bold>[cito:citesAsMetadataDocument]</bold></mixed-citation>
+            </ref>
+            <ref id="CR49">
+              <label>49.</label>
+              <mixed-citation publication-type="other">Schymanski E (2020) PubChemLite Evaluation - Additional Files. <ext-link xlink:href="https://doi.org/10.5281/zenodo.4146956" ext-link-type="doi">https://doi.org/10.5281/zenodo.4146956</ext-link><bold>[cito:citesAsMetadataDocument]</bold></mixed-citation>
+            </ref>
+            <ref id="CR50">
+              <label>50.</label>
+              <mixed-citation publication-type="other">Network NORMAN, MassBank Consortium (2019) MassBank EU: European MassBank (NORMAN MassBank). <ext-link xlink:href="https://massbank.eu/MassBank/" ext-link-type="url">https://massbank.eu/MassBank/</ext-link>. Accessed 15 Mar 2019 <bold>[cito:citesAsDataSource]</bold></mixed-citation>
+            </ref>
+            <ref id="CR51">
+              <label>51.</label>
+              <mixed-citation publication-type="other">Schymanski E, Schulze T, Alygizakis N (2017) S1 | MASSBANK | NORMAN Compounds in MassBank. <ext-link xlink:href="https://doi.org/10.5281/zenodo.2621391" ext-link-type="doi">https://doi.org/10.5281/zenodo.2621391</ext-link><bold>[cito:citesAsDataSource]</bold></mixed-citation>
+            </ref>
+            <ref id="CR52">
+              <label>52.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schollée</surname>
+                    <given-names>JE</given-names>
+                  </name>
+                  <name>
+                    <surname>Schymanski</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                  <name>
+                    <surname>Stravs</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Similarity of high-resolution tandem mass spectrometry spectra of structurally related micropollutants and transformation products</article-title>
+                <source>J Am Soc Mass Spectrom</source>
+                <year>2017</year>
+                <volume>28</volume>
+                <fpage>2692</fpage>
+                <lpage>2704</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2sXhs1WhtL7P</pub-id>
+                <pub-id pub-id-type="doi">10.1007/s13361-017-1797-6</pub-id>
+                <pub-id pub-id-type="pmid">28952028</pub-id>
+                <comment>cito:citesAsDataSource] [cito:citesAsAuthority</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR53">
+              <label>53.</label>
+              <mixed-citation publication-type="other">Schollee J, Schymanski E (2020) S66 | EAWAGTPS | Parent-Transformation Product Pairs from Eawag. <ext-link xlink:href="https://doi.org/10.5281/zenodo.3754448" ext-link-type="doi">https://doi.org/10.5281/zenodo.3754448</ext-link><bold>([cito:usesDataFrom] [cito:citesAsDataSource])</bold></mixed-citation>
+            </ref>
+            <ref id="CR54">
+              <label>54.</label>
+              <mixed-citation publication-type="other">LCSB-ECI, Krier J, Schymanski E et al (2020) S68 | HSDBTPS | Transformation Products Extracted from HSDB Content in PubChem. <ext-link xlink:href="https://doi.org/10.5281/zenodo.3827487" ext-link-type="doi">https://doi.org/10.5281/zenodo.3827487</ext-link><bold>([cito:usesDataFrom] [cito:citesAsDataSource])</bold></mixed-citation>
+            </ref>
+            <ref id="CR55">
+              <label>55.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cheng</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhao</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Computation of octanol–water partition coefficients by guiding an additive model with knowledge</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <fpage>2140</fpage>
+                <lpage>2148</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXht1KisbvF</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci700257y</pub-id>
+                <pub-id pub-id-type="pmid">17985865</pub-id>
+                <comment>cito:discusses</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR56">
+              <label>56.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ross</surname>
+                    <given-names>DH</given-names>
+                  </name>
+                  <name>
+                    <surname>Cho</surname>
+                    <given-names>JH</given-names>
+                  </name>
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>L</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Breaking down structural diversity for comprehensive prediction of ion-neutral collision cross sections</article-title>
+                <source>Anal Chem</source>
+                <year>2020</year>
+                <volume>92</volume>
+                <fpage>4548</fpage>
+                <lpage>4557</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BB3cXjs1Klsb4%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.analchem.9b05772</pub-id>
+                <pub-id pub-id-type="pmid">32096630</pub-id>
+                <comment>cito:discusses</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR57">
+              <label>57.</label>
+              <mixed-citation publication-type="other">Libin Xu Lab (20200) CCSbase. <ext-link xlink:href="https://ccsbase.net/" ext-link-type="url">https://ccsbase.net/</ext-link>. Accessed 21 Oct 2020 <bold>[cito:discusses]</bold></mixed-citation>
+            </ref>
+            <ref id="CR58">
+              <label>58.</label>
+              <mixed-citation publication-type="other">LCSB-ECI, Schymanski E, Kondic T et al (2020) PubChemLite tier1 + predicted CCS from CCSbase. <ext-link xlink:href="https://doi.org/10.5281/zenodo.4081056" ext-link-type="doi">https://doi.org/10.5281/zenodo.4081056</ext-link><bold>([cito:discusses] [cito:citesAsDataSource])</bold></mixed-citation>
+            </ref>
+            <ref id="CR59">
+              <label>59.</label>
+              <mixed-citation publication-type="other">IPB Halle (2020) MetFrag Command Line. <ext-link xlink:href="http://ipb-halle.github.io/MetFrag/projects/metfragcl/" ext-link-type="url">http://ipb-halle.github.io/MetFrag/projects/metfragcl/</ext-link>. Accessed 7 Jul 2020 <bold>[cito:extends]</bold></mixed-citation>
+            </ref>
+            <ref id="CR60">
+              <label>60.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Helmus</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>ter Laak</surname>
+                    <given-names>TL</given-names>
+                  </name>
+                  <name>
+                    <surname>van Wezel</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">patRoon: open source software platform for environmental mass spectrometry based non-target screening</article-title>
+                <source>J Cheminform</source>
+                <year>2021</year>
+                <volume>13</volume>
+                <fpage>1</fpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-020-00477-w</pub-id>
+                <pub-id pub-id-type="pmid">33407901</pub-id>
+                <pub-id pub-id-type="pmcid">7789171</pub-id>
+                <comment>cito:citesAsAuthority] [cito:discusses] [cito:extends]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR61">
+              <label>61.</label>
+              <mixed-citation publication-type="other">NCBI/NLM/NIH (2020) PubChem Download Pages. <ext-link xlink:href="https://ftp.ncbi.nlm.nih.gov/pubchem/" ext-link-type="url">https://ftp.ncbi.nlm.nih.gov/pubchem/</ext-link>. Accessed 22 May 2020 <bold>([cito:usesDataFrom] [cito:citesAsMetadataDocument])</bold></mixed-citation>
+            </ref>
+            <ref id="CR62">
+              <label>62.</label>
+              <mixed-citation publication-type="other">LCSB-ECI (2020) Environmental Cheminformatics GitLab Pages: PubChemLite. <ext-link xlink:href="https://git-r3lab.uni.lu/eci/pubchem/-/tree/master/pubchemlite" ext-link-type="url">https://git-r3lab.uni.lu/eci/pubchem/-/tree/master/pubchemlite</ext-link>. Accessed 22 May 2020 <bold>[cito:citesAsMetadataDocument]</bold></mixed-citation>
+            </ref>
+            <ref id="CR63">
+              <label>63.</label>
+              <mixed-citation publication-type="other">NCBI/NLM/NIH (2020) PubChem Search for HXKKHQJGJAFBH. <ext-link xlink:href="https://pubchem.ncbi.nlm.nih.gov/#query=HXKKHQJGJAFBH" ext-link-type="url">https://pubchem.ncbi.nlm.nih.gov/#query=HXKKHQJGJAFBH</ext-link>. Accessed 22 May 2020 <bold>[cito:citesAsMetadataDocument]</bold></mixed-citation>
+            </ref>
+            <ref id="CR64">
+              <label>64.</label>
+              <mixed-citation publication-type="other">Helmus R (2020) rickhelmus/patRoon: Maintenance release. Zenodo. <ext-link xlink:href="https://doi.org/10.5281/zenodo.4194742" ext-link-type="doi">https://doi.org/10.5281/zenodo.4194742</ext-link><bold>[cito:extends]</bold></mixed-citation>
+            </ref>
+            <ref id="CR65">
+              <label>65.</label>
+              <mixed-citation publication-type="other">EPA’s National Center For Computational Toxicology (2018) CompTox Chemicals Dashboard Metadata Files for Integration with MetFrag. <ext-link xlink:href="https://doi.org/10.23645/epacomptox.7525199.V1" ext-link-type="doi">https://doi.org/10.23645/epacomptox.7525199.V1</ext-link><bold>([cito:usesDataFrom] [cito:citesAsMetadataDocument])</bold></mixed-citation>
+            </ref>
+            <ref id="CR66">
+              <label>66.</label>
+              <mixed-citation publication-type="other">McEachran AD, Mansouri K, Grulke C et al (2018) “MS-Ready” structures for non-targeted high-resolution mass spectrometry screening studies. Journal of Cheminformatics 10:45. <ext-link xlink:href="https://doi.org/10.1186/s13321-018-0299-2" ext-link-type="doi">https://doi.org/10.1186/s13321-018-0299-2</ext-link><bold>[cito:citesAsAuthority]</bold></mixed-citation>
+            </ref>
+            <ref id="CR67">
+              <label>67.</label>
+              <mixed-citation publication-type="other">Schymanski E (2020) Environmental Cheminformatics GitLab Pages: PubChemLite R Script Folder. <ext-link xlink:href="https://git-r3lab.uni.lu/eci/pubchem/-/tree/master/pubchemlite/R/" ext-link-type="url">https://git-r3lab.uni.lu/eci/pubchem/-/tree/master/pubchemlite/R/</ext-link>. Accessed 27 Oct 2020 <bold>[cito:citesAsMetadataDocument]</bold></mixed-citation>
+            </ref>
+            <ref id="CR68">
+              <label>68.</label>
+              <mixed-citation publication-type="other">Network NORMAN, NCBI/NLM/NIH (2020) NORMAN SLE Data Source in PubChem. <ext-link xlink:href="https://pubchem.ncbi.nlm.nih.gov/source/23819" ext-link-type="url">https://pubchem.ncbi.nlm.nih.gov/source/23819</ext-link>. Accessed 7 May 2020 <bold>[cito:citesAsDataSource]</bold></mixed-citation>
+            </ref>
+            <ref id="CR69">
+              <label>69.</label>
+              <mixed-citation publication-type="other">Bolton E, Schymanski E, Kondić T, Thiessen P, Zhang J (2021) PubChemLite Uploads [Data set]. Zenodo. <ext-link xlink:href="https://doi.org/10.5281/zenodo.4432123" ext-link-type="doi">https://doi.org/10.5281/zenodo.4432123</ext-link><bold>[cito:citesAsMetadataDocument]</bold></mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec9">
+              <title>Supplementary Information</title>
+              <p id="Par94">
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Supplementary Information">
+                  <media xlink:href="MediaObjects/13321_2021_489_MOESM1_ESM.rmd" mimetype="video" mime-subtype="vnd.rn-realmedia">
+                    <caption xml:lang="en">
+                      <p><bold>Additional file 1.</bold>  Visualisation of PubChem Compound TOC Content in PubChemLite (RMarkdown).</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+              <p id="Par92">
+                <supplementary-material content-type="local-data" id="MOESM2" xlink:title="Supplementary Information">
+                  <media xlink:href="MediaObjects/13321_2021_489_MOESM2_ESM.csv" mimetype="text" mime-subtype="plain">
+                    <caption xml:lang="en">
+                      <p><bold>Additional file 2.</bold> The merged benchmarking set of 977 compounds used in main text (CSV).</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+              <p id="Par93">
+                <supplementary-material content-type="local-data" id="MOESM3" xlink:title="Supplementary Information">
+                  <media xlink:href="MediaObjects/13321_2021_489_MOESM3_ESM.docx" mimetype="application" mime-subtype="msword">
+                    <caption xml:lang="en">
+                      <p><bold>Additional file 3.</bold> Additional tables and figures to support the main document.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+              <p id="Par95">
+                <supplementary-material content-type="local-data" id="MOESM4" xlink:title="Supplementary Information">
+                  <media xlink:href="MediaObjects/13321_2021_489_MOESM4_ESM.csv" mimetype="text" mime-subtype="plain">
+                    <caption xml:lang="en">
+                      <p><bold>Additional file 4.</bold> The agrochemical benchmarking set (CSV).</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+          </app>
+        </app-group>
+        <glossary>
+          <title>Abbreviations</title>
+          <def-list>
+            <def-item>
+              <term>API</term>
+              <def>
+                <p id="Par5">Application
+Programming Interface</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CASMI</term>
+              <def>
+                <p id="Par6">Critical Assessment of Small Molecule
+Identification</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CCS</term>
+              <def>
+                <p id="Par7">Collision Cross Section</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CID</term>
+              <def>
+                <p id="Par8">PubChem Compound Identifier</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CompTox</term>
+              <def>
+                <p id="Par9">US EPA CompTox Chemicals Dashboard</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>DAG</term>
+              <def>
+                <p id="Par10">Directed Acyclic Graph</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>DTXCID</term>
+              <def>
+                <p id="Par11">DSSTox Compound Identifier (from CompTox)</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>DTXSID</term>
+              <def>
+                <p id="Par12">DSSTox Substance Identifier (from CompTox)</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>ECI</term>
+              <def>
+                <p id="Par13">Environmental Cheminformatics group (at the
+University of Luxembourg)</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>FPSum</term>
+              <def>
+                <p id="Par14">Addition of fingerprint bits to form a scoring
+term used in PubChemLite</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>HMDB</term>
+              <def>
+                <p id="Par15">Human Metabolome Database</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>IKFB</term>
+              <def>
+                <p id="Par16">InChIKey First Block</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>KEGG</term>
+              <def>
+                <p id="Par17">Kyoto Encyclopedia of Genes and Genomes</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>MetFragRL</term>
+              <def>
+                <p id="Par18">MetFrag Relaunched</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>MoNA</term>
+              <def>
+                <p id="Par19">MassBank of North America</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>MS/MS</term>
+              <def>
+                <p id="Par20">Tandem Mass Spectrum, MS2</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>NCBI</term>
+              <def>
+                <p id="Par21">National Center for Biotechnology Information</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>NORMAN-SLE</term>
+              <def>
+                <p id="Par22">NORMAN Suspect List Exchange (NORMAN-SLE)</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PCL, PCLite</term>
+              <def>
+                <p id="Par23">PubChemLite</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RAM</term>
+              <def>
+                <p id="Par24">Random Access Memory</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>SLE</term>
+              <def>
+                <p id="Par25">Suspect List Exchange (see NORMAN-SLE)</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>TOC</term>
+              <def>
+                <p id="Par26">PubChem Compound Table of Contents(PubChem
+Compound TOC)</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>TOC FP</term>
+              <def>
+                <p id="Par27">Table of Contents fingerprint (TOC FP)</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>TOC Tree</term>
+              <def>
+                <p id="Par28">PubChem Compound Table of Contents (TOC) Tree</p>
+              </def>
+            </def-item>
+          </def-list>
+        </glossary>
+        <notes notes-type="ESMHint">
+          <title>Supplementary Information</title>
+          <p>The online version contains supplementary material available at <ext-link xlink:href="https://doi.org/10.1186/s13321-021-00489-0" ext-link-type="doi">https://doi.org/10.1186/s13321-021-00489-0</ext-link>.</p>
+        </notes>
+        <notes notes-type="Misc">
+          <title>Publisher’s Note</title>
+          <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+        </notes>
+      </back>
+    </article>
