@@ -9,4 +9,7 @@ There is a helpful Makefile (GNU make), wich can be run like this:
 
 ```shell
 export SecretKey=${YOUR_KEY}
-make 
+make doilist.txt
+make fetch
+make jats
+```
