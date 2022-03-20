@@ -32,4 +32,4 @@ jats: ${JATS}
 %.xml: %.response.xml
 	@echo "<?xml version=\"1.0\"?>" > $@
 	@echo "<!ENTITY % article SYSTEM \"http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd\">" >> $@
-	@xpath -e "/response/records/article" $< >> $@ || :
+	@xpath -e "/response/records/article" $< | sed -e 's/\(<email>\).*\(<\/email>\)/\1HIDDEN\2/' >> $@ || :
