@@ -1,0 +1,1666 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">BMC1758-2946-3-3</article-id>
+          <article-id pub-id-type="manuscript">118</article-id>
+          <article-id pub-id-type="doi">10.1186/1758-2946-3-3</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">jCompoundMapper: An open source Java library and command-line tool for chemical fingerprints</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" corresp="yes">
+              <name>
+                <surname>Hinselmann</surname>
+                <given-names>Georg</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDBMC1758294633_cor1">a</xref>
+            </contrib>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Rosenbaum</surname>
+                <given-names>Lars</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Jahn</surname>
+                <given-names>Andreas</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Fechner</surname>
+                <given-names>Nikolas</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Zell</surname>
+                <given-names>Andreas</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.10392.39</institution-id>
+                <institution-id institution-id-type="ISNI">0000 0001 2190 1447</institution-id>
+                <institution content-type="org-division">University of Tübingen</institution>
+                <institution content-type="org-name">Center for Bioinformatics Tübingen (ZBIT)</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Sand 1</addr-line>
+              <addr-line content-type="postcode">72076</addr-line>
+              <addr-line content-type="city">Tübingen</addr-line>
+              <country country="DE">Germany</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDBMC1758294633_cor1">
+              <label>a</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>10</day>
+            <month>1</month>
+            <year>2011</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2011</year>
+          </pub-date>
+          <volume>3</volume>
+          <issue seq="3">1</issue>
+          <elocation-id>3</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>7</day>
+              <month>10</month>
+              <year>2010</year>
+            </date>
+            <date date-type="received">
+              <day>7</day>
+              <month>10</month>
+              <year>2010</year>
+            </date>
+            <date date-type="accepted">
+              <day>10</day>
+              <month>1</month>
+              <year>2011</year>
+            </date>
+            <date date-type="online">
+              <day>10</day>
+              <month>1</month>
+              <year>2011</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© Hinselmann et al; licensee Chemistry Central Ltd. 2011</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-year>2011</copyright-year>
+            <copyright-holder>Hinselmann et al; licensee Chemistry Central Ltd.</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="url">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+            </license>
+          </permissions>
+          <abstract id="Abs1" xml:lang="en">
+            <title>Abstract</title>
+            <sec id="ASec1">
+              <title>Background</title>
+              <p>The decomposition of a chemical graph is a convenient approach to encode information of the corresponding organic compound. While several commercial toolkits exist to encode molecules as so-called fingerprints, only a few open source implementations are available. The aim of this work is to introduce a library for exactly defined molecular decompositions, with a strong focus on the application of these features in machine learning and data mining. It provides several options such as search depth, distance cut-offs, atom- and pharmacophore typing. Furthermore, it provides the functionality to combine, to compare, or to export the fingerprints into several formats.</p>
+            </sec>
+            <sec id="ASec2">
+              <title>Results</title>
+              <p>We provide a Java 1.6 library for the decomposition of chemical graphs based on the open source Chemistry Development Kit toolkit. We reimplemented popular fingerprinting algorithms such as depth-first search fingerprints, extended connectivity fingerprints, autocorrelation fingerprints (e.g. CATS2D), radial fingerprints (e.g. Molprint2D), geometrical Molprint, atom pairs, and pharmacophore fingerprints. We also implemented custom fingerprints such as the all-shortest path fingerprint that only includes the subset of shortest paths from the full set of paths of the depth-first search fingerprint. As an application of jCompoundMapper, we provide a command-line executable binary. We measured the conversion speed and number of features for each encoding and described the composition of the features in detail. The quality of the encodings was tested using the default parametrizations in combination with a support vector machine on the Sutherland QSAR data sets. Additionally, we benchmarked the fingerprint encodings on the large-scale Ames toxicity benchmark using a large-scale linear support vector machine. The results were promising and could often compete with literature results. On the large Ames benchmark, for example, we obtained an AUC ROC performance of 0.87 with a reimplementation of the extended connectivity fingerprint. This result is comparable to the performance achieved by a non-linear support vector machine using state-of-the-art descriptors. On the Sutherland QSAR data set, the best fingerprint encodings showed a comparable or better performance on 5 of the 8 benchmarks when compared against the results of the best descriptors published in the paper of Sutherland et al.</p>
+            </sec>
+            <sec id="ASec3">
+              <title>Conclusions</title>
+              <p>jCompoundMapper is a library for chemical graph fingerprints with several tweaking possibilities and exporting options for open source data mining toolkits. The quality of the data mining results, the conversion speed, the LPGL software license, the command-line interface, and the exporters should be useful for many applications in cheminformatics like benchmarks against literature methods, comparison of data mining algorithms, similarity searching, and similarity-based data mining.</p>
+            </sec>
+            <sec>
+              <fig id="Figa" position="anchor">
+                <p>
+                  <graphic position="anchor" specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2010_Article_118_Figa_HTML.gif" />
+                </p>
+              </fig>
+            </sec>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Support Vector Machine</kwd>
+            <kwd>Atom Type</kwd>
+            <kwd>Atom Pair</kwd>
+            <kwd>Hash Code</kwd>
+            <kwd>Topological Distance</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Chemistry Central</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>54</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2011</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2010</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>10</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>7</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2010_Article_118.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-3-3" ext-link-type="doi">10.1186/1758-2946-3-3</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Background</title>
+          <p>The decomposition of a chemical graph into a list of features is a convenient way to assess the similarity between chemical compounds by comparing the resulting lists of features. Such representations are also called chemical fingerprints [<xref ref-type="bibr" rid="CR1">1</xref>]. These encodings are important for data mining applications like similarity-based machine learning approaches or similarity searches [<xref ref-type="bibr" rid="CR2">2</xref>].</p>
+          <p>The goal of this work is to introduce an open source molecular fingerprinting library for data mining purposes which provides exact definitions of its fingerprinting algorithms. The algorithms can be parametrized with various options to adapt the encodings, for example, by applying a custom labeling function or by altering the search depth parameter. Additionally, the library can be used as a basis for new implementations. It is based on the Chemistry Development Kit [<xref ref-type="bibr" rid="CR3">3</xref>], which also provides several fingerprints in its API. However, there are several differences. The first aim of jCompoundMapper is to focus on the exact definition of its encodings, which is crucial to describe the features in data mining experiments. The second aim is to provide the functionality to export the fingerprints or pairwise similarity matrices to formats of popular machine learning toolboxes. A label or property of an input compound to be trained by a machine learning algorithm can be included.</p>
+          <p>Most fingerprint algorithms rely on either the geometrical or the topological distance between the atoms of a structure. The topological information is stored in the all-shortest path matrix, which encodes the minimum topological distance between two atoms (vertices) by the shortest path using the bonds (edges). Organic compounds are usually weakly connected because the number of covalent bonds (vertex degree) of an organic molecule is limited. In contrast, the geometry of a structure can be interpreted as a fully connected graph. The complexity of both approaches can reduced by limiting the search depth for topological fingerprints or by introducing a distance cut-off for geometrical fingerprints.</p>
+          <p>jCompoundMapper offers a variety of topological (e.g. radial atom environments [<xref ref-type="bibr" rid="CR4">4</xref>], extended connectivity fingerprints [<xref ref-type="bibr" rid="CR5">5</xref>], depth-first search fingerprints [<xref ref-type="bibr" rid="CR6">6</xref>], or auto-correlation vectors [<xref ref-type="bibr" rid="CR7">7</xref>]) and geometrical (e.g. two-point and three-point encodings [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR9">9</xref>] or geometrical atom environments [<xref ref-type="bibr" rid="CR10">10</xref>]) fingerprints. If applicable, it allows for a parameterization of an encoding, such as the search depth, the distance cut-off, the geometrical scaling factor, the atom typing scheme, or the hash space.</p>
+          <p>After the feature generation step, the list of features can be mapped to a vectorial format. One possibility is to encode a set of features as a hashed fingerprint. Here, a unique identifier of a feature is used to initialize a pseudo random number generator which produces numbers in <inline-formula id="IEq1"><alternatives><mml:math><mml:mrow><mml:mo stretchy="false">[</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mi>h</mml:mi><mml:mo stretchy="false">]</mml:mo><mml:mo>∈</mml:mo><mml:msup><mml:mi>ℕ</mml:mi><mml:mo>+</mml:mo></mml:msup></mml:mrow></mml:math><inline-graphic xlink:href="MediaObjects/13321_2010_Article_118_IEq1_HTML.gif" /></alternatives></inline-formula>, where <italic>h</italic> is the maximum size of the hash space. Thus, the dimensionality of the original feature space can be considerably reduced. For example, the Fingal fingerprint [<xref ref-type="bibr" rid="CR11">11</xref>], uses the cyclic redundancy check algorithm to generate seeds for the hashing of chemical graph patterns. For an introduction into hashed fingerprints, please refer to the review by Brown [<xref ref-type="bibr" rid="CR1">1</xref>]. Another strategy reserves fixed bit positions in a vector for specific feature types, like patterns obtained at a certain parameter (such as depth or distance) with a limited number of possible combinations. The definition of the CATS2D [<xref ref-type="bibr" rid="CR7">7</xref>] vector is an example for this approach.</p>
+          <p>jCompoundMapper supports native formats of common open source machine learning libraries. The exporters can be used to write feature maps to comma-separated format, LIBSVM [<xref ref-type="bibr" rid="CR12">12</xref>] format (sparse and matrix), and WEKA ARFF [<xref ref-type="bibr" rid="CR13">13</xref>]. Therefore, various data mining libraries can be directly applied on the output files. Furthermore, the library provides efficient data structures to compare sets of features in the case that the computation of a similarity matrix is required.</p>
+          <p>The quality of the encodings was compared on QSAR and toxicity benchmark problems in the results section. First, we conducted experiments using the support vector regression of LIBSVM on the well-known Sutherland QSAR benchmark set [<xref ref-type="bibr" rid="CR14">14</xref>]. Second, we used a large Ames toxicity classification benchmark [<xref ref-type="bibr" rid="CR15">15</xref>] and LIBLINEAR [<xref ref-type="bibr" rid="CR16">16</xref>] to evaluate the performance using binary hashed sparse fingerprints. On the Sutherland data sets, the averaged squared correlation of the all-shortest-path and the atom triplet fingerprint was at least 5% better on ACHE than the best encoding given by Sutherland et al. On BZR and DHFR, the all-shortest path fingerprint achieved a squared correlation of 0.57 and 0.76 respectively. The performance was comparable on two data sets. On the remaining three data sets, the best encoding was more than 5% worse than the results of the best encoding published by Sutherland et al. On the Ames toxicity data set, the implementation of the extended connectivity fingerprint achieved an AUC ROC performance of 0.87, which is comparable to the performance by a non-linear support vector machine trained on state-of-the-art descriptors. Nevertheless, the goal was not an exhaustive comparison but to show that the implementations are able to obtain similar results when compared against literature results. jCompoundMapper features a command-line interface but can also be used as a Java API. It depends solely on open source libraries and is licensed under the LPGL. The source code and an executable is available at Sourceforge.</p>
+          <p>The library originated from various implementations of literature fingerprints and descriptors used in comparison studies. The encodings were employed either as part of a new approach or as a reference method [<xref ref-type="bibr" rid="CR17">17</xref>–<xref ref-type="bibr" rid="CR21">21</xref>].</p>
+          <p>To sum up, jCompoundMapper is an open source library for the encoding of chemical graphs as fingerprints. It can be used from the command-line interface or as a Java API. Hence, a further use in applications, like in KNIME <ext-link xlink:href="http://www.knime.org" ext-link-type="url">http://www.knime.org</ext-link> nodes, is possible. The overall performance of the fingerprints in machine learning experiments indicates that structured-based models of reasonable quality can be obtained.</p>
+        </sec>
+        <sec id="Sec2" sec-type="methods">
+          <title>Methods</title>
+          <sec id="Sec3">
+            <title>Prerequisites</title>
+            <sec id="Sec4">
+              <title>Notation</title>
+              <p>The binned geometrical distance matrix <italic>G</italic><sub><italic>ij</italic></sub> encodes the spatial distances between two heavy atoms. The topological distance matrix <italic>T</italic><sub><italic>ij</italic></sub> encodes the shortest topological distance between atoms <italic>i</italic> and <italic>j</italic>. The labeling function <inline-formula id="IEq2"><alternatives><mml:math><mml:mrow><mml:mi>l</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>a</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo><mml:mo>→</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:math><inline-graphic xlink:href="MediaObjects/13321_2010_Article_118_IEq2_HTML.gif" /></alternatives></inline-formula> types an atom according to a specific labeling scheme. The maximum distance allowed between two atoms (geometrical or topological) <italic>d</italic> defines a distance cut-off for features, all features with <italic>g</italic><sub><italic>ij</italic></sub> > <italic>d</italic> or <italic>t</italic><sub><italic>ij</italic></sub> > d are omitted. A labeled path <italic>p</italic> is a sequence of atoms connected by bonds <inline-formula id="IEq3"><alternatives><mml:math><mml:mrow><mml:mi>p</mml:mi><mml:mo>=</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mn>0</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mrow><mml:mi>d</mml:mi><mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>d</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><inline-graphic xlink:href="MediaObjects/13321_2010_Article_118_IEq3_HTML.gif" /></alternatives></inline-formula>, where bond <italic>b</italic><sub><italic>i</italic></sub> connects <inline-formula id="IEq4"><alternatives><mml:math><mml:mrow><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:math><inline-graphic xlink:href="MediaObjects/13321_2010_Article_118_IEq4_HTML.gif" /></alternatives></inline-formula> with <inline-formula id="IEq5"><alternatives><mml:math><mml:mrow><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mrow><mml:mi>i</mml:mi><mml:mo>+</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub></mml:mrow></mml:math><inline-graphic xlink:href="MediaObjects/13321_2010_Article_118_IEq5_HTML.gif" /></alternatives></inline-formula>. <italic>p</italic><sub><italic>ij</italic></sub>denotes a path connecting the <italic>i</italic>th atom with the <italic>j</italic>th atom. The depth <italic>d</italic> for topological patterns is the maximum number of bonds allowed for connecting the first atom with the last atom. Analogously to the definition of topological paths, a geometrical pattern must consist of different atoms, i.e. for two atoms <italic>a</italic><sub><italic>i</italic></sub>, <italic>a</italic><sub><italic>j</italic></sub>it holds that <italic>i</italic> ≠ <italic>j</italic>. Finally, <italic>a</italic> ⊕ <italic>b</italic> is defined as the concatenation of alphanumerical string symbols separated by an unique delimiter. In the following, we assume a hydrogen-depleted molecular graph <italic>C</italic> with <italic>n</italic> atoms.</p>
+              <p>An encoding algorithm <italic>F</italic> has the form<disp-formula id="Equ1"><label>1</label><alternatives><mml:math><mml:mrow><mml:mi>F</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>C</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>→</mml:mo><mml:mi>X</mml:mi><mml:mo>=</mml:mo><mml:mrow><mml:mo>{</mml:mo><mml:mrow><mml:msub><mml:mi>f</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>f</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>f</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:mrow><mml:mo>}</mml:mo></mml:mrow></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ1_HTML.gif" /></alternatives></disp-formula></p>
+              <p>where an encoding algorithm <italic>F</italic> maps some compound <italic>C</italic> to a set of features <italic>X</italic>. <italic>m</italic> depends, with the exception of fixed-vector fingerprints, on <italic>C</italic>. A feature <italic>f</italic> has an unique <inline-formula id="IEq6"><alternatives><mml:math><mml:mrow><mml:mi>i</mml:mi><mml:mi>d</mml:mi><mml:mo>∈</mml:mo><mml:mi>ℕ</mml:mi></mml:mrow></mml:math><inline-graphic xlink:href="MediaObjects/13321_2010_Article_118_IEq6_HTML.gif" /></alternatives></inline-formula> and a string representation <italic>f.nom. f.id</italic> does not necessarily depend on <italic>f.nom</italic>. However, in most cases it is convenient to use a hash code of the string representation of a feature.</p>
+            </sec>
+            <sec id="Sec5">
+              <title>Fundamental Matrices</title>
+              <p>The geometrical distance matrix <italic>G</italic><sub><italic>ij</italic></sub> is computed as the matrix of binned Euclidean distances in Ångstrom between the three-dimensional coordinates of all atom coordinates <italic>a</italic><sub><italic>i</italic></sub> .<italic>c</italic> ∈ ℝ<sup>3</sup>, multiplied by a scaling factor <italic>s</italic> ∈ ℝ<sup>+</sup>. The scaling factor <italic>s</italic> influences the resolution of the geometry and should be chosen according to the size of the compounds. The entry <italic>i</italic>, <italic>j</italic> (<italic>g</italic><sub><italic>ij</italic></sub> ) in the matrix is calculated as follows<disp-formula id="Equ2"><label>2</label><alternatives><mml:math><mml:mrow><mml:msub><mml:mi>g</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:menclose notation="bottom left"><mml:mo stretchy="false">|</mml:mo></mml:menclose><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>a</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>.</mml:mo><mml:mi>c</mml:mi><mml:mo>−</mml:mo><mml:msub><mml:mi>a</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo>.</mml:mo><mml:mi>c</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mi>·</mml:mi><mml:mi>s</mml:mi><mml:menclose notation="bottom right"><mml:mo stretchy="false">|</mml:mo></mml:menclose><mml:mo>.</mml:mo></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ2_HTML.gif" /></alternatives></disp-formula></p>
+              <p>The computation time for the geometrical distance matrix is quadratic. The binning of the real-valued geometrical distance is important to produce discrete features <italic>f</italic><sub><italic>x</italic></sub> , <italic>f</italic><sub><italic>y</italic></sub> , which can be compared by the Dirac function<disp-formula id="Equ3"><label>3</label><alternatives><mml:math><mml:mrow><mml:mi>δ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>f</mml:mi><mml:mi>x</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>f</mml:mi><mml:mi>y</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo><mml:mtext> :</mml:mtext><mml:mo>=</mml:mo><mml:mrow><mml:mo>{</mml:mo><mml:mrow><mml:mtable><mml:mtr><mml:mtd><mml:mrow><mml:mn>1</mml:mn><mml:mo>,</mml:mo></mml:mrow></mml:mtd><mml:mtd><mml:mrow><mml:mtext>if</mml:mtext><mml:msub><mml:mi>f</mml:mi><mml:mi>x</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>f</mml:mi><mml:mi>y</mml:mi></mml:msub></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd><mml:mrow><mml:mn>0</mml:mn><mml:mo>,</mml:mo></mml:mrow></mml:mtd><mml:mtd><mml:mrow><mml:mtext>else</mml:mtext></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:mrow><mml:mo>.</mml:mo></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ3_HTML.gif" /></alternatives></disp-formula></p>
+              <p>The topological distance matrix is defined as <italic>T</italic><sub><italic>ij</italic></sub> . The element <italic>i, j</italic> contains the shortest path between the <italic>i</italic>th and the <italic>j</italic>th atom (<italic>t</italic><sub><italic>ij</italic></sub> ). <italic>t</italic><sub><italic>ij</italic></sub> is computed by the Floyd-Warshall algorithm. Therefore, the computation time for the matrix is <italic>O</italic>(<italic>n</italic><sup>3</sup>).</p>
+            </sec>
+            <sec id="Sec6">
+              <title>Feature Extraction</title>
+              <p>The molecular similarity is based on the numerical identifiers <italic>f</italic><sub><italic>x</italic></sub><italic>.id</italic> of a feature <italic>x</italic>. Two features are regarded as equal if <italic>f</italic><sub><italic>x</italic></sub><italic>.id</italic> = <italic>f</italic><sub><italic>y</italic></sub><italic>.id</italic>. In all implementations the features of a compound <italic>C</italic> are distinguishable by recurrence, which means that we include a feature if the id of a feature is different from the previously extracted features. If a feature with the same id is generated again, the count for the feature is incremented. All atom pair encodings are extracted by regarding the upper half of the distance matrix only. For each atom pair, the string representation is generated in both reading directions. Only the version with the greater hash code is included in the final set of descriptors.</p>
+              <p>The modified depth-first search applied in this library generates all possible paths originating from a root atom. Therefore, the feature space can be approximated by an <italic>m</italic>-ary tree and is therefore <italic>O</italic>(<italic>nm</italic><sup><italic>d</italic></sup> ), where <italic>n</italic> is the number of heavy atoms and <italic>m</italic> the number of children in an <italic>m</italic>-ary tree, <italic>d</italic> is the depth of the tree. In organic compounds, every atom has at most 4 neighbors (<italic>m</italic> = 4 - 1 because one of the neighboring bonds has already been visited). Thus, the hypothetical worst case has a complexity of <italic>O</italic>(<italic>n</italic>3 <sup><italic>d</italic></sup> ) at a search depth of <italic>d</italic>. If we assume an average branching factor <italic>α</italic>, which is slightly above 1 for organic compounds [<xref ref-type="bibr" rid="CR6">6</xref>], the depth-first search has a complexity of <italic>O</italic>(<italic>nα</italic><sup><italic>d</italic></sup> ). The average branching factor depends on the average degree of a vertex, which is about 2 in organic molecules. We define <italic>DFS</italic>(<italic>a</italic><sub><italic>i</italic></sub> , <italic>d</italic>) as the set of all possible paths originating from a root atom <italic>a</italic><sub><italic>i</italic></sub> with a depth up to <italic>d</italic>.</p>
+              <p>For some of the definitions, we defined a <italic>can</italic> function that maps a set of features to a single canonical pattern. In an implementation this function can be realized by first sorting the patterns, which is possible if a natural order can be defined on the features. Then, the list of sorted patterns can be merged to a single canonical representation.</p>
+            </sec>
+            <sec id="Sec7">
+              <title>Atom Types and Pharmacophore Types</title>
+              <p>jCompoundMapper applies the standard atom types and ring detection algorithms implemented in the CDK. There are various typing schemes for small drug-like compounds described in the literature. In the current version, jCompoundMapper features the following typing schemes as labeling function <inline-formula id="IEq7"><alternatives><mml:math><mml:mrow><mml:mi>l</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>a</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo><mml:mo>→</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:math><inline-graphic xlink:href="MediaObjects/13321_2010_Article_118_IEq2_HTML.gif" /></alternatives></inline-formula>:<list list-type="order"><list-item><p>Element symbol (e.g. C, O, N, ...)</p></list-item><list-item><p>CDK atom types (e.g. C.sp2, O.minus, N.amine, ...)</p></list-item><list-item><p>Element plus the number of neighboring heavy atoms (e.g. C.2, O.1, N.2, ...)</p></list-item><list-item><p>Element plus ring type plus the number of neighboring heavy atoms (e.g. C.r.2, C.a.2, O.1, N.2, ...) where <italic>r</italic> is an arbitrary ring, and <italic>a</italic> is an aromatic system. If <italic>a</italic><sub><italic>i</italic></sub> is not contained in a ring, no ring type is set. The precedence is <italic>a</italic> > <italic>r</italic>.</p></list-item><list-item><p>Daylight-Invariants (plus optional ring flag) have the following properties, separated by a dot: Atomic number, number of heavy atom neighbors, valency minus the number of connected hydrogens, atomic mass, atomic charge, number of connected hydrogens, and a flag if the atom is member of at least one ring. (e.g. 6.2.3.12.0.1.1 for a carbon in a benzole ring)</p></list-item></list></p>
+              <p>The following listing of potential pharmacophore points (PPPs) was published by Renner et al. [<xref ref-type="bibr" rid="CR7">7</xref>] for the CATS autocorrelation descriptors. If PPP atom types are needed, this list is parsed and matched with the structure using the CDK SMARTS matcher or specially implemented graph searches.<list list-type="order"><list-item><p>Hydrogen-bond donor (D): [#6H] oxygen atom of an OH-group; [#7 H,#7H2] nitrogen atom of an NH or NH<sub>2</sub> group</p></list-item><list-item><p>Hydrogen-bond acceptor (A): oxygen atom [#6]; [#7H0] nitrogen atom not adjacent to a hydrogen atom</p></list-item><list-item><p>Positive (P): [*+] atom with a positive charge; [#7H2] nitrogen atom of an NH<sub>2</sub> group</p></list-item><list-item><p>Negative (N): [*-] atom with a negative charge; [C&amp;$(C(= O)#8H1), P&amp;$(P(= O)O), S&amp;$(S(= O)O)] carbon, sulfur or phosphorus atom of a COOH, SOOH, or POOH group (SMARTS replaced by a direct graph search)</p></list-item><list-item><p>Lipophilic (L): [Cl, Br, I] chlorine, bromine, or iodine atom; [S;D2;$(S(C)(C))] sulfur; atom adjacent to exactly two carbon atoms; sulfur atom adjacent to only carbon atoms (SMARTS replaced by a direct graph search)</p></list-item></list></p>
+            </sec>
+          </sec>
+          <sec id="Sec8">
+            <title>Encodings</title>
+            <sec id="Sec9">
+              <title>Topological Fingerprints</title>
+              <p>All encodings described in the following section rely on the <italic>d</italic> parameter which constrains the maximum topological distance allowed between two atoms <italic>a</italic><sub><italic>i</italic></sub><italic>, a</italic><sub><italic>j</italic></sub> in a feature.</p>
+              <sec id="Sec10">
+                <title>All-Path Encoding (DFS)</title>
+                <p>All-path encodings are paths generated by a graph traversal with a modified depth-first search as proposed by Ralaivola et al. [<xref ref-type="bibr" rid="CR6">6</xref>]. The linear fragments are obtained by iterating over all atoms in a molecular graph and performing an exhaustive search up to a predefined depth <italic>d</italic>. To generate an unique representation for each path, a temporary path object is generated and mapped to two alphanumerical string representations by generating the original and reverse string representation of the corresponding path object. The version with the higher lexicographical order is stored.<disp-formula id="Equ4"><label>4</label><alternatives><mml:math><mml:mrow><mml:mi>F</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>C</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∪</mml:mo><mml:mi>i</mml:mi><mml:mi>n</mml:mi></mml:munderover><mml:mi>D</mml:mi></mml:mstyle><mml:mi>F</mml:mi><mml:mi>S</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mi>d</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ4_HTML.gif" /></alternatives></disp-formula></p>
+              </sec>
+              <sec id="Sec11">
+                <title>All-Shortest Path Encoding (ASP)</title>
+                <p>The ASP encoding equals the DFS encoding with the exception that only the paths from an atom are stored that have shortest distances from the root atom to the last atom contained in the path, which leads to a sparser representation. During the depth-first search, all paths are removed from the temporary set of depth-first search paths that do not fulfill this constraint. To incorporate this information the <italic>T</italic><sub><italic>ij</italic></sub> matrix is required. Let |<italic>p</italic><sub><italic>ij</italic></sub> | be the length (number of bonds between the <italic>i</italic>th and the <italic>j</italic>th atom in a path) of a path between atoms <italic>i, j</italic>, then the set of features <italic>F</italic> encoding a compound <italic>C</italic> is<disp-formula id="Equ5"><label>5</label><alternatives><mml:math><mml:mrow><mml:mi>F</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>C</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∪</mml:mo><mml:mi>i</mml:mi><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:mrow><mml:mo>{</mml:mo><mml:mrow><mml:mi>D</mml:mi><mml:mi>F</mml:mi><mml:mi>S</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mi>d</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>,</mml:mo><mml:mo stretchy="false">|</mml:mo><mml:msub><mml:mi>p</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">|</mml:mo><mml:mo>=</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mo>}</mml:mo></mml:mrow></mml:mrow></mml:mstyle><mml:mo>.</mml:mo></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ5_HTML.gif" /></alternatives></disp-formula></p>
+                <p>Thus, the all-shortest path encoding is a subset of the paths contained in the DFS fingerprint. It is similar to topological atom pair approaches [<xref ref-type="bibr" rid="CR8">8</xref>] with the exception that all-shortest paths between two atoms are explicitly stored. Borgwardt et al. proposed a graph kernel based on the set of all-shortest paths [<xref ref-type="bibr" rid="CR22">22</xref>], however, only the vertex pairs and their shortest-path distances were included in this work. The explicit generation of paths is necessary because the Floyd-Warshall algorithm computes only the shortest distances between two vertices.</p>
+              </sec>
+              <sec id="Sec12">
+                <title>Topological Atom Pairs (AP2D)</title>
+                <p>This encoding contains atom types and the shortest path distance information between all pairs of atoms. It can be directly extracted from <italic>T</italic><sub><italic>ij</italic></sub> by converting the pattern <inline-formula id="IEq8"><alternatives><mml:math><mml:mrow><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>j</mml:mi></mml:msub></mml:mrow></mml:math><inline-graphic xlink:href="MediaObjects/13321_2010_Article_118_IEq7_HTML.gif" /></alternatives></inline-formula> where <italic>i</italic> ≠ <italic>j</italic> to a string feature. The features are canonicalized by generating the patterns from both reading directions and storing the version with the higher lexicographical order.<disp-formula id="Equ6"><label>6</label><alternatives><mml:math><mml:mrow><mml:mi>F</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>C</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∪</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:mstyle><mml:mo>⊕</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>j</mml:mi></mml:msub></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ6_HTML.gif" /></alternatives></disp-formula></p>
+                <p>For 2-point patterns this can be easily conducted by regarding the upper half of the distance matrix <italic>T</italic><sub><italic>ij</italic></sub> only (i.e. <italic>i</italic> > <italic>j</italic>). O(<italic>n</italic><sup>2</sup>) is needed for the generation of features and O(<italic>n</italic><sup>3</sup>) for the computation of <italic>T</italic><sub><italic>ij</italic></sub> .</p>
+                <p>Thus, the total computation time is cubic.</p>
+              </sec>
+              <sec id="Sec13">
+                <title>Topological Atom Triplets (AT2D)</title>
+                <p>This encoding extends the AP2D encoding by a further atom. The set of patterns consists of atom triplets and the topological distance to the next atom in the feature <inline-formula id="IEq9"><alternatives><mml:math><mml:mrow><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>j</mml:mi></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>k</mml:mi></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mi>i</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:math><inline-graphic xlink:href="MediaObjects/13321_2010_Article_118_IEq8_HTML.gif" /></alternatives></inline-formula> where <italic>i</italic> ≠ <italic>j</italic> ≠ <italic>k</italic> and <italic>t</italic><sub><italic>ij</italic></sub><italic>, t</italic><sub><italic>jk</italic></sub><italic>, t</italic><sub><italic>ki</italic></sub> ≤ <italic>d</italic>. The total computation time for the features is cubic because all possible combinations of heavy atoms <italic>a</italic><sub><italic>i</italic></sub>, <italic>a</italic><sub><italic>j</italic></sub>, <italic>a</italic><sub><italic>k</italic></sub>have to be considered in the worst case.<disp-formula id="Equ7"><label>7</label><alternatives><mml:math><mml:mrow><mml:mi>F</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>C</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∪</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:mstyle><mml:mo>⊕</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>j</mml:mi></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>k</mml:mi></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mi>i</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ7_HTML.gif" /></alternatives></disp-formula></p>
+              </sec>
+              <sec id="Sec14">
+                <title>Topological Autocorrelation Keys (CATS2D)</title>
+                <p>The CATS2D descriptors encode the pairwise topological relationships of PPP patterns in a molecular graph by a vector of fixed size. The approach was described by Schneider et al. [<xref ref-type="bibr" rid="CR23">23</xref>], a list of PPP patterns was presented by Renner et al. [<xref ref-type="bibr" rid="CR7">7</xref>]. The PPPs are defined in the subsection ("Atom Types and Pharmacophore Types"). The combination of all points leads to 15 possible pairs. The pairs are mapped to a key with a fixed dimensionality. The position of a feature in the key is determined by the index for the corresponding pattern pair of PPPs plus the topological distance. For example, this means the bit 76 in the CATS vector with <italic>d</italic> = 9 belongs to the PPP pair DN, and contains the number of pairs with distance 6. In the original publication of the topological CATS descriptors, <italic>d</italic> = 9 was used as the distance cut-off for the topological search, resulting in a vector with 150 dimensions. In our implementation, the search depth can be adjusted by altering the <italic>d</italic> parameter. The resulting vector has (<italic>d</italic> + 1) · 15 dimensions. The complete list of possible PPP pairs in the vector (block index in parentheses) is: AA (0), AD (1), AL (2), AN (3), AP (4); DD (5); DL (6); DN (7); DP (8); LL (9), LN (10), LP (11), NN (12), NP (13), PP (14). Let <italic>F</italic> (<italic>C</italic>) = <italic>X</italic> be a decomposition into all valid PPP pairs. Then, the CATS2D vector is<disp-formula id="Equ8"><label>8</label><alternatives><mml:math><mml:mrow><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo>→</mml:mo></mml:mover><mml:mo>∈</mml:mo><mml:msup><mml:mi>ℕ</mml:mi><mml:mrow><mml:mi>d</mml:mi><mml:mi>·</mml:mi><mml:mn>15</mml:mn></mml:mrow></mml:msup><mml:mtext> where </mml:mtext><mml:msub><mml:mi>x</mml:mi><mml:mrow><mml:mtext>offset</mml:mtext><mml:mo stretchy="false">(</mml:mo><mml:mi>p</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mtext>+</mml:mtext><mml:msub><mml:mi>d</mml:mi><mml:mrow><mml:mn>2</mml:mn><mml:mi>D</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:mi>p</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>φ</mml:mi><mml:mi>p</mml:mi></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:mi>X</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ8_HTML.gif" /></alternatives></disp-formula></p>
+                <p>where offset(<italic>p</italic>) returns the predefined start index for the pattern <italic>p</italic>, <italic>d</italic><sub>2<italic>D</italic></sub>(<italic>p</italic>) returns the topological distance between two atoms in the PPP pair, and <italic>φ</italic><sub><italic>p</italic></sub>(<italic>X</italic>) counts the number of occurrences of a pattern <italic>p</italic> in <italic>X</italic>.</p>
+              </sec>
+              <sec id="Sec15">
+                <title>Pharmacophore Pair and Triplet Encodings (PHAP2PT2D, PHAP3PT2D)</title>
+                <p>The PHAP2PT2D encoding is computed similarly to the AP2D. However, instead of atom types, the information of all PPPs of an atom is used to generate the fingerprint. Thus, we have to iterate over all PPPs of an atom. Analogously, the PHAP3PT2D encoding is computed, which uses three points. To keep the notation simple, let <italic>P</italic><sub><italic>i</italic></sub> denote the set of valid PPPs for the <italic>i</italic>th atom. Then, the set of valid 2-point pharmacophores is<disp-formula id="Equ9"><label>9</label><alternatives><mml:math><mml:mrow><mml:mi>F</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>C</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∪</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:msub><mml:mi>P</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:mstyle><mml:mo>⊕</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mi>i</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ9_HTML.gif" /></alternatives></disp-formula></p>
+                <p>and the set of valid 3-point pharmacophores is defined as<disp-formula id="Equ10"><label>10</label><alternatives><mml:math><mml:mrow><mml:mi>F</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>C</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∪</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:msub><mml:mi>P</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:mstyle><mml:mo>⊕</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mi>i</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ10_HTML.gif" /></alternatives></disp-formula></p>
+                <p>where <italic>t</italic><sub><italic>ij</italic></sub><italic>, t</italic><sub><italic>jk</italic></sub><italic>, t</italic><sub><italic>ki</italic></sub><italic>≤ d</italic>. Actually, there are three additional inner loops over all valid pharmacophore points at atoms <italic>i, j, k</italic>. The complexity of these inner loops is theoretically 5<sup>3</sup> because the cardinality of the set of PPPs is 5. However, this complexity is further reduced because the meaning of some PPP definitions is contradicting for some combinations, such as "atom is positively charged" and "atom is negatively charged". The overall complexity is <italic>O</italic>(<italic>n</italic><sup>3</sup>) because of the constant computation time of the inner loops.</p>
+              </sec>
+              <sec id="Sec16">
+                <title>SHED Key (SHED)</title>
+                <p>The SHED Keys are closely related to the pharmacophore atom pair based encodings, with the following major differences: First, the number of dimensions is fixed, second the entries do not describe a count but the entropy of the respective atom pair descriptor [<xref ref-type="bibr" rid="CR24">24</xref>]. The implementation differs slightly from the original implementation because it utilizes the PPP definitions as described by Renner et al. [<xref ref-type="bibr" rid="CR7">7</xref>]. The distribution is analyzed for all possible combinations of PPPs. From that distribution of pairwise features the Shannon entropy is calculated as the descriptor in the corresponding PPP pair dimension of the SHED Key. The Shannon entropy of a PPP pair PPP <sub><italic>i</italic></sub> is defined as<disp-formula id="Equ11"><label>11</label><alternatives><mml:math><mml:mrow><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo>→</mml:mo></mml:mover><mml:mtext> where </mml:mtext><mml:msub><mml:mi>x</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:mi>H</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mrow><mml:mtext>PPP</mml:mtext></mml:mrow><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mo>−</mml:mo><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∑</mml:mo><mml:mrow><mml:mi>l</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>d</mml:mi></mml:munderover><mml:mi>p</mml:mi></mml:mstyle><mml:msub><mml:mrow><mml:mtext>(PPP</mml:mtext></mml:mrow><mml:mi>i</mml:mi></mml:msub><mml:mtext>(</mml:mtext><mml:mi>l</mml:mi><mml:mtext>)) </mml:mtext><mml:msub><mml:mrow><mml:mi>log</mml:mi></mml:mrow><mml:mi>b</mml:mi></mml:msub><mml:mi>p</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mrow><mml:mtext>PPP</mml:mtext></mml:mrow><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:mi>l</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ11_HTML.gif" /></alternatives></disp-formula></p>
+                <p>where PPP<sub><italic>i</italic></sub> (<italic>l</italic>) denotes the <italic>i</italic>th PPP pair that is separated by a topological distance <italic>l</italic>. If pattern <italic>i</italic> was not found, the value of the <italic>i</italic>th dimension is set to 0. The distribution of a PPP pair is calculated by regarding the different distances 1, 2, ...,<italic>l</italic>, ..., d. The resulting vector has 15 real-valued entries.</p>
+              </sec>
+              <sec id="Sec17">
+                <title>Extended Connectivity Fingerprints (ECFP)</title>
+                <p>We implemented a variant of the ECFP as described by Rogers and Hahn [<xref ref-type="bibr" rid="CR5">5</xref>]. Each ECFP feature represents a circular substructure around a center atom. The algorithm starts with the initial atom identifier of the center atom and grows a circular substructure around this atom throughout a defined number of iterations (search depth). For each round, the current extended version of the feature is added to the final set of features. In contrast to other radial fingerprints, the bonding information is included. Therefore, a feature can be extracted, for example, as canonical SMILES.</p>
+                <p>The current implementation of the ECFP in jCompoundMapper differs slightly from the original implementation. In the original algorithm, the identifiers of the alpha atoms of a center atom are used to calculate an updated identifier for the center atom. The algorithm only includes the alpha atoms of a center atom in each iteration and thus the connectivity information is completely discarded between the layers. However, the identifier of a center atom implicitly contains information from further and further away of the center atom in each iteration because the atom identifiers of the previous iteration are used. We explicitly model the growing substructure by using the initial atom identifiers in each iteration and keeping the connectivity information between the layers. After an iteration, new possible attachment points for a specific circular substructure are kept in memory and those attachment points are extended in the next iteration.</p>
+              </sec>
+              <sec id="Sec18">
+                <title>Topological Molprint-like fingerprints (RAD2D)</title>
+                <p>This encoding was proposed by Bender et al. [<xref ref-type="bibr" rid="CR4">4</xref>, <xref ref-type="bibr" rid="CR25">25</xref>] and describes the radial environment by the atoms with the topological distance 1, 2, ..., <italic>l</italic>, ..., <italic>d</italic> rather than the full paths containing bonds. A shell <italic>s</italic>(<italic>a</italic><sub><italic>i</italic></sub> ) <sub><italic>l</italic></sub> in our implementation contains the canonically sorted set of topological neighbors of atom <italic>a</italic><sub><italic>i</italic></sub> at a distance <italic>t</italic><sub><italic>ij</italic></sub> = <italic>l</italic>. Additionally, we include the concatenation of all shells ≤ 1, 2, ..., <italic>l</italic>, ..., d as additional features. Therefore, a resulting set of features contains <italic>n · d</italic> features.<disp-formula id="Equ12"><label>12</label><alternatives><mml:math><mml:mrow><mml:mi>F</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>C</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∪</mml:mo><mml:mi>i</mml:mi><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:mstyle displaystyle="true"><mml:munder><mml:mo>∪</mml:mo><mml:mi>d</mml:mi></mml:munder></mml:mstyle></mml:mrow></mml:mstyle><mml:mi>c</mml:mi><mml:mi>a</mml:mi><mml:mi>n</mml:mi><mml:mtext> (</mml:mtext><mml:mi>s</mml:mi><mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mi>d</mml:mi></mml:msub><mml:mtext>)</mml:mtext></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ12_HTML.gif" /></alternatives></disp-formula></p>
+              </sec>
+              <sec id="Sec19">
+                <title>Local Path Environments (LSTAR)</title>
+                <p>This fingerprint is a radial fingerprint similar to RAD2D. The major difference is that all paths up to depth <italic>d</italic> are stored in a shell. First, the tree of all paths originating from an atom <italic>a</italic><sub><italic>i</italic></sub> is generated. Then, all paths of a certain length are assigned to a shell <italic>s</italic>(<italic>a</italic><sub><italic>i</italic></sub> ) <sub><italic>d</italic></sub> containing the paths originating from root atom <italic>a</italic><sub><italic>i</italic></sub> of length <italic>d</italic>. This is equal to a canonical representation of <italic>DFS</italic>(<italic>a</italic><sub><italic>i</italic>, </sub><italic>d</italic>) in a single canonical feature. The paths in a shell are sorted in lexicographical order to be comparable. The resulting fingerprint contains all shells ≤ 1, 2, ..., <italic>l</italic>, ..., <italic>d</italic>. The major difference to the Molprint-like fingerprints is that the bond information is still included.</p>
+                <p>
+                  <disp-formula id="Equ13">
+                    <label>13</label>
+                    <alternatives>
+                      <mml:math>
+                        <mml:mrow>
+                          <mml:mi>F</mml:mi>
+                          <mml:mo stretchy="false">(</mml:mo>
+                          <mml:mi>C</mml:mi>
+                          <mml:mo stretchy="false">)</mml:mo>
+                          <mml:mo>=</mml:mo>
+                          <mml:mstyle displaystyle="true">
+                            <mml:munderover>
+                              <mml:mo>∪</mml:mo>
+                              <mml:mi>i</mml:mi>
+                              <mml:mi>n</mml:mi>
+                            </mml:munderover>
+                            <mml:mrow>
+                              <mml:mstyle displaystyle="true">
+                                <mml:munder>
+                                  <mml:mo>∪</mml:mo>
+                                  <mml:mi>d</mml:mi>
+                                </mml:munder>
+                                <mml:mrow>
+                                  <mml:mi>c</mml:mi>
+                                  <mml:mi>a</mml:mi>
+                                  <mml:mi>n</mml:mi>
+                                  <mml:mtext> (</mml:mtext>
+                                  <mml:mi>D</mml:mi>
+                                  <mml:mi>F</mml:mi>
+                                  <mml:mi>S</mml:mi>
+                                  <mml:mo stretchy="false">(</mml:mo>
+                                  <mml:msub>
+                                    <mml:mover accent="true">
+                                      <mml:mi>a</mml:mi>
+                                      <mml:mo>^</mml:mo>
+                                    </mml:mover>
+                                    <mml:mi>i</mml:mi>
+                                  </mml:msub>
+                                  <mml:mo>,</mml:mo>
+                                  <mml:mi>d</mml:mi>
+                                  <mml:mo stretchy="false">)</mml:mo>
+                                  <mml:mtext>)</mml:mtext>
+                                </mml:mrow>
+                              </mml:mstyle>
+                            </mml:mrow>
+                          </mml:mstyle>
+                        </mml:mrow>
+                      </mml:math>
+                      <graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ13_HTML.gif" />
+                    </alternatives>
+                  </disp-formula>
+                </p>
+              </sec>
+            </sec>
+            <sec id="Sec20">
+              <title>Geometrical Fingerprints</title>
+              <p>All geometrical encodings support the <italic>d</italic> parameter which defines the distance cut-off between two atoms. Another important parameter is the scaling factor <italic>s</italic>, as described at the beginning of this section.</p>
+              <sec id="Sec21">
+                <title>Geometrical Atom Pairs and Atom Triplets (AP3D, AT3D)</title>
+                <p>These encodings are implemented similarly as their topological pendants AP2D and AT2D. The only difference is that <italic>G</italic><sub><italic>ij</italic></sub> is used for the distance information. Thus, the geometrical two-point atom pair encoding (AP2D) is defined as<disp-formula id="Equ14"><label>14</label><alternatives><mml:math><mml:mrow><mml:mi>F</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>C</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∪</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:mstyle><mml:mo>⊕</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>j</mml:mi></mml:msub></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ14_HTML.gif" /></alternatives></disp-formula></p>
+                <p>where <italic>i</italic> ≠ <italic>j</italic> and <italic>g</italic><sub><italic>ij</italic></sub> ≤ <italic>d</italic>.</p>
+                <p>For the three-point relationships AT3D, we have<disp-formula id="Equ15"><label>15</label><alternatives><mml:math><mml:mrow><mml:mi>F</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>C</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∪</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:mstyle><mml:mo>⊕</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>j</mml:mi></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>k</mml:mi></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mi>i</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ15_HTML.gif" /></alternatives></disp-formula></p>
+                <p>where <italic>i</italic> ≠ <italic>j</italic> ≠ <italic>k</italic> and <italic>g</italic><sub><italic>ij</italic></sub><italic>, g</italic><sub><italic>jk</italic></sub><italic>, g</italic><sub><italic>ki</italic></sub> ≤ <italic>d</italic>.</p>
+                <p>This is a standard encoding implemented in several toolkits; a kernel based on such patterns was published by Mahé et al [<xref ref-type="bibr" rid="CR9">9</xref>].</p>
+              </sec>
+              <sec id="Sec22">
+                <title>Geometrical CATS fingerprints (CATS3D)</title>
+                <p>Our implementation differs from the description of the original CATS3D [<xref ref-type="bibr" rid="CR7">7</xref>], which uses the Molecular Operating Environment (MOE, Chemical Computing Group, <ext-link xlink:href="http://www.chemcomp.com/" ext-link-type="url">http://www.chemcomp.com/</ext-link>) patterns to depict surface features of a molecule. The version implemented in jCompoundMapper uses the PPP definitions which were also used in the implementation of the CATS2D vector. Again, let <italic>F</italic>(<italic>C</italic>) = <italic>X</italic> be the set of all valid PPP pairs and <italic>φ</italic><sub><italic>p</italic></sub>(<italic>X</italic>) a function which counts a pattern <italic>p</italic> ∈ <italic>X</italic>. Then the CATS3D vector is<disp-formula id="Equ16"><label>16</label><alternatives><mml:math><mml:mrow><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo>→</mml:mo></mml:mover><mml:mo>∈</mml:mo><mml:msup><mml:mi>ℕ</mml:mi><mml:mrow><mml:mi>d</mml:mi><mml:mi>·</mml:mi><mml:mn>15</mml:mn></mml:mrow></mml:msup><mml:mtext> where </mml:mtext><mml:msub><mml:mi>x</mml:mi><mml:mrow><mml:mtext>offset(</mml:mtext><mml:mi>p</mml:mi><mml:mtext>)</mml:mtext><mml:mo>+</mml:mo><mml:msub><mml:mi>d</mml:mi><mml:mrow><mml:mn>3</mml:mn><mml:mi>D</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:mi>p</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>φ</mml:mi><mml:mi>p</mml:mi></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:mi>X</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ16_HTML.gif" /></alternatives></disp-formula></p>
+                <p>where <italic>d</italic><sub>3<italic>D</italic></sub>(<italic>p</italic>) returns the geometrical distance of the two atoms, which equals <italic>g</italic><sub><italic>ij</italic></sub> between any atoms <italic>i</italic>, <italic>j</italic> contained in a feature.</p>
+              </sec>
+              <sec id="Sec23">
+                <title>Geometrical pharmacophore fingerprints (PHAP2PT3 D, PHAP3PT3D)</title>
+                <p>These fingerprints are derived from their topological variants PHAP2PT2D and PHAP3PT2D by replacing the <italic>T</italic><sub><italic>ij</italic></sub> matrix by <italic>G</italic><sub><italic>ij</italic></sub> . Let <italic>P</italic><sub><italic>i</italic></sub> denote the set of valid PPP for the <italic>i</italic>th atom then <italic>P</italic><sub><italic>i</italic></sub> ⊕ <italic>g</italic><sub><italic>ij</italic></sub> ⊕ <italic>P</italic><sub><italic>j</italic></sub> is a valid two-point pharmacophores and <italic>P</italic><sub><italic>i</italic></sub> ⊕ <italic>g</italic><sub><italic>ij</italic></sub> ⊕ <italic>P</italic><sub><italic>j</italic></sub> ⊕ <italic>g</italic><sub><italic>jk</italic></sub> ⊕ <italic>P</italic><sub><italic>k</italic></sub> ⊕ <italic>g</italic><sub><italic>ki</italic></sub> is a valid three-point pharmacophore, where <italic>g</italic><sub><italic>ij</italic></sub> , <italic>g</italic><sub><italic>jk</italic></sub> , <italic>g</italic><sub><italic>ki</italic></sub> ≤ <italic>d</italic>.</p>
+                <p>The set of valid 2-point pharmacophores is defined as<disp-formula id="Equ17"><label>17</label><alternatives><mml:math><mml:mrow><mml:mi>F</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>C</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∪</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:msub><mml:mi>P</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:mstyle><mml:mo>⊕</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ17_HTML.gif" /></alternatives></disp-formula></p>
+                <p>and the set of valid 3-point pharmacophores is defined as<disp-formula id="Equ18"><label>18</label><alternatives><mml:math><mml:mrow><mml:mi>F</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>C</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∪</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:msub><mml:mi>P</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:mstyle><mml:mo>⊕</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>k</mml:mi></mml:mrow></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>⊕</mml:mo><mml:msub><mml:mi>g</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mi>i</mml:mi></mml:mrow></mml:msub><mml:mo>.</mml:mo></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ18_HTML.gif" /></alternatives></disp-formula></p>
+                <p>Again, <italic>P</italic><sub><italic>i</italic></sub> denotes the set of valid PPPs for the <italic>i</italic>th atom.</p>
+              </sec>
+              <sec id="Sec24">
+                <title>Geometrical Molprint-like fingerprints (RAD3D)</title>
+                <p>These encodings are the geometrical pendant of the topological RAD2D encoding. Similar to the RAD2D encoding, the atoms with <italic>g</italic><sub><italic>ij</italic></sub> = <italic>l</italic> at a binned geometrical distance are added to a shell descriptor. For each value in 1, 2, ..., <italic>l</italic>, ..., <italic>d</italic> a pattern containing all shells up to distance <italic>l</italic> in a canonical order is created. Therefore, the encoding contains <italic>n</italic> · <italic>d</italic> entries.<disp-formula id="Equ19"><label>19</label><alternatives><mml:math><mml:mrow><mml:mi>F</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>C</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mstyle displaystyle="true"><mml:munderover><mml:mo>∪</mml:mo><mml:mi>i</mml:mi><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:mstyle displaystyle="true"><mml:munder><mml:mo>∪</mml:mo><mml:mi>d</mml:mi></mml:munder><mml:mrow><mml:mi>c</mml:mi><mml:mi>a</mml:mi><mml:mi>n</mml:mi><mml:mtext> (</mml:mtext><mml:mi>s</mml:mi><mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>a</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mi>d</mml:mi></mml:msub><mml:mtext>)</mml:mtext></mml:mrow></mml:mstyle></mml:mrow></mml:mstyle></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equ19_HTML.gif" /></alternatives></disp-formula></p>
+              </sec>
+            </sec>
+            <sec id="Sec25">
+              <title>Example of encodings</title>
+              <p>Comparison Table <xref rid="Tab1" ref-type="table">1</xref> gives a direct tabular comparison of the features extracted by the encodings together with their count or value. The features are generated from the compound presented in Figure <xref rid="Fig1" ref-type="fig">1</xref>.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Examples of Encodings</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Encoding</p></th><th align="center"><p>Eq.<sup><bold><italic>a</italic></bold></sup></p></th><th align="center"><p>c param<sup><bold><italic>b</italic></bold></sup></p></th><th align="left"><p>Pattern produced by <bold><italic>f</italic></bold></p></th></tr></thead><tbody><tr><td align="left"><p>DFS</p></td><td align="center"><p>4</p></td><td align="center"><p>0</p></td><td align="left"><p>C.2-N.3-C.3:1, C.3-C.2-N.3:1, C.3-N.3-C.3:1, C.3-N.3:1, C.2-C.3-N.3:1, C.3-C.3-N.3:1, ...</p></td></tr><tr><td align="left"><p>ASP</p></td><td align="center"><p>5</p></td><td align="center"><p>1</p></td><td align="left"><p>N.3-C.3 = O.1:1, C.1-C.3-N.3:1, C.2-N.3:1, C.2-N.3-C.3:1, C.3-C.2-N.3:1, C.3-N.3:1, ...</p></td></tr><tr><td align="left"><p>AP2D</p></td><td align="center"><p>6</p></td><td align="center"><p>2</p></td><td align="left"><p>N.3-1-C.2:1, N.3-1-C.3:1, N.3-2-C.2:1, N.3-2-C.1:1, N.3-2-C.3:1, O.1-2-N.3:1</p></td></tr><tr><td align="left"><p>AT2D</p></td><td align="center"><p>7</p></td><td align="center"><p>3</p></td><td align="left"><p>C.2-2-N.3-1-C.3-1:1, N.3-2-C.2-2-C.2-1:1, N.3-2-C.2-2-C.3-2:1, ...</p></td></tr><tr><td align="left"><p>CATS2D</p></td><td align="center"><p>8</p></td><td align="center"><p>6</p></td><td align="left"><p>0:5, 2:2, 3:4, ...</p></td></tr><tr><td align="left"><p>PHAP2POINT2D</p></td><td align="center"><p>9</p></td><td align="center"><p>8</p></td><td align="left"><p>A-2-A:1, L-2-A:1, N-2-A:1</p></td></tr><tr><td align="left"><p>PHAP3POINT2D</p></td><td align="center"><p>10</p></td><td align="center"><p>9</p></td><td align="left"><p>A-2-A-2-L-2:1, A-2-A-2-L-2:1, ...</p></td></tr><tr><td align="left"><p>SHED</p></td><td align="center"><p>11</p></td><td align="center"><p>14</p></td><td align="left"><p>AA:2.8, AL:3.596, AN:2.872, ...</p></td></tr><tr><td align="left"><p>ECFP</p></td><td align="center"><p>-</p></td><td align="center"><p>12</p></td><td align="left"><p>[*]N([*])C(= O)C:1, [*] = C([*])N(C[*])C([*])[*]:1, [*]N([*])[*]:1, ...</p></td></tr><tr><td align="left"><p>RAD2D</p></td><td align="center"><p>12</p></td><td align="center"><p>15</p></td><td align="left"><p>0[N]1[C C C]:1, 0[N]1[C C C]2[C C C C O]:1</p></td></tr><tr><td align="left"><p>LSTAR</p></td><td align="center"><p>13</p></td><td align="center"><p>13</p></td><td align="left"><p>[N.3-C.2, N.3-C.3, N.3-C.3]:1, [N.3-C.2-C.3, N.3-C.3-C.1, N.3-C.3-C.2, N.3-C.3-C.3, N.3-C.3 = O.1]:1</p></td></tr><tr><td align="left"><p>AP3D</p></td><td align="center"><p>14</p></td><td align="center"><p>4</p></td><td align="left"><p>N.3-1-C.2:1, N.3-1-C.3:1, N.3-2-C.1:1, N.3-2-C.2:1, N.3-2-C.3:1, O.1-2-N.3:1</p></td></tr><tr><td align="left"><p>AT3D</p></td><td align="center"><p>15</p></td><td align="center"><p>5</p></td><td align="left"><p>C.3-1-O.1-2-N.3-1:1, O.1-2-C.1-2-N.3-2:1, C.2-2-C.2-2-N.3-1:1, ...</p></td></tr><tr><td align="left"><p>CATS3D</p></td><td align="center"><p>16</p></td><td align="center"><p>7</p></td><td align="left"><p>0:5, 2:2, 3:4, ...</p></td></tr><tr><td align="left"><p>PHAP2POINT3D</p></td><td align="center"><p>17</p></td><td align="center"><p>10</p></td><td align="left"><p>A-2-A:1, L-2-A:1, N-2-A:1</p></td></tr><tr><td align="left"><p>PHAP3POINT3D</p></td><td align="center"><p>18</p></td><td align="center"><p>11</p></td><td align="left"><p>A-2-A-2-L-2:1, A-2-L-2-A-2:1, L-2-A-2-A-2:1</p></td></tr><tr><td align="left"><p>RAD3D</p></td><td align="center"><p>19</p></td><td align="center"><p>16</p></td><td align="left"><p>0[N.3]1[C.2 C.3 C.3]2[C.1 C.2 C.3 C.3 O.1]:1, 0[N.3]1[C.2 C.3 C.3]:1</p></td></tr></tbody></table><table-wrap-foot><p>Examples and numeric values (counts, or, in the case of SHED, entropies) for the string representations for the different encodings of Oxaceprol (Figure 1) with <italic>d</italic> = 2, default element atom typing and delimiter symbol "-". The patterns are extracted around the nitrogen atom. For some of the encodings, only a subset of the features is shown.</p><p><sup><italic>a</italic></sup>Equation number <sup><italic>b</italic></sup> Parameter for command-line interface</p></table-wrap-foot></table-wrap><fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>Topology and Geometry of Oxaceprol</bold>. The geometry and topology of Oxaceprol. Pharmacophore types shown in the 3 D structure are 1 = [L], <bold>3 = [A - [#7H0]]</bold>, 6 = [D - [OH], A - [O]],8 = [L], 9 = [A - [O]],10 = [N], 11 = [A - [O]], 12 = [D - [OH], A - [O]]. The geometry and topology of this compound is the basis for the exemplary fingerprints shown in Table 1. Note that multiple PPPs can be assigned to an atom: In this case atoms 6 and 12 have two valid PPPs.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_118_Fig1_HTML.jpg" /></p></fig></p>
+            </sec>
+          </sec>
+        </sec>
+        <sec id="Sec26">
+          <title>Implementation</title>
+          <sec id="Sec27">
+            <title>Third-party libraries</title>
+            <p>The underlying chemical expert system is the Chemistry Development Kit (CDK) [<xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR26">26</xref>] in its current development version 1.35. It provides the basic functionality for parsing, typing, and graph algorithms for molecular data. For the command-line interface we employed the Apache Commons command-line parser 1.2 <ext-link xlink:href="http://commons.apache.org/cli/" ext-link-type="url">http://commons.apache.org/cli/</ext-link>. The access via the API or the binary using the command-line interface enables the user to utilize the library for batch processing. The language level is Java 1.6.</p>
+          </sec>
+          <sec id="Sec28">
+            <title>Additional functionality</title>
+            <sec id="Sec29">
+              <title>Import and Export of Data</title>
+              <p>The valid input format is MDL SD format with attached hydrogens for the command-line tool. The CDK molecule objects can be processed using the API.</p>
+              <p>There are exporters for various formats of popular machine learning toolboxes. The ARFF format is the native WEKA [<xref ref-type="bibr" rid="CR13">13</xref>] format, the support vector machine libraries LIBSVM and LIBLINEAR are supported by their sparse hashed format and precomputed matrix format. Alternatively, there are several comma-separated formats which support hashed or string features, which can be imported into toolboxes like R or MATLAB.</p>
+              <p>jCompoundMapper includes a buffered random access reader for parsing the input files. Thus, it can read files of the maximum size supported by the Java runtime environment. The memory requirements are low if the encodings are exported sequentially (such as the sparse LIBSVM format) because only a single encoding has to be stored at a time. If the computation of a similarity matrix is required, all encodings are kept in memory to ensure a fast computation of similarities. For this reason, a matrix computation requires additional memory for large data sets.</p>
+              <p>The label or class for learning tasks is read from the SD property and is integrated into the specific output format. As for the ARFF format, a nominal or numeric class label is created, depending on the distribution of labels in the input format. The user may overwrite the default threshold for the number of classes (currently, this is set to five).</p>
+            </sec>
+            <sec id="Sec30">
+              <title>Hashing</title>
+              <p>All decomposition algorithms <italic>F</italic>(<italic>C</italic>) return the full list of features (the encoding). A feature <italic>f</italic> has an integer identifier <italic>f</italic>.<italic>id</italic> ∈ {0, 1, .... 2<sup>32</sup>} which allows the efficient use in hash based collections. Therefore, it is possible to operate on the full set of descriptors and to generate hashed fingerprints. Hashing is useful to generate binary vectors of a fixed size. The hash function <italic>H</italic><disp-formula id="Equ20"><alternatives><mml:math><mml:mrow><mml:mi>H</mml:mi><mml:mo>∘</mml:mo><mml:mi>F</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>C</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>→</mml:mo><mml:msubsup><mml:mi>ℤ</mml:mi><mml:mn>2</mml:mn><mml:mi>h</mml:mi></mml:msubsup></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equa_HTML.gif" /></alternatives></disp-formula></p>
+              <p>is used to project the set of features to a binary vector of the dimension <italic>h</italic>. The size depends on the expected number of features (see Table <xref rid="Tab1" ref-type="table">1</xref>). <italic>H</italic> generates the hashed bit of a pattern depending on the numerical seed <italic>f.id</italic> assigned to each feature. In most cases, the seed equals a hash code of the string representation. The hashing step is also useful to obtain nominal features for fast comparisons. A nominal feature is a feature <italic>f</italic> with a finite set of possible values like <italic>f</italic> ∈ {red, green, blue} or, convenient for chemical graphs, <italic>f</italic> ∈ {pattern included, pattern not included}.</p>
+            </sec>
+            <sec id="Sec31">
+              <title>Similarity Matrices</title>
+              <p>jCompoundMapper offers a FeatureMap data structure, which stores the features in a wrapped hash map. Different metrics are defined on this data structure, such as MinMax and Tanimoto [<xref ref-type="bibr" rid="CR27">27</xref>]. Thus, it is possible to compute distance matrices within seconds on an average desktop computer. Now, we assume two mappings <italic>F</italic> (<italic>C</italic><sub><italic>A</italic></sub> ) = <italic>A</italic> and <italic>F</italic> (<italic>C</italic><sub><italic>B</italic></sub> ) = <italic>B</italic>. Further, let <italic>φ</italic><sub><italic>p</italic></sub> (X) count the number of occurrences of pattern <italic>p</italic> ∈ <italic>X</italic>.</p>
+              <p>The MinMax similarity is defined as<disp-formula id="Equ21"><alternatives><mml:math><mml:mrow><mml:mtext>MinMax(</mml:mtext><mml:mi>A</mml:mi><mml:mo>,</mml:mo><mml:mi>B</mml:mi><mml:mtext>)</mml:mtext><mml:mo>:</mml:mo><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mstyle displaystyle="true"><mml:munder><mml:mo>∑</mml:mo><mml:mrow><mml:mi>p</mml:mi><mml:mo>∈</mml:mo><mml:mi>X</mml:mi></mml:mrow></mml:munder><mml:mrow><mml:mi>min</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>φ</mml:mi><mml:mi>p</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>A</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>,</mml:mo><mml:mi>φ</mml:mi><mml:mi>p</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>B</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mstyle></mml:mrow><mml:mrow><mml:mstyle displaystyle="true"><mml:munder><mml:mo>∑</mml:mo><mml:mrow><mml:mi>p</mml:mi><mml:mo>∈</mml:mo><mml:mi>X</mml:mi></mml:mrow></mml:munder><mml:mrow><mml:mi>min</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>φ</mml:mi><mml:mi>p</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>A</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>,</mml:mo><mml:mi>φ</mml:mi><mml:mi>p</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>B</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:mstyle></mml:mrow></mml:mfrac><mml:mo>.</mml:mo></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equb_HTML.gif" /></alternatives></disp-formula></p>
+              <p>The Tanimoto similarity can be used instead if only the occurrence of a pattern is taken into account<disp-formula id="Equ22"><alternatives><mml:math><mml:mrow><mml:mtext>Tanimoto</mml:mtext><mml:mo stretchy="false">(</mml:mo><mml:mi>A</mml:mi><mml:mo>,</mml:mo><mml:mi>B</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>:</mml:mo><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mo stretchy="false">|</mml:mo><mml:mi>A</mml:mi><mml:mo>∩</mml:mo><mml:mi>B</mml:mi><mml:mo stretchy="false">|</mml:mo></mml:mrow><mml:mrow><mml:mo stretchy="false">|</mml:mo><mml:mi>A</mml:mi><mml:mo>∪</mml:mo><mml:mi>B</mml:mi><mml:mo stretchy="false">|</mml:mo></mml:mrow></mml:mfrac><mml:mo>.</mml:mo></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_118_Equc_HTML.gif" /></alternatives></disp-formula></p>
+              <p>The feature maps permit to compute similarity matrices with jCompoundMapper on the full set of features of a compound <italic>C</italic>, without introducing noise by hashing. Nevertheless, it is also possible to generate hashed binary fingerprint objects of any of the encodings.</p>
+            </sec>
+          </sec>
+        </sec>
+        <sec id="Sec32">
+          <title>Results and Discussion</title>
+          <sec id="Sec33">
+            <title>Computation Times Benchmarks</title>
+            <p>Table <xref rid="Tab2" ref-type="table">2</xref> presents the performance of the different encodings as implemented in jCompoundMapper. The computation time for the atom-based approaches varies from the atom pair encodings which can be computed with 332-339 molecules per second to the depth- first search based encodings which have a performance of 68-136 molecules per second. The encodings relying on the typing using the PPP SMARTS definitions are significantly slower with about 7-8 processed molecules per second. The conversion time includes reading, typing, and feature map creation. As benchmark data set, we chose the publicly available ChemDB random background data set published in the virtual screening study by Nasr et al. [<xref ref-type="bibr" rid="CR28">28</xref>]. This data set comprises 175,000 random compounds from ChemDB [<xref ref-type="bibr" rid="CR29">29</xref>].<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Conversion Time</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Encoding</p></th><th align="left"><p>param<sup><bold><italic>b</italic></bold></sup></p></th><th align="center"><p>molecules/s</p></th><th align="center"><p>mean f.<sup><bold><italic>a</italic></bold></sup></p></th><th align="center"><p>max f.<sup><bold><italic>a</italic></bold></sup></p></th><th align="center"><p>median f.<sup><bold><italic>a</italic></bold></sup></p></th><th align="right"><p>complex. Mem.<sup><bold><italic>c</italic></bold></sup></p></th></tr></thead><tbody><tr><td align="left"><p>DFS</p></td><td align="left"><p>d = 8, a = EN</p></td><td align="center"><p>68.6</p></td><td align="center"><p>396</p></td><td align="center"><p>3,554</p></td><td align="center"><p>362</p></td><td align="right"><p>O(<italic>nα</italic><sup><italic>d</italic></sup>)</p></td></tr><tr><td align="left"><p>ASP</p></td><td align="left"><p>d = 8, a = EN</p></td><td align="center"><p>112.1</p></td><td align="center"><p>216</p></td><td align="center"><p>1,198</p></td><td align="center"><p>204</p></td><td align="right"><p>O(<italic>nα</italic><sup><italic>d</italic></sup>)</p></td></tr><tr><td align="left"><p>AP2D</p></td><td align="left"><p>d = 8, a = EN</p></td><td align="center"><p>339.8</p></td><td align="center"><p>95</p></td><td align="center"><p>256</p></td><td align="center"><p>96</p></td><td align="right"><p>O(<italic>n</italic><sup>2</sup>)</p></td></tr><tr><td align="left"><p>AT2D</p></td><td align="left"><p>d = 5, a = EN</p></td><td align="center"><p>91.6</p></td><td align="center"><p>1,848</p></td><td align="center"><p>7,922</p></td><td align="center"><p>1,811</p></td><td align="right"><p>O(<italic>n</italic><sup>3</sup>)</p></td></tr><tr><td align="left"><p>CATS2D</p></td><td align="left"><p>d = 9, a = PPP</p></td><td align="center"><p>6.9</p></td><td align="center"><p>150</p></td><td align="center"><p>150</p></td><td align="center"><p>150</p></td><td align="right"><p>O(1)</p></td></tr><tr><td align="left"><p>PHAP2PT2D</p></td><td align="left"><p>d = 8, a = PPP</p></td><td align="center"><p>6.8</p></td><td align="center"><p>35</p></td><td align="center"><p>132</p></td><td align="center"><p>34</p></td><td align="right"><p>O(<italic>p</italic><sup>2</sup>)</p></td></tr><tr><td align="left"><p>PHAP3PT2D</p></td><td align="left"><p>d = 5, a = PPP</p></td><td align="center"><p>6.7</p></td><td align="center"><p>300</p></td><td align="center"><p>1,664</p></td><td align="center"><p>277</p></td><td align="right"><p>O(<italic>p</italic><sup>3</sup>)</p></td></tr><tr><td align="left"><p>SHED</p></td><td align="left"><p>d = 8, a = PPP</p></td><td align="center"><p>8.0</p></td><td align="center"><p>15</p></td><td align="center"><p>15</p></td><td align="center"><p>15</p></td><td align="right"><p>O(1)</p></td></tr><tr><td align="left"><p>ECFP</p></td><td align="left"><p>d = 4, a = DIR</p></td><td align="center"><p>181.0</p></td><td align="center"><p>77</p></td><td align="center"><p>349</p></td><td align="center"><p>77</p></td><td align="right"><p>O(<italic>nα</italic><sup><italic>d</italic></sup>)</p></td></tr><tr><td align="left"><p>RAD2D</p></td><td align="left"><p>d = 3, a = EN</p></td><td align="center"><p>232.5</p></td><td align="center"><p>55</p></td><td align="center"><p>192</p></td><td align="center"><p>55</p></td><td align="right"><p>O(<italic>nd</italic>)</p></td></tr><tr><td align="left"><p>LSTAR</p></td><td align="left"><p>d = 6, a = EN</p></td><td align="center"><p>136.6</p></td><td align="center"><p>144</p></td><td align="center"><p>884</p></td><td align="center"><p>143</p></td><td align="right"><p>O(<italic>nd</italic>)</p></td></tr><tr><td align="left"><p>AP3D</p></td><td align="left"><p>d = 10, a = EN</p></td><td align="center"><p>332.5</p></td><td align="center"><p>112</p></td><td align="center"><p>336</p></td><td align="center"><p>113</p></td><td align="right"><p>O(<italic>n</italic><sup>2</sup>)</p></td></tr><tr><td align="left"><p>AT3D</p></td><td align="left"><p>d = 6, a = EN</p></td><td align="center"><p>71.4</p></td><td align="center"><p>3,450</p></td><td align="center"><p>27,774</p></td><td align="center"><p>3,188</p></td><td align="right"><p>O(<italic>n</italic><sup>3</sup>)</p></td></tr><tr><td align="left"><p>CATS3D</p></td><td align="left"><p>d = 9, a = PPP</p></td><td align="center"><p>6.6</p></td><td align="center"><p>150</p></td><td align="center"><p>150</p></td><td align="center"><p>150</p></td><td align="right"><p>O(1)</p></td></tr><tr><td align="left"><p>PHAP2PT3D</p></td><td align="left"><p>d = 10, a = PPP</p></td><td align="center"><p>7.2</p></td><td align="center"><p>41</p></td><td align="center"><p>189</p></td><td align="center"><p>40</p></td><td align="right"><p>O(<italic>p</italic><sup>2</sup>)</p></td></tr><tr><td align="left"><p>PHAP3PT3D</p></td><td align="left"><p>d = 6, a = PPP</p></td><td align="center"><p>7.1</p></td><td align="center"><p>660</p></td><td align="center"><p>5,844</p></td><td align="center"><p>601</p></td><td align="right"><p>O(<italic>p</italic><sup>3</sup>)</p></td></tr><tr><td align="left"><p>RAD3D</p></td><td align="left"><p>d = 4, a = EN</p></td><td align="center"><p>227.1</p></td><td align="center"><p>85</p></td><td align="center"><p>611</p></td><td align="center"><p>85</p></td><td align="right"><p>O(<italic>nd</italic>)</p></td></tr></tbody></table><table-wrap-foot><p>Computation time on a random ChemDB [<xref ref-type="bibr" rid="CR29">29</xref>] background data set consisting of about 175,000 compounds. This includes reading, typing, and generation of the feature map objects. Empirical computation time was obtained on a dual core AMD Opteron(tm) Processor 280, 2.4 GHz, 2 GByte RAM, Java Runtime Environment 1.6, Linux kernel 2.6.18, using a single core.</p><p><sup><italic>a</italic></sup>unique features, EN: element neighbor, PPP: possible pharmacophore points, DIR: Daylight Invariants plus ring flag <sup><italic>b</italic></sup> standard parameters of the implemented encodings <sup><italic>c</italic></sup><italic>d</italic>: search depth, <italic>p</italic>: number of possible pharmacophore points</p></table-wrap-foot></table-wrap></p>
+          </sec>
+          <sec id="Sec34">
+            <title>Machine Learning Performance</title>
+            <p>A major application of molecular encodings are structure-based machine learning and data mining methods. The aim of such applications is either the prediction of molecular properties or the ranking of compounds according to a trained model. In the following experiments, we wanted to assess the quality of the encodings implemented in jCompoundMapper for several established regression and classification benchmark problems. The encodings were used with the default parameters as given in Table <xref rid="Tab2" ref-type="table">2</xref>. The compounds were prepared using CORINA [<xref ref-type="bibr" rid="CR30">30</xref>] for initial coordinates and were refined using Schrödinger MacroModel [<xref ref-type="bibr" rid="CR31">31</xref>] with the OPLS 2005 force field.</p>
+            <sec id="Sec35">
+              <title>QSAR Regression Problems with LIBSVM</title>
+              <p>LIBSVM [<xref ref-type="bibr" rid="CR12">12</xref>] is a library for support vector machines. For the experiments on the regression benchmarks, we decided to train <italic>ϵ</italic>-support vector regression on the benchmark compilation of eight pIC50 QSAR problems published by Sutherland et al. [<xref ref-type="bibr" rid="CR14">14</xref>]. The Gram matrices were precomputed by the MinMax similarity, which is also a valid kernel function. We conducted these experiments to find out whether there are significant differences between the performances of the different encodings.</p>
+              <p>We evaluated the nested cross-validation performance of the different encodings and compared the outcome of the experiments against results from the literature. The parameters <italic>C</italic> and <italic>ϵ</italic> of the support vector machine were selected in a nested cross-validation. In the experiments, a 10-fold cross-validation was repeated 20 times using an initial seed value. Therefore, the values represent the mean and the standard deviation, computed over 200 models. Based on these statistics, the corrected resampled <italic>t</italic>-test of Bouckaert and Frank [<xref ref-type="bibr" rid="CR32">32</xref>] can be applied. The results are summarized in Table <xref rid="Tab3" ref-type="table">3</xref>. With the exception of THERM and THR, the performance of the best encodings was at least comparable to the mean squared error values for a sophisticated graph kernel given by Fechner et al. [<xref ref-type="bibr" rid="CR33">33</xref>] on the same benchmarks.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>Nested Cross-validation MSE Performance on the Sutherland Data Sets</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Encoding</p></th><th align="center"><p>ACE</p></th><th align="center"><p>ACHE</p></th><th align="center"><p>BZR</p></th><th align="center"><p>COX2</p></th><th align="center"><p>DHFR</p></th><th align="center"><p>GPB</p></th><th align="center"><p>THERM</p></th><th align="center"><p>THR</p></th></tr></thead><tbody><tr><td align="left"><p>DFS</p></td><td align="center"><p>1.73 ± 0:74</p></td><td align="center"><p>0.66 ± 0.28</p></td><td align="center"><p>0.61 ± 0.31</p></td><td align="center"><p>1.13 ± 0.30</p></td><td align="center"><p><bold>0.57</bold> ± <bold>0.21</bold></p></td><td align="center"><p>0.66 ± 0.54</p></td><td align="center"><p>2.10 ± 1.31</p></td><td align="center"><p>0.60 ± 0.38</p></td></tr><tr><td align="left"><p>ASP</p></td><td align="center"><p>1.70 ± 0.72</p></td><td align="center"><p><bold>0.62</bold> ± <bold>0.26</bold></p></td><td align="center"><p>0.53 ± 0.27</p></td><td align="center"><p>1.11 ± 0.30</p></td><td align="center"><p><bold>0.58</bold> ± <bold>0.21</bold></p></td><td align="center"><p>0.63 ± 0.48</p></td><td align="center"><p>2.09 ± 1.32</p></td><td align="center"><p>0.59 ± 0.38</p></td></tr><tr><td align="left"><p>AP2D</p></td><td align="center"><p><bold>1</bold>.<bold>50</bold> ± <bold>0</bold>.<bold>70</bold></p></td><td align="center"><p>0.85 ± 0.37</p></td><td align="center"><p>0.70 ± 0.37</p></td><td align="center"><p>1.03 ± 0.30</p></td><td align="center"><p>0.73 ± 0.29</p></td><td align="center"><p>0.61 ± 0.45</p></td><td align="center"><p>2.19 ± 1.20</p></td><td align="center"><p>0.50 ± 0.31</p></td></tr><tr><td align="left"><p>AT2D</p></td><td align="center"><p>1.57 ± 0.69</p></td><td align="center"><p>0.74 ± 0.34</p></td><td align="center"><p>0.69 ± 0.35</p></td><td align="center"><p>0.97 ± 0.27</p></td><td align="center"><p>0.66 ± 0.30</p></td><td align="center"><p>0.60 ± 0.47</p></td><td align="center"><p>1.97 ± 1.20</p></td><td align="center"><p><bold>0.49</bold> ± <bold>0.32</bold></p></td></tr><tr><td align="left"><p>CATS2D</p></td><td align="center"><p>1.76 ± 0.72</p></td><td align="center"><p>0.93 ± 0.33</p></td><td align="center"><p>0.89 ± 0.45</p></td><td align="center"><p>1.35 ± 0.43</p></td><td align="center"><p>0.69 ± 0.19</p></td><td align="center"><p>0.64 ± 0.45</p></td><td align="center"><p>2.28 ± 1.14</p></td><td align="center"><p>0.52 ± 0.32</p></td></tr><tr><td align="left"><p>PHAP2PT2D</p></td><td align="center"><p>1.77 ± 0.71</p></td><td align="center"><p>0.96 ± 0.33</p></td><td align="center"><p>0.91 ± 0.45</p></td><td align="center"><p>1.38 ± 0.44</p></td><td align="center"><p>0.72 ± 0.20</p></td><td align="center"><p>0.65 ± 0.48</p></td><td align="center"><p>2.18 ± 1.10</p></td><td align="center"><p>0.53 ± 0.31</p></td></tr><tr><td align="left"><p>PHAP3PT2D</p></td><td align="center"><p>1.81 ± 0.69</p></td><td align="center"><p>0.96 ± 0.33</p></td><td align="center"><p>0.82 ± 0.39</p></td><td align="center"><p>1.23 ± 0.41</p></td><td align="center"><p>0.67 ± 0.21</p></td><td align="center"><p><bold>0.56</bold> ± <bold>0.49</bold></p></td><td align="center"><p><bold>1.89</bold> ± <bold>1.16</bold></p></td><td align="center"><p>0.57 ± 0.37</p></td></tr><tr><td align="left"><p>SHED</p></td><td align="center"><p>2.08 ± 0.76</p></td><td align="center"><p>1.05 ± 0.50</p></td><td align="center"><p>1.09 ± 0.46</p></td><td align="center"><p>1.64 ± 0.48</p></td><td align="center"><p>1.49 ± 0.35</p></td><td align="center"><p>0.70 ± 0.33</p></td><td align="center"><p>2.71 ± 1.54</p></td><td align="center"><p>0.49 ± 0.28</p></td></tr><tr><td align="left"><p>ECFP</p></td><td align="center"><p>1.80 ± 0.77</p></td><td align="center"><p>0.72 ± 0.29</p></td><td align="center"><p>0.66 ± 0.32</p></td><td align="center"><p>1.01 ± 0.28</p></td><td align="center"><p><bold>0.57</bold> ± <bold>0.20</bold></p></td><td align="center"><p>0.68 ± 0.55</p></td><td align="center"><p>2.19 ± 1.36</p></td><td align="center"><p>0.51 ± 0.33</p></td></tr><tr><td align="left"><p>RAD2D</p></td><td align="center"><p>1.87 ± 0.75</p></td><td align="center"><p>0.77 ± 0.33</p></td><td align="center"><p>0.79 ± 0.37</p></td><td align="center"><p>1.08 ± 0.30</p></td><td align="center"><p>0.71 ± 0.27</p></td><td align="center"><p>0.72 ± 0.59</p></td><td align="center"><p>2.20 ± 1.33</p></td><td align="center"><p>0.50 ± 0.35</p></td></tr><tr><td align="left"><p>LSTAR</p></td><td align="center"><p>1.97 ± 0.79</p></td><td align="center"><p>0.72 ± 0.29</p></td><td align="center"><p>0.69 ± 0.30</p></td><td align="center"><p>1.04 ± 0.27</p></td><td align="center"><p>0.62 ± 0.19</p></td><td align="center"><p>0.76 ± 0.61</p></td><td align="center"><p>2.31 ± 1.39</p></td><td align="center"><p>0.50 ± 0.31</p></td></tr><tr><td align="left"><p>AP3D</p></td><td align="center"><p>1.60 ± 0.69</p></td><td align="center"><p>0.69 ± 0.32</p></td><td align="center"><p>0.59 ± 0.32</p></td><td align="center"><p><bold>0.93</bold> ± <bold>0.27</bold></p></td><td align="center"><p>0.67 ± 0.23</p></td><td align="center"><p>0.67 ± 0.51</p></td><td align="center"><p>2.73 ± 1.35</p></td><td align="center"><p>0.57 ± 0.33</p></td></tr><tr><td align="left"><p>AT3D</p></td><td align="center"><p>1.77 ± 0.68</p></td><td align="center"><p>0.64 ± 0.28</p></td><td align="center"><p>0.67 ± 0.36</p></td><td align="center"><p>0.99 ± 0.28</p></td><td align="center"><p>0.57 ± 0.18</p></td><td align="center"><p>0.74 ± 0.60</p></td><td align="center"><p>2.75 ± 1.37</p></td><td align="center"><p>0.60 ± 0.28</p></td></tr><tr><td align="left"><p>CATS3D</p></td><td align="center"><p>1.75 ± 0.70</p></td><td align="center"><p>0.90 ± 0.38</p></td><td align="center"><p>0.81 ± 0.36</p></td><td align="center"><p>1.31 ± 0.41</p></td><td align="center"><p>0.73 ± 0.20</p></td><td align="center"><p>0.79 ± 0.49</p></td><td align="center"><p>2.47 ± 1.32</p></td><td align="center"><p>0.62 ± 0.32</p></td></tr><tr><td align="left"><p>PHAP2PT3D</p></td><td align="center"><p>1.75 ± 0.70</p></td><td align="center"><p>0.87 ± 0.36</p></td><td align="center"><p>0.81 ± 0.40</p></td><td align="center"><p>1.32 ± 0.41</p></td><td align="center"><p>0.73 ± 0.20</p></td><td align="center"><p>0.83 ± 0.54</p></td><td align="center"><p>2.53 ± 1.30</p></td><td align="center"><p>0.65 ± 0.33</p></td></tr><tr><td align="left"><p>PHAP3PT3D</p></td><td align="center"><p>1.99 ± 0.77</p></td><td align="center"><p>0.82 ± 0.29</p></td><td align="center"><p>0.81 ± 0.36</p></td><td align="center"><p>1.14 ± 0.37</p></td><td align="center"><p>0.59 ± 0.17</p></td><td align="center"><p>0.86 ± 0.69</p></td><td align="center"><p>2.84 ± 1.46</p></td><td align="center"><p>0.69 ± 0.30</p></td></tr><tr><td align="left"><p>RAD3D</p></td><td align="center"><p>2.17 ± 0.78</p></td><td align="center"><p>0.78 ± 0.31</p></td><td align="center"><p>0.73 ± 0.35</p></td><td align="center"><p>1.10 ± 0.30</p></td><td align="center"><p><bold>0.57</bold> ± <bold>0.17</bold></p></td><td align="center"><p>0.82 ± 0.69</p></td><td align="center"><p>2.79 ± 1.37</p></td><td align="center"><p>0.58 ± 0.31</p></td></tr></tbody></table><table-wrap-foot><p>Overview of <italic>ϵ</italic> support vector MSE regression performance on the Sutherland data set using the MinMax kernel function. The performance was evaluated using a nested 10-fold cross-validation repeated 20 times. Bold values indicate the best encodings according to the number of signicant better comparisons (<italic>p</italic> ≤ 0.05) against the other encodings. The <italic>p</italic>-values were determined by the corrected resampled <italic>t</italic>-test [<xref ref-type="bibr" rid="CR32">32</xref>].</p></table-wrap-foot></table-wrap></p>
+              <p>An analogue setup was used to compute nested leave-one-out cross-validation results to compare the predictive performance of the support vector machine in combination with the jCompoundMapper encodings to literature results. Again, we optimized the parameters <italic>C</italic> and <italic>ϵ</italic> (we used a 10-fold cross-validation repeated 2 times to select the best parameter combination in the inner loop) and trained a model for each of the <italic>n</italic> leave-one-out sets and predicted the external sample for each model.</p>
+              <p>Table <xref rid="Tab4" ref-type="table">4</xref> and <xref rid="Tab5" ref-type="table">5</xref> summarize the results of the nested leave-one out cross-validation according to the mean squared error and Pearson's correlation coefficient. Sutherland et al. used several descriptor-based approaches to model the activity of the benchmark set (presented in Table <xref rid="Tab4" ref-type="table">4</xref> and <xref rid="Tab5" ref-type="table">5</xref>) using partial least squares (PLS) [<xref ref-type="bibr" rid="CR14">14</xref>]. Compared against the results (squared correlation coefficient) given for the best descriptor approach presented in this study, the jCompoundMapper encodings are competitive. The findings are summarized in Table <xref rid="Tab6" ref-type="table">6</xref> which shows a similar performance in two cases, a better performance in three cases, and a worse performance in three cases.<table-wrap id="Tab4"><label>Table 4</label><caption xml:lang="en"><p>Nested Leave-one-out MSE Performance on Sutherland Data Sets</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Encoding</p></th><th align="center"><p>ACE</p></th><th align="center"><p>ACHE</p></th><th align="center"><p>BZR</p></th><th align="center"><p>COX2</p></th><th align="center"><p>DHFR</p></th><th align="center"><p>GPB</p></th><th align="center"><p>THERM</p></th><th align="center"><p>THR</p></th></tr></thead><tbody><tr><td align="left"><p>DFS</p></td><td align="center"><p>1.93</p></td><td align="center"><p><bold>0.61</bold></p></td><td align="center"><p>0.61</p></td><td align="center"><p>1.09</p></td><td align="center"><p><bold>0.57</bold></p></td><td align="center"><p>0.66</p></td><td align="center"><p><bold>2.08</bold></p></td><td align="center"><p>0.55</p></td></tr><tr><td align="left"><p>ASP</p></td><td align="center"><p>1.93</p></td><td align="center"><p><bold>0.56</bold></p></td><td align="center"><p><bold>0.54</bold></p></td><td align="center"><p>1.07</p></td><td align="center"><p><bold>0.56</bold></p></td><td align="center"><p><bold>0.63</bold></p></td><td align="center"><p><bold>2.08</bold></p></td><td align="center"><p>0.53</p></td></tr><tr><td align="left"><p>AP2D</p></td><td align="center"><p><bold>1.59</bold></p></td><td align="center"><p>0.79</p></td><td align="center"><p>0.68</p></td><td align="center"><p>1.04</p></td><td align="center"><p>0.72</p></td><td align="center"><p>0.64</p></td><td align="center"><p><bold>2.06</bold></p></td><td align="center"><p><bold>0.45</bold></p></td></tr><tr><td align="left"><p>AT2D</p></td><td align="center"><p><bold>1.68</bold></p></td><td align="center"><p>0.69</p></td><td align="center"><p>0.67</p></td><td align="center"><p><bold>0.92</bold></p></td><td align="center"><p>0.69</p></td><td align="center"><p>0.65</p></td><td align="center"><p><bold>1.92</bold></p></td><td align="center"><p><bold>0.45</bold></p></td></tr><tr><td align="left"><p>CATS2D</p></td><td align="center"><p>1.83</p></td><td align="center"><p>0.83</p></td><td align="center"><p>0.96</p></td><td align="center"><p>1.34</p></td><td align="center"><p>0.65</p></td><td align="center"><p><bold>0.62</bold></p></td><td align="center"><p>2.20</p></td><td align="center"><p><bold>0.45</bold></p></td></tr><tr><td align="left"><p>PHAP2PT2D</p></td><td align="center"><p>1.88</p></td><td align="center"><p>0.92</p></td><td align="center"><p>0.98</p></td><td align="center"><p>1.37</p></td><td align="center"><p>0.67</p></td><td align="center"><p><bold>0.62</bold></p></td><td align="center"><p><bold>2.10</bold></p></td><td align="center"><p><bold>0.46</bold></p></td></tr><tr><td align="left"><p>PHAP3PT2D</p></td><td align="center"><p>1.83</p></td><td align="center"><p>0.91</p></td><td align="center"><p>0.85</p></td><td align="center"><p>1.20</p></td><td align="center"><p>0.66</p></td><td align="center"><p><bold>0.58</bold></p></td><td align="center"><p><bold>2.04</bold></p></td><td align="center"><p>0.50</p></td></tr><tr><td align="left"><p>SHED</p></td><td align="center"><p>2.11</p></td><td align="center"><p>1.00</p></td><td align="center"><p>1.13</p></td><td align="center"><p>1.71</p></td><td align="center"><p>1.41</p></td><td align="center"><p>0.72</p></td><td align="center"><p>2.94</p></td><td align="center"><p><bold>0.43</bold></p></td></tr><tr><td align="left"><p>ECFP</p></td><td align="center"><p>2.01</p></td><td align="center"><p>0.66</p></td><td align="center"><p>0.66</p></td><td align="center"><p><bold>0.96</bold></p></td><td align="center"><p><bold>0.57</bold></p></td><td align="center"><p>0.65</p></td><td align="center"><p>2.17</p></td><td align="center"><p><bold>0.47</bold></p></td></tr><tr><td align="left"><p>RAD2D</p></td><td align="center"><p>1.99</p></td><td align="center"><p>0.73</p></td><td align="center"><p>0.79</p></td><td align="center"><p>1.03</p></td><td align="center"><p>0.72</p></td><td align="center"><p>0.67</p></td><td align="center"><p>2.18</p></td><td align="center"><p><bold>0.43</bold></p></td></tr><tr><td align="left"><p>LSTAR</p></td><td align="center"><p>2.29</p></td><td align="center"><p>0.66</p></td><td align="center"><p>0.68</p></td><td align="center"><p>1.00</p></td><td align="center"><p>0.60</p></td><td align="center"><p>0.71</p></td><td align="center"><p>2.31</p></td><td align="center"><p><bold>0.46</bold></p></td></tr><tr><td align="left"><p>AP3D</p></td><td align="center"><p>1.88</p></td><td align="center"><p>0.64</p></td><td align="center"><p><bold>0.59</bold></p></td><td align="center"><p><bold>0.90</bold></p></td><td align="center"><p>0.67</p></td><td align="center"><p>0.70</p></td><td align="center"><p>2.61</p></td><td align="center"><p>0.54</p></td></tr><tr><td align="left"><p>AT3D</p></td><td align="center"><p>2.04</p></td><td align="center"><p>0.60</p></td><td align="center"><p>0.65</p></td><td align="center"><p><bold>0.97</bold></p></td><td align="center"><p><bold>0.58</bold></p></td><td align="center"><p>0.71</p></td><td align="center"><p>2.70</p></td><td align="center"><p>0.59</p></td></tr><tr><td align="left"><p>CATS3D</p></td><td align="center"><p>1.91</p></td><td align="center"><p>0.85</p></td><td align="center"><p>0.84</p></td><td align="center"><p>1.26</p></td><td align="center"><p>0.70</p></td><td align="center"><p>0.74</p></td><td align="center"><p>2.62</p></td><td align="center"><p>0.58</p></td></tr><tr><td align="left"><p>PHAP2PT3D</p></td><td align="center"><p>1.92</p></td><td align="center"><p>0.81</p></td><td align="center"><p>0.85</p></td><td align="center"><p>1.30</p></td><td align="center"><p>0.70</p></td><td align="center"><p>0.76</p></td><td align="center"><p>2.72</p></td><td align="center"><p>0.62</p></td></tr><tr><td align="left"><p>PHAP3PT3D</p></td><td align="center"><p>2.40</p></td><td align="center"><p>0.73</p></td><td align="center"><p>0.81</p></td><td align="center"><p>1.11</p></td><td align="center"><p><bold>0.59</bold></p></td><td align="center"><p>0.82</p></td><td align="center"><p>2.82</p></td><td align="center"><p>0.67</p></td></tr><tr><td align="left"><p>RAD3</p></td><td align="center"><p>2.43</p></td><td align="center"><p>0.73</p></td><td align="center"><p>0.73</p></td><td align="center"><p>1.04</p></td><td align="center"><p>0.57</p></td><td align="center"><p>0.75</p></td><td align="center"><p>2.75</p></td><td align="center"><p>0.55</p></td></tr></tbody></table><table-wrap-foot><p>Overview of <italic>ϵ</italic> support vector regression performance on the Sutherland data set using the MinMax kernel function. The performance was evaluated using a nested leave-one-out cross-validation with a parameter optimization using 10-fold cross-validation repeated 2 times. Bold values indicate performances not worse than 10% of the best performing encoding.</p></table-wrap-foot></table-wrap><table-wrap id="Tab5"><label>Table 5</label><caption xml:lang="en"><p>Nested Leave-one-out Correlation Performance on Sutherland Data Sets</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Encoding</p></th><th align="center"><p>ACE</p></th><th align="center"><p>ACHE</p></th><th align="center"><p>BZR</p></th><th align="center"><p>COX2</p></th><th align="center"><p>DHFR</p></th><th align="center"><p>GPB</p></th><th align="center"><p>THERM</p></th><th align="center"><p>THR</p></th></tr></thead><tbody><tr><td align="left"><p>DFS</p></td><td align="center"><p><bold>0.79</bold></p></td><td align="center"><p><bold>0.78</bold></p></td><td align="center"><p><bold>0.71</bold></p></td><td align="center"><p>0.68</p></td><td align="center"><p><bold>0.86</bold></p></td><td align="center"><p>0.69</p></td><td align="center"><p><bold>0.70</bold></p></td><td align="center"><p>0.68</p></td></tr><tr><td align="left"><p>ASP</p></td><td align="center"><p><bold>0.79</bold></p></td><td align="center"><p><bold>0.80</bold></p></td><td align="center"><p><bold>0.75</bold></p></td><td align="center"><p>0.69</p></td><td align="center"><p><bold>0.87</bold></p></td><td align="center"><p><bold>0.71</bold></p></td><td align="center"><p><bold>0.70</bold></p></td><td align="center"><p>0.69</p></td></tr><tr><td align="left"><p>AP2D</p></td><td align="center"><p><bold>0.83</bold></p></td><td align="center"><p>0.70</p></td><td align="center"><p>0.67</p></td><td align="center"><p><bold>0.71</bold></p></td><td align="center"><p>0.82</p></td><td align="center"><p><bold>0.71</bold></p></td><td align="center"><p><bold>0.70</bold></p></td><td align="center"><p><bold>0.75</bold></p></td></tr><tr><td align="left"><p>AT2D</p></td><td align="center"><p><bold>0.82</bold></p></td><td align="center"><p>0.74</p></td><td align="center"><p>0.67</p></td><td align="center"><p><bold>0.74</bold></p></td><td align="center"><p><bold>0.83</bold></p></td><td align="center"><p><bold>0.70</bold></p></td><td align="center"><p><bold>0.73</bold></p></td><td align="center"><p><bold>0.75</bold></p></td></tr><tr><td align="left"><p>CATS2D</p></td><td align="center"><p><bold>0.81</bold></p></td><td align="center"><p>0.68</p></td><td align="center"><p>0.49</p></td><td align="center"><p>0.60</p></td><td align="center"><p>0.84</p></td><td align="center"><p><bold>0.72</bold></p></td><td align="center"><p>0.68</p></td><td align="center"><p><bold>0.75</bold></p></td></tr><tr><td align="left"><p>PHAP2PT2D</p></td><td align="center"><p><bold>0.80</bold></p></td><td align="center"><p>0.64</p></td><td align="center"><p>0.48</p></td><td align="center"><p>0.59</p></td><td align="center"><p><bold>0.83</bold></p></td><td align="center"><p><bold>0.72</bold></p></td><td align="center"><p><bold>0.70</bold></p></td><td align="center"><p><bold>0.74</bold></p></td></tr><tr><td align="left"><p>PHAP3PT2D</p></td><td align="center"><p><bold>0.80</bold></p></td><td align="center"><p>0.64</p></td><td align="center"><p>0.56</p></td><td align="center"><p>0.65</p></td><td align="center"><p><bold>0.84</bold></p></td><td align="center"><p><bold>0.73</bold></p></td><td align="center"><p><bold>0.71</bold></p></td><td align="center"><p>0.71</p></td></tr><tr><td align="left"><p>SHED</p></td><td align="center"><p>0.78</p></td><td align="center"><p>0.61</p></td><td align="center"><p>0.34</p></td><td align="center"><p>0.46</p></td><td align="center"><p>0.61</p></td><td align="center"><p>0.66</p></td><td align="center"><p>0.57</p></td><td align="center"><p><bold>0.76</bold></p></td></tr><tr><td align="left"><p>ECFP</p></td><td align="center"><p>0.78</p></td><td align="center"><p><bold>0.76</bold></p></td><td align="center"><p>0.68</p></td><td align="center"><p><bold>0.73</bold></p></td><td align="center"><p><bold>0.86</bold></p></td><td align="center"><p>0.70</p></td><td align="center"><p>0.68</p></td><td align="center"><p><bold>0.74</bold></p></td></tr><tr><td align="left"><p>RAD2D</p></td><td align="center"><p>0.78</p></td><td align="center"><p>0.73</p></td><td align="center"><p>0.59</p></td><td align="center"><p><bold>0.70</bold></p></td><td align="center"><p>0.82</p></td><td align="center"><p>0.68</p></td><td align="center"><p>0.68</p></td><td align="center"><p><bold>0.76</bold></p></td></tr><tr><td align="left"><p>LSTAR</p></td><td align="center"><p>0.75</p></td><td align="center"><p><bold>0.77</bold></p></td><td align="center"><p>0.68</p></td><td align="center"><p><bold>0.72</bold></p></td><td align="center"><p><bold>0.86</bold></p></td><td align="center"><p>0.66</p></td><td align="center"><p>0.66</p></td><td align="center"><p><bold>0.74</bold></p></td></tr><tr><td align="left"><p>AP3D</p></td><td align="center"><p><bold>0.80</bold></p></td><td align="center"><p><bold>0.77</bold></p></td><td align="center"><p><bold>0.72</bold></p></td><td align="center"><p><bold>0.74</bold></p></td><td align="center"><p><bold>0.83</bold></p></td><td align="center"><p>0.67</p></td><td align="center"><p>0.60</p></td><td align="center"><p>0.68</p></td></tr><tr><td align="left"><p>AT3D</p></td><td align="center"><p>0.78</p></td><td align="center"><p><bold>0.80</bold></p></td><td align="center"><p>0.68</p></td><td align="center"><p><bold>0.72</bold></p></td><td align="center"><p><bold>0.86</bold></p></td><td align="center"><p>0.66</p></td><td align="center"><p>0.58</p></td><td align="center"><p>0.65</p></td></tr><tr><td align="left"><p>CATS3D</p></td><td align="center"><p><bold>0.79</bold></p></td><td align="center"><p>0.67</p></td><td align="center"><p>0.57</p></td><td align="center"><p>0.63</p></td><td align="center"><p>0.83</p></td><td align="center"><p>0.64</p></td><td align="center"><p>0.60</p></td><td align="center"><p>0.66</p></td></tr><tr><td align="left"><p>PHAP2PT3D</p></td><td align="center"><p><bold>0.79</bold></p></td><td align="center"><p>0.69</p></td><td align="center"><p>0.56</p></td><td align="center"><p>0.62</p></td><td align="center"><p><bold>0.83</bold></p></td><td align="center"><p>0.63</p></td><td align="center"><p>0.58</p></td><td align="center"><p>0.62</p></td></tr><tr><td align="left"><p>PHAP3PT3D</p></td><td align="center"><p>0.73</p></td><td align="center"><p>0.73</p></td><td align="center"><p>0.58</p></td><td align="center"><p>0.68</p></td><td align="center"><p><bold>0.86</bold></p></td><td align="center"><p>0.59</p></td><td align="center"><p>0.55</p></td><td align="center"><p>0.58</p></td></tr><tr><td align="left"><p>RAD3</p></td><td align="center"><p>0.73</p></td><td align="center"><p>0.73</p></td><td align="center"><p>0.63</p></td><td align="center"><p><bold>0.70</bold></p></td><td align="center"><p><bold>0.86</bold></p></td><td align="center"><p>0.63</p></td><td align="center"><p>0.57</p></td><td align="center"><p>0.69</p></td></tr></tbody></table><table-wrap-foot><p>Overview of <italic>ϵ</italic> support vector regression Pearson's correlation coefficient performance on the Sutherland data set using the MinMax kernel function. The performance was evaluated using a nested leave-one-out cross-validation with a parameter optimization using 10-fold cross-validation repeated 2 times. Bold values indicate performances not worse than 5% of the best performing encoding.</p></table-wrap-foot></table-wrap><table-wrap id="Tab6"><label>Table 6</label><caption xml:lang="en"><p>Comparison with Literature Results on Sutherland Data Sets</p></caption><table frame="hsides" rules="groups"><tbody><tr><td align="left"><p><bold>Data set</bold></p></td><td align="left"><p><bold>Best Encoding</bold></p></td><td align="left"><p><inline-formula id="Equ23"><alternatives><mml:math><mml:mrow><mml:msubsup><mml:mi>Q</mml:mi><mml:mrow><mml:mi>l</mml:mi><mml:mi>o</mml:mi><mml:mi>o</mml:mi></mml:mrow><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math><inline-graphic xlink:href="MediaObjects/13321_2010_Article_118_Equd_HTML.gif" /></alternatives></inline-formula></p></td><td align="left"><p><bold>Sutherland</bold></p></td><td align="left"><p><inline-formula id="Equ24"><alternatives><mml:math><mml:mrow><mml:msubsup><mml:mi>Q</mml:mi><mml:mrow><mml:mi>l</mml:mi><mml:mi>o</mml:mi><mml:mi>o</mml:mi></mml:mrow><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math><inline-graphic xlink:href="MediaObjects/13321_2010_Article_118_Equd_HTML.gif" /></alternatives></inline-formula></p></td></tr><tr><td align="left"><p>ACE</p></td><td align="left"><p>AP2D</p></td><td align="left"><p>0.69</p></td><td align="left"><p>HQSAR</p></td><td align="left"><p>0.72</p></td></tr><tr><td align="left"><p>ACHE</p></td><td align="left"><p>ASP, AT3D</p></td><td align="left"><p><bold>0.57</bold></p></td><td align="left"><p>CoMSIA</p></td><td align="left"><p>0.49</p></td></tr><tr><td align="left"><p>BZR</p></td><td align="left"><p>ASP</p></td><td align="left"><p><bold>0.56</bold></p></td><td align="left"><p>CoMSIA</p></td><td align="left"><p>0.45</p></td></tr><tr><td align="left"><p>COX2</p></td><td align="left"><p>AT2D</p></td><td align="left"><p>0.55</p></td><td align="left"><p>CoMSIA</p></td><td align="left"><p>0.57</p></td></tr><tr><td align="left"><p>DHFR</p></td><td align="left"><p>ASP</p></td><td align="left"><p><bold>0.76</bold></p></td><td align="left"><p>CoMSIA</p></td><td align="left"><p>0.69</p></td></tr><tr><td align="left"><p>GPB</p></td><td align="left"><p>PHAP3PT2D</p></td><td align="left"><p>0.53</p></td><td align="left"><p>HQSAR</p></td><td align="left"><p><bold>0.66</bold></p></td></tr><tr><td align="left"><p>THERM</p></td><td align="left"><p>AT3D</p></td><td align="left"><p>0.53</p></td><td align="left"><p>2.5D</p></td><td align="left"><p><bold>0.66</bold></p></td></tr><tr><td align="left"><p>THR</p></td><td align="left"><p>RAD2 D, RAD3D</p></td><td align="left"><p>0.58</p></td><td align="left"><p>CoMSIA</p></td><td align="left"><p><bold>0.72</bold></p></td></tr></tbody></table><table-wrap-foot><p>Comparison to the best squared correlation coefficients given by Sutherland et al. (PLS on various descriptors), bold font indicate a result which is at least 5% better.</p></table-wrap-foot></table-wrap></p>
+            </sec>
+            <sec id="Sec36">
+              <title>Classification of Toxic Compounds with LIBLINEAR</title>
+              <p>Another increasingly important task is to build models on large data sets of chemicals. A machine that can cope with such a setup is LIBLINEAR [<xref ref-type="bibr" rid="CR16">16</xref>], a linear large-scale support vector machine. The large Ames data set was published by Hansen et al. [<xref ref-type="bibr" rid="CR15">15</xref>] and contains 6512 compounds and their measured toxicity in an Ames test. We skipped the encodings based on the PPP typer because several compounds do not have any pharmacophore point according to the PPP definition. The results were obtained by tuning the <italic>C</italic> parameter in log<sub>2</sub> ∈ {-8, -7, ..., 2} within a 2-fold cross-validation on the training set and evaluating the model performance on five defined splits as described in [<xref ref-type="bibr" rid="CR15">15</xref>].</p>
+              <p>Table <xref rid="Tab7" ref-type="table">7</xref> shows the AUC ROC results for the large Ames toxicity benchmark set. The ECFP and LSTAR encodings achieved the best results, comparable to the results of several supervised classifiers presented by Hansen et al. [<xref ref-type="bibr" rid="CR15">15</xref>] using dragonX [<xref ref-type="bibr" rid="CR34">34</xref>] descriptors. Hansen et al. applied <italic>k</italic>-nearest neighbor, support vector machines with a radial basis function, Gaussian processes, and random decision forests to build models on dragonX descriptors for this problem. The approaches were evaluated on the same defined splits. The performance of LIBLINEAR with the best encodings is comparable to the best approaches Gaussian processes and support vector machines. Even the worst performing encodings (AP2D, AP3D, and DFS) were competitive to the <italic>k</italic>-nearest neighbor classifier on dragonX descriptors.<table-wrap id="Tab7"><label>Table 7</label><caption xml:lang="en"><p>Comparison with Literature Results on the Ames Toxicity Benchmark</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Encoding</p></th><th align="center"><p>AUC ROC<sup><bold><italic>a</italic></bold></sup></p></th></tr></thead><tbody><tr><td align="left"><p>ECFP</p></td><td align="center"><p>0.87 ± 0.01</p></td></tr><tr><td align="left"><p>LSTAR</p></td><td align="center"><p>0.86 ± 0.01</p></td></tr><tr><td align="left"><p>SVM-dragonX<sup><italic>b</italic></sup></p></td><td align="center"><p>0:86 ± 0.01</p></td></tr><tr><td align="left"><p>RAD2D</p></td><td align="center"><p>0.85 ± 0.02</p></td></tr><tr><td align="left"><p>RAD3D</p></td><td align="center"><p>0.85 ± 0.01</p></td></tr><tr><td align="left"><p>ASP</p></td><td align="center"><p>0.85 ± 0.02</p></td></tr><tr><td align="left"><p>GP-dragonX<sup><italic>b</italic></sup></p></td><td align="center"><p>0.84 ± 0.01</p></td></tr><tr><td align="left"><p>AT2D</p></td><td align="center"><p>0.83 ± 0.01</p></td></tr><tr><td align="left"><p>RF-dragonX<sup><italic>b</italic></sup></p></td><td align="center"><p>0.83 ± 0.01</p></td></tr><tr><td align="left"><p>AT3D</p></td><td align="center"><p>0.81 ± 0.01</p></td></tr><tr><td align="left"><p><italic>k</italic>NN-dragonX<sup><italic>b</italic></sup></p></td><td align="center"><p>0.79 ± 0.01</p></td></tr><tr><td align="left"><p>DFS</p></td><td align="center"><p>0.78 ± 0.01</p></td></tr><tr><td align="left"><p>AP2D</p></td><td align="center"><p>0.78 ± 0.03</p></td></tr><tr><td align="left"><p>AP3D</p></td><td align="center"><p>0.76 ± 0.02</p></td></tr></tbody></table><table-wrap-foot><p>Benchmarks for the large Ames toxicity benchmark using LIBLINEAR (nested 5-fold cross-validation on defined splits). The features were hashed to 2<sup>14</sup> bit sparse binary fingerprints.</p><p><sup><italic>a</italic></sup> Area under the ROC curve <sup><italic>b</italic></sup> Reference classifier from the study of Hansen et al. using dragonX 1.2, SVM: support vector machine, GP: Gaussian processes, RF: random decision forest, <italic>k</italic>NN: <italic>k</italic>-nearest neighbor</p></table-wrap-foot></table-wrap></p>
+            </sec>
+          </sec>
+          <sec id="Sec37">
+            <title>Java API and Command-line Interface</title>
+            <sec id="Sec38">
+              <title>Java API Usage Example</title>
+              <p>The core of the library is a Java API. The API enables to process chemical information from an abstract level, similar to a workflow tool. The example given in Appendix 1 reads an MDL SD file, converts the compounds to feature maps and calculates all pairwise similarities.</p>
+            </sec>
+            <sec id="Sec39">
+              <title>Command-Line Interface Example</title>
+              <p>The following section gives an example of using the binary executable version of jCompoundMapper. As a case in point, this version can be used in shell scripts. Calling the command-line tool using -h gives an overview of possible parameters (see Figure <xref rid="Fig2" ref-type="fig">2</xref>).<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>Command-line Interface</bold>. The binary can be accessed via a command-line interface, which allows for scripting.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_118_Fig2_HTML.jpg" /></p></fig></p>
+              <p>Using the defaults (or via -ff 0), jCompoundMapper generates a hashed LIBSVM output format using the depth-first search encoding with element plus neighbor count atom types.</p>
+              <p>In the following, we process the training and the known test set from the environmental toxicity challenge <ext-link xlink:href="http://www.cadaster.eu/node/65" ext-link-type="url">http://www.cadaster.eu/node/65</ext-link>) which were converted to MDL SD format. The label (MDL property) to be learned is log(IGC50-1). Using these settings, the structures of the training set were mapped to hashed fingerprints with the default settings.</p>
+              <p>java -jar jCMapperCLI.jar -f challenge_train.sdf -l "log(IGC50-1)"</p>
+              <p>After the computation, an overall statistic is plotted showing e.g. the average number of features in the fingerprints. In the next step, we map the test file to the same representation. Bits in the test file were set in exactly the same positions in the vector because the random numbers are generated by using the seed value defined by the features.</p>
+              <p>java -jar jCMapperCLI.jar -f challenge_test_known.sdf -l "log(IGC50-1)"</p>
+              <p>In the next step, a cross-validation is conducted by using the precompiled binary distribution of LIBSVM that can be downloaded from the LIBSVM homepage. The parameters are set as follows: -t 0 sets the linear kernel (dot product), -s 3 sets ∈ regression, and -c 2 sets the error weight to 2. The file for training was produced in the previous step.</p>
+              <p>svmtrain -t 0 -s 3 -v 10 -c 2 challenge_train.DFS.LIBSVM_SPARSE</p>
+              <p>LIBSVM produces no model in cross-validation mode. However, the LIBSVM cross-validations statistics showed that the model has an <italic>MSE</italic> of 0.32 and an <italic>Q</italic><sup>2</sup> of 0.71, indicating a reasonable parametrization.</p>
+              <p>Cross Validation Mean squared error = 0.324891</p>
+              <p>Cross Validation Squared correlation coefficient = 0.712412</p>
+              <p>Finally, the model is trained by omitting the cross-validation flag -v.</p>
+              <p>svmtrain -t 0 -s 3 -c 2 challenge_train.DFS.LIBSVM_SPARSE</p>
+              <p>This step produces a separate model file, which can be used to predict the external test set that was generated during the second step. This is conducted by calling svmpredict.</p>
+              <p>svmpredict challenge_test_known.DFS.LIBSVM_SPARSE challenge_train.DFS.LIBSVM_SPARSE.model result</p>
+              <p>The results are printed by LIBSVM highlighting that the performance on the external test set is <italic>MSE</italic> = 0.29 and <italic>R</italic><sup>2</sup> = 0.74. The result on the known test of the environmental toxicity prediction challenge would be in the top ranks of the competition. The prediction values can be obtained by opening the LIBSVM output file result in an editor.</p>
+              <p>Mean squared error = 0.291011 (regression)</p>
+              <p>Squared correlation coefficient = 0.742283 (regression)</p>
+            </sec>
+          </sec>
+        </sec>
+        <sec id="Sec40" sec-type="conclusions">
+          <title>Conclusions</title>
+          <p>jCompoundMapper is an open source library for molecular fingerprinting with a focus on machine learning and data mining applications. A command-line interface exists for the user who is not familiar with programming, which allows a simple usage from the shell or the application in scripts. The architecture provides the functionality to derive fingerprints from existing ones or to integrate own encodings. In contrast to closed source fingerprinting toolkits, a scientist knows exactly how the fingerprint is computed (like the labeling function, distance cut-offs) and can even inspect the source code of the generation routine. We compared the performance using linear and non-linear support vector machines on standard machine learning benchmarks in the research field. The results show that the machine learning performance using the encodings with default parameters is already close to more sophisticated state-of-the-art descriptors. The binary version provides a command-line interface allowing for the generation of models from the shell with open source software such as LIBSVM or WEKA in reasonable time on average desktop computers. The library itself uses only functionality of open source software licensed under the LGPL. Therefore, the library can be used in any project compatible with the CDK. Further projects with the library, such as a KNIME node wrapping jCompoundMapper, are planned.</p>
+        </sec>
+        <sec id="Sec41">
+          <title>Availability</title>
+          <p>The following files are available for download from <ext-link xlink:href="http://jcompoundmapper.sourceforge.net/" ext-link-type="url">http://jcompoundmapper.sourceforge.net/</ext-link><list list-type="order"><list-item><p>External library, which can be integrated as Java jar library file</p></list-item><list-item><p>External library, including sources</p></list-item><list-item><p>Binary command-line tool (requires a Java runtime environment) and a short tutorial with a prepared data set</p></list-item></list></p>
+        </sec>
+        <sec id="Sec42">
+          <title>Appendix</title>
+          <sec id="Sec43">
+            <title>Appendix 1 - Usage of the API</title>
+            <p>Example of using the API: Read molecules, map the compounds to encodings, and compute a similarity matrix.</p>
+            <p>1 // read sd file</p>
+            <p>2 RandomAccessMDLReader reader =<bold>new</bold> RandomAccessMDLReader(<bold>new</bold>File (" molecules . sdf " ) );</p>
+            <p>3</p>
+            <p>4 // convert all compounds in the data set to feature maps</p>
+            <p>5 final ArrayList &lt;FeatureMap> featureMaps =<bold>new</bold>ArrayList &lt;FeatureMap >( );</p>
+            <p>6 final FingerPrinter finger printer =<bold>new</bold>Encoding2DAllShortestPaths ( ) ;</p>
+            <p>7<bold>for</bold>(int i = 0; i &lt; reader. getSize ( ); i++) {</p>
+            <p>8    ArrayList &lt;IFeature > rawFeatures = finger printer . getFingerprint (reader. getMol (i));</p>
+            <p>9    featureMaps . add (<bold>new</bold>FeatureMap (rawFeatures ) ) ;</p>
+            <p>10 }</p>
+            <p>11</p>
+            <p>12 //compute all pairwise distances by feature maps</p>
+            <p>13 final int dim = featureMaps . size ( ) ; double [ ] [ ] matrix =<bold>new</bold>double [ dim ] [ dim ] ;</p>
+            <p>14 IDistanceMeasure similarity =<bold>new</bold>DistanceTanimoto ( ) ;</p>
+            <p>15    <bold>for</bold>( int i = 0; i &lt; dim; i++) {</p>
+            <p>16       <bold>for</bold>( int j = i ; j &lt; dim ; j++) {</p>
+            <p>17       matrix [ i ] [ j ] = similarity . getSimilarity (featureMaps . get ( i ), featureMaps . get ( j ));</p>
+            <p>18    }</p>
+            <p>19 }</p>
+          </sec>
+        </sec>
+      </body>
+      <back>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Brown</surname>
+                    <given-names>N</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chemoinformatics - An Introduction for Computer Scientists</article-title>
+                <source>ACM Comput Surv</source>
+                <year>2009</year>
+                <volume>41</volume>
+                <fpage>8:1</fpage>
+                <lpage>8:38</lpage>
+                <pub-id pub-id-type="doi">10.1145/1459352.1459353</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Barnard</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                  <name>
+                    <surname>Downs</surname>
+                    <given-names>GM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chemical Similarity Searching</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1998</year>
+                <volume>38</volume>
+                <issue>6</issue>
+                <fpage>983</fpage>
+                <lpage>996</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci9800211</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK1cXks1ynu74%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Han</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuhn</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Horlacher</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Luttmann</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The Chemistry Development Kit (CDK): an open-source Java library for Chemo- and Bioinformatics</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <issue>2</issue>
+                <fpage>493</fpage>
+                <lpage>500</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci025584y</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXhtVaktbg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bender</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Mussa</surname>
+                    <given-names>HY</given-names>
+                  </name>
+                  <name>
+                    <surname>Glen</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                  <name>
+                    <surname>Reiling</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Similarity Searching of Chemical Databases Using Atom Environment Descriptors (MOLPRINT 2D): Evaluation of Performance</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2004</year>
+                <volume>44</volume>
+                <issue>5</issue>
+                <fpage>1708</fpage>
+                <lpage>1718</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci0498719</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXmslyltLY%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rogers</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Hahn</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Extended-connectivity fingerprints</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2010</year>
+                <volume>50</volume>
+                <issue>5</issue>
+                <fpage>742</fpage>
+                <lpage>754</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci100050t</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXlt1Onsbg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ralaivola</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Swamidass</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Saigo</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Baldi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Graph kernels for chemical informatics</article-title>
+                <source>Neural Networks</source>
+                <year>2005</year>
+                <volume>18</volume>
+                <issue>8</issue>
+                <fpage>1093</fpage>
+                <lpage>1110</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.neunet.2005.07.009</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Renner</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Fechner</surname>
+                    <given-names>U</given-names>
+                  </name>
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Langer</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hoffmann</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Alignment-free Pharmacophore Patterns - A Correlation Vector Approach</article-title>
+                <source>Pharmacophores and Pharmacophore Searches, Pharmacophores and Pharmacophore Searches</source>
+                <year>2006</year>
+                <publisher-loc>Weinheim</publisher-loc>
+                <publisher-name>Wiley-VCH</publisher-name>
+                <fpage>49</fpage>
+                <lpage>79</lpage>
+                <pub-id pub-id-type="doi">10.1002/3527609164.ch3</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Carhart</surname>
+                    <given-names>RE</given-names>
+                  </name>
+                  <name>
+                    <surname>Smith</surname>
+                    <given-names>DH</given-names>
+                  </name>
+                  <name>
+                    <surname>Venkataraghavan</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Atom Pairs as Features in Structure-Activity Studies: Definition and Applications</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1985</year>
+                <volume>25</volume>
+                <fpage>64</fpage>
+                <lpage>73</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci00046a002</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaL2MXitVehu7o%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mahé</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Ralaivola</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Stoven</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Vert</surname>
+                    <given-names>JP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The Pharmacophore Kernel for Virtual Screening with Support Vector Machines</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2006</year>
+                <volume>46</volume>
+                <issue>5</issue>
+                <fpage>2003</fpage>
+                <lpage>2014</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci060138m</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bender</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Mussa</surname>
+                    <given-names>HY</given-names>
+                  </name>
+                  <name>
+                    <surname>Gill</surname>
+                    <given-names>GS</given-names>
+                  </name>
+                  <name>
+                    <surname>Glen</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Molecular Surface Point Environments for Virtual Screening and the Elucidation of Binding Patterns (MOLPRINT 3D)</article-title>
+                <source>J Med Chem</source>
+                <year>2004</year>
+                <volume>47</volume>
+                <issue>26</issue>
+                <fpage>6569</fpage>
+                <lpage>6583</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm049611i</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXpslenu70%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Brown</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>McKay</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Gasteiger</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Fingal: A Novel Approach to Geometric Fingerprinting and a Comparative Study of Its Application to 3D-QSAR Modelling</article-title>
+                <source>QSAR Comb Sci</source>
+                <year>2005</year>
+                <volume>24</volume>
+                <fpage>480</fpage>
+                <lpage>484</lpage>
+                <pub-id pub-id-type="doi">10.1002/qsar.200430923</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXlslWrt7Y%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chang</surname>
+                    <given-names>CC</given-names>
+                  </name>
+                  <name>
+                    <surname>Lin</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                </person-group>
+                <source>LIBSVM: A Library for Support Vector Machines</source>
+                <year>2001</year>
+                <comment>http://www.csie.ntu.edu.tw/~cjlin/libsvm</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hall</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Frank</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Holmes</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Pfahringer</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Reutemann</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Witten</surname>
+                    <given-names>IH</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The WEKA Data Mining Software: An Update</article-title>
+                <source>SIGKDD Explorations</source>
+                <year>2009</year>
+                <volume>11</volume>
+                <fpage>10</fpage>
+                <lpage>18</lpage>
+                <pub-id pub-id-type="doi">10.1145/1656274.1656278</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sutherland</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                  <name>
+                    <surname>O'Brien</surname>
+                    <given-names>LA</given-names>
+                  </name>
+                  <name>
+                    <surname>Weaver</surname>
+                    <given-names>DF</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A Comparison of Methods for Modeling Quantitative Structure-Activity Relationships</article-title>
+                <source>J Med Chem</source>
+                <year>2004</year>
+                <volume>47</volume>
+                <issue>22</issue>
+                <fpage>5541</fpage>
+                <lpage>5554</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm0497141</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXnslGqt7k%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hansen</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Mika</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Schroeter</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Sutter</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>ter Laak</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Steger-Hartmann</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Heinrich</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Müller</surname>
+                    <given-names>KR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Benchmark Data Set for in Silico Prediction of Ames Mutagenicity</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2009</year>
+                <volume>49</volume>
+                <issue>9</issue>
+                <fpage>2077</fpage>
+                <lpage>2081</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci900161g</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXhtVartbbN</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Fan</surname>
+                    <given-names>RE</given-names>
+                  </name>
+                  <name>
+                    <surname>Chang</surname>
+                    <given-names>KW</given-names>
+                  </name>
+                  <name>
+                    <surname>Hsieh</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>XR</given-names>
+                  </name>
+                  <name>
+                    <surname>Lin</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">LIBLINEAR: A Library for Large Linear Classification</article-title>
+                <source>J Mach Learn Res</source>
+                <year>2008</year>
+                <volume>9</volume>
+                <fpage>1871</fpage>
+                <lpage>1874</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Fechner</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Jahn</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Hinselmann</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Zell</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Estimation of the applicability domain of kernel-based machine learning models for virtual screening</article-title>
+                <source>J Cheminf</source>
+                <year>2010</year>
+                <volume>2</volume>
+                <fpage>2</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-2-2</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hinselmann</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Fechner</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Jahn</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Eckert</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Zell</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Graph kernels for chemical compounds using topological and three-dimensional local atom pair environments</article-title>
+                <source>Neurocomputing</source>
+                <year>2010</year>
+                <volume>74</volume>
+                <fpage>219</fpage>
+                <lpage>229</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.neucom.2010.03.008</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hinselmann</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Jahn</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Fechner</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Zell</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chronic Rat Toxicity Prediction of Chemical Compounds Using Kernel Machines</article-title>
+                <source>Evolutionary Computation, Machine Learning and Data Mining in Bioinformatics: 7th European Conference (EvoBio 2009)</source>
+                <year>2009</year>
+                <publisher-loc>Tübingen, Germany</publisher-loc>
+                <publisher-name>Springer</publisher-name>
+                <fpage>25</fpage>
+                <lpage>36</lpage>
+                <pub-id pub-id-type="doi">10.1007/978-3-642-01184-9_3</pub-id>
+                <comment>full_text</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jahn</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Hinselmann</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Fechner</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Zell</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Optimal Assignment Methods for Ligand-Based Virtual Screening</article-title>
+                <source>J Cheminf</source>
+                <year>2009</year>
+                <volume>1</volume>
+                <fpage>14</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-1-14</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jahn</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Hinselmann</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Fechner</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Henneges</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Zell</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Probabilistic Modeling of Conformational Space for 3D Machine Learning Approaches</article-title>
+                <source>Molecular Informatics</source>
+                <year>2010</year>
+                <volume>29</volume>
+                <issue>5</issue>
+                <fpage>441</fpage>
+                <lpage>455</lpage>
+                <pub-id pub-id-type="doi">10.1002/minf.201000036</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXmsVSgurs%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Borgwardt</surname>
+                    <given-names>KM</given-names>
+                  </name>
+                  <name>
+                    <surname>Ong</surname>
+                    <given-names>CS</given-names>
+                  </name>
+                  <name>
+                    <surname>Schönauer</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Vishwanathan</surname>
+                    <given-names>SVN</given-names>
+                  </name>
+                  <name>
+                    <surname>Smola</surname>
+                    <given-names>AJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Kriegel</surname>
+                    <given-names>HP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Protein function prediction via graph kernels</article-title>
+                <source>Bioinformatics</source>
+                <year>2005</year>
+                <volume>21</volume>
+                <fpage>47</fpage>
+                <lpage>56</lpage>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/bti1007</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Neidhart</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Giller</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Schmid</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Scaffold-Hopping by Topological Pharmacophore Search: A Contribution to Virtual Screening</article-title>
+                <source>Angew Chem., Int Ed</source>
+                <year>1999</year>
+                <volume>38</volume>
+                <issue>19</issue>
+                <fpage>2894</fpage>
+                <lpage>2896</lpage>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1521-3773(19991004)38:19&lt;2894::AID-ANIE2894>3.0.CO;2-F</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK1MXmslKht78%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gregori-Puigjané</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Mestres</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SHED: Shannon Entropy Descriptors from Topological Feature Distributions</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2006</year>
+                <volume>46</volume>
+                <issue>4</issue>
+                <fpage>1615</fpage>
+                <lpage>1622</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci0600509</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bender</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Mussa</surname>
+                    <given-names>HY</given-names>
+                  </name>
+                  <name>
+                    <surname>Glen</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Screening for Dihydrofolate Reductase Inhibitors Using MOLPRINT 2D, a Fast Fragment-Based Method Employing the Naive Bayesian Classifier: Limitations of the Descriptor and the Importance of Balanced Chemistry in Training and Test Sets</article-title>
+                <source>J Biomol Screen</source>
+                <year>2005</year>
+                <volume>10</volume>
+                <issue>7</issue>
+                <fpage>658</fpage>
+                <lpage>666</lpage>
+                <pub-id pub-id-type="doi">10.1177/1087057105281048</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXhtF2qs77O</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Hoppe</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuhn</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Floris</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Guha</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Recent developments of the chemistry development kit (CDK) - an open-source java library for chemo- and bioinformatics</article-title>
+                <source>Curr Pharm Des</source>
+                <year>2006</year>
+                <volume>12</volume>
+                <issue>17</issue>
+                <fpage>2111</fpage>
+                <lpage>2120</lpage>
+                <pub-id pub-id-type="doi">10.2174/138161206777585274</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XmslWqsL0%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Swamidass</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Bruand</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Phung</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Ralaivola</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Baldi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Kernels for small molecules and the prediction of mutagenicity, toxicity and anti-cancer activity</article-title>
+                <source>Bioinformatics</source>
+                <year>2005</year>
+                <volume>21</volume>
+                <fpage>359</fpage>
+                <lpage>368</lpage>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/bti1055</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Nasr</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Swamidass</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Baldi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Large scale study of multiple-molecule queries</article-title>
+                <source>J Cheminf</source>
+                <year>2009</year>
+                <volume>1</volume>
+                <fpage>7</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-1-7</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Swamidass</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Dou</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Baldi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ChemDB: a public database of small molecules and related chemoinformatics resources</article-title>
+                <source>Bioinformatics</source>
+                <year>2005</year>
+                <volume>21</volume>
+                <fpage>4133</fpage>
+                <lpage>4139</lpage>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/bti683</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXhtFyrtLbF</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gasteiger</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Rudolph</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Sadowski</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Automatic Generation of 3D-Atomic Coordinates for Organic Molecules</article-title>
+                <source>Tetrahedron Comput Methodol</source>
+                <year>1992</year>
+                <volume>3</volume>
+                <fpage>537</fpage>
+                <lpage>547</lpage>
+                <pub-id pub-id-type="doi">10.1016/0898-5529(90)90156-3</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schrödinger</surname>
+                    <given-names>LLC</given-names>
+                  </name>
+                </person-group>
+                <source>Schrödinger MacroModel 9.6</source>
+                <year>2008</year>
+                <publisher-loc>New York, NY</publisher-loc>
+                <publisher-name>Schrödinger, LLC</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bouckaert</surname>
+                    <given-names>RR</given-names>
+                  </name>
+                  <name>
+                    <surname>Frank</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Dai</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Srikant</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Evaluating the Replicability of Significance Tests for Comparing Learning Algorithms</article-title>
+                <source>Advances in Knowledge Discovery and Data Mining - Proceedings of 8th Pacific-Asia Conference, PAKDD 2004</source>
+                <year>2004</year>
+                <fpage>3</fpage>
+                <lpage>12</lpage>
+                <comment>Springer</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Fechner</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Jahn</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Hinselmann</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Zell</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Atomic Local Neighborhood Flexibility Incorporation into a Structured Similarity Measure for QSAR</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2009</year>
+                <volume>49</volume>
+                <issue>3</issue>
+                <fpage>549</fpage>
+                <lpage>560</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci800329r</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXitFymur4%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="other">Talete srl, Milano, Italy: dragonX 1.4 for Linux (Molecular Descriptor Calculation Software). [<ext-link xlink:href="http://www.talete.mi.it/" ext-link-type="url">http://www.talete.mi.it/</ext-link>]</mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec44">
+              <title>Authors’ original submitted files for images</title>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM1" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_118_MOESM1_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_118_MOESM2_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material></p>
+            </sec>
+          </app>
+        </app-group>
+        <notes notes-type="Misc">
+          <title>Competing interests</title>
+          <p>The authors declare that they have no competing interests.</p>
+        </notes>
+        <notes notes-type="Misc">
+          <title>Authors' contributions</title>
+          <p>GH wrote most of the code and the manuscript. LR implemented the Molprint-like fingerprints and the extended connectivity fingerprint, helped to design the library, and participated in writing the manuscript. AJ implemented an initial version of the pharmacophore typer and the CATS2D descriptors. NF tested some of the encodings in experiments and helped to develop the atom typing schemes. AZ supervised the study and participated in the discussion of the results. All authors read and approved the final manuscript.</p>
+        </notes>
+      </back>
+    </article>

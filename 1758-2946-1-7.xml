@@ -1,0 +1,1409 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">BMC1758-2946-1-7</article-id>
+          <article-id pub-id-type="manuscript">7</article-id>
+          <article-id pub-id-type="doi">10.1186/1758-2946-1-7</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Large scale study of multiple-molecule queries</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Nasr</surname>
+                <given-names>Ramzi J</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Swamidass</surname>
+                <given-names>S Joshua</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes">
+              <name>
+                <surname>Baldi</surname>
+                <given-names>Pierre F</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDBMC1758294617_cor3">c</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.266093.8</institution-id>
+                <institution-id institution-id-type="ISNI">0000000106687243</institution-id>
+                <institution content-type="org-division">The Bren School of Information and Computer Science, Institute for Genomics and Bioinformatics</institution>
+                <institution content-type="org-name">University of California</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">92697-3435</addr-line>
+              <addr-line content-type="city">Irvine</addr-line>
+              <addr-line content-type="state">CA</addr-line>
+              <country>USA</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDBMC1758294617_cor3">
+              <label>c</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>04</day>
+            <month>6</month>
+            <year>2009</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2009</year>
+          </pub-date>
+          <volume>1</volume>
+          <issue seq="7">1</issue>
+          <elocation-id>7</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>01</day>
+              <month>6</month>
+              <year>2009</year>
+            </date>
+            <date date-type="received">
+              <day>01</day>
+              <month>6</month>
+              <year>2009</year>
+            </date>
+            <date date-type="accepted">
+              <day>04</day>
+              <month>6</month>
+              <year>2009</year>
+            </date>
+            <date date-type="online">
+              <day>04</day>
+              <month>6</month>
+              <year>2009</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© Nasr et al; licensee BioMed Central Ltd. 2009</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-year>2009</copyright-year>
+            <copyright-holder>Nasr et al; licensee BioMed Central Ltd.</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by-nc/2/">
+              <license-p><bold>Open Access</bold> This is an open access article distributed under the terms of the Creative Commons Attribution Noncommercial License ( 
+    <ext-link xlink:href="https://creativecommons.org/licenses/by-nc/2.0" ext-link-type="url">https://creativecommons.org/licenses/by-nc/2.0</ext-link> 
+    ), which permits any noncommercial use, distribution, and reproduction in any medium, provided the original author(s) and source are credited. 
+</license-p>
+            </license>
+          </permissions>
+          <abstract id="Abs1" xml:lang="en">
+            <title>Abstract</title>
+            <sec id="ASec1">
+              <title>Background</title>
+              <p>In ligand-based screening, as well as in other chemoinformatics applications, one seeks to effectively search large repositories of molecules in order to retrieve molecules that are similar typically to a single molecule lead. However, in some case, multiple molecules from the same family are available to seed the query and search for other members of the same family.</p>
+              <p>Multiple-molecule query methods have been less studied than single-molecule query methods. Furthermore, the previous studies have relied on proprietary data and sometimes have not used proper cross-validation methods to assess the results. In contrast, here we develop and compare multiple-molecule query methods using several large publicly available data sets and background. We also create a framework based on a strict cross-validation protocol to allow unbiased benchmarking for direct comparison in future studies across several performance metrics.</p>
+            </sec>
+            <sec id="ASec2">
+              <title>Results</title>
+              <p>Fourteen different multiple-molecule query methods were defined and benchmarked using: (1) 41 publicly available data sets of related molecules with similar biological activity; and (2) publicly available background data sets consisting of up to 175,000 molecules randomly extracted from the ChemDB database and other sources. Eight of the fourteen methods were parameter free, and six of them fit one or two free parameters to the data using a careful cross-validation protocol. All the methods were assessed and compared for their ability to retrieve members of the same family against the background data set by using several performance metrics including the Area Under the Accumulation Curve (AUAC), Area Under the Curve (AUC), F1-measure, and BEDROC metrics.</p>
+              <p>Consistent with the previous literature, the best parameter-free methods are the MAX-SIM and MIN-RANK methods, which score a molecule to a family by the maximum similarity, or minimum ranking, obtained across the family. One new parameterized method introduced in this study and two previously defined methods, the Exponential Tanimoto Discriminant (ETD), the Tanimoto Power Discriminant (TPD), and the Binary Kernel Discriminant (<bold>BKD</bold>), outperform most other methods but are more complex, requiring one or two parameters to be fit to the data.</p>
+            </sec>
+            <sec id="ASec3">
+              <title>Conclusion</title>
+              <p>Fourteen methods for multiple-molecule querying of chemical databases, including novel methods, (ETD) and (TPD), are validated using publicly available data sets, standard cross-validation protocols, and established metrics. The best results are obtained with ETD, TPD, BKD, MAX-SIM, and MIN-RANK. These results can be replicated and compared with the results of future studies using data freely downloadable from <ext-link xlink:href="http://cdb.ics.uci.edu/" ext-link-type="url">http://cdb.ics.uci.edu/</ext-link>.</p>
+            </sec>
+            <sec>
+              <fig id="Figa" position="anchor">
+                <p>
+                  <graphic position="anchor" specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2009_Article_7_Figa_HTML.gif" />
+                </p>
+              </fig>
+            </sec>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Molecular Fingerprint</kwd>
+            <kwd>Label Path</kwd>
+            <kwd>Inactive Molecule</kwd>
+            <kwd>Tanimoto Similarity</kwd>
+            <kwd>Query Molecule</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Chemistry Central</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>22</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2009</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2009</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>6</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>01</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2009_Article_7.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-1-7" ext-link-type="doi">10.1186/1758-2946-1-7</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+        <notes notes-type="Misc">
+          <p>Ramzi J Nasr, S Joshua Swamidass contributed equally to this work.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p>The rapid search of large repositories of molecules is a fundamental task of chemoinformatics. In a typical search, the molecules in a repository are ranked by their similarity to a single molecule query. If an appropriate similarity metric is employed, the molecules most similar to the query are most likely to exhibit physical, chemical, or biological properties similar to the query molecule. There is extensive body of literature on how to search based on this type of single-molecule query ([<xref ref-type="bibr" rid="CR1">1</xref>–<xref ref-type="bibr" rid="CR5">5</xref>] and references therein).</p>
+          <p>However, in some chemoinformatic applications, several molecules of the same class are known. For example, given a set of molecules known to bind estrogen-receptor (Figure <xref rid="Fig1" ref-type="fig">1</xref>), one could search for additional estrogen-receptor binders. In these situations, searching the database with the whole group of query molecules may be more accurate than selecting a single-molecule to use as the query.<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>A multiple-molecule query</bold>. Examples of five estrogen receptor binding compounds that could be entered in a profile query.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig1_HTML.jpg" /></p></fig></p>
+          <p>Multiple-molecule searches [<xref ref-type="bibr" rid="CR4">4</xref>–<xref ref-type="bibr" rid="CR8">8</xref>] have been less studied than single-molecules searches. Furthermore, the published studies of multiple-molecule searches suffer from critical weaknesses: reliance on proprietary data, poorly characterized background databases, and non-standardized performance metrics. Furthermore, some of these studies do not appropriately cross-validate their results.</p>
+          <p>Our study directly rectifies these deficiencies by using public data and better evaluation methodology. We both introduce novel multiple-molecule query methods and compare these methods with previously described multiple-molecule query methods using public activity data sets, a public background database, a strict cross-validation protocol, and reproducible evaluation methodology.</p>
+          <p>In what follows, many of the disparate methods from the literature are organized into a common framework.</p>
+        </sec>
+        <sec id="Sec2">
+          <title>Molecular representations and similarity metrics</title>
+          <p>We begin by describing molecular representations and different metrics used to quantify the similarity between pairs of molecules. Multiple-molecule methods are often built on the pairwise-similarities between molecules.</p>
+          <p>There are many ways of measuring similarities between chemicals ([<xref ref-type="bibr" rid="CR9">9</xref>–<xref ref-type="bibr" rid="CR13">13</xref>] and references therein), but we focus on similarities measured between molecular fingerprints because they are the most commonly used in chemical search engines and the most studied.</p>
+          <sec id="Sec3">
+            <title>Molecular fingerprint notation</title>
+            <p>Molecular fingerprints are binary vectors where each component is a bit associated with the presence or absence of a particular feature (for example a functional group, path, tree, or some other graphical substructure) of labeled atoms and bonds present in the molecule. These vectors are typically long and sparse, on the order of 100, 000 or more bits long and with only hundreds of 1-bits for a given molecule.</p>
+            <p>Let <inline-formula id="IEq1"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq1_HTML.gif" /></inline-formula> denote a molecule, and <inline-formula id="IEq2"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq2_HTML.gif" /></inline-formula> = (<italic>A</italic><sub><italic>i</italic></sub>) the corresponding fingerprint of length <italic>N</italic>, and <italic>A</italic>, the number of 1-bits in <inline-formula id="IEq3"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq2_HTML.gif" /></inline-formula>. Likewise, ℬ denotes another molecule, <inline-formula id="IEq4"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq3_HTML.gif" /></inline-formula> = (<italic>B</italic><sub><italic>i</italic></sub>) its corresponding fingerprint, and <italic>B</italic> the number of 1-bits in <inline-formula id="IEq5"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq3_HTML.gif" /></inline-formula>. Then <italic>A</italic> ∪ <italic>B</italic> (resp. <italic>A</italic> ∩ <italic>B</italic>) denotes the total number of 1-bits in <inline-formula id="IEq6"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq2_HTML.gif" /></inline-formula> OR <inline-formula id="IEq7"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq3_HTML.gif" /></inline-formula> (resp. <inline-formula id="IEq8"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq2_HTML.gif" /></inline-formula> AND <inline-formula id="IEq9"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq3_HTML.gif" /></inline-formula>). We can also define <italic>A</italic> ⊕ <italic>B</italic> as the number of bits that are exclusively in either <inline-formula id="IEq10"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq2_HTML.gif" /></inline-formula> or <inline-formula id="IEq11"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq3_HTML.gif" /></inline-formula> but not both (the XOR), noting that this is exactly equivalent to (<italic>A</italic> ∪ <italic>B</italic>) - (<italic>A</italic> ∩ <italic>B</italic>).</p>
+            <p>For efficiency of space and time, fingerprints are often 'folded' to a much shorter length (<italic>N</italic> = 512 or <italic>N</italic> = 1024) using a lossy-compression algorithm. Each bit in the short, compressed fingerprint is indexed by <italic>i</italic> and each bit in the long, uncompressed fingerprint is indexed by <italic>j</italic>. The compression algorithm works by setting a 1-bit for each bit <italic>i</italic> in the short fingerprint if and only if there is at least a single 1-bit in one of the positions in the uncompressed, longer fingerprint which satisfies <italic>j</italic> mod <italic>N</italic> = <italic>i</italic>. This is the algorithm used by many chemoinformatic systems, including the Daylight system [<xref ref-type="bibr" rid="CR3">3</xref>].</p>
+            <p>One can then compute similarity between either the longer, uncompressed fingerprints or the shorter, compressed fingerprints. Most similarity metrics are functions of <italic>A</italic>, <italic>B</italic>, (<italic>A</italic> ∩ <italic>B</italic>), (<italic>A</italic> ∪ <italic>B</italic>), and <italic>N</italic>, which can be directly computed from any pair of compressed or uncompressed fingerprints and then used to compute a similarity.</p>
+            <p>In choosing between compressed and uncompressed fingerprints, there is a tradeoff between efficiency and accuracy. The compressed fingerprints are faster and smaller but introduce systematic bias and random noise into any similarity computed from them. The folding compression algorithm artificially biases the similarities measured between folded-fingerprints to be higher than similarities computed between the corresponding unfolded-fingerprints. We have shown the bias introduced into some similarites by the folding-compression algorithm is both systematic and mathematically correctable [<xref ref-type="bibr" rid="CR14">14</xref>]; using only information from the shorter, folded fingerprints, one can estimate the similarity between the unfolded fingerprints. This method improves on the tradeoff between efficiency and accuracy, yielding a system with high speed, low space, and high accuracy.</p>
+            <p>Where possible, we use corrected similarities. Occasionally, because of mathematical details of a particular similarity's formula, it is not possible to correct the similarity. The correction method assumes that <italic>N</italic> → ∞, so when a similarity's formula includes <italic>N</italic> in a way which can not be algebraically removed, it cannot be corrected. For these cases, we compute similarity using compressed fingerprints, without the correction, and clearly note this in Table <xref rid="Tab1" ref-type="table">1</xref>.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>List of method abbreviations.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="center"><p>Name</p></th><th align="center"><p>Equations</p></th><th align="center"><p>Parameters</p></th></tr></thead><tbody><tr><td align="center"><p><bold>MIN-SIM</bold></p></td><td align="center"><p>18,1</p></td><td align="center"><p>0</p></td></tr><tr><td align="center"><p><bold>MAX-SIM</bold></p></td><td align="center"><p>17,1</p></td><td align="center"><p>0</p></td></tr><tr><td align="center"><p><bold>SUM-SIM</bold></p></td><td align="center"><p>16,1</p></td><td align="center"><p>0</p></td></tr><tr><td align="center"><p><bold>NUMDEN-SIM</bold></p></td><td align="center"><p>23,19,1</p></td><td align="center"><p>0</p></td></tr><tr><td align="center"><p><bold>MIN-RANK</bold></p></td><td align="center"><p>15,1</p></td><td align="center"><p>0</p></td></tr><tr><td align="center"><p><bold>MAX-RANK</bold></p></td><td align="center"><p>14,1</p></td><td align="center"><p>0</p></td></tr><tr><td align="center"><p><bold>SUM-RANK</bold></p></td><td align="center"><p>13,1</p></td><td align="center"><p>0</p></td></tr><tr><td align="center"><p><bold>BAYES</bold>†</p></td><td align="center"><p>24</p></td><td align="center"><p>0</p></td></tr><tr><td align="center"><p><bold>SUM-EH</bold>*†</p></td><td align="center"><p>16,11</p></td><td align="center"><p>2</p></td></tr><tr><td align="center"><p><bold>SUM-ET</bold>*</p></td><td align="center"><p>16,12</p></td><td align="center"><p>2</p></td></tr><tr><td align="center"><p><bold>SUM-TP</bold>*</p></td><td align="center"><p>16,9</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p><bold>BKD</bold>†</p></td><td align="center"><p>20,11</p></td><td align="center"><p>2</p></td></tr><tr><td align="center"><p><bold>ETD</bold>*</p></td><td align="center"><p>20,12</p></td><td align="center"><p>2</p></td></tr><tr><td align="center"><p><bold>TPD</bold>*</p></td><td align="center"><p>20,9</p></td><td align="center"><p>1</p></td></tr></tbody></table><table-wrap-foot><p>A list of abbreviated names for different multiple molecule queries. In the case of any methods with weight vectors, we use equally weighted convex combinations, in other words, w<italic>i</italic> = 1/|<inline-formula id="IEq12"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq4_HTML.gif" /></inline-formula>| where |<inline-formula id="IEq13"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq4_HTML.gif" /></inline-formula>| is the number of query molecules. So, for example, the SUM-SIM becomes the average similarity. Methods introduced in this study for the first time are marked with a star (*). Methods using the compressed metrics are marked with a dagger (†); the rest use corrected metrics.</p></table-wrap-foot></table-wrap></p>
+          </sec>
+          <sec id="Sec4">
+            <title>Pairwise-molecular metrics</title>
+            <p>The multiple-molecule methods we will describe are generated by mathematically combining pairwise-molecular metrics. So, we must first define pairwise-molecular metrics before we define multiple molecule methods. We use the term 'metric' to include both similarities (denoted with an <italic>S</italic>) and dissimilarities (denoted with a <italic>D</italic>). Both can be used for searching by either selecting the most similar or the least dissimilar molecules from a query.</p>
+            <p>Several pairwise-molecule similarity metrics [<xref ref-type="bibr" rid="CR15">15</xref>] have been introduced for molecular fingerprints, the most common one is the Tanimoto similarity. The Tanimoto similarity, also known as the Jaccard similarity, between two binary fingerprints is defined by the ratio of the number of bits set to 1 in both fingerprints to the total number of bits set to 1 in either fingerprint,<disp-formula id="Equ1"><label>1</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ1_HTML.gif" /></disp-formula></p>
+            <p>The Tversky similarity is also commonly used, parameterized by 0 ≤ <italic>α</italic> and 0 ≤ <italic>β</italic>, which can be tuned to find approximate subsets and supersets of a query fingerprint,<disp-formula id="Equ2"><label>2</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ2_HTML.gif" /></disp-formula></p>
+            <p>The Tanimoto similarity is identical to the Tversky similarity when <italic>α</italic> = <italic>β</italic> = 1.</p>
+            <p>Other metrics include the Cosine similarity,<disp-formula id="Equ3"><label>3</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ3_HTML.gif" /></disp-formula></p>
+            <p>the Overlap similarity,<disp-formula id="Equ4"><label>4</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ4_HTML.gif" /></disp-formula></p>
+            <p>and the Simple Matching similarity,<disp-formula id="Equ5"><label>5</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ5_HTML.gif" /></disp-formula></p>
+            <p>One can also consider dissimilarities, which can often be generated by subtracting a similarity from a constant. For example, the Mismatch dissimilarity,<disp-formula id="Equ6"><label>6</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ6_HTML.gif" /></disp-formula></p>
+            <p>is equivalent to <italic>N</italic> minus the Simple Matching similarity. In the case of binary vectors, this is also known as the Manhattan or Hamming distance.</p>
+            <p>Also, the Tanimoto dissimilarity,<disp-formula id="Equ7"><label>7</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ7_HTML.gif" /></disp-formula></p>
+            <p>is equivalent to one minus the Tanimoto similarity.</p>
+            <p>These two dissimilarities are also mathematical distances, and each is associated with a specific similarity. The association between a similarity and a dissimilarity is important in some of the following definitions.</p>
+            <p>Additional metrics can be generated by considering monotone transformations of previously defined formulas. In the case of single-molecule queries, the rankings produced by monotone transformations of the same metric are exactly equivalent. However, in the case of multiple-molecule methods, where pairwise-metrics are mathematically combined to generate a composite score, monotone transformations applied to the pairwise-metric can substantially affect the final rankings.</p>
+            <p>The first, simple, non-linear transformation one can consider is raising a metric by a constant power,<disp-formula id="Equ8"><label>8</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ8_HTML.gif" /></disp-formula></p>
+            <p>This equation is parameterized by the exponent, <italic>α</italic>, and is a monotonic transformation so long as <italic>α</italic> ≠ 0.</p>
+            <p>Applying this to the Tanimoto similarity yields the Tanimoto-Power (TP) metric. This metric is defined as<disp-formula id="Equ9"><label>9</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ9_HTML.gif" /></disp-formula></p>
+            <p>Other monotone transformations can generate additional metrics. For example, one can also consider the transformation<disp-formula id="Equ10"><label>10</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ10_HTML.gif" /></disp-formula></p>
+            <p>where <italic>S</italic>(<inline-formula id="IEq14"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq2_HTML.gif" /></inline-formula>, <inline-formula id="IEq15"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq3_HTML.gif" /></inline-formula>) is the similarity between <italic>A</italic> and ℬ, <italic>D</italic>(<inline-formula id="IEq16"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq2_HTML.gif" /></inline-formula>, <inline-formula id="IEq17"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq3_HTML.gif" /></inline-formula>) = <italic>C</italic><sub><italic>S</italic></sub>- <italic>S</italic>(<inline-formula id="IEq18"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq2_HTML.gif" /></inline-formula>, <inline-formula id="IEq19"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq3_HTML.gif" /></inline-formula>) is the associated dissimilarity between <inline-formula id="IEq20"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq1_HTML.gif" /></inline-formula> and ℬ, and <italic>C</italic><sub><italic>S</italic></sub>is a constant fixed at the maximum possible value of the similarity <italic>S</italic>. The bandwidth parameter, <italic>λ</italic>, and the shape parameter, <italic>k</italic>, can be adjusted to fine tune this transformation to particular problems. Algebraically, this transformation is always monotone.</p>
+            <p>A special case of this more complex transform is used by some groups [<xref ref-type="bibr" rid="CR6">6</xref>, <xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR16">16</xref>] where <italic>S</italic> is the Simple Matching similarity, therefore <italic>C</italic><sub><italic>S</italic></sub>= <italic>N</italic>, and <italic>D</italic> is the Hamming distance, yielding<disp-formula id="Equ11"><label>11</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ11_HTML.gif" /></disp-formula></p>
+            <p>We refer to this metric (Equation 11) as the Exponential Hamming (EH) metric, to emphasize it can be viewed as the Hamming distance (Equation 6) transformed by Equation <xref rid="Equ10" ref-type="disp-formula">10</xref>.</p>
+            <p>We can also use this transformation using the Tanimoto similarity and the Tanimoto distance. In this case we have <italic>C</italic><sub><italic>S</italic></sub>= 1 and<disp-formula id="Equ12"><label>12</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ12_HTML.gif" /></disp-formula></p>
+            <p>This variation is termed the Exponential Tanimoto (ET) metric.</p>
+            <p>All three of these similarities, EH, ET, and TP are monotonic transformations of their underlying metrics (Tanimoto or Simple Matching). This means that the rankings for single molecule queries produced by ET and TP are exactly equivalent to those produced by Tanimoto similarity or distance. Likewise, the rankings produced by EH for single molecule queries are equivalent to the rankings produced by the Simple Matching similarity or the Hamming distance.</p>
+          </sec>
+        </sec>
+        <sec id="Sec5">
+          <title>Multiple-molecule methods</title>
+          <p>The multiple-molecule methods we describe are based on multiple-molecule similarities defined as <inline-formula id="IEq21"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq5_HTML.gif" /></inline-formula> between the query molecules <inline-formula id="IEq22"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq4_HTML.gif" /></inline-formula> and each molecule ℬ in the database. These similarities are the foundation of multiple-molecule search methods; they are used to rank the database and find the most relevant chemicals to a given query.</p>
+          <p>We can generate different multiple-molecule similarities by three general strategies: (1) aggregating the separately ranked results from single-molecule queries, (2) aggregating the individual pairwise similarity measures, and finally (3) aggregating the fingerprints into profiles and computing similarities between these profiles and single molecules.</p>
+          <sec id="Sec6">
+            <title>Aggregating ranks</title>
+            <p>In the first class of strategies, the idea is to aggregate the ranked results of single-molecule queries based on a pairwise-similarity, using each <inline-formula id="IEq23"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq6_HTML.gif" /></inline-formula> separately. So rather than mathematically combining individual-pairwise similarities, we combine the ranked lists that these similarities generate. We must extend our notation to describe this class of approaches. While <inline-formula id="IEq24"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq7_HTML.gif" /></inline-formula> denotes the similarity of molecule <inline-formula id="IEq25"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq8_HTML.gif" /></inline-formula> and ℬ, we use <inline-formula id="IEq26"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq9_HTML.gif" /></inline-formula> to denote the rank of molecule ℬ in the database <inline-formula id="IEq27"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq10_HTML.gif" /></inline-formula> ordered by each molecule's pairwise similarity to <inline-formula id="IEq28"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq8_HTML.gif" /></inline-formula>.</p>
+            <p>In the top hits, molecules with the exact same similarity to the query occur frequently enough to require clear specification of <inline-formula id="IEq29"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq11_HTML.gif" /></inline-formula>'s treatment of molecules with tied score. In our formulation, ties are assigned cautious ranks that favor the inactive molecules. In other words, if active and inactive molecules are scored identically, the inactive molecules are assigned better ranks. Other ways of handling ties, which include the inverse of the former as well as assigning equal average ranks, yield very close results that are not significantly different.</p>
+            <p>By convention, lower ranks correspond to higher similarities, so we negate various aggregations of the single-molecule rankings to define new multiple-molecule methods. For example, we can define a new similarity as the weighted sum of the ranks<disp-formula id="Equ13"><label>13</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ13_HTML.gif" /></disp-formula></p>
+            <p>the maximum (or worst) rank<disp-formula id="Equ14"><label>14</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ14_HTML.gif" /></disp-formula></p>
+            <p>or the minimum (or best) rank<disp-formula id="Equ15"><label>15</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ15_HTML.gif" /></disp-formula></p>
+            <p>Using a threshold of -<italic>K</italic> on the final formula (minimum of the ranks) is equivalent to pooling the top <italic>K</italic> hits, and removing redundant hits, from each single-molecule query.</p>
+          </sec>
+          <sec id="Sec7">
+            <title>Aggregating similarities</title>
+            <p>In this class of strategies, the idea is to score the database by mathematically aggregating individual similarities between the database molecules and each of the query molecules. We define <italic>S</italic>(<inline-formula id="IEq30"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq4_HTML.gif" /></inline-formula>, ℬ) in terms of the individual similarities <italic>S</italic>(<inline-formula id="IEq31"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq8_HTML.gif" /></inline-formula>, ℬ) by taking the maximum, minimum, or weighted average. In the case of a weighted average with non-negative weights <inline-formula id="IEq32"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq12_HTML.gif" /></inline-formula> we have<disp-formula id="Equ16"><label>16</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ16_HTML.gif" /></disp-formula></p>
+            <p>where <italic>S</italic> is any of the similarities defined previously. Likewise, in the case where the similarity is defined by the maximum or the minimum we have<disp-formula id="Equ17"><label>17</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ17_HTML.gif" /></disp-formula></p>
+            <p>or<disp-formula id="Equ18"><label>18</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ18_HTML.gif" /></disp-formula></p>
+            <p>Within this class of strategies, it is also possible to consider measures that are obtained by combining the results of elementary pairwise comparisons between the molecules (e.g. intersections, unions) rather than the similarity measures themselves. In particular, one can derive a series of measures by simply aggregating the numerators and the denominators of the pairwise-similarity measures. In the case of the binary Tanimoto measure, we can define<disp-formula id="Equ19"><label>19</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ19_HTML.gif" /></disp-formula></p>
+            <p>In some applications, in addition to scoring the database with information from active compounds, we can leverage information about compounds known to be inactive. Often, we can accurately infer that most database molecules are inactive and randomly select tens or hundreds from the database to use as a set of inactive molecules.</p>
+            <p>The Binary Kernel Discriminant (<bold>BKD</bold>) is an example of a method which uses information from inactive molecules. Aggregating the numerators and denominators of the Exponential-Hamming similarity, the <bold>BKD</bold> takes as arguments both a set of active molecules, <inline-formula id="IEq33"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq13_HTML.gif" /></inline-formula>, and a set of inactive molecules <inline-formula id="IEq34"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq14_HTML.gif" /></inline-formula>.<disp-formula id="Equ20"><label>20</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ20_HTML.gif" /></disp-formula></p>
+            <p>This can be naturally varied by substituting different similarity metrics and aggregations, as has been done by at least one study [<xref ref-type="bibr" rid="CR17">17</xref>]. The most important variation can be derived by substituting the corrected Exponential-Tanimoto (Equation 12) for the Exponential-Hamming, we call this method the Exponential Tanimoto Discriminant (<bold>ETD</bold>) or by substituting the Tanimoto-power (Equation 9) for the Exponential-Hamming, we call this method the Tanimoto Power Discriminant (<bold>TPD</bold>).</p>
+          </sec>
+          <sec id="Sec8">
+            <title>Profile similarity</title>
+            <p>A third possible class of approaches to multiple-molecule queries is to aggregate fingerprints into a summary <inline-formula id="IEq35"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq15_HTML.gif" /></inline-formula> = (<italic>P</italic><sub><italic>j</italic></sub>) to represent the family <inline-formula id="IEq36"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq1_HTML.gif" /></inline-formula> and then define similarity metrics between this profile and single molecules. The most common way of representing a family of molecules is with a consensus fingerprint where <italic>P</italic><sub><italic>j</italic></sub>= min<sub><italic>i</italic></sub><italic>A</italic><sub><italic>ij</italic></sub>. So, <italic>P</italic><sub><italic>j</italic></sub>= 1 only if all fingerprints in the family are one at the <italic>j</italic>th position. Similarity between the consensus fingerprint and a fingerprint <inline-formula id="IEq37"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq3_HTML.gif" /></inline-formula> can be measured using any of the single-molecule similarity measures we have defined. For example, we could use Tanimoto similarity,<disp-formula id="Equ21"><label>21</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ21_HTML.gif" /></disp-formula></p>
+            <p>Within this class of approaches, we can use a fingerprint profile to summarize the family in a more detailed manner than a consensus fingerprint. A fingerprint profile summarizes the information in a set of fingerprints, very much like a sequence profile or a position specific scoring matrix (PSSM) summarizes the information in a set of aligned sequences in bioinformatics. A fingerprint profile stores the relative frequencies that each bit is set to one in a set of fingerprints. If a given bit position is set to one in half the fingerprints, the corresponding component in the profile is set to 0.5. In addition, we can also assign different weights to each molecule or fingerprint in the family. In this most general case, <inline-formula id="IEq38"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq16_HTML.gif" /></inline-formula>. For proper scaling, it is desirable to use a convex combination with <inline-formula id="IEq39"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq17_HTML.gif" /></inline-formula>.</p>
+            <p>The similarity between the profile <inline-formula id="IEq40"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq18_HTML.gif" /></inline-formula> and a fingerprint <inline-formula id="IEq41"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq3_HTML.gif" /></inline-formula> can be measured using the MinMax (defined by Swamidass et. al. [<xref ref-type="bibr" rid="CR12">12</xref>]) metric between scalar vectors,<disp-formula id="Equ22"><label>22</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ22_HTML.gif" /></disp-formula></p>
+            <p>If the <italic>A</italic><sub><italic>i</italic></sub>'s are binary and the combination is convex (<inline-formula id="IEq42"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq17_HTML.gif" /></inline-formula>), then we have the identity <inline-formula id="IEq43"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq19_HTML.gif" /></inline-formula>. Therefore, with convex linear combinations, we have the identity<disp-formula id="Equ23"><label>23</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ23_HTML.gif" /></disp-formula></p>
+            <p>where <italic>i</italic> iterates over the fingerprints in the set of query molecules, and <italic>j</italic> iterates over the components of each fingerprint.</p>
+            <p>When we use a convex combination (<inline-formula id="IEq44"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq17_HTML.gif" /></inline-formula>) on binary vectors, each component of <inline-formula id="IEq45"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq20_HTML.gif" /></inline-formula> ranges from zero to one. <inline-formula id="IEq46"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq20_HTML.gif" /></inline-formula> can be interpreted as a vector of probabilities. Once we think of the profile as a probabilistic model, we can apply priors and measure likelihood according to well-defined theory. Notably, similarity can be measured as the log likelihood of <inline-formula id="IEq47"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq3_HTML.gif" /></inline-formula> according to <inline-formula id="IEq48"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq21_HTML.gif" /></inline-formula>,<disp-formula id="Equ24"><label>24</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ24_HTML.gif" /></disp-formula></p>
+            <p>This is equivalent to both the Naive-Bayes model used by [<xref ref-type="bibr" rid="CR18">18</xref>, <xref ref-type="bibr" rid="CR19">19</xref>] and to the Probability Scoring Matrix (PSM) commonly used in bioinformatics.</p>
+          </sec>
+          <sec id="Sec9">
+            <title>Naming convention</title>
+            <p>In the following sections, for brevity and clarity, abbreviations are used to references each of the different of multiple molecule query methods. These names are tabulated in Table <xref rid="Tab1" ref-type="table">1</xref>.</p>
+            <p>Some of these query methods presume the choice of a pairwise-similarity from which to derive the multiple-molecule similarity. Reported results use the Tanimoto similarity as this underlying pairewise-metric where possible, because it is the most commonly used and best performing pairwise-similarity. The exceptions to this decision are the <bold>BKD</bold> and <bold>SUM-EH</bold> methods, where the Hamming and Simple Matching metrics are used in order to replicate results from the literature.</p>
+            <p>Although not reported in this study, all experiments were replicated using three other pairwise-metrics known to perform well on chemical fingerprints: the Overlap, Mismatch/Euclidian, and Cosine metrics. Very rarely, the Cosine metric slightly outperforms the Tanimoto metric, but in all other cases the Tanimoto metric always outperforms other metrics. Most importantly, the particular single-molecule measure used did not affect the performance patterns of the multiple-molecule query methods. If a particular multiple-molecule method worked best for Tanimoto, it would also work best when other metrics were used.</p>
+          </sec>
+          <sec id="Sec10">
+            <title>Data</title>
+            <p>other cases, they are known to elicit the same biological effect. Data sets include active molecules against HIV, different steroid receptors activists and antagonists, enzymes, and steroid families. See Table <xref rid="Tab2" ref-type="table">2</xref> enough to effectively evaluate methods in our largest data set, <italic>suth-dhfr</italic> with 722 chemicals. This background database is available for download at <ext-link xlink:href="http://cdb.ics.uci.edu" ext-link-type="url">http://cdb.ics.uci.edu</ext-link>.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Data set characteristics.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Name</p></th><th align="center"><p>Size</p></th><th align="left"><p>Reference</p></th></tr></thead><tbody><tr><td align="left"><p>muv-chaperone</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-gpcr-1</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-gpcr-2</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-gpcr-3</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-kinase-1</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-kinase-2</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-kinase-3</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-nr-1</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-nr-2</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-ppi-1</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-ppi-2</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-ppi-3</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-protease-1</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-protease-2</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-protease-3</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-rnase</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-rtk</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>nci-hiv</p></td><td align="center"><p>415</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR23">23</xref>]</p></td></tr><tr><td align="left"><p>stahl-cox2</p></td><td align="center"><p>125</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>stahl-estrogen</p></td><td align="center"><p>53</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>stahl-gelatinase</p></td><td align="center"><p>40</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>stahl-neuraminidase</p></td><td align="center"><p>17</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>stahl-p38-map-kinase</p></td><td align="center"><p>24</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>stahl-thrombin</p></td><td align="center"><p>67</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>suth-benzodiazepine</p></td><td align="center"><p>404</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR22">22</xref>]</p></td></tr><tr><td align="left"><p>suth-dhfr</p></td><td align="center"><p>722</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR22">22</xref>]</p></td></tr><tr><td align="left"><p>suth-estrogen</p></td><td align="center"><p>361</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR22">22</xref>]</p></td></tr><tr><td align="left"><p>suth-steroid</p></td><td align="center"><p>28</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR22">22</xref>]</p></td></tr><tr><td align="left"><p>wom-alr2</p></td><td align="center"><p>42</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-androgen</p></td><td align="center"><p>36</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-cdk2</p></td><td align="center"><p>152</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-cox2</p></td><td align="center"><p>76</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-d2</p></td><td align="center"><p>334</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-egfr</p></td><td align="center"><p>74</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-estrogen</p></td><td align="center"><p>64</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-fxa</p></td><td align="center"><p>107</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-hiv1rt</p></td><td align="center"><p>99</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-impdh</p></td><td align="center"><p>49</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-p38-map-kinase</p></td><td align="center"><p>59</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-pde5</p></td><td align="center"><p>88</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-ppar-gamma</p></td><td align="center"><p>27</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr></tbody></table><table-wrap-foot><p>Each data set is given an abbreviated name and is listed with the the number of molecules and its reference. In the case of the the NCI HIV screen (nci-hiv) we use only the 415 confirmed actives and discard the inactive and moderately-active compounds.</p></table-wrap-foot></table-wrap></p>
+            <p>The multiple-molecule queries are benchmarked on a total of forty one data sets, divided into two groups. The first group of benchmarks use a background of negative examples randomly selected from the ChemDB. The second group of benchmarks uses data sets carefully derived from high throughput screening experiments specifically to more accurately assess query performance. This second group is expected to be more difficult than the first group.</p>
+            <p>First, we used twenty-four active data sets against a background database of molecules selected from the ChemDB. The data sets include thirteen WOMBAT data sets [<xref ref-type="bibr" rid="CR20">20</xref>], six data sets from Stahl et al. [<xref ref-type="bibr" rid="CR21">21</xref>], four data sets from Sutherland et al. [<xref ref-type="bibr" rid="CR22">22</xref>] and the compounds with confirmed activity against HIV from the National Cancer Institute's (NCI) high throughput screen [<xref ref-type="bibr" rid="CR23">23</xref>]. The background consists of 175, 000 randomly selected molecules. Based on the number of molecules in the active set, |<inline-formula id="IEq49"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq4_HTML.gif" /></inline-formula>|, Trunchon et. al. [<xref ref-type="bibr" rid="CR24">24</xref>] derived a minimum size for the background database which ensures that there will be enough information for metrics to provide meaningful discrimination between compared methods. A background database size of 175, 000 corresponds to a maximum active set size of 860 actives: more than large enough to effectively evaluate methods in our largest data set, <italic>suth-dhfr</italic> with 722 chemicals. This background database is available for download at <ext-link xlink:href="http://cdb.ics.uci.edu" ext-link-type="url">http://cdb.ics.uci.edu</ext-link>.</p>
+            <p>Second, we also used seventeen Maximum Unbiased Validation (MUV) data sets provided by Rohrer et al. [<xref ref-type="bibr" rid="CR25">25</xref>] against their corresponding background databases. Each of these data sets include both 30 maximally dissimilar active compounds and a background set of 15,000 decoys similar to the actives in regards to low-dimension properties like solubility, volume, and surface area. These data sets were constructed specifically to avoid artificially high screening performance caused by using an inappropriate decoy data set. By selecting decoy data sets in this manner, it is assumed that the decoy chemicals are inactive even while there remains a small chance that they are active. In the case of the MUV data sets, the background decoys are selected from chemicals which have screened negatively and have, therefore, preliminary experimental evidence of inactivity. In contrast, by selecting the ChemDB background from untested chemicals, a stronger assumption that none of the untested chemicals are actives. There is a small chance that, for a small number of molecules, this assumption is not valid, and they are therefore incorrectly labeled as negative examples. This chance is sufficiently rare that it would not affect the performance metrics by an appreciable amount.</p>
+            <p>All of the forty-one data sets represent groups of diverse molecules with similar activity. In some cases, the molecules of each group are known to interact with the same protein. In other cases, they are known to elicit the same biological effect. Data sets include active molecules against HIV, different steroid receptors activists and antagonists, enzymes, and steroid families. See Table <xref rid="Tab2" ref-type="table">2</xref> for a full listing of the data sets.</p>
+            <p>For each data set we generate fingerprints with the same protocol using an in-house program written in Python. Fingerprints are associated with labelled paths of length up to 8 (i.e. 9 atoms and 8 bonds). In this case, the total number of observed labelled paths is about 150, 000. Compression is done using the lossy fingerprint folding algorithm. Results are reported for fingerprints of length <italic>N</italic> = 1024.</p>
+          </sec>
+        </sec>
+        <sec id="Sec11">
+          <title>Results and discussion</title>
+          <p>Different multiple molecule queries were assessed using a standardized protocol to calculate unbiased, quantitative measures of performance.</p>
+          <p>The fundamental, user-level goal of a multiple-molecule search is to identify additional molecules with the same biological activity as the query molecules. The performance at this specific task can be directly assessed. Using a standard leave-one-out (LOO) cross-validation protocol, we assign each molecule in the data set a LOO score, obtained by leaving it out from the classifier. So, for each molecule, its LOO score is defined as the score computed by ignoring any information known about just this molecule's class.</p>
+          <p>From these LOO scores, each method's performance, its ability to separate positive from negative examples, can be quantified using different performance metrics. Many performance measures have been used to quantify the performance of different query methods; Truchon et. al. [<xref ref-type="bibr" rid="CR24">24</xref>] (and references therein) provide a useful review of both these measures and their pitfalls. More importantly, they derive a better measure, Boltzmann-Enhanced Discrimination of Receiver Operating Characteristic (BEDROC), which is designed specifically to evaluate virtual screening methods such as those we consider here. In this study, we evaluated different methods using both BEDROC, the Area Under the ROC Curve (AUC), Area Under the Accumulation Curve (AUAC), and the F1 score. The F1 score is a commonly used metric within the information retrieval literature,<disp-formula id="Equ25"><label>25</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_7_Equ25_HTML.gif" /></disp-formula></p>
+          <p>where <italic>T P</italic>, <italic>F P</italic>, and <italic>F N</italic> are the number of true positives, false positives, and false negatives at a particular threshold. For this study, the threshold measure which optimized F1 was chosen. The definitions of the other metrics can be found in the references.</p>
+          <p>All of the performance metrics require a fully ordered ranking to be computed, and cannot, therefore, handle ties appropriately. Of note, some methods output the same score for several chemicals, yielding ranked lists with ties. In these situations, the performance is computed by averaging twenty ranked lists sampled so as to randomly resolve ties differently each time. The performance across these samples is averaged and reported.</p>
+          <p>In total, fourteen similarity methods are evaluated with four performance metrics on 41 data sets resulting in 2296 measurements. For brevity, only summarized BEDROC, F1 and AUC performances are discussed. The complete results, including the AUAC performance, are included as additional files. [See Additional files <xref ref-type="supplementary-material" rid="MOESM1">1</xref>, <xref ref-type="supplementary-material" rid="MOESM2">2</xref>, <xref ref-type="supplementary-material" rid="MOESM3">3</xref>].</p>
+          <p>In addition to reporting the performance of each method, the Receiver Operating Characteristic (ROC) curves and pROC curves [<xref ref-type="bibr" rid="CR26">26</xref>] are used to display performance levels graphically. We use these established information-retrieval measures, using repeatable methodology, so our results can be directly compared to future studies.</p>
+          <p>For directly comparing different methods across the data sets, we compute a p-value using Welch's <italic>t</italic>-test. Sets of measurements corresponding to different similarity method are treated as populations in comparison. Over all data sets, this p-value reflects the confidence a given method is out-performing another according to a particular performance measure. Table <xref rid="Tab3" ref-type="table">3</xref> compares average results of the similarity methods across the 24 data sets with the ChemDB background. Similarly, Table <xref rid="Tab4" ref-type="table">4</xref> shows those results for the 17 MUV data sets. The best result per performance metric is shown in <bold>bold</bold> and other results that are statistically indistinguishable from the best (p-value > 0.05) are <italic>italicized</italic>. In Table <xref rid="Tab3" ref-type="table">3</xref>, <bold>ETD</bold> outperforms the other methods, in many cases not by a significant margin. The MUV data sets results in Table <xref rid="Tab4" ref-type="table">4</xref> show again that <bold>ETD</bold> has the highest performances, depending on the metric used. BEDROC, however, is the preferred metric by which <bold>ETD</bold> outperforms the other methods.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>Mean performance of similarity methods.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="center"><p>Method</p></th><th align="center"><p>AUC</p></th><th align="center"><p>F1</p></th><th align="center"><p>BEDROC</p></th></tr></thead><tbody><tr><td align="center"><p><bold>MIN-RANK</bold></p></td><td align="center"><p><italic>0.981265</italic> ± 0.004540</p></td><td align="center"><p><italic>0.480749</italic> ± 0.019308</p></td><td align="center"><p><italic>0.915781</italic> ± 0.012475</p></td></tr><tr><td align="center"><p><bold>MAX-RANK</bold></p></td><td align="center"><p>0.633951 ± 0.038076</p></td><td align="center"><p>0.030289 ± 0.009587</p></td><td align="center"><p>0.209204 ± 0.049180</p></td></tr><tr><td align="center"><p><bold>SUM-RANK</bold></p></td><td align="center"><p>0.840620 ± 0.032520</p></td><td align="center"><p>0.128860 ± 0.032596</p></td><td align="center"><p>0.490227 ± 0.066911</p></td></tr><tr><td align="center"><p><bold>MAX-SIM</bold></p></td><td align="center"><p>0.973312 ± 0.005642</p></td><td align="center"><p><italic>0.484504</italic> ± 0.022397</p></td><td align="center"><p><italic>0.893180</italic> ± 0.015592</p></td></tr><tr><td align="center"><p><bold>MIN-SIM</bold></p></td><td align="center"><p>0.717104 ± 0.034874</p></td><td align="center"><p>0.053943 ± 0.015827</p></td><td align="center"><p>0.284041 ± 0.058423</p></td></tr><tr><td align="center"><p><bold>SUM-SIM</bold></p></td><td align="center"><p>0.914782 ± 0.018230</p></td><td align="center"><p>0.341373 ± 0.032341</p></td><td align="center"><p>0.719190 ± 0.041269</p></td></tr><tr><td align="center"><p><bold>NUMDEN-SIM</bold></p></td><td align="center"><p>0.907632 ± 0.019609</p></td><td align="center"><p>0.327810 ± 0.037178</p></td><td align="center"><p>0.696596 ± 0.044681</p></td></tr><tr><td align="center"><p><bold>BAYES</bold></p></td><td align="center"><p>0.910909 ± 0.017386</p></td><td align="center"><p>0.149837 ± 0.033785</p></td><td align="center"><p>0.581197 ± 0.050633</p></td></tr><tr><td align="center"><p><bold>BKD</bold></p></td><td align="center"><p><italic>0.980763</italic> ± 0.004517</p></td><td align="center"><p><italic>0.501197</italic> ± 0.019569</p></td><td align="center"><p><italic>0.890840</italic> ± 0.017745</p></td></tr><tr><td align="center"><p><bold>ETD</bold></p></td><td align="center"><p><bold>0.987087</bold> ± 0.002653</p></td><td align="center"><p><bold>0.508081</bold> ± 0.020886</p></td><td align="center"><p><bold>0.922371</bold> ± 0.011330</p></td></tr><tr><td align="center"><p><bold>TPD</bold></p></td><td align="center"><p><italic>0.986616</italic> ± 0.002649</p></td><td align="center"><p>0.451587 ± 0.025795</p></td><td align="center"><p><italic>0.906017</italic> ± 0.014098</p></td></tr><tr><td align="center"><p><bold>SUM-EH</bold></p></td><td align="center"><p>0.935054 ± 0.010774</p></td><td align="center"><p>0.296279 ± 0.032160</p></td><td align="center"><p>0.699456 ± 0.037583</p></td></tr><tr><td align="center"><p><bold>SUM-ET</bold></p></td><td align="center"><p>0.974831 ± 0.005798</p></td><td align="center"><p><italic>0.491106</italic> ± 0.022314</p></td><td align="center"><p><italic>0.897401</italic> ± 0.015760</p></td></tr><tr><td align="center"><p><bold>SUM-TP</bold></p></td><td align="center"><p>0.974963 ± 0.005751</p></td><td align="center"><p><italic>0.490653</italic> ± 0.022311</p></td><td align="center"><p><italic>0.897621</italic> ± 0.015771</p></td></tr></tbody></table><table-wrap-foot><p>The mean performance of similarity methods across the 24 data sets with the ChemDB background. A confidence interval is provided with each measurement. The best performance in each column is listed in bold face, and all performances statistically indistinguishable (with a <italic>t</italic>-test yielding a p-value > 0.05) are listed in <italic>italics</italic>.</p></table-wrap-foot></table-wrap><table-wrap id="Tab4"><label>Table 4</label><caption xml:lang="en"><p>Mean performance of similarity methods across MUV data sets.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="center"><p>Method</p></th><th align="center"><p>AUC</p></th><th align="center"><p>F1</p></th><th align="center"><p>BEDROC</p></th></tr></thead><tbody><tr><td align="center"><p><bold>MIN-RANK</bold></p></td><td align="center"><p><italic>0.731133</italic> ± 0.030578</p></td><td align="center"><p><italic>0.149965</italic> ± 0.023025</p></td><td align="center"><p><italic>0.345171</italic> ± 0.042642</p></td></tr><tr><td align="center"><p><bold>MAX-RANK</bold></p></td><td align="center"><p>0.509469 ± 0.020590</p></td><td align="center"><p>0.017739 ± 0.004382</p></td><td align="center"><p>0.061569 ± 0.010419</p></td></tr><tr><td align="center"><p><bold>SUM-RANK</bold></p></td><td align="center"><p>0.598784 ± 0.030562</p></td><td align="center"><p>0.021604 ± 0.005490</p></td><td align="center"><p>0.104799 ± 0.022261</p></td></tr><tr><td align="center"><p><bold>MAX-SIM</bold></p></td><td align="center"><p>0.714848 ± 0.028352</p></td><td align="center"><p><italic>0.156955</italic> ± 0.025644</p></td><td align="center"><p><italic>0.312150</italic> ± 0.041033</p></td></tr><tr><td align="center"><p><bold>MIN-SIM</bold></p></td><td align="center"><p>0.533202 ± 0.025204</p></td><td align="center"><p>0.020921 ± 0.004781</p></td><td align="center"><p>0.070374 ± 0.008572</p></td></tr><tr><td align="center"><p><bold>SUM-SIM</bold></p></td><td align="center"><p>0.617073 ± 0.034809</p></td><td align="center"><p>0.052993 ± 0.021674</p></td><td align="center"><p>0.153437 ± 0.040308</p></td></tr><tr><td align="center"><p><bold>NUMDEN-SIM</bold></p></td><td align="center"><p>0.644467 ± 0.032684</p></td><td align="center"><p>0.061232 ± 0.022654</p></td><td align="center"><p>0.177026 ± 0.040264</p></td></tr><tr><td align="center"><p><bold>BAYES</bold></p></td><td align="center"><p>0.642907 ± 0.031377</p></td><td align="center"><p>0.041962 ± 0.011625</p></td><td align="center"><p>0.176723 ± 0.039162</p></td></tr><tr><td align="center"><p><bold>BKD</bold></p></td><td align="center"><p><italic>0.784118</italic> ± 0.025509</p></td><td align="center"><p><italic>0.145667</italic> ± 0.027758</p></td><td align="center"><p><italic>0.354250</italic> ± 0.044227</p></td></tr><tr><td align="center"><p><bold>ETD</bold></p></td><td align="center"><p><bold>0.785944</bold> ± 0.025833</p></td><td align="center"><p><italic>0.141997</italic> ± 0.026715</p></td><td align="center"><p><bold>0.356733</bold> ± 0.043394</p></td></tr><tr><td align="center"><p><bold>TPD</bold></p></td><td align="center"><p><italic>0.775774</italic> ± 0.025289</p></td><td align="center"><p><italic>0.152530</italic> ± 0.023448</p></td><td align="center"><p><italic>0.352975</italic> ± 0.041960</p></td></tr><tr><td align="center"><p><bold>SUM-EH</bold></p></td><td align="center"><p>0.679485 ± 0.030601</p></td><td align="center"><p><italic>0.100943</italic> ± 0.025459</p></td><td align="center"><p>0.230528 ± 0.046206</p></td></tr><tr><td align="center"><p><bold>SUM-ET</bold></p></td><td align="center"><p><italic>0.733893</italic> ± 0.027988</p></td><td align="center"><p><italic>0.155680</italic> ± 0.026528</p></td><td align="center"><p><italic>0.324622</italic> ± 0.042935</p></td></tr><tr><td align="center"><p><bold>SUM-TP</bold></p></td><td align="center"><p><italic>0.729849</italic> ± 0.028113</p></td><td align="center"><p><bold>0.157239</bold> ± 0.026507</p></td><td align="center"><p><italic>0.323068</italic> ± 0.042618</p></td></tr></tbody></table><table-wrap-foot><p>The mean performance of similarity methods across the 17 MUV data sets with their corresponding backgrounds. A confidence interval is provided with each measurement. The best performance in each column is listed in bold face, and all performances statistically indistinguishable (with a <italic>t</italic>-test yielding a p-value > 0.05) are listed in <italic>italics</italic>.</p></table-wrap-foot></table-wrap></p>
+          <p>Different data sets can yield quite different performances; the performance variability between data sets is greater than the variability between the best methods. The average difference between a method from the best performing method, therefore, is a more statistically powerful assessment of performance. Tables <xref rid="Tab5" ref-type="table">5</xref> and <xref rid="Tab6" ref-type="table">6</xref> show the difference, averaged across the ChemDB background data sets and the MUV data sets respectively, between each method and the best performing method. Similar to Table <xref rid="Tab3" ref-type="table">3</xref> and Table <xref rid="Tab4" ref-type="table">4</xref>, values that are statistically indistinguishable from that of the best method are <italic>italicized</italic>. The p-value in this case is derived from a paired <italic>t</italic>-test on the performance measurements.<table-wrap id="Tab5"><label>Table 5</label><caption xml:lang="en"><p>Mean difference in performance of similarity methods.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="center"><p>Method</p></th><th align="center"><p>AUC</p></th><th align="center"><p>F1</p></th><th align="center"><p>BEDROC</p></th></tr></thead><tbody><tr><td align="center"><p><bold>MIN-RANK</bold></p></td><td align="center"><p>0.005821 ± 0.002344</p></td><td align="center"><p>0.027332 ± 0.006678</p></td><td align="center"><p>0.006590 ± 0.003236</p></td></tr><tr><td align="center"><p><bold>MAX-RANK</bold></p></td><td align="center"><p>0.353136 ± 0.036644</p></td><td align="center"><p>0.477792 ± 0.020875</p></td><td align="center"><p>0.713166 ± 0.043907</p></td></tr><tr><td align="center"><p><bold>SUM-RANK</bold></p></td><td align="center"><p>0.146467 ± 0.030849</p></td><td align="center"><p>0.379221 ± 0.028884</p></td><td align="center"><p>0.432144 ± 0.059736</p></td></tr><tr><td align="center"><p><bold>MAX-SIM</bold></p></td><td align="center"><p>0.013775 ± 0.003534</p></td><td align="center"><p>0.023577 ± 0.005890</p></td><td align="center"><p>0.029191 ± 0.007341</p></td></tr><tr><td align="center"><p><bold>MIN-SIM</bold></p></td><td align="center"><p>0.269982 ± 0.033128</p></td><td align="center"><p>0.454138 ± 0.023192</p></td><td align="center"><p>0.638330 ± 0.052591</p></td></tr><tr><td align="center"><p><bold>SUM-SIM</bold></p></td><td align="center"><p>0.072305 ± 0.016279</p></td><td align="center"><p>0.166707 ± 0.025321</p></td><td align="center"><p>0.203181 ± 0.032996</p></td></tr><tr><td align="center"><p><bold>NUMDEN-SIM</bold></p></td><td align="center"><p>0.079455 ± 0.017748</p></td><td align="center"><p>0.180270 ± 0.031082</p></td><td align="center"><p>0.225774 ± 0.036813</p></td></tr><tr><td align="center"><p><bold>BAYES</bold></p></td><td align="center"><p>0.076178 ± 0.016079</p></td><td align="center"><p>0.358244 ± 0.032005</p></td><td align="center"><p>0.341173 ± 0.045043</p></td></tr><tr><td align="center"><p><bold>BKD</bold></p></td><td align="center"><p>0.006324 ± 0.002360</p></td><td align="center"><p><italic>0.006884</italic> ± 0.008400</p></td><td align="center"><p>0.031531 ± 0.008401</p></td></tr><tr><td align="center"><p><bold>ETD</bold></p></td><td align="center"><p><bold>---</bold></p></td><td align="center"><p><bold>---</bold></p></td><td align="center"><p><bold>---</bold></p></td></tr><tr><td align="center"><p><bold>TPD</bold></p></td><td align="center"><p><italic>0.000471</italic> ± 0.000443</p></td><td align="center"><p>0.056493 ± 0.010274</p></td><td align="center"><p>0.016353 ± 0.004338</p></td></tr><tr><td align="center"><p><bold>SUM-EH</bold></p></td><td align="center"><p>0.052032 ± 0.009065</p></td><td align="center"><p>0.211802 ± 0.026177</p></td><td align="center"><p>0.222915 ± 0.031105</p></td></tr><tr><td align="center"><p><bold>SUM-ET</bold></p></td><td align="center"><p>0.012256 ± 0.003648</p></td><td align="center"><p>0.016975 ± 0.006151</p></td><td align="center"><p>0.024970 ± 0.007082</p></td></tr><tr><td align="center"><p><bold>SUM-TP</bold></p></td><td align="center"><p>0.012124 ± 0.003584</p></td><td align="center"><p>0.017428 ± 0.004657</p></td><td align="center"><p>0.024749 ± 0.007079</p></td></tr></tbody></table><table-wrap-foot><p>The mean difference in performance of similarity methods from that of the best method across the 24 data sets with the ChemDB background. A confidence interval is provided with each measurement. All performances statistically indistinguishable (with a paired <italic>t</italic>-test yielding a p-value > 0.05) are listed in <italic>italics</italic>.</p></table-wrap-foot></table-wrap><table-wrap id="Tab6"><label>Table 6</label><caption xml:lang="en"><p>Mean difference in performance of similarity methods across MUV data sets.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="center"><p>Method</p></th><th align="center"><p>AUC</p></th><th align="center"><p>F1</p></th><th align="center"><p>BEDROC</p></th></tr></thead><tbody><tr><td align="center"><p><bold>MIN-RANK</bold></p></td><td align="center"><p>0.054811 ± 0.007343</p></td><td align="center"><p><italic>0.007274</italic> ± 0.009481</p></td><td align="center"><p><italic>0.011562</italic> ± 0.013673</p></td></tr><tr><td align="center"><p><bold>MAX-RANK</bold></p></td><td align="center"><p>0.276475 ± 0.021613</p></td><td align="center"><p>0.139500 ± 0.023056</p></td><td align="center"><p>0.295164 ± 0.036878</p></td></tr><tr><td align="center"><p><bold>SUM-RANK</bold></p></td><td align="center"><p>0.187161 ± 0.021317</p></td><td align="center"><p>0.135635 ± 0.020176</p></td><td align="center"><p>0.251934 ± 0.029684</p></td></tr><tr><td align="center"><p><bold>MAX-SIM</bold></p></td><td align="center"><p>0.071096 ± 0.008692</p></td><td align="center"><p><italic>0.000284</italic> ± 0.005657</p></td><td align="center"><p>0.044583 ± 0.013589</p></td></tr><tr><td align="center"><p><bold>MIN-SIM</bold></p></td><td align="center"><p>0.252742 ± 0.020037</p></td><td align="center"><p>0.136318 ± 0.021634</p></td><td align="center"><p>0.286359 ± 0.031277</p></td></tr><tr><td align="center"><p><bold>SUM-SIM</bold></p></td><td align="center"><p>0.168871 ± 0.018754</p></td><td align="center"><p>0.104246 ± 0.014075</p></td><td align="center"><p>0.203296 ± 0.017032</p></td></tr><tr><td align="center"><p><bold>NUMDEN-SIM</bold></p></td><td align="center"><p>0.141477 ± 0.019134</p></td><td align="center"><p>0.096007 ± 0.014050</p></td><td align="center"><p>0.179707 ± 0.018725</p></td></tr><tr><td align="center"><p><bold>BAYES</bold></p></td><td align="center"><p>0.143037 ± 0.016147</p></td><td align="center"><p>0.115277 ± 0.014736</p></td><td align="center"><p>0.180010 ± 0.012881</p></td></tr><tr><td align="center"><p><bold>BKD</bold></p></td><td align="center"><p><italic>0.001826</italic> ± 0.001822</p></td><td align="center"><p><italic>0.011572</italic> ± 0.009888</p></td><td align="center"><p><italic>0.002483</italic> ± 0.005203</p></td></tr><tr><td align="center"><p><bold>ETD</bold></p></td><td align="center"><p><bold>---</bold></p></td><td align="center"><p><italic>0.015242</italic> ± 0.010510</p></td><td align="center"><p><bold>---</bold></p></td></tr><tr><td align="center"><p><bold>TPD</bold></p></td><td align="center"><p>0.010170 ± 0.003688</p></td><td align="center"><p><italic>0.004709</italic> ± 0.007578</p></td><td align="center"><p><italic>0.003758</italic> ± 0.007367</p></td></tr><tr><td align="center"><p><bold>SUM-EH</bold></p></td><td align="center"><p>0.106459 ± 0.013059</p></td><td align="center"><p>0.056296 ± 0.007868</p></td><td align="center"><p>0.126204 ± 0.012854</p></td></tr><tr><td align="center"><p><bold>SUM-ET</bold></p></td><td align="center"><p>0.052051 ± 0.010111</p></td><td align="center"><p><italic>0.001559</italic> ± 0.004737</p></td><td align="center"><p>0.032111 ± 0.012709</p></td></tr><tr><td align="center"><p><bold>SUM-TP</bold></p></td><td align="center"><p>0.056095 ± 0.009880</p></td><td align="center"><p><bold>---</bold></p></td><td align="center"><p>0.033664 ± 0.012780</p></td></tr></tbody></table><table-wrap-foot><p>The mean difference in performance of similarity methods from that of the best method across the 17 MUV data sets. A confidence interval is provided with each measurement. All performances statistically indistinguishable (with a paired <italic>t</italic>-test yielding a p-value > 0.05) are listed in <italic>italics</italic>.</p></table-wrap-foot></table-wrap></p>
+          <p>In the next subsections, we explore graphical comparisons between methods within the same class of approaches. All ROCs and pROCs are leave-one-out (LOO) cross-validated and aggregated over all data sets with the ChemDB background. The plots visually illustrate qualitative comparisons of each method.</p>
+          <sec id="Sec12">
+            <title>Aggregating ranks</title>
+            <p>First, we examine the different methods based on rank aggregation. Figure <xref rid="Fig2" ref-type="fig">2</xref> shows the cross-validated (a) ROC and (b) pROC curves derived by aggregating over all data sets. We can clearly see that <bold>MIN-RANK</bold> performs better than <bold>MAX-RANK</bold> and <bold>SUM-RANK</bold> by a substantial margin.<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>ROC and pROC curves of multiple-molecule query methods that aggregate ranks</bold>. This figure compares the parameter-free methods, <bold>MIN-RANK</bold>, <bold>MAX-RANK</bold>, and <bold>SUM-RANK</bold> with (a) complete ROC curves, and (b) pROC curves.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig2_HTML.jpg" /></p></fig></p>
+          </sec>
+          <sec id="Sec13">
+            <title>Aggregating similarities (parameter-free)</title>
+            <p>We next examine the different parameter-free methods of similarity aggregating; the methods which require fitting parameters from the data are not discussed here, but in a later section.</p>
+            <p>By convention, lower ranks correspond with higher scores. So, if <bold>MIN-RANK</bold> performs best, we would also expect <bold>MAX-SIM</bold> to perform better than other methods of aggregating similarities. This is exactly what we observe. Figure <xref rid="Fig3" ref-type="fig">3</xref> shows the cross-validated and aggregated (a) ROC and (b) pROC curves for the parameter-free similarity aggregating methods.<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>ROC and pROC curves of multiple-molecule query methods that aggregate similarities with no learned parameters</bold>. This figure compares the parameter-free methods, <bold>MAX-SIM</bold>, <bold>MIN-SIM</bold>, and <bold>SUM-SIM</bold> with (a) complete ROC curves, and (b) pROC curves.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig3_HTML.jpg" /></p></fig></p>
+          </sec>
+          <sec id="Sec14">
+            <title>Profile similarity and aggregating numerators and denominators</title>
+            <p>For Tanimoto similarity, MinMax similarity computed between a profile vector and a database fingerprint (Equation 22) exactly corresponds with separately aggregating the numerators and denominators (<bold>NUMDEN-SIM</bold>, Equation <xref rid="Equ19" ref-type="disp-formula">19</xref>). So, in the case of binary fingerprints, the only distinct profile similarity method we describe is <bold>BAYES</bold> method (Equation 24).</p>
+            <p>The <bold>BAYES</bold> method is used extensively by [<xref ref-type="bibr" rid="CR18">18</xref>, <xref ref-type="bibr" rid="CR19">19</xref>, <xref ref-type="bibr" rid="CR27">27</xref>]. However, in our experiments it performs surprisingly poorly. Figure <xref rid="Fig4" ref-type="fig">4</xref> shows the ROC and pROC curves for <bold>BAYES</bold> and <bold>NUMDEN-SIM</bold> for comparison. <bold>NUMDEN-SIM</bold> clearly outperforms <bold>BAYES</bold><fig id="Fig4"><label>Figure 4</label><caption xml:lang="en"><p><bold>ROC and pROC curves of BAYES and NUMDEN-SIM</bold>. This figure shows the (a) ROC and (b) pROC curves for <bold>BAYES</bold> with <bold>NUMDEN-SIM</bold> included for comparison.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig4_HTML.jpg" /></p></fig></p>
+          </sec>
+          <sec id="Sec15">
+            <title>Aggregating similarities (with learned parameters)</title>
+            <p>In this section, we consider methods which learn one or two parameters from the data. These methods were easily trained using a standard leave-one-out procedure to select the best parameterization from an exhaustive parameter sweep. Although one can imagine more efficient means of training these models, this is consistent with the literature. In turn, we first evaluate <bold>SUM-ET</bold>, <bold>SUM-EH</bold>, and <bold>SUM-TP</bold>, which learn using only an active set of molecules, and then <bold>ETD</bold>, <bold>BKD</bold>, and <bold>TPD</bold>, which use additional information from inferred inactive molecules randomly chosen from the background database.</p>
+            <p>Results of <bold>SUM-ET</bold>, <bold>SUM-TP</bold>, and <bold>SUM-EH</bold> are shown in Figure <xref rid="Fig5" ref-type="fig">5</xref>. The first two methods perform at almost the same level, and outperform <bold>SUM-EH</bold>. The three methods which use additional information from inferred inactive compounds, <bold>ETD</bold>, <bold>BKD</bold>, and <bold>TPD</bold>, are all high performers as well. Figure <xref rid="Fig6" ref-type="fig">6</xref> displays the aggregated ROC and pROC curves of the three methods. We see that although the curves are very close in Figure <xref rid="Fig5" ref-type="fig">5</xref> that <bold>ETD</bold> slightly outperforms the other two methods.<fig id="Fig5"><label>Figure 5</label><caption xml:lang="en"><p><bold>ROC and pROC curves of two-parameter multiple-molecule query methods (only active sets)</bold>. This figure compares the learned methods that use only an active set of molecules, <bold>SUM-TP</bold>, <bold>SUM-ET</bold>, and <bold>SUM-EH</bold> with (a) complete ROC curves, and (b) pROC curves.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig5_HTML.jpg" /></p></fig><fig id="Fig6"><label>Figure 6</label><caption xml:lang="en"><p><bold>ROC and pROC curves of two-parameter multiple-molecule query methods</bold>. This figure compares the learned methods, <bold>TPD</bold>, <bold>ETD</bold>, and <bold>BKD</bold> with (a) complete ROC curves, and (b) pROC curves.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig6_HTML.jpg" /></p></fig></p>
+          </sec>
+          <sec id="Sec16">
+            <title>Best methods</title>
+            <p>In this subsection, we examine the best methods from the above subsections. Only one of the best methods from each of the classes is chosen as a representative. Figure <xref rid="Fig7" ref-type="fig">7</xref> displays the ROC and pROC curves of <bold>ETD</bold>, <bold>SUM-ET</bold>, <bold>MAX-SIM</bold>, <bold>MIN-RANK</bold>, and <bold>NUMDEN-SIM</bold>.<fig id="Fig7"><label>Figure 7</label><caption xml:lang="en"><p><bold>ROC and pROC curves of the best multiple-molecule query methods</bold>. This figure compares both the (a) complete ROC curves, and (b) the pROC curves of some of the the best performing methods: <bold>ETD</bold>, <bold>SUM-ET</bold>, <bold>MAX-SIM</bold>, <bold>MIN-RANK</bold>, and <bold>NUMDEN-SIM</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig7_HTML.jpg" /></p></fig></p>
+            <p>From the figure, we observe that <bold>ETD</bold> consistently outperforms <bold>SUM-ET</bold> by a small margin. There is little gain in performance from the information the inferred inactive compounds are adding. <bold>MINRANK</bold> consistently outperforms <bold>MAX-SIM</bold> and outperforms <bold>ETD</bold> in the early section of the curves (Figure <xref rid="Fig7" ref-type="fig">7(b)</xref>). <bold>NUMDEN-SIM</bold>'s performance falls behind the other methods'.</p>
+            <p>In most cases, we expect <bold>MAX-SIM</bold> and <bold>MIN-RANK</bold> to be of the most use because of their high performance and simple implementation. However, the stronger performance of the methods with learned parameter(s) suggests a small performance gain can be realized from the added effort of tuning a query to each data set.</p>
+          </sec>
+        </sec>
+        <sec id="Sec17" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p>Here we have described and evaluated a large number of both novel and established methods of performing multiple-molecule queries using publicly available data, cross-validation protocol, and the best performance metrics.</p>
+          <p>Our benchmarks indicate that <bold>MAX-SIM</bold> and <bold>MIN-RANK</bold>, are the best performing methods which do not require parameters to be learned from the data. This is consistent with previous studies. Furthermore, the <bold>ETD</bold> is the best parameterized multiple-molecule querying method. Although the higher results are not always by a significant margin over <bold>TPD</bold> and <bold>BKD</bold>, it is consistent across our data sets and, to some extent, theoretically justifiable from previous work, but it is the first study of its kind on publicly available data and the first study to compare methods using bias-corrected similarity. All performance metrics were computed by evaluating the retrieval of chemicals with similar biological activity from a diverse random background and a background of decoys.</p>
+          <p><bold>BAYES</bold> did not perform as well as expected. This could be because we fully cross-validated these methods when prior studies may not have done so. Hopefully, by releasing our data to the scientific community our results can be confirmed by other laboratories.</p>
+          <p>We can explain the improved performance of <bold>ETD</bold> over <bold>BKD</bold> on the ChemDB and MUV data. Recall that the Tanimoto metrics used by <bold>ETD</bold> are corrected while the Hamming distance and Simple Matching similarity, used by <bold>BKD</bold>, are not corrected. This would be expected to produce a small performance gain. Experiments not reported here show that, indeed, the performance of the Tanimoto-based methods degrades slightly when the uncorrected version is used in place of the corrected version. This, however, is not enough to fully explain the performance gain; these uncorrected versions still outperform <bold>BKD</bold>. This suggests that part of the performance gain is a direct result of building the method on the Tanimoto similarity rather than the Hamming distance.</p>
+          <p>Furthermore, we can explain the strong performance of the top methods by noting that most other methods implicitly assume that the chemicals in a given activity class are all similar to one another, that they are all in the same cluster of similar molecules. For example, summing or averaging similarities together assumes that the most likely chemicals are similar to <italic>all</italic> the chemicals in the query and by averaging similarities we are measuring their membership in this 'one-cluster' in a cleaner way. In contrast, for some parameters, the <bold>BKD</bold>, <bold>TPD</bold> and <bold>ETD</bold> a molecule's score can be large if only one query molecule is very similar, regardless of how dissimilar the other query molecules are.</p>
+          <p>We know, in fact, that this 'one-cluster' assumption is not valid on most data sets. For example, clustering the active and moderately-active compounds from the NCI HIV screen using the Quality Threshold clustering algorithm [<xref ref-type="bibr" rid="CR28">28</xref>], the Tanimoto distance, and 0.5 as the cluster diameter parameter, produces a few large clusters and many smaller clusters (see Figure <xref rid="Fig8" ref-type="fig">8</xref>). Most of these clusters may have only a few chemicals in them but some may have many. There are inactive compounds which are close to the aggregate center of the large clusters. This makes biological sense. Each cluster could represent different classes of entirely different molecules. In the case of screening data, different classes could interact with a different protein, different binding sites on the same protein, or, perhaps more importantly, they could represent compounds with different scaffolds interacting with the same protein at the same binding-site. One can imagine inactive compounds which would be ranked inappropriately as actives by 'one-cluster' methods because they have features in common with disparate classes.<fig id="Fig8"><label>Figure 8</label><caption xml:lang="en"><p><bold>Size distribution of clusters of the HIV data set</bold>. Clustering the active and moderately-active compounds from the NCI HIV screen using the QT (Quality Threshold) clustering algorithm [<xref ref-type="bibr" rid="CR28">28</xref>], using the Tanimoto distance and 0.5 as the cluster diameter parameter, produces a few large clusters and many smaller clusters. The size of the one hundred largest clusters found by this method are plotted in decreasing order. These sizes follow a power-law distribution.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig8_HTML.jpg" /></p></fig></p>
+          <p>It may be more appropriate to first divide up the query into clusters, and then score the database by their distance from the closest cluster. For example, to reformulate the <bold>BAYES</bold> method which typically makes one model of the activity class, we could first segment the query into clusters and model each cluster using a separate Bayesian model. This type of mixture modeling could yield some small performance gains but substantially increases the complexity of the method.</p>
+          <p>The <bold>MAX-SIM</bold> method has a nice interpretation which does not make the 'one-cluster' assumption. If we assume (1) the probability a given molecule (ℬ) has the same activity (<italic>A</italic>) as a query molecule (<inline-formula id="IEq50"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq1_HTML.gif" /></inline-formula>) is some positive-monotonic function, <italic>f</italic>, of their similarity [<xref ref-type="bibr" rid="CR29">29</xref>], i.e. <italic>P</italic>(<italic>A</italic>|<italic>S</italic>(<inline-formula id="IEq51"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq1_HTML.gif" /></inline-formula>, ℬ)) = <italic>f</italic>(<italic>S</italic>(<inline-formula id="IEq52"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq1_HTML.gif" /></inline-formula>, ℬ)), and (2) this function, <italic>f</italic>, does not vary significantly across chemical space, then sorting chemicals by their maximum similarity to a set of query molecules is a natural way of finding additional molecules with the highest probability of having the same activity.</p>
+          <p>This interpretation helps us direct future work. For example, by relaxing the second assumption; perhaps the similarity can be tuned by additional indicators, such as the size of the molecule, its solubility, etc., to create a more explicit model of this probability function which would vary appropriately across chemical space. It is also possible that a more rigorous probabilistic framework could further improve retrieval accuracy.</p>
+          <p>Furthermore, in one of our data sets, the HIV screening data, we only use the 423 confirmed active data points of a 42,682 data point set which also includes 41,175 inactive molecules and 1,081 moderately-active molecules. It should be possible to integrate all this information, to make even better methods for querying databases for molecules with similar activity. Of course, when our query set has been increased to include thousands of molecules of multiple classes, we must design algorithms which not only produce results of biological relevance but also do so efficiently. A robust, efficient algorithm could extrapolate high throughput screening data (which is becoming increasingly available) to help annotate larger databases like PubChem and the ChemDB, and generate hypotheses for additional biological experiments.</p>
+          <p>Knowing that these are the best multiple-molecule methods helps direct future algorithmic work. The fastest database search methods [<xref ref-type="bibr" rid="CR30">30</xref>, <xref ref-type="bibr" rid="CR31">31</xref>] are sub-linear in the size of the chemical database, but remain linear in the number of the query molecules. It should be possible to further decrease the search complexity by using a similar bounding technique to index the query molecules in addition to indexing the database.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>Work supported by an NIH Biomedical Informatics Training grant (LM-07443-01) and an NSF MRI grant (EIA-0321390) to PB, by the UCI Medical Scientist Training Program, and by a Harvey Fellowship to SS. We would like also to acknowledge the OpenBabel project and the excellent comments from our anonymous reviewers.</p>
+        </ack>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Fligner</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <name>
+                    <surname>Verducci</surname>
+                    <given-names>JS</given-names>
+                  </name>
+                  <name>
+                    <surname>Blower</surname>
+                    <given-names>PE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A Modification of the Jaccard/Tanimoto Similarity Index for Diverse Selection of Chemical Compounds Using Binary Strings</article-title>
+                <source>Technometrics</source>
+                <year>2002</year>
+                <volume>44</volume>
+                <issue>2</issue>
+                <fpage>110</fpage>
+                <lpage>119</lpage>
+                <pub-id pub-id-type="doi">10.1198/004017002317375064</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Flower</surname>
+                    <given-names>DR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">On the Properties of Bit String-Based Measures of Chemical Similarity</article-title>
+                <source>Journal of Chemical Information and Computer Science</source>
+                <year>1998</year>
+                <volume>38</volume>
+                <fpage>379</fpage>
+                <lpage>386</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci970437z</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK1cXislShsbg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>James</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <name>
+                    <surname>Weininger</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Delany</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <source>Daylight Theory Manual</source>
+                <year>2004</year>
+                <comment>http://www.daylight.com/dayhtml/doc/theory/theory.toc.html</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Xue</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Godden</surname>
+                    <given-names>JF</given-names>
+                  </name>
+                  <name>
+                    <surname>Stahura</surname>
+                    <given-names>FL</given-names>
+                  </name>
+                  <name>
+                    <surname>Bajorath</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Profile scaling increases the similarity search performance of molecular fingerprints containing numerical descriptors and structureal keys</article-title>
+                <source>J Chem Inf Comput Sci.</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <issue>4</issue>
+                <fpage>1218</fpage>
+                <lpage>1225</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci030287u</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXks12nu7Y%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Xue</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Stahura</surname>
+                    <given-names>FL</given-names>
+                  </name>
+                  <name>
+                    <surname>Bajorath</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Similarity search profiling reveals effects of fingerprint scaling in virtual screening</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2004</year>
+                <volume>44</volume>
+                <issue>6</issue>
+                <fpage>2032</fpage>
+                <lpage>2039</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci0400819</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXntF2itLg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hert</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilton</surname>
+                    <given-names>DJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Acklin</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Azzaoui</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Jacoby</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Schuffenhauer</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comparison of Fingerprint-Based Methods for Virtual Screening Using Multiple Bioactive Reference Structures</article-title>
+                <source>J Chem Inf Comput Sci.</source>
+                <year>2004</year>
+                <volume>44</volume>
+                <issue>3</issue>
+                <fpage>1177</fpage>
+                <lpage>1185</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci034231b</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXhsVOis7g%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hert</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilton</surname>
+                    <given-names>DJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Acklin</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Azzaoui</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Jacoby</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Schuffenhauer</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Enhancing the effectiveness of similarity-based virtual screening using nearest-neighbor information</article-title>
+                <source>Journal of Medicinal Chemistry</source>
+                <year>2005</year>
+                <volume>48</volume>
+                <issue>3</issue>
+                <fpage>7049</fpage>
+                <lpage>54</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm050316n</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXhtVGisrjL</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hert</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilton</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Acklin</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Azzaoui</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Jacoby</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Schuffenhauer</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">New Methods for Ligand-Based Virtual Screening: Use of Data Fusion and Machine Learning to Enhance the Effectiveness of Similarity Searching</article-title>
+                <source>J Chem Inf Model.</source>
+                <year>2006</year>
+                <volume>46</volume>
+                <issue>2</issue>
+                <fpage>462</fpage>
+                <lpage>470</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci050348j</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XlvV2h</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rupp</surname>
+                    <given-names>MSG</given-names>
+                  </name>
+                  <name>
+                    <surname>Proschak</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Reasoning about molecular similarity and properties</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <issue>6</issue>
+                <fpage>2280</fpage>
+                <lpage>2286</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci700274r</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXht1KitrfK</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Singh</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Reasoning about molecular similarity and properties</article-title>
+                <source>Proc IEEE Comput Syst Bioinform Conf</source>
+                <year>2004</year>
+                <fpage>266</fpage>
+                <lpage>277</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Singh</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Surface similarity-based molecular query-retrieval</article-title>
+                <source>BMC Cell Biol</source>
+                <year>2007</year>
+                <volume>8</volume>
+                <issue>Suppl 1</issue>
+                <fpage>S6</fpage>
+                <pub-id pub-id-type="doi">10.1186/1471-2121-8-S1-S6</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Swamidass</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Bruand</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Phung</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Ralaivola</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Baldi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Kernels for Small Molecules and the Prediction of Mutagenicity, Toxicity, and Anti-Cancer Activity</article-title>
+                <source>Bioinformatics.</source>
+                <year>2005</year>
+                <volume>21</volume>
+                <issue>Supplement 1</issue>
+                <fpage>i359</fpage>
+                <lpage>i368</lpage>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/bti1055</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXlslyktLc%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jin</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Granular kernel trees with parallel genetic algorithms for drug activity comparisons</article-title>
+                <source>Int J Data Min Bioinform</source>
+                <year>2007</year>
+                <volume>1</volume>
+                <fpage>270</fpage>
+                <lpage>285</lpage>
+                <pub-id pub-id-type="doi">10.1504/IJDMB.2007.011613</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Swamidass</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Baldi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Mathematical Correction for Fingerprint Similarity Measures to Improve Chemical Retrieval</article-title>
+                <source>J Chem Inf Model.</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <issue>3</issue>
+                <fpage>952</fpage>
+                <lpage>964</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci600526a</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXksVSmtbo%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Holliday</surname>
+                    <given-names>JD</given-names>
+                  </name>
+                  <name>
+                    <surname>Hu</surname>
+                    <given-names>CY</given-names>
+                  </name>
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Grouping of coefficients for the calculation of inter-molecular similarity and dissimilarity using 2D fragment bit-strings</article-title>
+                <source>Comb Chem High Throughput Screen</source>
+                <year>2002</year>
+                <volume>5</volume>
+                <issue>2</issue>
+                <fpage>155</fpage>
+                <lpage>66</lpage>
+                <pub-id pub-id-type="doi">10.2174/1386207024607338</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD38Xjt1amsrs%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Harper</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Bradshaw</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Gittins</surname>
+                    <given-names>JC</given-names>
+                  </name>
+                  <name>
+                    <surname>Green</surname>
+                    <given-names>DVS</given-names>
+                  </name>
+                  <name>
+                    <surname>Leach</surname>
+                    <given-names>AR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Prediction of Biological Activity for High-Throughput Screening Using Binary Kernel Discrimination</article-title>
+                <source>J Chem Inf Comput Sci.</source>
+                <year>2001</year>
+                <volume>41</volume>
+                <issue>5</issue>
+                <fpage>1295</fpage>
+                <lpage>1300</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci000397q</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3MXjt1Wnsb0%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Harrison</surname>
+                    <given-names>RF</given-names>
+                  </name>
+                  <name>
+                    <surname>Pasupa</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilton</surname>
+                    <given-names>DJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Wood</surname>
+                    <given-names>DJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Lewell</surname>
+                    <given-names>XQ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Virtual Screening Using Binary Kernel Discrimination: Effect of Noisy Training Data and the Optimization of Performance</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2006</year>
+                <volume>46</volume>
+                <issue>2</issue>
+                <fpage>478</fpage>
+                <lpage>486</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci0505426</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XhsFOrt7k%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Klon</surname>
+                    <given-names>AE</given-names>
+                  </name>
+                  <name>
+                    <surname>Glick</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Davies</surname>
+                    <given-names>JW</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Combination of a naive Bayes classifier with consensus scoring improves enrichment of high-throughput docking results</article-title>
+                <source>J Med Chem</source>
+                <year>2004</year>
+                <volume>47</volume>
+                <issue>18</issue>
+                <fpage>4356</fpage>
+                <lpage>4359</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm049970d</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXlvFGis7o%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Klon</surname>
+                    <given-names>AE</given-names>
+                  </name>
+                  <name>
+                    <surname>Glick</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Thoma</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Acklin</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Davies</surname>
+                    <given-names>JW</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Finding more needles in the haystack: A simple and efficient method for improving high-throughput docking results</article-title>
+                <source>J Med Chem</source>
+                <year>2004</year>
+                <volume>47</volume>
+                <issue>11</issue>
+                <fpage>2743</fpage>
+                <lpage>2749</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm030363k</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXjsVChsbc%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Oprea</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Davis</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Teague</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Leeson</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Is There a Difference between Leads and Drugs? A Historical Perspective</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2001</year>
+                <volume>41</volume>
+                <issue>5</issue>
+                <fpage>1308</fpage>
+                <lpage>1315</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci010366a</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3MXlt1Okt7s%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Stahl</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Detailed Analysis of Scoring Funtions for Virtual Screening</article-title>
+                <source>Journal of Medicinal Chemistry</source>
+                <year>2001</year>
+                <volume>44</volume>
+                <issue>7</issue>
+                <fpage>1035</fpage>
+                <lpage>1042</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm0003992</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3MXhsFKitro%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sutherland</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                  <name>
+                    <surname>O'Brien</surname>
+                    <given-names>LA</given-names>
+                  </name>
+                  <name>
+                    <surname>Weaver</surname>
+                    <given-names>DF</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Spline-Fitting with a Genetic Algorithm: A Method for Developing Classification Structure-Activity Relationships</article-title>
+                <source>Journal of Chemical Information and Computer Sciences</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <issue>6</issue>
+                <fpage>1906</fpage>
+                <lpage>1915</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXot1Khsr0%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="other">The Developmental Therapeutics Program NCI/NIH. [<ext-link xlink:href="http://dtp.nci.nih.gov/" ext-link-type="url">http://dtp.nci.nih.gov/</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Truchon</surname>
+                    <given-names>JF</given-names>
+                  </name>
+                  <name>
+                    <surname>Bayly</surname>
+                    <given-names>CI</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Evaluating virtual screening methods: good and bad metrics for the 'early recognition' problem</article-title>
+                <source>Journal of Chemical Information and Modeling</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <issue>2</issue>
+                <fpage>488</fpage>
+                <lpage>508</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci600426e</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXhsVCgtLY%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rohrer</surname>
+                    <given-names>SG</given-names>
+                  </name>
+                  <name>
+                    <surname>Baumann</surname>
+                    <given-names>K</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Maximum Unbiased Validation (MUV) Data Sets for Virtual Screening Based on PubChem Bioactivity Data</article-title>
+                <source>J Chem Inf Model.</source>
+                <year>2009</year>
+                <volume>49</volume>
+                <issue>2</issue>
+                <fpage>169</fpage>
+                <lpage>184</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci8002649</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXptlOhtQ%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Clark</surname>
+                    <given-names>RD</given-names>
+                  </name>
+                  <name>
+                    <surname>Webster-Clark</surname>
+                    <given-names>DJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Managing bias in ROC curves</article-title>
+                <source>J Comput Aided Mol Des</source>
+                <year>2008</year>
+                <volume>22</volume>
+                <issue>3-4</issue>
+                <fpage>141</fpage>
+                <lpage>146</lpage>
+                <pub-id pub-id-type="doi">10.1007/s10822-008-9181-z</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXjsFOnsLc%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Glick</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Klon</surname>
+                    <given-names>AE</given-names>
+                  </name>
+                  <name>
+                    <surname>Acklin</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Davies</surname>
+                    <given-names>JW</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Enrichment of extremely noisy high-throughput screening data using a naive Bayes classifier</article-title>
+                <source>J Biomol Screen</source>
+                <year>2004</year>
+                <volume>9</volume>
+                <fpage>32</fpage>
+                <lpage>36</lpage>
+                <pub-id pub-id-type="doi">10.1177/1087057103260590</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXitlOntrc%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Heyer</surname>
+                    <given-names>LJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Kruglyak</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Yooseph</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Exploring expression data: identification and analysis of coexpressed genes</article-title>
+                <source>Genome Res</source>
+                <year>1999</year>
+                <volume>9</volume>
+                <issue>11</issue>
+                <fpage>1106</fpage>
+                <lpage>1115</lpage>
+                <pub-id pub-id-type="doi">10.1101/gr.9.11.1106</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK1MXns12ktrc%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Muchmore</surname>
+                    <given-names>SW</given-names>
+                  </name>
+                  <name>
+                    <surname>Debe</surname>
+                    <given-names>DA</given-names>
+                  </name>
+                  <name>
+                    <surname>Metz</surname>
+                    <given-names>JT</given-names>
+                  </name>
+                  <name>
+                    <surname>Brown</surname>
+                    <given-names>SP</given-names>
+                  </name>
+                  <name>
+                    <surname>Martin</surname>
+                    <given-names>YC</given-names>
+                  </name>
+                  <name>
+                    <surname>Hajduk</surname>
+                    <given-names>PJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Application of Belief Theory to Similarity Data Fusion for Use in Analog Searching and Lead Hopping</article-title>
+                <source>J Chem Inf Model.</source>
+                <year>2008</year>
+                <volume>48</volume>
+                <issue>5</issue>
+                <fpage>941</fpage>
+                <lpage>948</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci7004498</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXkvVSrs7o%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Swamidass</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Baldi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Bounds and Algorithms for Fast Exact Searches of Chemical Fingerprints in Linear and Sublinear Time</article-title>
+                <source>J Chem Inf Model.</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <issue>2</issue>
+                <fpage>302</fpage>
+                <lpage>317</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci600358f</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXitFCms7w%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Baldi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Hirschberg</surname>
+                    <given-names>DS</given-names>
+                  </name>
+                  <name>
+                    <surname>Nasr</surname>
+                    <given-names>RJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Speeding Up Chemical Database Searches Using a Proximity Filter Based on the Logical Exclusive OR</article-title>
+                <source>J Chem Inf Model.</source>
+                <year>2008</year>
+                <volume>48</volume>
+                <issue>7</issue>
+                <fpage>1367</fpage>
+                <lpage>1378</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci800076s</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXnvFGjsr4%3D</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec18">
+              <title>Electronic supplementary material</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Electronic supplementary material">
+                  <media xlink:href="MediaObjects/13321_2009_7_MOESM1_ESM.csv" mimetype="text" mime-subtype="plain">
+                    <caption xml:lang="en">
+                      <p>Additional file 1: xvalranks. The CSV file contains all the ranks of cross-validated active compounds per data set per similarity method. The first entry on each line is the data set, the second entry is the similarity method, and the rest of the entries are the ranks of the actives when cross validated over the entire data set. (CSV 252 KB)</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM2" xlink:title="Electronic supplementary material">
+                  <media xlink:href="MediaObjects/13321_2009_7_MOESM2_ESM.csv" mimetype="text" mime-subtype="plain">
+                    <caption xml:lang="en">
+                      <p>Additional file 2: performance. The CSV file contains all the results of the cross-validated experiments per data set per similarity method. On each line, the first entry is the data set, the second entry is the similarity method, the third, fourth, fifth, and sixth entries are the different performance metrics respectively: AUC, AUAC, F1, and BEDROC (CSV 42 KB)</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM3" xlink:title="Electronic supplementary material">
+                  <media xlink:href="MediaObjects/13321_2009_7_MOESM3_ESM.pdf" mimetype="application" mime-subtype="pdf">
+                    <caption xml:lang="en">
+                      <p>Additional file 3: <bold>performance.</bold> The PDF file contains all the results of the cross-validated experiments per data set per similarity method in different tables. The highest performance of each data set is shown in <bold>bold</bold>. The columns, left to right, are: data set, similarity method, AUC, AUAC, F1, and BEDROC. (PDF 49 KB)</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+            <sec id="Sec19">
+              <title>Authors’ original submitted files for images</title>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM4_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM5_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM6_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM7_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM8" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM8_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM9" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM9_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM10" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM10_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 7</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM11" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM11_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 8</p></caption></media></supplementary-material></p>
+            </sec>
+          </app>
+        </app-group>
+        <notes notes-type="Misc">
+          <title>Competing interests</title>
+          <p>The authors declare that they have no competing interests.</p>
+        </notes>
+        <notes notes-type="Misc">
+          <title>Authors' contributions</title>
+          <p>The contributions of SS and RN should be considered equal. SS designed the new methods described in this manuscript and advised RN as he implemented each method, organized the data, and ran the benchmarks. SS and RN wrote the manuscript together. PB provided computational resources in addition to critical advice and editing of the content, structure and organization of this manuscript. All authors read and approved the final manuscript.</p>
+        </notes>
+      </back>
+    </article>

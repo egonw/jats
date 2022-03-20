@@ -1,0 +1,1374 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">BMC1758-2946-3-4</article-id>
+          <article-id pub-id-type="manuscript">119</article-id>
+          <article-id pub-id-type="doi">10.1186/1758-2946-3-4</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+            <subj-group subj-group-type="article-collection" specific-use="Regular">
+              <subject>PubChem3D</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">PubChem3D: Conformer generation</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" corresp="yes">
+              <name>
+                <surname>Bolton</surname>
+                <given-names>Evan E</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDBMC1758294634_cor1">a</xref>
+            </contrib>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Kim</surname>
+                <given-names>Sunghwan</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Bryant</surname>
+                <given-names>Stephen H</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.420089.7</institution-id>
+                <institution-id institution-id-type="ISNI">0000000096358082</institution-id>
+                <institution content-type="org-division">National Center for Biotechnology Information National Library of Medicine</institution>
+                <institution content-type="org-name">National Institutes of Health Department of Health and Human Services</institution>
+              </institution-wrap>
+              <addr-line content-type="street">8600 Rockville Pike</addr-line>
+              <addr-line content-type="postcode">20894</addr-line>
+              <addr-line content-type="city">Bethesda</addr-line>
+              <addr-line content-type="state">MD</addr-line>
+              <country country="US">USA</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDBMC1758294634_cor1">
+              <label>a</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>27</day>
+            <month>1</month>
+            <year>2011</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2011</year>
+          </pub-date>
+          <volume>3</volume>
+          <issue seq="4">1</issue>
+          <elocation-id>4</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>12</day>
+              <month>11</month>
+              <year>2010</year>
+            </date>
+            <date date-type="received">
+              <day>12</day>
+              <month>11</month>
+              <year>2010</year>
+            </date>
+            <date date-type="accepted">
+              <day>27</day>
+              <month>1</month>
+              <year>2011</year>
+            </date>
+            <date date-type="online">
+              <day>27</day>
+              <month>1</month>
+              <year>2011</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© NIH copyright; licensee Chemistry Central Ltd 2011</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-year>2011</copyright-year>
+            <copyright-holder>NIH copyright; licensee Chemistry Central Ltd</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by-nc/2/">
+              <license-p><bold>Open Access</bold> This is an open access article distributed under the terms of the Creative Commons Attribution Noncommercial License ( 
+    <ext-link xlink:href="https://creativecommons.org/licenses/by-nc/2.0" ext-link-type="url">https://creativecommons.org/licenses/by-nc/2.0</ext-link> 
+    ), which permits any noncommercial use, distribution, and reproduction in any medium, provided the original author(s) and source are credited. 
+</license-p>
+            </license>
+          </permissions>
+          <abstract id="Abs1" xml:lang="en">
+            <title>Abstract</title>
+            <sec id="ASec1">
+              <title>Background</title>
+              <p>PubChem, an open archive for the biological activities of small molecules, provides search and analysis tools to assist users in locating desired information. Many of these tools focus on the notion of chemical structure similarity at some level. PubChem3D enables similarity of chemical structure 3-D conformers to augment the existing similarity of 2-D chemical structure graphs. It is also desirable to relate theoretical 3-D descriptions of chemical structures to experimental biological activity. As such, it is important to be assured that the theoretical conformer models can reproduce experimentally determined bioactive conformations. In the present study, we investigate the effects of three primary conformer generation parameters (the fragment sampling rate, the energy window size, and force field variant) upon the accuracy of theoretical conformer models, and determined optimal settings for PubChem3D conformer model generation and conformer sampling.</p>
+            </sec>
+            <sec id="ASec2">
+              <title>Results</title>
+              <p>Using the software package OMEGA from OpenEye Scientific Software, Inc., theoretical 3-D conformer models were generated for 25,972 small-molecule ligands, whose 3-D structures were experimentally determined. Different values for primary conformer generation parameters were systematically tested to find optimal settings. Employing a greater fragment sampling rate than the default did not improve the accuracy of the theoretical conformer model ensembles. An ever increasing energy window did increase the overall average accuracy, with rapid convergence observed at 10 kcal/mol and 15 kcal/mol for model building and torsion search, respectively; however, subsequent study showed that an energy threshold of 25 kcal/mol for torsion search resulted in slightly improved results for larger and more flexible structures. Exclusion of coulomb terms from the 94s variant of the Merck molecular force field (MMFF94s) in the torsion search stage gave more accurate conformer models at lower energy windows. Overall average accuracy of reproduction of bioactive conformations was remarkably linear with respect to both non-hydrogen atom count ("size") and effective rotor count ("flexibility"). Using these as independent variables, a regression equation was developed to predict the RMSD accuracy of a theoretical ensemble to reproduce bioactive conformations. The equation was modified to give a minimum RMSD conformer sampling value to help ensure that 90% of the sampled theoretical models should contain at least one conformer within the RMSD sampling value to a "bioactive" conformation.</p>
+            </sec>
+            <sec id="ASec3">
+              <title>Conclusion</title>
+              <p>Optimal parameters for conformer generation using OMEGA were explored and determined. An equation was developed that provides an RMSD sampling value to use that is based on the relative accuracy to reproduce bioactive conformations. The optimal conformer generation parameters and RMSD sampling values determined are used by the PubChem3D project to generate theoretical conformer models.</p>
+            </sec>
+            <sec>
+              <fig id="Figa" position="anchor">
+                <p>
+                  <graphic position="anchor" specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2010_Article_119_Figa_HTML.gif" />
+                </p>
+              </fig>
+            </sec>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Energy Window</kwd>
+            <kwd>Rotatable Bond</kwd>
+            <kwd>Conformer Model</kwd>
+            <kwd>Conformer Ensemble</kwd>
+            <kwd>Conformer Generation</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Chemistry Central</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>54</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2011</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2010</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>11</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>12</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2010_Article_119.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-3-4" ext-link-type="doi">10.1186/1758-2946-3-4</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Background</title>
+          <p>PubChem [<xref ref-type="bibr" rid="CR1">1</xref>–<xref ref-type="bibr" rid="CR4">4</xref>] is an open archive for the biological activities of small molecules. It consists of three primary databases: Substance, Compound, and BioAssay. The PubChem Compound database contains the unique chemical structure content found in the PubChem Substance database. When possible, a theoretical 3-D conformer model description is generated for each and every record in the PubChem Compound database. This 3-D layer is the basis of the PubChem3D project.</p>
+          <p>PubChem provides search and analysis tools to assist users in locating desired information in the archive. The importance of this cannot be understated with more than 70 million substance descriptions, 28 million unique small molecules, 480,000 biological assays, and 110 million biological assay outcomes (results from a substance tested in an assay is considered an outcome). Nearly all of these tools focus on the notion of chemical structure similarity at some level. PubChem3D enables similarity of chemical structure 3-D conformers to augment the existing similarity of 2-D chemical structure graphs.</p>
+          <p>With the goal in mind to use theoretical 3-D descriptions of chemical structures to relate experimental biological activity, there must be an appropriate determination whether these constructs have any relevance to reality. Presumably, if the 3-D conformer model can readily reproduce a reputed "experimental bioactive ligand" conformation with sufficient regularity, one tends to feel (more) confident that the theoretical methodology may be producing biologically meaningful results. There is currently no way to prove with any absolute degree of certainty that all theoretical conformers produced will be biologically relevant; however, one can check if all known experimental "bioactive" conformers of a chemical structure can be found in its theoretical model.</p>
+          <p>The largest publicly available source of "experimental" 3-D coordinates of chemical structures is the Protein Data Bank (PDB) [<xref ref-type="bibr" rid="CR5">5</xref>]. This data is not without its considerable issues [<xref ref-type="bibr" rid="CR6">6</xref>–<xref ref-type="bibr" rid="CR10">10</xref>]. Most "experimental" 3-D coordinates for small molecules provided by the PDB are, in essence, theoretical models derived from fitting electron density produced by X-ray diffraction experiments to the presumed location of atoms that are part of a protein, a ligand (typically bound to the protein), and other moieties (ions, water molecules, etc.). At times, electron density is lacking or there is some degree of uncertainty as to the precise location of the small molecule atoms. In this context, the ligand location or protein binding geometry cannot be considered to be well understood, with many possible conformations of the same ligand plausible [<xref ref-type="bibr" rid="CR6">6</xref>, <xref ref-type="bibr" rid="CR11">11</xref>]. These concerns will be largely ignored here and all the PDB ligands will be treated as experimental fact for the purposes of this study.</p>
+          <p>There are a number of established theoretical conformer generator packages available [<xref ref-type="bibr" rid="CR11">11</xref>–<xref ref-type="bibr" rid="CR16">16</xref>]. Many of these perform reasonably well [<xref ref-type="bibr" rid="CR6">6</xref>, <xref ref-type="bibr" rid="CR17">17</xref>, <xref ref-type="bibr" rid="CR18">18</xref>], being both fast and accurate. The specific requirements of the PubChem3D project (such as a multiplatform programmatic interface) made the choice of one of these (OMEGA [<xref ref-type="bibr" rid="CR19">19</xref>]) very easy. Considering the size of PubChem, the need to relate similar conformers, and the desire to allow users to analyze biological activity patterns in real-time, it requires all 3-D information to be pre-computed and stored. This requirement is a primary limiting factor.</p>
+          <p>Conformer generator packages are very capable to produce many conformers per chemical structure. This is important as a small molecule of reasonable flexibility at room temperature can access many potential conformational shapes; however, it is impractical to store all produced theoretical conformations per chemical structure, especially when you need to consider the storage requirements for millions of compounds. A common practice is to limit the conformer count using some mix of energy-based filtering, minimum conformer root-mean-squared distance (RMSD) of pair-wise atoms, and random sampling. This leaves one to determine how best to minimize the count of conformations stored while not sacrificing coverage or resolution of biologically meaningful conformer space.</p>
+          <p>In this work, one of a series covering the PubChem3D project, we attempt to answer questions regarding conformer model construction relative to the ability to reproduce PDB ligand 3-D coordinates. For example, what is the base-line conformer generation software accuracy as a function of molecular size and flexibility? Given that conformer models are produced in vacuum, is it beneficial to remove bias towards conformers with intra-molecular interaction to improve accuracy? Is energy filtering useful? What are some practical limitations when generating conformers of flexible molecules? Can one predict average theoretical conformer model accuracy? How do you minimize the count of conformers without significantly impacting accuracy? Using PDB ligand 3-D coordinates, key parameters of conformer model creation are explored to answer these questions. In the process of doing so, a useful relationship is developed relating the size and flexibility of a molecule to the accuracy of reproduction. Further examination is given to accuracy as it relates to limiting the total count of conformers considered in such a model.</p>
+        </sec>
+        <sec id="Sec2">
+          <title>Results and Discussion</title>
+          <sec id="Sec3">
+            <title>1. Molecular size and flexibility of the PDB ligands</title>
+            <p>The size and flexibility of a molecule are important factors affecting the conformer model for a molecule. While the molecular size is approximated by the number of non-hydrogen atoms in the molecule, the molecular flexibility can be expressed in terms of the number of effective rotors [<xref ref-type="bibr" rid="CR20">20</xref>], which is given as the following:<disp-formula id="Equ1"><label>1</label><alternatives><mml:math><mml:mrow><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>E</mml:mi><mml:mi>R</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>N</mml:mi><mml:mi>R</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>N</mml:mi><mml:mi>A</mml:mi><mml:mi>R</mml:mi><mml:mi>A</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mn>5</mml:mn></mml:mfrac></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_119_Equ1_HTML.gif" /></alternatives></disp-formula></p>
+            <p>where <italic>N</italic><sub><italic>ER</italic></sub>is the number of effective rotors, <italic>N</italic><sub><italic>R</italic></sub>is the number of rotatable bonds, and <italic>N</italic><sub><italic>NARA</italic></sub>is the number of "non-aromatic" <italic>sp</italic><sup>3</sup>-hybridized ring atoms. Note that the value of <italic>N</italic><sub><italic>ER</italic></sub>is not necessarily an integer, but, in this study, is frequently rounded to the nearest whole number. Effective rotors take into account the flexibility of rings as well as rotatable bonds. Figure <xref rid="Fig1" ref-type="fig">1</xref> shows the distributions of the non-hydrogen atom counts and the effective rotor counts (binned by whole numbers) for the experimental structures in the Molecular Modeling Database (MMDB) [<xref ref-type="bibr" rid="CR21">21</xref>, <xref ref-type="bibr" rid="CR22">22</xref>] ligand dataset as downloaded from the PubChem Substance database (the MMDB contains only experimentally determined data found in the PDB). On average, the molecules in the MMDB ligand set have 17.1 non-hydrogen atoms and 4.9 effective rotors. Although molecules with up to 50 non-hydrogen atoms are considered in the present study, ~90% of them have 30 or less non-hydrogen atoms. In addition, as shown in panel (b) of Figure <xref rid="Fig1" ref-type="fig">1</xref>, molecules with greater than 16 effective rotors rarely occur, due to limiting the MMDB dataset to 15 rotatable bonds.<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>Distribution of (a) the non-hydrogen atom count and (b) the effective rotor count, binned by whole numbers, for the 25,972 experimentally determined structures in the MMDB ligand data set</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_119_Fig1_HTML.jpg" /></p></fig></p>
+          </sec>
+          <sec id="Sec4">
+            <title>2. Parameter validation for conformer generation</title>
+            <p>OMEGA [<xref ref-type="bibr" rid="CR19">19</xref>] was used in the present study. It is known to be among the fastest and most accurate conformer generation programs [<xref ref-type="bibr" rid="CR17">17</xref>] available. In addition to high quality, it was the only commercially available program that had a non-windows-only C++ application programming interface (API) at the time of project initiation, a critical consideration given the computing environments at the National Center for Biotechnology Information (NCBI). A brief overview of the conformer generation algorithm of OMEGA is given in the <italic>Materials and Methods</italic> section. A more detailed explanation can be found elsewhere [<xref ref-type="bibr" rid="CR11">11</xref>, <xref ref-type="bibr" rid="CR23">23</xref>].</p>
+            <p>OMEGA has many adjustable parameters to generate 3-D conformations with particular attributes. Some important ones are listed in Table <xref rid="Tab1" ref-type="table">1</xref>. To find an optimal set of values, the effects of primary parameters upon conformer generation were tested: (1) the fragment sampling rate for determination of fragment conformation, (2) the type of molecular force field used for the model building and torsion search, and (3) the size of the energy window that determines the energy range of conformers generated. As detailed in the <italic>Materials and Methods</italic> section, only a maximum of 100,000 conformations were considered for a given molecule, meaning that the conformer space of some chemical structures was not fully explored due to this "100-k limit." Therefore, the occurrence of such cases was considered while testing optimal values of parameters.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>OMEGA parameters modified or non-default during conformer generation</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Flag</p></th><th align="left"><p>Options</p></th><th align="left"><p>Description</p></th></tr></thead><tbody><tr><td align="left"><p>-startfact</p></td><td align="left"><p>20, 50</p></td><td align="left"><p>Determines the fragment sampling rate for determination of fragment conformation [default = 20].</p></td></tr><tr><td align="left"><p>-buildff<sup><italic>a</italic></sup></p></td><td align="left"><p>MMFF94s MMFF94s_NoEstat MMFF94s_Trunc</p></td><td align="left"><p>Specifies the type of a molecular force field used in the model building step [default = MMFF94s_NoEstat]</p></td></tr><tr><td align="left"><p>-searchff<sup><italic>a</italic></sup></p></td><td align="left"><p>MMFF94s MMFF94s_NoEstat MMFF94s_Trunc</p></td><td align="left"><p>Specifies the type of a molecular force field used in the torsion search step [default = MMFF94s_NoEstat].</p></td></tr><tr><td align="left"><p>-ewindow</p></td><td align="left"><p>integers between 1 and 30</p></td><td align="left"><p>Determines the size of the energy window [default = 10.0].</p><p>(1) In the model building step: determines the maximum energy range of a ring system.</p><p>(2) In the torsion search step: determines the maximum energy range of a conformer relative to that of a global minimum conformer.</p></td></tr><tr><td align="left"><p>-MaxConfsGen</p></td><td align="left"><p>100,000</p></td><td align="left"><p>Controls the maximum number of fully constructed conformers that OMEGA will attempt to build [default = 30,000].</p></td></tr><tr><td align="left"><p>-MaxConfs</p></td><td align="left"><p>100,000</p></td><td align="left"><p>Controls the maximum number of conformations to be retained [default = 20,000].</p></td></tr><tr><td align="left"><p>-MaxRotors</p></td><td align="left"><p>15</p></td><td align="left"><p>Controls the maximum number of rotatable bonds in a molecule. If a molecule has more rotatable bonds than this cutoff, OMEGA will not search for conformers [default = 12].</p></td></tr><tr><td align="left"><p>-MaxSearchTime</p></td><td align="left"><p>180</p></td><td align="left"><p>Limits the maximum amount of time (in seconds) spent generating conformers for each molecule [default = 30].</p></td></tr><tr><td align="left"><p>-DefaultRMSD</p></td><td align="left"><p>0.0</p></td><td align="left"><p>Controls the threshold of the RMS distance to determine duplicate conformations. The value of 0.0 indicates that the duplicate detection is skipped [default = 0.8].</p></td></tr></tbody></table><table-wrap-foot><p><sup><italic>a</italic></sup>MMFF94s = the 94s variant of Merck molecular force field; MMFF94s_NoEstat = MMFF94s without coulombic terms; MMFF94s_Trunc = MMFF94s without coulombic and van der Waals attractive terms.</p></table-wrap-foot></table-wrap></p>
+            <p>In addition to the non-hydrogen atom pair-wise root-mean-square distance (henceforth termed simply RMSD), the Shape-Tanimoto (ST) value was also used as measure of the accuracy of the conformer models. The ST value between any two molecules A and B is given by the following equation:<disp-formula id="Equ2"><label>2</label><alternatives><mml:math><mml:mrow><mml:mi>S</mml:mi><mml:mi>T</mml:mi><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mi>V</mml:mi><mml:mrow><mml:mi>A</mml:mi><mml:mi>B</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:msub><mml:mi>V</mml:mi><mml:mrow><mml:mi>A</mml:mi><mml:mi>A</mml:mi></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>V</mml:mi><mml:mrow><mml:mi>B</mml:mi><mml:mi>B</mml:mi></mml:mrow></mml:msub><mml:mo>−</mml:mo><mml:msub><mml:mi>V</mml:mi><mml:mrow><mml:mi>A</mml:mi><mml:mi>B</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfrac></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_119_Equ2_HTML.gif" /></alternatives></disp-formula></p>
+            <p>where <italic>V</italic><sub><italic>AA</italic></sub>and <italic>V</italic><sub><italic>BB</italic></sub>are the self-overlap volume of A and B, respectively, and <italic>V</italic><sub><italic>AB</italic></sub>is the overlap volume between A and B [<xref ref-type="bibr" rid="CR24">24</xref>–<xref ref-type="bibr" rid="CR26">26</xref>]. Note that the ST score is a molecular similarity measure ranging from 0 (for no similarity) to 1 (for identical molecules), whereas the RMSD value is a molecular dissimilarity measure ranging from 0 (for identical molecules) to infinity. Among all theoretical 3-D conformers generated for a given molecule, the one with the least RMSD and the one with the greatest ST to the experimental 3-D coordinates were considered to be the most similar to the "bioactive" conformation. Therefore, the accuracy of a conformer model generated by OMEGA was evaluated using the minimum RMSD and the maximum ST values between the experimental conformation and a single theoretical 3-D conformation in the conformer model. In further discussion, the RMSD and ST values <italic>for a conformer model</italic> indicates the RMSD and ST values <italic>between the corresponding experimental structure and the most similar theoretical conformer in the conformer model</italic>, respectively.</p>
+            <sec id="Sec5">
+              <title>2.1. Effects of fragment sampling rate</title>
+              <p>Fragment sampling in the OMEGA model building stage helps to ensure that flexible ring systems are appropriately examined to find all unique ring conformations. In OMEGA, a float-point value for the "-startfact" option determines the fragment sampling rate, using the following equation [<xref ref-type="bibr" rid="CR23">23</xref>]:<disp-formula id="Equ3"><label>3</label><alternatives><mml:math><mml:mrow><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>s</mml:mi><mml:mi>a</mml:mi><mml:mi>m</mml:mi><mml:mi>p</mml:mi><mml:mi>l</mml:mi><mml:mi>e</mml:mi><mml:mi>s</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mrow><mml:mo>[</mml:mo><mml:mrow><mml:mtext>1</mml:mtext><mml:mn>0</mml:mn><mml:mo>+</mml:mo></mml:mrow><mml:mo>[</mml:mo></mml:mrow><mml:mi>Σ</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>n</mml:mi><mml:mi>r</mml:mi><mml:mi>b</mml:mi><mml:mo>=</mml:mo><mml:mtext>3</mml:mtext></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo>−</mml:mo><mml:mi>Σ</mml:mi><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mi>n</mml:mi><mml:mi>r</mml:mi><mml:mi>b</mml:mi><mml:mo>=</mml:mo><mml:mtext>4</mml:mtext></mml:mrow><mml:mo>)</mml:mo></mml:mrow><mml:mo stretchy="false">]</mml:mo><mml:mo>×</mml:mo><mml:mtext mathvariant="monospace">startfact</mml:mtext><mml:mo stretchy="false">]</mml:mo></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_119_Equ3_HTML.gif" /></alternatives></disp-formula></p>
+              <p>where <italic>N</italic><sub><italic>samples</italic></sub>is the number of samples, and Σ(<italic>nrb</italic> = 3) and Σ(<italic>nrb</italic> = 4) are the sums of the number of atoms in the molecule that have three and four ring bonds, respectively. To investigate effects of the fragment sampling rate upon conformer generation, the conformer models generated using the default value of 20.0 for the "-startfact" option were compared with those generated using the value of 50.0, and the results were summarized in Table <xref rid="Tab2" ref-type="table">2</xref>. In general, using the value of 50.0 rather than the default (= 20.0) was found not to have any significant effect on the overall average RMSD and ST values between the computationally generated conformers and the experimentally determined structures. There were also no significant effects of the increased sampling rate upon the number of conformers generated and the 100-k limit counts. A similar insensitiveness to the fragment sampling rate was observed in Figure <xref rid="Fig2" ref-type="fig">2</xref>, which shows the average RMSD as a function of the non-hydrogen atom count and the binned effective rotor count. Thus, the default fragment sampling rate was deemed to be sufficient and the default value of 20.0 was used in the remainder of this study.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>The average root-mean-square distance (RMSD), the average Shape-Tanimoto (ST), the average number of conformers per chemical structure, and the count of the 100-k limit cases for conformer models for all 25,972 3-D reference structures</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Energy Window<sup><bold><italic>a</italic></bold></sup></p></th><th /><th /><th /><th /><th align="center"><p>5/5</p></th><th /><th /><th /><th /><th align="center" colspan="2"><p>5/15</p></th><th align="center"><p>10/10</p></th><th align="center"><p>10/15</p></th><th align="center"><p>15/15</p></th></tr><tr><th align="left"><p>Conformer FF<sup><bold><italic>b</italic></bold></sup></p></th><th /><th align="center"><p>Full</p></th><th /><th /><th align="center"><p>NoEstat</p></th><th /><th /><th align="center"><p>Trunc</p></th><th /><th align="center" colspan="2"><p>Trunc</p></th><th align="center"><p>NoEstat</p></th><th align="center"><p>NoEstat</p></th><th align="center"><p>NoEstat</p></th></tr><tr><th align="left"><p>Fragment FF<sup><italic>b</italic></sup></p></th><th align="center"><p>Full</p></th><th align="center"><p>NoEstat</p></th><th align="center"><p>Trunc</p></th><th align="center"><p>Full</p></th><th align="center"><p>NoEstat</p></th><th align="center"><p>Trunc</p></th><th align="center"><p>Full</p></th><th align="center"><p>NoEstat</p></th><th align="center"><p>Trunc</p></th><th align="center"><p>Full</p></th><th align="center"><p>Trunc</p></th><th align="center"><p>Trunc</p></th><th align="center"><p>Trunc</p></th><th align="center"><p>Trunc</p></th></tr></thead><tbody><tr><td align="center" colspan="15"><p><bold>Sampling rate = 20</bold></p></td></tr><tr><td align="left"><p><bold>RMSD</bold></p></td><td align="center"><p>0.69</p></td><td align="center"><p>0.69</p></td><td align="center"><p>0.71</p></td><td align="center"><p>0.48</p></td><td align="center"><p>0.48</p></td><td align="center"><p>0.48</p></td><td align="center"><p>0.467</p></td><td align="center"><p>0.467</p></td><td align="center"><p>0.462</p></td><td align="center"><p>0.41</p></td><td align="center"><p>0.41</p></td><td align="center"><p>0.42</p></td><td align="center"><p>0.40</p></td><td align="center"><p>0.42</p></td></tr><tr><td align="left"><p><bold>ST</bold></p></td><td align="center"><p>0.89</p></td><td align="center"><p>0.89</p></td><td align="center"><p>0.89</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.95</p></td><td align="center"><p>0.95</p></td><td align="center"><p>0.94</p></td><td align="center"><p>0.943</p></td><td align="center"><p>0.94</p></td></tr><tr><td align="left"><p><bold># Conformers</bold></p></td><td align="center"><p>698</p></td><td align="center"><p>698</p></td><td align="center"><p>645</p></td><td align="center"><p>2827</p></td><td align="center"><p>2,814</p></td><td align="center"><p>2,870</p></td><td align="center"><p>5,369</p></td><td align="center"><p>5,352</p></td><td align="center"><p>5,852</p></td><td align="center"><p>12,957</p></td><td align="center"><p>13,012</p></td><td align="center"><p>10,794</p></td><td align="center"><p>13,118</p></td><td align="center"><p>10,794</p></td></tr><tr><td align="left"><p><bold># 100-k Limit cases</bold></p></td><td align="center"><p>23</p></td><td align="center"><p>18</p></td><td align="center"><p>36</p></td><td align="center"><p>94</p></td><td align="center"><p>93</p></td><td align="center"><p>118</p></td><td align="center"><p>216</p></td><td align="center"><p>211</p></td><td align="center"><p>239</p></td><td align="center"><p>2,203</p></td><td align="center"><p>2,209</p></td><td align="center"><p>1,842</p></td><td align="center"><p>2,198</p></td><td align="center"><p>1,842</p></td></tr><tr><td align="center" colspan="15"><p><bold>Sampling rate = 50</bold></p></td></tr><tr><td align="left"><p><bold>RMSD</bold></p></td><td align="center"><p>0.69</p></td><td align="center"><p>0.69</p></td><td align="center"><p>0.71</p></td><td align="center"><p>0.48</p></td><td align="center"><p>0.48</p></td><td align="center"><p>0.48</p></td><td align="center"><p>0.466</p></td><td align="center"><p>0.467</p></td><td align="center"><p>0.462</p></td><td align="center"><p>0.41</p></td><td align="center"><p>0.41</p></td><td align="center"><p>0.42</p></td><td align="center"><p>0.40</p></td><td align="center"><p>0.42</p></td></tr><tr><td align="left"><p><bold>ST</bold></p></td><td align="center"><p>0.89</p></td><td align="center"><p>0.89</p></td><td align="center"><p>0.89</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.95</p></td><td align="center"><p>0.95</p></td><td align="center"><p>0.94</p></td><td align="center"><p>0.946</p></td><td align="center"><p>0.94</p></td></tr><tr><td align="left"><p><bold># Conformers</bold></p></td><td align="center"><p>696</p></td><td align="center"><p>697</p></td><td align="center"><p>646</p></td><td align="center"><p>2,834</p></td><td align="center"><p>2,818</p></td><td align="center"><p>2,875</p></td><td align="center"><p>5,377</p></td><td align="center"><p>5,358</p></td><td align="center"><p>5,857</p></td><td align="center"><p>12,981</p></td><td align="center"><p>13,025</p></td><td align="center"><p>10,796</p></td><td align="center"><p>13,124</p></td><td align="center"><p>10,796</p></td></tr><tr><td align="left"><p><bold># 100-k Limit cases</bold></p></td><td align="center"><p>21</p></td><td align="center"><p>18</p></td><td align="center"><p>36</p></td><td align="center"><p>96</p></td><td align="center"><p>96</p></td><td align="center"><p>119</p></td><td align="center"><p>217</p></td><td align="center"><p>211</p></td><td align="center"><p>239</p></td><td align="center"><p>2,203</p></td><td align="center"><p>2,210</p></td><td align="center"><p>1,841</p></td><td align="center"><p>2,196</p></td><td align="center"><p>1,841</p></td></tr></tbody></table><table-wrap-foot><p><sup><italic>a</italic></sup>The first and second numbers indicate the energy windows used for model building and torsion search, respectively.</p><p><sup><italic>b</italic></sup>Full = the 94s variant of the Merck molecular force field (MMFF94s); NoEstat = MMFF94s without coulombic interaction terms; Trunc = MMFF94s without coulombic and van der Waals attractive terms.</p></table-wrap-foot></table-wrap><fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>Effects of the fragment sampling rate upon the average RMSD as a function of (a) non-hydrogen atom count and (b) effective rotor count</bold>. The MMFF94s_NoEstat and MMFF94s_Trunc force fields were used for the model building and torsion search stages, respectively, and the energy window of 15 kcal/mol was used for both stages.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_119_Fig2_HTML.jpg" /></p></fig></p>
+            </sec>
+            <sec id="Sec6">
+              <title>2.2. Effects of force field choice</title>
+              <p>OMEGA has several pre-defined molecular force fields and it is possible to choose different force fields for model building and torsion search, using the "-buildff" and "-searchff" options, respectively. Three force fields were tested: (1) the 94s variant of the Merck molecular force field (MMFF94s_Full) [<xref ref-type="bibr" rid="CR27">27</xref>–<xref ref-type="bibr" rid="CR33">33</xref>], (2) MMFF94s without coulombic interaction terms (MMFF94s_NoEstat), and (3) MMFF94s without coulombic interaction terms and without the attractive part of the van der Waals interaction terms (MMFF94s_Trunc). The latter two force-field variants attempt to remove a perceived bias towards conformers that lower their energy by <italic>intra-molecular</italic> interactions, which are assumed to not be significant when making <italic>inter-molecular</italic> interactions. This consideration is critical as conformer generation is performed in vacuum, which is a very different environment than a protein binding pocket. Varying the force-field terms allows this hypothesis to be tested as improved accuracy should be found if intra-molecular interactions are removed.</p>
+              <p>Table <xref rid="Tab3" ref-type="table">3</xref> shows the effects of the force field employed upon the overall average RMSD and ST of the conformer models at increasing energy window values. The type of fragment force field used during the model building stage caused minor variations (less than 0.01) in the average RMSD of conformer models for energy windows 5 and 10 kcal/mol and these disappear entirely at 15 kcal/mol, indicating an overall insensitivity to the type of fragment force field used. Relative to the earlier hypothesis, this suggests that the fragments produced during model building phase were too small to have intra-molecular interactions. On the contrary, at the energy window of 5, 10, and 15 kcal/mol, the overall average RMSD of the conformer model generated using MMFF94s_NoEstat for the torsion search force-field was smaller by 0.21, 0.10, and 0.06, respectively, than those that used MMFF94s_Full, indicating that exclusion of electrostatic terms from the MMFF94s_Full increased the overall average accuracy of the conformer models significantly, but less so as energy window increased. However, almost no perceptible changes in RMSD or ST averages were found upon the additional removal of van der Waals attractive terms, as shown by nearly imperceptible changes in MMFF94s_NoEstat and MMFF94s_Trunc results.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>Overall effects of the choice of the force field and energy window upon the average RMSD and ST values between the computationally generated conformations and the experimental conformations for the 25,972 3-D reference structures</p></caption><table frame="hsides" rules="groups"><thead><tr><th /><th /><th align="center" colspan="6"><p>Torsion Search Force Field<sup><bold><italic>a</italic></bold></sup></p></th></tr><tr><th align="center"><p>Energy window (kcal/mol)</p></th><th align="center"><p>Fragment Force Field<sup><bold><italic>a</italic></bold></sup></p></th><th align="center" colspan="2"><p>Full</p></th><th align="center" colspan="2"><p>NoEstat</p></th><th align="center" colspan="2"><p>Trunc</p></th></tr><tr><th /><th /><th align="center"><p>RMSD</p></th><th align="center"><p>ST</p></th><th align="center"><p>RMSD</p></th><th align="center"><p>ST</p></th><th align="center"><p>RMSD</p></th><th align="center"><p>ST</p></th></tr></thead><tbody><tr><td align="center"><p>5</p></td><td align="center"><p>Full</p></td><td align="center"><p>0.69</p></td><td align="center"><p>0.89</p></td><td align="center"><p>0.48</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.47</p></td><td align="center"><p>0.93</p></td></tr><tr><td /><td align="center"><p>NoEstat</p></td><td align="center"><p>0.69</p></td><td align="center"><p>0.89</p></td><td align="center"><p>0.48</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.47</p></td><td align="center"><p>0.93</p></td></tr><tr><td /><td align="center"><p>Trunc</p></td><td align="center"><p>0.71</p></td><td align="center"><p>0.89</p></td><td align="center"><p>0.48</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.46</p></td><td align="center"><p>0.93</p></td></tr><tr><td align="center"><p>10</p></td><td align="center"><p>Full</p></td><td align="center"><p>0.52</p></td><td align="center"><p>0.92</p></td><td align="center"><p>0.42</p></td><td align="center"><p>0.94</p></td><td align="center"><p>0.42</p></td><td align="center"><p>0.94</p></td></tr><tr><td /><td align="center"><p>NoEstat</p></td><td align="center"><p>0.52</p></td><td align="center"><p>0.92</p></td><td align="center"><p>0.42</p></td><td align="center"><p>0.94</p></td><td align="center"><p>0.42</p></td><td align="center"><p>0.94</p></td></tr><tr><td /><td align="center"><p>Trunc</p></td><td align="center"><p>0.52</p></td><td align="center"><p>0.92</p></td><td align="center"><p>0.41</p></td><td align="center"><p>0.94</p></td><td align="center"><p>0.42</p></td><td align="center"><p>0.94</p></td></tr><tr><td align="center"><p>15</p></td><td align="center"><p>Full</p></td><td align="center"><p>0.46</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.40</p></td><td align="center"><p>0.94</p></td><td align="center"><p>0.40</p></td><td align="center"><p>0.95</p></td></tr><tr><td /><td align="center"><p>NoEstat</p></td><td align="center"><p>0.46</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.40</p></td><td align="center"><p>0.94</p></td><td align="center"><p>0.40</p></td><td align="center"><p>0.95</p></td></tr><tr><td /><td align="center"><p>Trunc</p></td><td align="center"><p>0.46</p></td><td align="center"><p>0.93</p></td><td align="center"><p>0.40</p></td><td align="center"><p>0.94</p></td><td align="center"><p>0.40</p></td><td align="center"><p>0.95</p></td></tr></tbody></table><table-wrap-foot><p><sup><italic>a</italic></sup>Full = the 94s variant of the Merck molecular force field (MMFF94s); NoEstat = MMFF94s without coulombic interaction terms; Trunc = MMFF94s without coulombic and van der Waals interaction terms.</p></table-wrap-foot></table-wrap></p>
+              <p>One potential explanation for the higher accuracy of the conformer models generated using the MMFF94s_NoEstat and MMFF94s_Trunc force fields arises from their ability to provide more conformations than MMFF94s in the same energy window threshold. The MMFF94s_Full force field includes additional terms that can lower the energy of conformations with intra-molecular interactions. Removal of such force field terms can increase the energy of conformers with intra-molecular interactions, allowing conformers without these interactions to be represented in a conformer model. This explanation is consistent with the data in Table <xref rid="Tab4" ref-type="table">4</xref>, which shows that MMFF94s_NoEstat and MMFF94s_Trunc produced significantly more conformers per compound on average than MMFF94s_Full. The increased number of conformers per molecule conceptually gives a better chance to have a conformer close to an experimentally determined structure, resulting in the smaller RMSD and greater ST values in Table <xref rid="Tab3" ref-type="table">3</xref>. Because of this, however, the MMFF94s_NoEstat and MMFF94_Trunc were also found to more frequently result in 100-k limit cases. Considering that each 100-k limit case suggests a truncation of energetically possible conformations, their substantial frequency increase (by about a factor of five) as a function of increasing energy window may play a role in the reduction of RMSD differences between MMFF94s_Full force field and MMFF94s_NoEstat variants.<table-wrap id="Tab4"><label>Table 4</label><caption xml:lang="en"><p>The overall average conformer count per molecule and 100-k limit count for different force field types and energy window sizes for the 25,972 3-D reference structures</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Energy Window (kcal/mol)</p></th><th align="center" colspan="3"><p>Force Field<sup><bold><italic>a</italic></bold></sup></p></th></tr><tr><th /><th align="center"><p>Full</p></th><th align="center"><p>NoEstat</p></th><th align="center"><p>Trunc</p></th></tr></thead><tbody><tr><td /><td align="center" colspan="3"><p><bold><underline>Conformer count</underline></bold></p></td></tr><tr><td align="left"><p>5</p></td><td align="center"><p>698</p></td><td align="center"><p>2,818</p></td><td align="center"><p>5,857</p></td></tr><tr><td align="left"><p>10</p></td><td align="center"><p>2,817</p></td><td align="center"><p>10,852</p></td><td align="center"><p>10,889</p></td></tr><tr><td align="left"><p>15</p></td><td align="center"><p>5,599</p></td><td align="center"><p>13,219</p></td><td align="center"><p>13,178</p></td></tr><tr><td /><td align="center" colspan="3"><p><bold><underline>100-k limit count</underline></bold></p></td></tr><tr><td align="left"><p>5</p></td><td align="center"><p>21</p></td><td align="center"><p>96</p></td><td align="center"><p>239</p></td></tr><tr><td align="left"><p>10</p></td><td align="center"><p>250</p></td><td align="center"><p>1,788</p></td><td align="center"><p>1,844</p></td></tr><tr><td align="left"><p>15</p></td><td align="center"><p>491</p></td><td align="center"><p>2,189</p></td><td align="center"><p>2,220</p></td></tr></tbody></table><table-wrap-foot><p><sup><italic>a</italic></sup>Full = the 94s variant of the Merck molecular force field (MMFF94s); NoEstat = MMFF94s without coulombic interaction terms; Trunc = MMFF94s without coulombic and van der Waals interaction terms.</p></table-wrap-foot></table-wrap></p>
+              <p>Another potential explanation for the superiority of MMFF94s_NoEstat and MMFF94_Trunc over the MMFF94s_Full force field is that the lack of intra-molecular interaction is an important characteristic of a biologically relevant conformation of a small-molecule ligand found in its complex with the protein. When a small-molecule ligand binds to its target protein, the intra-molecular interaction in the ligand molecule that exists in its unbound state is likely to disappear because of a conformational change which enhances inter-molecular interaction between the molecule and the target protein. Regardless of the exact reason why, employing the MMFF94s_NoEstat for conformer model generation appears to be a more sensible choice than the MMFF94s_Full due to the accuracy improvement.</p>
+              <p>Overall, it appears that removal of electrostatic terms has a rather favorable effect on improving overall accuracy of reproduction of experimental bound ligand geometries. Removal of attractive van der Waals terms does not appear to have any significant effect. As such, the remainder of this study will only consider the MMFF94s_NoEstat force field variant.</p>
+            </sec>
+            <sec id="Sec7">
+              <title>2.3. Effects of energy window</title>
+              <p>In the model building step, the energy window, specified with the "-ewindow" flag, primarily limits the ring conformations allowed in the torsion search step. If the strain energy of a ring conformation is greater than the least-energy ring conformation plus the value of the energy window, then the ring conformation is discarded. When this "-ewindow" parameter is used in the torsion search step, the energy window determines the maximum energy range of conformers, relative to the global-minimum conformer. Figure <xref rid="Fig3" ref-type="fig">3</xref> shows the effect of energy windows on the overall average accuracy of the conformer models generated. When both the model building and torsion search energy windows were 1 kcal/mol, the overall average RMSD and ST of the conformer model generated were 0.69 and 0.885, respectively. On the other hand, the use of an energy window for both stages of 30 kcal/mol resulted in a substantially improved overall average RMSD of 0.39 and an ST of 0.945. This indicates that a larger energy window gives more accurate conformer models, consistent with the data in Table <xref rid="Tab3" ref-type="table">3</xref>. The increased energy window allows more conformational diversity of a molecule to be considered, but also results in more conformers per molecule (and more 100-k limit cases), as shown in Table <xref rid="Tab4" ref-type="table">4</xref>. Note in Figure <xref rid="Fig3" ref-type="fig">3</xref> that a rapid near-convergence in the overall average RMSD and ST occurs at the energy windows of 10 and 15 kcal/mol for model building and torsion search, respectively. The overall average RMSD and ST at these energy windows were 0.40 and 0.944, respectively. Employing bigger energy windows provided only small improvements to the overall accuracy of the conformer models. Therefore, when looking at overall average results, it initially appears reasonable to use an energy window of 10 kcal/mol for model building and 15 kcal/mol for torsion search without significant reduction in overall accuracy.<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>The overall average RMSD and Shape-Tanimoto (ST) values of the conformer models for all 25,972 structures as a function of the model building energy window and the torsion search energy window (in kcal/mol)</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_119_Fig3_HTML.jpg" /></p></fig></p>
+            </sec>
+          </sec>
+          <sec id="Sec8">
+            <title>3. Accuracy of conformer models and 100-k limit cases</title>
+            <p>Figures <xref rid="Fig4" ref-type="fig">4</xref> and <xref rid="Fig5" ref-type="fig">5</xref> show the average RMSD and the average ST values of the conformer models, respectively, as a function of the non-hydrogen atom count and the effective rotor count for different energy window values. An increase in the non-hydrogen atom count and the effective rotor count causes a linear increase in the RMSD and a linear decrease in the ST values, indicating that the accuracy of conformer model decreases as a function of both the molecular size and flexibility.<fig id="Fig4"><label>Figure 4</label><caption xml:lang="en"><p><bold>Average RMSD values for all 25,972 3D reference structures as a function of non-hydrogen atom count [(a) and (b)] and effective rotor count [(c) and (d)]</bold>. In Panels (b) and (d), the 100-k limit cases, in which the number of conformers reached the maximum number allowed, were removed. The numbers in the legend boxes indicates the energy-window values used in the model building (first) and torsion search (second) stages.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_119_Fig4_HTML.jpg" /></p></fig></p>
+            <p>The conformer models that reach the 100-k limit cases may exclude important conformational diversity due to the truncated description of the molecule. Indeed, as Figures <xref rid="Fig4" ref-type="fig">4</xref> and <xref rid="Fig5" ref-type="fig">5</xref> show better accuracy of reproduction when truncated conformer models are excluded. Figure <xref rid="Fig6" ref-type="fig">6</xref> shows effects of the 100-k limit cases upon the distributions of the non-hydrogen atom count and the effective rotor counts, and Figure <xref rid="Fig7" ref-type="fig">7</xref> displays effects of the 100-k limit cases upon the average number of conformers for a molecule as a function of energy window. As one can see in Figure <xref rid="Fig6" ref-type="fig">6</xref>, the 100-k limit cases begin appearing for molecules with moderate size and flexibility (<italic>e.g.</italic>, with ~15 non-hydrogen atoms and ~7 effective rotors). As a molecule becomes bigger and more flexible, the OMEGA conformer generation hits the 100-k limit more frequently. Therefore, removal of these cases from the dataset of 25,972 3-D reference structures leaves only a relatively small number of "non-100-k cases" for >30 non-hydrogen atoms and >10 effective rotors, causing a greater variability in the average RMSD and ST in these regions of panels (b) and (d) of Figures <xref rid="Fig4" ref-type="fig">4</xref> and <xref rid="Fig5" ref-type="fig">5</xref>. Despite the increased variability, one can still see a slightly noticeable trend of improved accuracy in panel (d) of Figures <xref rid="Fig4" ref-type="fig">4</xref> and <xref rid="Fig5" ref-type="fig">5</xref>. One can also see in all panels of Figures <xref rid="Fig4" ref-type="fig">4</xref> and <xref rid="Fig5" ref-type="fig">5</xref> that the energy window for torsion search of 25 kcal/mol gives a clear improvement over 15 kcal/mol for larger values of non-hydrogen atoms and, to a lesser extent, effective rotors. As such, for the remainder of the study 25 kcal/mol will be used for both fragment model and torsion search.<fig id="Fig5"><label>Figure 5</label><caption xml:lang="en"><p><bold>Average Shape-Tanimoto (ST) values for all 25,972 3D reference structures as a function of non-hydrogen atom count [(a) and (b)] and effective rotor count [(c) and (d)]</bold>. In Panels (b) and (d), the 100-k limit cases, in which the number of conformers reached the maximum number allowed, were removed. The numbers in the legend boxes indicates energy-window values used in the model building (first) and torsion search (second) stages.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_119_Fig5_HTML.jpg" /></p></fig><fig id="Fig6"><label>Figure 6</label><caption xml:lang="en"><p><bold>The effect of the 100-k limit cases upon the distributions of (1) the non-hydrogen atom count and (2) the effective rotor counts</bold>. The MMFF94s_NoEstat force field and the energy window of 5 kcal/mol were used for both the model building and torsion search stages.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_119_Fig6_HTML.jpg" /></p></fig><fig id="Fig7"><label>Figure 7</label><caption xml:lang="en"><p><bold>The average number of conformers for a molecule as a function of the effective rotor count</bold>. The first two numbers in the legend box correspond to the energy-window sizes used in the model building (first) and torsion search (second). While the solid data symbols represent all 25,972 molecules, the open data symbols denote cases in which the 100-k limit cases were removed.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_119_Fig7_HTML.jpg" /></p></fig></p>
+          </sec>
+          <sec id="Sec9">
+            <title>4. Prediction of RMSD accuracy of the conformer ensemble</title>
+            <p>So far, we have found ways to get the best average RMSD and ST accuracy using OMEGA as the conformer generator. Now we are faced with the problem of data reduction, as it is not practical to store or use all conformers produced when considering millions of chemical structures. Naturally, one would like to maximally reduce the conformer count without significantly sacrificing accuracy, e.g., by a minimum RMSD separation between conformers. The lower the separation RMSD used, the greater the count of conformers that must be kept. Conversely, too large of an RMSD separation may reduce the ensemble accuracy. In an ideal world, one would know <italic>a priori</italic> precisely which conformers are needed and discard the rest. In the real world, this is not possible to know; however, if one can reliably predict the RMSD accuracy of a conformer model, then one can devise an RMSD separation value that could be used as a sampling threshold with some statistical assurances that the sampled conformer model should have at least one conformer within the sampling RMSD some significantly large percentage of the time.</p>
+            <p>With the aim to find a way to derive an RMSD sampling threshold for a given chemical structure, Figures <xref rid="Fig4" ref-type="fig">4</xref> and <xref rid="Fig5" ref-type="fig">5</xref> show that the average RMSD accuracy of the theoretical conformer ensembles has a very linear correlation with both the non-hydrogen atom count and the effective rotor count. Therefore, a linear regression analysis was performed to derive an equation that predicts the RMSD accuracy of the conformer models using just the <italic>N</italic><sub><italic>NHA</italic></sub>and the <italic>N</italic><sub><italic>ER</italic></sub>, yielding Eq. (<xref rid="Equ4" ref-type="disp-formula">4</xref>).<disp-formula id="Equ4"><label>4</label><alternatives><mml:math><mml:mrow><mml:mi>R</mml:mi><mml:mi>M</mml:mi><mml:mi>S</mml:mi><mml:msub><mml:mi>D</mml:mi><mml:mrow><mml:mi>p</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>d</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>0.0</mml:mn><mml:mtext>29 + </mml:mtext><mml:mn>0.00</mml:mn><mml:mtext>99 *</mml:mtext><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>N</mml:mi><mml:mi>H</mml:mi><mml:mi>A</mml:mi></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:mn>0.0</mml:mn><mml:mtext>4</mml:mtext><mml:mn>0</mml:mn><mml:mtext> *</mml:mtext><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>E</mml:mi><mml:mi>R</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_119_Equ4_HTML.gif" /></alternatives></disp-formula></p>
+            <p>where <italic>RMSD</italic><sub><italic>pred</italic></sub>is the predicted RMSD of a theoretical conformer ensemble for a molecule, and <italic>N</italic><sub><italic>NHA</italic></sub>and <italic>N</italic><sub><italic>ER</italic></sub>are its non-hydrogen atom and effective rotor counts, respectively. The R<sup>2</sup> value of the regression equation for all 25,972 chemical structures was 0.65 and the standard deviation of <italic>RMSD</italic><sub><italic>pred</italic></sub>was 0.19. The correlation between the <italic>RMSD</italic><sub><italic>pred</italic></sub>and the actual RMSD (<italic>RMSD</italic><sub><italic>actual</italic></sub>) is shown in Figure <xref rid="Fig8" ref-type="fig">8</xref>.<fig id="Fig8"><label>Figure 8</label><caption xml:lang="en"><p><bold>Comparison of the predicted and actual RMSD of the theoretical conformer models for the 25,972 experimentally determined structures</bold>. While the predicted RMSDs in panel (a) were computed using a single equation [Eq. (<xref rid="Equ4" ref-type="disp-formula">4</xref>)] for all 25,972 structures, those in panel (b) were computed using two different equations: Eq. (<xref rid="Equ6" ref-type="disp-formula">6</xref>) for the structures with N<sub>ER</sub>≤10 and N<sub>NHA</sub>≤35 (in blue), and Eq. (<xref rid="Equ7" ref-type="disp-formula">7</xref>) for otherwise (in red).</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_119_Fig8_HTML.jpg" /></p></fig></p>
+            <p>By design, Eq. (<xref rid="Equ4" ref-type="disp-formula">4</xref>) overestimates the RMSD value for half of the experimental structures and underestimates the other half. We consider it acceptable to use an RMSD sampling value where 90% of conformer ensembles have the same or lesser RMSD accuracy value on average. This is simply Eq. (<xref rid="Equ4" ref-type="disp-formula">4</xref>) to which we add the first standard deviation value of 0.19 to yield Eq. (<xref rid="Equ5" ref-type="disp-formula">5</xref>).<disp-formula id="Equ5"><label>5</label><alternatives><mml:math><mml:mrow><mml:mi>R</mml:mi><mml:mi>M</mml:mi><mml:mi>S</mml:mi><mml:msub><mml:mi>D</mml:mi><mml:mrow><mml:mi>p</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>d</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>0.</mml:mn><mml:mtext>19 + </mml:mtext><mml:mn>0.0</mml:mn><mml:mtext>29</mml:mtext><mml:mo>+</mml:mo><mml:mn>0.00</mml:mn><mml:mtext>99</mml:mtext><mml:mo>*</mml:mo><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>N</mml:mi><mml:mi>H</mml:mi><mml:mi>A</mml:mi></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:mn>0.0</mml:mn><mml:mtext>4</mml:mtext><mml:mn>0</mml:mn><mml:mo>*</mml:mo><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>E</mml:mi><mml:mi>R</mml:mi></mml:mrow></mml:msub><mml:mo>.</mml:mo></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_119_Equ5_HTML.gif" /></alternatives></disp-formula></p>
+            <p>To highlight this, we plotted in Figure <xref rid="Fig9" ref-type="fig">9</xref> the distribution of the difference between <italic>RMSD</italic><sub><italic>actual</italic></sub>and <italic>RMSD</italic><sub><italic>pred</italic></sub>using Eq. (<xref rid="Equ5" ref-type="disp-formula">5</xref>), binned in 0.1 increments. Figure <xref rid="Fig9" ref-type="fig">9</xref> shows that Eq. (<xref rid="Equ5" ref-type="disp-formula">5</xref>) yields an <italic>RMSD</italic><sub><italic>pred</italic></sub>that is greater than or equal to <italic>RMSD</italic><sub><italic>actual</italic></sub>more than 90% of the time.<fig id="Fig9"><label>Figure 9</label><caption xml:lang="en"><p><bold>Frequency distribution of the RMSD differences between the actual RMSD and the predicted RMSD values for the conformer models of the 25,972 experimental structures, binned in 0.1 increments using Eq.</bold> (<xref rid="Equ5" ref-type="disp-formula">5</xref>) for panel (a) and Eqs. (<xref rid="Equ8" ref-type="disp-formula">8</xref>) and (<xref rid="Equ9" ref-type="disp-formula">9</xref>) for panel (b). (See text).</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_119_Fig9_HTML.jpg" /></p></fig></p>
+            <p>As shown in Figures <xref rid="Fig4" ref-type="fig">4</xref> and <xref rid="Fig5" ref-type="fig">5</xref>, the average RMSD increases and the average ST decreases as a function of both <italic>N</italic><sub><italic>ER</italic></sub>and <italic>N</italic><sub><italic>NHA</italic></sub>, regardless of the inclusion of 100-K limit cases. Given how the variability increases as chemical structures become larger and more flexible, potentially due, in part, to their lower populations, it may be helpful to partition data into separate groups according to their <italic>N</italic><sub><italic>ER</italic></sub>and <italic>N</italic><sub><italic>NHA</italic></sub>values and perform separate regression analyses. A regression analysis of the 22,587 structures with <italic>N</italic><sub><italic>ER</italic></sub>≤10 and <italic>N</italic><sub><italic>NHA</italic></sub>≤35 yields Eq. (<xref rid="Equ6" ref-type="disp-formula">6</xref>), while a regression analysis of the 3,385 structures with <italic>N</italic><sub><italic>ER</italic></sub>>10 or <italic>N</italic><sub><italic>NHA</italic></sub>>35 yields Eq. (<xref rid="Equ7" ref-type="disp-formula">7</xref>):<disp-formula id="Equ6"><label>6</label><alternatives><mml:math><mml:mrow><mml:mi>R</mml:mi><mml:mi>M</mml:mi><mml:mi>S</mml:mi><mml:msub><mml:mi>D</mml:mi><mml:mrow><mml:mi>p</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>d</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>0.0</mml:mn><mml:mtext>46</mml:mtext><mml:mo>+</mml:mo><mml:mn>0.00</mml:mn><mml:mtext>63</mml:mtext><mml:mo>*</mml:mo><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>N</mml:mi><mml:mi>H</mml:mi><mml:mi>A</mml:mi></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:mn>0.0</mml:mn><mml:mtext>5</mml:mtext><mml:mn>0</mml:mn><mml:mo>*</mml:mo><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>E</mml:mi><mml:mi>R</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:mtext>for </mml:mtext><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>E</mml:mi><mml:mi>R</mml:mi></mml:mrow></mml:msub><mml:mo>≤</mml:mo><mml:mtext>1</mml:mtext><mml:mn>0</mml:mn><mml:mtext> and </mml:mtext><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>N</mml:mi><mml:mi>H</mml:mi><mml:mi>A</mml:mi></mml:mrow></mml:msub><mml:mo>≤</mml:mo><mml:mtext>35</mml:mtext><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_119_Equ6_HTML.gif" /></alternatives></disp-formula><disp-formula id="Equ7"><label>7</label><alternatives><mml:math><mml:mrow><mml:mi>R</mml:mi><mml:mi>M</mml:mi><mml:mi>S</mml:mi><mml:msub><mml:mi>D</mml:mi><mml:mrow><mml:mi>p</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>d</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mo>−</mml:mo><mml:mn>0.</mml:mn><mml:mtext>1</mml:mtext><mml:mn>0</mml:mn><mml:mtext>1</mml:mtext><mml:mo>+</mml:mo><mml:mn>0.0</mml:mn><mml:mtext>155</mml:mtext><mml:mo>*</mml:mo><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>N</mml:mi><mml:mi>H</mml:mi><mml:mi>A</mml:mi></mml:mrow></mml:msub><mml:mtext>+ </mml:mtext><mml:mn>0.0</mml:mn><mml:mtext>35</mml:mtext><mml:mo>*</mml:mo><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>E</mml:mi><mml:mi>R</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mtext>for </mml:mtext><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>E</mml:mi><mml:mi>R</mml:mi></mml:mrow></mml:msub><mml:mtext>>1</mml:mtext><mml:mn>0</mml:mn><mml:mtext> and </mml:mtext><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>N</mml:mi><mml:mi>H</mml:mi><mml:mi>A</mml:mi></mml:mrow></mml:msub><mml:mo>></mml:mo><mml:mtext>35</mml:mtext></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_119_Equ7_HTML.gif" /></alternatives></disp-formula><disp-formula id="Equ8"><label>8</label><alternatives><mml:math><mml:mrow><mml:mi>R</mml:mi><mml:mi>M</mml:mi><mml:mi>S</mml:mi><mml:msub><mml:mi>D</mml:mi><mml:mrow><mml:mi>p</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>d</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>0.</mml:mn><mml:mtext>17</mml:mtext><mml:mo>+</mml:mo><mml:mn>0.0</mml:mn><mml:mtext>46</mml:mtext><mml:mo>+</mml:mo><mml:mn>0.00</mml:mn><mml:mtext>63</mml:mtext><mml:mo>*</mml:mo><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>N</mml:mi><mml:mi>H</mml:mi><mml:mi>A</mml:mi></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:mn>0.0</mml:mn><mml:mtext>5</mml:mtext><mml:mn>0</mml:mn><mml:mo>*</mml:mo><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>E</mml:mi><mml:mi>R</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">(</mml:mo><mml:mtext>for </mml:mtext><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>E</mml:mi><mml:mi>R</mml:mi></mml:mrow></mml:msub><mml:mo>≤</mml:mo><mml:mtext>1</mml:mtext><mml:mn>0</mml:mn><mml:mtext> and </mml:mtext><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>N</mml:mi><mml:mi>H</mml:mi><mml:mi>A</mml:mi></mml:mrow></mml:msub><mml:mo>≤</mml:mo><mml:mtext>35</mml:mtext><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_119_Equ8_HTML.gif" /></alternatives></disp-formula><disp-formula id="Equ9"><label>9</label><alternatives><mml:math><mml:mrow><mml:mi>R</mml:mi><mml:mi>M</mml:mi><mml:mi>S</mml:mi><mml:msub><mml:mi>D</mml:mi><mml:mrow><mml:mi>p</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>d</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mn>0.</mml:mn><mml:mtext>29</mml:mtext><mml:mo>−</mml:mo><mml:mn>0.</mml:mn><mml:mtext>1</mml:mtext><mml:mn>0</mml:mn><mml:mtext>1</mml:mtext><mml:mo>+</mml:mo><mml:mn>0.0</mml:mn><mml:mtext>155</mml:mtext><mml:mo>*</mml:mo><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>N</mml:mi><mml:mi>H</mml:mi><mml:mi>A</mml:mi></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:mn>0.0</mml:mn><mml:mtext>35</mml:mtext><mml:mo>*</mml:mo><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>E</mml:mi><mml:mi>R</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo>(</mml:mo><mml:mrow><mml:mtext>for </mml:mtext><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>E</mml:mi><mml:mi>R</mml:mi></mml:mrow></mml:msub><mml:mo>></mml:mo><mml:mtext>1</mml:mtext><mml:mn>0</mml:mn><mml:mtext> and </mml:mtext><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>N</mml:mi><mml:mi>H</mml:mi><mml:mi>A</mml:mi></mml:mrow></mml:msub><mml:mo>></mml:mo><mml:mtext>35</mml:mtext></mml:mrow><mml:mo>)</mml:mo></mml:mrow></mml:mrow></mml:math><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_119_Equ9_HTML.gif" /></alternatives></disp-formula></p>
+            <p>The R<sup>2</sup> values of the regression formula Eqs. (<xref rid="Equ6" ref-type="disp-formula">6</xref>) and (<xref rid="Equ7" ref-type="disp-formula">7</xref>) were 0.52 and 0.33, respectively, and the standard deviation of <italic>RMSD</italic><sub><italic>pred</italic></sub>was 0.17 and 0.29 for Eqs. (<xref rid="Equ6" ref-type="disp-formula">6</xref>) and (<xref rid="Equ7" ref-type="disp-formula">7</xref>), respectively. (Attempts to partition <italic>N</italic><sub><italic>ER</italic></sub>and <italic>N</italic><sub><italic>NHA</italic></sub>values using different partitioning schemes had similar R<sup>2</sup> results.) In the same manner as used to derive Eq. (<xref rid="Equ5" ref-type="disp-formula">5</xref>), one can add these first standard deviations to Eqs. (<xref rid="Equ6" ref-type="disp-formula">6</xref>) and (<xref rid="Equ7" ref-type="disp-formula">7</xref>) to get RMSD sampling formulas Eqs. (<xref rid="Equ8" ref-type="disp-formula">8</xref>) and (<xref rid="Equ9" ref-type="disp-formula">9</xref>), respectively, for the two individual groups. As shown in Figure <xref rid="Fig8" ref-type="fig">8</xref>, the <italic>RMSD</italic><sub><italic>pred</italic></sub>values from Eqs. (<xref rid="Equ6" ref-type="disp-formula">6</xref>) and (<xref rid="Equ7" ref-type="disp-formula">7</xref>) are comparable with those from Eq. (<xref rid="Equ4" ref-type="disp-formula">4</xref>), despite the poor R<sup>2</sup> values for Eqs. (<xref rid="Equ6" ref-type="disp-formula">6</xref>) and (<xref rid="Equ7" ref-type="disp-formula">7</xref>). As shown in Figure <xref rid="Fig9" ref-type="fig">9</xref>, where the RMSD sampling values from Eq. (<xref rid="Equ5" ref-type="disp-formula">5</xref>) are compared with those from Eqs. (<xref rid="Equ8" ref-type="disp-formula">8</xref>) and (<xref rid="Equ9" ref-type="disp-formula">9</xref>), the frequency distributions of the difference between <italic>RMSD</italic><sub><italic>pred</italic></sub>and <italic>RMSD</italic><sub><italic>actual</italic></sub>are similar to each other. The <italic>RMSD</italic><sub><italic>pred</italic></sub>value is greater than or equal to <italic>RMSD</italic><sub><italic>actual</italic></sub>for ~91.0% of the time when Eq. (<xref rid="Equ5" ref-type="disp-formula">5</xref>) is used, and for ~91.6% of the time when Eqs. (<xref rid="Equ8" ref-type="disp-formula">8</xref>) and (<xref rid="Equ9" ref-type="disp-formula">9</xref>) are used.</p>
+            <p>In the recent study of Hawkins <italic>et al.</italic> [<xref ref-type="bibr" rid="CR11">11</xref>], the quality of theoretical conformations from OMEGA was evaluated by comparing a set of 197 high-quality PDB ligand structures with corresponding OMEGA-generated theoretical conformers. They used the MMFF94_Trunc force field to generate conformers and then reduced their count to a maximum of 200 by sampling. The mean RMSD between the 197 ligand set and their corresponding theoretical conformers was 0.67 Å. According to their bootstrapping tests, the OMEGA-generated conformers are expected 90% of the time to have an RMSD value between 0.647-0.688 Å for chemical structures with similar properties to those tested. The average rotatable bond count and non-hydrogen atom count of this 197 ligand set were 6.3 and 24.4, respectively, indicating that they are, on average, slightly bigger and flexible than the 25,972 set used in our study (4.9 rotatable bonds and 17.1 non-hydrogen atoms on average). With these average counts as the <italic>N</italic><sub><italic>NHA</italic></sub>and <italic>N</italic><sub><italic>ER</italic></sub>values in Eq. (<xref rid="Equ5" ref-type="disp-formula">5</xref>), RMSD<sub>pred</sub> is predicted to be 0.71 Å, which is comparable to 0.67 Å, the mean RMSD between the 197 ligand set and the corresponding theoretical conformers. Considering that the OMEGA parameters used in both studies were not exactly identical and that we used their reported rotatable bond count rather than effective rotor count, this may suggest that Eq (5) may have applicability beyond the parameter sets used in this study.</p>
+          </sec>
+        </sec>
+        <sec id="Sec10" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p>In the present study, theoretical conformer ensembles for 25,972 experimental MMDB ligand molecules were generated using the OMEGA software and the accuracy of the conformer models were analyzed in terms of the non-hydrogen atom pair-wise RMSD and shape similarity ST values between the theoretical conformer models and the corresponding experimental structures.</p>
+          <p>Effects of different settings for three important parameters (the fragment sampling rate, the type of the molecular force field, and the size of the energy window) that OMEGA uses for conformer generation were investigated to find their optimal settings. The use of a fragment sampling rate greater than the default (= 20.0) did not make a statistically significant change, indicating the default fragment sampling rate is already sufficient. Variation in the fragment force field type was found to provide little benefit. However, the accuracy of the theoretical conformer models was sensitive to the force field type used in the torsion search stage. When used as a torsion search force field, the MMFF94s_NoEstat and MMFF94s_Trunc force fields were found to generate more conformers for a given molecule and also improve the overall accuracy of the theoretical conformer models, compared to the MMFF94s force field but less so as the energy window was increased. In general, using a greater energy window in the model building and torsion search stages resulted in more accurate conformer models. However, a rapid convergence in the overall average RMSD and ST of the conformer models was observed when the energy windows were bigger than 10 kcal/mol for model building and 15 kcal/mol for torsion search. However, for larger and more flexible structures, an energy window of 25 kcal/mol for torsion search gave some noticeable improvement to the overall accuracy for larger and more flexible structures and may be better threshold for general purpose use. The average accuracy as a function of non-hydrogen atom count (size) and effective rotor count (flexibility) was very linear in the ranges considered. A regression equation was developed using these two variables to predict the accuracy of a theoretical ensemble to reproduce the experimental geometry. This equation was subsequently used to provide a RMSD sampling rate to filter conformer models such that 90% of conformer ensembles should have the same or lesser RMSD accuracy value, thus, allowing one to maximize the accuracy of a conformer model while minimizing the count of retained conformers.</p>
+        </sec>
+        <sec id="Sec11" sec-type="materials|methods">
+          <title>Materials and Methods</title>
+          <sec id="Sec12">
+            <title>1. Datasets</title>
+            <p>The "experimental" 3-D coordinate data set of small molecules used in the present study was downloaded from the Molecular Modeling DataBase (MMDB) [<xref ref-type="bibr" rid="CR21">21</xref>, <xref ref-type="bibr" rid="CR22">22</xref>] ligand dataset as available from the PubChem Substance database at NCBI on October 20, 2006. The data set was used to calibrate the parameters used when operating the software generation package OMEGA [<xref ref-type="bibr" rid="CR19">19</xref>]. Ligands that were too small or too big were discarded by limiting the non-hydrogen atom count to 2 - 50. Ligands too flexible (with a rotatable bond count greater than 15) were also eliminated. This filtering stage resulted in an initial dataset that contained 25,972 non-unique organic 3-D experimental reference structures where a 3-D conformer model could be generated.</p>
+          </sec>
+          <sec id="Sec13">
+            <title>2. Conformer generation using OMEGA</title>
+            <p>Essentially, the OMEGA application performs conformer generation in two primary stages: model building and torsion search. In the model building stage, initial molecular structures are constructed by assembling fragment templates, which are generated from fragmentation of the input molecular graph along sigma bonds. In the torsion search stage, OMEGA generates a conformer ensemble using particular rule-based torsion angles that depend on the molecular environment between connecting fragments.</p>
+            <p>There are a number of adjustable parameters available when performing conformer generation. The effects of three primary parameters upon the accuracy of conformer models generated were evaluated:</p>
+            <p>(1) -startfact (20 or 50): the argument of this option determines the fragment sampling rate for determination of fragment conformations. Effects of this parameter were studied by trying two values, 20 (default) and 50.</p>
+            <p>(2) -buildff and -searchff (MMFF94s, MMFF94s_NoEstat, or MMFF94s_Trunc): these specify the type of molecular force field used in the model building and torsion search stages, respectively. The MMFF94s argument tells OMEGA to use the 94s variant of Merck molecular force field. The MMFF94s_NoStat excludes the coulombic terms from the MMFF94s force field and the MMFF94s_Trunc means the MMFF94s force field was truncated by removal of both the coulombic and van der Waals attractive terms.</p>
+            <p>(3) -ewindow (1-10, 15, 20, 25, or 30): the size of energy window in the model building and torsion search stages in units of kcal/mol. Different values may be specified for the two stages. Various combinations of integer values ranging from one to thirty (default is 10) were used. The energy window indicates the maximum allowed energetic separation from the lowest conformer energy. Higher energy conformers are discarded.</p>
+            <p>See Table <xref rid="Tab1" ref-type="table">1</xref> for all non-default parameters used. It is important to note that a maximum of 100,000 (100-k) conformers were generated per chemical structure. This limit is more than adequate for small or inflexible structures but for flexible compounds this limitation is of concern. For example, imagine a chemical structure with nine rotatable bonds where one systematically samples each rotatable bond four times; one would generate 4<sup>9</sup> (= 262,144) conformations. Therefore, the effects of these 100-k limit cases upon the overall accuracy of the conformer models is analyzed as a function of the non-hydrogen atom counts and the effective rotor counts. While increasing this 100-k threshold to a larger value was not possible with earlier versions of OMEGA, one can see that increasing the total count of conformers considered by five or ten times would still not be sufficient for many flexible molecules.</p>
+            <p>To assess the accuracy of reproduction of experimental coordinates as a function of conformer generation parameters modification, two metrics were used: the RMSD of non-hydrogen atoms using the OEChem OERMSD function (with "automorph" detection turned on to allow proper treatment of symmetrically equivalent atoms and "overlay" turned on to allow rotation/translation to yield the lowest possible RMSD value) and the shape-optimized ST using the value reported by ROCS. For each conformer produced for a structure, an RMSD and ST determination were made. The lowest RMSD and greatest ST values per conformer model were used to assess "accuracy" of reproduction for the parameters used.</p>
+          </sec>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>We are grateful to the NCBI Systems staff, especially Ron Patterson, Charlie Cook, and Don Preuss, whose efforts helped make the PubChem3D project possible. This research was supported in part by the Intramural Research Program of the National Library of Medicine, National Institutes of Health, U.S. Department of Health and Human Services. This study utilized the high-performance computational capabilities of the Biowulf Linux cluster at the National Institutes of Health, Bethesda, MD. (<ext-link xlink:href="http://biowulf.nih.gov" ext-link-type="url">http://biowulf.nih.gov</ext-link>).</p>
+        </ack>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>YL</given-names>
+                  </name>
+                  <name>
+                    <surname>Xiao</surname>
+                    <given-names>JW</given-names>
+                  </name>
+                  <name>
+                    <surname>Suzek</surname>
+                    <given-names>TO</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>JY</given-names>
+                  </name>
+                  <name>
+                    <surname>Bryant</surname>
+                    <given-names>SH</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">PubChem: a public information system for analyzing bioactivities of small molecules</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2009</year>
+                <volume>37</volume>
+                <fpage>W623</fpage>
+                <lpage>W633</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gkp456</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXosFSktL8%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>YL</given-names>
+                  </name>
+                  <name>
+                    <surname>Bolton</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Dracheva</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Karapetyan</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Shoemaker</surname>
+                    <given-names>BA</given-names>
+                  </name>
+                  <name>
+                    <surname>Suzek</surname>
+                    <given-names>TO</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>JY</given-names>
+                  </name>
+                  <name>
+                    <surname>Xiao</surname>
+                    <given-names>JW</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Bryant</surname>
+                    <given-names>SH</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An overview of the PubChem BioAssay resource</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2010</year>
+                <volume>38</volume>
+                <fpage>D255</fpage>
+                <lpage>D266</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gkp965</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXktlKktA%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sayers</surname>
+                    <given-names>EW</given-names>
+                  </name>
+                  <name>
+                    <surname>Barrett</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Benson</surname>
+                    <given-names>DA</given-names>
+                  </name>
+                  <name>
+                    <surname>Bolton</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Bryant</surname>
+                    <given-names>SH</given-names>
+                  </name>
+                  <name>
+                    <surname>Canese</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Chetvernin</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Church</surname>
+                    <given-names>DM</given-names>
+                  </name>
+                  <name>
+                    <surname>DiCuccio</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Federhen</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Database resources of the National Center for Biotechnology Information</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2010</year>
+                <volume>38</volume>
+                <fpage>D5</fpage>
+                <lpage>D16</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gkp967</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXktlOrtQ%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bolton</surname>
+                    <given-names>EE</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Thiessen</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                  <name>
+                    <surname>Bryant</surname>
+                    <given-names>SH</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Ralph</surname>
+                    <given-names>AW</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">PubChem: integrated platform of small molecules and biological activities</article-title>
+                <source>Annual Reports in Computational Chemistry</source>
+                <year>2008</year>
+                <publisher-loc>David CS</publisher-loc>
+                <publisher-name>Elsevier</publisher-name>
+                <fpage>217</fpage>
+                <lpage>241</lpage>
+                <comment>10.1016/S1574-1400(08)00012-1</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Berman</surname>
+                    <given-names>HM</given-names>
+                  </name>
+                  <name>
+                    <surname>Westbrook</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Feng</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Gilliland</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Bhat</surname>
+                    <given-names>TN</given-names>
+                  </name>
+                  <name>
+                    <surname>Weissig</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Shindyalov</surname>
+                    <given-names>IN</given-names>
+                  </name>
+                  <name>
+                    <surname>Bourne</surname>
+                    <given-names>PE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The Protein Data Bank</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2000</year>
+                <volume>28</volume>
+                <fpage>235</fpage>
+                <lpage>242</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/28.1.235</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3cXhvVKjt7w%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bostrom</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Reproducing the conformations of protein-bound ligands: a critical evaluation of several popular conformational searching tools</article-title>
+                <source>Journal of Computer-Aided Molecular Design</source>
+                <year>2001</year>
+                <volume>15</volume>
+                <fpage>1137</fpage>
+                <lpage>1152</lpage>
+                <pub-id pub-id-type="doi">10.1023/A:1015930826903</pub-id>
+                <pub-id pub-id-type="coi">1:STN:280:DC%2BD38vgsF2rtw%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Nicklaus</surname>
+                    <given-names>MC</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>SM</given-names>
+                  </name>
+                  <name>
+                    <surname>Driscoll</surname>
+                    <given-names>JS</given-names>
+                  </name>
+                  <name>
+                    <surname>Milne</surname>
+                    <given-names>GWA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Conformational changes of small molecules binding to proteins</article-title>
+                <source>Bioorganic &amp; Medicinal Chemistry</source>
+                <year>1995</year>
+                <volume>3</volume>
+                <fpage>411</fpage>
+                <lpage>428</lpage>
+                <pub-id pub-id-type="doi">10.1016/0968-0896(95)00031-B</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2MXmtV2mtr8%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Nissink</surname>
+                    <given-names>JWM</given-names>
+                  </name>
+                  <name>
+                    <surname>Murray</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Hartshorn</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Verdonk</surname>
+                    <given-names>ML</given-names>
+                  </name>
+                  <name>
+                    <surname>Cole</surname>
+                    <given-names>JC</given-names>
+                  </name>
+                  <name>
+                    <surname>Taylor</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A new test set for validating predictions of protein-ligand interaction</article-title>
+                <source>Proteins-Structure Function and Genetics</source>
+                <year>2002</year>
+                <volume>49</volume>
+                <fpage>457</fpage>
+                <lpage>471</lpage>
+                <pub-id pub-id-type="doi">10.1002/prot.10232</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD38XptlGru74%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Westbrook</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Feng</surname>
+                    <given-names>ZK</given-names>
+                  </name>
+                  <name>
+                    <surname>Burkhardt</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Berman</surname>
+                    <given-names>HM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Validation of protein structures for Protein Data Bank</article-title>
+                <source>Macromolecular Crystallography, Pt D</source>
+                <year>2003</year>
+                <publisher-loc>San Diego</publisher-loc>
+                <publisher-name>Academic Press Inc</publisher-name>
+                <fpage>370</fpage>
+                <lpage>385</lpage>
+                <pub-id pub-id-type="doi">10.1016/S0076-6879(03)74017-8</pub-id>
+                <comment>full_text, Methods in Enzymology</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Acharya</surname>
+                    <given-names>KR</given-names>
+                  </name>
+                  <name>
+                    <surname>Lloyd</surname>
+                    <given-names>MD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The advantages and limitations of protein crystal structures</article-title>
+                <source>Trends Pharmacol Sci</source>
+                <year>2005</year>
+                <volume>26</volume>
+                <fpage>10</fpage>
+                <lpage>14</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.tips.2004.10.011</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXktV2h</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hawkins</surname>
+                    <given-names>PCD</given-names>
+                  </name>
+                  <name>
+                    <surname>Skillman</surname>
+                    <given-names>AG</given-names>
+                  </name>
+                  <name>
+                    <surname>Warren</surname>
+                    <given-names>GL</given-names>
+                  </name>
+                  <name>
+                    <surname>Ellingson</surname>
+                    <given-names>BA</given-names>
+                  </name>
+                  <name>
+                    <surname>Stahl</surname>
+                    <given-names>MT</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Conformer generation with OMEGA: algorithm and validation using high quality structures from the Protein Databank and Cambridge Structural Database</article-title>
+                <source>Journal of Chemical Information and Modeling</source>
+                <year>2010</year>
+                <volume>50</volume>
+                <fpage>572</fpage>
+                <lpage>584</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci100031x</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXjtlaisrY%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Murrall</surname>
+                    <given-names>NW</given-names>
+                  </name>
+                  <name>
+                    <surname>Davies</surname>
+                    <given-names>EK</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Conformational freedom in 3-D databases. 1. Techniques</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1990</year>
+                <volume>30</volume>
+                <fpage>312</fpage>
+                <lpage>316</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci00067a016</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK3cXkvFKltrk%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hurst</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Flexible 3D searching: the directed tweak technique</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1994</year>
+                <volume>34</volume>
+                <fpage>190</fpage>
+                <lpage>196</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci00017a025</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2cXns1Gqug%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Klebe</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Mietzner</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A fast and efficient method to generate biologically relevant conformations</article-title>
+                <source>Journal of Computer-Aided Molecular Design</source>
+                <year>1994</year>
+                <volume>8</volume>
+                <fpage>583</fpage>
+                <lpage>606</lpage>
+                <pub-id pub-id-type="doi">10.1007/BF00123667</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2MXitlSju7g%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Renner</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Schwab</surname>
+                    <given-names>CH</given-names>
+                  </name>
+                  <name>
+                    <surname>Gasteiger</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Impact of conformational flexibility on three-dimensional similarity searching using correlation vectors</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2006</year>
+                <volume>46</volume>
+                <fpage>2324</fpage>
+                <lpage>2332</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci050075s</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28Xnsl2ru7g%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Greene</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Kahn</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Savoj</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Sprague</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Teig</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chemical function queries for 3D database search</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1994</year>
+                <volume>34</volume>
+                <fpage>1297</fpage>
+                <lpage>1308</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci00022a012</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2cXmsFCrurg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kirchmair</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Wolber</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Laggner</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Langer</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comparative performance assessment of the conformational model generators omega and catalyst: a large-scale survey on the retrieval of protein-bound ligand conformations</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2006</year>
+                <volume>46</volume>
+                <fpage>1848</fpage>
+                <lpage>1861</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci060084g</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28Xmtlalur8%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bostrom</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Greenwood</surname>
+                    <given-names>JR</given-names>
+                  </name>
+                  <name>
+                    <surname>Gottfries</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Assessing the performance of OMEGA with respect to retrieving bioactive conformations</article-title>
+                <source>Journal of Molecular Graphics &amp; Modelling</source>
+                <year>2003</year>
+                <volume>21</volume>
+                <fpage>449</fpage>
+                <lpage>462</lpage>
+                <pub-id pub-id-type="doi">10.1016/S1093-3263(02)00204-8</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXkvFarsQ%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="other">OMEGA. 2006, Version 2.1, OpenEye Scientific Software, Inc.: Santa Fe, NM</mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Borodina</surname>
+                    <given-names>YV</given-names>
+                  </name>
+                  <name>
+                    <surname>Bolton</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Fontaine</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Bryant</surname>
+                    <given-names>SH</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Assessment of conformational ensemble sizes necessary for specific resolutions of coverage of conformational space</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <fpage>1428</fpage>
+                <lpage>1437</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci7000956</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXmsVKmsrg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Anderson</surname>
+                    <given-names>JB</given-names>
+                  </name>
+                  <name>
+                    <surname>DeWeese-Scott</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Fedorova</surname>
+                    <given-names>ND</given-names>
+                  </name>
+                  <name>
+                    <surname>Geer</surname>
+                    <given-names>LY</given-names>
+                  </name>
+                  <name>
+                    <surname>He</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Hurwitz</surname>
+                    <given-names>DI</given-names>
+                  </name>
+                  <name>
+                    <surname>Jackson</surname>
+                    <given-names>JD</given-names>
+                  </name>
+                  <name>
+                    <surname>Jacobs</surname>
+                    <given-names>AR</given-names>
+                  </name>
+                  <name>
+                    <surname>Lanczycki</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">MMDB: Entrez's 3D-structure database</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2003</year>
+                <volume>31</volume>
+                <fpage>474</fpage>
+                <lpage>477</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gkg086</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXhvFSlsbw%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Addess</surname>
+                    <given-names>KJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Geer</surname>
+                    <given-names>LY</given-names>
+                  </name>
+                  <name>
+                    <surname>He</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>He</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Madej</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Marchler-Bauer</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Thiessen</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">MMDB: annotating protein sequences with Entrez's 3D-structure database</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2007</year>
+                <volume>35</volume>
+                <fpage>D298</fpage>
+                <lpage>D300</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gkl952</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXivFKntA%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="other">OpenEye Omega Toolkit - C++. [<ext-link xlink:href="http://www.eyesopen.com" ext-link-type="url">http://www.eyesopen.com</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="other">ROCS - Rapid Overlay of Chemical Structures. 2006, Version 2.2, OpenEye Scientific Software, Inc.: Santa Fe, NM</mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Grant</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Gallardo</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <name>
+                    <surname>Pickup</surname>
+                    <given-names>BT</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A fast method of molecular shape comparison: a simple application of a Gaussian description of molecular shape</article-title>
+                <source>J Comput Chem</source>
+                <year>1996</year>
+                <volume>17</volume>
+                <fpage>1653</fpage>
+                <lpage>1666</lpage>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1096-987X(19961115)17:14&lt;1653::AID-JCC7>3.0.CO;2-K</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK28XmsVGgsrs%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rush</surname>
+                    <given-names>TS</given-names>
+                  </name>
+                  <name>
+                    <surname>Grant</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Mosyak</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Nicholls</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A shape-based 3-D scaffold hopping method and its application to a bacterial protein-protein interaction</article-title>
+                <source>J Med Chem</source>
+                <year>2005</year>
+                <volume>48</volume>
+                <fpage>1489</fpage>
+                <lpage>1495</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm040163o</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXht1Ols78%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Merck molecular force field. 1. Basis, form, scope, parameterization, and performance of MMFF94</article-title>
+                <source>J Comput Chem</source>
+                <year>1996</year>
+                <volume>17</volume>
+                <fpage>490</fpage>
+                <lpage>519</lpage>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1096-987X(199604)17:5/6&lt;490::AID-JCC1>3.0.CO;2-P</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK28XhvVGmsbk%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Merck molecular force field. 2. MMFF94 van der Waals and electrostatic parameters for intermolecular interactions</article-title>
+                <source>J Comput Chem</source>
+                <year>1996</year>
+                <volume>17</volume>
+                <fpage>520</fpage>
+                <lpage>552</lpage>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1096-987X(199604)17:5/6&lt;520::AID-JCC2>3.0.CO;2-W</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK28XhvVGmsbY%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Merck molecular force field. 3. Molecular geometries and vibrational frequencies for MMFF94</article-title>
+                <source>J Comput Chem</source>
+                <year>1996</year>
+                <volume>17</volume>
+                <fpage>553</fpage>
+                <lpage>586</lpage>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1096-987X(199604)17:5/6&lt;553::AID-JCC3>3.0.CO;2-T</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK28XhvVGmsbc%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                  <name>
+                    <surname>Nachbar</surname>
+                    <given-names>RB</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Merck molecular force field. 4. Conformational energies and geometries for MMFF94</article-title>
+                <source>J Comput Chem</source>
+                <year>1996</year>
+                <volume>17</volume>
+                <fpage>587</fpage>
+                <lpage>615</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK28XhvVGmtr4%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Merck molecular force field. 5. Extension of MMFF94 using experimental data, additional computational data, and empirical rules</article-title>
+                <source>J Comput Chem</source>
+                <year>1996</year>
+                <volume>17</volume>
+                <fpage>616</fpage>
+                <lpage>641</lpage>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1096-987X(199604)17:5/6&lt;616::AID-JCC5>3.0.CO;2-X</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK28XhvVGmtr8%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">MMFF VI. MMFF94s option for energy minimization studies</article-title>
+                <source>J Comput Chem</source>
+                <year>1999</year>
+                <volume>20</volume>
+                <fpage>720</fpage>
+                <lpage>729</lpage>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1096-987X(199905)20:7&lt;720::AID-JCC7>3.0.CO;2-X</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK1MXjtVSlsrc%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">MMFF VII. Characterization of MMFF94, MMFF94s, and other widely available force fields for conformational energies and for intermolecular-interaction energies and geometries</article-title>
+                <source>J Comput Chem</source>
+                <year>1999</year>
+                <volume>20</volume>
+                <fpage>730</fpage>
+                <lpage>748</lpage>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1096-987X(199905)20:7&lt;730::AID-JCC8>3.0.CO;2-T</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK1MXjtVSls7s%3D</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec14">
+              <title>Authors’ original submitted files for images</title>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM1" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_119_MOESM1_ESM.tiff" mimetype="image" mime-subtype="tiff"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_119_MOESM2_ESM.tiff" mimetype="image" mime-subtype="tiff"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_119_MOESM3_ESM.tiff" mimetype="image" mime-subtype="tiff"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_119_MOESM4_ESM.tiff" mimetype="image" mime-subtype="tiff"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_119_MOESM5_ESM.tiff" mimetype="image" mime-subtype="tiff"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_119_MOESM6_ESM.tiff" mimetype="image" mime-subtype="tiff"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_119_MOESM7_ESM.tiff" mimetype="image" mime-subtype="tiff"><caption xml:lang="en"><p>Authors’ original file for figure 7</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM8" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_119_MOESM8_ESM.tiff" mimetype="image" mime-subtype="tiff"><caption xml:lang="en"><p>Authors’ original file for figure 8</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM9" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_119_MOESM9_ESM.tiff" mimetype="image" mime-subtype="tiff"><caption xml:lang="en"><p>Authors’ original file for figure 9</p></caption></media></supplementary-material></p>
+            </sec>
+          </app>
+        </app-group>
+        <notes notes-type="Misc">
+          <title>Competing interests</title>
+          <p>The authors declare that they have no competing interests.</p>
+        </notes>
+        <notes notes-type="Misc">
+          <title>Authors' contributions</title>
+          <p>EEB performed most of the research and SK wrote the first draft. SHB reviewed the final manuscript. All authors read and approved the final manuscript.</p>
+        </notes>
+      </back>
+    </article>

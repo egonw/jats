@@ -1,0 +1,1914 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">BMC1758-2946-1-11</article-id>
+          <article-id pub-id-type="manuscript">11</article-id>
+          <article-id pub-id-type="doi">10.1186/1758-2946-1-11</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">DPRESS: Localizing estimates of predictive uncertainty</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" corresp="yes">
+              <name>
+                <surname>Clark</surname>
+                <given-names>Robert D</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+              <xref ref-type="corresp" rid="IDBMC17582946111_cor1">a</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution content-type="org-name">Biochemical Infometrics</institution>
+              </institution-wrap>
+              <addr-line content-type="street">827 Renee Lane</addr-line>
+              <addr-line content-type="postcode">63141</addr-line>
+              <addr-line content-type="city">Creve Coeur</addr-line>
+              <addr-line content-type="state">MO</addr-line>
+              <country>USA</country>
+            </aff>
+            <aff id="Aff2">
+              <label>2</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.411377.7</institution-id>
+                <institution-id institution-id-type="ISNI">000000010790959X</institution-id>
+                <institution content-type="org-division">School of Informatics</institution>
+                <institution content-type="org-name">Indiana University</institution>
+              </institution-wrap>
+              <addr-line content-type="street">901 E 10th St</addr-line>
+              <addr-line content-type="postcode">47408</addr-line>
+              <addr-line content-type="city">Bloomington</addr-line>
+              <addr-line content-type="state">IN</addr-line>
+              <country>USA</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDBMC17582946111_cor1">
+              <label>a</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>14</day>
+            <month>7</month>
+            <year>2009</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2009</year>
+          </pub-date>
+          <volume>1</volume>
+          <issue seq="11">1</issue>
+          <elocation-id>11</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>04</day>
+              <month>3</month>
+              <year>2009</year>
+            </date>
+            <date date-type="received">
+              <day>04</day>
+              <month>3</month>
+              <year>2009</year>
+            </date>
+            <date date-type="accepted">
+              <day>14</day>
+              <month>7</month>
+              <year>2009</year>
+            </date>
+            <date date-type="online">
+              <day>14</day>
+              <month>7</month>
+              <year>2009</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© Clark; licensee BioMed Central Ltd. 2009</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-year>2009</copyright-year>
+            <copyright-holder>Clark; licensee BioMed Central Ltd.</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="url">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+            </license>
+          </permissions>
+          <abstract id="Abs1" xml:lang="en">
+            <title>Abstract</title>
+            <sec id="ASec1">
+              <title>Background</title>
+              <p>The need to have a quantitative estimate of the uncertainty of prediction for QSAR models is steadily increasing, in part because such predictions are being widely distributed as tabulated values disconnected from the models used to generate them. Classical statistical theory assumes that the error in the population being modeled is independent and identically distributed (IID), but this is often not actually the case. Such inhomogeneous error (heteroskedasticity) can be addressed by providing an individualized estimate of predictive uncertainty for each particular new object <italic>u</italic>: the standard error of prediction <italic>s</italic><sub>u</sub> can be estimated as the non-cross-validated error <italic>s</italic><sub>t*</sub> for the closest object <italic>t</italic>* in the training set adjusted for its separation <italic>d</italic> from <italic>u</italic> in the descriptor space relative to the size of the training set.</p>
+              <p>
+                <disp-formula id="Equ1">
+                  <graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_11_Equa_HTML.gif" />
+                </disp-formula>
+              </p>
+              <p>The predictive uncertainty factor <italic>γ</italic><sub>t*</sub> is obtained by distributing the internal predictive error sum of squares across objects in the training set based on the distances between them, hence the acronym: <italic>D</italic>istributed <italic>PR</italic>edictive <italic>E</italic>rror <italic>S</italic>um of <italic>S</italic>quares (DPRESS). Note that <italic>s</italic><sub>t*</sub> and <italic>γ</italic><sub>t*</sub>are characteristic of each training set compound contributing to the model of interest.</p>
+            </sec>
+            <sec id="ASec2">
+              <title>Results</title>
+              <p>The method was applied to partial least-squares models built using 2D (molecular hologram) or 3D (molecular field) descriptors applied to mid-sized training sets (<italic>N</italic> = 75) drawn from a large (<italic>N</italic> = 304), well-characterized pool of cyclooxygenase inhibitors. The observed variation in predictive error for the external 229 compound test sets was compared with the uncertainty estimates from DPRESS. Good qualitative and quantitative agreement was seen between the distributions of predictive error observed and those predicted using DPRESS. Inclusion of the distance-dependent term was essential to getting good agreement between the estimated uncertainties and the observed distributions of predictive error. The uncertainty estimates derived by DPRESS were conservative even when the training set was biased, but not excessively so.</p>
+            </sec>
+            <sec id="ASec3">
+              <title>Conclusion</title>
+              <p>DPRESS is a straightforward and powerful way to reliably estimate individual predictive uncertainties for compounds outside the training set based on their distance to the training set and the internal predictive uncertainty associated with its nearest neighbor in that set. It represents a sample-based, <italic>a posteriori</italic> approach to defining applicability domains in terms of localized uncertainty.</p>
+            </sec>
+            <sec>
+              <fig id="Figa" position="anchor">
+                <p>
+                  <graphic position="anchor" specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2009_Article_11_Figa_HTML.gif" />
+                </p>
+              </fig>
+            </sec>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Molecular Field</kwd>
+            <kwd>Applicability Domain</kwd>
+            <kwd>Descriptor Space</kwd>
+            <kwd>Predictive Error</kwd>
+            <kwd>CoMFA Model</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Chemistry Central</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>22</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2009</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2009</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>3</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>04</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2009_Article_11.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-1-11" ext-link-type="doi">10.1186/1758-2946-1-11</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Background</title>
+          <p>Early work on quantitative structure-activity relationships (QSAR) was primarily concerned with relating select physical properties to <italic>in vivo</italic> biological activity [<xref ref-type="bibr" rid="CR1">1</xref>, <xref ref-type="bibr" rid="CR2">2</xref>]. Ordinary least squares regression (multiple linear regression) was the analytical tool of choice, and the statistical questions addressed focused on whether a particular descriptor was significant or not. QSAR methods soon evolved, however, into being ways of identifying optimal physical properties rather than simply trends, a shift accomplished by fitting to quadratic and bilinear equations. This development was spurred in no small part by the desire to identify optimal octanol/water partition coefficients (logP), generally in pursuit of optimal <italic>in vivo</italic> activity.</p>
+          <p>The focus for pharmaceutical drug discovery subsequently shifted from <italic>in vivo</italic> testing to <italic>in vitro</italic> evaluation of interactions between candidate ligands and isolated enzymes or receptors. This change brought with it a shift of descriptors from measurable properties of compounds to computationally estimated properties of molecules, with the calculations in question often being based on (sub)structural descriptors. The next step was to take descriptors into account that were based on molecular structure but were not themselves measurable physical properties. Often these were more or less local in nature, and the purposes of doing the analysis shifted from identifying significant underlying relationships to the descriptors to identifying optimal substituents or substitution patterns. Interest in artificial neural networks (ANNs) [<xref ref-type="bibr" rid="CR3">3</xref>] and partial least squares with projection onto latent structures (PLS) [<xref ref-type="bibr" rid="CR4">4</xref>] as analytical tools increased at the same time. Questions related to validity of the model as a whole took center stage as the number of descriptors available proliferated [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR6">6</xref>], followed closely by a strong interest in predictivity and how best to establish applicability domains [<xref ref-type="bibr" rid="CR7">7</xref>–<xref ref-type="bibr" rid="CR15">15</xref>].</p>
+          <p>Today, however, the overall statistical properties of a particular QSAR are less relevant to medicinal chemists or environmental regulatory agencies. Recent pressure to simultaneously reduce clinical failures, ensure the safety of bulk chemicals [<xref ref-type="bibr" rid="CR16">16</xref>–<xref ref-type="bibr" rid="CR18">18</xref>] and reduce testing on animals have led to an increasing reliance on models for predicting off-target biological effects and toxicity. This use of QSAR models entails applications to more structurally diverse compounds, but it also changes the relative importance of different kinds of mistakes. If a structure is predicted to have a much higher affinity for the target than it actually does, the cost to a lead optimization program is limited to the synthetic resources wasted on that particular structure. Even that cost is mitigated if something useful was learned about the underlying structure-activity relationship (SAR) in the process. Such a false positive error in predictive toxicology, however, may mean that a life-saving (and profitable) drug never gets commercialized. Compounds mistakenly predicted to be inactive – false negatives – represent a missed opportunity in the context of lead optimization, but they have the potential to be downright catastrophic (and ruinous) in the context of predictive toxicology.</p>
+          <p>Such considerations put a premium on being able to make a quantitative estimate of how reliable an <italic>individual</italic> prediction obtained from a given model is. What is more, answers to the question, "How reliable are the predictions about this <italic>particular</italic> molecule that I am considering for synthesis, clinical evaluation or registration?" are often most relevant for extrapolations to structures near the "outside" edges of the descriptor space defined by the training set. Hence, to be of practical use, constraints on applicability domains need to be "soft" – i.e., increase with distance from the descriptor space covered by the training set – but "hard" enough to indicate just how far outside the training set one can safely expect to go. They also need to provide a robust quantitative estimate of predictive reliability that is sensitive to local variations in the descriptor space. This paper presents a novel methodology for doing exactly that based on how close a new compound is to those in the training set and the distribution of internal predictive error across compounds in that set.</p>
+          <sec id="Sec2">
+            <title>Classical statistical theory</title>
+            <p>The underlying model for linear regression on a vector <bold>X</bold> of <italic>p</italic> independent variables is reflected in Eq. <xref rid="Equ1" ref-type="disp-formula">1</xref>, wherein <italic>Y</italic> is the response variable of interest, <italic>μ</italic><sub>Y</sub> is the population mean of <italic>Y</italic>, <bold>β</bold> is a vector representing the sensitivities of <italic>Y</italic> to changes in <bold>X</bold>, and <bold>x</bold> is a vector of deviations in <bold>X</bold> from the population centroid <bold>μ</bold><sub>X</sub>.<disp-formula id="Equ2"><label>1</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_11_Equ1_HTML.gif" /></disp-formula></p>
+            <p>As indicated in Eq. <xref rid="Equ1" ref-type="disp-formula">1</xref>, the error <italic>ε</italic> is assumed to be normally distributed with mean 0 and a standard deviation <italic>σ</italic><sub>X</sub>. Best linear unbiased estimators (BLUEs) for the various parameters in Eq. <xref rid="Equ1" ref-type="disp-formula">1</xref> can be calculated from a sample <italic>T</italic><sub>0</sub> of <italic>n</italic> observations (in QSAR, compounds) drawn from the full population, provided several preconditions are met [<xref ref-type="bibr" rid="CR19">19</xref>]:</p>
+            <p><bold>1</bold>. the strict linear dependence of <italic>Y</italic> on <bold>X</bold> set out in Eq. <xref rid="Equ1" ref-type="disp-formula">1</xref> applies across the population;</p>
+            <p><bold>2</bold>. the sample is random and unbiased;</p>
+            <p><bold>3</bold>. the descriptors contributing to <bold>X</bold> are mutually independent in a statistical sense; and</p>
+            <p><bold>4</bold>. the error distribution <italic>ε</italic> is <italic>homoskedastic</italic> and independent of <bold>X</bold> and <italic>Y</italic> – i.e., its standard deviation is the same everywhere in the descriptor space, so <italic>σ</italic><sub>X</sub> = <italic>σ</italic> for all <bold>X</bold>.</p>
+            <p>The corresponding regression estimators for each individual observation <italic>i</italic> and the overall standard error of regression <italic>s</italic><sub>FIT</sub>are then given as shown in Eqs. 2 and 3.<disp-formula id="Equ3"><label>2</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_11_Equ2_HTML.gif" /></disp-formula><disp-formula id="Equ4"><label>3</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_11_Equ3_HTML.gif" /></disp-formula></p>
+            <p>where <inline-formula id="IEq1"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq1_HTML.gif" /></inline-formula> is the mean value of <italic>Y</italic> for the sample; <bold>x</bold><sub>i</sub> = <bold>X</bold><sub>i</sub> - <bold>X</bold><sub>0</sub>, with <bold>X</bold><sub>0</sub> being the sample centroid for <bold>X</bold>; and <inline-formula id="IEq2"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq2_HTML.gif" /></inline-formula> is the predicted value of <italic>Y</italic> at <bold>X</bold><sub>i</sub> [<xref ref-type="bibr" rid="CR19">19</xref>]. Note that <italic>s</italic><sub>FIT</sub> is greater than the root mean square error (RMSE); this is because the means <inline-formula id="IEq3"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq1_HTML.gif" /></inline-formula> and <bold>X</bold><sub>0</sub> and the calculated coefficient vector <bold>b</bold> are themselves estimates that are subject to sampling error, with 1 and <italic>p</italic> degrees of freedom, respectively.</p>
+            <p>Under these assumptions, the potential error in estimating <italic>Y</italic> increases as one moves away from the centroid <bold>X</bold><sub>0</sub>. As a result, the uncertainty <italic>s</italic><sub>u</sub> in predicting the value of <italic>Y</italic> at some new ("unknown") value <bold>X</bold><sub>u</sub> is generally greater than <italic>s</italic><sub>FIT</sub>. In fact, under the assumptions given above [<xref ref-type="bibr" rid="CR19">19</xref>]:<disp-formula id="Equ5"><label>4</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_11_Equ4_HTML.gif" /></disp-formula></p>
+            <p>where <italic>s</italic><sub>u</sub> is the expected standard error of prediction (uncertainty) for the new observation <italic>u</italic> and <italic>n</italic> is the number of training set observations <italic>t</italic> used to build the model. The Mahalanobis distances <italic>d</italic><sub>0, u</sub> and <italic>d</italic><sub>0, t</sub> are measured in the model space defined by <bold>b</bold>, i.e., they are weighted Euclidean distances between the centroid <bold>X</bold><sub>0</sub> of the descriptor matrix for the training set and the vectors <bold>X</bold><sub>u</sub> and <bold>X</bold><sub>t</sub>, respectively.</p>
+            <p>The rationale behind the "extra" terms in Eq. <xref rid="Equ4" ref-type="disp-formula">4</xref> is straightforward. For any random sample, the error involved in using <inline-formula id="IEq4"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq1_HTML.gif" /></inline-formula> as an estimate of <italic>μ</italic><sub>Y</sub> is inversely proportional to <italic>n</italic> – hence the 1/<italic>n</italic> term in Eq. <xref rid="Equ4" ref-type="disp-formula">4</xref>. In addition, the accuracy with which <italic>β</italic> is estimated by <bold>b</bold> is inversely proportional to how thoroughly <bold>X</bold> is sampled by the training set, but how much difference that makes to the error is directly proportional to the distance <italic>d</italic><sub>0, u</sub> between <bold>X</bold><sub>u</sub> and <bold>X</bold><sub>0</sub> in the model space. Together these countervailing effects of variation in <bold>X</bold> account for the second term within the outer brackets.</p>
+          </sec>
+          <sec id="Sec3">
+            <title>Dealing with violated assumptions</title>
+            <p>The value of <italic>s</italic><sub>u</sub> produced by Eq. <xref rid="Equ4" ref-type="disp-formula">4</xref> is a best linear unbiased estimator of <italic>σ</italic><sub>u</sub> – <italic>provided the assumptions underlying its derivation hold</italic>. Unfortunately, one or more of those assumptions are violated in most QSAR applications. In particular:</p>
+            <p><bold>1</bold>. the dependence of <italic>Y</italic> on <bold>X</bold> rarely fits the prescribed function perfectly, linear or otherwise;</p>
+            <p><bold>2</bold>. the training set used is usually a non-random sample, its selection biased by matters of historical accident and convenience that reflect the historical trajectory of the synthesis program that motivated the analysis;</p>
+            <p><bold>3</bold>. the descriptors contributing to <bold>X</bold> are often correlated to a greater or lesser degree and hence are not independent variables in the statistical sense (correlation implies lack of independence, but the inverse is not true: lack of correlation does not imply statistical independence); and</p>
+            <p><bold>4</bold>. <italic>ε</italic> is usually heteroskedastic – its standard deviation <italic>σ</italic><sub>X</sub> is often different in different regions of the descriptor space.</p>
+            <p>Most or all of the assumptions are, in fact, explicitly violated when ANNs, PLS, variable selection, quadratic regression, or bilinear regression techniques are applied, with the result that <italic>s</italic><sub>FIT</sub> and the estimator given by Eq. <xref rid="Equ4" ref-type="disp-formula">4</xref> underestimate the actual uncertainty of prediction, often drastically.</p>
+            <p>Several groups have derived theoretical variations of Eq. <xref rid="Equ4" ref-type="disp-formula">4</xref> for use with PLS and principal component analysis (PCA) that seek to address departures from ideality [<xref ref-type="bibr" rid="CR20">20</xref>–<xref ref-type="bibr" rid="CR22">22</xref>]. Unfortunately, subsequent work has demonstrated that these methods are often not robust when applied in realistic situations [<xref ref-type="bibr" rid="CR23">23</xref>].</p>
+            <p>An alternative, completely empirical approach to assessing aggregate predictive uncertainty is cross-validation, in which each compound in the training set is held back in turn [<xref ref-type="bibr" rid="CR24">24</xref>]. The value of <italic>Y</italic> for the held-back compound is then predicted using a model built from the other <italic>n</italic> - 1 compounds in the training subset <italic>T</italic><sub>u</sub> = <italic>T</italic><sub>0</sub> - {<italic>u</italic>}. In parallel to Eq. <xref rid="Equ3" ref-type="disp-formula">3</xref>, the standard error of cross-validation <italic>s</italic><sub>CV</sub> is calculated from the predictive error sum of squares (PRESS) according to equation <xref rid="Equ5" ref-type="disp-formula">5</xref>:<disp-formula id="Equ6"><label>5</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_11_Equ5_HTML.gif" /></disp-formula></p>
+            <p>where <inline-formula id="IEq5"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq3_HTML.gif" /></inline-formula> is the value of <italic>Y</italic> predicted by applying the reduced model built from the <italic>n</italic> - 1 compounds in training subset <italic>T</italic><sub>u</sub> to <bold>X</bold><sub>u</sub> and <inline-formula id="IEq6"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq4_HTML.gif" /></inline-formula> is the corresponding predictive error. The summation is indexed across <italic>u</italic> to emphasize that prediction is external to the training subset used in each case. Here <italic>p</italic> represents the number of PLS components included in the model rather than the number of descriptors.</p>
+            <p>Cross-validation statistics were originally employed in PLS solely as a way to determine an optimal model complexity, a role for which the classical goodness-of-fit measure <italic>r</italic><sup>2</sup> used in ordinary least squares is unsuited [<xref ref-type="bibr" rid="CR24">24</xref>]. It has since come to widely used to assess predictivity, however. This use is unfortunate, in that a poorly predictive model will have a high <italic>s</italic><sub>CV</sub> and a low <italic>q</italic><sup>2</sup>, but the converse may or may not be true: good cross-validation statistics may be due to redundancies in the training set rather than truly robust predictive performance [<xref ref-type="bibr" rid="CR25">25</xref>–<xref ref-type="bibr" rid="CR28">28</xref>]. Some workers prefer to use "leave-some-out" cross-validation – in which several compounds are held back together – to address this problem. Nonetheless, the LOO standard error is the best estimate of the full model's predictivity for each individual compound in the training set [<xref ref-type="bibr" rid="CR29">29</xref>], which makes it is a reasonable starting point for estimating a model's predictive reliability for structures occupying nearby points in the descriptor space.</p>
+            <p>Violation <bold>4</bold> – that error is not identically and independently distributed across compounds – is especially problematic for QSAR analyses. In one recently described case in point, the variation in predictive error was clearly correlated with one of the two descriptors being used [<xref ref-type="bibr" rid="CR7">7</xref>]. If that is true when many descriptors are involved (as is the case for PLS), the <italic>overall</italic> variability in predictive error should be similar across the full range of <italic>Y</italic>. Such a distribution of error is, in fact, often seen in place of the quadratically increasing spread implied by Eq. <xref rid="Equ4" ref-type="disp-formula">4</xref> [<xref ref-type="bibr" rid="CR30">30</xref>]. This makes it all too easy to make the unjustified leap to the unjustified conclusion that the aggregate predictive uncertainty – typically <italic>s</italic><sub>CV</sub> or the root mean square error of prediction for an external test set (RMSEP or <italic>s</italic><sub>PRED</sub>) – is a reliable indicator of the level of uncertainty associated with <italic>individual</italic> predictions: independence from <italic>Y</italic> does not imply independence from <bold>X</bold>.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Partitioning the PRESS</title>
+            <p>The increasing reliance of drug developers on tabulations of predicted properties makes getting accurate estimates of the uncertainty <italic>σ</italic><sub>u</sub> for individual predictions critically important. Unfortunately, it is rarely if ever possible to construct a unified global model for the dependence of <italic>σ</italic><sub>u</sub> on <bold>X</bold>. It is neither necessary nor even desirable to do so, however. A better approach is to shift from the classical, descriptor-based view of regression to a sample-based formalism such as that used in the SAMPLS algorithm [<xref ref-type="bibr" rid="CR31">31</xref>]. This algorithm exploits the fact that Eq. <xref rid="Equ2" ref-type="disp-formula">2</xref> can be recast as Eq. <xref rid="Equ6" ref-type="disp-formula">6</xref> without loss of generality:<disp-formula id="Equ7"><label>6</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_11_Equ6_HTML.gif" /></disp-formula></p>
+            <p>where <bold>c</bold><sub>t, i</sub> = [<italic>x</italic><sub>t1</sub><italic>x</italic><sub>i1</sub><italic>x</italic><sub>t2</sub><italic>x</italic><sub>i2</sub> ... <italic>x</italic><sub>tp</sub><italic>x</italic><sub>ip</sub>] is the covariance between <bold>x</bold><sub>t</sub> and <bold>x</bold><sub>i</sub> and <bold>v</bold><sub>t</sub> is a weight vector that is specific to compound <italic>t</italic>. Basically, Eq. <xref rid="Equ6" ref-type="disp-formula">6</xref> says that activity can be expressed as a linear function of the similarities of each compound to each of the other compounds in the training set. This suggests that the observed predictive error <italic>e</italic><sub>u</sub> can be cast as a sum of contributions from each compound in the training set that increases with similarity to those compounds, which is consistent with the observation that predictive error tends to increase with distance from – i.e., tends to decrease with increasing similarity to – compounds in the training set [<xref ref-type="bibr" rid="CR11">11</xref>, <xref ref-type="bibr" rid="CR12">12</xref>, <xref ref-type="bibr" rid="CR15">15</xref>]. If <italic>t</italic>* is the closest (i.e., the most similar) such compound, its standard error (<italic>s</italic><sub>t*</sub>) is a reasonable first approximation to the predictive error <italic>s</italic><sub>u</sub> for a new compound. In most QSAR applications, a single response value <italic>Y</italic><sub>t</sub> is assigned to each compound in the training set, so the best estimate of <italic>s</italic><sub>t</sub> is simply |<italic>e</italic><sub>t</sub>|, where <italic>e</italic><sub>t</sub> is the deviation seen for <italic>t</italic> in the full, non-cross-validated model, i.e., the residual error of fitting.</p>
+            <p>Though the "true" dependence of predictive uncertainty on the Euclidean distance <italic>d</italic><sub>t*, u</sub> from <italic>t</italic>* is unknown, its dependence on distance can likely be approximated by a Taylor expansion in which all but the first, linear term in <italic>d</italic> is dropped. Taken together, these considerations yield the estimator defined by Eq. <xref rid="Equ7" ref-type="disp-formula">7</xref>:<disp-formula id="Equ8"><label>7</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_11_Equ7_HTML.gif" /></disp-formula></p>
+            <p>where <italic>d</italic><sub>00</sub> is the length of the vector <bold>x</bold><sub>00</sub> defined by the standard deviations of the descriptors; <italic>d</italic><sub>00</sub> = 1 when descriptors have been centered and autoscaled, as was the case here.</p>
+            <p>The problem then becomes one of estimating the predictive error <italic>γ</italic><sub>t</sub> associated with each compound <italic>t</italic> in the training set. PLS tends to overfit, so this term is likely to be greater than <italic>s</italic><sub>t*</sub>; otherwise Eq. <xref rid="Equ7" ref-type="disp-formula">7</xref> would parallel Eq. <xref rid="Equ4" ref-type="disp-formula">4</xref> exactly, except for the loss of the 1/<italic>n</italic> aggregation term within the brackets. Instead, one can turn to the squared predictive errors collected during cross-validation. In the calculation of the aggregate predictive uncertainty <italic>s</italic><sub>CV</sub> (Eq. 5), these are lumped into a single sum – the PRESS. If, however, one assumes that contributions from nearby training set compounds dominate the predictive error and, further, that the value of <italic>γ</italic> will be comparable for the training subset compounds closest to each individual compound <italic>u</italic>, the contribution <inline-formula id="IEq7"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq5_HTML.gif" /></inline-formula> that cross-validation of the <italic>i</italic><sup>th</sup> compound makes to the PRESS can more appropriately be distributed across the training subset in inverse proportion to the distances between <bold>X</bold><sub>i</sub> and the <italic>n</italic> - 1 compounds used to predict <italic>Y</italic><sub>i</sub> (Eq. 8 and Fig. <xref rid="Fig1" ref-type="fig">1</xref>). A similar approach is taken to distributing response variance across the various sources of deviation from the mean in classical analysis of variance (ANOVA).<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>Schematic representation of predictive error distribution in DPRESS</bold>. The arrow weights indicate how much of the error made in predicting the response for the held-out compound (open symbol) is distributed among the compounds in the training set (solid symbols) when calculating the scaling factors <italic>γ</italic><sub>t</sub>. The data set is comprised of 13 observations in a two-dimensional descriptor space. Each panel represents one of the 13 separate analyses that make up the full leave-one-out (LOO) cross-validation run; only four of the 13 are shown.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_11_Fig1_HTML.jpg" /></p></fig></p>
+            <p>
+              <disp-formula id="Equ9">
+                <label>8</label>
+                <graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_11_Equ8_HTML.gif" />
+              </disp-formula>
+            </p>
+            <p>The normalization factor <italic>α</italic><sub>i</sub> in Eq. <xref rid="Equ9" ref-type="disp-formula">9</xref> is necessary to ensure that the distribution is a partition – i.e., that the contributions from the cross-validation step in which compound <italic>i</italic> was set aside sum to the observed cross-validation error in prediction <inline-formula id="IEq8"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq5_HTML.gif" /></inline-formula>.<disp-formula id="Equ10"><label>9</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_11_Equ9_HTML.gif" /></disp-formula></p>
+            <p>A small constant (1/<italic>n</italic>) needs to be included to prevent the reciprocal from "exploding" at small distances. Basically, it dictates the distance at which error is expected to distribute evenly. The choice of this particular value is somewhat arbitrary, but 1/n works well and nicely accommodates the tendency of data points to get closer together as the training set gets larger. Taken together, Eqs. 7–9 define the <italic>D</italic>istributed <italic>PR</italic>edictive <italic>E</italic>rror <italic>S</italic>um of <italic>S</italic>quares (DPRESS) approach to estimating predictive uncertainty.</p>
+          </sec>
+        </sec>
+        <sec id="Sec5" sec-type="results">
+          <title>Results</title>
+          <p>The suitability of DPRESS or any other quantitative model of predictive uncertainty is best evaluated by applying it to experimental QSAR data sets. Here, DPRESS is tested against PLS models obtained using a 3D descriptor (comparative molecular field analysis, or CoMFA [<xref ref-type="bibr" rid="CR32">32</xref>–<xref ref-type="bibr" rid="CR34">34</xref>]) and a 2D descriptor (hologram QSAR, or HQSAR [<xref ref-type="bibr" rid="CR35">35</xref>–<xref ref-type="bibr" rid="CR37">37</xref>]). A large data set (<italic>N</italic> = 304) was used to insure that the number of compounds held back to evaluate external predictivity was much greater than the numbers needed to train a reasonably robust model.</p>
+          <sec id="Sec6">
+            <title>The data set</title>
+            <p>The set of structurally diverse cyclooxygenase inhibitors examined here was originally compiled by Chavatte et al. [<xref ref-type="bibr" rid="CR38">38</xref>]. It includes data on five major and three minor structural classes (Fig. <xref rid="Fig2" ref-type="fig">2</xref>) of inhibitors of the inducible form of the enzyme (COX-2). This data set is attractive because the target has been a major focus of research on anti-inflammatory drugs and because it combines substantial structural variation with a few key shared elements such as the distal sulfonyl (SO<sub>2</sub>CH<sub>3</sub>) or sulfamoyl (SO<sub>2</sub>NH<sub>2</sub>) group. In addition, regression models based on this data set are well-characterized in terms of predictive robustness [<xref ref-type="bibr" rid="CR25">25</xref>, <xref ref-type="bibr" rid="CR28">28</xref>] and with respect to variations in how training subsets are selected [<xref ref-type="bibr" rid="CR39">39</xref>]. Finally, the uneven representation of the different core structures reflects a sampling bias that is typical of the data sets used to build QSARs.<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>Representative examples from the five major and three minor structural classes included in the COX-2 data set</bold>. The number of members in each class are indicated in parentheses. Each of the five major classes includes both sulfonyl and sulfamoyl analogs.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_11_Fig2_HTML.jpg" /></p></fig></p>
+            <p>Fig. <xref rid="Fig3" ref-type="fig">3A</xref> shows how activity is distributed across the various structural classes when the compounds in the data set are projected into two dimensions using embedded non-linear mapping [<xref ref-type="bibr" rid="CR40">40</xref>, <xref ref-type="bibr" rid="CR41">41</xref>] based on the similarity in their molecular fields: symbols are colored by structural class and sized by activity. Clearly, no one structural class has a monopoly on high activity. Fig. <xref rid="Fig3" ref-type="fig">3B</xref> shows the distribution of activity across the descriptor space defined by the compounds' molecular holograms. Molecular fields are 3D descriptors, which are more generalized than holograms – 2D descriptors derived from substructure counts. The more literal character of holograms leads to smaller distances between inhibitors within classes relative to the distances between classes, which accounts for the greater between-class resolution in Fig. <xref rid="Fig3" ref-type="fig">3B</xref>. It also accounts for the fact that the sulfonyl and sulfamoyl subclasses are cleanly separated in the hologram space (Fig. <xref rid="Fig3" ref-type="fig">3B</xref>) but not in the space defined by the corresponding molecular fields (Fig. <xref rid="Fig3" ref-type="fig">3A</xref>).<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>The distribution of activity across descriptor spaces for compounds in the COX-2 data set</bold>. Symbols are color-coded by structural class and symbol sizes are proportional to the negative common logarithm of the potency (pIC50). Compounds falling into the three minor classes (cyclopentadienes, isoxazoles and thiophene DuP-697) are indicated in gray. Points in the vertical "hedges" at the top left and top right of the plots represent singletons that are too dissimilar to any other compound to be placed meaningfully within the eNLM. (<bold>A</bold>) Projection obtained by applying embedded non-linear mapping (eNLM) to the Euclidean distance matrix calculated from steric and electrostatic fields. Points reprsenting compounds from the minor classes are circled. (<bold>B</bold>) Projection obtained by applying eNLM to the Euclidean distance matrix calculated from molecular holograms hashed to a length of 353. See the <bold>Methods</bold> section for details.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_11_Fig3_HTML.jpg" /></p></fig></p>
+            <p>The main goal of the work reported here was to see how well local estimates of predictive error obtained by DPRESS reflect the actual distribution of predictive error across the descriptor space. Simple random sampling produces a biased training set because, as in most such data sets, the major structural classes are not evenly represented (Fig. <xref rid="Fig2" ref-type="fig">2</xref>). Therefore diverse but representative ("boosted" [<xref ref-type="bibr" rid="CR39">39</xref>]) training sets were generated by independently drawing five training (sub)sets of 75 compounds from the full set using optimizable <italic>k</italic>-dissimilarity (OptiSim) selection [<xref ref-type="bibr" rid="CR39">39</xref>, <xref ref-type="bibr" rid="CR42">42</xref>, <xref ref-type="bibr" rid="CR43">43</xref>]. Models based on those training sets were then used to predict the activities of the 229 inhibitors not used to construct them. Three additional training sets were drawn at random, only one of which gave acceptable internal cross-validation statistics. Representation in the full data set is biased, so such simple random subsets are biased as well. The results obtained using that training set (set <italic>R</italic>) are included here to illustrate the effect of sampling bias due to structural redundancy [<xref ref-type="bibr" rid="CR39">39</xref>, <xref ref-type="bibr" rid="CR44">44</xref>, <xref ref-type="bibr" rid="CR45">45</xref>].</p>
+          </sec>
+          <sec id="Sec7">
+            <title>CoMFA models</title>
+            <p>The optimal number of components <italic>p</italic>* for the CoMFA models obtained for the boosted training sets ranged from three to seven. It is not appropriate to compare models that differ in complexity directly, however, so a consensus complexity of <italic>p</italic> = 6 was used in all cases. The corresponding leave-one-out (LOO) cross-validated standard errors (<italic>s</italic><sub>CV</sub>) ranged from 0.681 to 0.762, corresponding to internal predictivities (<italic>q</italic><sup>2</sup>) of 0.537 to 0.337. The non-cross-validated models exhibited standard errors of regression (<italic>s</italic><sub>FIT</sub>) ranging from 0.279 to 0.398, corresponding to <italic>r</italic><sup>2</sup> values between 0.901 and 0.827. Calculating the root mean square error for external predictions yielded <italic>s</italic><sub>PRED</sub> = 0.633 to 0.655 – i.e., the internal cross-validated error underestimated the overall accuracy of external prediction somewhat.</p>
+            <p>In contrast, the biased training set <italic>R</italic> yielded a cross-validated standard error (<italic>s</italic><sub>CV</sub>) of 0.489, corresponding to a <italic>q</italic><sup>2</sup> of 0.696. The overall goodness-of-fit statistics for the non-cross-validated model were <italic>s</italic><sub>FIT</sub> = 0.279 and <italic>r</italic><sup>2</sup> = 0.901. As expected, however, the predictive performance on those compounds not in <italic>R</italic> was substantially worse than that of the boosted training sets, with <italic>s</italic><sub>PRED</sub> = 0.744.</p>
+            <p>Fig. <xref rid="Fig4" ref-type="fig">4A</xref> shows the same projection as Fig. <xref rid="Fig3" ref-type="fig">3A</xref>, but here symbol sizes are based on the error in predicted pIC50 rather than on pIC50 itself. The top panels in Fig. <xref rid="Fig4" ref-type="fig">4(A–C)</xref> show the distributions of the individual observed errors in predicted activity (|<italic>e</italic>|) across the descriptor space, whereas the bottom panels (D-F) show distributions of the corresponding predictive uncertainties (<inline-formula id="IEq9"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq6_HTML.gif" /></inline-formula>) estimated using DPRESS. The leftmost panels (4A and 4D) were obtained for the model based on the boosted training set (set <italic>A</italic>) that had the lowest aggregate <italic>external</italic> predictive standard error (<italic>s</italic><sub>PRED</sub>), whereas the middle panels (4B and 4E) are results for the boosted training set (set <italic>B</italic>) that had the lowest aggregate <italic>internal</italic> (cross-validated) predictive standard error (<italic>s</italic><sub>CV</sub>) overall. The right-most panels (4C and 4F) display the results for the biased training set <italic>R</italic>.<fig id="Fig4"><label>Figure 4</label><caption xml:lang="en"><p><bold>Distribution of observed absolute errors and uncertainties predicted by DPRESS for three different CoMFA models</bold>. Projection parameters and color coding are the same as in Fig. 3A except that the horizontal dimension has been compressed somewhat. Symbol size is proportional to the magnitude of the observed error or predicted uncertainty. Compounds from the respective training sets are represented by stars. (<bold>A</bold>) Observed absolute errors for boosted training set <italic>A</italic>, which had the best external predictive performance (<italic>s</italic><sub>PRED</sub> = 0.633; <italic>s</italic><sub>CV</sub> = 0.762). (<bold>B</bold>) Observed absolute errors for boosted training set <italic>B</italic>, which had the best internal predictive performance (<italic>s</italic><sub>CV</sub> = 0.681; <italic>s</italic><sub>PRED</sub> = 0.637). (<bold>C</bold>) Observed absolute errors for the biased training set (<italic>s</italic><sub>CV</sub> = 0.489; <italic>s</italic><sub>PRED</sub> = 0.744). (<bold>D</bold>) Predicted uncertainties for boosted training set <italic>A</italic>. (<bold>E</bold>) Predicted uncertainties for boosted training set <italic>B</italic>. (<bold>F</bold>) Predicted uncertainties for the biased training set <italic>R</italic>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_11_Fig4_HTML.jpg" /></p></fig></p>
+            <p>Several conclusions can be drawn by comparing the distribution of errors to each other and to the distribution of activities. Firstly, though the distributions of observed predictive errors for the three models differ from one another (Fig. <xref rid="Fig4" ref-type="fig">4A</xref> vs <xref rid="Fig4" ref-type="fig">4B</xref> vs <xref rid="Fig4" ref-type="fig">4C</xref>), they resemble each other more than they resemble the distribution of activity itself (Fig. <xref rid="Fig3" ref-type="fig">3A</xref>). Secondly, the larger observed errors are not particularly concentrated among the singletons or at the edges of the descriptor space, as would be expected for the ordinary least squares distribution expected based on Eq. <xref rid="Equ6" ref-type="disp-formula">6</xref> and in most published approaches to establishing applicability domains. Thirdly, the distributions of predictive uncertainty seen for the boosted training sets are in good overall agreement with the observed errors with respect to the regions of descriptor space where the observed error is relatively high or low (Fig. <xref rid="Fig4" ref-type="fig">4D</xref> vs <xref rid="Fig4" ref-type="fig">4A</xref> and <xref rid="Fig4" ref-type="fig">4E</xref> vs <xref rid="Fig4" ref-type="fig">4B</xref>). Though somewhat less evident, the same is true for the model constructed using the biased training set <italic>R</italic> (Fig. <xref rid="Fig4" ref-type="fig">4F</xref> vs <xref rid="Fig4" ref-type="fig">4C</xref>). Finally, the smaller errors predicted by the boosted training with the better internal predictivity (Fig. <xref rid="Fig4" ref-type="fig">4E</xref> vs <xref rid="Fig4" ref-type="fig">4D</xref>) do seem to be realized in the localized errors actually observed (Fig. <xref rid="Fig4" ref-type="fig">4B</xref> vs <xref rid="Fig4" ref-type="fig">4A</xref>), even though this was not obvious in the aggregate statistics (<italic>s</italic><sub>PRED</sub> = 0.637 and <italic>s</italic><sub>PRED</sub> = 0.633, respectively).</p>
+            <p>Interpretation of the plots shown in Fig. <xref rid="Fig4" ref-type="fig">4</xref> is complicated because the uncertainty <italic>s</italic><sub>u</sub> is a measure of the <italic>spread</italic> in predictive error at <bold>X</bold><sub>u</sub>; the expected value of the error is still 0. If <inline-formula id="IEq10"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq6_HTML.gif" /></inline-formula> is an accurate prediction of uncertainty, the magnitude of the observed error (|<italic>e</italic><sub>u</sub>|) can be expected to be less than <inline-formula id="IEq11"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq6_HTML.gif" /></inline-formula> about 68% of the time and to almost always (about 95% of the time) be less than 2<inline-formula id="IEq12"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq6_HTML.gif" /></inline-formula>. The plots in Fig. <xref rid="Fig5" ref-type="fig">5</xref> – in which the predicted uncertainty (which is always positive) is shown as a function of the observed error (which can be positive or negative) represent a more quantitative way to see how well the predicted uncertainties track the spreads in error actually observed outside the training set.<fig id="Fig5"><label>Figure 5</label><caption xml:lang="en"><p><bold>Predictive uncertainty</bold><inline-formula id="IEq13"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq6_HTML.gif" /></inline-formula><bold>as a function of the observed error for the CoMFA models</bold>. Filled stars represent members of the training set and define the lines for <inline-formula id="IEq14"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq7_HTML.gif" /></inline-formula> = |<italic>e</italic><sub>t</sub>|. Dashed lines correspond to <inline-formula id="IEq15"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq6_HTML.gif" /></inline-formula> = 2|<italic>e</italic><sub>u</sub>|. (<bold>A</bold>) Results of setting <italic>γ</italic><sub>u</sub> = 0 for all compounds. (<bold>B</bold>) Results for the model constructed from the biased training set <italic>R</italic>. (<bold>C</bold>) Results from boosted training set <italic>A</italic>. (<bold>D</bold>) Results for boosted training set <italic>B</italic>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_11_Fig5_HTML.jpg" /></p></fig></p>
+            <p>Eq. 7 implies that <inline-formula id="IEq16"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq7_HTML.gif" /></inline-formula> = |<italic>e</italic><sub>t</sub>| for each member <italic>t</italic> in the training set. The corresponding points are represented by filled stars in each panel in Fig. <xref rid="Fig5" ref-type="fig">5</xref>, which therefore define the lines <inline-formula id="IEq17"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq6_HTML.gif" /></inline-formula> = |<italic>e</italic><sub>u</sub>|. Unbiased and normally distributed error should only fall outside these lines about 32% of the time and should fall outside the dotted lines corresponding to <inline-formula id="IEq18"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq6_HTML.gif" /></inline-formula> = 2|<italic>e</italic><sub>u</sub>| less than 5% of the time. This is clearly not the case when the cross-validated error for the most similar compound <italic>t</italic>* in the training set is taken as a direct estimate of <inline-formula id="IEq19"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq6_HTML.gif" /></inline-formula>, i.e., when <italic>γ</italic><sub>t</sub> is set equal to 0 for all <italic>t</italic> (Fig. <xref rid="Fig5" ref-type="fig">5A</xref>). There are fewer unduly low predicted uncertainties for the biased training set <italic>R</italic>, but still more than would be expected by chance (Fig. <xref rid="Fig5" ref-type="fig">5B</xref>). Note that the bias evident in the model constructed from <italic>R</italic> comes mostly in the form of negative residuals, i.e., predicted activities that are larger than the observed activities. Such false positives account for most of the "extra" out-of-bounds errors seen in Fig. <xref rid="Fig5" ref-type="fig">5B</xref>. The distributions of errors for the boosted training sets are much better behaved; indeed, the predicted uncertainties are slightly more conservative than necessary for large errors in prediction (Fig. <xref rid="Fig5" ref-type="fig">5C</xref> and <xref rid="Fig5" ref-type="fig">5D</xref>).</p>
+          </sec>
+          <sec id="Sec8">
+            <title>HQSAR</title>
+            <p>HQSAR analyses were carried out as a complement to the results obtained in the CoMFA studies described above. The 2D molecular holograms used were built up from the number of each kind of substructure comprised of between four and seven heavy atoms, the counts being mapped down into count vectors of various lengths by hashing [<xref ref-type="bibr" rid="CR37">37</xref>]. HQSAR models were then constructed by applying PLS analysis to holograms of length 97, 151, 199, 257, 307 and 353. The optimal complexity for the full model (<italic>N</italic> = 304) was six components for all hash lengths. The <italic>s</italic><sub>CV</sub> values obtained ranged from 0.609 to 0.640; the median and average were both 0.622. The value of <italic>q</italic><sup>2</sup> ranged from 0.547 to 0.582, with a median of 0.564 and an average of 0.563. Based on these results, a hash length of 353 (<italic>s</italic><sub>CV</sub> = 0.609 and <italic>q</italic><sup>2</sup> = 0.582) was chosen for evaluating the behavior of the various training sets. The corresponding non-cross-validated analysis gave <italic>s</italic><sub>FIT</sub> = 0.527 and <italic>r</italic><sup>2</sup> = 0.687.</p>
+            <p>The consensus optimal complexity across the boosted training subsets was five components, in keeping with the full data set's having nearly four times as many compounds and, therefore, containing substantially more information. The <italic>s</italic><sub>CV</sub> values obtained ranged from 0.691 to 0.776 versus a value of 0.540 for the biased training set <italic>R</italic>; the respective <italic>q</italic><sup>2</sup> values were 0.386 to 0.514 and 0.623. The <italic>s</italic><sub>PRED</sub> for the boosted subsets ranged from 0.619 to 0.669 and the corresponding value for the biased subset was 0.735. Hence HQSAR performance followed the trend seen for CoMFA: cross-validation under-estimated the predictive error substantially for the biased subset (i.e., was overly optimistic about the extensibility of the model) and over-estimated the predictive error slightly for the boosted training sets. It differed in that it was the boosted training set <italic>B</italic> which gave the better external predictive performance.</p>
+            <p>The distribution of observed predictive errors and predicted uncertainties across the hologram descriptor space are shown in Fig. <xref rid="Fig6" ref-type="fig">6</xref> for the model based on boosted training set <italic>B</italic>, and the corresponding plots of <inline-formula id="IEq20"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq6_HTML.gif" /></inline-formula> as a function of <italic>e</italic><sub>u</sub> are shown in Fig. <xref rid="Fig7" ref-type="fig">7</xref>. Note that the predicted uncertainties for the boosted HQSAR models were more conservative than those for the CoMFA models discussed above, with the result that the magnitudes of nearly all errors above 0.75 log units were less than the corresponding <inline-formula id="IEq21"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq6_HTML.gif" /></inline-formula>. This effect is probably a side-effect of the exaggerated separation between classes seen in the hologram space (Fig. <xref rid="Fig3" ref-type="fig">3B</xref>).<fig id="Fig6"><label>Figure 6</label><caption xml:lang="en"><p><bold>Distribution of predictive error and uncertainty across the hologram descriptor space training set</bold><bold><italic>A</italic></bold>. Stars correspond to compounds from the training set. Projection parameters and color coding by class are as indicated for Fig. 3B. Symbol sizes are proportional to magnitude. (<bold>A</bold>) Observed absolute predictive error. (<bold>B</bold>) Predicted uncertainty.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_11_Fig6_HTML.jpg" /></p></fig><fig id="Fig7"><label>Figure 7</label><caption xml:lang="en"><p><bold>Predicted uncertainty</bold><bold>as a function of the observed predictive error</bold><bold><italic>e</italic></bold>. Filled stars correspond to compounds included in the test set, whereas open circles represent compounds in the test set. Dashed lines correspond to |e| = 2<inline-formula id="IEq23"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq6_HTML.gif" /></inline-formula>. (<bold>A</bold>) Results for the HQSAR model constructed from the biased training set <italic>R</italic>. (<bold>B</bold>) Results from boosted training set <italic>B</italic>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_11_Fig7_HTML.jpg" /></p></fig></p>
+          </sec>
+        </sec>
+        <sec id="Sec9" sec-type="discussion">
+          <title>Discussion</title>
+          <p>The degree to which any QSAR can be extended to compounds outside of the training set used to construct it is necessarily limited to some degree by the structural diversity of that training set. Some extensibility is necessary, however, if the QSAR is to be of use for something beyond mere rationalization of known activities. When only a few descriptors are being considered, it may be possible to restrict the applicability domain to "internal" regions in the descriptor space, but as the number of descriptors increases distinguishing compounds that lie "outside" the space defined by the training set from those that are "inside" becomes progressively less meaningful. Regardless of the complexity of the system, it is clear that one will often need to extend the applicability domain beyond the training set somehow. It is equally clear that this must be done cautiously, however, and that it would be desirable for the degree of caution to reflect the idiosyncrasies of the QSAR being examined. It would be particularly desirable to take local variations in the uncertainty of predictions into account, rather than trying to find a single acceptable distance to the model that is applicable across the entire descriptor space [<xref ref-type="bibr" rid="CR12">12</xref>, <xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR15">15</xref>].</p>
+          <p>DPRESS was formulated to address these needs. It is based on two simple assumptions: that the uncertainty in prediction for new objects (e.g., molecular structures) is likely to be dominated by the error in prediction for objects near them in the descriptor space; and that this influence is, to a first approximation, inversely related to the distance between them. The "true" dependence may well be more complex in some cases, but the size of the training set needed to characterize that dependence will almost always be impractically large. In any event, such dependence is likely to reduce to a linear relationship over the relatively short ranges of QSAR extrapolations that have any chance of being relevant.</p>
+          <p>The fact that the predictive uncertainties derived from DPRESS analysis are sometimes more conservative than necessary for large errors is of some concern, though that is certainly preferable to the alternative of their being overly optimistic; further work in this area is a matter on ongoing investigation. Nonetheless, the method is intrinsically less constraining than the classical quadratic relationship based on distance from the mean (Eq. 4). Given how much predictive error varies across the model space (e.g., Fig. <xref rid="Fig4" ref-type="fig">4</xref>), any approach based on the overall <italic>s</italic><sub>PRED</sub> seems bound to be overly optimistic regarding the reliability of predicted potencies for some compounds.</p>
+          <p>The underlying QSARs examined here – CoMFA and HQSAR – both rely on (nominally [<xref ref-type="bibr" rid="CR46">46</xref>]) linear PLS, but there is no intrinsic reason that the method cannot be more broadly applied. The key point is that the error being distributed must be predictive – i.e., it needs to reflect predictions made for objects not included in the training set. LOO cross-validation yields the most information for any given dataset, but a leave-some-out approach should be a viable alternative. The predictive errors obtained from the validation sets often used in ANN analysis could be used as well, since there is no intrinsic reason that a linear model for local error distribution should be incompatible with a QSAR that is non-linear on a global scale.</p>
+          <p>The usual reasons for preferring LSO over LOO cross-validation are unlikely to be relevant to DPRESS calculations, however. LOO can indeed be distorted when the training set is biased due to redundancy, but DPRESS based on LOO turns out to be conservative in such a situation (see above). The reduction in <italic>s</italic><sub>CV</sub> that occurs when the sampling density in one particular area of descriptor space is high is reflected in a reduction in the error that each <italic>individual</italic> prediction contributes to the PRESS. But <inline-formula id="IEq24"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq6_HTML.gif" /></inline-formula> is not a root mean square, so the effect on its value is offset by the fact that biased sampling necessarily: increases the total number of errors; decreases their spread (<italic>d</italic><sub>00</sub>); increases the distance between the training set and most new observations; or effects some combination thereof.</p>
+          <p>Diverse training sets representative of the full structural space produce more reliable local uncertainty estimates than do biased training sets, indicating that taking care to avoid undue sampling bias (redundancy) in the training set is worth the effort. Even the biased training set <italic>R</italic>, however, did better than setting the uncertainty of prediction for a new object equal to the observed error for the closest object in the training set (Fig. <xref rid="Fig5" ref-type="fig">5</xref> and <xref rid="Fig7" ref-type="fig">7</xref>). Moreover, the errors falling outside the range expected based for the calculated <inline-formula id="IEq25"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq5_HTML.gif" /></inline-formula> for <italic>R</italic> were false positives, the least serious type of error to make when trying to predict toxicity.</p>
+          <p>There are two fundamental differences between the estimate of predictive uncertainty derived from classical theory (Eq. 4) and the DPRESS model represented by Eqs. 7–9. The first difference is that Eq. <xref rid="Equ4" ref-type="disp-formula">4</xref> is a sum of squares, whereas Eq. <xref rid="Equ7" ref-type="disp-formula">7</xref> is a sum of linear terms. Using a sum of squares formulation was considered for DPRESS, but was found to consistently overestimate the uncertainty of prediction (details not shown). The second difference is that Mahalanobis distances <italic>d</italic> measured in the model space are used in the classical model, whereas Euclidean distances measured in the descriptor space are used in DPRESS. The less parametric approach is followed for DPRESS because the variation in one or more variables in a particular training set may not be large enough to reveal the influence that variable might exert if examined across a greater range. The small coefficient assigned to such a variable in that event means that substantial deviations in its value will have a negligible effect on distances in the model space. Sticking with distances in the "raw" descriptor space rather than using the descriptor weights from <bold>b</bold> to calculate a Mahalanobis distance is more conservative – it assumes that variation in things that have yet to be explored are likely to make predictions less reliable.</p>
+        </sec>
+        <sec id="Sec10" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p>Examination of the distribution of predictive errors across the descriptor space makes it clear that errors are consistently larger in some regions than in others – i.e., the predictive error is heteroskedastic (Fig. <xref rid="Fig4" ref-type="fig">4</xref>). Given that a major use of QSAR predictions is in chemoinformatic tabulations used by medicinal chemists and other third parties, it would be good practice to routinely attach some estimate of uncertainty to each prediction. Doing so based on some analytical estimator would be preferable, but is impractical in most real-world situations because it requires detailed <italic>a priori</italic> knowledge of the global dependence of error on the descriptors. In the absence of such knowledge, a locally linear estimator of predictive reliability that is embedded in the sample space represents a reasonable alternative. Partition of predictive error sum of squares (DPRESS) provides just such an estimator in a form – that of a standard error – that is widely understood by those likely to use it. The calculations involved are straightforward and the estimator produced is a qualitatively (Fig. <xref rid="Fig4" ref-type="fig">4</xref> and <xref rid="Fig6" ref-type="fig">6</xref>) and quantitatively (Fig. <xref rid="Fig5" ref-type="fig">5</xref> and <xref rid="Fig7" ref-type="fig">7</xref>) reliable estimate of how much confidence one should place in the associated prediction. Moreover, though the particular applications studied here involved PLS models built using 2D and 3D descriptors, the technique is likely applicable to any regression method that can be reformulated in kernel-based terms [<xref ref-type="bibr" rid="CR12">12</xref>, <xref ref-type="bibr" rid="CR47">47</xref>].</p>
+          <p>It is also important when constructing the model in the first place to examine the distribution of predictive error in the descriptor space. If uncertainty is homoskedastic, a classical or uniform distribution model may provide a somewhat more precise estimate of predictive uncertainty. Should (e)NLM or principal components analysis (PCA) indicate heteroskedacity, however, a DPRESS calculation should be carried out before applying the model – e.g., for prioritizeing compounds for synthesis, acquisition or detailed testing. DPRESS may also serve to highlight regions of structural space from which more data needs to be gathered.</p>
+        </sec>
+        <sec id="Sec11">
+          <title>Experimental</title>
+          <p>Ordinary multiple linear regression is not suitable when the number of descriptors in a data set exceeds the number of observations. PLS [<xref ref-type="bibr" rid="CR4">4</xref>] was used instead, with the appropriate number of latent variables (components) to include (i.e., the model complexity) being the number corresponding to the first minimum in the "leave-one-out" cross-validated standard error (<italic>s</italic><sub>CV</sub>). This measure of internal consistency is obtained by setting aside each of the <italic>n</italic> compounds in the training subset in turn and trying to predict its activity using the other <italic>n</italic> - 1 compounds in the training set. The external error of prediction (<italic>s</italic><sub>PRED</sub>) was calculated as the root mean square error for the <italic>N</italic> - <italic>n</italic> compounds left out of the model calculation altogether.</p>
+          <sec id="Sec12">
+            <title>Training set selection</title>
+            <p>Boosted training sets were obtained by applying OptiSim selection to the full data set. OptiSim selection entails drawing a series of random subsamples of size <italic>k</italic> from the data set of interest. For each subsample in the series, the individual that is most different from those selected from previous subsamples is extracted and added to the selection set <italic>S</italic>. This procedure results in a representative but diverse selection set that samples the full data set space both efficiently and effectively [<xref ref-type="bibr" rid="CR42">42</xref>]. Here the structural space was defined in terms of the Tanimoto similarity <italic>T</italic>(<italic>a</italic>, <italic>b</italic>) between the corresponding UNITY substructural fingerprints [<xref ref-type="bibr" rid="CR48">48</xref>]. The individual <italic>a</italic> in the <italic>i</italic><sup>th</sup> subsample for which max(<italic>T</italic>(<italic>a</italic>, <italic>b</italic>): <italic>b</italic> ∈ <italic>S</italic>) is smallest was added to <italic>S</italic>. Candidates with a Tanimoto similarity greater than 0.8 to any compound already in the selection set were deemed redundant and were excluded from subsamples.</p>
+            <p>The selection process was repeated five times with <italic>n</italic> = 75 and <italic>k</italic> = 4, using a different random number seed each time. Five inhibitors appeared in every boosted training set, including the thiophene, cyclopentadiene and isoxazole analogs that fall outside the five major classes. A total of 113 inhibitors were not selected for any of the boosted training sets, whereas 191 were selected for at least one of them.</p>
+          </sec>
+          <sec id="Sec13">
+            <title>Molecular fields</title>
+            <p>CoMFA involves using PLS to identify correlations of biological activity with variations in steric and electrostatic molecular fields, which requires that the molecules under consideration be put into similar conformations and into a common frame of reference as a key part of the process. Here, conformations were set and molecular structures aligned based on the homologous atoms in their central and peripheral rings, as has been described in detail elsewhere [<xref ref-type="bibr" rid="CR39">39</xref>]. Charges were calculated using the method of Marsili and Gasteiger [<xref ref-type="bibr" rid="CR49">49</xref>], as extended in SYBYL [<xref ref-type="bibr" rid="CR50">50</xref>] to take the distribution of <italic>π</italic> electrons into account ("Gasteiger-Hückel charges"). Coulombic and Lennard-Jones interaction energies were calculated on a 2 Å rectilinear grid extending 4 Å beyond the edge of any molecule in the full data set. The probe atom used to calculate the fields was an <italic>sp</italic><sup>3</sup>-hybridized carbon monocation. Interaction energies were truncated at nominal values above 30 kcal/mol, and electrostatics were ignored within the steric envelope of each inhibitor.</p>
+          </sec>
+          <sec id="Sec14">
+            <title>Molecular holograms</title>
+            <p>The first step in constructing a molecular hologram is to identify all substructures in a molecule that fall within a specified size range – here, all fragments made up of four to seven atoms, with hydrogens ignored and bond types taken into account. Each fragment is then mapped into a compressed count vector of specified length using a hashing function, so that the elements of that count vector can be used as descriptors in subsequent PLS analyses [<xref ref-type="bibr" rid="CR36">36</xref>]. The hashing means that different fragments may map to the same position in the final count vector. The fragments overlap, however, so each substructure contributes to many fragment counts. The result is that the noise introduced by "collisions" for a few subfragments constitutes a relatively minor perturbation that is, on average, self-limiting. Overfit PLS models are characteristically unstable to such perturbations, however, so surveying a range of hash lengths and picking one with good but representative statistical properties is a good way to avoid picking a length whose cross-validation statistics are overly optimistic. This is a non-parametric perturbation analysis analogous to looking at the effect of small perturbations in response to assess model stability [<xref ref-type="bibr" rid="CR28">28</xref>].</p>
+          </sec>
+          <sec id="Sec15">
+            <title>Visualization</title>
+            <p>2D depictions of the relationship between different compounds were obtained using the embedded non-linear mapping (eNLM) facility [<xref ref-type="bibr" rid="CR40">40</xref>] in Benchware DataMiner [<xref ref-type="bibr" rid="CR51">51</xref>]. "Ordinary" NLM can be thought of as placing springs between all pairs of points in the original descriptor space, then compressing the ensemble into two dimensions in such a way that the residual tension in those springs is minimized. Embedded NLM differs in that parts of springs longer than some specified threshold length (horizon) are treated as elastic to extension, i.e., they do not contribute to the overall stress in the system. Here, spring "tensions" were based on the block-wise autoscaled Euclidean distances ("CoMFA Standard scaling" [<xref ref-type="bibr" rid="CR32">32</xref>]) between the molecular fields or between the molecular holograms of different compounds.</p>
+          </sec>
+          <sec id="Sec16">
+            <title>DPRESS</title>
+            <p>CoMFA and HQSAR analyses were carried out in SYBYL. The distances <italic>d</italic><sub>t, i</sub> used to partition the PRESS were taken from the SAMPLS.dist file generated by the SYBYL interface as input to the SAMPLS program [<xref ref-type="bibr" rid="CR52">52</xref>] and represent inter-observation distances in the descriptor space after autoscaling has been applied. The descriptors used here are already either fully commensurate (HQSAR) or are piecewise commensurate (within steric and electrostatic fields but not between them, for CoMFA), so "CoMFA standard" (block) autoscaling was used [<xref ref-type="bibr" rid="CR33">33</xref>]. Observed and predicted responses were taken from the SAMPLS.out file generated by the SAMPLS program.</p>
+            <p>Localized predictivity estimates were calculated by combining scripts written in SYBYL programming language (SPL) with spreadsheet manipulations carried out in Excel. For each compound <italic>t</italic> in the training set, the scaling factor <italic>γ</italic><sub>t</sub> was calculated based on the observed predictive variance (squared cross-validation error of prediction, <italic>δ</italic><sub>i</sub><sup>2</sup>) for every <italic>other</italic> compound in the training set (<italic>i</italic> ≠ <italic>t</italic>) weighted inversely by the square of the Euclidean distance between the two (<italic>d</italic><sub>t, i</sub>) in the descriptor space (Eq. 8). A normalization factor <italic>α</italic><sub>i</sub> for each compound <italic>i</italic> was calculated as the sum of squared distances to all other compounds in the training set (Eq. 9). A limiting proximity term of 1/<italic>n</italic> was included to ensure reasonable behavior for closely-spaced compounds where <italic>d</italic><sub>t, i</sub> approaches 0; this works well when the descriptors have been autoscaled in some way before use.</p>
+            <p>The individual scaling factors <italic>γ</italic><sub>t</sub> obtained from the <italic>n</italic> LOO cross-validation errors for the training set were used to calculate an estimate <inline-formula id="IEq26"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_11_IEq6_HTML.gif" /></inline-formula> for the predictive uncertainty associated with each new structure <italic>u</italic> based on the observed cross-validation error of the training set compound (<italic>t</italic>*) lying closest to it in the descriptor space, its distance from <italic>t</italic>*, and the scaling factor <italic>γ</italic><sub>t*</sub> derived from the model cross-validation analyses (Eqs. 7–9).</p>
+          </sec>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>Chris Williams of the Chemical Computing Group provide helpful input to the organization of the manuscript, as did the three anonymous reviewers recruited by the Journal. The paper is substantially clearer as a result of their input, and the author appreciates it.</p>
+        </ack>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hansch</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Maloney</surname>
+                    <given-names>PP</given-names>
+                  </name>
+                  <name>
+                    <surname>Fujita</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Muir</surname>
+                    <given-names>RM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Correlation of biological activity of phenoxyacetic acids with Hammett substituent constants and partition coefficients</article-title>
+                <source>Nature</source>
+                <year>1962</year>
+                <volume>194</volume>
+                <fpage>178</fpage>
+                <lpage>180</lpage>
+                <pub-id pub-id-type="doi">10.1038/194178b0</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaF38XktFaltLg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hansch</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Fujita</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">p-<italic>σ</italic>-<italic>π</italic>Analysis. A method for the correlation of biological activity and chemical structure</article-title>
+                <source>J Am Chem Soc</source>
+                <year>1964</year>
+                <volume>86</volume>
+                <fpage>1616</fpage>
+                <lpage>1626</lpage>
+                <pub-id pub-id-type="doi">10.1021/ja01062a035</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaF2cXptF2gsQ%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jurs</surname>
+                    <given-names>PC</given-names>
+                  </name>
+                  <name>
+                    <surname>Chou</surname>
+                    <given-names>JT</given-names>
+                  </name>
+                  <name>
+                    <surname>Yuan</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Computer-assisted structure-activity studies of chemical carcinogens. A heterogeneous data set</article-title>
+                <source>J Med Chem</source>
+                <year>1979</year>
+                <volume>22</volume>
+                <fpage>476</fpage>
+                <lpage>483</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm00191a004</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaE1MXhs1ejs70%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wold</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Ruhe</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Wold</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Dunn</surname>
+                    <given-names>WJ</given-names>
+                    <suffix>III</suffix>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The collinearity problem in linear regression. The partial least squares (PLS) approach to generalized inverses</article-title>
+                <source>SIAM J Sci Stat Comput</source>
+                <year>1984</year>
+                <volume>5</volume>
+                <fpage>735</fpage>
+                <lpage>743</lpage>
+                <pub-id pub-id-type="doi">10.1137/0905052</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Baumann</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Albert</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>von Korff</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A systematic evaluation of the benefits and hazards of variable selection in latent variable regression. Part I. Search algorithm, theory and simulations</article-title>
+                <source>J Chemometrics</source>
+                <year>2002</year>
+                <volume>16</volume>
+                <fpage>339</fpage>
+                <lpage>350</lpage>
+                <pub-id pub-id-type="doi">10.1002/cem.730</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD38XlslOlsb8%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Baumann</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>von Korff</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Albert</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A systematic evaluation of the benefits and hazards of variable selection in latent variable regression. Part II. Practical applications</article-title>
+                <source>J Chemometrics</source>
+                <year>2002</year>
+                <volume>16</volume>
+                <fpage>351</fpage>
+                <lpage>360</lpage>
+                <pub-id pub-id-type="doi">10.1002/cem.729</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD38XlslOlsbw%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schultz</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hewitt</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Netzeva</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Cronin</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Assessing applicability domains of toxicological QSARs: definition, confidence in predicted values, and the role of mechanisms of action</article-title>
+                <source>QSAR Comb Sci</source>
+                <year>2007</year>
+                <volume>26</volume>
+                <fpage>238</fpage>
+                <lpage>254</lpage>
+                <pub-id pub-id-type="doi">10.1002/qsar.200630020</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXis1amsbc%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Giuliani</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Benigni</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>van de Waterbeemd</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Testa</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Folkers</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Modeling without boundary conditions: an issue in QSAR validation</article-title>
+                <source>Computer-Assisted Lead Finding and Optimization</source>
+                <year>1997</year>
+                <publisher-loc>Weinheim</publisher-loc>
+                <publisher-name>Wiley-VCH</publisher-name>
+                <fpage>51</fpage>
+                <lpage>63</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sheridan</surname>
+                    <given-names>RP</given-names>
+                  </name>
+                  <name>
+                    <surname>Feuston</surname>
+                    <given-names>BP</given-names>
+                  </name>
+                  <name>
+                    <surname>Maiorov</surname>
+                    <given-names>VN</given-names>
+                  </name>
+                  <name>
+                    <surname>Kearsley</surname>
+                    <given-names>SK</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Similarity to molecules in the training set is a good discriminator for prediction accuracy in QSAR</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2004</year>
+                <volume>44</volume>
+                <fpage>1912</fpage>
+                <lpage>1928</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci049782w</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXotFGjtbk%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Guha</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Jurs</surname>
+                    <given-names>PC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Determining the validity of a QSAR model – a classification approach</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2005</year>
+                <volume>45</volume>
+                <fpage>65</fpage>
+                <lpage>73</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci0497511</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXhtVSqsbfI</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>He</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Jurs</surname>
+                    <given-names>PC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Assessing the reliability of a QSAR model's predictions</article-title>
+                <source>J Mol Graph Model</source>
+                <year>2005</year>
+                <volume>23</volume>
+                <fpage>503</fpage>
+                <lpage>523</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.jmgm.2005.03.003</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXlt1Khsbg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schroeter</surname>
+                    <given-names>TS</given-names>
+                  </name>
+                  <name>
+                    <surname>Schwaighofer</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Mika</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Ter Lakk</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Suelzle</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Ganzer</surname>
+                    <given-names>U</given-names>
+                  </name>
+                  <name>
+                    <surname>Heinrich</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Müller</surname>
+                    <given-names>K-R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Estimating the domain of applicability for machine learning QSAR models: a study on aqueous solubility of drug discovery molecules</article-title>
+                <source>J Comput-Aided Mol Des</source>
+                <year>2007</year>
+                <volume>21</volume>
+                <fpage>651</fpage>
+                <lpage>664</lpage>
+                <pub-id pub-id-type="doi">10.1007/s10822-007-9160-9</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXhsVKrtbzO</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Benigni</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Bossa</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Predictivity of QSAR</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2008</year>
+                <volume>48</volume>
+                <fpage>971</fpage>
+                <lpage>980</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci8000088</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXkvFartLk%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Tetko</surname>
+                    <given-names>IV</given-names>
+                  </name>
+                  <name>
+                    <surname>Sushko</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Pandey</surname>
+                    <given-names>AK</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Tropsha</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Papa</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Öberg</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Todeschini</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Fourches</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Varnek</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Critical assessment of QSAR models of environmental toxicity against <italic>Tetrahymena pyriformis</italic>: focusing on applicability domain and overfitting by variable selection</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2008</year>
+                <volume>48</volume>
+                <fpage>1733</fpage>
+                <lpage>1746</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci800151m</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXhtVaru7bF</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Weaver</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Gleeson</surname>
+                    <given-names>MP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The importance of the domain of applicability in QSAR modeling</article-title>
+                <source>J Mol Graph Model</source>
+                <year>2008</year>
+                <volume>26</volume>
+                <fpage>1315</fpage>
+                <lpage>1326</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.jmgm.2008.01.002</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXlvVWnt78%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Johnson</surname>
+                    <given-names>DE</given-names>
+                  </name>
+                  <name>
+                    <surname>Wolfgang</surname>
+                    <given-names>GI</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Predicting human safety: screening and computational approaches</article-title>
+                <source>Drug Discov Today.</source>
+                <year>2000</year>
+                <volume>5</volume>
+                <fpage>445</fpage>
+                <lpage>454</lpage>
+                <pub-id pub-id-type="doi">10.1016/S1359-6446(00)01559-2</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bassan</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Worth</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The integrated use of models for the properties and effects of chemicals by means of a structured workflow</article-title>
+                <source>QSAR Comb Sci</source>
+                <year>2008</year>
+                <volume>27</volume>
+                <fpage>6</fpage>
+                <lpage>20</lpage>
+                <pub-id pub-id-type="doi">10.1002/qsar.200710119</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXlt1Wgsbk%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Walker</surname>
+                    <given-names>JD</given-names>
+                  </name>
+                  <name>
+                    <surname>Carlsen</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Jaworska</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Improving opportunities for regulatory acceptance of QSARs: the importance of model domain, uncertainty, validity and predictability</article-title>
+                <source>Quant Struct-Act Rel</source>
+                <year>2003</year>
+                <volume>22</volume>
+                <fpage>6</fpage>
+                <lpage>20</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Snedecor</surname>
+                    <given-names>GW</given-names>
+                  </name>
+                  <name>
+                    <surname>Cochran</surname>
+                    <given-names>WG</given-names>
+                  </name>
+                </person-group>
+                <source>Statistical Methods</source>
+                <year>1989</year>
+                <edition>8</edition>
+                <publisher-loc>Ames, IA</publisher-loc>
+                <publisher-name>Iowa State Press</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kleinknecht</surname>
+                    <given-names>RE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Error estimation in PLS latent variable structure</article-title>
+                <source>J Chemometrics</source>
+                <year>1996</year>
+                <volume>10</volume>
+                <fpage>687</fpage>
+                <lpage>695</lpage>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1099-128X(199609)10:5/6&lt;687::AID-CEM469>3.0.CO;2-O</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2sXjtV2jt7k%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Denham</surname>
+                    <given-names>MC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Prediction intervals in partial least squares</article-title>
+                <source>J Chemometrics</source>
+                <year>1997</year>
+                <volume>11</volume>
+                <fpage>39</fpage>
+                <lpage>52</lpage>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1099-128X(199701)11:1&lt;39::AID-CEM433>3.0.CO;2-S</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2sXjs1ekt7k%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Faber</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Kowalski</surname>
+                    <given-names>BR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Propagation of measurement errors for the validation of predictions obtained by principal component regression and partial least squares</article-title>
+                <source>J Chemometrics</source>
+                <year>1997</year>
+                <volume>11</volume>
+                <fpage>181</fpage>
+                <lpage>238</lpage>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1099-128X(199705)11:3&lt;181::AID-CEM459>3.0.CO;2-7</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2sXjslKitb4%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Morsing</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Ekman</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comments on construction of confidence intervals in connection with partial least squares</article-title>
+                <source>J Chemometrics</source>
+                <year>1998</year>
+                <volume>12</volume>
+                <fpage>295</fpage>
+                <lpage>299</lpage>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1099-128X(199807/08)12:4&lt;295::AID-CEM510>3.0.CO;2-T</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK1cXlslChu7w%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wold</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Validation of QSARs</article-title>
+                <source>Quant Struct-Act Rel</source>
+                <year>1991</year>
+                <volume>10</volume>
+                <fpage>191</fpage>
+                <lpage>193</lpage>
+                <pub-id pub-id-type="doi">10.1002/qsar.19910100302</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK38XltVyrsg%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Clark</surname>
+                    <given-names>RD</given-names>
+                  </name>
+                  <name>
+                    <surname>Sprous</surname>
+                    <given-names>DG</given-names>
+                  </name>
+                  <name>
+                    <surname>Leonard</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Höltje</surname>
+                    <given-names>H-D</given-names>
+                  </name>
+                  <name>
+                    <surname>Sippl</surname>
+                    <given-names>W</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Validating models based on large data sets</article-title>
+                <source>Rational Approaches to Drug Design</source>
+                <year>2001</year>
+                <publisher-loc>Barcelona</publisher-loc>
+                <publisher-name>Prous Science</publisher-name>
+                <fpage>475</fpage>
+                <lpage>485</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Golbraikh</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Tropsha</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Beware of q2!</article-title>
+                <source>J Mol Graph Model</source>
+                <year>2002</year>
+                <volume>20</volume>
+                <fpage>269</fpage>
+                <lpage>276</lpage>
+                <pub-id pub-id-type="doi">10.1016/S1093-3263(01)00123-1</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3MXpt1art7o%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Golbraikh</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Tropsha</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Predictive QSAR modeling based on diversity sampling of experimental datasets for the training and test set selection</article-title>
+                <source>J Comput-Aided Mol Des</source>
+                <year>2002</year>
+                <volume>16</volume>
+                <fpage>357</fpage>
+                <lpage>269</lpage>
+                <pub-id pub-id-type="doi">10.1023/A:1020869118689</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD38Xot12ruro%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Clark</surname>
+                    <given-names>RD</given-names>
+                  </name>
+                  <name>
+                    <surname>Fox</surname>
+                    <given-names>PC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Statistical variation in progressive scrambling</article-title>
+                <source>J Comput Aided Mol Des.</source>
+                <year>2004</year>
+                <volume>18</volume>
+                <issue>7-9</issue>
+                <fpage>563</fpage>
+                <lpage>576</lpage>
+                <pub-id pub-id-type="doi">10.1007/s10822-004-4077-z</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXltVaktg%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hawkins</surname>
+                    <given-names>DM</given-names>
+                  </name>
+                  <name>
+                    <surname>Basak</surname>
+                    <given-names>SC</given-names>
+                  </name>
+                  <name>
+                    <surname>Mills</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Assessing model fit by cross-validation</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <fpage>579</fpage>
+                <lpage>586</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci025626i</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXlsFartA%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sutherland</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                  <name>
+                    <surname>O'Brien</surname>
+                    <given-names>LA</given-names>
+                  </name>
+                  <name>
+                    <surname>Weaver</surname>
+                    <given-names>DF</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A Comparison of methods for modeling quantitative structure-activity relationships</article-title>
+                <source>J Med Chem</source>
+                <year>2004</year>
+                <volume>47</volume>
+                <fpage>3777</fpage>
+                <lpage>3787</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm049896z</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXkvVGhtLg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bush</surname>
+                    <given-names>BL</given-names>
+                  </name>
+                  <name>
+                    <surname>Nachbar</surname>
+                    <given-names>RB</given-names>
+                    <suffix>Jr</suffix>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Sample-distance partial least squares: PLS optimized for many variables, with application to CoMFA</article-title>
+                <source>J Comput-Aided Mol Des</source>
+                <year>1993</year>
+                <volume>7</volume>
+                <fpage>587</fpage>
+                <lpage>619</lpage>
+                <pub-id pub-id-type="doi">10.1007/BF00124364</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2cXis1Ghs7s%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cramer</surname>
+                    <given-names>RD</given-names>
+                    <suffix>III</suffix>
+                  </name>
+                  <name>
+                    <surname>Patterson</surname>
+                    <given-names>DE</given-names>
+                  </name>
+                  <name>
+                    <surname>Bunce</surname>
+                    <given-names>JD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comparative molecular field analysis (CoMFA). 1. Effect of shape on binding of steroids to carrier proteins</article-title>
+                <source>J Am Chem Soc</source>
+                <year>1988</year>
+                <volume>110</volume>
+                <fpage>5959</fpage>
+                <lpage>5967</lpage>
+                <pub-id pub-id-type="doi">10.1021/ja00226a005</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaL1cXltVCqsbs%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cramer</surname>
+                    <given-names>RD</given-names>
+                    <suffix>III</suffix>
+                  </name>
+                  <name>
+                    <surname>DePriest</surname>
+                    <given-names>SA</given-names>
+                  </name>
+                  <name>
+                    <surname>Patterson</surname>
+                    <given-names>DE</given-names>
+                  </name>
+                  <name>
+                    <surname>Hecht</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Kubinyi</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The developing practice of comparative molecular field analysis</article-title>
+                <source>3D QSAR in Drug Design: Theory, Methods and Applications</source>
+                <year>1993</year>
+                <publisher-loc>Leiden</publisher-loc>
+                <publisher-name>ESCOM</publisher-name>
+                <fpage>443</fpage>
+                <lpage>485</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kroemer</surname>
+                    <given-names>RT</given-names>
+                  </name>
+                  <name>
+                    <surname>Hecht</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Guessregen</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Liedl</surname>
+                    <given-names>KR</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Kubinyi</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Folkers</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Martin</surname>
+                    <given-names>YC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Improving the predictive quality of models</article-title>
+                <source>3D QSAR in Drug Design</source>
+                <year>1998</year>
+                <publisher-loc>Dordrecht</publisher-loc>
+                <publisher-name>Kluewer/ESCOM</publisher-name>
+                <fpage>41</fpage>
+                <lpage>56</lpage>
+                <pub-id pub-id-type="doi">10.1007/0-306-46858-1_3</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Heritage</surname>
+                    <given-names>TW</given-names>
+                  </name>
+                  <name>
+                    <surname>Lowis</surname>
+                    <given-names>DR</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Parrill</surname>
+                    <given-names>AL</given-names>
+                  </name>
+                  <name>
+                    <surname>Reddy</surname>
+                    <given-names>MR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Molecular Hologram QSAR</article-title>
+                <source>Rational Drug Design: Novel Methodology and Practical Applications, ACS Symposium Series 719</source>
+                <year>1999</year>
+                <publisher-loc>Washington DC</publisher-loc>
+                <publisher-name>American Chemical Society</publisher-name>
+                <fpage>212</fpage>
+                <lpage>225</lpage>
+                <pub-id pub-id-type="doi">10.1021/bk-1999-0719.ch014</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Tong</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Lowis</surname>
+                    <given-names>DR</given-names>
+                  </name>
+                  <name>
+                    <surname>Perkins</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Welsh</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Goddette</surname>
+                    <given-names>DW</given-names>
+                  </name>
+                  <name>
+                    <surname>Heritage</surname>
+                    <given-names>TW</given-names>
+                  </name>
+                  <name>
+                    <surname>Sheehan</surname>
+                    <given-names>DM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Evaluation of quantitative structure-activity relationship methods for large-scale prediction of chemicals binding to the estrogen receptor</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1998</year>
+                <volume>38</volume>
+                <fpage>669</fpage>
+                <lpage>677</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci980008g</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK1cXkt1Whur8%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Seel</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Turner</surname>
+                    <given-names>DB</given-names>
+                  </name>
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Effect of parameter variations on the effectiveness of HQSAR analyses</article-title>
+                <source>Quant Struc-Act Rel</source>
+                <year>1999</year>
+                <volume>18</volume>
+                <fpage>245</fpage>
+                <lpage>252</lpage>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1521-3838(199907)18:3&lt;245::AID-QSAR245>3.0.CO;2-O</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK1MXlt12mtbY%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chavatte</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Yous</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Marot</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Baurin</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Lesieur</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Three-dimensional quantitative structure-activity relationships of cyclooxygenase-2 (COX-2) inhibitors: a comparative molecular field analysis</article-title>
+                <source>J Med Chem</source>
+                <year>2001</year>
+                <volume>44</volume>
+                <fpage>3223</fpage>
+                <lpage>3230</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm0101343</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3MXmsVyrtrw%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Clark</surname>
+                    <given-names>RD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Boosted leave-many-out cross-validation: the effect of training set and test set diversity on PLS statistics</article-title>
+                <source>J Comput-Aided Mol Des</source>
+                <year>2003</year>
+                <volume>17</volume>
+                <fpage>265</fpage>
+                <lpage>275</lpage>
+                <pub-id pub-id-type="doi">10.1023/A:1025366721142</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXmsVGnsLs%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Clark</surname>
+                    <given-names>RD</given-names>
+                  </name>
+                  <name>
+                    <surname>Patterson</surname>
+                    <given-names>DE</given-names>
+                  </name>
+                  <name>
+                    <surname>Soltanshahi</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Blake</surname>
+                    <given-names>JF</given-names>
+                  </name>
+                  <name>
+                    <surname>Matthew</surname>
+                    <given-names>JB</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Visualizing substructural fingerprints</article-title>
+                <source>J Mol Graph Model</source>
+                <year>2000</year>
+                <volume>18</volume>
+                <fpage>404</fpage>
+                <lpage>411</lpage>
+                <pub-id pub-id-type="doi">10.1016/S1093-3263(00)00065-6</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3cXotVOitrw%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Agrafiotis</surname>
+                    <given-names>DK</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Stochastic Proximity Embedding</article-title>
+                <source>J Comput Chem</source>
+                <year>2003</year>
+                <volume>24</volume>
+                <fpage>1215</fpage>
+                <lpage>1221</lpage>
+                <pub-id pub-id-type="doi">10.1002/jcc.10234</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXlsVeqtr4%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Clark</surname>
+                    <given-names>RD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">OptiSim: an extended dissimilarity selection method for finding diverse representative subsets</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1997</year>
+                <volume>37</volume>
+                <fpage>1181</fpage>
+                <lpage>1188</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci970282v</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2sXmvF2qsLk%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Clark</surname>
+                    <given-names>RD</given-names>
+                  </name>
+                  <name>
+                    <surname>Langton</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Balancing representativeness against diversity using optimizable <italic>K</italic>-dissimilarity and hierarchical clustering</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1998</year>
+                <volume>38</volume>
+                <fpage>1079</fpage>
+                <lpage>1086</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci980107u</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK1cXmt1yiu7k%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Clark</surname>
+                    <given-names>RD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Getting past diversity in assessing virtual library designs</article-title>
+                <source>J Brazil Chem Soc</source>
+                <year>2002</year>
+                <volume>13</volume>
+                <fpage>788</fpage>
+                <lpage>794</lpage>
+                <pub-id pub-id-type="doi">10.1590/S0103-50532002000600009</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXntVWntQ%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="other">Clark RD, Shepphird JK, Holliday J: The effect of structural redundancy in validation sets on virtual screening performance. J Chemometrics.</mixed-citation>
+            </ref>
+            <ref id="CR46">
+              <label>46.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>KK</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Kubinyi</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Nonlinear dependence in comparative molecular field analysis</article-title>
+                <source>3D QSAR in Drug Design Theory, Methods and Applications</source>
+                <year>1993</year>
+                <publisher-loc>Leiden</publisher-loc>
+                <publisher-name>ESCOM</publisher-name>
+                <fpage>71</fpage>
+                <lpage>82</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR47">
+              <label>47.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Embrechts</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Szymanski</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Sternickel</surname>
+                    <given-names>K</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Ovaska</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Introduction to scientific data mining: Direct kernel methods and applications</article-title>
+                <source>Computationally Intelligent Hybrid Systems: The Fusion of Soft Computing and Hard Computing</source>
+                <year>2005</year>
+                <publisher-loc>New York</publisher-loc>
+                <publisher-name>Wiley</publisher-name>
+                <fpage>317</fpage>
+                <lpage>362</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR48">
+              <label>48.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Haranczyk</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Holliday</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comparison of similarity coefficients for clustering and compound selection</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2008</year>
+                <volume>48</volume>
+                <fpage>498</fpage>
+                <lpage>509</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci700413a</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXitlejtL4%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR49">
+              <label>49.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gasteiger</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Marsili</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Iterative partial equalization of orbital electronegativity – a rapid access to atomic charges</article-title>
+                <source>Tetrahedron</source>
+                <year>1980</year>
+                <volume>36</volume>
+                <fpage>3219</fpage>
+                <lpage>3228</lpage>
+                <pub-id pub-id-type="doi">10.1016/0040-4020(80)80168-2</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaL3MXhslCjtbs%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR50">
+              <label>50.</label>
+              <mixed-citation publication-type="other">SYBYL, v 8.0. 2008, Tripos International: St. Louis, MO</mixed-citation>
+            </ref>
+            <ref id="CR51">
+              <label>51.</label>
+              <mixed-citation publication-type="other">Benchware DataMiner, v. 1.6. 2007, Tripos International: St. Louis, MO</mixed-citation>
+            </ref>
+            <ref id="CR52">
+              <label>52.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bush</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <source>SAMPLS: SAMple-driven Partial Least Squares</source>
+                <year>1993</year>
+                <publisher-loc>Merck &amp; Co., Inc.</publisher-loc>
+                <publisher-name>Rahway, NJ</publisher-name>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec17">
+              <title>Authors’ original submitted files for images</title>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM1" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_11_MOESM1_ESM.jpeg" mimetype="image" mime-subtype="jpeg"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_11_MOESM2_ESM.jpeg" mimetype="image" mime-subtype="jpeg"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_11_MOESM3_ESM.jpeg" mimetype="image" mime-subtype="jpeg"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_11_MOESM4_ESM.jpeg" mimetype="image" mime-subtype="jpeg"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_11_MOESM5_ESM.jpeg" mimetype="image" mime-subtype="jpeg"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_11_MOESM6_ESM.jpeg" mimetype="image" mime-subtype="jpeg"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_11_MOESM7_ESM.jpeg" mimetype="image" mime-subtype="jpeg"><caption xml:lang="en"><p>Authors’ original file for figure 7</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM8" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_11_MOESM8_ESM.jpeg" mimetype="image" mime-subtype="jpeg"><caption xml:lang="en"><p>Authors’ original file for figure 8</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM9" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_11_MOESM9_ESM.jpeg" mimetype="image" mime-subtype="jpeg"><caption xml:lang="en"><p>Authors’ original file for figure 9</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM10" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_11_MOESM10_ESM.jpeg" mimetype="image" mime-subtype="jpeg"><caption xml:lang="en"><p>Authors’ original file for figure 10</p></caption></media></supplementary-material></p>
+            </sec>
+          </app>
+        </app-group>
+        <glossary>
+          <title>Abbreviations</title>
+          <def-list>
+            <def-item>
+              <term>ANN</term>
+              <def>
+                <p>artificial neural network</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>BLUE</term>
+              <def>
+                <p>best linear unbiased estimator</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CoMFA</term>
+              <def>
+                <p>comparative molecular field analysis</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CV</term>
+              <def>
+                <p>cross-validation</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>
+                <italic>d</italic>
+              </term>
+              <def>
+                <p>distance</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>
+                <italic>δ</italic>
+              </term>
+              <def>
+                <p>predictive error for a compound outside the training set</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>
+                <italic>e</italic>
+              </term>
+              <def>
+                <p>residual error for a compound in the training set</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>eNLM</term>
+              <def>
+                <p>embedded non-linear mapping</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>HQSAR</term>
+              <def>
+                <p>hologram QSAR</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>LOO</term>
+              <def>
+                <p>leave-one-out</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PCA</term>
+              <def>
+                <p>principal components analysis</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>DPRESS</term>
+              <def>
+                <p>distributed predictive error sum of squares</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PLS</term>
+              <def>
+                <p>partial least squares with projection to latent structures</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PRESS</term>
+              <def>
+                <p>predictive error sum of squares</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>QSAR</term>
+              <def>
+                <p>quantitative structure/activity relationship</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>
+                <italic>s</italic>
+              </term>
+              <def>
+                <p>standard error for a sample</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>SPL</term>
+              <def>
+                <p>SYBYL programming language.</p>
+              </def>
+            </def-item>
+          </def-list>
+        </glossary>
+        <notes notes-type="Misc">
+          <title>Competing interests</title>
+          <p>The author was formerly an employee of Tripos International, which holds exclusive rights to the CoMFA and HQSAR technologies used here to illustrate the use of DPRESS. Tripos provided the SYBYL program to Biochemical Infometrics but did not provide funding for the work described herein.</p>
+        </notes>
+      </back>
+    </article>

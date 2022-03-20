@@ -1,0 +1,901 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">BMC1758-2946-1-17</article-id>
+          <article-id pub-id-type="manuscript">17</article-id>
+          <article-id pub-id-type="doi">10.1186/1758-2946-1-17</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Software</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">OrChem - An open source chemistry search engine for Oracle<sup>®</sup></article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" corresp="yes">
+              <name>
+                <surname>Rijnbeek</surname>
+                <given-names>Mark</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDBMC17582946117_cor1">a</xref>
+            </contrib>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Steinbeck</surname>
+                <given-names>Christoph</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.225360.0</institution-id>
+                <institution-id institution-id-type="ISNI">0000000097097726</institution-id>
+                <institution content-type="org-division">Cheminformatics and Metabolism</institution>
+                <institution content-type="org-name">European Bioinformatics Institute (EBI)</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Wellcome Trust Genome Campus</addr-line>
+              <addr-line content-type="city">Cambridge</addr-line>
+              <country>UK</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDBMC17582946117_cor1">
+              <label>a</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>22</day>
+            <month>10</month>
+            <year>2009</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2009</year>
+          </pub-date>
+          <volume>1</volume>
+          <issue seq="17">1</issue>
+          <elocation-id>17</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>31</day>
+              <month>7</month>
+              <year>2009</year>
+            </date>
+            <date date-type="received">
+              <day>31</day>
+              <month>7</month>
+              <year>2009</year>
+            </date>
+            <date date-type="accepted">
+              <day>22</day>
+              <month>10</month>
+              <year>2009</year>
+            </date>
+            <date date-type="online">
+              <day>22</day>
+              <month>10</month>
+              <year>2009</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© Rijnbeek and Steinbeck; licensee BioMed Central Ltd. 2009</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-year>2009</copyright-year>
+            <copyright-holder>Rijnbeek and Steinbeck; licensee BioMed Central Ltd.</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="url">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+            </license>
+          </permissions>
+          <abstract id="Abs1" xml:lang="en">
+            <title>Abstract</title>
+            <sec id="ASec1">
+              <title>Background</title>
+              <p>Registration, indexing and searching of chemical structures in relational databases is one of the core areas of cheminformatics. However, little detail has been published on the inner workings of search engines and their development has been mostly closed-source. We decided to develop an open source chemistry extension for Oracle, the de facto database platform in the commercial world.</p>
+            </sec>
+            <sec id="ASec2">
+              <title>Results</title>
+              <p>Here we present OrChem, an extension for the Oracle 11G database that adds registration and indexing of chemical structures to support fast substructure and similarity searching. The cheminformatics functionality is provided by the Chemistry Development Kit. OrChem provides similarity searching with response times in the order of seconds for databases with millions of compounds, depending on a given similarity cut-off. For substructure searching, it can make use of multiple processor cores on today's powerful database servers to provide fast response times in equally large data sets.</p>
+            </sec>
+            <sec id="ASec3">
+              <title>Availability</title>
+              <p>OrChem is free software and can be redistributed and/or modified under the terms of the GNU Lesser General Public License as published by the Free Software Foundation. All software is available via <ext-link xlink:href="http://orchem.sourceforge.net" ext-link-type="url">http://orchem.sourceforge.net</ext-link>.</p>
+            </sec>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Tanimoto Similarity</kwd>
+            <kwd>Slave Process</kwd>
+            <kwd>Parallel Query</kwd>
+            <kwd>Substructure Search</kwd>
+            <kwd>Graph Match Algorithm</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Chemistry Central</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>22</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2009</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2009</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>7</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>31</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2009_Article_17.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-1-17" ext-link-type="doi">10.1186/1758-2946-1-17</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p>Registration, indexing and searching of chemical structures in relational databases is one of the core areas of cheminformatics [<xref ref-type="bibr" rid="CR1">1</xref>, <xref ref-type="bibr" rid="CR2">2</xref>]. Research on the topic goes back to the 1960s and probably before that [<xref ref-type="bibr" rid="CR3">3</xref>]. However, little detail has been published on the inner workings of search engines and developments have been mostly closed-source. This has led to the situation that despite more than thirty years of research and publications very few open reference code is available for use and study. The cheminformatics open source community [<xref ref-type="bibr" rid="CR4">4</xref>] has been working since the mid 1990s to overcome this problematic situation. Our group has contributed to this by creating and developing the Chemistry Development Kit (CDK) [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR6">6</xref>], now co-developed with collaborators world-wide as well as NMRShiftDB, an NMR database which provides a MySQL-based open source system for the registration and searching of chemical compounds in a relational database [<xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR8">8</xref>]. In the meantime, three projects dedicated to the development of chemical registry and search capabilities for PostgreSQL (project PGChem) [<xref ref-type="bibr" rid="CR9">9</xref>], MySQL (project MyChem) [<xref ref-type="bibr" rid="CR10">10</xref>] and Oracle (project OrChem) [<xref ref-type="bibr" rid="CR11">11</xref>] have been established under the umbrella of the ChemiSQL-Project (pronounced "chemiscule") [<xref ref-type="bibr" rid="CR12">12</xref>]. Here we report about our development of OrChem, an open source software package which adds registration and chemical search capabilities to the Oracle 11G database system. OrChem is a mix of PL/SQL and Java that executes inside the database. Figure <xref rid="Fig1" ref-type="fig">1</xref> gives an overview of OrChem's main components, showing how the user interacts with OrChem via PL/SQL packages that call out to so called "Java Stored Procedures" [<xref ref-type="bibr" rid="CR13">13</xref>]. Starting with Oracle 11 g there is a just-in-time (JIT) compiler for the Oracle JVM environment. A just-in-time (JIT) compiler is a program that converts Java bytecode into machine language instructions which makes Java run much faster than when the bytecode is executed by an interpreter.<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>OrChem overview</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_17_Fig1_HTML.jpg" /></p></fig></p>
+          <p>OrChem is built on top of the Chemistry Development Kit (CDK) [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR6">6</xref>] and depends on this Java library in numerous ways. For example, compounds are represented internally as CDK molecule objects, the CDK's I/O package is used to retrieve compound data, and its subgraph isomorphism algorithms are used for substructure validation. OrChem adds its own Java layer on top of the CDK to implement fast database storage and retrieval. With the CDK loaded into Oracle, a large cheminformatics library becomes readily available to PL/SQL. With little effort developers can build database functions around the CDK and so quickly implement chemistry extensions for Oracle. OrChem works in the same way, using the CDK where possible.</p>
+        </sec>
+        <sec id="Sec2">
+          <title>Fingerprinting</title>
+          <p>OrChem uses chemical fingerprints to find compounds by substructure or similarity criteria. Fingerprints are bitsets in which each bit indicates the presence or absence of a particular chemical aspect. During a similarity search the fingerprints are used to calculate a Tanimoto measure [<xref ref-type="bibr" rid="CR14">14</xref>]. A Tanimoto similarity measure between two binary fingerprints is defined by the ratio of the number of common bits set to one to the total number of bits set to one in the two fingerprints [<xref ref-type="bibr" rid="CR15">15</xref>]. For substructure searching the fingerprint has a different function: it is used to screen possible candidates before a computationally more expensive isomorphism test.</p>
+          <p>For both substructure and similarity searching OrChem uses the same fingerprint that currently measures around 800 bits in size and uses both structural keys and hashed values. With structural keys each position in the bit string corresponds to a pre-defined structure or molecular feature. A hashed fingerprint is produced by generating all possible linear paths of connected molecules containing between one and a defined number of atoms, and projecting the hash values of the resulting strings onto the small set of bits in the fingerprint in a deterministic manner [<xref ref-type="bibr" rid="CR16">16</xref>].</p>
+          <p>In the OrChem fingerprint the first approximately one hundred bits are reserved for hashing three-atom SMILES strings. If a compound contains for example "C-C:S" then bit number 20 will be set, as the calculated hash value is 20 for this particular example. A hash value is calculated consistently for each pattern encountered. We only take three-atom SMILES into account because these yield a distinct yet relatively small amount of possible combinations, all of which can be properly hashed into the limited amount of bits reserved for the hashed key in the fingerprint.</p>
+          <p>Hashing in general decreases the accuracy of Tanimoto scoring because different chemical aspects will hash to the same bit position. However the benefit of hashing lies in flagging relatively rare patterns. Rare SMILES patterns would normally not be part of a structural key because assigning an explicit bit would be wasteful, but by hashing all size three patterns into a range of bit positions the infrequent patterns still leave their mark and this can speed up substructure searches. The OrChem fingerprint was at first only structural and structure searches for an unusual SMILES pattern like "O:C:O" saw many compounds being screened in vain. The current fingerprint hashes "O:C:O" to a bit position and this helps to narrow down the set of candidates significantly.</p>
+          <p>Coming after the hashed part, the structural key in the OrChem fingerprint starts around bit position one hundred. The structural key was initially based on the PubChem fingerprint [<xref ref-type="bibr" rid="CR17">17</xref>, <xref ref-type="bibr" rid="CR18">18</xref>] but the current version differs from it in various ways. OrChem for instance flags specific SMILES patterns that have proved discriminating for searching compounds like those in ChEMBL [<xref ref-type="bibr" rid="CR19">19</xref>]. Numerous bits are reserved to capture ring aspects: clusters of rings are detected and aspects of these clusters are fingerprinted, like the occurrence of a ring size three attached to a ring size five. With regards to the common rings of size five and six, OrChem creates textual descriptors for every connected set of three of these encountered and incorporates this information into the fingerprint. Example textual descriptors are "5DLM" and or "6SHH", the meaning being as follows:</p>
+          <p>
+            <list list-type="bullet">
+              <list-item>
+                <p>Character 1: {"6","5"} indicates if the ring triplet contains strictly 6-size rings or otherwise (up to three) 5-size rings</p>
+              </list-item>
+              <list-item>
+                <p>Character 2: {"S","D"} indicates bond nature, S means single bonds only, D double bonds (possibly aromatic) also present</p>
+              </list-item>
+              <list-item>
+                <p>Character 3: {"L","H"} indicates connectivity, H means some atom participates in all 3 rings (tightly coupled)</p>
+              </list-item>
+              <list-item>
+                <p>Character 4: {"L","M","H"} indicates shared bonds between rings in the triplet: Low = 0,1,2 Med = 3,4 High = 5..n</p>
+              </list-item>
+            </list>
+          </p>
+          <p>The aim of these descriptors is to characterize particular constellations of common sized rings, to identify structures that look normal purely based on the ring sizes but may be in fact rare due to the way the rings are connected together in a cluster.</p>
+          <p>Future OrChem releases may see the structural key further extended for improvement of specific search types. For now, in summary the fingerprint captures the following aspects:</p>
+          <p>
+            <list list-type="bullet">
+              <list-item>
+                <p>hashed three-atom SMILES strings</p>
+              </list-item>
+              <list-item>
+                <p>element counts</p>
+              </list-item>
+              <list-item>
+                <p>atom pairs</p>
+              </list-item>
+              <list-item>
+                <p>atom nearest neighbours</p>
+              </list-item>
+              <list-item>
+                <p>common SMILES patterns</p>
+              </list-item>
+              <list-item>
+                <p>individual rings: size, aromaticity, elements</p>
+              </list-item>
+              <list-item>
+                <p>ring clusters: cluster size, what ring sizes in the cluster</p>
+              </list-item>
+              <list-item>
+                <p>5/6 size ring triplets: how are rings connected, how many atoms and bonds are shared</p>
+              </list-item>
+              <list-item>
+                <p>long carbon trails: longer series of (non aromatic) carbon molecules</p>
+              </list-item>
+              <list-item>
+                <p>infrequent SMILES patterns (grouped per bit)</p>
+              </list-item>
+            </list>
+          </p>
+          <p>Figure <xref rid="Fig2" ref-type="fig">2</xref> shows the frequency distribution of OrChem fingerprint bits for all compounds in the ChEMBL database. The dual nature of the fingerprint is clearly visible: the first part shows a randomly distributed hashed key, followed by the ordered structural key. Ordering the structural key by occurrence of bits makes sense because the bits get indexed using composite B-tree indexes. Clustering rare bits at the tail of the fingerprint makes the corresponding indexes small and provide an obvious pick for the Oracle optimizer.<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>OrChem fingerprint distribution in Chembl database</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_17_Fig2_HTML.jpg" /></p></fig></p>
+        </sec>
+        <sec id="Sec3">
+          <title>Similarity searching</title>
+          <p>With the fingerprint in place OrChem can perform fast similarity searches. The algorithm for similarity searching is taken from a paper by S. Joshua Swamidass and Pierre Baldi [<xref ref-type="bibr" rid="CR15">15</xref>].</p>
+          <p>The algorithm proves to work well and allows the search to break out when a minimal given similarity is reached, whilst completeness of the output is guaranteed. For Orchem the similarity search has been implemented as a Java stored procedure that returns an array of results. The current function accepts SMILES and Molfiles for a query and a cut-off value between 0 and 1 to indicate minimum required similarity. Optional arguments allow the user to indicate a cap to indicate the maximum number of results required, and whether or not to display debugging information. The select statement below shows a query example to find compounds with a similarity of seventy percent or more to the given SMILES string:</p>
+          <p>select *</p>
+          <p>from table(orchem_simsearch.search</p>
+          <p>('CCCCCC[C@H]1CC[C@H]2CCCC[C@]12C','SMILES',0.7))}</p>
+          <p>At the center of the similarity search is a table called orchem_fingprint_simsearch, pictured in Table <xref rid="Tab1" ref-type="table">1</xref>. The implemented algorithm uses the bitmap indexed column bit_count to first inspect compounds for which the number of bits set to one is the same as that of query molecule. After that it works its way through compounds with a bit count close to that of the query until it is done, that is until the minimum similarity has been reached or until the result set size satisfies the user. Column fp in the similarity table stores a byte array representation of the fingerprint. This raw data column allows the similarity search to quickly read bytes from the database, convert these to Java bitsets and use those for bitwise comparisons to obtain a Tanimoto similarity score.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Database table with fingerprints optimized for similarity searching</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" colspan="2"><p>TABLE orchem_fingprint_simsearch</p></th></tr></thead><tbody><tr><td align="left"><p>id</p></td><td align="left"><p>VARCHAR2(32)</p></td></tr><tr><td align="left"><p>bit_count</p></td><td align="left"><p>NUMBER(4)</p></td></tr><tr><td align="left"><p>fp</p></td><td align="left"><p>RAW(100)</p></td></tr></tbody></table></table-wrap></p>
+        </sec>
+        <sec id="Sec4">
+          <title>Substructure searching</title>
+          <sec id="Sec5">
+            <title>Prescreening</title>
+            <p>Chemical fingerprints can be used to quickly pre-screen candidates likely to contain a given query as a substructure [<xref ref-type="bibr" rid="CR20">20</xref>]. Due to the degeneracy of bits in a fingerprint, this leads to false positives. The screened set of candidates thus needs further inspection by an isomorphism algorithm to detect if the substructure is truly present or not. A substructure search is therefore a two step process - ideally the first step uses the fingerprint to screen accurately so that the computationally more expensive second step will have a high ratio of positive verifications. The other way around, if the first step is not efficient, the second step will have to inspect too many compounds that don't contain the substructure at all.</p>
+            <p>The screening process is in essence a bitwise comparison between the two fingerprints of a query and a candidate structure. Any bit set to true in the query fingerprint must be set to true in a candidate fingerprint. OrChem implements this comparison using a dedicated database table that is partly listed in Table <xref rid="Tab2" ref-type="table">2</xref>. Database table orchem_fingprint_subsearch has a separate column for each bit in the fingerprint; this is different from the table for similarity searching that has a single raw data column to store an entire fingerprint. The reason behind this difference is that for similarity searching the bitwise operation is done in Java with binary bitsets, whereas the substructure screening uses the separate bit columns to construct a dynamic SQL clause instead. This bit-column based "where" clause instructs the database to select compounds for which bits in the fingerprint set to "1" include those set to "1" in the query structure. For instance a substructure search for "P = O" will have OrChem create a SQL clause using the three bits that are set in the fingerprint of "P = O". The pre-screening query will resemble:<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Database table with fingerprints optimized for substructure searching</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" colspan="2"><p>TABLE orchem_fingprint_subsearch</p></th></tr></thead><tbody><tr><td align="left"><p>id</p></td><td align="left"><p>VARCHAR2(80)</p></td></tr><tr><td align="left"><p>atoms</p></td><td align="left"><p>VARCHAR2(4000)</p></td></tr><tr><td align="left"><p>bonds</p></td><td align="left"><p>VARCHAR2(4000)</p></td></tr><tr><td align="left"><p>bit0</p></td><td align="left"><p>VARCHAR2(1)</p></td></tr><tr><td align="left"><p>bit1</p></td><td align="left"><p>VARCHAR2(1)</p></td></tr><tr><td align="left"><p><italic>etc...</italic></p></td><td /></tr><tr><td align="left"><p>bit799</p></td><td align="left"><p>VARCHAR2(1)</p></td></tr></tbody></table></table-wrap></p>
+            <p>select ...</p>
+            <p>from orchem_fingprint_subsearch</p>
+            <p>where bit472='1' and bit477='1' and bit480='1'}</p>
+            <p>The meaning of the bits is not relevant here, the point is that the OrChem prescreening process is essentially done through a SQL clause filtering for indexed bit columns that correspond to bits set in the fingerprint of the query. The bitwise comparison is thus replaced entirely by a single SQL statement with no need for computationally expensive Java.</p>
+          </sec>
+          <sec id="Sec6">
+            <title>Exact search for subgraph isomorphism</title>
+            <p>For each compound that passes the prescreening process, a graph matching algorithm needs to establish whether the query indeed occurs as a substructure or not. Molecules can easily be interpreted as graphs with atoms being nodes and bonds being edges. The graph matching in Orchem is done by a CDK Java implementation of the VF2 algorithm [<xref ref-type="bibr" rid="CR21">21</xref>]. VF2 is a graph matching algorithm that has been shown to perform better than the Ullmann algorithm for small graphs, and much better than Ullmann for large graphs. Compared to the original VF algorithm, VF2 lowers the memory requirements from O(n<sup>2</sup>) to O(n) with respect to the number of nodes in the graphs.</p>
+            <p>VF2 is a fast backtracking algorithm that tries to match each node in a query graph to a node in a target graph. OrChem further improves VF2 performance by reorganizing the query graph beforehand by sorting the nodes (atoms) and edges (bonds). A primary sort is done based on the uniqueness of elements and a secondary sort on bond connectivity. Essentially the sort moves the rare nodes up to be matched first: if the query structure is C16H14N2O9S then it is best to let VF2 try to match sulfur first, then the nitrogens, then the oxygens et cetera. The secondary sort on bond connectivity can be useful if the query does not contain distinctive atoms but has distinctive structures such as ring groups in which some atoms are more connected than others.</p>
+            <p>The performance of the Java VF2 implementation mainly depends on the complexity and characteristics of the molecular input graphs. The algorithm may need to get recursively deep, or may need to explore many possible mappings, making the graph matching algorithm the computationally expensive part of the substructure search.</p>
+          </sec>
+          <sec id="Sec7">
+            <title>Query example</title>
+            <p>The developer can submit an OrChem substructure search through package orchem_subsearch:</p>
+            <p>select *</p>
+            <p>from table (orchem_subsearch.search</p>
+            <p>('S:C:C','SMILES',1000))</p>
+            <p>The example shows a substructure search for SMILES "S:C:C" with a break out after 1000 results through an optional argument that emulates the ROWNUM column. Under the hood the SMILES string will be fingerprinted, a prescreen query will be constructed based on it and then executed with the Oracle Optimizer picking the most suitable index available for the bit columns. Each candidate will be verified using VF2 and only valid superstructures will be returned. The substructure search function is <italic>pipelined</italic>, so rows are returned iteratively as they are produced without having to wait for the entire collection to be constructed. This allows developers to build web interfaces refreshing at a constant interval while presenting the results returned so far to the user.</p>
+          </sec>
+        </sec>
+        <sec id="Sec8">
+          <title>Performance</title>
+          <sec id="Sec9">
+            <title>General</title>
+            <p>OrChem has been tested extensively on a release of the ChEMBL database (former Starlite) with around 420,000 compounds. Additional tests were done on a random PubChem data sample of 3.5 million compounds in order to assess performance on a larger data set. All tests were done on Oracle 11.1.0.7 installed on an eight CPU quad core 32 Gb RedHat Linux server at the EBI. With regards to performance, it is good to keep in mind that the initial run of any Java stored procedure incurs a lot of overhead. Even a first call to a simple 'helloWorld()' program takes a while to complete, but following calls then respond immediately. Orchem's search performance improves after a few queries have been issued and the fingerprint data starts to accumulate in the buffer cache where data can be accessed faster than by reading from disk. The tables that support similarity and substructure searching are created with the cache option, so the more memory assigned to the SGA the better the performance will be.</p>
+          </sec>
+          <sec id="Sec10">
+            <title>Similarity searching</title>
+            <p>Similarity searches typically show a more consistent performance than substructure searches. To obtain a similarity score it is sufficient to compare fingerprint bitsets, and the time to complete a similarity search depends mainly on the required minimum Tanimoto similarity. Tests on ChEMBL show query throughput times in the order of split-seconds to seconds for high (<italic>></italic>0.75) similarity, improving once the fingerprints start getting cached. Similar tests on the PubChem sample (3.5 million compounds) show a longer cache "warm up" time and give throughput times in the order of several seconds or longer, again mostly depending on the similarity cut-off. Figure <xref rid="Fig3" ref-type="fig">3</xref> illustrates performance for searching the PubChem sample and also shows a table with average numbers with regards to query throughput time and result set sizes.<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>Similarity search throughput time for different minimal Tanimoto similarity</bold>. Explanation of graph: one hundred randomly sampled compounds were used to query for all similar compounds, repeated for different minimum Tanimoto similarities. Searches were done in the PubChem sample of 3.5 million compounds. As the similarity cutoff increases, performance goes up: finding all compounds similar to compound X with at least a Tanimoto similarity of 0.8 (= 80% similar) is faster than finding (many more) compounds that are 50% similar.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_17_Fig3_HTML.jpg" /></p></fig></p>
+          </sec>
+          <sec id="Sec11">
+            <title>Substructure searching</title>
+            <p>As described before, substructure searching is done as a two-step process with a prescreening step followed by a VF2 isomorphism check. In the isomorphism algorithm each screened database compound needs to be materialized as a CDK molecule to be able to compare it to the query structure. It can however be expensive to materialize thousands of molecules on the fly using database Molfiles, particularly with regards to calculation of aromaticity. Instead, OrChem stores data for each molecule in columns atoms and bonds of table orchem_fingprint_subsearch during the fingerprinting process. These columns provide a quick way to materialize a basic CDK molecule to be passed into the VF2 algorithm. The data structures used are quite straightforward, for instance with data in column atom "C O" interpreted as: "atom 0 is Carbon, atom 1 is Oxygen" and bond column "0 1 D Y" then implying "there is a bond between C (atom 0) and O (atom 1) that is double (D) and aromatic is true (Y)". In this way, CDK molecules can be generated very fast without the need for calculating any properties during the search.</p>
+          </sec>
+          <sec id="Sec12">
+            <title>Parallel substructure searching</title>
+            <p>Oracle allows parallel execution of table functions [<xref ref-type="bibr" rid="CR13">13</xref>] and this feature can be used to speed up Or-Chem substructure searching. A parallel table function returns a collection and is executed in a two-stage operation. First, one set of slave processes partitions the data as directed in the function's declaration; then a second set of slave scans executes the table function in parallel on the partitioned data. The following statement illustrates the concept, with <italic>f</italic> being the function to be run in parallel, taking a ref cursor input argument to partition the data.</p>
+            <p>select *</p>
+            <p>from table(f(cursor(select * from tab)))</p>
+            <p>Although the VF2 isomorphism algorithm is an ideal candidate for a parallel approach, going parallel is not always the best solution. OrChem can execute <italic>non-parallel</italic> queries relatively fast providing the query structure itself has sufficient unique features. The prescreening step for a discriminating query will normally yield a small set of database candidate compounds that can quickly be scanned with VF2. In such as case a non-parallel search can actually run faster than a parallel search because there is not much VF2 workload and no parallel overhead is incurred. But most importantly, the non-parallel search can use the regular B-tree indexes on the bit columns in table orchem_fingprint_subsearch whereas a parallel query can not.</p>
+            <p>In general, to parallelize any query Oracle must access at least one of the tables through a full table scan or an index through a range scan involving multiple partitions. In the case of Orchem this means that table orchem_fingprint_subsearch must be accessed with full table scans, but this is not always the best option. When queries are done on a database with several million compounds the indexed approach can outperform the parallel approach easily if the index can be used to quickly narrow down a small set of candidates. Furthermore the performance of a parallel query depends on a number of factors, one of them being the hardware on which the Oracle instance runs, with the more CPU cores the better. The performance also depends on the size of the database, the type of the query (specific/generic) and the volume of the result set. Tests at the EBI show that parallel queries in general perform well on the ChEMBL dataset, even if a query is very specific and an indexed approach would be quicker. This can be explained by the fact that the specific EBI hardware can run very fast full table scans on a dataset the size of ChEMBL. For larger databases this no longer holds true, as full scans become quite expensive even when run in parallel.</p>
+            <p>The invocation of a parallel substructure search needs to be done in two steps due to the underlying implementation - possibly in a later release this can be simplified. Below is an example query as done on the command line. First the substructure search is quickly set up, in this case for SMILES "C:O:C:N". A key is retrieved and this key is then used to perform the actual parallel search:</p>
+            <p>> var key number;</p>
+            <p>> exec :key :=</p>
+            <p>orchem_subsearch_par.setup('C:O:C:N','SMILES')</p>
+            <p>> select * from table</p>
+            <p>(orchem_subsearch_par.search(:key,1000)</p>
+            <p>The parallel table function works best for general queries with high volumes of data being processed and many positive verifications being returned, the VF2 workload shared over several slave processes. This can be observed when selecting the first <italic>n</italic> results for a common substructure pattern like "C:C:C:C:N" with <italic>n</italic> set to a high value. Figure <xref rid="Fig4" ref-type="fig">4</xref> shows a graph for a "C:C:C:C:N" query done against the PubChem sample: the parallel function identifies the first 5000 results in 3.5 seconds whereas the single process takes 22.5 seconds. The parallel approach clearly benefits from doing the VF2 isomorphism checks spread over multiple parallel processes, which becomes even more obvious when <italic>n</italic> is further increased to 25000. However to add to the picture, figure <xref rid="Fig5" ref-type="fig">5</xref> shows what happens with a similar test for "C:O:C:O". This structure happens to occur only once in the entire data set, and the <italic>non-parallel</italic> function can use a fast index scan on the bit columns of orchem_fingprint_subsearch to quickly find three possible candidates with the right combination of fingerprint bits. One compound is then verified by VF2 to be a superstructure of "C:O:C:O" (compound is shown in the graph). The parallel approach at the other hand needs to make full table scans, albeit in parallel, and takes more than forty seconds to find the same single result. The benefit of fast parallel VF2 execution does not apply now and the elapse time is spent scanning rows that meet the rare bit combination, without being able to use any index for this. Finally in figure <xref rid="Fig6" ref-type="fig">6</xref> we have a graph with throughput times for a sampled set of sixty random structures used to do a parallel substructure searching with different breakout values. The graph shows quite a spread in total throughput time, with the time to return up to 100,000 verified results varying between 20 seconds and more than three minutes, all depending on the complexity of the query, the quality of the fingerprint and the occurrence rate of the structure. Either way users can see results streamed back before completion because data is piped back as soon as it becomes available.<fig id="Fig4"><label>Figure 4</label><caption xml:lang="en"><p><bold>Performance of substructure search for "C:C:C:C:N" on 3.5 million compounds</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_17_Fig4_HTML.jpg" /></p></fig><fig id="Fig5"><label>Figure 5</label><caption xml:lang="en"><p><bold>Performance of substructure search for "C:O:C:O" on 3.5 million compounds</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_17_Fig5_HTML.jpg" /></p></fig><fig id="Fig6"><label>Figure 6</label><caption xml:lang="en"><p><bold>Parallel substructure search throughput time on 3.5 million compounds</bold>. Explanation of graph: sixty sampled substructures were used as a query for a parallel substructure search in the PubChem sample of 3.5 million compounds. The same searches were repeated with different maximum number of rows requested: 1000 (bottom), 10,000 (middle) and 100,000 (top). The graph displays the total throughput time in seconds but users can view the intermediate output generally faster as the search function spools ('pipes') results as they become available. Fastest throughput times are observed for query structures that commonly exist in compounds, resulting in high a success ratio of the VF2 isomorphism algorithm.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_17_Fig6_HTML.jpg" /></p></fig></p>
+            <p>In conclusion the given examples show how the database content and the nature of the query determine the difference in performance between the parallel and the non-parallel substructure search. Which one is fastest depends mainly on the size of the database, the number of results requested (limited or all) and the size of the prescreened compound set. The smaller the pre-screened set is the less attractive a parallel full scan normally is - but it is hard to find exact rules. On top of that performance also depends on other factors such as the server hardware and the quality of the query's fingerprint. To make the search process more user friendly, we plan to find heuristic rules to be incorporated into a generic search function that will decide for the user whether to take a parallel approach or not.</p>
+          </sec>
+        </sec>
+        <sec id="Sec13">
+          <title>OrChem Installation</title>
+          <p>This paragraph briefly describes the OrChem installation process. A complete step-by-step description of the installation can be found in manuals on the project's web pages [<xref ref-type="bibr" rid="CR11">11</xref>]. The first step is to create a new schema and necessary database elements (tables, indexes, packages) and to load required Java libraries into it. Users have to provide details of the base table containing the actual compound data, presumed to be present in another schema. Next a procedure needs to run to create a fingerprint for every compound. Each fingerprint captures the chemical aspects of a compound and is stored in the database. The amount of time it takes to create all fingerprints depends on the amount and complexity of the compounds and on the capacity of the database server. As a performance indication, at the EBI we fingerprinted over 400,000 compounds in an hour, running a parallel process with DBMS_JOB on an Oracle instance hosted on a multi-processor Linux server. Once the fingerprinting procedure has finished, installation is complete and OrChem can perform compound searches.</p>
+        </sec>
+        <sec id="Sec14">
+          <title>OrChem future development</title>
+          <p>A number of features have been identified to be implemented in coming releases:</p>
+          <p>
+            <list list-type="bullet">
+              <list-item>
+                <p>The current version of OrChem expects the user's compound table to have MDL Molfiles to work with. This will be extended to include other common data formats such as CML.</p>
+              </list-item>
+              <list-item>
+                <p>OrChem should be able to deal with R-group and SMARTS queries and to ignore bond order on request. These features have in common that wildcards should be allowed to widen the search, and the challenge will be to not only interpret these wildcards but also to keep performance acceptable.</p>
+              </list-item>
+              <list-item>
+                <p>At present, OrChem development has not put particular emphasis on stereochemical searches. OrChem needs to be able to distinguish between stereoisomers and provide substructure search criteria related to stereoisomerism.</p>
+              </list-item>
+              <list-item>
+                <p>More of the CDK needs to be exposed through PL/SQL API's, for example CDK functions to calculate QSAR/QSPR descriptors or chemical properties.</p>
+              </list-item>
+              <list-item>
+                <p>The similarity search will benefit from an option to run in parallel, and more types of similarity scoring should be added to complement the current default Tanimoto scoring.</p>
+              </list-item>
+              <list-item>
+                <p>Along the same lines we might want to experiment with different types of fingerprints.</p>
+              </list-item>
+              <list-item>
+                <p>Pharmacophore searches could be added to take into account 3D arrangements of molecular features.</p>
+              </list-item>
+            </list>
+          </p>
+        </sec>
+        <sec id="Sec15" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p>We have presented OrChem, an open source extension for the Oracle 11G database platform that adds registration and indexing of chemical structures to support fast substructure and similarity searching. OrChem provides core cheminformatics functionality but is only in its first release and by no means a finished product. Developers who are interested to further extend OrChem are invited to participate through Sourceforge to make it a truly collaborative project. We also encourage users to submit suggestions and requests for functionality through the mailing list "orchem-devel@lists.sourceforge.net".</p>
+        </sec>
+        <sec id="Sec16">
+          <title>Availability and requirements</title>
+          <p><italic>Project name</italic>: OrChem</p>
+          <p><italic>Project home page</italic>: <ext-link xlink:href="http://orchem.sourceforge.net/" ext-link-type="url">http://orchem.sourceforge.net/</ext-link></p>
+          <p><italic>Operating system</italic>: Platform independent</p>
+          <p><italic>language</italic>: Java 1.5 or higher</p>
+          <p><italic>Database system</italic>: Oracle 11 g (with JRE 1.5)</p>
+          <p><italic>Comm. restrictions</italic>: None</p>
+        </sec>
+        <sec id="Sec17">
+          <title>License</title>
+          <p>OrChem is released under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>We are grateful to John Overington and Bissan Al-Lazikani for making the ChEMBL database available to us for testing. We thank the Pubchem team for assembling this great collection of molecular structures and for opening up their fingerprint definition. Our particular thanks go to the Chemistry Development Kit (CDK) community for helping us to build this great resource. Finally we'd like to thank Federico Paoli from Siena Biotech for participating in OrChem development.</p>
+        </ack>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hagadone</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Michael</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Integrating chemical structures into an extended relational database system</article-title>
+                <source>Chemical Structures 2: The International Language of Chemistry: Proceedings of the 2nd International Conference</source>
+                <year>1995</year>
+                <fpage>257</fpage>
+                <lpage>269</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hagadone</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Schulz</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Capturing Chemical Structure Information in a Relational Database System: The Chemical Software Component Approach</article-title>
+                <source>Journal of Chemical Information and Computer Sciences</source>
+                <year>1995</year>
+                <volume>35</volume>
+                <issue>5</issue>
+                <fpage>879</fpage>
+                <lpage>884</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2MXnvFSrsbw%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Frome</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Searching Chemical Structures</article-title>
+                <source>Journal of Chemical Documentation</source>
+                <year>1964</year>
+                <fpage>43</fpage>
+                <lpage>45</lpage>
+                <comment>10.1021/c160012a009</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Guha</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Howard</surname>
+                    <given-names>MT</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                  <name>
+                    <surname>Murray-Rust</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Rzepa</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Wegner</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The Blue Obelisk - Interoperability in Chemical Informatics</article-title>
+                <source>Journal of Chemical Information and Modelling</source>
+                <year>2005</year>
+                <volume>46</volume>
+                <issue>3</issue>
+                <fpage>991</fpage>
+                <lpage>998</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci050400b</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Han</surname>
+                    <given-names>YQ</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuhn</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Horlacher</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Luttmann</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The Chemistry Development Kit (CDK): An open-source Java library for chemo- and bioinformatics</article-title>
+                <source>Journal of chemical information and computer sciences</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <issue>2</issue>
+                <fpage>493</fpage>
+                <lpage>500</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXhtVaktbg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Hoppe</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuhn</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Guha</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Recent Developments of The Chemistry Development Kit (CDK) - An Open-Source Java Library for Chemo- and Bioinformatics</article-title>
+                <source>Current pharmaceutical design</source>
+                <year>2006</year>
+                <volume>12</volume>
+                <issue>17</issue>
+                <fpage>2111</fpage>
+                <lpage>2120</lpage>
+                <pub-id pub-id-type="doi">10.2174/138161206777585274</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XmslWqsL0%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Krause</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuhn</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">NMRShiftDB - Constructing a free chemical information system with open-source components</article-title>
+                <source>Journal of chemical information and computer sciences</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <issue>6</issue>
+                <fpage>1733</fpage>
+                <lpage>1739</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXotlaltrc%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuhn</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">NMRShiftDB - compound identification and structure elucidation support through a free community-build web database</article-title>
+                <source>Phytochemistry</source>
+                <year>2004</year>
+                <volume>65</volume>
+                <issue>19</issue>
+                <fpage>2711</fpage>
+                <lpage>2717</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.phytochem.2004.08.027</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXotF2hs7w%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="other">The PGChem project. 2004, [<ext-link xlink:href="http://pgfoundry.org/projects/pgchem/" ext-link-type="url">http://pgfoundry.org/projects/pgchem/</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="other">The MyChem project. 2004, [<ext-link xlink:href="http://mychem.sourceforge.net" ext-link-type="url">http://mychem.sourceforge.net</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="other">The OrChem project. 2004, [<ext-link xlink:href="http://orchem.sourceforge.net" ext-link-type="url">http://orchem.sourceforge.net</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="other">The ChemiSQL umbrella project for Open Source chemical search engines. 2004, [<ext-link xlink:href="http://chemdb.sourceforge.net" ext-link-type="url">http://chemdb.sourceforge.net</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="other">Oracle 11.1 database Java developer's guide (B31225-03). [<ext-link xlink:href="http://tinyurl.com/yh5kb7r" ext-link-type="url">http://tinyurl.com/yh5kb7r</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chemical Similarity Searching</article-title>
+                <source>Journal of Chemical Information and Modeling</source>
+                <year>1998</year>
+                <volume>38</volume>
+                <issue>6</issue>
+                <fpage>983</fpage>
+                <lpage>996</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci9800211</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK1cXks1ynu74%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Swamidass</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Baldi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Bounds and algorithms for fast exact searches of chemical fingerprints in linear and sublinear time</article-title>
+                <source>Journal of Chemical Information and Modeling</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <issue>2</issue>
+                <fpage>302</fpage>
+                <lpage>317</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci600358f</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXitFCms7w%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Leach</surname>
+                    <given-names>AR</given-names>
+                  </name>
+                  <name>
+                    <surname>Gillet</surname>
+                    <given-names>VJ</given-names>
+                  </name>
+                </person-group>
+                <source>An Introduction to Chemoinformatics</source>
+                <year>2007</year>
+                <fpage>255</fpage>
+                <pub-id pub-id-type="doi">10.1007/978-1-4020-6291-9</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sayers</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Barrett</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Benson</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Bryant</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Database resources of the national center for biotechnology information</article-title>
+                <source>Nucleic Acids Research</source>
+                <year>2009</year>
+                <volume>37</volume>
+                <fpage>D5</fpage>
+                <lpage>D15</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gkn741</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXhsFejt7fN</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="other">Definitions of PubChem fingerprints. 2004, [<ext-link xlink:href="ftp://ftp.ncbi.nlm.nih.gov/pubchem/specifications/pubchem_fingerprints.txt" ext-link-type="url">ftp://ftp.ncbi.nlm.nih.gov/pubchem/specifications/pubchem_fingerprints.txt</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="other">The ChEMBL project at the European Bioinformatics Institute. 2004, [<ext-link xlink:href="http://www.ebi.ac.uk/chembl" ext-link-type="url">http://www.ebi.ac.uk/chembl</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Barnard</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Substructure searching methods: Old and new</article-title>
+                <source>Journal of Chemical Information and Modeling</source>
+                <year>1993</year>
+                <volume>33</volume>
+                <issue>4</issue>
+                <fpage>532</fpage>
+                <lpage>538</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci00014a001</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK3sXkslWrurY%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cordella</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Foggia</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Sansone</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Vento</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An improved algorithm for matching large graphs</article-title>
+                <source>Proc of the 3rd IAPR-TC-15 International Workshop ..</source>
+                <year>2001</year>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec18">
+              <title>Authors’ original submitted files for images</title>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM1" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_17_MOESM1_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_17_MOESM2_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_17_MOESM3_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_17_MOESM4_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_17_MOESM5_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_17_MOESM6_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material></p>
+            </sec>
+          </app>
+        </app-group>
+        <notes notes-type="Misc">
+          <title>Competing interests</title>
+          <p>The authors declare that they have no competing interests.</p>
+        </notes>
+        <notes notes-type="Misc">
+          <title>Authors' contributions</title>
+          <p>MR designed and implemented the software and drafted most of the manuscript. CS guided the development process and provided expertise on usage of the CDK. Both authors performed testing of the application, and approved the final manuscript.</p>
+        </notes>
+      </back>
+    </article>

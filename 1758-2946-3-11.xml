@@ -1,0 +1,1409 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">BMC1758-2946-3-11</article-id>
+          <article-id pub-id-type="manuscript">126</article-id>
+          <article-id pub-id-type="doi">10.1186/1758-2946-3-11</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Interpreting linear support vector machine models with heat map molecule coloring</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" corresp="yes">
+              <name>
+                <surname>Rosenbaum</surname>
+                <given-names>Lars</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDBMC17582946311_cor1">a</xref>
+            </contrib>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Hinselmann</surname>
+                <given-names>Georg</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Jahn</surname>
+                <given-names>Andreas</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Zell</surname>
+                <given-names>Andreas</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.10392.39</institution-id>
+                <institution-id institution-id-type="ISNI">0000000121901447</institution-id>
+                <institution content-type="org-name">University of Tübingen, Center for Bioinformatics (ZBIT)</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Sand 1</addr-line>
+              <addr-line content-type="postcode">72076</addr-line>
+              <addr-line content-type="city">Tübingen</addr-line>
+              <country country="DE">Germany</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDBMC17582946311_cor1">
+              <label>a</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>25</day>
+            <month>3</month>
+            <year>2011</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2011</year>
+          </pub-date>
+          <volume>3</volume>
+          <issue seq="11">1</issue>
+          <elocation-id>11</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>31</day>
+              <month>12</month>
+              <year>2010</year>
+            </date>
+            <date date-type="received">
+              <day>31</day>
+              <month>12</month>
+              <year>2010</year>
+            </date>
+            <date date-type="accepted">
+              <day>25</day>
+              <month>3</month>
+              <year>2011</year>
+            </date>
+            <date date-type="online">
+              <day>25</day>
+              <month>3</month>
+              <year>2011</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© Rosenbaum et al; licensee Chemistry Central Ltd. 2011</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-year>2011</copyright-year>
+            <copyright-holder>Rosenbaum et al; licensee Chemistry Central Ltd.</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="url">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+            </license>
+          </permissions>
+          <abstract id="Abs1" xml:lang="en">
+            <title>Abstract</title>
+            <sec id="ASec1">
+              <title>Background</title>
+              <p>Model-based virtual screening plays an important role in the early drug discovery stage. The outcomes of high-throughput screenings are a valuable source for machine learning algorithms to infer such models. Besides a strong performance, the interpretability of a machine learning model is a desired property to guide the optimization of a compound in later drug discovery stages. Linear support vector machines showed to have a convincing performance on large-scale data sets. The goal of this study is to present a heat map molecule coloring technique to interpret linear support vector machine models. Based on the weights of a linear model, the visualization approach colors each atom and bond of a compound according to its importance for activity.</p>
+            </sec>
+            <sec id="ASec2">
+              <title>Results</title>
+              <p>We evaluated our approach on a toxicity data set, a chromosome aberration data set, and the maximum unbiased validation data sets. The experiments show that our method sensibly visualizes structure-property and structure-activity relationships of a linear support vector machine model. The coloring of ligands in the binding pocket of several crystal structures of a maximum unbiased validation data set target indicates that our approach assists to determine the correct ligand orientation in the binding pocket. Additionally, the heat map coloring enables the identification of substructures important for the binding of an inhibitor.</p>
+            </sec>
+            <sec id="ASec3">
+              <title>Conclusions</title>
+              <p>In combination with heat map coloring, linear support vector machine models can help to guide the modification of a compound in later stages of drug discovery. Particularly substructures identified as important by our method might be a starting point for optimization of a lead compound. The heat map coloring should be considered as complementary to structure based modeling approaches. As such, it helps to get a better understanding of the binding mode of an inhibitor.</p>
+            </sec>
+            <sec>
+              <fig id="Figa" position="anchor">
+                <p>
+                  <graphic position="anchor" specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2010_Article_126_Figa_HTML.gif" />
+                </p>
+              </fig>
+            </sec>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Support Vector Machine</kwd>
+            <kwd>Linear Support Vector Machine</kwd>
+            <kwd>Linear Discriminant Function</kwd>
+            <kwd>Fingerprint Feature</kwd>
+            <kwd>External Prediction</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Chemistry Central</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>54</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2011</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2010</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>12</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>31</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2010_Article_126.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-3-11" ext-link-type="doi">10.1186/1758-2946-3-11</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Background</title>
+          <p>High-throughput screenings (HTS) play an important role in the early drug discovery stage. The data of these HTS are a valuable, but challenging resource for machine learning algorithms to infer predictive structure-activity relationship models for virtual screening [<xref ref-type="bibr" rid="CR1">1</xref>]. In later stages of drug discovery, a lead compound is optimized for desired biophysical properties. However, as a lead compound becomes increasingly tailored to a target, there is generally less tolerance for introducing changes without an intrinsic affinity penalty [<xref ref-type="bibr" rid="CR2">2</xref>]. Thus, besides a strong performance, the reasons that lead to a prediction of a compound as active or inactive is important for a medicinal chemist in lead optimization.</p>
+          <p>Recent examples of interpretable methods applied to cheminformatic problems include Naïve Bayes, decision trees, and k-nearest neighbor approaches. Bender et al. [<xref ref-type="bibr" rid="CR3">3</xref>] applied Bayesian learning to radial atom environments and used the information gain to assess the significance of a substructure. Han et al. [<xref ref-type="bibr" rid="CR4">4</xref>] trained decision trees on several PubChem HTS data sets. Swamidass et al. [<xref ref-type="bibr" rid="CR5">5</xref>] introduced the Influence Relevance Voter, an interpretable method based on a supervised artificial neural network in combination with a k-nearest neighbor approach. Recently, Mohr et al. [<xref ref-type="bibr" rid="CR6">6</xref>] employed a potential support vector machine (SVM) in combination with a maximum-common subgraph kernel to predict the genotoxicity of a compound.</p>
+          <p>Using a two step procedure, Mohr et al. labeled the atoms of a compound as important or unimportant for genotoxicity. First, the design of the potential SVM allows for the assignment of weights to atoms. Second, based on the weights, an atom is classified as important for genotoxicity if a predefined threshold is exceeded.</p>
+          <p>Linear SVMs in combination with sparse molecular fingerprints showed a convincing performance on several large-scale data sets [<xref ref-type="bibr" rid="CR7">7</xref>]. In contrast to their nonlinear counterpart, linear SVMs are no black box concerning interpretability because they do not perform a nonlinear mapping from the input space to a high-dimensional feature space. Linear SVMs learn a linear discriminant function, which assigns a weight to each fingerprint feature of the input space. Recent studies [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR9">9</xref>] indicate that the interpretation of linear SVM models is possible for small regression data sets. Both approaches exploited the weights of a linear support vector regression model to extract patterns which are important for activity or selectivity against a certain protein target.</p>
+          <p>The aim of this study is to present a visualization method that allows for the interpretation of linear SVM models of large-scale data sets. We use the weights of the linear discriminant function to assign a score to each atom or bond of a compound. Based on these scores, a color is assigned to each atom or bond of a compound. We tested the visualization approach on the Kazius Ames toxicity data set [<xref ref-type="bibr" rid="CR10">10</xref>], the chromosome aberration data set compiled by Mohr et al. [<xref ref-type="bibr" rid="CR6">6</xref>], and the maximum unbiased validation data sets [<xref ref-type="bibr" rid="CR11">11</xref>].</p>
+          <p>The results show that our method is able to sensibly visualize the structure-property and structure-activity information of a linear SVM model. The heat map visualization can be combined with structure based modeling approaches to gain a better understanding of the binding mode of a compound and therefore help medicinal chemists in lead optimization.</p>
+        </sec>
+        <sec id="Sec2" sec-type="methods">
+          <title>Methods</title>
+          <sec id="Sec3">
+            <title>Nonlinear vs. linear SVM models</title>
+            <p>A virtual screening data set of <italic>l</italic> compounds can be represented as a set of <italic>l</italic> labeled fingerprints of compounds (<bold>x</bold><sub><italic>i</italic></sub>, <italic>y</italic><sub><italic>i</italic></sub> ), <italic>i</italic> = 1, ..., <italic>l</italic>, <bold>x</bold><sub><italic>i</italic></sub> = (<italic>x</italic><sub><italic>i</italic>1</sub>, ..., <italic>x</italic><sub><italic>im</italic></sub> ), <italic>x</italic><sub><italic>ij</italic></sub> ∈ ℝ, <italic>y</italic><sub><italic>i</italic></sub> ∈ {-1, +1}. In the case of binary substructure fingerprints, each <italic>x</italic><sub><italic>ij</italic></sub> ∈ {0, 1} is an indicator for the presence or absence of a pattern (or fingerprint feature) <italic>j</italic> in compound <italic>i</italic>. Every compound is labeled either as active (<italic>y</italic><sub><italic>i</italic></sub> = +1) or inactive (<italic>y</italic><sub><italic>i</italic></sub> = -1). SVMs learn a discriminant function of the form<disp-formula id="Equ1"><label>1</label><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_126_Equ1_HTML.gif" /></disp-formula></p>
+            <p>where <italic>SV</italic> = {<bold>x</bold><sub><italic>i</italic></sub>|<italic>α</italic><sub><italic>i</italic></sub> > 0} is the set of support vectors, <italic>k</italic> is the kernel function and <italic>ϕ</italic> is a mapping from the input space to a high-dimensional feature space. In general, the actual mapping <italic>ϕ</italic> is unknown. The kernel <italic>k</italic> implicitly performs the mapping and the calculation of the dot product <italic>ϕ</italic> (<bold>x</bold><sub><italic>i</italic></sub>) <sup><italic>T</italic></sup><italic>ϕ</italic> (<bold>x</bold>). Thus, in case of nonlinear SVMs, it is impossible to assess how a certain training set feature <italic>x</italic><sub><italic>ij</italic></sub> contributes to the kernel similarity <italic>k</italic>(<bold>x</bold><sub><italic>i</italic></sub> , <bold>x</bold>). Hence, nonlinear SVMs are a black box concerning interpretability.</p>
+            <p>In case of linear SVMs, the mapping <italic>ϕ</italic> is the identity, which results in a linear discriminant function of the form<disp-formula id="Equ2"><label>2</label><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_126_Equ2_HTML.gif" /></disp-formula></p>
+            <p>where the weight vector <bold>w</bold> = (<italic>w</italic><sub>1</sub>, ..., <italic>w</italic><sub><italic>m</italic></sub> ) is optimized such that the separating hyperplane defined by <italic>f</italic>(<bold>x</bold>) has maximum margin. The discriminant function is employed to predict the class <italic>sign</italic>(<italic>f</italic>(<bold>x</bold>)) of an unknown sample. The value of <italic>f</italic>(<bold>x</bold>) is called prediction value. Compounds with a prediction value close to zero are close to the separating hyperplane. Consequently, the classification can be interpreted as less certain.</p>
+            <p>The weight vector <bold>w</bold> can be expressed by<disp-formula id="Equ3"><label>3</label><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_126_Equ3_HTML.gif" /></disp-formula></p>
+            <p>Hence, the weight vector <bold>w</bold> contains the weighted features of the support vectors. The SVM assigns an <italic>α</italic> > 0 if the compound is necessary for class separation. Thus, a compound <italic>i</italic> which contains no information for class separation will have <italic>α</italic><sub><italic>i</italic></sub> = 0. Its features <italic>x</italic><sub><italic>ij</italic></sub> will not have a weight <italic>w</italic><sub><italic>j</italic></sub> ≠ 0 unless another compound with an <italic>α</italic> > 0 also contains the pattern. Additionally, the weight <italic>w</italic><sub><italic>ij</italic></sub> = <italic>α</italic><sub><italic>i</italic></sub><italic>y</italic><sub><italic>i</italic></sub><italic>x</italic><sub><italic>ij</italic></sub> of a feature of a compound with <italic>α</italic><sub><italic>i</italic></sub> > 0 is positive if the class of a compound <bold>x</bold><sub><italic>i</italic></sub> is labeled active (<italic>y</italic><sub><italic>i</italic></sub> = +1) and negative otherwise.</p>
+            <p>The linear discriminant function <italic>f</italic>(<bold>x</bold>) in combination with binary substructure fingerprints is equivalent to the Free-Wilson formulation in chemometrics [<xref ref-type="bibr" rid="CR12">12</xref>, <xref ref-type="bibr" rid="CR13">13</xref>]. The Free-Wilson formulation assigns each pattern <italic>p</italic><sub><italic>j</italic></sub> a weight <italic>w</italic><sub><italic>j</italic></sub> according to its contribution to activity. In contrast to the Free-Wilson formulation, a linear SVM model is a classification model and not a regression model. Thus, the weight of a feature does not represent the actual contribution to binding affinity, but the relative importance of a feature. Still, a linear SVM model can in principle be interpreted in the same way as a Free-Wilson model. A pattern with large positive weight is expected to be important for activity of a compound while a pattern with large negative weight should represent inactive or non relevant parts of a molecule. A pattern with a weight close to zero should be unimportant for class separation.</p>
+            <p>A more detailed description of maximum-margin based classifiers can be found in Schölkopf and Smola [<xref ref-type="bibr" rid="CR14">14</xref>] for further reading.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Molecular Encodings</title>
+            <p>For structure-based classifiers, it is common to encode the molecular graph of a compound with binary fingerprints for large-scale learning tasks in cheminformatics. Each bit of a fingerprint indicates the presence or absence of a fingerprint feature. The specific choice of molecular encoding is crucial to obtain an interpretable linear model. The employed encoding must ensure that the set of atoms or bonds which a fingerprint feature represents is available while calculating the molecular encoding. Consequently, the weight of a fingerprint feature can be mapped back to those atoms or bonds. The mapping from sets of atoms or bonds to fingerprint features needs not to be injective. If a collision occurs, the weight of a feature is mapped to all sets of atoms or bonds that caused the collision. Common molecular encodings that generate interpretable features are radial atom environments [<xref ref-type="bibr" rid="CR3">3</xref>], depth first search paths [<xref ref-type="bibr" rid="CR15">15</xref>], or extended connectivity fingerprints (ECFP) [<xref ref-type="bibr" rid="CR16">16</xref>].</p>
+            <p>We employed a variant of the ECFP to encode the molecules because ECFP features are intuitively interpretable and can be mapped back to the topology of a chemical graph. Each ECFP feature of a fingerprinted compound represents a circular substructure around a center atom. The algorithm starts with the initial atom identifier (in our case Daylight invariants [<xref ref-type="bibr" rid="CR17">17</xref>]) of the center atom and grows a circular substructure around this atom. This growing can be done implicitly, like in the original algorithm, or explicitly, like in our variant. In the original algorithm the identifiers of the alpha atoms of a center atom are used to calculate an updated identifier for the center atom. In each iteration, the identifiers of the previous iteration are used as atom identifiers. This iterative procedure implicitly grows a circular substructure around the center atom because with an increasing number of iterations the updated identifier of a center atom contains information from further and further away. Our variant does the growing of a substructure explicitly by keeping the circular substructures of the previous iteration and their possible attachment points in memory. In each iteration the circular substructures are extended at their possible attachment points using the initial atom identifiers (Figure <xref rid="Fig1" ref-type="fig">1</xref>). Both ECFP variants generate an ECFP feature for each possible center atom and iteration. We evaluated the performance of both ECFP variants and could not observe a significant difference. We employed our variant because the information contained in a feature is defined more precisely.<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>Illustration of the ECFP</bold>. Each circular substructure around a center atom represents an ECFP feature. The circular substructure is grown in each iteration at the attachment points A. Any atom can be matched on an attachment point. Aromatic bonds are marked by a dashed line.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig1_HTML.jpg" /></p></fig></p>
+            <p>To be able to look up the substructure information of an ECFP feature, we saved the mapping from fingerprint feature identifiers to circular substructures while calculating the fingerprints of a data set. Due to the hashing, which is conducted to assign a fingerprint feature identifier, it is possible that a features identifier maps to several different substructures. However, collisions can be minimized by choosing a sufficiently large hash space.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Heat map molecule coloring</title>
+            <p>To allow a medicinal chemist to interpret a linear model, it is intuitive to color each atom or bond of a molecule according to its importance for activity. This coloring is achieved by the heat map molecule coloring.</p>
+            <p>Another intuitive approach to interpret a linear model is to select all patterns that exceed a certain weight threshold, as done in a study by Fechner et al. [<xref ref-type="bibr" rid="CR8">8</xref>]. Their pattern selection approach proved to be useful on small data sets which share a common scaffold. However, preliminary experiments showed that the approach does not lead to interpretable results on large, diverse chemical data sets of assay outcomes, especially for external predictions. The top 5 ranked patterns (examples for several employed data sets can be found in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>) mostly had a significantly higher precision than expected by chance. However, the chance to find a significantly predictive pattern drops considerably with decreasing rank. Even for data sets with a promising performance (<italic>AUC</italic> > 0.9), the chance to find a singular predictive pattern in the set of selected patterns (weight ≥ 3 × <italic>σ</italic>) for the training set is small (<italic>p</italic> &lt; 0.3). This probability drops considerably for the test set. A reason for this low probability might be that several patterns that by themselves cannot separate the two classes well might separate the classes better if combined [<xref ref-type="bibr" rid="CR18">18</xref>]. For example, two patterns can perform perfectly random on their own, but can perfectly separate both classes if combined. However, combining patterns can not be accomplished by a method that inspects single patterns separately. Another reason can be the redundancy of the ECFP. The SVM might split the importance (weight) of a substructure among the redundant patterns that represent it.</p>
+            <p>Consequently, the patterns appear less important than they actually are. This problem is circumvented by the heat map coloring technique because it integrates the information of all training patterns. Hence, the importance of all redundant patterns that represent a certain substructure is fused in the coloring of a molecule. Additionally, in a chemical compound, patterns with different weights might overlap, making the interpretation unintuitive. In contrast, the information of overlapping patterns is integrated and intuitively visualized by the heat map coloring approach.</p>
+            <p>The inputs of our method are a previously trained linear SVM model, a list of compounds of interest and possibly the whole training data set depending on the employed normalization. Our method can be divided into two separate steps. First, our algorithm assigns a score to each atom and bond of a molecule based on the weights of the linear SVM model. Second, the scores are transformed to a color on a color gradient.</p>
+            <p>In this manuscript, we only performed bond coloring. Thus, we only explain the calculation of bond scores. The calculation of scores is analogous for atoms and bonds. Hence, the presented calculation of bond scores can be easily transferred to atoms if needed. We had two reasons for solely using bond coloring. Firstly, the ECFP focuses on connectivity information which can be better visualized using bond coloring. Secondly, we wanted to allow for easy element identification by using element type atom coloring. For a different fingerprinting algorithm, like radial atom environments, atom colorings might be more useful. To assign a score to each bond, our algorithm fingerprints the compounds of interest or the whole training data set again. Throughout the fingerprinting process the information, which bonds a fingerprint feature represents in a certain compound, is stored. Based on the weights of the fingerprint features, a score is assigned to each bond of a compound. The score of a bond <italic>b</italic> is equal to the sum of weights of the fingerprint features that contain the bond (Figure <xref rid="Fig2" ref-type="fig">2</xref>). Thus, the score <italic>s</italic><sub><italic>b</italic></sub> of a bond <italic>b</italic> is<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>Illustration of pattern to bond weight mapping</bold>. The weight <italic>w</italic><sub><italic>j</italic></sub> of a pattern <italic>p</italic><sub><italic>j</italic></sub> is added to the score <italic>s</italic><sub><italic>b</italic></sub> of a bond <italic>b</italic> if the bond is contained in the pattern <italic>p</italic><sub><italic>j</italic></sub>. Attachment points A can be mapped on any atom. Aromatic bonds are marked by a dashed line.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig2_HTML.jpg" /></p></fig></p>
+            <p>
+              <disp-formula id="Equ4">
+                <label>4</label>
+                <graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_126_Equ4_HTML.gif" />
+              </disp-formula>
+            </p>
+            <p>where <italic>B</italic>(<italic>f</italic>) is the set of bonds a feature <italic>f</italic> represents and <italic>w</italic>(<italic>f</italic>) is the weight of a feature <italic>f</italic> as found in the linear SVM model. In the case of ECFP features, the bonds to attachment points are included in the set of bonds a feature represents. Now, each bond of a processed compound has a score according to the weights of a trained linear SVM model. Therefore, the SVM model is responsible for assigning sensible weights if a smaller sub-fragment occurs in larger activating and non-activating fragments.</p>
+            <p>The score of a bond can not be transformed to a color directly. The score needs to be normalized to [0,1], which is achieved by<disp-formula id="Equ5"><label>5</label><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_126_Equ5_HTML.gif" /></disp-formula></p>
+            <p>where <italic>s</italic><sub><italic>max</italic></sub> and <italic>s</italic><sub><italic>min</italic></sub> are the maximum and minimum score found, respectively. Two different normalizations are possible depending on how <italic>s</italic><sub><italic>max</italic></sub> and <italic>s</italic><sub><italic>min</italic></sub> are chosen. The first method (full set normalization) chooses <italic>s</italic><sub><italic>max</italic></sub> and <italic>s</italic><sub><italic>min</italic></sub> to be the maximum and minimum score found throughout the fingerprint calculation on the whole training data set and the compounds of interest. The second approach (single molecule normalization) sets <italic>s</italic><sub><italic>max</italic></sub> and <italic>s</italic><sub><italic>min</italic></sub> to the maximum and minimum score found in the current compound.</p>
+            <p>Both normalizations have advantages and disadvantages. The full set normalization keeps the information of the prediction value differences between compounds. Generally, a compound with a larger prediction value has larger atom and bond scores. The relative differences of scores between compounds are not changed by the full set normalization. Thus, the relative differences in their prediction value are kept. A disadvantage of the full set normalization is that small differences between scores of a compound might not be visible. If the difference between two scores of a compound is small compared to the maximum score of the whole data set, then the difference is even smaller after normalization. Furthermore, the whole training data set needs to be fingerprinted again, which can take a considerable amount of computation time for large data sets. In contrast to the full set normalization, the single molecule normalization visualizes small differences in the scores of a compound better. Furthermore, the computation time is fast because only the compounds of interest need to be processed. The main disadvantage of the single molecule normalization is that the coloring does not contain any information about the overall activity because only differences within the molecule are taken into account.</p>
+            <p>Another normalization aspect concerns the calculation of the bond score <italic>s</italic><sub><italic>b</italic></sub> . In our implementation we do not take the fragment size of a fingerprint feature into account. To take the fragment size into account, the contribution of a fragment to a bond score <italic>s</italic><sub><italic>b</italic></sub> is divided by the number of bonds in the fragment. Thus, the weight of a feature is equally distributed among the bonds associated with the feature. This weight distribution lowers the influence of large fragments on the bond score <italic>s</italic><sub><italic>b</italic></sub> . However, putting the focus on smaller fragments might be less suited for large, diverse HTS data sets, where the scaffold is most important. Additionally, experiments (not shown) indicated that in case of the ECFP, the colorings are smoother without equal distribution of weights. Thus, we decided not to use equal weight distribution for our visualization.</p>
+            <p>After normalization to [0,1], a score can be transformed to a color on a color gradient. We use a color gradient from red over orange to green, where red represents the negative class and green represents the positive class. The whole gradient can be divided into two sub-gradients, one from red to orange and another one from orange to green. The first sub-gradient is used if <inline-formula id="IEq1"><inline-graphic xlink:href="MediaObjects/13321_2010_Article_126_IEq1_HTML.gif" /></inline-formula>, the second one if <inline-formula id="IEq2"><inline-graphic xlink:href="MediaObjects/13321_2010_Article_126_IEq2_HTML.gif" /></inline-formula>. The two sub-gradients result in a smooth gradient from red to green when combined. Each sub-gradient is realized by mixing each color channel (R, G, B) of the two sub-gradient colors according to the normalized bond score <inline-formula id="IEq3"><inline-graphic xlink:href="MediaObjects/13321_2010_Article_126_IEq3_HTML.gif" /></inline-formula>:<disp-formula id="Equ6"><label>6</label><graphic position="anchor" xlink:href="MediaObjects/13321_2010_Article_126_Equ6_HTML.gif" /></disp-formula></p>
+            <p>where <italic>R</italic><sub><italic>r</italic></sub> , <italic>R</italic><sub><italic>o</italic></sub> , and <italic>R</italic><sub><italic>g</italic></sub> are the values of the R color channel of the respective gradient colors red, orange, and green. The colors are mixed for each color channel separately and the resulting color (<italic>R</italic><sub><italic>mix</italic></sub><italic>,G</italic><sub><italic>mix</italic></sub><italic>,B</italic><sub><italic>mix</italic></sub> ) is assigned to the respective bond.</p>
+          </sec>
+        </sec>
+        <sec id="Sec6">
+          <title>Experimental</title>
+          <sec id="Sec7">
+            <title>Virtual screening data sets</title>
+            <p>We conducted evaluation experiments on 17 maximum unbiased validation (MUV) data sets, an Ames toxicity data set (Kazius), and a chromosome aberration (CA) data set. A detailed analysis was conducted for the Kazius data set and two of the MUV data sets.</p>
+            <p>First, we employed the 17 MUV data sets compiled by Rohrer et al. [<xref ref-type="bibr" rid="CR11">11</xref>] with their corresponding background data sets. Each of these data sets comprises 30 dissimilar active compounds together with 15,000 inactive compounds, which are similar to the actives with respect to several simple descriptors like volume, solubility, or mass. The MUV data sets are designed to avoid artificially high screening performance by inappropriate decoys. Additionally, the common spread of actives can have a positive impact on the interpretability of a model because the chance of overfitting a model on a small cluster of similar actives is minimized. Two of these data sets, MUV548 and MUV846, were subjected to a detailed analysis. MUV548 contains inhibitors of protein kinase A as actives and MUV846 contains inhibitors against factor XIa.</p>
+            <p>Second, we used the mutagenicity data set composed by Kazius et al. [<xref ref-type="bibr" rid="CR10">10</xref>]. It comprises 2401 mutagenic and 1936 non-mutagenic compounds based on the Ames toxicity test. Kazius et al. derived 29 toxicophores from the data. Using these toxicophores, they could predict the toxicity of an external test set with an accuracy of 85% which is close to the theoretical limit of the Ames toxicity test. The authors provide a list of well defined toxicophores and demonstrate their predictive power on several compounds.</p>
+            <p>Third, we employed the CA data set compiled by Mohr et al. [<xref ref-type="bibr" rid="CR6">6</xref>]. This data set consists of 351 positive and 589 negative compounds with respect to the chromosome aberration test. Mohr et al. achieved an accuracy of 89.5% on 10 predefined cross-validation folds. The data set was included because the authors' method provides visual structure-activity information on several compounds of the data set.</p>
+          </sec>
+          <sec id="Sec8">
+            <title>Experimental setup</title>
+            <p>All data sets were prepared according to the guidelines by Fourches et al. [<xref ref-type="bibr" rid="CR19">19</xref>]. The structures were canonicalized and transformed with JChem Standardizer [<xref ref-type="bibr" rid="CR20">20</xref>]. The options of Standardizer were set to neutralize, tautomerize, aromatize, calculate clean 2 D coordinates, and add explicit hydrogens. Explicit hydrogens were added because CDK [<xref ref-type="bibr" rid="CR21">21</xref>], the core library of the employed fingerprinting algorithms, requires correctly attached hydrogens bonded to an atom. Then, all employed data sets were checked for duplicates and fingerprinted using the ECFP variant with a depth of four and a hash space size of 2<sup>22</sup> to minimize collisions.</p>
+            <p>To evaluate the performance on each data set, we used a 5-fold two-deep cross-validation [<xref ref-type="bibr" rid="CR22">22</xref>] which was repeated two times. We employed the large-scale linear SVM LIBLINEAR [<xref ref-type="bibr" rid="CR23">23</xref>] to train a linear SVM model. On the CA data set we also performed an evaluation on the 10 defined splits of Mohr et al. The SVM parameter <italic>C</italic> and the weight of the negative class <italic>W</italic><sub>-1</sub> were searched using a 2-fold cross-validation.</p>
+            <p>For <italic>C</italic> we chose the grid <italic>log</italic><sub>2</sub>(<italic>C</italic>) ∈ {-5, -4, ..., 7, 8} and for <italic>W</italic><sub>-1</sub> we used the grid <italic>log</italic><sub>2</sub>(<italic>W</italic><sub>-1</sub>) ∈ {-4, -2, 0}. We also discarded uncommon features from the data before building the model. A feature had to occur at least 3 times to be included in the training. For the detailed heat map coloring analysis we used the whole data set to train a model and only left the compound of interest for analysis out. The same <italic>C</italic> and <italic>W</italic><sub>-1</sub> grids were used.</p>
+            <p>We employed two different measures to evaluate the performance on the data sets. First, the accuracy (ACC) was computed, which is the number of correctly predicted compounds divided by the total number of compounds. The accuracy is only applicable for balanced data sets like the Kazius and CA data set. Second, we employed the area under the ROC curve (AUC). The ROC curve plots the fraction of correctly predicted actives (true positive rate) against the fraction of inactives incorrectly predicted as actives (false positive rate) for every possible threshold. The AUC is applicable for all used data sets. The higher the value of both measures, the better is the performance.</p>
+            <p>All employed PDB structures were prepared with the protein preparation wizard of Schrödinger 2010 [<xref ref-type="bibr" rid="CR24">24</xref>]. The settings of the preparation wizard were set to the default settings.</p>
+          </sec>
+        </sec>
+        <sec id="Sec9">
+          <title>Results and Discussion</title>
+          <p>The results of the analysis of the 19 employed data sets are organized as follows. First, we present the performance on the employed data sets. Then, we briefly explain, why we selected MUV548, MUV846, and the Kazius data set for a detailed analysis and visualization. Finally, we demonstrate and discuss the heat map molecule coloring method on those three selected data sets.</p>
+          <sec id="Sec10">
+            <title>Selection of data sets for visualization</title>
+            <p>We selected the three data sets of the detailed analysis by two criteria. First, the performance of a linear model trained on a data set must be reasonably good because the predictive performance of a model should be crucial to obtain sensible structure-activity relationships. Second, to be able to validate the results of a visualization, literature information on structure-activity relationships of the target of a data set must be available.</p>
+            <p>The linear SVM could predict the CA data set on the 10 predefined splits with an accuracy of 72% (Table <xref rid="Tab1" ref-type="table">1</xref>), which is comparable to the nonlinear SVM performance reported by Mohr et al. Although the performance of the linear SVM is considerably worse than the method of Mohr et al. (89,5%), we chose to further analyze this data set because Mohr et al. provide visualizations of several compounds of the CA data set. We predicted all compounds that were illustrated in their study externally. All of them were either predicted wrong or had a prediction value close to zero and thus were not convincing predictions. The heat map coloring showed few overlap with the substructures identified by their visualization method, which is presumably due to the 17% lower accuracy and therefore more inaccurate model. Hence, the predictive performance of a model seems to be crucial to obtain sensible structure-activity relationships with our method.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Performance of LIBLINEAR on data sets</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Data set</p></th><th align="center"><p>Target Class</p></th><th align="center"><p>AUC</p></th><th align="center"><p>ACC</p></th></tr></thead><tbody><tr><td align="left"><p>CA</p></td><td align="center"><p>Genotoxicity</p></td><td align="center"><p>0.765</p></td><td align="center"><p>0.724</p></td></tr><tr><td align="left"><p>Kazius</p></td><td align="center"><p>Toxicity</p></td><td align="center"><p>0.912</p></td><td align="center"><p>0.842</p></td></tr><tr><td align="left"><p>MUV466</p></td><td align="center"><p>GPCR</p></td><td align="center"><p>0.644</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV548</p></td><td align="center"><p>Kinase</p></td><td align="center"><p>0.900</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV600</p></td><td align="center"><p>Nuclear Receptor</p></td><td align="center"><p>0.685</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV644</p></td><td align="center"><p>Kinase</p></td><td align="center"><p>0.893</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV652</p></td><td align="center"><p>RNAse</p></td><td align="center"><p>0.782</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV689</p></td><td align="center"><p>Kinase</p></td><td align="center"><p>0.865</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV692</p></td><td align="center"><p>Nuclear Receptor</p></td><td align="center"><p>0.584</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV712</p></td><td align="center"><p>Chaperone</p></td><td align="center"><p>0.863</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV713</p></td><td align="center"><p>PPI</p></td><td align="center"><p>0.784</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV733</p></td><td align="center"><p>PPI</p></td><td align="center"><p>0.634</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV737</p></td><td align="center"><p>PPI</p></td><td align="center"><p>0.687</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV810</p></td><td align="center"><p>Kinase</p></td><td align="center"><p>0.822</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV832</p></td><td align="center"><p>Protease</p></td><td align="center"><p>0.960</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV846</p></td><td align="center"><p>Protease</p></td><td align="center"><p>0.958</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV852</p></td><td align="center"><p>Protease</p></td><td align="center"><p>0.852</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV858</p></td><td align="center"><p>GPCR</p></td><td align="center"><p>0.669</p></td><td align="center"><p>-</p></td></tr><tr><td align="left"><p>MUV859</p></td><td align="center"><p>GPCR</p></td><td align="center"><p>0.595</p></td><td align="center"><p>-</p></td></tr></tbody></table><table-wrap-foot><p>AUC and ACC performance of LIBLINEAR on the MUV, Kazius, and chromosome aberration data sets.</p></table-wrap-foot></table-wrap></p>
+            <p>On the Kazius data set, the linear SVM achieved an accuracy of 84%, which is close to the theoretical limit of the Ames toxicity test. The convincing performance and the availability of defined toxicophores from Kazius et al. make this data set an ideal choice for a more detailed analysis.</p>
+            <p>The performance on the different MUV data sets varied between an AUC of 0.58-0.96. All data sets with kinase, protease and chaperone targets showed a promising AUC performance (0.82-0.96), whereas the protein-protein interaction and reporter gene dependent assays had a considerably worse AUC performance (0.58-0.78). It would have been interesting to analyze the data sets with a GPCR target because it is hard to get crystal structures for those targets. Therefore, information on structure-activity relationships can not be obtained from structure based modeling for GPCR targets, which would make information from our visualization valuable. However, the performance on these data sets is close to random, and thus, a visualization would not be sensible. We chose the MUV548 which can be predicted with an AUC of 0.90 and the MUV846 with an AUC of 0.958 for a detailed analysis and visualization with the heat map coloring method. The linear models of both data sets exhibit a top ranked performance compared to all data sets and plenty of literature is available for the protein targets. While the MUV832 has the best performance (0.96), there are no crystal structures, which contain a ligand similar to the data set, available. Therefore, the MUV832 was not subjected to a detailed analysis.</p>
+          </sec>
+          <sec id="Sec11">
+            <title>Visualization of Kazius Ames toxicity data set</title>
+            <p>Using a linear model of the Kazius data set, we externally predicted compounds 1028-11-1 (C<sub><italic>A</italic></sub>) and 146795-38-2 (C<sub><italic>B</italic></sub>), and applied our heat map atom coloring method with both normalization variants. Figure <xref rid="Fig3" ref-type="fig">3(A,B)</xref> shows the heat map coloring of the correctly predicted non-toxic compound C<sub><italic>A</italic></sub>. The toxic and the detoxifying substructures described by Kazius et al. could be identified with our method. However, in addition to the detoxifying sulfonamide our method also colored parts of the aromatic ring structure red (non-toxic), which is probably caused by the fact that the sulfonamide is often attached to an aromatic ring in the data set. Compound C <sub><italic>B</italic></sub> (Figure <xref rid="Fig3" ref-type="fig">3C,D</xref>) was correctly predicted as toxic. The compound contains the same aromatic nitro toxicophore as compound C<sub><italic>A</italic></sub>, which our method identified together with parts of the attached aromatic ring. In contrast to C<sub><italic>A</italic></sub>, compound C <sub><italic>B</italic></sub> is toxic because it does not contain a detoxifying sulfonamide. However, the compound has a red colored chlorobenzene substructure, which is non-toxic and not detoxifying in case of C<sub><italic>B</italic></sub>. The overall toxicity of both compounds is visualized by the full set normalization. Compound C <sub><italic>A</italic></sub> (Figure <xref rid="Fig3" ref-type="fig">3B</xref>) is more reddish compared to compound C <sub><italic>B</italic></sub> (Figure <xref rid="Fig3" ref-type="fig">3D</xref>) and therefore has a lower prediction value.<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>Kazius data set example compounds</bold>. A heat map coloring of the non-toxic compound 1028-11-1 (C<sub><italic>A</italic></sub>) and the toxic compound 146795-38-2 (C<sub><italic>B</italic></sub>). Both compounds were predicted correctly. The color gradient ranges from green (toxic) to red (non-toxic). Both, the single molecule normalization (A,C) and the full data set normalization were applied (B,D). Compound C<sub><italic>A</italic></sub> contains a correctly identified aromatic nitro toxicophore. However, the compound has a detoxifying sulfonamide as well, rendering the compound non-toxic. The sulfonamide and parts of the aromatic ring were identified as non-toxic. In compound C<sub><italic>B</italic></sub> the aromatic nitro toxicophore was also identified as toxicophore. Compound C<sub><italic>B</italic></sub> is toxic because the red chlorobenzene substructure is not a detoxifying substructure.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig3_HTML.jpg" /></p></fig></p>
+            <p>The coloring of the compounds reveals weaknesses of both normalization methods. When the single molecule normalization is applied, one can not distinguish between a non-toxic and a detoxifying substructure because the normalization can only visualize differences within the structure. Thus, it is impossible to decide if a substructure is detoxifying or non-toxic without additional information on the toxicity. Given a compound that only contains toxicophores, the most toxic substructure would be colored green and the least toxic weighted substructure would be colored red. However, the information on the toxicity of a compound is available in form of the prediction value. Thus, this weakness can be compensated. The visualization of compound C <sub><italic>A</italic></sub> (Figure <xref rid="Fig3" ref-type="fig">3B</xref>) indicates the drawbacks of the full set normalization method: While it captures the overall toxicity of the compound, the aromatic nitro toxicophore and the detoxifying sulfonamide are less distinguishable.</p>
+          </sec>
+          <sec id="Sec12">
+            <title>Visualization of MUV548 protein kinase A data set</title>
+            <p>We conducted external predictions for the ligands of the PDB entries 3MVJ (L<sub><italic>A</italic></sub>), 3DNE (L<sub><italic>B</italic></sub>), and 3DND (L<sub><italic>C</italic></sub>) using a model trained on MUV548. Then, we applied our heat map coloring to the ligands. The employed PDB entries were the most suitable ones of several crystal structures available for protein kinase A because of their similarity to the compounds contained in MUV548. The ligands of other PDB structures are more dissimilar and thus presumably not in the applicability domain of a model trained on MUV548. The crystal structures of L <sub><italic>B</italic></sub> and L <sub><italic>C</italic></sub> originate from a study by Orts et al [<xref ref-type="bibr" rid="CR25">25</xref>]. The authors used an NMR based method to determine the binding orientation of low-affinity inhibitors. The method allowed for selecting the correct binding orientation of both ligands from four different orientations gained by rotation of the ligands in the binding pocket. To elucidate if our coloring method can also assist to select the correct binding orientation, we applied our method to the ligands presented in the study of Orts et al. and additionally ligand L<sub><italic>A</italic></sub>. The crystal structure of L <sub><italic>A</italic></sub> stems from an analysis of selective inhibitors against Akt1 (PKB) [<xref ref-type="bibr" rid="CR26">26</xref>]. The ligand inhibits PKA with an <italic>IC</italic><sub>50</sub> of 3.2 <italic>μM</italic>.</p>
+            <p>The coloring of the substructures of all three ligands correlates with the substructure position in the binding pocket (Figure <xref rid="Fig4" ref-type="fig">4</xref>). Especially the position of the green colored basic aromatic ring deep in the binding pocket is conserved for the three structures. If the ligands were rotated by 180° around the <italic>y</italic> axis, the red colored (unimportant) substructures would be located deep in the binding pocket. Hence, our approach assists to find the correct orientation of the ligands if rotated around the <italic>y</italic> axis. This rotation excludes two of the possible four orientations described by Orts et al. However, in case of the presented ligands our approach can not help to discriminate between rotations around the <italic>z</italic> axis. Yet, this limitation is not a real drawback for our method because it can be applied on the data of an HTS without performing additional NMR experiments.<fig id="Fig4"><label>Figure 4</label><caption xml:lang="en"><p><bold>Orientation of different protein kinase A ligands</bold>. Binding orientation of the ligands of PDB entries 3MVJ (L<sub><italic>A</italic></sub>), 3DNE (L<sub><italic>B</italic></sub>), and 3DND (L<sub><italic>C</italic></sub>). Compounds within the binding pocket were colored with the single molecule normalization, the compounds above with the full set normalization. The color gradient ranges from green (important for activity) to red (unimportant or even decreasing for activity). The binding pocket is indicated as an exclusion surface. Substructures, which are located at similar positions in the binding pocket, were colored similarly by the heat map coloring approach.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig4_HTML.jpg" /></p></fig></p>
+            <p>The external prediction value of ligand L<sub><italic>C</italic></sub>, as indicated by the full set coloring (Figure <xref rid="Fig4" ref-type="fig">4</xref>), is lower than the prediction value of the other two ligands. On the ranked list of prediction values the ligands L <sub><italic>A</italic></sub> and L <sub><italic>B</italic></sub> are under the top 1% while the ligand L <sub><italic>C</italic></sub> is at position 4, 206 of 15,003 compounds. Hence, the coloring of L <sub><italic>C</italic></sub> could be inaccurate and changed if the ligands are included in the training set. Thus, we added all three ligands to the training set and applied the heat map coloring again. As expected, the training prediction values of all three ligands then were under the top 1% of the ranked list of training prediction values. The new position of the ligand L <sub><italic>C</italic></sub> in the ranked list was reflected by the full set normalized coloring. However, the single molecule normalized coloring did not change considerably for any of the ligands. The change in the full set normalized coloring was caused by a positive weighting of a large substructure of ligand L<sub><italic>C</italic></sub>. Re-weighting large substructures does not substantially influence weight differences within the molecule. Hence, in the case of L <sub><italic>C</italic></sub> the single molecule normalization might be more robust than the full set normalization.</p>
+            <p>The approach to compare the colorings of an external prediction and an inclusion in the training set might be a way to estimate the robustness of a coloring. While test compounds should never be included in model training when building predictive models, our intend is to build a descriptive model to identify features crucial for a molecule's molecular behavior. In the later case, inclusion of a compound for model building might be beneficial because additional information for finding important features is available. However, if the coloring of a compound changes drastically after inclusion in the model training, the descriptive model might not be sensible or structural aspects of a certain scaffold were not included. A robust model should not swap from completely meaningless features to sensible features by inclusion of just one compound in model training.</p>
+            <p>To evaluate if our visualization colors those substructures important for the interaction between a ligand and the target, we aligned the binding pockets of the crystal structures of L <sub><italic>A</italic></sub> and L <sub><italic>B</italic></sub> using Schrödinger 2010 [<xref ref-type="bibr" rid="CR24">24</xref>]. We chose L <sub><italic>A</italic></sub> and L <sub><italic>B</italic></sub> because the external prediction values of the ligands were within the top 1% of the ranked prediction value list. The important interactions of the ligands can be illustrated in comparison to the binding of ATP. The purine base of ATP is anchored in the binding pocket by hydrogen bonds to three protein residues: Glu121, Val123 and Thr183 [<xref ref-type="bibr" rid="CR27">27</xref>, <xref ref-type="bibr" rid="CR28">28</xref>]. In both compounds a basic aromatic ring substructure is marked as important for activity by the heat map coloring method (Figure <xref rid="Fig5" ref-type="fig">5</xref>). According to Schrödinger 2010, Val123 establishes an H-bond with the N1 of the pyridine of L <sub><italic>B</italic></sub> and the N1 of the pyrrolopyrimidine of L<sub><italic>A</italic></sub>. In the structure of L<sub><italic>B</italic></sub>, an additional H-bond connects Thr183 and the N1 of the indazole ring. In the structure of L<sub><italic>A</italic></sub>, Glu121 establishes an H-bond with the N7 of the pyrrolopyrimidine substructure. All H-bonds are reflected by the heat map coloring of the ligands. Additionally, the N1 of the pyrrolidine is colored as important for activity. While no interaction was detected for nitrogen N1, all active compounds of MUV548 that are based on a pyrrolopyrimidine scaffold also contain this nitrogen. Furthermore, parts of the pyrrolopyrimidine and the C5 attached methyl group of the ligand L <sub><italic>A</italic></sub> were marked as unimportant suggesting that the protein might be more flexible in this region. This flexibility assumption is supported by the form of the binding pocket of L <sub><italic>C</italic></sub> (Figure <xref rid="Fig4" ref-type="fig">4</xref>) which is not closed in the corresponding region. Consequently, the most important substructure, according to the heat map coloring approach, might be a basic aromatic ring substructure which is able to interact with Val123.<fig id="Fig5"><label>Figure 5</label><caption xml:lang="en"><p><bold>Aligned binding pockets of L</bold><sub><bold><italic>A</italic></bold></sub><bold>and L</bold><sub><bold><italic>B</italic></bold></sub>. The binding pockets of L<sub><italic>A</italic></sub> and L<sub><italic>B</italic></sub> were aligned and the ligands were colored with the single molecule normalization. The color gradient ranges from green (important for activity) to red (unimportant for activity or even decreasing). The green protein residues belong to L<sub><italic>A</italic></sub> and the orange ones to L<sub><italic>B</italic></sub>. The binding pocket is indicated as an exclusion surface. H-bonds detected by Schrödinger are indicated by a dashed line. Two similar basic aromatic rings located deep in the binding pocket are identified as important for activity.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig5_HTML.jpg" /></p></fig></p>
+          </sec>
+          <sec id="Sec13">
+            <title>Visualization of MUV846 factor XIa data set</title>
+            <p>As with protein kinase A (MUV548), a plethora of crystal structures with small compound ligands are available for factor XIa. We tested our approach on the 6 ligands of the PDB entries 1ZRK, 1ZSK, 1ZTL, 2FDA, 3BG8, and 1ZOM. We trained a model on MUV846 and conducted external predictions and heat map colorings on the ligands. All external predictions were ranked between position 3127 and 11762 on the ranked list of the prediction values of 15,006 compounds. We included all six compounds in the training set to estimate the robustness of the colorings, analogously to the setup for ligand L <sub><italic>C</italic></sub> on MUV548. All compounds, except the ligand of PDB entry 3BG8, had a considerably different coloring compared to the external prediction. Hence, in the case of these five ligands the colorings might not be robust and apparently do not reflect sensible structure-activity relationships.</p>
+            <p>PDB entry 3BG8 contains a natural product, Clavatadine A, which inhibits factor XIa with an <italic>IC</italic><sub>50</sub> of 1.3 <italic>μM</italic> [<xref ref-type="bibr" rid="CR29">29</xref>]. Clavatadine A (Figure <xref rid="Fig6" ref-type="fig">6</xref>) is cleaved by a nucleophilic serine at the carbamate bond leaving only the carbamate side chain in the protein. Although the external prediction value of Clavatadine A is not convincing (position 3127 in the ranked list), the single molecule normalized heat map coloring of Clavatadine A identifies the carbamate bond as an important substructure for activity. A closer look at the active structures of MUV846 reveals that several active compounds also contain a carbamate bond and thus might exhibit the same binding mode. As with compound C <sub><italic>A</italic></sub> of the Kazius data set the full set normalization does not yield a useful coloring for Clavatadine A. The whole compound is colored reddish, which obscures the slight differences in coloring that are visible with the single molecule normalization.<fig id="Fig6"><label>Figure 6</label><caption xml:lang="en"><p><bold>Clavatadine A</bold>. Clavatadine A colored according to a model trained on MUV846. The color gradient ranges from green (important for activity) to red (unimportant for activity). The current molecule normalization (A) and the full data set normalization (B) were both applied. The carbamate substructure is marked as important for activity.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig6_HTML.jpg" /></p></fig></p>
+          </sec>
+        </sec>
+        <sec id="Sec14" sec-type="conclusions">
+          <title>Conclusions</title>
+          <p>We presented a method to visualize structure-activity and structure-property information of a linear SVM model. The heat map coloring approach assigns a color to each atom or bond of a certain molecule according to the weights of a linear SVM model. The visualization combined with linear SVMs provide an information gain compared to black box machine learning approaches like nonlinear SVMs. The method does not only provide a prediction value to label a compound as active or inactive, but also provides reasons for the labeling. Although we only tested the visualization with linear SVMs, it should in principle not be limited to linear SVMs. The visualization only requires a machine learning algorithm to assign weights to molecular fingerprinting features. The benefit of combining the visualization with linear SVMs is their promising performance and fast computation time on large-scale data sets.</p>
+          <p>We introduced two different normalization schemes. The experiments revealed advantages and disadvantages of both normalizations. However, the single molecule normalization in combination with the prediction value might be the most valuable representation for the visualization of a compound.</p>
+          <p>We evaluated our approach on a toxicity data set, a chromosome aberration data set, and the MUV data sets. Overall, the experiments show that our method sensibly visualizes structure-property and structure-activity relationships of a linear SVM model. Thus, we conclude that our method can help to guide the modification of a compound in later stages of drug discovery.</p>
+          <p>On the Kazius data set, our method allowed for identification of the toxicophores of two example compounds and therefore might help in lead optimization to obtain a less toxic compound.</p>
+          <p>The results on the MUV data sets demonstrate that our method is able to determine the correct orientation of a compound in the binding pocket. Additionally, the heat map coloring allows for the identification of important substructures for ligand protein interactions or binding mechanisms without having protein structure information. Yet, it is impossible to elucidate the exact binding mechanism or interactions without structure based approaches. Thus, the heat map coloring should be considered as complementary to structure based approaches and as such help to get a better understanding of the binding mode of an inhibitor.</p>
+          <p>The approach is not suited for identifying important side groups of a common scaffold. This deficit is mainly caused by the diversity of the employed large-scale data sets. To allow the machine learning algorithm to focus on side groups, it is necessary to employ data sets in which all compounds share a common scaffold. However, those data sets are not in the scope of a classifier, but require regression techniques.</p>
+          <p>A focus in future studies might be the combination of heat map coloring with linear support vector regression in order to elucidate the contribution of side groups to activity or selectivity.</p>
+        </sec>
+        <sec id="Sec15">
+          <title>Availability</title>
+          <p>All employed programs are available free of charge as executable jar and source code at <ext-link xlink:href="http://www.ra.cs.uni-tuebingen.de/software/ChemHeatmap/" ext-link-type="url">http://www.ra.cs.uni-tuebingen.de/software/ChemHeatmap/</ext-link>. This includes the employed ECFP fingerprints, a modified Java version of LIBLINEAR and a graphical user interface to perform a heat map coloring of a compound. A short tutorial showing the workflow to obtain the colorings of the two compounds of the Kazius data set is also available.</p>
+        </sec>
+      </body>
+      <back>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bajorath</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Integration of virtual and high-throughput screening</article-title>
+                <source>Nat Rev Drug Discov</source>
+                <year>2002</year>
+                <volume>1</volume>
+                <fpage>882</fpage>
+                <lpage>894</lpage>
+                <pub-id pub-id-type="doi">10.1038/nrd941</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD38XotleqtLY%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bleicher</surname>
+                    <given-names>KH</given-names>
+                  </name>
+                  <name>
+                    <surname>Böhm</surname>
+                    <given-names>HJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Müller</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Alanine</surname>
+                    <given-names>AI</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Hit and lead generation: beyond high-throughput screening</article-title>
+                <source>Nat Rev Drug Discov</source>
+                <year>2003</year>
+                <volume>2</volume>
+                <fpage>369</fpage>
+                <lpage>378</lpage>
+                <pub-id pub-id-type="doi">10.1038/nrd1086</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXjslamtb8%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bender</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Mussa</surname>
+                    <given-names>HY</given-names>
+                  </name>
+                  <name>
+                    <surname>Glen</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                  <name>
+                    <surname>Reiling</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Molecular similarity searching using atom environments, information-based feature selection, and a naïve Bayesian classifier</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2004</year>
+                <volume>44</volume>
+                <fpage>170</fpage>
+                <lpage>178</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci034207y</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXhtVSis7vM</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Han</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Bryant</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Developing and validating predictive decision tree models from mining chemical structural fingerprints and high-throughput screening data in PubChem</article-title>
+                <source>BMC Bioinformatics</source>
+                <year>2008</year>
+                <volume>9</volume>
+                <fpage>401</fpage>
+                <pub-id pub-id-type="doi">10.1186/1471-2105-9-401</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Swamidass</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Azencott</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <name>
+                    <surname>Lin</surname>
+                    <given-names>TW</given-names>
+                  </name>
+                  <name>
+                    <surname>Gramajo</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Tsai</surname>
+                    <given-names>SC</given-names>
+                  </name>
+                  <name>
+                    <surname>Baldi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Influence relevance voting: an accurate and interpretable virtual high throughput screening method</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2009</year>
+                <volume>49</volume>
+                <fpage>756</fpage>
+                <lpage>766</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci8004379</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXjvVSqt7w%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mohr</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Jain</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Sutter</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Laak</surname>
+                    <given-names>AT</given-names>
+                  </name>
+                  <name>
+                    <surname>Steger-Hartmann</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Heinrich</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Obermayer</surname>
+                    <given-names>K</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A maximum common subgraph kernel method for predicting the chromosome aberration test</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2010</year>
+                <volume>50</volume>
+                <fpage>1821</fpage>
+                <lpage>1838</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci900367j</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXht1akt7zN</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hinselmann</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Rosenbaum</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Jahn</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Fechner</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Ostermann</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Zell</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Large-Scale Learning of Structure-Activity Relationships Using a Linear Support Vector Machine and Problem-specific Metrics</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2011</year>
+                <volume>51</volume>
+                <issue>2</issue>
+                <fpage>203</fpage>
+                <lpage>213</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci100073w</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3MXoslGi</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Fechner</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Hinselmann</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Jahn</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Rosenbaum</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Zell</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A Free-Wilson-like Approach to Analyze QSAR Models Based on Graph Decomposition Kernels</article-title>
+                <source>Mol Inf</source>
+                <year>2010</year>
+                <volume>29</volume>
+                <fpage>491</fpage>
+                <lpage>497</lpage>
+                <pub-id pub-id-type="doi">10.1002/minf.201000053</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXpslWksbc%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hasegawa</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Keiya</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Funatsu</surname>
+                    <given-names>K</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Visualization of Molecular Selectivity and Structure Generation for Selective Dopamine Inhibitors</article-title>
+                <source>Mol Inf</source>
+                <year>2010</year>
+                <volume>29</volume>
+                <fpage>793</fpage>
+                <lpage>800</lpage>
+                <pub-id pub-id-type="doi">10.1002/minf.201000096</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXhsVGisL7E</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kazius</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>McGuire</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Bursi</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Derivation and validation of toxicophores for mutagenicity prediction</article-title>
+                <source>J Med Chem</source>
+                <year>2005</year>
+                <volume>48</volume>
+                <fpage>312</fpage>
+                <lpage>320</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm040835a</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXhtFSlur%2FL</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rohrer</surname>
+                    <given-names>SG</given-names>
+                  </name>
+                  <name>
+                    <surname>Baumann</surname>
+                    <given-names>K</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Maximum unbiased validation (MUV) data sets for virtual screening based on PubChem bioactivity data</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2009</year>
+                <volume>49</volume>
+                <fpage>169</fpage>
+                <lpage>184</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci8002649</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXptlOhtQ%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Free</surname>
+                    <given-names>SM</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilson</surname>
+                    <given-names>JW</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A mathematical contribution to structure-activity studies</article-title>
+                <source>J Med Chem</source>
+                <year>1964</year>
+                <volume>7</volume>
+                <fpage>395</fpage>
+                <lpage>399</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm00334a001</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaF2cXkt1OltbY%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kubinyi</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Free Wilson Analysis. Theory, Applications and its Relationship to Hansch Analysis</article-title>
+                <source>Quant Struct-Act Relat</source>
+                <year>1988</year>
+                <volume>7</volume>
+                <fpage>121</fpage>
+                <lpage>133</lpage>
+                <pub-id pub-id-type="doi">10.1002/qsar.19880070303</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaL1MXhsl2hug%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schölkopf</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Smola</surname>
+                    <given-names>AJ</given-names>
+                  </name>
+                </person-group>
+                <source>Learning with kernels</source>
+                <year>2001</year>
+                <publisher-loc>Cambridge, MA, USA</publisher-loc>
+                <publisher-name>MIT Press</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ralaivola</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Swamidass</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Saigo</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Baldi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Graph kernels for chemical informatics</article-title>
+                <source>Neural Netw</source>
+                <year>2005</year>
+                <volume>18</volume>
+                <fpage>1093</fpage>
+                <lpage>1110</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.neunet.2005.07.009</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rogers</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Hahn</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Extended-Connectivity Fingerprints</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2010</year>
+                <volume>50</volume>
+                <fpage>742</fpage>
+                <lpage>754</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci100050t</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXlt1Onsbg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Weininger</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Weininger</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Weininger</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SMILES. 2. Algorithm for generation of unique SMILES notation</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1989</year>
+                <volume>29</volume>
+                <fpage>97</fpage>
+                <lpage>101</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci00062a008</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaL1MXitFWlt7s%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Guyon</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Elisseeff</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An introduction to variable and feature selection</article-title>
+                <source>J Mach Learn Res</source>
+                <year>2003</year>
+                <volume>3</volume>
+                <fpage>1157</fpage>
+                <lpage>1182</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Fourches</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Muratov</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Tropsha</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Trust, but verify: on the importance of chemical structure curation in cheminformatics and QSAR modeling research</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2010</year>
+                <volume>50</volume>
+                <fpage>1189</fpage>
+                <lpage>1204</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci100176x</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXnvVeitLk%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="other">ChemAxon: JChem 5.3.8. [<ext-link xlink:href="http://www.chemaxon.com" ext-link-type="url">http://www.chemaxon.com</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Han</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuhn</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Horlacher</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Luttmann</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The Chemistry Development Kit (CDK): an open-source Java library for Chemo- and Bioinformatics</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <fpage>493</fpage>
+                <lpage>500</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci025584y</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXhtVaktbg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jonathan</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Krzanowski</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                  <name>
+                    <surname>McCarthy</surname>
+                    <given-names>WV</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">On the use of cross-validation to assess performance in multivariate prediction</article-title>
+                <source>Stat Comput</source>
+                <year>2000</year>
+                <volume>10</volume>
+                <fpage>209</fpage>
+                <lpage>229</lpage>
+                <pub-id pub-id-type="doi">10.1023/A:1008987426876</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Fan</surname>
+                    <given-names>RE</given-names>
+                  </name>
+                  <name>
+                    <surname>Chang</surname>
+                    <given-names>KW</given-names>
+                  </name>
+                  <name>
+                    <surname>Hsieh</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>XR</given-names>
+                  </name>
+                  <name>
+                    <surname>Lin</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">LIBLINEAR: A Library for Large Linear Classification</article-title>
+                <source>J Mach Learn Res</source>
+                <year>2008</year>
+                <volume>9</volume>
+                <fpage>1871</fpage>
+                <lpage>1874</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="other">Schrödinger LLC, New York, NY: Schrödinger 2010. [<ext-link xlink:href="http://www.schrodinger.com" ext-link-type="url">http://www.schrodinger.com</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Orts</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Tuma</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Reese</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Grimm</surname>
+                    <given-names>SK</given-names>
+                  </name>
+                  <name>
+                    <surname>Monecke</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Bartoschek</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Schiffer</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Wendt</surname>
+                    <given-names>KU</given-names>
+                  </name>
+                  <name>
+                    <surname>Griesinger</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Carlomagno</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Crystallography-independent determination of ligand binding modes</article-title>
+                <source>Angew Chem Int Ed Engl</source>
+                <year>2008</year>
+                <volume>47</volume>
+                <fpage>7736</fpage>
+                <lpage>7740</lpage>
+                <pub-id pub-id-type="doi">10.1002/anie.200801792</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXht1Gms73P</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Freeman-Cook</surname>
+                    <given-names>KD</given-names>
+                  </name>
+                  <name>
+                    <surname>Autry</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Borzillo</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Gordon</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Barbacci-Tobin</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Bernardo</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Briere</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Clark</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Corbett</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Jakubczak</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Kakar</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Knauth</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Lippa</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Luzzio</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Mansour</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Martinelli</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Marx</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Nelson</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Pandit</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Rajamohan</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Robinson</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Subramanyam</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Wei</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Wythes</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Morris</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Design of selective, ATP-competitive inhibitors of Akt</article-title>
+                <source>J Med Chem</source>
+                <year>2010</year>
+                <volume>53</volume>
+                <fpage>4615</fpage>
+                <lpage>4622</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm1003842</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXmt12ku78%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bossemeyer</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Engh</surname>
+                    <given-names>RA</given-names>
+                  </name>
+                  <name>
+                    <surname>Kinzel</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Ponstingl</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Huber</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Phosphotransferase and substrate binding mechanism of the cAMP-dependent protein kinase catalytic subunit from porcine heart as deduced from the 2.0 A structure of the complex with Mn2+ adenylyl imidodiphosphate and inhibitor peptide PKI(5-24)</article-title>
+                <source>EMBO J</source>
+                <year>1993</year>
+                <volume>12</volume>
+                <fpage>849</fpage>
+                <lpage>859</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK3sXit12ju7k%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Prade</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Engh</surname>
+                    <given-names>RA</given-names>
+                  </name>
+                  <name>
+                    <surname>Girod</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Kinzel</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Huber</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Bossemeyer</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Staurosporine-induced conformational changes of cAMP-dependent protein kinase catalytic subunit explain inhibitory potential</article-title>
+                <source>Structure</source>
+                <year>1997</year>
+                <volume>5</volume>
+                <fpage>1627</fpage>
+                <lpage>1637</lpage>
+                <pub-id pub-id-type="doi">10.1016/S0969-2126(97)00310-9</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK1cXmtVWqug%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Buchanan</surname>
+                    <given-names>MS</given-names>
+                  </name>
+                  <name>
+                    <surname>Carroll</surname>
+                    <given-names>AR</given-names>
+                  </name>
+                  <name>
+                    <surname>Wessling</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Jobling</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Avery</surname>
+                    <given-names>VM</given-names>
+                  </name>
+                  <name>
+                    <surname>Davis</surname>
+                    <given-names>RA</given-names>
+                  </name>
+                  <name>
+                    <surname>Feng</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Xue</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Oster</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Fex</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Deinum</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Hooper</surname>
+                    <given-names>JNA</given-names>
+                  </name>
+                  <name>
+                    <surname>Quinn</surname>
+                    <given-names>RJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Clavatadine A, a natural product with selective recognition and irreversible inhibition of factor XIa</article-title>
+                <source>J Med Chem</source>
+                <year>2008</year>
+                <volume>51</volume>
+                <fpage>3583</fpage>
+                <lpage>3587</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm800314b</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXmsVOgsr4%3D</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec16">
+              <title>Electronic supplementary material</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Electronic supplementary material">
+                  <media xlink:href="MediaObjects/13321_2010_126_MOESM1_ESM.PDF" mimetype="application" mime-subtype="pdf">
+                    <caption xml:lang="en">
+                      <p>Additional file 1: <bold>Number of support vectors and top weighted fragments</bold>. For each data set with an <italic>AUC</italic> ≥ 0.7 the number of support vectors and the top five weighted fragments are listed in the file. (PDF 476 KB)</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+            <sec id="Sec17">
+              <title>Authors’ original submitted files for images</title>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_126_MOESM2_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_126_MOESM3_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_126_MOESM4_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_126_MOESM5_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_126_MOESM6_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_126_MOESM7_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material></p>
+            </sec>
+          </app>
+        </app-group>
+        <notes notes-type="Misc">
+          <title>Competing interests</title>
+          <p>The authors declare that they have no competing interests.</p>
+        </notes>
+        <notes notes-type="Misc">
+          <title>Authors' contributions</title>
+          <p>LR wrote the manuscript and implemented most of the code. GH and AJ assisted in the design and implementation of the fingerprinting algorithm. AZ supervised the study and participated in the discussion of the results. All authors read and approved the final manuscript.</p>
+        </notes>
+      </back>
+    </article>

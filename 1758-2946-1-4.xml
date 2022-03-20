@@ -1,0 +1,2027 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">BMC1758-2946-1-4</article-id>
+          <article-id pub-id-type="manuscript">4</article-id>
+          <article-id pub-id-type="doi">10.1186/1758-2946-1-4</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">A constructive approach for discovering new drug leads: Using a kernel methodology for the inverse-QSAR problem
+</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" corresp="yes">
+              <name>
+                <surname>Wong</surname>
+                <given-names>William WL</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDBMC1758294614_cor1">a</xref>
+            </contrib>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Burkowski</surname>
+                <given-names>Forbes J</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.46078.3d</institution-id>
+                <institution-id institution-id-type="ISNI">0000000086441405</institution-id>
+                <institution content-type="org-division">The David R. Cheriton School of Computer Science</institution>
+                <institution content-type="org-name">University of Waterloo</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">N2L 3G1</addr-line>
+              <addr-line content-type="city">Waterloo</addr-line>
+              <addr-line content-type="state">Ontario</addr-line>
+              <country country="CA">Canada</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDBMC1758294614_cor1">
+              <label>a</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>28</day>
+            <month>4</month>
+            <year>2009</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2009</year>
+          </pub-date>
+          <volume>1</volume>
+          <issue seq="4">1</issue>
+          <elocation-id>4</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>15</day>
+              <month>2</month>
+              <year>2009</year>
+            </date>
+            <date date-type="received">
+              <day>15</day>
+              <month>2</month>
+              <year>2009</year>
+            </date>
+            <date date-type="accepted">
+              <day>28</day>
+              <month>4</month>
+              <year>2009</year>
+            </date>
+            <date date-type="online">
+              <day>28</day>
+              <month>4</month>
+              <year>2009</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© Wong and Burkowski; licensee BioMed Central Ltd. 2009</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-year>2009</copyright-year>
+            <copyright-holder>Wong and Burkowski; licensee BioMed Central Ltd.</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="url">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+            </license>
+          </permissions>
+          <abstract id="Abs1" xml:lang="en">
+            <title>Abstract
+</title>
+            <sec id="ASec1">
+              <title>Background
+</title>
+              <p>The inverse-QSAR problem seeks to find a new molecular descriptor from which one can recover the structure of a molecule that possess a desired activity or property. Surprisingly, there are very few papers providing solutions to this problem. It is a difficult problem because the molecular descriptors involved with the inverse-QSAR algorithm must adequately address the forward QSAR problem for a given biological activity if the subsequent recovery phase is to be meaningful. In addition, one should be able to construct a feasible molecule from such a descriptor. The difficulty of recovering the molecule from its descriptor is the major limitation of most inverse-QSAR methods.</p>
+            </sec>
+            <sec id="ASec2">
+              <title>Results
+</title>
+              <p>In this paper, we describe the reversibility of our previously reported descriptor, the vector space model molecular descriptor (VSMMD) based on a vector space model that is suitable for kernel studies in QSAR modeling. Our inverse-QSAR approach can be described using five steps: (1) generate the VSMMD for the compounds in the training set; (2) map the VSMMD in the input space to the kernel feature space using an appropriate kernel function; (3) design or generate a new point in the kernel feature space using a kernel feature space algorithm; (4) map the feature space point back to the input space of descriptors using a pre-image approximation algorithm; (5) build the molecular structure template using our VSMMD molecule recovery algorithm.</p>
+            </sec>
+            <sec id="ASec3">
+              <title>Conclusion
+</title>
+              <p>The empirical results reported in this paper show that our strategy of using kernel methodology for an inverse-Quantitative Structure-Activity Relationship is sufficiently powerful to find a meaningful solution for practical problems.</p>
+            </sec>
+            <sec>
+              <fig id="Figa" position="anchor">
+                <p>
+                  <graphic position="anchor" specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2009_4_Figa_HTML.gif" />
+                </p>
+              </fig>
+            </sec>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Feature Space</kwd>
+            <kwd>Input Space</kwd>
+            <kwd>Molecular Descriptor</kwd>
+            <kwd>Reproduce Kernel Hilbert Space</kwd>
+            <kwd>Outgoing Edge</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Chemistry Central</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>22</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2009</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2009</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>2</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>15</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2009_Article_4.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-1-4" ext-link-type="doi">10.1186/1758-2946-1-4</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Background
+</title>
+          <p>The structural conformation and physicochemical properties of both the ligand and its receptor site determine the level of binding affinity that is observed in such an interaction. If the structural properties of the receptor site are known (for example, there is crystallographic data) then techniques involving approximations of potential functions can be applied to estimate or at least compare binding affinities of various ligands [<xref ref-type="bibr" rid="CR1">1</xref>]. When this information is sparse or not available, as is the case for many membrane proteins, it becomes necessary to estimate affinities using only the properties of the ligand. This ligand-based prediction strategy is often used in applications such as virtual screening of molecular databases in a drug discovery procedure.</p>
+          <p>In a more general setting we strive to establish the quantitative dependency between the molecular properties of a ligand and its binding affinity. To restate this goal using current terminology: we want to analyze the Quantitative Structure-Activity Relationship (QSAR) of the ligand with respect to this type of receptor. A common approach for a QSAR analysis is the use of a machine learning strategy that processes sample data to learn a function that will predict binding affinities. The input of such a function is a descriptor: a vector of molecular properties [<xref ref-type="bibr" rid="CR2">2</xref>] that characterize the ligand. These vector entries may be physicochemical properties, for example, molecular weight, surface area, orbital energies, or they may describe topological indices that encode features such as the properties of individual atoms and bonds. Topological indices can be rapidly computed and have been validated by a variety of experiments investigating the correlation of structure and biological activities.</p>
+          <p>The inverse-QSAR problem seeks to find a new molecular descriptor from which one can recover the structure of a molecule that possess a desired activity or property. Surprisingly, there are relatively few papers providing solutions to this problem [<xref ref-type="bibr" rid="CR3">3</xref>]. Lewis [<xref ref-type="bibr" rid="CR4">4</xref>] has investigated automated strategies for working with fragment based QSAR-driven transforms that are applied to known molecules with the objective of providing new and promising drug leads. Brown <italic>et al</italic>. [<xref ref-type="bibr" rid="CR5">5</xref>] have studied the inverse QSPR problem using multi-objective optimization. They used an interesting partial least squares (PLS) related algorithm in the design of novel chemical entities (NCEs) that satisfy a given property range or objective. The physical properties considered in their paper were mean molecular polarizability and aqueous solubility. A problem with the opposite emphasis has also been investigated: Masek <italic>et al</italic>. [<xref ref-type="bibr" rid="CR6">6</xref>] considered sharing chemical information that is encoded in such a way as to <italic>prevent</italic> recovery of the original molecule (a strategy used in the facilitation of prediction software while protecting intellectual property rights).</p>
+          <p>In general, the inverse-QSAR problem is difficult because the molecular descriptors involved with the inverse-QSAR algorithm must adequately address the forward QSAR problem for a given biological activity if the subsequent recovery phase is to be meaningful. In addition, one should be able to construct a feasible molecule from such a descriptor. The difficulty of recovering the molecule from its descriptor is the major limitation of most inverse-QSAR methods.</p>
+          <p>Most of the proposed techniques are stochastic in nature [<xref ref-type="bibr" rid="CR7">7</xref>–<xref ref-type="bibr" rid="CR9">9</xref>], however, a limited number of deterministic approaches have been developed including the approach of Kier and Hall [<xref ref-type="bibr" rid="CR10">10</xref>–<xref ref-type="bibr" rid="CR13">13</xref>] based on a count of paths, and an approach based on signature descriptors (see Faulon <italic>et al</italic>. [<xref ref-type="bibr" rid="CR14">14</xref>–<xref ref-type="bibr" rid="CR17">17</xref>]).</p>
+          <p>The key to an effective method lies in the use of a descriptor that facilitates the reconstruction of the corresponding molecular structure. Ideally, such a descriptor should be informative, have good correlative abilities in QSAR applications, and most importantly, be computationally efficient. A computationally efficient descriptor should have a low degeneracy, that is, it should lead to a limited number of solutions when a molecular recovery algorithm is applied.</p>
+          <p>Currently, kernel methods are popular tools in QSAR modeling and are used to predict attributes such as activity towards a therapeutic target, ADMET properties (absorption, distribution, metabolism, excretion, and toxic effects), and adverse drug reactions. Various kernel methods based on different molecular representations have been proposed for QSAR modelling [<xref ref-type="bibr" rid="CR18">18</xref>]. They include the SMILES string kernel [<xref ref-type="bibr" rid="CR19">19</xref>], graph kernels [<xref ref-type="bibr" rid="CR20">20</xref>–<xref ref-type="bibr" rid="CR22">22</xref>] and a pharmacophore kernel [<xref ref-type="bibr" rid="CR23">23</xref>]. However, none of these kernel methods have been used for the inverse-QSAR problem.</p>
+          <p>In this paper, we investigate the reversibility of our previously reported descriptor, the vector space model molecular descriptor (VSMMD) [<xref ref-type="bibr" rid="CR24">24</xref>]. VSMMD is based on a vector space model that is suitable for kernel studies in QSAR modeling. Our approach to the inverse-QSAR problem consists of first deriving a new image point in the kernel feature space and then finding the corresponding pre-image descriptor in the input space. Then, we use a recovery algorithm to generate a chemical structure <italic>template</italic> to be used in the specification of new drug candidates. Template formats will vary with respect to their specificity. Depending on the nature of the recovery process, a template may specify a unique molecule or a family of molecules. In the latter case, molecules meeting the specification could be obtained by means of high throughput screening. In the "Methods" section, we provide a detailed description of our inverse-QSAR approach using our VSMMD approach. In the "Results" section, we present the experimental results of our descriptors in the vector space setting.</p>
+        </sec>
+        <sec id="Sec2">
+          <title>Methods
+</title>
+          <p>Our inverse-QSAR approach can be described in five steps. The first two steps perform a QSAR analysis. In the first step, we generate a VSMMD for each compound in the training set. Then, in the second step, we use a kernel function to map each VSMMD to a feature space typically used for classification. The third step is to design or to generate a new point in the kernel feature space using a kernel feature space algorithm (e.g. the center of highly active compounds). In the fourth step, we map this point from the feature space back to the input space using a pre-image approximation algorithm. In the last step, the molecular structure template will be built by our VSMMD molecule recovery algorithm. Figure <xref rid="Fig1" ref-type="fig">1</xref> illustrates the overall processing.<fig id="Fig1"><label>Figure 1
+</label><caption xml:lang="en"><p><bold>Overall concept for the VSMMD inverse-QSAR approach</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig1_HTML.jpg" /></p></fig></p>
+          <sec id="Sec3">
+            <title>Vector Space Model Molecular Descriptor (VSMMD)
+</title>
+            <p>The vector space model molecular descriptor (VSMMD) [<xref ref-type="bibr" rid="CR24">24</xref>] can be categorized as belonging to the constitutional descriptors that provide feature counts related to the two dimensional structure of a molecule. Functionally, our descriptor bears a resemblance to various other descriptors such as reduced graphs (see Gillet [<xref ref-type="bibr" rid="CR25">25</xref>]) and circular fragments (Glenn <italic>et al</italic>. [<xref ref-type="bibr" rid="CR26">26</xref>]). One may also see our fragment oriented approach as somewhat reminiscent of the path count strategy of Kier and Hall [<xref ref-type="bibr" rid="CR10">10</xref>–<xref ref-type="bibr" rid="CR13">13</xref>]. In the setting of inverse-QSAR, we used VSMMD because we were familiar with its capabilities and we had software applications to do the generation of the descriptors. The primary significance of the current study is not the formulation of a new and competitive descriptor but rather the development of strategies to facilitate the reverse engineering workflow that one needs to go from feature space point back to the specification of a new ligand.</p>
+            <p>The first step in constructing the VSMMD is to identify the physicochemical properties of each atom in a molecule. Specifically, we affix labels to atoms and bonds as specified in Figure <xref rid="Fig2" ref-type="fig">2</xref>. It should be noted that triple bonds would also be labelled as "=". This helps to reduce the combinatorial explosion of components in the descriptor at the expense of introducing some degeneracy. Since the occurrence of triple bonds is rather infrequent, we contend that this low level of degeneracy is much more acceptable than the drastic and unwanted increase in component count.<fig id="Fig2"><label>Figure 2
+</label><caption xml:lang="en"><p><bold>Labels for atoms and bonds in a molecule</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig2_HTML.jpg" /></p></fig></p>
+            <p>The VSMMD strategy is based on the extraction of molecular fragments that are comprised of small sets of bonded atoms. The atom count for a fragment is at least two and at most <italic>c</italic>, where <italic>c</italic> is some pre-specified value such as 2, 3, or 4.</p>
+            <p>To illustrate the processing of a molecule we describe the steps that are taken in the processing of a molecule (atom count for a fragment limited to 2). Figure <xref rid="Fig3" ref-type="fig">3</xref> shows one of the pyrrole compounds that is a member of the data set used in reference [<xref ref-type="bibr" rid="CR27">27</xref>].</p>
+            <p>The algorithm goes through the following steps:<fig id="Fig3"><label>Figure 3
+</label><caption xml:lang="en"><p><bold>Processing steps for the VSMMD</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig3_HTML.jpg" /></p></fig></p>
+            <p>
+              <list list-type="order">
+                <list-item>
+                  <p>The atoms and bonds are labelled as prescribed by Figure <xref rid="Fig2" ref-type="fig">2</xref>.</p>
+                </list-item>
+                <list-item>
+                  <p>The molecular descriptor is created by extracting from the molecule a complete set of small fragments.</p>
+                </list-item>
+                <list-item>
+                  <p>Frequency counts are evaluated for all the fragments so that a multi-set or bag of fragments can be generated</p>
+                </list-item>
+              </list>
+            </p>
+            <p>When these steps are completed, the multi-set counts are placed into a vector that has a position for each of the different possible fragments recorded in the dictionary. Note that all molecules end up with descriptors of the same length. If fragment size is limited to 2 atoms this vector would have a dimensionality of 7*7*3 = 147.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>VSM and VSMMD compared
+</title>
+            <p>The motivation for the VSMMD descriptor comes from the "bag-of-words" approach [<xref ref-type="bibr" rid="CR28">28</xref>] that is based on the vector space model (VSM) used in information retrieval. Roughly speaking, the atom fragments extracted in the VSMMD process corresponds to the document words and phrases extracted in the VSM. The molecule is then analogous to a text document and much of the analysis used in the bag-of-words strategy can be brought over to the VSMMD setting.</p>
+            <p>In practice, we have found that the success of VSMMD is greatly enhanced by utilizing fragments that contain more than two atoms, for example, <italic>c</italic> = 3 or <italic>c</italic> = 4. This adoption of a higher level of structure corresponds to the incorporation of phrase structures in the VSM. From a molecular perspective, the larger fragment will incorporate information related to rotation around a single bond. As the value of <italic>c</italic> increases there is a point of diminished returns due to the combinatorial explosion of fragment possibilities. To help reduce this "curse of dimensionality", we can remove the vector entries that have been observed to have frequency counts equal to zero across all molecules under consideration.</p>
+            <p>In the VSM, a language dictionary can be defined using some permanent predefined set of words. In our model, according to the encoding scheme, the dictionary will be the collection of all possible atom type (A<sub>T</sub>) and bond type (B<sub>T</sub>) labelled graphs that arise from molecular fragments that are restricted to having atom counts of 2, 3, or 4. Table <xref rid="Tab1" ref-type="table">1</xref> shows the general format of our dictionary with <italic>c</italic> limited to 4. The last entry of this table represents a four atom fragment in which a central atom is bonded to three other atoms.<table-wrap id="Tab1"><label>Table 1
+</label><caption xml:lang="en"><p>General format of the fragment dictionary (A<sub>T</sub> = Atom Type, B<sub>T</sub> = Bond Type).</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Type ID</p></th><th align="left"><p>General Fragment Type</p></th><th align="center"><p>Atom Count</p></th></tr></thead><tbody><tr><td align="left"><p>1)</p></td><td align="left"><p>A<sub>T</sub> B<sub>T</sub> A<sub>T</sub></p></td><td align="center"><p>2</p></td></tr><tr><td align="left"><p>2)</p></td><td align="left"><p>A<sub>T</sub> B<sub>T</sub> A<sub>T</sub> B<sub>T</sub> A<sub>T</sub></p></td><td align="center"><p>3</p></td></tr><tr><td align="left"><p>3)</p></td><td align="left"><p>A<sub>T</sub> B<sub>T</sub> A<sub>T</sub> B<sub>T</sub> A<sub>T</sub> B<sub>T</sub> A<sub>T</sub></p></td><td align="center"><p>4</p></td></tr><tr><td align="left"><p>4)</p></td><td align="left"><p>A<sub>T</sub> B<sub>T</sub> A<sub>T</sub> B<sub>T</sub> A<sub>T</sub></p></td><td align="center"><p>4</p></td></tr><tr><td /><td align="left"><p>          B<sub>T</sub></p></td><td /></tr><tr><td /><td align="left"><p>          A<sub>T</sub></p></td><td /></tr></tbody></table></table-wrap></p>
+            <p>In the most general case, a molecular descriptor is represented by a bag of fragments, each fragment corresponding to an entry in the dictionary.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Analysis based on VSMMD
+</title>
+            <p>We now describe the notation and mathematical setting used in VSMMD. For each molecule <italic>i</italic>, a molecular descriptor <italic>d</italic><sub><italic>i</italic></sub>can be generated. We represent the descriptor as a column vector in an <italic>m</italic> dimensional space using the mapping:
+<disp-formula id="Equ1"><label>1</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ1_HTML.gif" /></disp-formula></p>
+            <p>where <italic>q</italic>(<italic>f</italic><sub>l</sub>, <italic>d</italic><sub><italic>i</italic></sub>) is the frequency of the fragment <italic>f</italic><sub>l</sub> in the descriptor <italic>d</italic><sub><italic>i</italic></sub>.</p>
+            <p>The use of the linear kernel <italic>ɸ</italic><sub><italic>L</italic></sub>(·) in this last equation is deliberate since we want to view this mapping as the type of kernel function that is used in the bag-of-words strategy described by Shawe-Taylor and Cristianini [<xref ref-type="bibr" rid="CR28">28</xref>]. Via this mapping, each molecular descriptor is taken over to an <italic>m</italic>-dimensional vector, where <italic>m</italic> is the size of the dictionary. Although <italic>m</italic> could be very large, the typical vector generated in this way is usually quite sparse (just as vectors in the VSM are sparse).</p>
+            <p>Working with <italic>n</italic> molecules, we can apply the mapping repeatedly to generate a succession of column vectors: <italic>ɸ</italic><sub><italic>L</italic></sub>(<italic>d</italic><sub>1</sub>),<italic>ɸ</italic><sub><italic>L</italic></sub>(<italic>d</italic><sub>2</sub>),⋯,<italic>ɸ</italic><sub><italic>L</italic></sub>(<italic>d</italic><sub><italic>n</italic></sub>). Computation of the vector space kernel is done by calculating the fragment-descriptor matrix <italic>F</italic> with rows indexed by the fragments and columns indexed by the descriptors:
+<disp-formula id="Equ2"><label>2</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ2_HTML.gif" /></disp-formula></p>
+            <p>The entry at position (<italic>i, j</italic>) gives the frequency of fragment <italic>f</italic><sub><italic>i</italic></sub>in molecule <italic>j</italic>. Subsequently, we can create the kernel matrix as:
+<disp-formula id="Equ3"><label>3</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ3_HTML.gif" /></disp-formula></p>
+            <p>corresponding to the vector space inner product
+<disp-formula id="Equ4"><label>4</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ4_HTML.gif" /></disp-formula></p>
+            <p>In our forward-QSAR experiments [<xref ref-type="bibr" rid="CR24">24</xref>], the nonlinear Gaussian kernel [<xref ref-type="bibr" rid="CR28">28</xref>]
+<disp-formula id="Equ5"><label>5</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ5_HTML.gif" /></disp-formula></p>
+            <p>gave the best results. It provides a rich hypothesis space and is often used in machine learning studies. One parameter, <italic>σ</italic>, had to be evaluated through cross-validation.</p>
+            <p>With the Gaussian vector space kernel, we can apply a kernel-based method to generate a predictor of any one of several biological activities, for example: ADMET properties or affinity of ligands used as therapeutic agents. In our previous studies [<xref ref-type="bibr" rid="CR24">24</xref>], we gave empirical evidence to demonstrate that VSMMD can capture important chemical information allowing it to perform very well in both forward-QSAR studies and the determination of binding mode information.</p>
+          </sec>
+          <sec id="Sec6">
+            <title>The Reproducing Kernel Hilbert Space (RKHS)
+</title>
+            <p>Kernel-based learning algorithms work by embedding the data into a Hilbert space, often called the feature space followed by a search for linear relations within this Hilbert space. Kernels are functions that can be used to formulate similarity comparisons. They provide a general framework to represent data, subject to certain mathematical conditions. Data are not represented individually by kernels. Instead, data are represented through a set of pair-wise comparisons.</p>
+            <p>More formally, suppose we have <italic>n</italic> training data pairs <inline-formula id="IEq1"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq1_HTML.gif" /></inline-formula> where <italic>x</italic><sub><italic>i</italic></sub>∈ <italic>X</italic>. The vector space <italic>X</italic> is referred to as the input space and each <italic>y</italic><sub><italic>i</italic></sub>is considered to be a component in <italic>Y</italic>, the vector of the output values. In the process of machine learning, we want to be able to generalize to previously unseen data points. In the case of binary classification, given some new input <italic>x</italic> ∈ <italic>X</italic>, we want to predict the corresponding <italic>y</italic> ∈ {+ 1, -1}. In other words, we want to choose <italic>y</italic> such that (<italic>x, y</italic>) is in some sense similar to the training examples. In order to achieve this, we require a similarity measures in <italic>X</italic> and in <italic>Y</italic>. Since <italic>y</italic> ∈ {+1, -1}, to find the similarity measure in <italic>Y</italic> is relatively easy. On the other hand, we require a function to measure the similarity in <italic>X</italic>:
+<disp-formula id="Equ6"><label>6</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ6_HTML.gif" /></disp-formula></p>
+            <p>satisfying, for all <italic>x</italic>, <italic>x</italic><sub><italic>i</italic></sub>∈ <italic>X</italic>: <italic>i</italic> = 1 .. <italic>n</italic>,
+<disp-formula id="Equ7"><label>7</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ7_HTML.gif" /></disp-formula></p>
+            <p>where <italic>ɸ</italic> maps descriptors into an inner product feature space <italic>FS</italic>. The similarity function <italic>k</italic> is called a kernel, and <italic>ɸ</italic> is its feature map. The feature space <italic>FS</italic> is usually called the reproducing kernel Hilbert space (RKHS) associated with <italic>k</italic>. Figure <xref rid="Fig4" ref-type="fig">4</xref> illustrates the overall mapping concept.<fig id="Fig4"><label>Figure 4
+</label><caption xml:lang="en"><p><bold>The implicit function</bold><bold><italic>ɸ</italic></bold><bold>maps points in the input space over to the feature space</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig4_HTML.jpg" /></p></fig></p>
+            <p>By using a kernel function, the embedding in the Hilbert space is actually performed implicitly, that is by specifying the inner product between each pair of points rather than by giving their coordinates explicitly. This approach has several advantages, the most important being the fact that often the inner product in the embedding space can be computed much more easily using a kernel rather than using the coordinates of the points themselves.</p>
+            <p>In machine learning, using kernels is a strategy for converting a linear classifier algorithm into a non-linear one by using a non-linear function to map the original observations into a higher-dimensional feature space; this makes a linear classification in the new feature space equivalent to a non-linear classification in the original input space.</p>
+            <p>For more details about the RKHS, readers can refer to [<xref ref-type="bibr" rid="CR28">28</xref>].</p>
+          </sec>
+          <sec id="Sec7">
+            <title>Designing Molecules Using a Feature Space Algorithm
+</title>
+            <p>Suppose we have a set of <italic>n</italic> molecular descriptors <italic>S</italic>, designated as <italic>S</italic> ={<italic>d</italic><sub>1</sub>, <italic>d</italic><sub>2</sub>,⋯,<italic>d</italic><sub><italic>n</italic></sub>} where each <italic>d</italic><sub><italic>i</italic></sub>is in the input space <italic>X</italic>. Let us assume we are using a Gaussian vector space kernel as defined in equation (<xref rid="Equ5" ref-type="disp-formula">5</xref>). Under this kernel, any point <italic>d</italic><sub><italic>i</italic></sub>∈ <italic>X</italic>, is implicitly mapped to an image <italic>ɸ</italic>(<italic>d</italic><sub><italic>i</italic></sub>) in the feature space <italic>FS</italic>. With this kernel mapping, we can define the set <italic>ɸ</italic>(<italic>S</italic>) = {<italic>ɸ</italic>(<italic>d</italic><sub>1</sub>), <italic>ɸ</italic>(<italic>d</italic><sub>2</sub>),⋯,<italic>ɸ</italic>(<italic>d</italic><sub><italic>n</italic></sub>)} ⊂ <italic>FS</italic>.</p>
+            <p>In this sub-section, we will evaluate various properties of the data set <italic>ɸ</italic>(<italic>S</italic>). We provide a set of elementary algorithms to do various calculations such as distance between two descriptor image points in the feature space.</p>
+            <sec id="Sec8">
+              <title>The feature space centroid derived from highly active compounds
+</title>
+              <p>The norm of <italic>ɸ</italic>(<italic>d</italic>) is given by:
+<disp-formula id="Equ8"><label>8</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ8_HTML.gif" /></disp-formula></p>
+              <p>A special case of the norm is the length of the line joining two images <italic>ɸ</italic>(<italic>d</italic><sub>1</sub>) and <italic>ɸ</italic>(<italic>d</italic><sub>2</sub>), which can be computed using:
+<disp-formula id="Equ9"><label>9</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ9_HTML.gif" /></disp-formula></p>
+              <p>The norm described by (9) represents the distance between two descriptor image points in the feature space. We define the centroid <italic>ɸ</italic><sub><italic>s</italic></sub>of the molecule data set <italic>S</italic> in the feature space as:
+<disp-formula id="Equ10"><label>10</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ10_HTML.gif" /></disp-formula></p>
+              <p>The norm of the centroid can be calculated using only the evaluations of the kernel on the inputs:
+<disp-formula id="Equ11"><label>11</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ11_HTML.gif" /></disp-formula></p>
+              <p>Note that, the result is the average of the entries in the kernel matrix. The inner product between a descriptor image point <italic>ɸ</italic>(<italic>d</italic>) and the centroid <italic>ɸ</italic><sub><italic>s</italic></sub>is given by:
+<disp-formula id="Equ12"><label>12</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ12_HTML.gif" /></disp-formula></p>
+              <p>Using equation (<xref rid="Equ9" ref-type="disp-formula">9</xref>), we can calculate the distance between <italic>ɸ</italic>(<italic>d</italic>) and the centroid <italic>ɸ</italic><sub><italic>s</italic></sub>in the feature space by:
+<disp-formula id="Equ13"><label>13</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ13_HTML.gif" /></disp-formula></p>
+              <p>Recall that the kernel-based learning algorithms work by embedding the data into the feature space, and searching for a linear relationship within this feature space. With this linear relationship, it makes sense to derive a new descriptor image using the centroid point of the highly active compound's image points which will share the general properties of all highly active compounds. If the centroid point can be mapped from the feature space back to the input space, we can obtain the descriptor of a new candidate molecule. Figure <xref rid="Fig5" ref-type="fig">5</xref> illustrates this idea. It should be stressed that when a nonlinear kernel (such as the Gaussian kernel) is used, then a point in the feature space bears a nonlinear relationship to the point in the input space. The centroid in the feature space would rarely, if ever, map back to the centroid in the input space. We have chosen to use the centroid in the feature space because there is more assurance of generating a new point in the feature space that in some sense represents a point of reasonable interpolation in this high dimensional space. Picking an arbitrary point in the feature space runs a higher risk of extrapolation which may be difficult to avoid especially when a small training set is spread over the higher dimensional feature space in some rarefied manner.<fig id="Fig5"><label>Figure 5
+</label><caption xml:lang="en"><p><bold>Deriving a new image in kernel feature space</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig5_HTML.jpg" /></p></fig></p>
+              <p>The inverse in the input space is called the pre-image. We will discuss pertinent details in the pre-image problem subsection to follow.</p>
+              <p>There are several studies that use a feature space centroid to generate new data. Kwok and his colleagues used a feature space centroid to generate a new data point for hand-written digit recognition [<xref ref-type="bibr" rid="CR29">29</xref>] and speech processing [<xref ref-type="bibr" rid="CR30">30</xref>]. In both applications, the pre-image has been shown to be robust and meaningful. In the next subsection we describe another strategy for the derivation of a new feature space point</p>
+            </sec>
+            <sec id="Sec9">
+              <title>Minimum enclosing and maximum excluding hyperspheres
+</title>
+              <p>In the last subsection, we derived a new descriptor image point using the centroid of feature space images derived from the highly active compounds. In this subsection, we use the highly active compounds to derive two hyperspheres with the same center. The center of the hyperspheres is then mapped back from the feature space to the input space to generate the descriptor of a new candidate molecule.</p>
+              <p>Suppose we can identify a subset <italic>G</italic> ⊆ <italic>S</italic> where <italic>G</italic> contains the descriptors of molecules in the chemical space with the highest activity. We let |<italic>G</italic>| represent the number of descriptors in <italic>G</italic>. In an ideal situation, the feature space images of <italic>G</italic> will be spherically separable from all the other descriptor images mapped over from <italic>S</italic>. With this assumption, we can derive two hyperspheres, sharing the same center <italic>a</italic>, such that the images of all descriptors derived from highly active molecules are enclosed by the inner hypersphere <italic>H</italic><sub>1</sub> and all the remaining images are excluded by the outer hypersphere <italic>H</italic><sub>2</sub>. Let <italic>r</italic><sub>1</sub> be the radius of the inner hypersphere and let <italic>r</italic><sub>2</sub> be the radius of the outer hypersphere. Consequently, we have:
+<disp-formula id="Equ14"><label>14</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ14_HTML.gif" /></disp-formula></p>
+              <p>Figure <xref rid="Fig6" ref-type="fig">6</xref> illustrates this idea.<fig id="Fig6"><label>Figure 6
+</label><caption xml:lang="en"><p><bold>Minimum enclosing and maximum excluding hyperspheres in the feature space</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig6_HTML.jpg" /></p></fig></p>
+              <p>Following the development of Liu and Zheng's minimum enclosing and maximum excluding machine (MEMEM) [<xref ref-type="bibr" rid="CR31">31</xref>], we want the inner hypersphere <italic>H</italic><sub>1</sub> as small as possible for a good description of the highly active class. In the meantime, we want the outer hypersphere <italic>H</italic><sub>2</sub> as large as possible. In other words, we try to maximize the area between two hyperspheres <italic>H</italic><sub>2</sub> and <italic>H</italic><sub>1</sub>. Note that the area between two hyperspheres <italic>H</italic><sub>2</sub> and <italic>H</italic><sub>1</sub> is proportional to the quantity <inline-formula id="IEq2"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq2_HTML.gif" /></inline-formula>. Let <inline-formula id="IEq3"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq3_HTML.gif" /></inline-formula> and <inline-formula id="IEq4"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq4_HTML.gif" /></inline-formula>, we can formulate the objective function to have <inline-formula id="IEq5"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq5_HTML.gif" /></inline-formula> as small as possible and Δ<italic>r</italic><sup>2</sup> as large as possible by minimizing the quantity <inline-formula id="IEq6"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq6_HTML.gif" /></inline-formula>, or equivalently
+<disp-formula id="Equ15"><label>15</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ15_HTML.gif" /></disp-formula></p>
+              <p>Replacing the constant <inline-formula id="IEq7"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq7_HTML.gif" /></inline-formula> by <italic>η</italic>, which controls the trade off between the importance of the inner hypersphere and the outer hypersphere, the objective function will become:
+<disp-formula id="Equ16"><label>16</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ16_HTML.gif" /></disp-formula></p>
+              <p>Our analysis will require Lagrange multipliers <italic>α</italic><sub><italic>i</italic></sub>and labels <italic>y</italic><sub><italic>i</italic></sub>such that
+<disp-formula id="Equ17"><label>17</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ17_HTML.gif" /></disp-formula></p>
+              <p>The dual problem of equation (<xref rid="Equ16" ref-type="disp-formula">16</xref>) can be obtained [<xref ref-type="bibr" rid="CR31">31</xref>] as:
+<disp-formula id="Equ18"><label>18</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ18_HTML.gif" /></disp-formula></p>
+              <p>In practice, the data may not be separable in this fashion. By introducing slack variables <italic>ζ</italic> ≥ 0, equation (<xref rid="Equ16" ref-type="disp-formula">16</xref>) becomes:
+<disp-formula id="Equ19"><label>19</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ19_HTML.gif" /></disp-formula></p>
+              <p>By using equation (<xref rid="Equ19" ref-type="disp-formula">19</xref>), we allow some negative samples inside the inner hypersphere and some positive samples outside the outer hypersphere. The corresponding dual problem of equation (<xref rid="Equ19" ref-type="disp-formula">19</xref>) obtained by [<xref ref-type="bibr" rid="CR31">31</xref>] is:
+<disp-formula id="Equ20"><label>20</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ20_HTML.gif" /></disp-formula></p>
+              <p>where <italic>β</italic> is the Lagrange multiplier associated with the constraint Δ<italic>r</italic><sup>2</sup> ≥ 0, and <italic>C</italic> is some constant to be determined with a validation data set. The center <italic>a</italic> of the hyperspheres is then mapped back from the feature space to the input space to generate the descriptor of a new candidate molecule.</p>
+            </sec>
+          </sec>
+          <sec id="Sec10">
+            <title>The Pre-image Problem
+</title>
+            <p>In RKHS subsection, we illustrated how a point in the input space is mapped to the feature space via the implicit function <italic>ɸ</italic>. In this subsection, we are interested in finding how a point in the feature space can be mapped back to the input space. Formally, this is called the pre-image problem of reconstructing patterns from their representation in feature space (see Figure <xref rid="Fig7" ref-type="fig">7</xref>).<fig id="Fig7"><label>Figure 7
+</label><caption xml:lang="en"><p><bold>The pre-image problem</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig7_HTML.jpg" /></p></fig></p>
+            <p>Let Ψ be a point in the reproducing kernel Hilbert space (RKHS) <italic>FS</italic>. The pre-image of Ψ ∈ <italic>F</italic> is a point <italic>d</italic>* ∈ <italic>X</italic> (the original input space). Formally,
+<disp-formula id="Equ21"><label>21</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ21_HTML.gif" /></disp-formula></p>
+            <p>The problem of finding the pre-image <italic>d</italic>* is equivalent to the problem of finding the inverse of <italic>ɸ</italic> defined in equation (<xref rid="Equ21" ref-type="disp-formula">21</xref>):
+<disp-formula id="Equ22"><label>22</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ22_HTML.gif" /></disp-formula></p>
+            <p>However, the problem of finding <italic>ɸ</italic><sup>-1</sup>(·) is typically an ill-posed problem. A problem is said to be ill-posed if the solution is not unique, does not exist, or is not a continuous function of the data [<xref ref-type="bibr" rid="CR32">32</xref>].</p>
+            <p>One possible way to overcome this problem is to look for <inline-formula id="IEq8"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq8_HTML.gif" /></inline-formula> an approximation of the pre-image such that <italic>ɸ</italic>(<inline-formula id="IEq9"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq8_HTML.gif" /></inline-formula>) is as close as possible to Ψ. Formally, we search for <inline-formula id="IEq10"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq8_HTML.gif" /></inline-formula> ∈ <italic>X</italic>, such that
+<disp-formula id="Equ23"><label>23</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ23_HTML.gif" /></disp-formula></p>
+            <p>Typically, we will have Ψ defined as some linear combination of implicit mappings from the input space. Consequently, expanding equation (<xref rid="Equ23" ref-type="disp-formula">23</xref>), we get:
+<disp-formula id="Equ24"><label>24</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ24_HTML.gif" /></disp-formula></p>
+            <p>which can be rewritten as:
+<disp-formula id="Equ25"><label>25</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ25_HTML.gif" /></disp-formula></p>
+            <p>Using equation (<xref rid="Equ25" ref-type="disp-formula">25</xref>), an inversion problem turns out to be an optimization problem. There are several algorithms that attempt to solve this optimization problem. Schölkopf <italic>et al</italic>. [<xref ref-type="bibr" rid="CR33">33</xref>] proposed an iterative fixed point algorithm strategy. Kwok and Tsang [<xref ref-type="bibr" rid="CR28">28</xref>] proposed another method that exploits the correspondence between distances in the input space and the feature space. Alternatively, a standard gradient optimization method can be used to find an approximation of the pre-image [<xref ref-type="bibr" rid="CR33">33</xref>]. Note that all these methods are only guaranteed to find a local optimum.</p>
+            <p>In this paper, we are going to follow Kwok and Tsang [<xref ref-type="bibr" rid="CR28">28</xref>] and use their approach to approximate the pre-image. Their algorithm is based on the notion of distance constraints. They assume that there exists a simple relationship between distances in the input space and distances in feature space. Figure <xref rid="Fig8" ref-type="fig">8</xref> illustrates these relationships. Suppose we have derived the center <italic>a</italic> of the hyperspheres using equation (<xref rid="Equ19" ref-type="disp-formula">19</xref>). It was shown that the center <italic>a</italic> of the hyperspheres is a linear combination of the training samples [<xref ref-type="bibr" rid="CR31">31</xref>] i.e.: <inline-formula id="IEq11"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq9_HTML.gif" /></inline-formula>. Recall that <italic>η</italic> is defined in equation (<xref rid="Equ16" ref-type="disp-formula">16</xref>). The norm of the center can be calculated using only the evaluations of the kernel on the training sample inputs:<fig id="Fig8"><label>Figure 8
+</label><caption xml:lang="en"><p><bold>Kwok and Tsang pre-image strategy</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig8_HTML.jpg" /></p></fig></p>
+            <p>
+              <disp-formula id="Equ26">
+                <label>26</label>
+                <graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ26_HTML.gif" />
+              </disp-formula>
+            </p>
+            <p>For each training sample <italic>d</italic><sub><italic>i</italic></sub>we can derive <inline-formula id="IEq12"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq10_HTML.gif" /></inline-formula> representing the square of the distance between the training sample image <italic>d</italic><sub><italic>i</italic></sub>and the center <italic>a</italic> of the hyperspheres:
+<disp-formula id="Equ27"><label>27</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ27_HTML.gif" /></disp-formula></p>
+            <p>Using the Gaussian kernel as specified in equation (<xref rid="Equ5" ref-type="disp-formula">5</xref>) and an observation made by Kwok and Tsang [<xref ref-type="bibr" rid="CR29">29</xref>], the corresponding input space distance <italic>dist</italic><sub><italic>a</italic>, <italic>i</italic></sub>, between the center and training sample <italic>d</italic><sub><italic>i</italic></sub>can be found using:
+<disp-formula id="Equ28"><label>28</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ28_HTML.gif" /></disp-formula></p>
+            <p>To speed up the algorithm (as observed by Kwok and Tsang [<xref ref-type="bibr" rid="CR29">29</xref>]), only the <italic>p</italic> closest training sample images of <italic>a</italic> will be considered. From (27), we can identify the <italic>p</italic> closest neighbours of <italic>a</italic> in the feature space. Using (28), we can convert these <italic>p</italic> closest neighbour distances in the feature space to their corresponding input space distances. Let <bold>b</bold> be the vector representing these input space distances with
+<disp-formula id="Equ29"><label>29</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ29_HTML.gif" /></disp-formula></p>
+            <p>Their corresponding descriptors in the input space are <italic>d</italic><sub>1</sub>, <italic>d</italic><sub>2</sub>,⋯,<italic>d</italic><sub><italic>p</italic></sub>∈ ℝ<sup><italic>m</italic></sup>, and the centroid is defined as <inline-formula id="IEq13"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq11_HTML.gif" /></inline-formula>. Let <italic>D</italic> = [<italic>d</italic><sub>1</sub>, <italic>d</italic><sub>2</sub>,⋯,<italic>d</italic><sub><italic>p</italic></sub>] be an <italic>m</italic> × <italic>p</italic> matrix. To establish the centroid at the origin, we let
+<disp-formula id="Equ30"><label>30</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ30_HTML.gif" /></disp-formula></p>
+            <p>where <italic>I</italic> is a <italic>p</italic> × <italic>p</italic> identity matrix, and <bold>1</bold> is a <italic>p</italic> dimensional vector with each component equal to 1.</p>
+            <p>Assuming matrix <italic>D</italic> is of rank <italic>q</italic>, we obtain the singular value decomposition (SVD) of <italic>A</italic><sup><italic>T</italic></sup>as:
+<disp-formula id="Equ31"><label>31</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ31_HTML.gif" /></disp-formula></p>
+            <p>where <italic>U</italic> = [<italic>u</italic><sub>1</sub>, <italic>u</italic><sub>2</sub>,⋯,<italic>u</italic><sub><italic>q</italic></sub>] is a <italic>m</italic> × <italic>q</italic> matrix with orthonormal columns composed of the <italic>u</italic><sub><italic>i</italic></sub>'s, and <italic>Z</italic> = [<italic>z</italic><sub>1</sub>, <italic>z</italic><sub>2</sub>,⋯,<italic>z</italic><sub><italic>p</italic></sub>] is a <italic>q</italic> × <italic>p</italic> matrix with the <italic>i</italic>-th column <italic>z</italic><sub><italic>i</italic></sub>being the projection of <italic>d</italic><sub><italic>i</italic></sub>onto the <italic>u</italic><sub><italic>j</italic></sub>vectors such that the squared distance of <italic>d</italic><sub><italic>i</italic></sub>to the origin is equal to ||<italic>z</italic><sub><italic>i</italic></sub>||<sup>2</sup>. Letting <bold>b</bold><sub>0</sub> = [||<italic>z</italic><sub>1</sub>||<sup>2</sup>, ||<italic>z</italic><sub>2</sub>||<sup>2</sup>,⋯,||<italic>z</italic><sub><italic>p</italic></sub>||<sup>2</sup>]<sup><italic>T</italic></sup>the pre-image <inline-formula id="IEq14"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq8_HTML.gif" /></inline-formula> of the center <italic>a</italic> can be obtained by:
+<disp-formula id="Equ32"><label>32</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ32_HTML.gif" /></disp-formula></p>
+          </sec>
+          <sec id="Sec11">
+            <title>The Need for a Nonlinear Kernel
+</title>
+            <p>The nonlinear implicit mapping provided by the kernel operation allows us to generate an inner product in the feature space by computing a kernel function that has arguments taken from the input space. More significantly, when a nonlinear kernel is used, linear operations in the feature space correspond to nonlinear operations in the input space. This is important because the nonlinear mapping will involve various cross products of components within a vector of the input space. As a consequence, linear structures within the feature space correspond to nonlinear or "warped" structures in the input space.</p>
+            <p>To illustrate this, we ran a small experiment with the COX2 training set (described below in the Results section): As described earlier, the new feature space point <italic>a</italic>, generated by extracting the center of the enclosing hypersphere, was mapped back to the input space to get its pre-image <inline-formula id="IEq15"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq8_HTML.gif" /></inline-formula>. We then formed the set of points <italic>S</italic><sub><italic>fe</italic></sub>in the input space (taken from the training set) that produced the ten closest neighbours of <italic>a</italic> under the kernel mapping. This set <italic>S</italic><sub><italic>fe</italic></sub>was compared with the set <italic>S</italic><sub><italic>in</italic></sub>containing the 10 closest neighbours of <inline-formula id="IEq16"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq8_HTML.gif" /></inline-formula> in the input space (these neighbours derived using the Euclidean metric). Because of the warping effect, pre-images of close neighbours in the feature space are not necessarily the closest neighbours of the pre-image <inline-formula id="IEq17"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq8_HTML.gif" /></inline-formula> in the input space, in fact, the intersection of <italic>S</italic><sub><italic>in</italic></sub>and <italic>S</italic><sub><italic>fe</italic></sub>is only 3 descriptors. More significant: the average affinity of molecules in <italic>S</italic><sub><italic>in</italic></sub>is 8.03 while the average affinity of molecules in <italic>S</italic><sub><italic>fe</italic></sub>is 8.73. This provides empirical evidence that the nonlinear mapping provided by the kernel function helps us to select input space descriptors that are more significant when considering their corresponding affinities.</p>
+          </sec>
+          <sec id="Sec12">
+            <title>Recovering the Molecule
+</title>
+            <p>In order to solve the recovery problem for chemical structures, we have to investigate a way to derive a graph representing the 2D structure of a molecule that has <inline-formula id="IEq18"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq8_HTML.gif" /></inline-formula> as its descriptor. There are several related studies that attempt to find such a graph, see for example Bakir <italic>et al</italic>. [<xref ref-type="bibr" rid="CR34">34</xref>], who worked with a stochastic search algorithm. However, this recovery problem is not well studied from a computational viewpoint. Tatsuya and Fukagawa [<xref ref-type="bibr" rid="CR35">35</xref>, <xref ref-type="bibr" rid="CR36">36</xref>] proposed a dynamic programming algorithm for inferring a chemical structure from a descriptor. However, the algorithms are not practical for a large data set. Previous studies focused on creating a real chemical structure, which defined too many constraints on the problem due to the complexity of chemical structure. In our study, we do not attempt to recover a real chemical structure; instead, we generate a chemical structure template with physiochemical properties only. This simplifies the problem and makes it practical for real data sets.</p>
+          </sec>
+          <sec id="Sec13">
+            <title>Reversible VSMMD
+</title>
+            <p>For illustration and without loss of generality, we will assume that the atom count associated with the VSMMD is two, and we further assume all the aromatic rings are replaced by "super atoms" containing all the rings' physicochemical properties. Figure <xref rid="Fig9" ref-type="fig">9</xref> illustrates a simplified VSMMD using the same example as in Figure <xref rid="Fig3" ref-type="fig">3</xref>.<fig id="Fig9"><label>Figure 9
+</label><caption xml:lang="en"><p><bold>Simplified VSMMD with an aromatic ring treated as a super atom</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig9_HTML.jpg" /></p></fig></p>
+            <p>From Figure <xref rid="Fig9" ref-type="fig">9</xref>, we observe that the VSMMD model contains only the physiochemical properties of the chemical structure. As a result, for the recovery problem, we do not attempt to recover the entire chemical structure. Instead, we attempt to generate a chemical structure template with physiochemical properties only. A chemical structure template converted from the molecule shown in Figure <xref rid="Fig9" ref-type="fig">9</xref> is illustrated in Figure <xref rid="Fig10" ref-type="fig">10</xref>.<fig id="Fig10"><label>Figure 10
+</label><caption xml:lang="en"><p><bold>An example of a chemical structure template</bold>.</p><p>Note: We use "O" to denote O#O#O#O#O#O and 'OA' to denote O#O#O#O#A.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig10_HTML.jpg" /></p></fig></p>
+            <p>In the next subsection, we define the notion of a structure template and show how it can be derived.</p>
+            <sec id="Sec14">
+              <title>Forming the De Bruijn graph
+</title>
+              <p>If we consider a molecule to be comprised of molecular fragments then it is clear that there is a hierarchical organization of these fragments. A linear fragment with an atom count of three can be seen as containing two smaller fragments each with an atom count of two and of course the two fragments overlap in the central atom. If we restrict a fragment to have an atom count of two, then it will contain two elementary fragments, namely two atoms, each labelled with their atom types.</p>
+              <p>Informally: The purpose of a De Bruijn graph is to provide a data structure that shows how small fragments combine to build larger fragments. Since we wish to handle ring structures using the simplification of a "super atom", we will abuse these concepts slightly and consider the fragments under discussion to be fragments within a template as described in the previous subsection.</p>
+              <p>Suppose we are dealing with fragments that have an atom count designated as <italic>f</italic><sub><italic>a</italic></sub>. The De Bruijn graph <italic>D</italic> is constructed in the following way: We provide a vertex for each fragment that has an atom count equal to <italic>f</italic><sub><italic>a</italic></sub>- 1. In our simplified case, <italic>f</italic><sub><italic>a</italic></sub>= 2 and each vertex will represent an atom labelled with a physicochemical property. We then add a bi-directional edge from vertex <italic>a</italic> to vertex <italic>b</italic> if the fragments associated with these vertices are within a larger fragment with atom count equal to <italic>f</italic><sub><italic>a</italic></sub>. Each edge is weighted with a value representing the number of times that this larger type of fragment occurs in the template.</p>
+              <p>Although we have been referencing the template in describing the construction of <italic>D</italic>, it should be clear that it is possible to accomplish the generation of <italic>D</italic> by processing the descriptor that represents this template. Figure <xref rid="Fig11" ref-type="fig">11</xref> illustrates the De Bruijn graph <italic>D</italic> generated from the VSMMD shown in Figure <xref rid="Fig9" ref-type="fig">9</xref>.<fig id="Fig11"><label>Figure 11
+</label><caption xml:lang="en"><p><bold>The De Bruijn graph</bold><bold><italic>D</italic></bold><bold>for the VSMMD shown in Figure 9</bold>.</p><p>Note: We use 'O' to denote O#O#O#O#O#O and 'OA' to denote O#O#O#O#A.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig11_HTML.jpg" /></p></fig></p>
+              <p>The De Bruijn graph can be <italic>expanded</italic> by replacing each edge carrying weight <italic>c</italic> with <italic>c</italic> unweighted edges, each with the same direction as the original edge. Figure <xref rid="Fig12" ref-type="fig">12</xref> illustrates this expansion. Let <italic>M</italic> be the resulting unweighted De Bruijn graph.<fig id="Fig12"><label>Figure 12
+</label><caption xml:lang="en"><p><bold>The Expanded graph</bold><bold><italic>M</italic></bold>.</p><p>Note: We use 'O' to denote O#O#O#O#O#O and 'OA' to denote O#O#O#O#A.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig12_HTML.jpg" /></p></fig></p>
+              <p>From the VSMMD, we know the exact number of vertices that should appear in the chemical structure template. With this information, we can derive a chemical structure template from the De Bruijn graph by finding an Euler circuit of <italic>M</italic>.</p>
+            </sec>
+            <sec id="Sec15">
+              <title>All possible Euler circuits
+</title>
+              <p>An Euler circuit is a circuit on the graph such that each edge is traversed exactly once. Each traversal of an edge corresponds to the consumption of one instance of a component in the VSMMD. The problem of finding an Eulerian circuit of a graph is well known and there exists a linear time algorithm for its derivation [<xref ref-type="bibr" rid="CR37">37</xref>]. The following is the pseudo-code of the Euler circuit algorithm.</p>
+              <p>EULER (<italic>q</italic>)
+<list list-type="order"><list-item><p>Path ← none</p></list-item><list-item><p>For each unmarked edge <italic>e</italic> leaving <italic>q</italic> do</p></list-item><list-item><p>         Mark(<italic>e</italic>)</p></list-item><list-item><p>         Path A ← EULER(<italic>opposite vertex</italic>(<italic>e</italic>)) || Path</p></list-item><list-item><p>Return Path</p></list-item></list></p>
+              <p>Each Euler circuit will represent the extraction of a unique chemical structure template from the De Bruijn Graph <italic>M</italic>. Figure <xref rid="Fig13" ref-type="fig">13</xref> shows a subset of all the Euler circuits that can be generated. The circuit labelled with a '*' corresponds to the chemical structure template illustrated in Figure <xref rid="Fig10" ref-type="fig">10</xref>. The total number of possible Euler circuits for the chemical structure in Figure <xref rid="Fig9" ref-type="fig">9</xref> is 2700.<fig id="Fig13"><label>Figure 13
+</label><caption xml:lang="en"><p><bold>Some possible Euler circuits</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig13_HTML.jpg" /></p></fig></p>
+              <p>In order to generate all possible chemical structures associated with the VSMMD, we have to find all Euler circuits. Different chemical structure templates correspond to the different possible orderings when traversing outgoing edges of each vertex. This produces a factorial explosion with respect to the number of outgoing edges of each vertex. Thus, finding all Euler circuits is not feasible.</p>
+            </sec>
+            <sec id="Sec16">
+              <title>Probabilistic Euler paths
+</title>
+              <p>To overcome this, we have developed an algorithm that generates Eulerian circuits by doing a guided walk of the graph. During the walk we choose an outgoing edge in a probabilistic fashion. The choice is dependent on statistics that are gathered from the descriptors in the training set. To accomplish this, we have built a statistical model that is used to estimate the probability of an Euler circuit.</p>
+              <p>Let <italic>E</italic> denote a path of <italic>N</italic> edges, that is, <italic>E</italic> = <italic>e</italic><sub>1</sub>, <italic>e</italic><sub>2</sub>,...,<italic>e</italic><sub><italic>N</italic></sub>. Then, by the probability chain rule, we can obtain:
+<disp-formula id="Equ33"><label>33</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ33_HTML.gif" /></disp-formula></p>
+              <p>To estimate the conditional probabilities <italic>P</italic> (<italic>e</italic><sub><italic>i</italic></sub>|<italic>e</italic><sub>1</sub>, <italic>e</italic><sub>2</sub>,⋯,<italic>e</italic><sub><italic>i</italic>-1</sub>), we need training data consisting of a large number of Euler circuits each corresponding to some particular molecular template. One can obtain these conditional probability distributions from the training data by keeping statistics on the dependency between the next edge to traverse and the history of the previously traversed edges. Seen as probabilities of traversal, we of course use normalized values so that the probabilities of all possible "next-edges" sum to 1.0.</p>
+              <p>To simplify the statistical model, independence assumptions are made so that each edge depends only on the last <italic>t</italic> edges. Consequently, we have a Markov model that provides an approximation of how the fragments, each labelled with physicochemical properties, are connected within the template. More precisely, our model predicts traversal of <italic>ei</italic> based on previously traversed edges <italic>e</italic><sub><italic>i</italic>-1</sub>, <italic>e</italic><sub><italic>i</italic>-2</sub>,⋯,<italic>e</italic><sub><italic>i</italic>-<italic>t</italic></sub>. Formally, this is described as:
+<disp-formula id="Equ34"><label>34</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ34_HTML.gif" /></disp-formula></p>
+              <p>If we could handle unlimited amounts of training data, the maximum likelihood estimate of <italic>P</italic> (<italic>e</italic><sub><italic>i</italic></sub>|<italic>e</italic><sub><italic>i</italic>-<italic>t</italic>+1</sub>,⋯,<italic>e</italic><sub><italic>i</italic>-1</sub>) would be:
+<disp-formula id="Equ35"><label>35</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_4_Equ35_HTML.gif" /></disp-formula></p>
+              <p>where <italic>c</italic>(<italic>e</italic><sub><italic>i</italic>-<italic>t</italic></sub>,⋯,<italic>e</italic><sub><italic>i</italic>-1</sub>, <italic>e</italic><sub><italic>i</italic></sub>) is the number of times the edge sequence <italic>e</italic><sub><italic>i</italic>-<italic>t</italic></sub>,⋯,<italic>e</italic><sub><italic>i</italic>-1</sub>, <italic>e</italic><sub><italic>i</italic></sub>is seen in the training data.</p>
+              <p>As an example, consider Figure <xref rid="Fig14" ref-type="fig">14</xref> with <italic>t</italic> = 1. In order to determine the edge to be traversed next when at the node labelled "R", we consult the associated probabilities: <italic>P</italic>(R - O | A - R) and <italic>P</italic>(R - A | A - R). We traverse the edge with the largest probability first.<fig id="Fig14"><label>Figure 14
+</label><caption xml:lang="en"><p><bold>An example in edges traversal</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig14_HTML.jpg" /></p></fig></p>
+              <p>A threshold <italic>h</italic> can also be used as a cut-off to limit the number of edges that the algorithm should examine in an effort to sidestep the factorial explosion that can occur without this limitation. With this understanding, we can compute the overall probability of each Euler circuit using equation (<xref rid="Equ34" ref-type="disp-formula">34</xref>).</p>
+              <p>With <italic>t</italic> = 1 and <italic>h</italic> = 2, a total of 102 Euler circuits are generated. The six Euler circuits with highest probability are shown in Figure <xref rid="Fig15" ref-type="fig">15</xref>. They corresponded to two unique chemical templates. Templates 1 and 3 are the exact templates derived from the chemical structure shown in Figure <xref rid="Fig10" ref-type="fig">10</xref>.<fig id="Fig15"><label>Figure 15
+</label><caption xml:lang="en"><p><bold>Six highest probability Euler Circuits for VSMMD shown in Figure 9 and the corresponding chemical structure templates</bold>.</p><p>Note: We use 'O' to denote O#O#O#O#O#O and 'OA' to denote O#O#O#O#A.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig15_HTML.jpg" /></p></fig></p>
+              <p>There are several related research papers that attempt to retrieve the order of elements that are part of a larger structure using Eulerian circuits. Cortes <italic>et al</italic>. [<xref ref-type="bibr" rid="CR38">38</xref>] retrieve the order of words in documents using an Eulerian circuit approach. Pevzner <italic>et al</italic>. [<xref ref-type="bibr" rid="CR39">39</xref>] assembly DNA fragments using an Eulerian circuit.</p>
+              <p>As mentioned in [<xref ref-type="bibr" rid="CR29">29</xref>], in general, there was no exact pre-image in the input space; The pre-image returned by the algorithm was an approximation and so it was compromised by approximation errors. Because of these approximation errors, the following problems may exist:</p>
+              <p>
+                <list list-type="bullet">
+                  <list-item>
+                    <p>The pre-image vector may consist of non-integer components.</p>
+                  </list-item>
+                  <list-item>
+                    <p>The pre-image vector may not form a fully connected De Bruijn Graph.</p>
+                  </list-item>
+                </list>
+              </p>
+              <p>Our solution to overcome the first problem is to round the components to obtain integer counts. To deal with the case where the graph is not connected, the all-possible Euler circuits algorithm is called at each vertex whose outgoing edges are not all marked. The resulting path is the concatenation of the paths returned by different calls to the all-possible Euler algorithm. More precisely, a bidirectional edge with the largest conditional probability based on previously traversed edges in the path, (using the same Markov model that we set up in the previous subsection), is added to connect two Euler paths together.</p>
+              <p>Consider the pre-image example given in Figure <xref rid="Fig16" ref-type="fig">16(a)</xref>, the corresponding expanded De Bruijn Graph is given in Figure <xref rid="Fig16" ref-type="fig">16(b)</xref>. The all-possible Euler algorithm is called at each vertex whose outgoing edges are not all marked. The highest probability Euler circuits for the disjoint De Bruijn Graph are given in Figure <xref rid="Fig16" ref-type="fig">16(c)</xref>. To determine the concatenation location of the two Euler circuits, our algorithm considers all the possible connections between the two disjoint parts of the graph. All the possible connections are illustrated in Figure <xref rid="Fig16" ref-type="fig">16(d)</xref>. These possible connections are evaluated using the same Markov model that we set up before to calculate the Euler circuits. Among all the possible connections, the P(R-O|R-R) value gives the highest probability. Thus a bi-directional edge between node 'R' and node 'O', is added to connect the two disjointed parts together. The final De Bruijn Graph, the concatenated Euler circuit and the corresponding graph template are shown in Figure <xref rid="Fig16" ref-type="fig">16(e)</xref>.<fig id="Fig16"><label>Figure 16
+</label><caption xml:lang="en"><p><bold>A case where the pre-image vector did not form a fully connected De Bruijn Graph</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig16_HTML.jpg" /></p></fig></p>
+            </sec>
+          </sec>
+        </sec>
+        <sec id="Sec17">
+          <title>Results
+</title>
+          <sec id="Sec18">
+            <title>Data
+</title>
+            <p>In our previous work [<xref ref-type="bibr" rid="CR24">24</xref>], eight different data sets were used to test the ability of the VSMMD to predict biological activities. All these data sets contain real valued QSAR inhibitor data. The eight QSAR data sets are from Sutherland <italic>et al</italic>. [<xref ref-type="bibr" rid="CR27">27</xref>]. We chose one data set from these eight data sets to demonstrate the effectiveness of the recovery algorithm when applied to our VSMMD.</p>
+            <p>The data set we chose contains 322 cyclooxygenase-2 (COX2) inhibitors collected by Seibert and colleagues [<xref ref-type="bibr" rid="CR40">40</xref>] and subsequently utilized in a QSAR study by Chavatte <italic>et al</italic>. [<xref ref-type="bibr" rid="CR41">41</xref>] with each inhibitor having pIC<sub>50</sub> values ranging from 5.5 to 8.9. We chose this data set because training samples in the COX2 data set were presented using diagrams of molecular structures. This allowed us to compare our generated chemical structure templates with the given molecules in the data set. It should also be noted that, despite the similarity of molecules displayed in Figure <xref rid="Fig17" ref-type="fig">17</xref>, the entire set of 322 COX2 inhibitors is spread over 20 different scaffolds and so the training set has a reasonable structural diversity.<fig id="Fig17"><label>Figure 17
+</label><caption xml:lang="en"><p><bold>Ten highest active compounds in the COX-2 training set</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig17_HTML.jpg" /></p></fig></p>
+            <p>The same inverse-QSAR procedure was applied to the remaining seven data sets; the closest matching molecule in the test set for the generated chemical template is shown in the last subsection.</p>
+            <p>In our experiments, the data were separated into the same training and testing sets as specified by Sutherland <italic>et al</italic>. [<xref ref-type="bibr" rid="CR27">27</xref>].</p>
+          </sec>
+          <sec id="Sec19">
+            <title>Implementation Details
+</title>
+            <p>To identify the physicochemical properties of each atom, we implemented our descriptor generation program with help from the chemical development kit (CDK) [<xref ref-type="bibr" rid="CR42">42</xref>, <xref ref-type="bibr" rid="CR43">43</xref>] programmed in Java. As illustrated in Figure <xref rid="Fig3" ref-type="fig">3</xref>, descriptors were calculated and the kernel matrix <italic>K</italic> was generated in a few seconds for each complete data set. For the pre-image algorithm and the feature space algorithm, we used MATLAB to perform the required calculations. For the recovery phase, we implemented the Probabilistic Euler Paths algorithm in Java.</p>
+          </sec>
+          <sec id="Sec20">
+            <title>Verification of the Inverse Mapping – Test Result
+</title>
+            <p>To verify our proposed inverse approach, we picked one molecule in the COX2 training set randomly as shown in Figure <xref rid="Fig18" ref-type="fig">18(a)</xref>. We then generated the VSMMD for each of the compounds in the training set. The corresponding VSMMD for the chosen molecule is shown in Figure <xref rid="Fig18" ref-type="fig">18(b)</xref>. Next, we implicitly mapped this VSMMD to the kernel feature space using a Gaussian kernel function as stated in equation (<xref rid="Equ5" ref-type="disp-formula">5</xref>). Instead of generating a new point in the feature space, we used the pre-image approximation algorithm to compute the pre-image of this feature space point. The corresponding pre-image is shown in Figure <xref rid="Fig18" ref-type="fig">18(c)</xref>. Finally, we applied our VSMMD recovery algorithm to obtain a chemical template. With <italic>t</italic> = 1 and <italic>h</italic> = 3, we generated the Euler circuit with the highest probability and the corresponding chemical structure templates are shown in Figure <xref rid="Fig18" ref-type="fig">18(d)</xref>. From this result, we observed that our approach is able to generate a chemical template corresponding to the original chosen molecule.<fig id="Fig18"><label>Figure 18
+</label><caption xml:lang="en"><p><bold>Verification test result</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig18_HTML.jpg" /></p></fig></p>
+          </sec>
+          <sec id="Sec21">
+            <title>Inverse-QSAR Test Results
+</title>
+            <p>Recall that our inverse-QSAR approach contains five steps. The first two steps are to perform QSAR analysis. In the first step, we generated the VSMMD for the compounds in the training set. Then, in the second step, we implicitly mapped the VSMMD to the kernel feature space using an appropriate kernel function for classification. The results of the forward QSAR can be found in our previous paper [<xref ref-type="bibr" rid="CR24">24</xref>].</p>
+            <p>The third step was to design or to generate a new point in the kernel feature space using a kernel feature space algorithm. To demonstrate our approach, we formed a new point in the feature space by using the ten highest active compounds in the training set. The center of the minimum enclosing and maximum excluding hypersphere was obtained using equation (<xref rid="Equ19" ref-type="disp-formula">19</xref>). Figure <xref rid="Fig17" ref-type="fig">17</xref> shows these ten compounds.</p>
+            <p>In the fourth step, we mapped the feature space point back into the input space using the pre-image approximation algorithm. In this case, we used the Kwok and Tsang algorithm [<xref ref-type="bibr" rid="CR29">29</xref>] described in the pre-image problem subsection to map the center of the minimum enclosing and maximum excluding hypersphere back into the input space. Figure <xref rid="Fig19" ref-type="fig">19</xref> illustrates the derived VSMMD.<fig id="Fig19"><label>Figure 19
+</label><caption xml:lang="en"><p><bold>The pre-image VSMMD of the center of the minimum enclosing and maximum excluding hyperspheres</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig19_HTML.jpg" /></p></fig></p>
+            <p>The last step concerned building the molecular structure template using our VSMMD recovery algorithm described in the recovery subsection. Since the center of the minimum enclosing and maximum excluding hypersphere was derived from the ten highest active compounds in the training set, we assumed that the new derived compounds should look similar to these ten compounds. With this assumption the path probability was calculated. Setting <italic>t</italic> = 1 and <italic>h</italic> = 3, we generated two Euler circuits and the corresponding chemical structure template is shown in Figure <xref rid="Fig20" ref-type="fig">20</xref>.<fig id="Fig20"><label>Figure 20
+</label><caption xml:lang="en"><p><bold>Two Euler circuits with the highest probability for the pre-image VSMMD in Figure 19 and the corresponding chemical structure templates</bold>.</p><p>Note: We use 'O' to denote O#O#O#O#O#O and 'R*' to denote the cyclopentene ring.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig20_HTML.jpg" /></p></fig></p>
+          </sec>
+          <sec id="Sec22">
+            <title>Notes on Test Results
+</title>
+            <p>In order to investigate whether the pre-image VSMMD is reasonable, we performed a more detailed analysis of the COX-2 data set. In the pre-image VSMMD as shown in Figure <xref rid="Fig20" ref-type="fig">20</xref>, the cyclopentene ring can be found in one of the descriptors. From medicinal chemistry studies, we know that cyclopentene derivatives are one of the first series of diaryl-substituted cycles that have been well known as COX-2 inhibitors [<xref ref-type="bibr" rid="CR44">44</xref>, <xref ref-type="bibr" rid="CR45">45</xref>]. This empirical evidence demonstrates that our generated pre-image VSMMD is able to capture important properties of the ten most active molecules.</p>
+            <p>When we performed a high throughput screening on the test set using the generated chemical structure template, the following molecule was identified as an exact match to the template.</p>
+            <p>The molecule in Figure <xref rid="Fig21" ref-type="fig">21</xref> has a pIC50 value of 8.52, and it was one of the highest active molecules in the testing set. From this result, we demonstrated that our strategy was able to generate a high affinity molecule using only data in the training set. We were able to claim that the generated molecule was a high affinity molecule because it appeared as such in the testing set. In practice, the success of the algorithm would have to be assessed by using a wet lab procedure to determine the affinity of the generated molecule.<fig id="Fig21"><label>Figure 21
+</label><caption xml:lang="en"><p><bold>Matching molecule in the test set</bold>.</p><p>Note: We use 'O' to denote O#O#O#O#O#O and 'R*' to denote the cyclopentene ring.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig21_HTML.jpg" /></p></fig></p>
+            <p>The inverse-QSAR procedure was applied to all eight data sets; the closest matching molecule in the test set for the generated chemical template across 8 data sets is shown in Figure <xref rid="Fig22" ref-type="fig">22</xref>. A quantitative evaluation of the generated molecules was performed by implicitly mapping the VSMMD of each molecule to the kernel feature space for regression analysis. The regression results are also shown in Figure <xref rid="Fig22" ref-type="fig">22</xref>.<fig id="Fig22"><label>Figure 22
+</label><caption xml:lang="en"><p><bold>The closest matching molecule in the test set for the generated chemical template across 8 data sets</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_4_Fig22_HTML.jpg" /></p></fig></p>
+          </sec>
+        </sec>
+        <sec id="Sec23">
+          <title>Discussion
+</title>
+          <p>In kernel-based learning, the usual assumption is that the data pairs <inline-formula id="IEq19"><inline-graphic xlink:href="MediaObjects/13321_2009_4_IEq1_HTML.gif" /></inline-formula>, in the training set, come from a source that provides these samples in an independent identically distributed (i.i.d.) fashion according to an unknown probability distribution <italic>P</italic>(<italic>x</italic>, <italic>y</italic>). Furthermore, the test examples are assumed to come from the <italic>same</italic> distribution [<xref ref-type="bibr" rid="CR46">46</xref>]. In an ideal situation, the collection of molecular descriptors in the training set follow a probability distribution that is only determined by the interactions between ligands and the binding site. In practise this does not happen. The selection of members in the training set may involve a significant amount of bias due to human involvement in its creation:</p>
+          <p>
+            <list list-type="bullet">
+              <list-item>
+                <p>Selection of members of the training set may be restricted by rules that exclude molecules that are not "drug like".</p>
+              </list-item>
+              <list-item>
+                <p>Since the training set involves molecules that have been assessed for binding affinity, they had to be synthesized and may be part of a suite of molecules for which the synthesis was not overly complicated.</p>
+              </list-item>
+              <list-item>
+                <p>Furthermore, the molecular descriptors in the training set may show various types of repetition, (for example, the repeated occurrence of some type of scaffold). This may or may not be intended.</p>
+              </list-item>
+            </list>
+          </p>
+          <p>As a consequence of these issues, the learning algorithm will produce a predictor that is taking into account both a biological process and the human activity intrinsic to the formation of the training set. More significantly, there is the demand that future test molecules come from the same probability distribution. Statistical learning theory will guarantee certain generalization bounds, but only if these demands are met. In effect, the theory tells us that if test samples come from a source, such as a virtual screening library that is not characterized by the same rules of formation as the training set – then all bets are off.</p>
+          <p>In the constructive approach that has been described in this paper, it is clear that we are also limited by the information that is intrinsic to a training set. But beyond this, the strategy significantly differs from virtual screening. Instead of trying to find a new molecule in a database that should exhibit the same <italic>P</italic>(<italic>x,y</italic>) characteristics, we side step this requirement (which may be difficult to guarantee) and we build a new drug candidate using only the information that is strictly contained in the training set itself.</p>
+        </sec>
+        <sec id="Sec24">
+          <title>Conclusion
+</title>
+          <p>While molecular fragments have been used in research studies for dealing with quantitative structure-activity relationship problems, we have further evolved this strategy to include a reverse engineering mechanism.</p>
+          <p>These mechanisms include:<list list-type="order"><list-item><p>the use of a kernel feature space algorithm to design or modify descriptor image points in a feature space</p></list-item><list-item><p>the deployment of a pre-image algorithm to map the descriptor image points in the feature space back to the input space of the descriptors, and</p></list-item><list-item><p>the design of a probabilistic strategy to convert new descriptors into meaningful chemical graph templates</p></list-item></list></p>
+          <p>As reported in earlier papers, our modeling has produced very effective algorithms to predict drug-binding affinities and to predict multiple binding modes [<xref ref-type="bibr" rid="CR24">24</xref>]. We have now extended our modeling approach to the development of algorithms that derive new descriptors and then facilitate the reverse engineering of such a descriptor. This is a very desirable capability for a molecular descriptor [<xref ref-type="bibr" rid="CR3">3</xref>].</p>
+          <p>The most important aspect of our research is the presentation of strategies that actually generate the structure of a new drug candidate. This is substantially different from methodologies that depend on database screening to get new drug candidates. While our approach can support such an endeavour, it is not our primary goal. In fact, we are quite concerned that database screening, done using a predictor derived from a statistical learning algorithm, is subject to procedural demands that may be difficult to maintain. We are referring to statistical learning theory that guarantees the success of a predictor, but only when the test sample is drawn from a data source that has the same probability distribution as that characterizing the training set.</p>
+          <p>In the applications of statistical learning to database screening, the predictor may be applied to test molecules that have very little relationship to the training data. In these cases, the predictor is optimistically treated as if it actually incorporates an algorithm that has some firm and direct relationship to the biological context of the problem. As mentioned by Good <italic>et al</italic>. [<xref ref-type="bibr" rid="CR47">47</xref>], the conclusion of a QSAR analysis can be profoundly altered by how the test set was derived. Traditionally, this concern was usually addressed through the design of complicated and time consuming validation experiments [<xref ref-type="bibr" rid="CR48">48</xref>] to ensure that the predictor will not generate a misleading conclusion. In our approach, we have avoided such concerns. While the training set is still used to generate a new image point in the feature space, the reverse engineering just described allows us to develop a template for a new drug candidate that is independent of issues related to probability distribution constraints placed on test set molecules.</p>
+        </sec>
+      </body>
+      <back>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sharp</surname>
+                    <given-names>KA</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Alvarez</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Shoichet</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Potential functions for virtual screening and ligand binding calculations: Some theoretical considerations
+</article-title>
+                <source>Virtual Screening in Drug Discovery</source>
+                <year>2005</year>
+                <publisher-loc>New York</publisher-loc>
+                <publisher-name>Taylor &amp; Francis</publisher-name>
+                <fpage>229</fpage>
+                <lpage>248</lpage>
+                <pub-id pub-id-type="doi">10.1201/9781420028775.pt4</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Todeschini</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Consonni</surname>
+                    <given-names>V</given-names>
+                  </name>
+                </person-group>
+                <source>Handbook of molecular descriptors</source>
+                <year>2000</year>
+                <publisher-loc>Weinheim</publisher-loc>
+                <publisher-name>Wiley-VCH</publisher-name>
+                <pub-id pub-id-type="doi">10.1002/9783527613106</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Faulon</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                  <name>
+                    <surname>Brown</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Martin</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Reverse engineering chemical structures from molecular descriptors: how many solutions?
+</article-title>
+                <source>J Comput-Aided Mol Des</source>
+                <year>2005</year>
+                <volume>19</volume>
+                <fpage>637</fpage>
+                <lpage>650</lpage>
+                <pub-id pub-id-type="doi">10.1007/s10822-005-9007-1</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XhslWnsLw%3D</pub-id>
+                <pub-id pub-id-type="pmid">16267694</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lewis</surname>
+                    <given-names>RA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A general method for exploiting QSAR models in lead optimization
+</article-title>
+                <source>J Med Chem</source>
+                <year>2005</year>
+                <volume>48</volume>
+                <fpage>1638</fpage>
+                <lpage>1648</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm049228d</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXht1yisr4%3D</pub-id>
+                <pub-id pub-id-type="pmid">15743205</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Brown</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>McKay</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Gasteiger</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A novel workflow for the inverse QSPR problem using multi-objective optimization
+</article-title>
+                <source>J Comput-Aided Mol Des</source>
+                <year>2006</year>
+                <volume>20</volume>
+                <fpage>333</fpage>
+                <lpage>341</lpage>
+                <pub-id pub-id-type="doi">10.1007/s10822-006-9063-1</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XhtVKjtLfE</pub-id>
+                <pub-id pub-id-type="pmid">17031542</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Masek</surname>
+                    <given-names>BB</given-names>
+                  </name>
+                  <name>
+                    <surname>Shen</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Smith</surname>
+                    <given-names>KM</given-names>
+                  </name>
+                  <name>
+                    <surname>Pearlman</surname>
+                    <given-names>RS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Sharing chemical information without sharing chemical structure
+</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2008</year>
+                <volume>48</volume>
+                <fpage>256</fpage>
+                <lpage>261</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci600383v</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXhsFGktr8%3D</pub-id>
+                <pub-id pub-id-type="pmid">18254609</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sheridan</surname>
+                    <given-names>RP</given-names>
+                  </name>
+                  <name>
+                    <surname>Kearsley</surname>
+                    <given-names>SK</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Using a genetic algorithm to suggest combinatorial libraries
+</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1995</year>
+                <volume>35</volume>
+                <fpage>310</fpage>
+                <lpage>320</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci00024a021</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2MXktleksr0%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Venkatasubramanian</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Chan</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Caruthers</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Evolutionary design of molecules with desired properties using the genetic algorithm
+</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1995</year>
+                <volume>35</volume>
+                <fpage>188</fpage>
+                <lpage>195</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci00024a003</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2MXkt1yrs7g%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kvasnicka</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Pospichal</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Simulated annealing construction of molecular graphs with required properties
+</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1996</year>
+                <volume>36</volume>
+                <fpage>516</fpage>
+                <lpage>526</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci9500703</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK28Xis1yjsrg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hall</surname>
+                    <given-names>LH</given-names>
+                  </name>
+                  <name>
+                    <surname>Kier</surname>
+                    <given-names>LB</given-names>
+                  </name>
+                  <name>
+                    <surname>Frazer</surname>
+                    <given-names>JW</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Design of molecules from quantitative structure-activity relationship models .2. Derivation and proof of information-transfer relating equations
+</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1993</year>
+                <volume>33</volume>
+                <fpage>148</fpage>
+                <lpage>152</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci00011a022</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK3sXlvV2luw%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hall</surname>
+                    <given-names>LH</given-names>
+                  </name>
+                  <name>
+                    <surname>Dailey</surname>
+                    <given-names>RS</given-names>
+                  </name>
+                  <name>
+                    <surname>Kier</surname>
+                    <given-names>LB</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Design of molecules from quantitative structure-activity relationship models .3. Role of higher-order path counts: path 3
+</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1993</year>
+                <volume>33</volume>
+                <fpage>598</fpage>
+                <lpage>603</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci00014a012</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK3sXks1ansbo%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kier</surname>
+                    <given-names>LB</given-names>
+                  </name>
+                  <name>
+                    <surname>Hall</surname>
+                    <given-names>LH</given-names>
+                  </name>
+                  <name>
+                    <surname>Frazer</surname>
+                    <given-names>JW</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Design of molecules from quantitative structure-activity relationship models .1. Information-transfer between path and vertex degree counts
+</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1993</year>
+                <volume>33</volume>
+                <fpage>143</fpage>
+                <lpage>147</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci00011a021</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK3sXlvV2lsQ%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Skvortsova</surname>
+                    <given-names>MI</given-names>
+                  </name>
+                  <name>
+                    <surname>Baskin</surname>
+                    <given-names>II</given-names>
+                  </name>
+                  <name>
+                    <surname>Slovokho tova</surname>
+                    <given-names>OL</given-names>
+                  </name>
+                  <name>
+                    <surname>Palyulin</surname>
+                    <given-names>VA</given-names>
+                  </name>
+                  <name>
+                    <surname>Zefirov</surname>
+                    <given-names>NS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Inverse problem in QSAR, QSPR studies for the case of topological indexes characterizing molecular shape (Kier indexes)
+</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1993</year>
+                <volume>33</volume>
+                <fpage>630</fpage>
+                <lpage>634</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci00014a017</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK3sXkslWru7w%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Churchwell</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Rintoul</surname>
+                    <given-names>MD</given-names>
+                  </name>
+                  <name>
+                    <surname>Martin</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Visco</surname>
+                    <given-names>DP</given-names>
+                  </name>
+                  <name>
+                    <surname>Kotu</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Larson</surname>
+                    <given-names>RS</given-names>
+                  </name>
+                  <name>
+                    <surname>Sillerud</surname>
+                    <given-names>LO</given-names>
+                  </name>
+                  <name>
+                    <surname>Brown</surname>
+                    <given-names>DC</given-names>
+                  </name>
+                  <name>
+                    <surname>Faulon</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The signature molecular descriptor – 3. Inverse quantitative structure-activity relationship of ICAM-1 inhibitory peptides
+</article-title>
+                <source>J Mol Graphics Modell</source>
+                <year>2004</year>
+                <volume>22</volume>
+                <fpage>263</fpage>
+                <lpage>273</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.jmgm.2003.10.002</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXpsFSitw%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Faulon</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                  <name>
+                    <surname>Visco</surname>
+                    <given-names>DP</given-names>
+                  </name>
+                  <name>
+                    <surname>Pophale</surname>
+                    <given-names>RS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The signature molecular descriptor. 1. Using extended valence sequences in QSAR and QSPR studies
+</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <fpage>707</fpage>
+                <lpage>720</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci020345w</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXitlams7k%3D</pub-id>
+                <pub-id pub-id-type="pmid">12767129</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Faulon</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                  <name>
+                    <surname>Churchwell</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Visco</surname>
+                    <given-names>DP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The signature molecular descriptor. 2. Enumerating molecules from their extended valence sequences
+</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <fpage>721</fpage>
+                <lpage>734</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci020346o</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXitlams7Y%3D</pub-id>
+                <pub-id pub-id-type="pmid">12767130</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Faulon</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                  <name>
+                    <surname>Collins</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Carr</surname>
+                    <given-names>RD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The signature molecular descriptor. 4. Canonizing molecules using extended valence sequences
+</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2004</year>
+                <volume>44</volume>
+                <fpage>427</fpage>
+                <lpage>436</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci0341823</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXitFOhug%3D%3D</pub-id>
+                <pub-id pub-id-type="pmid">15032522</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Azencott</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <name>
+                    <surname>Ksikes</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Swamidass</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>JH</given-names>
+                  </name>
+                  <name>
+                    <surname>Ralaivola</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Baldi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">One- to four-dimensional kernels for virtual screening and the prediction of physical, chemical, and biological properties
+</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <fpage>965</fpage>
+                <lpage>974</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci600397p</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXisVGls70%3D</pub-id>
+                <pub-id pub-id-type="pmid">17338509</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Swamidass</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Bruand</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Phung</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Ralaivola</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Baldi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Kernels for small molecules and the prediction of mutagenicity, toxicity and anti-cancer activity
+</article-title>
+                <source>Bioinformatics</source>
+                <year>2005</year>
+                <volume>21</volume>
+                <issue>supplement 1</issue>
+                <fpage>i359</fpage>
+                <lpage>i368</lpage>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/bti1055</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXlslyktLc%3D</pub-id>
+                <pub-id pub-id-type="pmid">15961479</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="other">M Fröhlich H, Wegner JK, Sieker F, Zell A: Optimal assignment kernels for attributed molecular graphs. Bonn, Germany. 225-232.</mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mahe</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Ueda</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Akutsu</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Perret</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                  <name>
+                    <surname>Vert</surname>
+                    <given-names>JP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Graph kernels for molecular structure-activity relationship analysis with support vector machines
+</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2005</year>
+                <volume>45</volume>
+                <fpage>939</fpage>
+                <lpage>951</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci050039t</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXksVOqt74%3D</pub-id>
+                <pub-id pub-id-type="pmid">16045288</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ralaivola</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Swamidass</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Saigo</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Baldi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Graph kernels for chemical informatics
+</article-title>
+                <source>Neural Net</source>
+                <year>2005</year>
+                <volume>18</volume>
+                <fpage>1093</fpage>
+                <lpage>1110</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.neunet.2005.07.009</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mahe</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Ralaivola</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Stoven</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Vert</surname>
+                    <given-names>JP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The pharmacophore kernel for virtual screening with support vector machines
+</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2006</year>
+                <volume>46</volume>
+                <fpage>2003</fpage>
+                <lpage>2014</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci060138m</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XnvFOqt7g%3D</pub-id>
+                <pub-id pub-id-type="pmid">16995731</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Burkowski</surname>
+                    <given-names>FJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Wong</surname>
+                    <given-names>WWL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Predicting multiple binding modes in QSAR studies using a vector Space model molecular descriptor in reproducing kernel Hilbert space
+</article-title>
+                <source>International Journal of Computational Biology and Drug Design</source>
+                <year>2009</year>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gillet</surname>
+                    <given-names>VJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Bradshaw</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Similarity searching using reduced graphs
+</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <fpage>338</fpage>
+                <lpage>345</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci025592e</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXhtVOjtbs%3D</pub-id>
+                <pub-id pub-id-type="pmid">12653495</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Glenn</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                  <name>
+                    <surname>Bender</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Arnby</surname>
+                    <given-names>CH</given-names>
+                  </name>
+                  <name>
+                    <surname>Carlsson</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Boyer</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Smith</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Circular fingerprints: Flexible molecular descriptors with applications from physical chemistry to ADME
+</article-title>
+                <source>IDrugs</source>
+                <year>2006</year>
+                <volume>9</volume>
+                <fpage>199</fpage>
+                <lpage>204</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sutherland</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                  <name>
+                    <surname>O'Brien</surname>
+                    <given-names>LA</given-names>
+                  </name>
+                  <name>
+                    <surname>Weaver</surname>
+                    <given-names>DF</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A comparison of methods for modeling quantitative structure-activity relationships
+</article-title>
+                <source>J Med Chem</source>
+                <year>2004</year>
+                <volume>47</volume>
+                <fpage>5541</fpage>
+                <lpage>5554</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm0497141</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXnslGqt7k%3D</pub-id>
+                <pub-id pub-id-type="pmid">15481990</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Shawe-Taylor</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Cristianini</surname>
+                    <given-names>N</given-names>
+                  </name>
+                </person-group>
+                <source>Kernel methods for pattern analysis</source>
+                <year>2004</year>
+                <publisher-loc>Cambridge, UK</publisher-loc>
+                <publisher-name>Cambridge University Press</publisher-name>
+                <pub-id pub-id-type="doi">10.1017/CBO9780511809682</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kwok</surname>
+                    <given-names>JTY</given-names>
+                  </name>
+                  <name>
+                    <surname>Tsang</surname>
+                    <given-names>IWH</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The pre-image problem in kernel methods
+</article-title>
+                <source>IEEE Trans Neural Net</source>
+                <year>2004</year>
+                <volume>15</volume>
+                <fpage>1517</fpage>
+                <lpage>1525</lpage>
+                <pub-id pub-id-type="doi">10.1109/TNN.2004.837781</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mak</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Hsiao</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Ho</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Kwok</surname>
+                    <given-names>JT</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Embedded kernel eigen-voice speaker adaptation and its implication to reference speaker weighting
+</article-title>
+                <source>IEEE Trans Speech Audio Proc</source>
+                <year>2006</year>
+                <volume>14</volume>
+                <fpage>1267</fpage>
+                <lpage>1280</lpage>
+                <pub-id pub-id-type="doi">10.1109/TSA.2005.860836</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="other">Liu Y, Zheng YF: Minimum enclosing and maximum excluding machine for pattern description and discrimination. 18th International Conference on Pattern Recognition. 129-132.</mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mika</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Schölkopf</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Smola</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Müller</surname>
+                    <given-names>K-R</given-names>
+                  </name>
+                  <name>
+                    <surname>Scholz</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Rätsch</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Kernel PCA and de-noising in feature spaces
+</article-title>
+                <source>Proceedings of the</source>
+                <year>1998</year>
+                <fpage>536</fpage>
+                <lpage>542</lpage>
+                <comment>conference on Advances in neural information processing system II</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="other">Schölkopf B, Knirsch P, Smola AJ, Burges CJC: Fast approximation of support vector kernel expansions, and an interpretation of clustering as approximation in feature spaces. DAGM-Symposium. 125-132.</mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bakir</surname>
+                    <given-names>GH</given-names>
+                  </name>
+                  <name>
+                    <surname>Zien</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Tsuda</surname>
+                    <given-names>K</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Learning to find graph pre-images
+</article-title>
+                <source>Lecture Notes in Computer Science</source>
+                <year>2004</year>
+                <volume>3175</volume>
+                <fpage>253</fpage>
+                <lpage>261</lpage>
+                <pub-id pub-id-type="doi">10.1007/978-3-540-28649-3_31</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Tatsuya</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Fukagawa</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Inferring a graph from path frequency
+</article-title>
+                <source>Lecture Notes in Computer Science</source>
+                <year>2005</year>
+                <volume>3537</volume>
+                <fpage>371</fpage>
+                <lpage>382</lpage>
+                <pub-id pub-id-type="doi">10.1007/11496656_32</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Tatsuya</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Fukagawa</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Inferring a chemical structure from a feature vector based on frequency of labelled paths and small fragments
+</article-title>
+                <source>APBC</source>
+                <year>2007</year>
+                <fpage>165</fpage>
+                <lpage>174</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Robin</surname>
+                    <given-names>JW</given-names>
+                  </name>
+                </person-group>
+                <source>Introduction to Graph Theory</source>
+                <year>1996</year>
+                <comment>Addison Wesley</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="other">Cortes C, Mohri M, Weston J: A general regression technique for learning transductions. Proceedings of the 22nd international conference on Machine learning; Bonn, Germany. 153-160.</mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pevzner</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                  <name>
+                    <surname>Tang</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Waterman</surname>
+                    <given-names>MS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An Eulerian path approach to DNA fragment assembly
+</article-title>
+                <source>Proc Natl Acad Sci USA</source>
+                <year>2001</year>
+                <volume>98</volume>
+                <fpage>9748</fpage>
+                <lpage>9753</lpage>
+                <pub-id pub-id-type="doi">10.1073/pnas.171285098</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3MXmtlCmsrc%3D</pub-id>
+                <pub-id pub-id-type="pmid">11504945</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>HC</given-names>
+                  </name>
+                  <name>
+                    <surname>Chamberlain</surname>
+                    <given-names>TS</given-names>
+                  </name>
+                  <name>
+                    <surname>Seibert</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Koboldt</surname>
+                    <given-names>CM</given-names>
+                  </name>
+                  <name>
+                    <surname>Isakson</surname>
+                    <given-names>PC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Diaryl indenes and benzofurans – novel classes of potent and selective cyclooxygenase-2 inhibitors
+</article-title>
+                <source>Bioorg Med Chem Lett</source>
+                <year>1995</year>
+                <volume>5</volume>
+                <fpage>2377</fpage>
+                <lpage>2380</lpage>
+                <pub-id pub-id-type="doi">10.1016/0960-894X(95)00414-O</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2MXovVOhtr8%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chavatte</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Yous</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Marot</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Baurin</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Lesieur</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Three-dimensional quantitative structure-activity relationships of cyclo-oxygenase-2 (COX-2) inhibitors: A comparative molecular field analysis
+</article-title>
+                <source>J Med Chem</source>
+                <year>2001</year>
+                <volume>44</volume>
+                <fpage>3223</fpage>
+                <lpage>3230</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm0101343</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3MXmsVyrtrw%3D</pub-id>
+                <pub-id pub-id-type="pmid">11563921</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Han</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuhn</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Horlacher</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Luttmann</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The chemistry development kit (CDK): an open-source Java library for chemo- and bioinformatics
+</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <fpage>493</fpage>
+                <lpage>500</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci025584y</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXhtVaktbg%3D</pub-id>
+                <pub-id pub-id-type="pmid">12653513</pub-id>
+                <pub-id pub-id-type="pmcid">4901983</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Hoppe</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuhn</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Floris</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Guha</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Recent developments of the chemistry development kit (CDK) – an open-source java library for chemo- and bioinformatics
+</article-title>
+                <source>Curr Pharm Des</source>
+                <year>2006</year>
+                <volume>12</volume>
+                <fpage>2111</fpage>
+                <lpage>2120</lpage>
+                <pub-id pub-id-type="doi">10.2174/138161206777585274</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XmslWqsL0%3D</pub-id>
+                <pub-id pub-id-type="pmid">16796559</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Leval</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Delarge</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Somers</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Tullio</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Henrotin</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Pirotte</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Dogne</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Recent advances in inducible cyclooxygenase (COX-2) inhibition
+</article-title>
+                <source>Curr Med Chem</source>
+                <year>2000</year>
+                <volume>7</volume>
+                <fpage>1041</fpage>
+                <lpage>1062</lpage>
+                <pub-id pub-id-type="doi">10.2174/0929867003374417</pub-id>
+                <pub-id pub-id-type="pmid">10911017</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Reitz</surname>
+                    <given-names>DB</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Norton</surname>
+                    <given-names>MB</given-names>
+                  </name>
+                  <name>
+                    <surname>Reinhard</surname>
+                    <given-names>EJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Collins</surname>
+                    <given-names>JT</given-names>
+                  </name>
+                  <name>
+                    <surname>Anderson</surname>
+                    <given-names>GD</given-names>
+                  </name>
+                  <name>
+                    <surname>Gregory</surname>
+                    <given-names>SA</given-names>
+                  </name>
+                  <name>
+                    <surname>Koboldt</surname>
+                    <given-names>CM</given-names>
+                  </name>
+                  <name>
+                    <surname>Perkins</surname>
+                    <given-names>WE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Selective cyclooxygenase inhibitors: Novel 1,2-diarylcyclopentenes are potent and orally active COX-2 inhibitors
+</article-title>
+                <source>J Med Chem</source>
+                <year>1994</year>
+                <volume>37</volume>
+                <fpage>3878</fpage>
+                <lpage>3881</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm00049a005</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2MXhs12nsLk%3D</pub-id>
+                <pub-id pub-id-type="pmid">7966148</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR46">
+              <label>46.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Müller</surname>
+                    <given-names>K-R</given-names>
+                  </name>
+                  <name>
+                    <surname>Mika</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Räts ch</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Tsuda</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Schölkopf</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An introduction to kernel-based learning algorithms
+</article-title>
+                <source>IEEE Trans Neural Net</source>
+                <year>2001</year>
+                <volume>12</volume>
+                <fpage>181</fpage>
+                <lpage>201</lpage>
+                <pub-id pub-id-type="doi">10.1109/72.914517</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR47">
+              <label>47.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Good</surname>
+                    <given-names>AC</given-names>
+                  </name>
+                  <name>
+                    <surname>Hermsmeier</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Measuring CAMD technique performance. 2. How "druglike" are drugs? Implications of Random test set selection exemplified using druglikeness classification models
+</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <fpage>110</fpage>
+                <lpage>114</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci6003493</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28Xht1KqsLzI</pub-id>
+                <pub-id pub-id-type="pmid">17238255</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR48">
+              <label>48.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Good</surname>
+                    <given-names>AC</given-names>
+                  </name>
+                  <name>
+                    <surname>Hermsmeier</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <name>
+                    <surname>Hindle</surname>
+                    <given-names>SA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Measuring CAMD technique performance: a virtual screening case study in the design of validation experiments
+</article-title>
+                <source>J Comput-Aided Mol Des</source>
+                <year>2005</year>
+                <volume>18</volume>
+                <fpage>529</fpage>
+                <lpage>536</lpage>
+                <pub-id pub-id-type="doi">10.1007/s10822-004-4067-1</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXltVarsQ%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec25">
+              <title>Authors’ original submitted files for images</title>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM1" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM1_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM2_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM3_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM4_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM5_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM6_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM7_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 7</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM8" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM8_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 8</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM9" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM9_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 9</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM10" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM10_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 10</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM11" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM11_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 11</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM12" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM12_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 12</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM13" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM13_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 13</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM14" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM14_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 14</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM15" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM15_ESM.jpeg" mimetype="image" mime-subtype="jpeg"><caption xml:lang="en"><p>Authors’ original file for figure 15</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM16" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM16_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 16</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM17" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM17_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 17</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM18" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM18_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 18</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM19" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM19_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 19</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM20" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM20_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 20</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM21" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM21_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 21</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM22" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_4_MOESM22_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 22</p></caption></media></supplementary-material></p>
+            </sec>
+          </app>
+        </app-group>
+        <notes notes-type="Misc">
+          <title>Competing interests
+</title>
+          <p>The authors declare that they have no competing interests.</p>
+        </notes>
+        <notes notes-type="Misc">
+          <title>Authors' contributions
+</title>
+          <p>WWLW, with the help and under the supervision of FJB, developed and implemented all the inverse-QSAR methods presented in the paper, and ran the experiments. Both authors contributed in writing the initial manuscript, and both approved the final manuscript.</p>
+        </notes>
+      </back>
+    </article>

@@ -1,0 +1,1366 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">BMC1758-2946-1-13</article-id>
+          <article-id pub-id-type="manuscript">13</article-id>
+          <article-id pub-id-type="doi">10.1186/1758-2946-1-13</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Methodology</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Fast automated placement of polar hydrogen atoms in protein-ligand complexes</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Lippert</surname>
+                <given-names>Tobias</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes">
+              <name>
+                <surname>Rarey</surname>
+                <given-names>Matthias</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDBMC17582946113_cor2">b</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution content-type="org-name">Center for Bioinformatics</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">20146</addr-line>
+              <addr-line content-type="city">Hamburg</addr-line>
+              <country>Germany</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDBMC17582946113_cor2">
+              <label>b</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>12</day>
+            <month>8</month>
+            <year>2009</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2009</year>
+          </pub-date>
+          <volume>1</volume>
+          <issue seq="13">1</issue>
+          <elocation-id>13</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>28</day>
+              <month>5</month>
+              <year>2009</year>
+            </date>
+            <date date-type="received">
+              <day>28</day>
+              <month>5</month>
+              <year>2009</year>
+            </date>
+            <date date-type="accepted">
+              <day>12</day>
+              <month>8</month>
+              <year>2009</year>
+            </date>
+            <date date-type="online">
+              <day>12</day>
+              <month>8</month>
+              <year>2009</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© Lippert and Rarey; licensee BioMed Central Ltd. 2009</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-year>2009</copyright-year>
+            <copyright-holder>Lippert and Rarey; licensee BioMed Central Ltd.</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="url">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+            </license>
+          </permissions>
+          <abstract id="Abs1" xml:lang="en">
+            <title>Abstract</title>
+            <sec id="ASec1">
+              <title>Background</title>
+              <p>Hydrogen bonds play a major role in the stabilization of protein-ligand complexes. The ability of a functional group to form them depends on the position of its hydrogen atoms. An accurate knowledge of the positions of hydrogen atoms in proteins is therefore important to correctly identify hydrogen bonds and their properties. The high mobility of hydrogen atoms introduces several degrees of freedom: Tautomeric states, where a hydrogen atom alters its binding partner, torsional changes where the position of the hydrogen atom is rotated around the last heavy-atom bond in a residue, and protonation states, where the number of hydrogen atoms at a functional group may change. Also, side-chain flips in glutamine and asparagine and histidine residues, which are common crystallographic ambiguities must be identified before structure-based calculations can be conducted.</p>
+            </sec>
+            <sec id="ASec2">
+              <title>Results</title>
+              <p>We have implemented a method to determine the most probable hydrogen atom positions in a given protein-ligand complex. Optimality of hydrogen bond geometries is determined by an empirical scoring function which is used in molecular docking. This allows to evaluate protein-ligand interactions with an established model. Also, our method allows to resolve common crystallographic ambiguities such as as flipped amide groups and histidine residues. To ensure high speed, we make use of a dynamic programming approach.</p>
+            </sec>
+            <sec id="ASec3">
+              <title>Conclusion</title>
+              <p>Our results were checked against selected high-resolution structures from an external dataset, for which the positions of the hydrogen atoms have been validated manually. The quality of our results is comparable to that of other programs, with the advantage of being fast enough to be applied on-the-fly for interactive usage or during score evaluation.</p>
+            </sec>
+            <sec>
+              <fig id="Figa" position="anchor">
+                <p>
+                  <graphic position="anchor" specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2009_Article_13_Figa_HTML.gif" />
+                </p>
+              </fig>
+            </sec>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Protein Data Bank</kwd>
+            <kwd>Hydrogen Bond Network</kwd>
+            <kwd>Dynamic Programming Approach</kwd>
+            <kwd>Interaction Score</kwd>
+            <kwd>Protein Data Bank File</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Chemistry Central</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>22</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2009</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2009</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>5</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>28</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2009_Article_13.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-1-13" ext-link-type="doi">10.1186/1758-2946-1-13</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Background</title>
+          <p>Pharmaceutical research focuses on finding novel ligands for proteins known to be disease-modifying. This research can be assisted by docking calculations which provide <italic>in-silico</italic> estimations of the binding mode and the binding affinity of putative ligand molecules and a protein [<xref ref-type="bibr" rid="CR1">1</xref>]. Polar interactions, to which hydrogen bonds belong, play a major role in non-covalent protein-ligand interactions [<xref ref-type="bibr" rid="CR2">2</xref>]. These hydrogen bonds have a direction which depends on the position of the involved hydrogen atoms. Hence their positions need to be known to correctly assess protein-ligand interactions with respect to their hydrogen bonds. However, they cannot be taken from the input structure but must be calculated for two reasons: First, as stated in the induced fit theory, the protein may respond to a bound ligand with changes in its conformation [<xref ref-type="bibr" rid="CR3">3</xref>]. The energetically most simple change in conformation is a change in the position of the hydrogen atoms, resulting in a change of the active site's spatio-chemical properties. Second, protein structures may contain ambiguities that result from the experimental method, especially if it is X-ray crystallography, which has been used to determine most of the publicly available structures in the Protein Data Bank (PDB) [<xref ref-type="bibr" rid="CR4">4</xref>]. Of its currently 50,000 structures, more than 40,000 have been determined using this method. Even though it is a very mature techology, certain ambiguities remain in the obtained structures. Particularly the resolution makes it difficult to detect hydrogen atoms [<xref ref-type="bibr" rid="CR5">5</xref>], which must therefore be added in the following refinement of the data. We have modeled four degrees of freedom to predict positions of hydrogen atoms in protein structures:</p>
+          <sec id="Sec2">
+            <title>Tautomeric states, especially in histidine</title>
+            <p>Two different tautomeric states can be observed for histidine residues. Also, the hydrogen atom at carboxyl groups may change its binding partner.</p>
+          </sec>
+          <sec id="Sec3">
+            <title>Torsional angle changes</title>
+            <p>In hydroxyl, thiol and amine groups, the orientation of the hydrogen atoms is not fixed. Due to the low energy barrier, they may rotate freely around the bond that connects the group to the rest of the molecule</p>
+            <p><italic>Protonation states</italic> have been modeled for four functional groups: Groups that may carry a negative charge by losing one hydrogen include carboxyl and thiol residues, and groups that may carry a positive charge by taking an additional hydrogen atom charge are amine and imidazol groups.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Side-chain flips</title>
+            <p>The identity of atoms in amide groups as well as in imidazole rings is hard to determine at common resolutions for protein crystal structures. Hence they may be rotated by 180° with respect to the PDB file's coordinates. In the following we will refer to the rotation of a functional group by by 180° as "side-chain flips".</p>
+            <p>As for the ligand, we only take into account changes of the torsional angle at hydroxyl, thiol and amine groups.</p>
+            <p>Several approaches addressing hydrogen placements in crystal structures have been developed. A thorough review can be obtained from Forrest and Honig [<xref ref-type="bibr" rid="CR6">6</xref>]. Besides programs which calculate the position of hydrogen atoms by molecular dynamics minimization or place them solely by geometric criteria, the most frequently applied are WHAT IF [<xref ref-type="bibr" rid="CR7">7</xref>], MolProbity [<xref ref-type="bibr" rid="CR8">8</xref>], and the Hbuild [<xref ref-type="bibr" rid="CR9">9</xref>] procedure implemented in the X-PLOR package. The programs differ mostly in their objective function and their optimization method. Hbuild uses the CHARMM force field to evaluate the quality of the formed hydrogen bonds, whereas WHAT IF features an empirical scoring function for hydrogen bonds. MolProbity on the other hand, uses "contact-dot" surfaces to model favorable interactions. The programs' optimization procedures can be grouped grossly in three categories. <italic>Stochastic</italic>, such as the simulated annealing used in WHAT IF, <italic>greedy</italic> as used in Hbuild and <italic>exhaustive search</italic>, as used in MolProbity.</p>
+            <p>Recently, two further methods have been published. The first is the Computational Titration algorithm [<xref ref-type="bibr" rid="CR10">10</xref>] which uses a lightweight forcefield with the concept of "hydropathic interactions" as its objective function and an exhaustive enumeration for optimization. The second and most recent method is Protonate3D [<xref ref-type="bibr" rid="CR11">11</xref>], which chooses the optimal states according to a chemical model derived from the MMFF94 [<xref ref-type="bibr" rid="CR12">12</xref>] force field. It applies an exhaustive search on all combinations of admissible states of chemical groups and limits the search space by a prioritization of favorable states.</p>
+            <p>In this paper we describe Protoss, a new and fast method to calculate hydrogen atom positions based on optimal hydrogen bond networks. In contrast to the previously mentioned programs, our approach differs in two aspects: On the one hand, we ensure on the speed of the calculation by using an efficient dynamic programming approach with "memoization" [<xref ref-type="bibr" rid="CR13">13</xref>], i.e. storing partial solutions and combining them to globally optimal solutions. On the other hand, we wanted to model the protein-ligand interface with an established method. Our objective function is based on the hydrogen bonding term of the Boehm scoring function [<xref ref-type="bibr" rid="CR14">14</xref>] which has been designed to correctly reflect protein-ligand interactions and is used in the FlexX [<xref ref-type="bibr" rid="CR15">15</xref>] molecular molecular docking program.</p>
+            <p>In the results section, a validation based on a dataset from Forrest and Honig is given. We demonstrate that we were able to reproduce the results with a quality that is comparable to that of the programs in a fraction of time, making the method suitable for high-throughput modeling applications.</p>
+          </sec>
+        </sec>
+        <sec id="Sec5" sec-type="results">
+          <title>Results</title>
+          <sec id="Sec6">
+            <title>Algorithm</title>
+            <p>The algorithm starts by identifying hydrogen bond networks in the protein-ligand interface. In our context a hydrogen bond network is the maximal set of functional groups for which alternative modes exist and that are able to form hydrogen bonds among themselves. The networks are modeled as graphs: Every modeled degree of freedom is represented by a node, i.e. for each amino acid for which rules exist, included water molecules and all functional groups of the ligand that are treated. Edges stand for interactions between amino acids. Every node is assigned a set of admissible modes, which come from a set of pre-defined rules. The problem is now to find the modes in each network that yield the best hydrogen bond network with respect to our objective function. This can be done efficiently with a dynamic programming approach. The Protoss algorithm is split into two phases, initialization and optimization. The initialization is performed only once for a protein-ligand complex. The generated information can be used for alternative docking poses.</p>
+            <sec id="Sec7">
+              <title>Initialization</title>
+              <p>The first step of the algorithm is to create modes for each residue for which rules exist (Table <xref rid="Tab1" ref-type="table">1</xref>). Naturally, protonation states and side-chain flips are discrete. Rotational degrees of freedom as in hydroxyl or amino groups are approximated by using 12 discrete states with equally distributed torsion angles. For water, 60 orientations are generated, with its hydrogen atoms equally distributed in space. Water molecules have to be included explicitly by the user because of the problem of the distinction of bridging water molecules in the active site from solvent water which our method does not handle. In the ligand, only rotatable groups are considered, i.e. only hydroxyl, amine and thiol groups.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Amino acids (and water) with their modeled degrees of freedom.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Amino Acid</p></th><th align="left"><p>Degrees of Freedom</p></th><th align="left"><p>#Modes</p></th></tr></thead><tbody><tr><td align="left"><p>Asparagine</p></td><td align="left"><p>Flip state</p></td><td align="left"><p>2</p></td></tr><tr><td align="left"><p>Aspartic Acid</p></td><td align="left"><p>Protonation</p></td><td align="left"><p>3</p></td></tr><tr><td align="left"><p>Cysteine</p></td><td align="left"><p>Protonation, dihedral angle</p></td><td align="left"><p>13</p></td></tr><tr><td align="left"><p>Glutamine</p></td><td align="left"><p>Flip state</p></td><td align="left"><p>2</p></td></tr><tr><td align="left"><p>Glutamic Acid</p></td><td align="left"><p>Protonation</p></td><td align="left"><p>3</p></td></tr><tr><td align="left"><p>Histidine</p></td><td align="left"><p>Flip state, protonation</p></td><td align="left"><p>6</p></td></tr><tr><td align="left"><p>Lysine</p></td><td align="left"><p>Protonation, dihedral angle</p></td><td align="left"><p>18</p></td></tr><tr><td align="left"><p>Serine</p></td><td align="left"><p>Dihedral angle</p></td><td align="left"><p>12</p></td></tr><tr><td align="left"><p>Threonine</p></td><td align="left"><p>Dihedral angle</p></td><td align="left"><p>12</p></td></tr><tr><td align="left"><p>Tyrosine</p></td><td align="left"><p>Dihedral angle</p></td><td align="left"><p>12</p></td></tr><tr><td align="left"><p>Water</p></td><td align="left"><p>Both hydrogen atoms</p></td><td align="left"><p>60</p></td></tr></tbody></table></table-wrap></p>
+              <p>After all alternative modes have been generated, the nodes are connected such that the resulting graph represents the hydrogen bond networks in the protein's active site: Two nodes are connected with an edge, if any of their modes are able to form a hydrogen bond. A hydrogen bond network and the resulting graph for PDB structure 1x8x[<xref ref-type="bibr" rid="CR16">16</xref>] is depicted in Figure <xref rid="Fig1" ref-type="fig">1</xref>.<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>A network from PDB structure</bold> 1x8x. This figure illustrates the algorithm that is used for optimization. The amine and the hydroxyl group of the ligand are included in the optimization. (a) A 2d-representation of the protein-ligand interface. (b) The graph representation of the hydrogen bond network. (c) Graph after reduction to a tree. The most central node is the root. (d) A depth-first traversal of the tree determines the order in which the nodes are evaluated. The numbers indicate the sequence of score calculation.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_13_Fig1_HTML.jpg" /></p></fig></p>
+              <p>Every mode is annotated with a base score which is its interaction score with the atoms that are not considered in the graph. Also, a small penalty of -0.1 is assigned to flipped modes and modes that represent uncommon protonation states, i.e. protonated carboxylates and unprotonated amines to ensure that the original version is retained if only minimally better interactions exist in an alternate mode (Table <xref rid="Tab2" ref-type="table">2</xref>). After the graph has been built, it is divided into its connected components. Each component can be evaluated independently from the others. Components that consist only of a single node are trivial. Every mode is tested and the one resulting in the highest score with its environment is selected. For larger components, a more elaborate calculation has to be performed. Similar approaches have been implemented by Hooft et al. in the "cutting" procedure of WHAT IF [<xref ref-type="bibr" rid="CR7">7</xref>] and by Canutescu et al. for the determination of chain rotamers in proteins [<xref ref-type="bibr" rid="CR17">17</xref>].<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Overview of penalties assigned to modes.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Mode</p></th><th align="left"><p>penalty</p></th></tr></thead><tbody><tr><td align="left"><p>Flipped group</p></td><td align="left"><p>0.1</p></td></tr><tr><td align="left"><p>Protonated carboxyl group</p></td><td align="left"><p>0.2</p></td></tr><tr><td align="left"><p>Positively charged histidine</p></td><td align="left"><p>0.1</p></td></tr><tr><td align="left"><p>Uncharged lysine</p></td><td align="left"><p>0.1</p></td></tr></tbody></table></table-wrap></p>
+            </sec>
+            <sec id="Sec8">
+              <title>Optimization via dynamic programming</title>
+              <p>The first step of the optimization is to transform the graph into a tree. The most central node in the graph is chosen as the root of the tree (although theoretically any node could be chosen). Then, all biconnected components in the graph are replaced by single nodes. These new nodes inherit all edges of the nodes that it replaces and keeps references to all nodes that are part of the biconnected component.</p>
+              <p>The problem of finding the modes of amino acids that yield the best hydrogen bond network can be solved with a recursive procedure. An algorithm in pseudocode is given in Algorithm 1.</p>
+            </sec>
+          </sec>
+          <sec id="Sec9">
+            <title>Algorithm 1 – Dynamic programming procedure used in Protoss</title>
+            <p>The global array "sub" is used for memoization, the array "penalty" contains penalties for uncommon modes. "static_atoms" contains all atoms that have only one mode. Every mode has a unique identifier "id". The function score returns the interaction score of two modes. The attribute "toParent" of cycles denotes the node which was connected to the parent in the unreduced graph. The best modes are found via backtracking, which is not elucidated here for clarity reasons.</p>
+            <p>1: <bold>function</bold><sc>CALC_SUBTREE</sc>(TreeNode N)</p>
+            <p>2:    <bold>for</bold> C <bold>in</bold> N.children <bold>do</bold>    ▻ Skipped if N is leaf</p>
+            <p>3:       <sc>CALC_SUBTREE</sc>(C)</p>
+            <p>4:    <bold>if</bold> N.isCycle <bold>then</bold></p>
+            <p>5:       <sc>DECOMPOSE_AND_SOLVE_CYCLE</sc>(N.cycle)   ▻ Fills sub for N.cycle.toParent</p>
+            <p>6:    <bold>else</bold></p>
+            <p>7:       <bold>for</bold> n <bold>in</bold> N.modes <bold>do</bold></p>
+            <p>8:          sub [n.id] = <sc>SCORE</sc>(n, static_atoms) + penalty [n.id]</p>
+            <p>9:          <bold>for</bold> C <bold>in</bold> N.children <bold>do</bold>    ▻ Skipped if N is leaf</p>
+            <p>10:             best = -∞</p>
+            <p>11:             <bold>if</bold> C.isCycle <bold>then</bold></p>
+            <p>12:                <bold>for</bold> c <bold>in</bold> C.cycle.toParent.modes <bold>do</bold></p>
+            <p>13:                   best = max(best, <sc>SCORE</sc>(n, c) + sub [c.id])</p>
+            <p>14:          <bold>else</bold></p>
+            <p>15:                <bold>for</bold> c <bold>in</bold> C.modes <bold>do</bold></p>
+            <p>16:                   best = max(best, <sc>SCORE</sc>(n, c) + sub [c.id])</p>
+            <p>17:             sub [n.id] + = best</p>
+            <p>18: <bold>function</bold><sc>FIND_BEST_SCORE</sc>(Tree T)</p>
+            <p>19:    <sc>CALC_SUBTREE</sc>(T.root)</p>
+            <p>20:    best = -∞</p>
+            <p>21:    <bold>for</bold> r <bold>in</bold> T.root.modes <bold>do</bold></p>
+            <p>22:       best = max(best, sub [r.id])</p>
+            <p>23:    <bold>return</bold> best</p>
+            <p>The tree is traversed in a post-order fashion. For every tree node that is visited, the optimal solution of the subtree that it forms is computed and recorded. This is done by calculating two values for every mode: The first value is the interaction score of this mode with the atoms that have only a single mode, i.e. the atoms that are not changed throughout the procedure plus an optional penalty. The second value is summed over all children. For every child of the node, the maximum of the interaction scores with the current mode plus the maximum score of their corresponding subtrees is computed. The two values are added and recorded as the best achievable score for the current mode (lines 9 to 17). Because of the post-order traversal, the scores for the subtrees of the children have always been computed when the corresponding parent node is visited.</p>
+            <p>If more than one mode is found to yield an optimal score for one node, the mode that is equivalent to that in the PDB-file is chosen in case of protonation states, tautomers and side-chain flips. In nodes that represent rotational degrees of freedom, the median of all optimal modes that represent consecutive angles is chosen.</p>
+            <sec id="Sec10">
+              <title>Decomposition of cyclic dependencies</title>
+              <p>A circular dependency does not allow for an application of the efficient dynamic programming procedure. Theoretically, all combinations of modes of its members would have to be evaluated. This quickly becomes infeasible because of the combinatorial explosion. Hooft et al. coped with this problem by using a simulated annealing procedure to find a good (but not necessarily the best) combination of modes.</p>
+              <p>Canutescu et al. limit the complexity of the problem with a branch and bound method. In Protoss we introduce a new concept to find the best scoring set of modes for the cyclic subgraphs.</p>
+              <p>We decompose cyclic dependencies by removing selected nodes from a compound until there are no cycles left in the graph. While all combinations of modes have to be tested for the removed nodes, the now acyclic part of the subgraph can be handled with the dynamic programming algorithm.</p>
+              <p>The cycle decomposition is conducted with a depth-first search. If a backedge is encountered during the search, the node of the cycle that has the fewest modes is removed and the search is restarted. This is repeated as long as the graph contains cycles. After all cycles have been decomposed, the dynamic programming algorithm is applied to the remaining non-cyclic parts for each combination of modes for the removed nodes.</p>
+            </sec>
+          </sec>
+          <sec id="Sec11">
+            <title>Testing</title>
+            <p>We tested the Protoss algorithm in two scenarios. First, we compared our predicted hydrogen positions with those in high-resolution protein structures which were able to determine hydrogen atom positions. Second, we conducted an analysis of so called NQ-flips in the Astex [<xref ref-type="bibr" rid="CR18">18</xref>] dataset. NQ flips denote the wrong assignment of oxygen and nitrogen atoms in amides.</p>
+            <sec id="Sec12">
+              <title>Hydrogen position prediction</title>
+              <p>In order to evaluate the quality of Protoss, we applied it to a test set published by Forrest and Honig [<xref ref-type="bibr" rid="CR6">6</xref>] to assess the accuracy of programs which correct hydrogen atom positions in proteins. The test set consists of 34 hydrogen atoms from seven protein structures, which have either a resolution ≤ 0.9Å if they were obtained by X-ray crystallography or a resolution of ≤ 1.8Å if they were obtained by neutron diffraction. The hydrogen atoms have been selected automatically based on the program surfv [<xref ref-type="bibr" rid="CR19">19</xref>], and are included, if their predicted solvent accessible surface is zero.</p>
+              <p>Furthermore, Forrest and Honig define a subset of eight hydrogen atoms for which they were able to confirm the positions by visual inspection of the electron density maps. They are all from a manually refined structure of the xylose isomerase (1muw; Fenn, Ringe, Petsko: unpublished work) [<xref ref-type="bibr" rid="CR20">20</xref>]. In the following, we adopt the nomenclature used in the publication of the test set and call the complete set the "Buried" set and the subset the "Density" set.</p>
+              <p>We stripped all hydrogen atoms from the original PDB files with the program Reduce [<xref ref-type="bibr" rid="CR8">8</xref>] to avoid a dependency on the original hydrogen positions, and let the FlexX standard routines add the missing hydrogen atoms. Then, we optimized the hydrogen bond networks with Protoss. Figure <xref rid="Fig2" ref-type="fig">2</xref> shows that our method yields results that are comparable to that of the other programs. Out of the 34 hydrogen atoms in the Buried set, 10/20/27 are placed correctly at thresholds of 0.2/0.4/0.6 Å<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>Results for the Buried set in comparison</bold>. The chart depicts the percentage of correctly placed hydrogen atoms. Colors: black &lt; 0.2 Å, dark gray &lt; 0.4 Å, light gray &lt; 0.6 Å. The cutoff thresholds as well as the values for WhatIf and MolProbity were taken from Forrest [<xref ref-type="bibr" rid="CR6">6</xref>]. Protoss as well as Protonate3D were run without the inclusion of water molecules.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_13_Fig2_HTML.jpg" /></p></fig></p>
+              <p>In order to explain the inability to place all hydrogen atoms correctly, we conducted a visual check of both test sets. The check of the Buried set revealed that despite the selection procedure, four of the seven hydrogen atoms whose predicted position was off by more than 0.6 Å were exposed to the solvent, or belonged to hydrogen bond networks that extend to the solvent. Two examples where this is the case can be seen in Figure <xref rid="Fig3" ref-type="fig">3</xref>. In contrast to the core of the protein, exposed residues are much more mobile, and the prediction of one single "correct" hydrogen bonding pattern, may not be optimal. Instead describing different hydrogen bonding patterns that are equally valid, would be more appropriate. Apparently we have predicted one of the correct patterns, which happened to be different from that in the resolved structure. Another atom that was off is the hydroxyl hydrogen atom of Thr118 in 1muw. Protoss as well as Protonate3D position the hydrogen atom differently to that of the reference structure that was refined by X-PLOR (Figure <xref rid="Fig4" ref-type="fig">4</xref>). Visual inspection of the electron density maps and the protein structure showed that the positions of Protoss and Protonate3D are in better compliance with the electron density and better in terms of the hydrogen bond geometries. All 8 hydrogen atoms of the Density set lie within 0.4 Å of the reference atoms.<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>Exposed residues in the Buried set</bold>. Two examples of residues that are contained in the Buried set, but have contact to solvent molecules. A: Thr40 (Lys1 in top rightern corner), B: Ser91. Both examples are taken from PDB structure 1lzn[<xref ref-type="bibr" rid="CR21">21</xref>].</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_13_Fig3_HTML.jpg" /></p></fig><fig id="Fig4"><label>Figure 4</label><caption xml:lang="en"><p><bold>Different predicted hydrogen atom positions</bold>. Prediction of the hydrogen position of Thr118 by three Different programs in PDB structure 1muw. The structure is part of the Buried test set. Amino acids from left to right: Ala114, Thr118, Thr90, Thr133, Asn121. Protoss and Protonate3D orientate the hydrogen correctly, while X-PLOR is off by about an Angstrom.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_13_Fig4_HTML.jpg" /></p></fig></p>
+            </sec>
+            <sec id="Sec13">
+              <title>Amide flip prediction</title>
+              <p>Apart from the rotation of functional groups, Protoss also predicts so-called NQ-flips in protein structures as well as histidine flips. An NQ-flip denotes the wrong assignment of the oxygen and nitrogen atoms in the amide groups of asparagine (N) and glutamine (Q). Histidine residues may be flipped by 180° due to wrong assignments of carbon and nitrogen atoms in the imidazole ring. These flips are a frequently occurring ambiguity in PDB files, and result from the inability to distinguish certain heavy atoms in X-ray crystallography at common resolutions. A thorough statistical study on this matter by Weichenberger and Sippl [<xref ref-type="bibr" rid="CR24">24</xref>] shows that about 21.0% of all amides in their test set would have more favorable interactions if they were flipped. Other figures lie in the same range: McDonald and Thornton(15%), Word (20.5%) [<xref ref-type="bibr" rid="CR25">25</xref>] and Hooft (18%) [<xref ref-type="bibr" rid="CR7">7</xref>].</p>
+              <p>We ran Protoss on the Astex dataset [<xref ref-type="bibr" rid="CR18">18</xref>] which features a diverse set of protein structures with their associated ligands. Out of 4066 amino acids with amide groups in these proteins, 740 (18.2%) were predicted to be flipped, which is in the same range as the aforementioned analyses.</p>
+              <p>However, a following visual inspection revealed that the vast majority of the flipped groups lie on the surface of the proteins. Since amide groups are very polar, this is not very surprising. It does however limit the relevance of the amide flips to protein-ligand docking. Only 106 (2.6%) of the flips were found to be buried in the protein and less than 20 (&lt; 0.5%) near an active site.</p>
+              <p>We selected three successful examples of the the automated flip detection in Protoss, where the flips occur close to the active site. Protein structure 1jd0 contains a flipped glutamine residue. As can be seen in Figure <xref rid="Fig5" ref-type="fig">5</xref>, Gln92 is rotated by 180 degrees to allow for an interaction with His94, which again coordinates a metal ion.<fig id="Fig5"><label>Figure 5</label><caption xml:lang="en"><p><bold>An amide flip in an active site</bold>. Amide flip prediction in the B-chain of PDB structure 1jd0[<xref ref-type="bibr" rid="CR22">22</xref>]. In front is the ligand, from left to right: Gln92, His94, His96, His119, on the bottom is Ser200. A: Structure as in the PDB. B: Automatically corrected structure. The histidines are correctly protonated to interact with the metal ion, and the amide group in Gln92 is flipped to allow for a hydrogen bond with the N<sub><italic>δ</italic></sub>of the leftmost histidine. Non-polar hydrogen atoms were added by standard FlexX routines.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_13_Fig5_HTML.jpg" /></p></fig></p>
+              <p>For protein structure 1ywr two flips are predicted. His148 is rotated by 180° to allow for two new hydrogen bonds and to avoid a clash with Asp150. Also, Asn155 is flipped to allow for a new hydrogen bond with the backbone of Asp150 and to move the two negatively charged oxygen atoms away from each other (Figure <xref rid="Fig6" ref-type="fig">6</xref>).<fig id="Fig6"><label>Figure 6</label><caption xml:lang="en"><p><bold>Histidine flip prediction in an active site</bold>. Histidine flip prediction in structure 1ywr[<xref ref-type="bibr" rid="CR23">23</xref>]. From left to right: Asp150, His148, Asn155, Leu167. A: Structure as in the PDB. B: Automatically corrected structure. In the top rightern corner is a part of the cocrystallized ligand. The original structure results in one atom clash for His148 and several unsatisfied hydrogen bonding groups. Protoss rotates the histidine to allow for two hydrogen bonds with the backbone atoms of Asp150 and Leu167. Also, Asn155 is flipped to allow for a favorable hydrogen bond with Asp150.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_13_Fig6_HTML.jpg" /></p></fig></p>
+              <p>Another flipped side chain occurs in the active site of 1ig3. The PDB conformation in Asn239 would result in atom clashes and a non-optimal hydrogen bond network. If it is flipped, it could interact with Ser236 which in turn interacts directly with the ligand. This is especially important since flipping Asn239 and allowing it to take part in the hydrogen bond network is needed to correctly assess the interaction with the ligand.</p>
+            </sec>
+          </sec>
+          <sec id="Sec14">
+            <title>Time usage</title>
+            <p>After the protein-ligand complex is read in and prepared by the FlexX library routines, and the interaction surfaces are assigned, two phases can be distinguished. First, the alternative modes are generated and the hydrogen bond networks are identified. Second, the optimization procedure to find the best hydrogen positions is conducted.</p>
+            <p>To time the program, 900 active sites and their corresponding ligands of the PDBbind [<xref ref-type="bibr" rid="CR26">26</xref>] dataset in the version of 2004 were extracted (all amino acids within 6.5 Å of any ligand atom) and optimized. The overall time needed to process all complexes was 9 minutes and 44 seconds (0.6s per active site) on one 2.66 Intel Xeon CPU with SUSE Linux 10.2. For the second phase, i.e. the optimization alone, only 38 seconds (0.04s per active site) were needed. A more detailed analysis, as depicted in the histogram in Figure <xref rid="Fig7" ref-type="fig">7</xref>, reveals that most active sites can be corrected in less than 0.125 seconds. Only 6 active sites needed more time than that, apparently because they have large circular dependencies, which could not be decomposed well.<fig id="Fig7"><label>Figure 7</label><caption xml:lang="en"><p><bold>Time consumed by optimization of a complex</bold>. 900 active sites from the PDBbind dataset were analyzed. 6 took longer than 0.125 seconds. Only the time for the optimization phase is considered. The complexes are binned with respect to the time that was needed to optimize them.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_13_Fig7_HTML.jpg" /></p></fig></p>
+            <p>In a scenario, where repeated optimizations of the hydrogen bond network are conducted, the relatively slow first phase has to be carried out only once. The speed of the second phase however would allow for a fast optimization of the hydrogen bond network in consecutive calls. This scenario might be an adjustment of hydrogen atoms prior to a detailed scoring function evaluation of a protein-ligand complex. This is frequently encountered in docking calculations, where this step has to be done multiple times to evaluate predicted poses.</p>
+          </sec>
+          <sec id="Sec15">
+            <title>Limitations</title>
+            <sec id="Sec16">
+              <title>Strongly interconnected compounds</title>
+              <p>The dynamic programming approach of Protoss does not work well on strongly interconnected graphs such as in protein structure 1ps3[<xref ref-type="bibr" rid="CR27">27</xref>] which is contained in the PDBBind dataset. The total time needed to optimize the complete protein is 9.5s, of which the optimization procedure alone takes 2.22s. This is still fast compared to other methods such as Protonate3D, which takes approximately 220s for the complete process and 83s for the optimization, but takes much longer than most other proteins. The optimization time is dominated by an extensive hydrogen bond network that spans over 15 residues and needs 0.75s to be solved. A sketch of the hydrogen bond network is provided in Figure <xref rid="Fig8" ref-type="fig">8</xref>. Protoss has to test 1.1·10<sup>6</sup> combinations of modes for the removed nodes. Despite being relatively slow, it is a huge reduction since the search space for all combinations of modes is in the order of 7.5·10<sup>12</sup>.<fig id="Fig8"><label>Figure 8</label><caption xml:lang="en"><p><bold>Example of a hydrogen bond network</bold>. Hydrogen bond network in the active site of PDB structure 1ps3 as perceived by Protoss. O2, O3 and O4 are hydroxyl atoms in the ligand. The gray nodes are the nodes that are removed by the cycle decomposition algorithm. The node with the star is the root of the tree traversal.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_13_Fig8_HTML.jpg" /></p></fig></p>
+              <p>The time could be reduced by ignoring side chain flips and applying constraints on when an edge is inserted into the graph, i.e. apply a minimum quality threshold on the considered hydrogen bonds.</p>
+            </sec>
+            <sec id="Sec17">
+              <title>Further degrees of freedom</title>
+              <p>In principle, further degrees of freedom influence the hydrogen bond networks. In ligands, tautomeric and/or protonation states may change in response to the protein. Also, interfacial water molecules can be part of the networks. In its current form, Protoss does not consider different protonation states of the ligand or tautomeric forms in the ligand. The method is however capable of including these additinal degrees of freedom. And although Protoss can orient selected water molecules, it can not yet predict the presence of water molecules in the protein-ligand interface. Protonation, tautomers as well as interfacial water molecules are of importance for the prediction of protein-ligand complexes and are therefore an interesting direction for further research.</p>
+            </sec>
+            <sec id="Sec18">
+              <title>Predicting stability and alternative hydrogen bonding networks</title>
+              <p>Our method gains its speed from considering only the best scoring solutions. However, quite different solutions with a similar score might exist. This would for example be the case in active sites of enzymes which feature a catalytic triade where a proton is transferred onto a substrate. Both states, the one before and the one after the transfer of the proton, have valid networks that can both be encountered. Instead of obtaining only the best scoring solution, it would be desirable to obtain a set of stable conformations that are valid for the active site. Since Protoss is intended to be applied on different ligands and and poses individually upon molecular docking and scoring, alternative hydrogen bond networks are of less importance. Nevertheless, an extension in this direciton is methodologically feasible.</p>
+            </sec>
+          </sec>
+          <sec id="Sec19">
+            <title>Implementation</title>
+            <p>The method has been implemented in ISO-C using parts of the FlexX [<xref ref-type="bibr" rid="CR15">15</xref>] source code. It is not available as a stand-alone version but will be used as a basis for protein preparation in further projects such as in two-dimensional protein-ligand depiction (Poseview [<xref ref-type="bibr" rid="CR28">28</xref>]), re-scoring (HYDE [<xref ref-type="bibr" rid="CR29">29</xref>]) and in the preparation of active sites for protein-ligand docking with FlexX.</p>
+          </sec>
+        </sec>
+        <sec id="Sec20" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p>We have implemented a program that automatically places hydrogen atoms in protein structures with particular focus on protein-ligand interfaces. Having that information is important for any subsequent calculations, particularly in structure-based design approaches to finding new ligands.</p>
+          <p>The prediction of the positions of hydrogen atoms is consistent with those in the test sets of Forrest and Honig, and the reported rate for amide chain flips is in unison with the rates reported in the literature. In the Density set, all hydrogen atoms are placed within 0.4 Å. For a lower tolerance, i.e. 0.2 Å, this quota is slightly worse. A placement within 0.4 Å however suffices for the FlexX scoring function, as it is robust enough to compensate for inaccuracies of this order. In fact, the inaccuracies can be traced back to this robustness. The important fact is that the hydrogen atoms are placed facing into the right direction, thus making it possible to correctly identify any interactions that they are involved in.</p>
+          <p>The novelty in this method is that it always finds a maximum score solution with respect to our objective function for all hydrogen positions in a hydrogen bond network, whereas previous methods usually tackled the large search space by resorting to heuristic strategies such as greedy algorithms or stochastic search methods. Our method typically takes less than a tenth second to optimize a hydrogen bond network in an active site, even if it contains cyclic dependencies. However, if cyclic dependencies exist that cannot be decomposed well, this time might be exceeded.</p>
+          <p>One open question is how to model hydrogen bonds that are formed with bulk solvent molecules. Since water molecules may act both as an acceptor and as a donor and are constantly moving, it is a difficult task to correctly identify and assess hydrogen bonds that may be formed. In summary, we believe that the Protoss method is a useful component for all software tools that model protein-ligand complexes.</p>
+        </sec>
+        <sec id="Sec21">
+          <title>Experimental</title>
+          <sec id="Sec22">
+            <title>Scoring function</title>
+            <p>Protoss needs to evaluate the quality of the formed hydrogen bond networks. For this task it uses the interaction model that has been incorporated in the docking program FlexX [<xref ref-type="bibr" rid="CR15">15</xref>] and which is based on an empirical scoring function genuinely developed by Boehm [<xref ref-type="bibr" rid="CR14">14</xref>].</p>
+            <p>Interactions are modeled by interaction surfaces. These surfaces are assigned to a molecule based on its functional groups and geometric properties. For example, every hydroxyl group has two interaction surfaces which represent the ability to form hydrogen bonds: One for the ability to act as a hydrogen bond donor in the direction of the hydrogen atom, and another for the ability to act as a hydrogen bond acceptor in the direction of the free electron pairs (see Figure <xref rid="Fig9" ref-type="fig">9</xref> for an example). A pair of compatible functional groups contributes to the calculated free energy of the protein-ligand complex, if the geometric properties encoded in the partial spherical interaction surfaces obey the constraints of the scoring function. Ideal geometries for interacting groups are described using an optimal distance and a bond angle for both interaction partners. This term results in a score between 0.0 and 1.0 for each interaction, where 0.0 corresponds to a non-existing interaction and 1.0 to an ideal geometry.<fig id="Fig9"><label>Figure 9</label><caption xml:lang="en"><p><bold>Interaction surfaces</bold>. Interaction surfaces of two rotamers of tyrosine. The dark interaction surface encodes the hydrogen bond acceptor capability, the light surface encodes the hydrogen bond donor capability. Depending on the position of the hydrogen atom, the spatio-chemical properties of the group change.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_13_Fig9_HTML.jpg" /></p></fig></p>
+            <p>The score for an interaction is calculated by evaluating the following equation for three descriptors: the deviation Δ from the ideal distance and the deviation from the ideal bond angles for each of the interaction partners.<disp-formula id="Equ1"><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_13_Equa_HTML.gif" /></disp-formula></p>
+            <p>Here, Δ is the deviation from the ideal value, <italic>d</italic><sub>1</sub> and <italic>d</italic><sub>2</sub> describe the tolerance towards deviation from the ideal geometry and depend on the functional groups that interact. The three values are multiplied and taken as a measure for the quality of the formed interaction.</p>
+            <p>In Protoss we restrict the chemical model to the geometric properties of hydrogen bonds and metal interactions. The optimization finds the set of modes that has a maximal number of interactions considering possible penalties. The score for one set of modes is calculated by:<disp-formula id="Equ2"><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_13_Equb_HTML.gif" /></disp-formula></p>
+            <p>such that interactions(<italic>m</italic>) is the sum of hydrogen bond scores as described above and penalty(<italic>m</italic>) the penalty for flipping groups or choosing uncommon protonation states as listed in Table <xref rid="Tab2" ref-type="table">2</xref>.</p>
+          </sec>
+          <sec id="Sec23">
+            <title>Decomposition of cyclic dependencies</title>
+            <p>When a cycle is encountered in the dependency graph, nodes are removed until the graph becomes acyclic. Determining if a subset <italic>V'</italic> ⊆ <italic>V</italic> exists with |<italic>V'</italic>| ≤ <italic>k</italic> for a positive integer <italic>k</italic> is known as the Vertex Feedback Set problem, which is NP-hard [<xref ref-type="bibr" rid="CR30">30</xref>]. In our context the graphs are relatively small. Therefore we can rely on a greedy heuristic to minimize the number of times the remaining graph has to be traversed. This is important since the traversal has to be conducted for each combination of modes in <italic>V'</italic>. The algorithm applied here iteratively searches for cycles. Once a cycle is found, the node with the minimal number of modes becomes part of the subset.</p>
+          </sec>
+          <sec id="Sec24">
+            <title>Sampling of water orientations</title>
+            <p>In order to model the many possibilities that exist for the orientation of water molecules, we sample 60 orientations. We use an icosahedron that is centered at the position of the oxygen atom to ensure an equal distribution of the individual samples. An initial placement is created by orientating the water molecule such that the angle bisector of its opening angle points to one of the corners of the icosahedron. Then an orientation is created for each of the five corners that lie opposed to the first corner: The coordinates of the water's hydrogen atoms are chosen such that they lie in a plane with each of the second corners. This results in five orientation for each of the twelve corners, totaling up to 60 orientations for a water molecule.</p>
+          </sec>
+        </sec>
+      </body>
+      <back>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Degen</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Reulecke</surname>
+                    <given-names>I</given-names>
+                  </name>
+                </person-group>
+                <source>Bioinformatics – from genomes to therapies</source>
+                <year>2007</year>
+                <publisher-loc>Weinheim</publisher-loc>
+                <publisher-name>Wiley-VCH</publisher-name>
+                <fpage>541</fpage>
+                <pub-id pub-id-type="doi">10.1002/9783527619368.ch16</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gohlke</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Klebe</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Approaches to the description and prediction of the binding affinity of small-molecule ligands to macromolecular receptors</article-title>
+                <source>Angewandte Chemie (International ed. in English)</source>
+                <year>2002</year>
+                <volume>41</volume>
+                <issue>15</issue>
+                <fpage>2644</fpage>
+                <lpage>2676</lpage>
+                <pub-id pub-id-type="doi">10.1002/1521-3773(20020802)41:15&lt;2644::AID-ANIE2644>3.0.CO;2-O</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD38Xmt1entbw%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Koshland</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Application of a Theory of Enzyme Specificity to Protein Synthesis</article-title>
+                <source>Proceedings of the National Academy of Sciences of the United States of America</source>
+                <year>1958</year>
+                <volume>44</volume>
+                <issue>2</issue>
+                <fpage>98</fpage>
+                <lpage>104</lpage>
+                <pub-id pub-id-type="doi">10.1073/pnas.44.2.98</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaG1cXms1Khtw%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Berman</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Westbrook</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Feng</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Gilliland</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Bhat</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Weissig</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Shindyalov</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Bourne</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The Protein Data Bank</article-title>
+                <source>Nucleic Acids Research</source>
+                <year>2000</year>
+                <volume>28</volume>
+                <fpage>235</fpage>
+                <lpage>242</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/28.1.235</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3cXhvVKjt7w%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Glusker</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Lewis</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Rossi</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <source>Crystal Structure Analysis for Chemists and Biologists</source>
+                <year>1994</year>
+                <publisher-loc>New York</publisher-loc>
+                <publisher-name>VCH Publishers</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Forrest</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Honig</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An assessment of the accuracy of Methods for predicting hydrogen positions in protein structures</article-title>
+                <source>Proteins</source>
+                <year>2005</year>
+                <volume>61</volume>
+                <issue>2</issue>
+                <fpage>296</fpage>
+                <lpage>309</lpage>
+                <pub-id pub-id-type="doi">10.1002/prot.20601</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXhtFSrsbfL</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hooft</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Sander</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Vriend</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Positioning hydrogen atoms by optimizing hydrogen-bond networks in protein structures</article-title>
+                <source>Proteins</source>
+                <year>1996</year>
+                <volume>26</volume>
+                <issue>4</issue>
+                <fpage>363</fpage>
+                <lpage>376</lpage>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1097-0134(199612)26:4&lt;363::AID-PROT1>3.0.CO;2-D</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2sXhvFOhtg%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Word</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Lovell</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>LaBean</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Taylor</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Zalis</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Presley</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Richardson</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Richardson</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Visualizing and quantifying molecular goodness-of-fit: small-probe contact dots with explicit hydrogen atoms</article-title>
+                <source>Journal of Molecular Biology</source>
+                <year>1999</year>
+                <volume>285</volume>
+                <issue>4</issue>
+                <fpage>1711</fpage>
+                <lpage>1733</lpage>
+                <pub-id pub-id-type="doi">10.1006/jmbi.1998.2400</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK1MXhtV2ht7s%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Brunger</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Karplus</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Polar hydrogen positions in proteins: empirical energy placement and neutron diffraction comparison</article-title>
+                <source>Proteins</source>
+                <year>1988</year>
+                <volume>4</volume>
+                <issue>2</issue>
+                <fpage>148</fpage>
+                <lpage>156</lpage>
+                <pub-id pub-id-type="doi">10.1002/prot.340040208</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaL1cXmt1Khsbs%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bayden</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Fornabaio</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Scarsdale</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Kellogg</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Web application for studying the free energy of binding and protonation states of protein-ligand complexes based on HINT</article-title>
+                <source>J Comput Aided Mol Des.</source>
+                <year>2009</year>
+                <volume>23</volume>
+                <issue>9</issue>
+                <fpage>621</fpage>
+                <lpage>632</lpage>
+                <pub-id pub-id-type="doi">10.1007/s10822-009-9270-7</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXhtVaqs7%2FI</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Labute</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Protonate3D: Assignment of ionization states and hydrogen coordinates to macromolecular structures</article-title>
+                <source>Proteins: Structure, Function, and Bioinformatics</source>
+                <year>2009</year>
+                <volume>75</volume>
+                <fpage>187</fpage>
+                <lpage>205</lpage>
+                <pub-id pub-id-type="doi">10.1002/prot.22234</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXisV2isrs%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Merck molecular force field .1. Basis, form, scope, parameterization, and performance of MMFF94</article-title>
+                <source>Journal Of Computational Chemistry</source>
+                <year>1996</year>
+                <volume>17</volume>
+                <issue>5–6</issue>
+                <fpage>490</fpage>
+                <lpage>519</lpage>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1096-987X(199604)17:5/6&lt;490::AID-JCC1>3.0.CO;2-P</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK28XhvVGmsbk%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Michie</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Memo Functions and Machine Learning</article-title>
+                <source>Nature</source>
+                <year>1968</year>
+                <volume>218</volume>
+                <issue>5136</issue>
+                <fpage>19</fpage>
+                <lpage>22</lpage>
+                <pub-id pub-id-type="doi">10.1038/218019a0</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Boehm</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The development of a simple empirical scoring function to estimate the binding constant for a protein-ligand complex of known three-dimensional structure</article-title>
+                <source>Journal of Computer-Aided Molecular Design</source>
+                <year>1994</year>
+                <volume>8</volume>
+                <issue>3</issue>
+                <fpage>243</fpage>
+                <lpage>256</lpage>
+                <pub-id pub-id-type="doi">10.1007/BF00126743</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK2cXmvFKms7o%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Kramer</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Lengauer</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Klebe</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A fast flexible docking method using an incremental construction algorithm</article-title>
+                <source>Journal of Molecular Biology</source>
+                <year>1996</year>
+                <volume>261</volume>
+                <issue>3</issue>
+                <fpage>470</fpage>
+                <lpage>489</lpage>
+                <pub-id pub-id-type="doi">10.1006/jmbi.1996.0477</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK28XltlKisLo%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kobayashi</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Takimura</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Sekine</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Kelly</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Kamata</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Sakamoto</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Nishimura</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Yokoyama</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Structural snapshots of the KMSKS loop rearrangement for amino acid activation by bacterial tyrosyl-tRNA synthetase</article-title>
+                <source>Journal of Molecular Biology</source>
+                <year>2005</year>
+                <volume>346</volume>
+                <fpage>105</fpage>
+                <lpage>117</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.jmb.2004.11.034</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXkvFOluw%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Canutescu</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Shelenkov</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Dunbrack</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A graph-theory algorithm for rapid protein side-chain prediction</article-title>
+                <source>Protein Science: a Publication of the Protein Society</source>
+                <year>2003</year>
+                <volume>12</volume>
+                <issue>9</issue>
+                <fpage>2001</fpage>
+                <lpage>2014</lpage>
+                <pub-id pub-id-type="doi">10.1110/ps.03154503</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXmvVehs7s%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hartshorn</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Verdonk</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Chessari</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Brewerton</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Mooij</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Mortenson</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Murray</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Diverse, high-quality test set for the validation of protein-ligand docking performance</article-title>
+                <source>Journal of Medicinal Chemistry</source>
+                <year>2007</year>
+                <volume>50</volume>
+                <issue>4</issue>
+                <fpage>726</fpage>
+                <lpage>741</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm061277y</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXmsVymtg%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sridharan</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Nicholls</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Honig</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A new Vertex Algorithm to calculate Solvent accessible Surface Area</article-title>
+                <source>Biophys J</source>
+                <year>1992</year>
+                <volume>61</volume>
+                <fpage>174</fpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="other">Manually refined xylose isomerase structure 1muw. available upon request from the authors of this article. 10.1107/S0907444998018514.</mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bon</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Lehmann</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilkinson</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Quasi-Laue neutron-diffraction study of the water arrangement in crystals of triclinic hen egg-white lysozyme</article-title>
+                <source>Acta Crystallographica. Section D, Biological Crystallography</source>
+                <year>1999</year>
+                <volume>55</volume>
+                <issue>Pt 5</issue>
+                <fpage>978</fpage>
+                <lpage>987</lpage>
+                <pub-id pub-id-type="doi">10.1107/S0907444998018514</pub-id>
+                <pub-id pub-id-type="coi">1:STN:280:DyaK1M3jsVenuw%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Whittington</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Waheed</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Ulmasov</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Shah</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Grubb</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Sly</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Christianson</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Crystal structure of the dimeric extracellular domain of human carbonic anhydrase XII, a bitopic membrane protein overexpressed in certain cancer tumor cells</article-title>
+                <source>Proceedings of the National Academy of Sciences of the United States of America</source>
+                <year>2001</year>
+                <volume>98</volume>
+                <issue>17</issue>
+                <fpage>9545</fpage>
+                <lpage>9550</lpage>
+                <pub-id pub-id-type="doi">10.1073/pnas.161301298</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3MXmtlCntbo%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Golebiowski</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Townes</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Laufersweiler</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Brugel</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Clark</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Clark</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Djung</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Laughlin</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Sabat</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Bookland</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>VanRens</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>De</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Hsieh</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Janusz</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Walter</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Webster</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Mekel</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The development of monocyclic pyrazolone based cytokine synthesis inhibitors</article-title>
+                <source>Bioorganic &amp; Medicinal Chemistry Letters</source>
+                <year>2005</year>
+                <volume>15</volume>
+                <issue>9</issue>
+                <fpage>2285</fpage>
+                <lpage>2289</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.bmcl.2005.03.007</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXjtlWqsLs%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Weichenberger</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Sippl</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Self-consistent assignment of asparagine and glutamine amide rotamers in protein crystal structures</article-title>
+                <source>Structure</source>
+                <year>2006</year>
+                <volume>14</volume>
+                <issue>6</issue>
+                <fpage>967</fpage>
+                <lpage>972</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.str.2006.04.002</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28Xls1Gmu7k%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Word</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Lovell</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Richardson</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Richardson</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Asparagine and glutamine: using hydrogen atom contacts in the choice of side-chain amide orientation</article-title>
+                <source>Journal of Molecular Biology</source>
+                <year>1999</year>
+                <volume>285</volume>
+                <issue>4</issue>
+                <fpage>1735</fpage>
+                <lpage>1747</lpage>
+                <pub-id pub-id-type="doi">10.1006/jmbi.1998.2401</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DyaK1MXhtV2ht7g%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Fang</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The PDBbind database: collection of binding affinities for protein-ligand complexes with known three-dimensional structures</article-title>
+                <source>Journal of Medicinal Chemistry</source>
+                <year>2004</year>
+                <volume>47</volume>
+                <issue>12</issue>
+                <fpage>2977</fpage>
+                <lpage>2980</lpage>
+                <pub-id pub-id-type="doi">10.1021/jm030580l</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXjs1Sjs74%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Shah</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuntz</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Rose</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comparison of kifunensine and 1-deoxymannojirimycin binding to class I and II alpha-mannosidases demonstrates different saccharide distortions in inverting and retaining catalytic mechanisms</article-title>
+                <source>Biochemistry</source>
+                <year>2003</year>
+                <volume>42</volume>
+                <issue>47</issue>
+                <fpage>13812</fpage>
+                <lpage>13816</lpage>
+                <pub-id pub-id-type="doi">10.1021/bi034742r</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXovVSitLc%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Stierand</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">From modeling to medicinal chemistry: automatic generation of two-dimensional complex diagrams</article-title>
+                <source>Chem Med Chem</source>
+                <year>2007</year>
+                <volume>2</volume>
+                <issue>6</issue>
+                <fpage>853</fpage>
+                <lpage>860</lpage>
+                <pub-id pub-id-type="doi">10.1002/cmdc.200700010</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXntVShurc%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Reulecke</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Lange</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Albrecht</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Klein</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Towards an integrated description of hydrogen bonding and dehydration: decreasing false positives in virtual screening with the HYDE scoring function</article-title>
+                <source>Chem Med Chem</source>
+                <year>2008</year>
+                <volume>3</volume>
+                <issue>6</issue>
+                <fpage>885</fpage>
+                <lpage>897</lpage>
+                <pub-id pub-id-type="doi">10.1002/cmdc.200700319</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXnvVWmt7g%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Garey</surname>
+                    <given-names>MR</given-names>
+                  </name>
+                </person-group>
+                <source>Computers and Intractability</source>
+                <year>1979</year>
+                <publisher-loc>New York</publisher-loc>
+                <publisher-name>W. H. Freeman and Company</publisher-name>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec25">
+              <title>Authors’ original submitted files for images</title>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM1" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_13_MOESM1_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_13_MOESM2_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_13_MOESM3_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_13_MOESM4_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_13_MOESM5_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_13_MOESM6_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_13_MOESM7_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 7</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM8" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_13_MOESM8_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 8</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM9" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_13_MOESM9_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 9</p></caption></media></supplementary-material></p>
+            </sec>
+          </app>
+        </app-group>
+        <notes notes-type="Misc">
+          <title>Competing interests</title>
+          <p>BioSolveIT GmbH, which has been co-founded by MR, has financially supported TL for the work on this project.</p>
+        </notes>
+        <notes notes-type="Misc">
+          <title>Authors' contributions</title>
+          <p>TL developed, implemented and tested the presented method. TL prepared the manuscript for this publication. MR supervised and coordinated the project. Both authors have read and approved of the final manuscript.</p>
+        </notes>
+      </back>
+    </article>

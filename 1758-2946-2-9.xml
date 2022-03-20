@@ -1,0 +1,1377 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">BMC1758-2946-2-9</article-id>
+          <article-id pub-id-type="manuscript">113</article-id>
+          <article-id pub-id-type="doi">10.1186/1758-2946-2-9</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Methodology</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Organization of GC/MS and LC/MS metabolomics data into chemical libraries</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" corresp="yes">
+              <name>
+                <surname>DeHaven</surname>
+                <given-names>Corey D</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDBMC1758294629_cor1">a</xref>
+            </contrib>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Evans</surname>
+                <given-names>Anne M</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Dai</surname>
+                <given-names>Hongping</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Lawton</surname>
+                <given-names>Kay A</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.429438.0</institution-id>
+                <institution content-type="org-name">Metabolon, Inc.</institution>
+              </institution-wrap>
+              <addr-line content-type="street">800 Capitola Drive, Suite 1</addr-line>
+              <addr-line content-type="postcode">27713</addr-line>
+              <addr-line content-type="city">Durham</addr-line>
+              <addr-line content-type="state">NC</addr-line>
+              <country country="US">USA</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDBMC1758294629_cor1">
+              <label>a</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>18</day>
+            <month>10</month>
+            <year>2010</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2010</year>
+          </pub-date>
+          <volume>2</volume>
+          <issue seq="9">1</issue>
+          <elocation-id>9</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>28</day>
+              <month>12</month>
+              <year>2009</year>
+            </date>
+            <date date-type="received">
+              <day>28</day>
+              <month>12</month>
+              <year>2009</year>
+            </date>
+            <date date-type="accepted">
+              <day>18</day>
+              <month>10</month>
+              <year>2010</year>
+            </date>
+            <date date-type="online">
+              <day>18</day>
+              <month>10</month>
+              <year>2010</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© DeHaven et al; licensee BioMed Central Ltd. 2010</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-year>2010</copyright-year>
+            <copyright-holder>DeHaven et al; licensee BioMed Central Ltd.</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="url">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+            </license>
+          </permissions>
+          <abstract id="Abs1" xml:lang="en">
+            <title>Abstract</title>
+            <sec id="ASec1">
+              <title>Background</title>
+              <p>Metabolomics experiments involve generating and comparing small molecule (metabolite) profiles from complex mixture samples to identify those metabolites that are modulated in altered states (e.g., disease, drug treatment, toxin exposure). One non-targeted metabolomics approach attempts to identify and interrogate all small molecules in a sample using GC or LC separation followed by MS or MS<sup>n</sup> detection. Analysis of the resulting large, multifaceted data sets to rapidly and accurately identify the metabolites is a challenging task that relies on the availability of chemical libraries of metabolite spectral signatures. A method for analyzing spectrometry data to identify and <bold><underline>Qu</underline></bold>antify <bold><underline>I</underline></bold>ndividual <bold><underline>C</underline></bold>omponents in a <bold><underline>S</underline></bold>ample, (QUICS), enables generation of chemical library entries from known standards and, importantly, from unknown metabolites present in experimental samples but without a corresponding library entry. This method accounts for all ions in a sample spectrum, performs library matches, and allows review of the data to quality check library entries. The QUICS method identifies ions related to any given metabolite by correlating ion data across the complete set of experimental samples, thus revealing subtle spectral trends that may not be evident when viewing individual samples and are likely to be indicative of the presence of one or more otherwise obscured metabolites.</p>
+            </sec>
+            <sec id="ASec2">
+              <title>Results</title>
+              <p>LC-MS/MS or GC-MS data from 33 liver samples were analyzed simultaneously which exploited the inherent biological diversity of the samples and the largely non-covariant chemical nature of the metabolites when viewed over multiple samples. Ions were partitioned by both retention time (RT) and covariance which grouped ions from a single common underlying metabolite. This approach benefitted from using mass, time and intensity data in aggregate over the entire sample set to reject outliers and noise thereby producing higher quality chemical identities. The aggregated data was matched to reference chemical libraries to aid in identifying the ion set as a known metabolite or as a new unknown biochemical to be added to the library.</p>
+            </sec>
+            <sec id="ASec3">
+              <title>Conclusion</title>
+              <p>The QUICS methodology enabled rapid, in-depth evaluation of all possible metabolites (known and unknown) within a set of samples to identify the metabolites and, for those that did not have an entry in the reference library, to create a library entry to identify that metabolite in future studies.</p>
+            </sec>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Retention Index</kwd>
+            <kwd>Spectral Library</kwd>
+            <kwd>Equol</kwd>
+            <kwd>Mass Window</kwd>
+            <kwd>Reference Library</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Chemistry Central</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>11</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2010</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2009</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>12</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>28</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2009_Article_113.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-2-9" ext-link-type="doi">10.1186/1758-2946-2-9</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Background</title>
+          <p>Metabolomics is the study of the small molecules (i.e., metabolites or biochemicals), contained in a cell, tissue, organ or biological fluid [<xref ref-type="bibr" rid="CR1">1</xref>–<xref ref-type="bibr" rid="CR3">3</xref>]. Metabolomics data can be generated from an array of sources such as liquid or gas chromatography coupled to mass spectrometry (e.g., LC/MS, GC/MS), capillary electrophoresis (CE), and nuclear magnetic resonance (NMR) spectroscopy [<xref ref-type="bibr" rid="CR4">4</xref>]. Typically, metabolomics uses non-targeted methods where the analytical conditions are optimized to detect and identify as many molecules as possible. However, targeted metabolomics methods where the chromatography is optimized for detection of a specific molecule or class of molecules (e.g., lipids) are also used. In either case, the structure of metabolomics data is generally three dimensional. For example, the data for a separation method coupled with mass spectrometry includes values for time, intensity and mass (m/z).</p>
+          <p>The fundamental goal of metabolomics analysis is to quickly and accurately identify the metabolites detected in a complex biological sample and determine which change (increase or decrease) in response to experimental conditions (e.g., disease state, drug treatment, etc). Typically, data for a set of biological samples are collected, plotted and stored in individual files with each file corresponding to each biological sample. Using various software tools, the raw three-dimensional data for the sample set are integrated into ion peaks organized by mass, retention time (RT), and peak area. The integrated ion peaks are aligned by time and may be normalized by intensity across the set of samples. Then, each individual sample is processed for the identification of metabolites which, in most cases, involves the comparison of individual spectra to standard reference libraries. Such standard reference library data consist of known spectra corresponding to certain metabolites that may be present in a given sample. While individual ions may be detectable in such spectra, the combinations and interplay of such ions to indicate specific individual metabolites may not be immediately discernable, especially in only a single biological sample. If the individual sample contains substantially pure components (such as small molecule metabolites), the spectrum of the component can be easily matched with the spectra of known metabolites in order to identify the biochemical. However, in many cases, the fractionation of a particular biological sample (in a liquid or gas chromatograph, for example) is incomplete. In this case, two or more biochemicals may co-elute from the incomplete chromatographic separation process giving rise to an impure mixture of metabolites going into the spectrometer. The conventional methods of analyzing datasets by grouping and organizing related ions on a per sample basis fall short when faced with this level of data complexity [<xref ref-type="bibr" rid="CR5">5</xref>–<xref ref-type="bibr" rid="CR7">7</xref>].</p>
+          <p>An analytical method that is capable of performing statistical analysis on a set of ions in a given population (sample set) could address these shortcomings [<xref ref-type="bibr" rid="CR7">7</xref>]. Recently, a correlation-based deconvolution approach was reported for LC/MS datasets [<xref ref-type="bibr" rid="CR8">8</xref>]. In this report, we present QUICS, a method to identify and organize the ions related to metabolites of known and unknown identity from complex mixtures. The function of QUICS is to go beyond a single sample approach to the identification of the multiple ions that are related to any given metabolite by correlating ion data across a set of samples. Consequently, when viewed over many individual biological samples of the same type, subtle spectral trends indicative of the presence of one or more otherwise obscured metabolites may be revealed. Once these related ions are grouped based upon the correlation across samples, there exists the capability of searching for these organized ion groups in reference library databases to identify the corresponding metabolites. Furthermore, new library entries can be created when grouped ions represent a new, undocumented metabolite (unknown). Here, we show the utility of this method for the deconvolution and analysis of GC-MS and LC-MS<sup>n</sup> data sets.</p>
+        </sec>
+        <sec id="Sec2">
+          <title>Results and Discussion</title>
+          <p>To demonstrate the ability of the QUICS method to accurately separate and organize ions related to co-eluting biochemicals, a sample set of 33 liver samples was analyzed by GC/EI-MS. In this study three known metabolites, leucine, phosphate and glycerol, consistently co-elute as shown in Figure <xref rid="Fig1" ref-type="fig">1</xref>. Without prior knowledge of the content of this scan it would be difficult to determine whether the spectrum shown in Figure <xref rid="Fig1" ref-type="fig">1</xref> is a mixture of metabolites or a single metabolite. Using the QUICS methodology this spectrum is separated into its three biochemical components by grouping highly correlated individual ions based on instrument response across the sample set. This is possible because the ions originating from a single biochemical will exhibit similar biological variability across the study and therefore correlate, as can be seen in Figure <xref rid="Fig2" ref-type="fig">2</xref>. Consequently, individual ions belonging to a single component can be grouped based on correlation. In Figure <xref rid="Fig2" ref-type="fig">2</xref>, Panel A demonstrates the chromatographic profile of two ions generated during a GC/EI-MS analysis of leucine, 158 and 232 m/z. Note that the intensities of the ions trend the same way across the four different liver samples shown. More specifically, the liver sample shown in black has the highest amount of 158 and 232 m/z, followed by the liver sample represented in red, then green, then blue. As a result, these two ions correlate when the ion response is compared across all of the sample injections in the study which is shown in Figure <xref rid="Fig3" ref-type="fig">3</xref>. This is in contrast to the ions related to glycerol (Figure <xref rid="Fig2" ref-type="fig">2</xref>, panel B), in which the liver sample labelled in black has the highest amount of both ions (205 and 103 m/z), followed by green, then blue, then red. The three ion groups that were created from a set of 33 liver samples and their respective authentic standard spectrum matches are shown in Figure <xref rid="Fig4" ref-type="fig">4</xref>.<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>A single scan from an EI GC/MS analysis of a liver biopsy</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_113_Fig1_HTML.jpg" /></p></fig><fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>The selected ion chromatogram (SIC) for two different ions from leucine (A) and two ions from glycerol (B) as measured from 4 different liver sample analyses</bold>. The ions from leucine, 158 and isotope 232 m/z, trend across the different liver samples and the ions related to glycerol share a different trend.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_113_Fig2_HTML.jpg" /></p></fig><fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>Correlation of m/z 158 and 232, two ions related to leucine, across all injections in a study</bold>. All ions were pulled from all sample injections in a study and analyzed all for correlation. Ions are then grouped based on a user-specified correlation limit.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_113_Fig3_HTML.jpg" /></p></fig><fig id="Fig4"><label>Figure 4</label><caption xml:lang="en"><p><bold>The creation of 3 different groups of correlating ions, A,C, and E, and their respective authentic standard library entries are shown for comparison, B, D, and F</bold>. The ions within the groups correlated with a minimum of 0.8. From the single scan in Figure 1, 3 different compounds are present; phosphate, leucine and glycerol.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_113_Fig4_HTML.jpg" /></p></fig></p>
+          <p>The examples discussed thus far are from data generated from electron ionization (EI) GC/MS analyses, where all of the ions detected are a result of fragmentation of the intact molecule during ionization. However, the QUICS method is also useful with other types of data. Deconvoluting LC/MS data where a biochemical compound does not necessarily fragment in the source but instead readily forms adducts and multimers is also possible. Shown in Figure <xref rid="Fig5" ref-type="fig">5</xref>, Panel A is an example of ions from an LC/MS sample injection that were grouped based on correlation. The ions presented are various adducts, isotopes, multimers and in-source fragments for inosine, as confirmed by the authentic standard library spectrum in Panel B. Shown in Panel C is the correlation between the protonated molecular ion at 269 m/z with the in-source fragment at 137 m/z across the sample set. The QUICS method is also applicable to LC/MS applications where all ions eluting from the chromatographic system are fragmented rather than individual masses being isolated and then fragmented. In this case, the fragment ions from the individual metabolites will also correlate depending on biological variability.<fig id="Fig5"><label>Figure 5</label><caption xml:lang="en"><p><bold>(A) An ion group including the protonated molecular ion, isotopes, adducts, and multimers of inosine (m + H</bold><sup><bold>+</bold></sup><bold>269) based on correlation across a 33 sample set study</bold>. (<bold>B</bold>) The authentic standard spectrum of inosine. (<bold>C</bold>) The correlation between the protonated molecular ion of inosine at 269 m/z and an in-source fragment at 137 m/z.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_113_Fig5_HTML.jpg" /></p></fig></p>
+          <p>The ability the QUICS method to separate co-eluting species is dependent upon the correlation of the detected ion area responses across an entire study. One potential complication to this type of analysis is that ions from compounds that have limited biological variability across the sample set will not be highly correlated because there is limited variation in ion signals. In addition, correlation calculations can be confounded by ions that are shared among the co-eluting compounds. In these cases, the ion response is the sum of all the co-eluting compounds and therefore correlation might be compromised. An example of this phenomenon is the 147 and 72.9 m/z ions shown in Figure <xref rid="Fig1" ref-type="fig">1</xref>. These ions are common to all three co-eluting compounds as can be seen in the authentic standard spectra in Figure <xref rid="Fig4" ref-type="fig">4</xref>, panels B, D, and F. Ultimately these ions were grouped with the compound that had a sufficient degree of correlation, specifically 73 with phosphate (Figure <xref rid="Fig4" ref-type="fig">4</xref>, panel A) and 147 with glycerol (Figure <xref rid="Fig4" ref-type="fig">4</xref>, panel E); neither ion correlated sufficiently to be grouped with other leucine ions (Figure <xref rid="Fig4" ref-type="fig">4</xref>, panel C) even though the leucine standard also produced these ions (Figure <xref rid="Fig4" ref-type="fig">4</xref>, panel D). While these potential complications do exist they rarely interfere to a significant enough extent to compromise the quality of the generated spectrum.</p>
+          <p>While the example in Figure <xref rid="Fig4" ref-type="fig">4</xref> focuses on a region of chromatography where three known compounds co-elute, the QUICS method is most powerful when the chemical composition of a sample set is unknown. In that instance, individual ions originating from each individual chemical can be grouped even when the chemical identity is unknown and possibly co-eluting with other unknowns. Presented in Figure <xref rid="Fig6" ref-type="fig">6</xref>, Panel A is an example of a spectrum that was created using the QUICS method. The ions that were grouped (Figure <xref rid="Fig6" ref-type="fig">6</xref>, panel A) as originating from an unknown source were later identified as Equol (4',7-isoflavandiol), an isoflavandiol metabolized from daidzein, a type of isoflavone, by bacterial flora in the intestines [<xref ref-type="bibr" rid="CR9">9</xref>] (Figure <xref rid="Fig6" ref-type="fig">6</xref>, panel B).<fig id="Fig6"><label>Figure 6</label><caption xml:lang="en"><p><bold>(A) An ion group created from an EI-GC/MS analysis of urine that when created was an unknown</bold>. (<bold>B</bold>) The authentic standard spectrum of equol, later permitted the identification of the unknown.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_113_Fig6_HTML.jpg" /></p></fig></p>
+          <p>The ultimate goal of the QUICS method is to permit the deconvolution of the many redundant ion signals that each individual biochemical entity produces. One of the standard approaches of data analysis in the biochemical profiling field is to perform statistical analyses using every individual ion signal whether or not they are redundant ions produced by a single chemical [<xref ref-type="bibr" rid="CR10">10</xref>–<xref ref-type="bibr" rid="CR12">12</xref>]. This ion-centric approach leads to a greater number of false discoveries as a result of increased numbers of measurements processed in the statistical analysis. This approach also has the potential to skew statistics since different chemicals will produce different numbers of ion signals. For example, multivariate techniques such as Principal Component Analysis (PCA) can be skewed in favor of chemicals that produce more ion signals. In contrast, the QUICS method enables a chemo-centric approach to data analysis. Once the related ion features that belong to a given biochemical are organized and grouped, a single ion from that group can be used to represent that metabolite in statistical analyses. By using the chemo-centric approach the number of false discoveries is reduced since the number of ions processed in statistical analyses is reduced to a single representative ion for each metabolite and, furthermore, the potential for skewed statistical results is decreased.</p>
+          <p>Similar use of correlation analysis across samples has been used with NMR data. In that analysis, the multiple chemical shift peaks generated by a single molecule can be correlated across samples, grouped, and used to aid identification of detected molecules [<xref ref-type="bibr" rid="CR13">13</xref>–<xref ref-type="bibr" rid="CR16">16</xref>]. While similar in concept to the method presented here, the ultimate outcome has different advantages since the underlying data streams are so unique. One of the goals of the QUICS method was to deconvolute the highly redundant ion features generated by a single molecule traditionally seen in most mass spectrometric based technologies. As discussed, this redundancy of data can alter statistical analysis and lead to greater numbers of false discoveries. Using the QUICS method, it is possible to group all of the redundant ions related to the detected metabolites within a set of experimental samples with or without the use of a known spectral library. By utilizing both the chromatographic time domain and ion response the QUICS method is able to gain an additional degree of specificity not seen in NMR data streams. As a result only those ions that co-elute and correlate are grouped, thus removing the confounding redundancies. It should be noted that this method represents an automated package that also enables the generation of spectral library entries for unnamed/unknown metabolites--those molecules where a reference library entry of chemical spectral signatures does not yet exist. Taking a statistical approach to the analysis of all ions in a sample and evaluating the entire sample set simultaneously enables the system to not only identify metabolites with spectral matches to known biochemicals in the reference library, but also enables identification of biochemicals that are not in the reference library. The identification of these so-called unnamed metabolites capitalizes on the fact that ions originating from a single biochemical will exhibit similar biological variability across the study samples and therefore correlate. The QUICS method has been used successfully for diverse experimental studies including disease biomarker identification, drug mode of action, toxicology, aging and characterization of variation in complex mixtures such as milk and on a variety of sample matrices (e.g., biological fluids, tissue, milk) [<xref ref-type="bibr" rid="CR17">17</xref>–<xref ref-type="bibr" rid="CR22">22</xref>].</p>
+          <sec id="Sec3">
+            <title>Experimental</title>
+            <p>To begin, GC/MS and LC/MSMS data are collected as part of an automated, high-throughput processing system. These data consist of ions peaks that have been automatically detected and integrated from raw 3D GC/MS or LC/MSMS analyses for each sample. These data are characterized by the mass (m/z) of the ion, the area (representing the amount of the ions), and retention time (RT) and retention index (RI) representing the chromatographic characteristics that tell when the related biochemicals elute. Retention indices are assigned to all ion peaks by calibration with the retention index of internal standards, added into each sample, and their retention time for each sample [<xref ref-type="bibr" rid="CR6">6</xref>]. These raw signal data and integrated ion peak data are both loaded and stored in a relational database system which provides data structures that are optimal for the storage and retrieval of large chromatographic datasets. Immediately after data acquisition has been completed for a sample, that data file has been retrieved by the system, and automated loading and peak detection have been completed, the resulting data is compared using a matching algorithm against an existing spectral library which contains the spectral definitions of both known standards as well as unknown metabolites. Any matches between ion peak data and the spectral library that occur are scored for confidence, and that information is stored within the relational database system.</p>
+            <p>To determine which groups of ions are common across samples, all the ions are binned by mass window and RI window. Ions from the same chemical that are determined to be common across samples are then grouped by correlation. Table <xref rid="Tab1" ref-type="table">1</xref> shows the processing thresholds for ion binning and bin grouping.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Binning and Grouping Threshold Parameters</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Name</p></th><th align="left"><p>Description</p></th><th align="left"><p>Normal Values</p></th></tr></thead><tbody><tr><td align="left" colspan="3"><p><bold><italic>Ions to Analyze</italic></bold></p></td></tr><tr><td align="left"><p>RI +/-</p></td><td align="left"><p>Range of retention indexes of ions across samples for analysis</p></td><td align="left"><p>0~9000 +/- 100</p></td></tr><tr><td align="left" colspan="3"><p><bold><italic>Ion Binning</italic></bold></p></td></tr><tr><td align="left"><p>Mass Window</p></td><td align="left"><p>Mass window for ions to be binned together</p></td><td align="left"><p>0.4</p></td></tr><tr><td align="left"><p>Extended Mass Window</p></td><td align="left"><p>Mass window to look for ions missing from samples in neighboring bins.</p></td><td align="left"><p>0.5</p></td></tr><tr><td align="left"><p>RI Window</p></td><td align="left"><p>RI window for ions to be binned together</p></td><td align="left"><p>25 to 50, default 25</p></td></tr><tr><td align="left"><p>Extended RI Window</p></td><td align="left"><p>RI window to look for ions missing from samples in neighboring bins.</p></td><td align="left"><p>25 to 50, default 38</p></td></tr><tr><td align="left" colspan="3"><p><bold><italic>Bin Grouping</italic></bold></p></td></tr><tr><td align="left"><p>Max. RI Difference</p></td><td align="left"><p>Maximal difference of the average RIs of the two bins</p></td><td align="left"><p>0~999</p></td></tr><tr><td align="left"><p>Min. Correlated Ions</p></td><td align="left"><p>Minimal number of common singlet ions existing in the two bins</p></td><td align="left"><p>1~999</p></td></tr><tr><td align="left"><p>Max. Linear Area</p></td><td align="left"><p>Maximal area of ions that can be included for correlation calculation</p></td><td align="left"><p>Large enough to include all ions</p></td></tr><tr><td align="left"><p>Max. RSD (%)</p></td><td align="left"><p>Maximal Relative Standard Deviation (%) of common singlet peak area ratio between the two bins</p></td><td align="left"><p>0~100</p></td></tr><tr><td align="left"><p>Min. Correlation</p></td><td align="left"><p>Minimal correlation value for grouping</p></td><td align="left"><p>0 ~ 1 with default of 0.8</p></td></tr></tbody></table></table-wrap></p>
+          </sec>
+          <sec id="Sec4">
+            <title>Ion Bin</title>
+            <p>The first step is to begin a binning process where ions from samples in the same study set are binned by mass and retention index (RI)[<xref ref-type="bibr" rid="CR23">23</xref>]. A bin is a space partitioning data structure that enables fast region queries and nearest neighbor search. Each bin is characterized by a center mass and a center RI. Ions from across the set of samples are put into the same bin if their masses and RIs fall into the windows around the center mass and the center RI.</p>
+            <p>Two kinds of ions can be defined in this process, a singlet and a multiplet. A singlet ion comes from a sample that has one and only one ion in the same bin. A multiplet ion comes from a sample that has more than one ion in the same bin. Multiplet ions from the same sample imply the co-elution of several compounds and are termed a collision. The number of collisions, i.e. the number of times multiple ions were detected in all bins, seen in a loaded data set is displayed in Figure <xref rid="Fig5" ref-type="fig">5(C)</xref>.</p>
+            <p>Binning includes the following steps:<list list-type="order"><list-item><p>Sorting ions by their areas in descending order.</p></list-item><list-item><p>Bin ions with smaller areas around ions with larger areas, with the larger ions serving as the bin centers.</p></list-item><list-item><p>Calculate the statistics of each ion bin: mean mass, mean area, mean RI and their standard deviations, respectively, from all singlet ions in the bin.</p></list-item><list-item><p>Reset the bin center mass and center RI to its mean mass and mean RI to take into account the ion distribution within the bin. Remove all bins that have no singlet ions.</p></list-item><list-item><p>Re-binning all ions into these bins. If an ion can't be binned into any of them, a new bin is created with its mass and RI as the center mass and RI.</p></list-item><list-item><p>Repeat steps 3 and 4 for optimized binning of all ions.</p></list-item></list></p>
+            <p>The number of singlet ions in an ion bin indicates how popular this ion is across the samples. The size of a bin is represented by the percentage of singlet ions among the total number of samples, the percentage of "filled" in Figure <xref rid="Fig5" ref-type="fig">5</xref> (C, % column).</p>
+            <p>When a bin is not 100% filled, that is, when there are samples that have no ions in the bin, it might be possible that these samples might have the same ions but they might be just outside the mass window and/or the RI window of the bin. Should these outlier ions be the same as those in the bin, their areas would be within four standard deviations of the areas of singlet ions in the bin. To recover these outlier ions from the missing samples, ions within an extended mass window and/or RI window are searched for those samples in the bins with lower "filled" percentage; if found, such ions are migrated from the less "filled" bin to the more "filled" bin.</p>
+            <p>For example, suppose there are 30 samples in total, and there are 25 samples that have singlet peaks in bin B1, and sample A does not have any peak in it. To check if sample A has an outlier peak that is similar to peaks from other samples in bin B1, peaks from sample A in neighbor bins are searched in an extended RI and mass window. Peaks from sample A must have their peak areas in the window of four standard deviations of peak areas in bin B1. The best matched peak from sample A in the neighbor bins would be migrated to bin B1, making bin B1 more "filled" (sample A is now included).</p>
+            <p>This process is looped from the more filled bins to the less filled bins.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Grouping Ion Bins</title>
+            <p>In GC/MS or LC/MS, many ions may be produced from the same metabolite during the ionization and fragmentation processes. In LC/MS, different adducts and aggregates may form from the same metabolite. These ions from the same metabolite should be well correlated. On the other hand, ions from different chemical origin are largely non-covariant.</p>
+            <p>Once ions from across the set of samples are properly binned, each bin represents a common ion that is common in many samples in the sample set. Bins representing ions from the same metabolite should be well correlated when analyzed across multiple samples. Suppose a majority of the samples contain a common metabolite A, which has ionized to N ions, then there would be N bins that are well correlated. The goal of grouping bins is to find those well correlated ions that could represent a known or unknown metabolite in those samples.</p>
+          </sec>
+          <sec id="Sec6">
+            <title>Correlation between the Normalization Bin and Correlation Bin</title>
+            <p>The Pearson's correlation is calculated to measure the correlation between two ion bins. Only singlet ions that are common in both ion bins are included in the calculation.</p>
+            <p>Bins are sorted by their mean area in descending order. Using the larger bins as the normalizer, smaller bins are grouped around the larger bins as if the correlation is above the correlation threshold value. The correlation between the normalizer bin and correlation bin is calculated as follows:<disp-formula id="Equ1"><label>1</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_113_Equ1_HTML.gif" /></disp-formula></p>
+            <p>where S<sub>i</sub> is the area of a common singlet ion, <inline-formula id="IEq1"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_113_IEq1_HTML.gif" /></inline-formula> is the average area of the common singlet ions in a bin. Thresholds for the minimal correlation and the number of singlet ions that are common in both the normalization bin and the correlation bin are user specified and can be altered prior to the process being started.</p>
+            <p>The correlation threshold is chosen by trial-and-error. Usually it is between 0.70 and 0.90. It depends on the matrix type and the sample set size (number of samples in the sample set). A too low correlation threshold would group too many bins into a group, whereas a too high threshold would miss some ions from the group, which can be judged from metabolites in the samples known from library match.</p>
+          </sec>
+          <sec id="Sec7">
+            <title>Chemical Intelligence</title>
+            <p>The ions originating from the same chemical will have different m/z values and include various in-source fragmentations, isotopes, adducts and multimers. In LC/MS, ions could be aggregates of monomers or adducts with solvent/mobile phase ions such as H<sup>+</sup>, Na<sup>+</sup>, K<sup>+</sup>, Cl<sup>-</sup>, OH<sup>-</sup>, NH<sub>4</sub><sup>+</sup>, H<sub>2</sub>O, COO<sup>-</sup>, etc. The true mass could be calculated from the measured mass:<disp-formula id="Equ2"><label>2</label><graphic position="anchor" xlink:href="MediaObjects/13321_2009_Article_113_Equ2_HTML.gif" /></disp-formula></p>
+            <p>where N<sub>IMER</sub> is the number of monomers in the aggregate, (m/z)<sub>adduct</sub> is the (m/z) of the adduct, (m/z)<sub>monomer</sub>, is the (m/z) of the monomer, and (m/z)<sub>measured</sub> is the measured (m/z) for the ion.</p>
+            <p>Table <xref rid="Tab2" ref-type="table">2</xref> shows the most common aggregates and adducts. All ions in the group are checked against these possible aggregates and/or adducts to determine the most probable form of the ion.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Possible aggregate and adducts in measured ions</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="center"><p>(m/z)<sub>adduct</sub></p></th><th align="center"><p>N<sub>IMER</sub></p></th><th align="center"><p>Ion Form</p></th><th align="center"><p>PROBABILITY(%)</p></th></tr></thead><tbody><tr><td align="center"><p>1.00728</p></td><td align="center"><p>3</p></td><td align="center"><p>3 m + H</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p>1.00728</p></td><td align="center"><p>4</p></td><td align="center"><p>4 m + H</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p>1.00728</p></td><td align="center"><p>5</p></td><td align="center"><p>5 m + H</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p>22.98977</p></td><td align="center"><p>3</p></td><td align="center"><p>3 m + Na</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p>22.98977</p></td><td align="center"><p>4</p></td><td align="center"><p>4 m + Na</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p>22.98977</p></td><td align="center"><p>5</p></td><td align="center"><p>5 m + Na</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p>1.00728</p></td><td align="center"><p>1</p></td><td align="center"><p>m + H</p></td><td align="center"><p>100</p></td></tr><tr><td align="center"><p>0</p></td><td align="center"><p>1</p></td><td align="center"><p>m-</p></td><td align="center"><p>10</p></td></tr><tr><td align="center"><p>1.00728</p></td><td align="center"><p>2</p></td><td align="center"><p>2 m + H</p></td><td align="center"><p>50</p></td></tr><tr><td align="center"><p>22.98977</p></td><td align="center"><p>1</p></td><td align="center"><p>m + Na</p></td><td align="center"><p>90</p></td></tr><tr><td align="center"><p>22.98977</p></td><td align="center"><p>2</p></td><td align="center"><p>2 m + Na</p></td><td align="center"><p>25</p></td></tr><tr><td align="center"><p>39.954</p></td><td align="center"><p>1</p></td><td align="center"><p>m + K</p></td><td align="center"><p>10</p></td></tr><tr><td align="center"><p>39.954</p></td><td align="center"><p>2</p></td><td align="center"><p>2 m + K</p></td><td align="center"><p>5</p></td></tr><tr><td align="center"><p>-1.00728</p></td><td align="center"><p>1</p></td><td align="center"><p>m-H</p></td><td align="center"><p>100</p></td></tr><tr><td align="center"><p>39.954</p></td><td align="center"><p>4</p></td><td align="center"><p>4 m + K</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p>-1.00728</p></td><td align="center"><p>2</p></td><td align="center"><p>2 m-H</p></td><td align="center"><p>50</p></td></tr><tr><td align="center"><p>44.9971</p></td><td align="center"><p>1</p></td><td align="center"><p>m + Form</p></td><td align="center"><p>99</p></td></tr><tr><td align="center"><p>-18.01002</p></td><td align="center"><p>1</p></td><td align="center"><p>m-H2O</p></td><td align="center"><p>80</p></td></tr><tr><td align="center"><p>39.954</p></td><td align="center"><p>5</p></td><td align="center"><p>5 m + K</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p>1.00728</p></td><td align="center"><p>3</p></td><td align="center"><p>3 m-H</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p>-1.00728</p></td><td align="center"><p>4</p></td><td align="center"><p>4 m-H</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p>-1.00728</p></td><td align="center"><p>5</p></td><td align="center"><p>5 m-H</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p>20.9741</p></td><td align="center"><p>2</p></td><td align="center"><p>2 m + Na-2H</p></td><td align="center"><p>50</p></td></tr><tr><td align="center"><p>1.00728</p></td><td align="center"><p>6</p></td><td align="center"><p>6 m + H</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p>1.00728</p></td><td align="center"><p>7</p></td><td align="center"><p>7 m + H</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p>1.00728</p></td><td align="center"><p>8</p></td><td align="center"><p>8 m + H</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p>-17.01</p></td><td align="center"><p>1</p></td><td align="center"><p>m + H-H20</p></td><td align="center"><p>1</p></td></tr><tr><td align="center"><p>34.9689</p></td><td align="center"><p>1</p></td><td align="center"><p>m + Cl35</p></td><td align="center"><p>12</p></td></tr><tr><td align="center"><p>36.9659</p></td><td align="center"><p>1</p></td><td align="center"><p>m + Cl35[Cl37]</p></td><td align="center"><p>4</p></td></tr><tr><td align="center"><p>18.03437</p></td><td align="center"><p>1</p></td><td align="center"><p>m + NH4</p></td><td align="center"><p>1</p></td></tr></tbody></table></table-wrap></p>
+            <p>To calculate the monomer mass of a metabolite, each ion in the grouped bins is tested against the above possible ion form and the possible monomer mass is calculated and scored by the product of the ion peak area and the ion form probability.</p>
+            <p>To do so, possible monomer masses for all the ions in all ion forms are calculated and binned and scored in Table <xref rid="Tab3" ref-type="table">3</xref>:<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>List of possible monomer masses, binned and scored</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Ion</p></th><th align="left"><p>Calculated Monomer Mass</p></th><th align="left"><p>Calculated Score</p></th><th align="left"><p>Assigned Bin</p></th></tr></thead><tbody><tr><td align="left"><p>1</p></td><td align="left"><p>(m/z)<sub>Mono</sub><sup>1</sup></p></td><td align="left"><p>Score<sup>1</sup></p></td><td align="left"><p>X</p></td></tr><tr><td align="left"><p>2</p></td><td align="left"><p>(m/z)<sub>Mono</sub><sup>2</sup></p></td><td align="left"><p>Score<sup>2</sup></p></td><td align="left"><p>X</p></td></tr><tr><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>X</p></td></tr><tr><td align="left"><p>n</p></td><td align="left"><p>(m/z)<sub>Mono</sub><sup>n</sup></p></td><td align="left"><p>Score<sup>n</sup></p></td><td align="left"><p>X</p></td></tr></tbody></table></table-wrap></p>
+            <p>1. For <bold><italic>each ion</italic></bold>from big (large ion peak area)to small (small ion peak area) in the group AND <bold><italic>each ion form</italic></bold>from the most probable to less probable in the possible ion forms<list list-type="bullet"><list-item><p>○ Calculate the monomer mass (m/z)<sub>Mono</sub> and its score.</p></list-item><list-item><p>○ If some monomer masses have already been calculated AND this monomer mass is within one of them, add its score. e.g., if (m/z)<sub>Mono</sub><sup>i</sup> - 0.3 &lt;=(m/z)<sub>Monomer</sub> &lt;= (m/z)<sub>Mono</sub><sup>i</sup> + 0.3, then SCORE<sub>i</sub> + = (Peak Area) * (Ion Form Probability)</p></list-item><list-item><p>○ Otherwise, add this monomer mass and its score to the possible monomer mass list as another possible monomer mass.</p></list-item></list></p>
+            <p>2. Among the all possible monomer masses, the monomer mass with the maximal mass score is the most probable mass.</p>
+            <p>After the monomer mass is calculated from the well correlated bins in a group, other forms of adduct/aggregate ions from the same metabolite not existing in the bins in the group could be searched. These missing forms of adduct/aggregate ions could be more variant across samples and so their correlations with the normalize bin are below the threshold value used for grouping and so bins representing these adducts/aggregates are mis-grouped into different groups. The QUICS method attempts to correct these misgrouped ions by lowering the required correlation threshold for those ions which have masses consistent with the monomer mass of the metabolite.</p>
+            <p>To find the missing adduct/aggregate in a bigger group (with a larger peak area of normalize bin) with its monomer mass calculated as described above, for each possible form of adduct/aggregate:<list list-type="order"><list-item><p>Calculate the measured mass from the monomer mass assuming there is an ion in this form of adduct/aggregate.</p></list-item><list-item><p>Bins in smaller groups within are searched within the mass window (±0.4) of calculated mass and the RI window of the normalize bin of the larger group.</p></list-item><list-item><p>Calculate the correlation of these adduct/aggregate bins with the normalize bin of the big group.</p></list-item><list-item><p>The bin with the highest correlation above 0.4 will be one of the missing adduct/aggregate ions and will be migrated from the smaller groups to the big group.</p></list-item></list></p>
+            <p>This process is repeated for each group from big to small.</p>
+            <p>Isotope ions are checked the same way except they require the ion peak area to be no more than half of the normal ion.</p>
+            <p>As discussed above, each primary ion peak bin represents the average of a common ion across samples, and each group of correlated bins represents ions of a common metabolite. For LC/MS/MS, secondary MS2 ions for each primary ion are also retrieved from all the singlet samples in the primary ion peak bin and similarly binned. Among the MS2 ion bins that satisfy the minimal number of singlet ions, the maximal bin with the maximal mean intensity will be used as the normalize bin to normalize other bins that satisfy both the minimal number of singlet ions and the minimal relative intensity against the normalize bin, are included into the library to represent the MS2 ions for the primary ion. In summary, integrated primary ion chromatographic peaks from all the samples are binned based on chromatographic features of retention index and ion mass, well correlated bins within the retention index window are grouped to create a library entry to represent a chemical entity. Each mass with their characteristic values from the averages of mass, area, RI, and RT from a bin in the group, represents one of the fragmented ions from a pure chemical entity or its adducts/aggregate. For LC/MS/MS, secondary masses are also created from the bin/group of all secondary ions across the samples and the averages represent the secondary ions from one of the primary fragments of the chemical entity. Such created library entries for each chemical entity may match well to an entry in the library, or as an unknown to be added to the library and to be further identified with more studies.</p>
+          </sec>
+          <sec id="Sec8">
+            <title>Reference Library Entries</title>
+            <p>Once the binned ions are grouped by correlation, the groups can be searched against a reference library in order to determine whether the group of ions represents a known entity or whether the group of ions represents a new or an unknown (a biochemical that is not in the library) chemical entity. If the group of ions is determined to represent an unknown chemical with no reference library entry, a new spectral entry is added to the library so that the unknown entity can be tracked in future studies. An attempt is made to assign chemical intelligence to the ions belonging to the unknown entity based on previously defined mass relationships, e.g. Na adduct m + 23.</p>
+          </sec>
+        </sec>
+        <sec id="Sec9" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p>The QUICS method greatly accelerates the organization of ions into chemically related sets and expedites the creation of chemical library entries and the identification of metabolites. It is immensely beneficial to track both the chemicals for which there are authentic standard spectra in the chemical library and the chemicals for which there are no current library entries. Consequently new spectral libraries can be created automatically; the method is not limited by the availability of a chemical library of authentic standard spectra. Furthermore, the ability to access data across multiple samples provides a unique and powerful method to resolve co-eluting chemicals. Taken together these features greatly facilitate the chemo-centric approach to the analysis of metabolomics studies leading to the discovery of novel biomarkers and understanding of the underlying biochemical processes.</p>
+        </sec>
+      </body>
+      <back>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schnackenberg</surname>
+                    <given-names>LK</given-names>
+                  </name>
+                  <name>
+                    <surname>Beger</surname>
+                    <given-names>RD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Monitoring the health to disease continuum with global metabolic profiling and systems biology</article-title>
+                <source>Pharmacogenomics</source>
+                <year>2006</year>
+                <volume>7</volume>
+                <fpage>1077</fpage>
+                <lpage>1086</lpage>
+                <pub-id pub-id-type="doi">10.2217/14622416.7.7.1077</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XhtFSht7zM</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Nobeli</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Thornton</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A bioinformatician's view of the metabolome</article-title>
+                <source>Bioessays</source>
+                <year>2006</year>
+                <volume>28</volume>
+                <fpage>534</fpage>
+                <lpage>545</lpage>
+                <pub-id pub-id-type="doi">10.1002/bies.20414</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XkvVyjsLg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Griffin</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The Cinderella story of metabolic profiling: does metabolomics get to go to the functional genomics ball?</article-title>
+                <source>Philos Trans R Soc Lond B Biol Sci</source>
+                <year>2006</year>
+                <volume>361</volume>
+                <fpage>147</fpage>
+                <lpage>161</lpage>
+                <pub-id pub-id-type="doi">10.1098/rstb.2005.1734</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Dunn</surname>
+                    <given-names>WB</given-names>
+                  </name>
+                  <name>
+                    <surname>Bailey</surname>
+                    <given-names>NJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Johnson</surname>
+                    <given-names>HE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Measuring the metabolome: current analytical technologies</article-title>
+                <source>Analyst</source>
+                <year>2005</year>
+                <volume>130</volume>
+                <fpage>606</fpage>
+                <lpage>625</lpage>
+                <pub-id pub-id-type="doi">10.1039/b418288j</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXjsFOnurw%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Nordstrom</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>O'Maille</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Qin</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Siuzdak</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Nonlinear Data Alignment for UPLC-MS and HPLC-MS Based Metabolomics: Quantitative Analysis of Endogenous and Exogenous Metabolites in Human Serum</article-title>
+                <source>Anal Chem</source>
+                <year>2006</year>
+                <volume>78</volume>
+                <fpage>3289</fpage>
+                <lpage>3295</lpage>
+                <pub-id pub-id-type="doi">10.1021/ac060245f</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Evans</surname>
+                    <given-names>AM</given-names>
+                  </name>
+                  <name>
+                    <surname>Dehaven</surname>
+                    <given-names>CD</given-names>
+                  </name>
+                  <name>
+                    <surname>Barrett</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Mitchell</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Milgram</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Integrated, Nontargeted Ultrahigh Performance Liquid Chromatography/Electrospray Ionization Tandem Mass Spectrometry Platform for the Identification and Relative Quantification of the Small-Molecule Complement of Biological Systems</article-title>
+                <source>Anal Chem</source>
+                <year>2009</year>
+                <volume>81</volume>
+                <fpage>6656</fpage>
+                <lpage>6667</lpage>
+                <pub-id pub-id-type="doi">10.1021/ac901536h</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXovVemsbc%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Young</surname>
+                    <given-names>SS</given-names>
+                  </name>
+                  <name>
+                    <surname>Barrett</surname>
+                    <given-names>TH</given-names>
+                    <suffix>Jr</suffix>
+                  </name>
+                  <name>
+                    <surname>Beecher</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <source>System, Method and Computer Program Product for Analyzing Spectrometry Data to Identify and Quantify Individual Components in a Sample</source>
+                <year>2009</year>
+                <comment>US Patent 7,561,975, Issued</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Scheltema</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Decuypere</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Dujardin</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Watson</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Jansen</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Breitling</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Simple data-reduction method for high-resolution LC-MS data in metabolomics</article-title>
+                <source>Bioanalysis</source>
+                <year>2009</year>
+                <volume>1</volume>
+                <fpage>1551</fpage>
+                <lpage>1557</lpage>
+                <pub-id pub-id-type="doi">10.4155/bio.09.146</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXmtVCrtw%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Setchell</surname>
+                    <given-names>KD</given-names>
+                  </name>
+                  <name>
+                    <surname>Brown</surname>
+                    <given-names>NM</given-names>
+                  </name>
+                  <name>
+                    <surname>Lydeking-Olsen</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The clinical importance of the metabolite equol-a clue to the effectiveness of soy and its isoflavones</article-title>
+                <source>J Nutr</source>
+                <year>2002</year>
+                <volume>132</volume>
+                <fpage>3577</fpage>
+                <lpage>3584</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD38Xps12htb8%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Tolstikov</surname>
+                    <given-names>VV</given-names>
+                  </name>
+                  <name>
+                    <surname>Fiehn</surname>
+                    <given-names>O</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Analysis of highly polar compounds of plant origin: combination of hydrophilic interaction chromatography and electrospray ion trap mass spectrometry</article-title>
+                <source>Anal Biochem</source>
+                <year>2002</year>
+                <volume>301</volume>
+                <fpage>298</fpage>
+                <lpage>307</lpage>
+                <pub-id pub-id-type="doi">10.1006/abio.2001.5513</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD38Xns1KgtQ%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Werner</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Heilier</surname>
+                    <given-names>JF</given-names>
+                  </name>
+                  <name>
+                    <surname>Ducruix</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Ezan</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Junot</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Tabet</surname>
+                    <given-names>JC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Mass spectrometry for the identification of the discriminating signals from metabolomics: current status and future trends</article-title>
+                <source>J Chromatogr B Analyt Technol Biomed Life Sci</source>
+                <year>2008</year>
+                <volume>871</volume>
+                <fpage>143</fpage>
+                <lpage>163</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.jchromb.2008.07.004</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXps12isbg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Katajamaa</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Oresic</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Data processing for mass spectrometry-based metabolomics</article-title>
+                <source>J Chromatogr A</source>
+                <year>2007</year>
+                <volume>1158</volume>
+                <fpage>318</fpage>
+                <lpage>328</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.chroma.2007.04.021</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXnsFylsb8%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cloarec</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Campbell</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Tseng</surname>
+                    <given-names>LH</given-names>
+                  </name>
+                  <name>
+                    <surname>Braumann</surname>
+                    <given-names>U</given-names>
+                  </name>
+                  <name>
+                    <surname>Spraul</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Scarfe</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Weaver</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Nicholson</surname>
+                    <given-names>JK</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Virtual chromatographic resolution enhancement in cryoflow LC-NMR experiments via statistical total correlation spectroscopy</article-title>
+                <source>Anal Chem</source>
+                <year>2007</year>
+                <volume>79</volume>
+                <fpage>3304</fpage>
+                <lpage>3311</lpage>
+                <pub-id pub-id-type="doi">10.1021/ac061928y</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXjsFylsrg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cloarec</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Dumas</surname>
+                    <given-names>ME</given-names>
+                  </name>
+                  <name>
+                    <surname>Craig</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Barton</surname>
+                    <given-names>RH</given-names>
+                  </name>
+                  <name>
+                    <surname>Trygg</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Hudson</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Blancher</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Gauguier</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Lindon</surname>
+                    <given-names>JC</given-names>
+                  </name>
+                  <name>
+                    <surname>Holmes</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Nicholson</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Statistical total correlation spectroscopy: an exploratory approach for latent biomarker identification from metabolic 1H NMR data sets</article-title>
+                <source>Anal Chem</source>
+                <year>2005</year>
+                <volume>77</volume>
+                <fpage>1282</fpage>
+                <lpage>1289</lpage>
+                <pub-id pub-id-type="doi">10.1021/ac048630x</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXmsVSqsg%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Couto Alves</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Rantalainen</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Holmes</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Nicholson</surname>
+                    <given-names>JK</given-names>
+                  </name>
+                  <name>
+                    <surname>Ebbels</surname>
+                    <given-names>TM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Analytic Properties of Statistical Total Correlation Spectroscopy Based Information Recovery in (1)H NMR Metabolic Data Sets</article-title>
+                <source>Anal Chem</source>
+                <year>2009</year>
+                <volume>81</volume>
+                <fpage>2075</fpage>
+                <lpage>84</lpage>
+                <pub-id pub-id-type="doi">10.1021/ac801982h</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXhvFSmsrs%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Crockford</surname>
+                    <given-names>DJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Holmes</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Lindon</surname>
+                    <given-names>JC</given-names>
+                  </name>
+                  <name>
+                    <surname>Plumb</surname>
+                    <given-names>RS</given-names>
+                  </name>
+                  <name>
+                    <surname>Zirah</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Bruce</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Rainville</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Stumpf</surname>
+                    <given-names>CL</given-names>
+                  </name>
+                  <name>
+                    <surname>Nicholson</surname>
+                    <given-names>JK</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Statistical heterospectroscopy, an approach to the integrated analysis of NMR and UPLC-MS data sets: application in metabonomic toxicology studies</article-title>
+                <source>Anal Chem</source>
+                <year>2006</year>
+                <volume>78</volume>
+                <fpage>363</fpage>
+                <lpage>371</lpage>
+                <pub-id pub-id-type="doi">10.1021/ac051444m</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXht1yrsLbJ</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lawton</surname>
+                    <given-names>KA</given-names>
+                  </name>
+                  <name>
+                    <surname>Berger</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Mitchell</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Milgram</surname>
+                    <given-names>KE</given-names>
+                  </name>
+                  <name>
+                    <surname>Evans</surname>
+                    <given-names>AM</given-names>
+                  </name>
+                  <name>
+                    <surname>Guo</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Hanson</surname>
+                    <given-names>RW</given-names>
+                  </name>
+                  <name>
+                    <surname>Kalhan</surname>
+                    <given-names>SC</given-names>
+                  </name>
+                  <name>
+                    <surname>Ryals</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Milburn</surname>
+                    <given-names>MV</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Analysis of the adult human plasma metabolome</article-title>
+                <source>Pharmacogenomics</source>
+                <year>2008</year>
+                <volume>9</volume>
+                <fpage>383</fpage>
+                <lpage>397</lpage>
+                <pub-id pub-id-type="doi">10.2217/14622416.9.4.383</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXlvVCnu70%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sreekumar</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Poisson</surname>
+                    <given-names>LM</given-names>
+                  </name>
+                  <name>
+                    <surname>Rajendiran</surname>
+                    <given-names>TM</given-names>
+                  </name>
+                  <name>
+                    <surname>Khan</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Cao</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                  <name>
+                    <surname>Yu</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Laxman</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Mehra</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Lonigro</surname>
+                    <given-names>RJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Nyati</surname>
+                    <given-names>MK</given-names>
+                  </name>
+                  <name>
+                    <surname>Ahsan</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Kalyana-Sundaram</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Han</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Cao</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Byun</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Omenn</surname>
+                    <given-names>GS</given-names>
+                  </name>
+                  <name>
+                    <surname>Ghosh</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Pennathur</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Alexander</surname>
+                    <given-names>DC</given-names>
+                  </name>
+                  <name>
+                    <surname>Berger</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Shuster</surname>
+                    <given-names>JR</given-names>
+                  </name>
+                  <name>
+                    <surname>Wei</surname>
+                    <given-names>JT</given-names>
+                  </name>
+                  <name>
+                    <surname>Varambally</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Beecher</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Chinnaiyan</surname>
+                    <given-names>AM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Metabolomic profiles delineate potential role for sarcosine in prostate cancer progression</article-title>
+                <source>Nature</source>
+                <year>2009</year>
+                <volume>457</volume>
+                <fpage>910</fpage>
+                <lpage>914</lpage>
+                <pub-id pub-id-type="doi">10.1038/nature07762</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXhslCnt70%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Boudonck</surname>
+                    <given-names>KJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Mitchell</surname>
+                    <given-names>MW</given-names>
+                  </name>
+                  <name>
+                    <surname>Nemet</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Keresztes</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Nyska</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Shinar</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Rosenstock</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Discovery of metabolomics biomarkers for early detection of nephrotoxicity</article-title>
+                <source>Toxicol Pathol</source>
+                <year>2009</year>
+                <volume>37</volume>
+                <fpage>280</fpage>
+                <lpage>292</lpage>
+                <pub-id pub-id-type="doi">10.1177/0192623309332992</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXltVOks7Y%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Watson</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Roulston</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bélec</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Billot</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Marcellus</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Bédard</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Bernier</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Branchaud</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Chan</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Dairi</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Gilbert</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Goulet</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Gratton</surname>
+                    <given-names>MO</given-names>
+                  </name>
+                  <name>
+                    <surname>Isakau</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Jang</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Khadir</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Koch</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Lavoie</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Lawless</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Nguyen</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Paquette</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Turcotte</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Berger</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Mitchell</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Shore</surname>
+                    <given-names>GC</given-names>
+                  </name>
+                  <name>
+                    <surname>Beauparlant</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The small molecule GMX1778 is a potent inhibitor of NAD+ biosynthesis: strategy for enhanced therapy in nicotinic acid phosphoribosyltransferase 1-deficient tumors</article-title>
+                <source>Mol Cell Biol</source>
+                <year>2009</year>
+                <volume>29</volume>
+                <fpage>5872</fpage>
+                <lpage>5888</lpage>
+                <pub-id pub-id-type="doi">10.1128/MCB.00112-09</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXhtlKntbvE</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ohta</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Masutomi</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Tsutsui</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Sakairi</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Mitchell</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Milburn</surname>
+                    <given-names>MV</given-names>
+                  </name>
+                  <name>
+                    <surname>Ryals</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Beebe</surname>
+                    <given-names>KD</given-names>
+                  </name>
+                  <name>
+                    <surname>Guo</surname>
+                    <given-names>L</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Untargeted metabolomic profiling as an evaluative tool of fenofibrate-induced toxicology in Fischer 344 male rats</article-title>
+                <source>Toxicol Pathol</source>
+                <year>2009</year>
+                <volume>37</volume>
+                <fpage>521</fpage>
+                <lpage>535</lpage>
+                <pub-id pub-id-type="doi">10.1177/0192623309336152</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXnsFKqs74%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Boudonck</surname>
+                    <given-names>KJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Mitchell</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Wulff</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Ryals</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Characterization of the biochemical variability of bovine milk using metabolomics</article-title>
+                <source>Metabolomics</source>
+                <year>2009</year>
+                <volume>5</volume>
+                <fpage>375</fpage>
+                <lpage>386</lpage>
+                <pub-id pub-id-type="doi">10.1007/s11306-009-0160-8</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXhsFGrurbE</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halket</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                  <name>
+                    <surname>Waterman</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Przyborowska</surname>
+                    <given-names>AM</given-names>
+                  </name>
+                  <name>
+                    <surname>Patel</surname>
+                    <given-names>RK</given-names>
+                  </name>
+                  <name>
+                    <surname>Fraser</surname>
+                    <given-names>PD</given-names>
+                  </name>
+                  <name>
+                    <surname>Bramley</surname>
+                    <given-names>PM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chemical derivatization and mass spectral libraries in metabolic profiling by GC/MS and LC/MS/MS</article-title>
+                <source>J Exp Bot</source>
+                <year>2005</year>
+                <volume>56</volume>
+                <fpage>219</fpage>
+                <lpage>243</lpage>
+                <pub-id pub-id-type="doi">10.1093/jxb/eri069</pub-id>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXkt1Wluw%3D%3D</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec10">
+              <title>Authors’ original submitted files for images</title>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM1" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_113_MOESM1_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_113_MOESM2_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_113_MOESM3_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_113_MOESM4_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_113_MOESM5_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_113_MOESM6_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material></p>
+            </sec>
+          </app>
+        </app-group>
+        <notes notes-type="Misc">
+          <title>Competing interests</title>
+          <p>CD, AE, HD and KL are employees of Metabolon, Inc.</p>
+        </notes>
+        <notes notes-type="Misc">
+          <title>Authors' contributions</title>
+          <p>CD, AE and HD participated in the design and analysis of this study. CD, AE, HD and KL participated in manuscript preparation and read and approved the final manuscript.</p>
+        </notes>
+      </back>
+    </article>
