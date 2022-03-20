@@ -1,5 +1,5 @@
-DOIS := $(shell cat doilist.txt | cut -d'/' -f2 | grep s )
-JATS := ${shell cat doilist.txt | cut -d'/' -f2 | grep s | sed -e 's/\(.*\)\r/\1.xml/' }
+DOIS := $(shell cat doilist.txt | grep "10." | cut -d'/' -f2 )
+JATS := ${shell cat doilist.txt | grep "10." | cut -d'/' -f2 | sed -e 's/\(.*\)\r/\1.xml/' }
 
 all: doilist.txt
 
