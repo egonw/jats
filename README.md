@@ -19,5 +19,5 @@ make fetch
 make jats
 ```
 
-The first make step downloads a list of DOIs from the [Journal of Cheminformatics Knowledge Base](https://github.com/jcheminform/jcheminform-kb)
+The first make step downloads a list of DOIs from the [Journal of Cheminformatics Knowledge Base](https://github.com/egonw/jcheminform-kb)
 which is used to calls API methods fo all DOIs from which the JATS is extracted.
