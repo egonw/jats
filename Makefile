@@ -13,6 +13,7 @@ kb:
 	@curl https://raw.githubusercontent.com/egonw/jcheminform-kb/main/volume_1.ttl  -o volume_1.ttl
 	@curl https://raw.githubusercontent.com/egonw/jcheminform-kb/main/volume_2.ttl  -o volume_2.ttl
 	@curl https://raw.githubusercontent.com/egonw/jcheminform-kb/main/volume_3.ttl  -o volume_3.ttl
+	@curl https://raw.githubusercontent.com/egonw/jcheminform-kb/main/volume_3.ttl  -o volume_11.ttl
 	@curl https://raw.githubusercontent.com/egonw/jcheminform-kb/main/volume_12.ttl -o volume_12.ttl
 	@curl https://raw.githubusercontent.com/egonw/jcheminform-kb/main/volume_13.ttl -o volume_13.ttl
 
@@ -21,6 +22,7 @@ doilist.txt: kb
 	@roqet -q queries/allPaper.rq -D volume_1.ttl -r csv | grep -v "doi" | tee -a doilist.txt
 	@roqet -q queries/allPaper.rq -D volume_2.ttl -r csv | grep -v "doi" | tee -a doilist.txt
 	@roqet -q queries/allPaper.rq -D volume_3.ttl -r csv | grep -v "doi" | tee -a doilist.txt
+	@roqet -q queries/allPaper.rq -D volume_11.ttl -r csv | grep -v "doi" | tee -a doilist.txt
 	@roqet -q queries/allPaper.rq -D volume_12.ttl -r csv | grep -v "doi" | tee -a doilist.txt
 	@roqet -q queries/allPaper.rq -D volume_13.ttl -r csv | grep -v "doi" | tee -a doilist.txt
 
