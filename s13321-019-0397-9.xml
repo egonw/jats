@@ -1,0 +1,1966 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0397-9</article-id>
+          <article-id pub-id-type="manuscript">397</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0397-9</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+            <subj-group subj-group-type="article-collection" specific-use="Regular">
+              <subject>Big Data in Chemistry</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">A de novo molecular generation method using latent vector based generative adversarial network</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" id="Au1">
+              <name>
+                <surname>Prykhodko</surname>
+                <given-names>Oleksii</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff3">3</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au2">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-9139-6378</contrib-id>
+              <name>
+                <surname>Johansson</surname>
+                <given-names>Simon Viet</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff3">3</xref>
+              <xref ref-type="corresp" rid="IDs1332101903979_cor2">b</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au3">
+              <name>
+                <surname>Kotsias</surname>
+                <given-names>Panagiotis-Christos</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au4">
+              <name>
+                <surname>Arús-Pous</surname>
+                <given-names>Josep</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au5">
+              <name>
+                <surname>Bjerrum</surname>
+                <given-names>Esben Jannik</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au6">
+              <name>
+                <surname>Engkvist</surname>
+                <given-names>Ola</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au7">
+              <name>
+                <surname>Chen</surname>
+                <given-names>Hongming</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff4">4</xref>
+              <xref ref-type="corresp" rid="IDs1332101903979_cor7">g</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 1519 6403</institution-id>
+                <institution-id institution-id-type="GRID">grid.418151.8</institution-id>
+                <institution content-type="org-division">Hit Discovery, Discovery Sciences, Biopharmaceutical R&amp;D</institution>
+                <institution content-type="org-name">AstraZeneca</institution>
+              </institution-wrap>
+              <addr-line content-type="city">Gothenburg</addr-line>
+              <country country="SE">Sweden</country>
+            </aff>
+            <aff id="Aff2">
+              <label>2</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 0726 5157</institution-id>
+                <institution-id institution-id-type="GRID">grid.5734.5</institution-id>
+                <institution content-type="org-division">Department of Chemistry and Biochemistry</institution>
+                <institution content-type="org-name">University of Bern</institution>
+              </institution-wrap>
+              <addr-line content-type="city">Bern</addr-line>
+              <country country="CH">Switzerland</country>
+            </aff>
+            <aff id="Aff3">
+              <label>3</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 0775 6028</institution-id>
+                <institution-id institution-id-type="GRID">grid.5371.0</institution-id>
+                <institution content-type="org-division">Department of Computer Science and Engineering</institution>
+                <institution content-type="org-name">Chalmers University of Technology</institution>
+              </institution-wrap>
+              <addr-line content-type="city">Gothenburg</addr-line>
+              <country country="SE">Sweden</country>
+            </aff>
+            <aff id="Aff4">
+              <label>4</label>
+              <institution-wrap>
+                <institution content-type="org-division">Chemistry and Chemical Biology Centre</institution>
+                <institution content-type="org-name">Guangzhou Regenerative Medicine and Health-Guangdong Laboratory</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Science Park</addr-line>
+              <addr-line content-type="city">Guangzhou</addr-line>
+              <country country="CN">China</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs1332101903979_cor2">
+              <label>b</label>
+              <email>HIDDEN</email>
+            </corresp>
+            <corresp id="IDs1332101903979_cor7">
+              <label>g</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>3</day>
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="74">1</issue>
+          <elocation-id>74</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>23</day>
+              <month>11</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>13</day>
+              <month>9</month>
+              <year>2019</year>
+            </date>
+            <date date-type="accepted">
+              <day>23</day>
+              <month>11</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>3</day>
+              <month>12</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">Deep learning methods applied to drug discovery have been used to generate novel structures. In this study, we propose a new deep learning architecture, LatentGAN, which combines an autoencoder and a generative adversarial neural network for de novo molecular design. We applied the method in two scenarios: one to generate random drug-like compounds and another to generate target-biased compounds. Our results show that the method works well in both cases. Sampled compounds from the trained model can largely occupy the same chemical space as the training set and also generate a substantial fraction of novel compounds. Moreover, the drug-likeness score of compounds sampled from LatentGAN is also similar to that of the training set. Lastly, generated compounds differ from those obtained with a Recurrent Neural Network-based generative model approach, indicating that both methods can be used complementarily.<fig id="Figa" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_397_Figa_HTML.png" position="anchor" /></fig></p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Molecular design</kwd>
+            <kwd>Autoencoder networks</kwd>
+            <kwd>Generative adversarial networks</kwd>
+            <kwd>Deep learning</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Horizon 2020</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/501100007601</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">676434</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Arús-Pous</surname>
+                  <given-names>Josep</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>11</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>23</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-collection-editor</meta-name>
+              <meta-value>Igor Tetko,</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_397.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="AuthorContribution">
+          <p>Oleksii Prykhodko and Simon Johansson contributed equally to this work</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1" sec-type="introduction">
+          <title>Introduction</title>
+          <p id="Par2">There has been a surge of deep learning methods applied to cheminformatics in the last few years [<xref ref-type="bibr" rid="CR1">1</xref>–<xref ref-type="bibr" rid="CR5">5</xref>]. Whereas much impact has been demonstrated in deep learning methods that replace traditional machine learning (ML) approaches (e.g., QSAR modelling [<xref ref-type="bibr" rid="CR6">6</xref>]), a more profound impact is the application of generative models in de novo drug design [<xref ref-type="bibr" rid="CR7">7</xref>–<xref ref-type="bibr" rid="CR9">9</xref>]. Historically, de novo design was performed by searching virtual libraries based on known chemical reactions alongside a set of available chemical building blocks [<xref ref-type="bibr" rid="CR10">10</xref>] or by using transformational rules based on the expertise of medicinal chemists to design analogues to a query structure [<xref ref-type="bibr" rid="CR11">11</xref>]. While many successes using these techniques have been reported in literature [<xref ref-type="bibr" rid="CR12">12</xref>], it is worthwhile to point out that these methods rely heavily on predefined rules of structure generation and do not have the concept of learning prior knowledge on how drug-like molecules should be. In contrast, deep generative models learn how to generate molecules by generalizing the probability of the generation process of a large set of chemical structures (i.e., training set). Then, structure generation is basically a sampling process following the learned probability distribution [<xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR13">13</xref>, <xref ref-type="bibr" rid="CR14">14</xref>]. It is a data-driven process and requires very few predefined rules.</p>
+          <p id="Par3">Early attempted architectures were inspired by the deep learning methods used in natural language processing (NLP) [<xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR15">15</xref>]. A recurrent neural network (RNN) trained with a set of molecules represented as SMILES strings [<xref ref-type="bibr" rid="CR16">16</xref>] is able to generate a much bigger chemical space than the training set. Later on, the REINVENT method was proposed, which combines RNNs with reinforcement learning to generate structures with desirable properties [<xref ref-type="bibr" rid="CR8">8</xref>]. Another architecture, the variational autoencoder (VAE), was also shown to generate novel chemical space [<xref ref-type="bibr" rid="CR9">9</xref>, <xref ref-type="bibr" rid="CR17">17</xref>]. This architecture is comprised of an encoder, that converts the molecule to a latent vector representation and a decoder, from which the latent representation tries to generate the input molecule again. By changing the internal latent representation and decoding it, new chemical space can be obtained. More studies followed that improved the architecture, in both making it more robust and improving the quality of the latent representation generated [<xref ref-type="bibr" rid="CR18">18</xref>–<xref ref-type="bibr" rid="CR20">20</xref>]. One special mention is the use of randomized SMILES [<xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR21">21</xref>, <xref ref-type="bibr" rid="CR22">22</xref>]. Instead of using a unique SMILES representation for each molecule, different representations are used in every stage of the training. With this improvement, the quality of the chemical space generated in both RNNs and VAEs is much higher and the models tend to overfit much less. Besides the SMILES string based de novo structure generation methods, methods of generating molecules based on molecular graphs have also been proposed and, by using them, molecules can be directly generated step-by-step as molecular graphs [<xref ref-type="bibr" rid="CR23">23</xref>–<xref ref-type="bibr" rid="CR26">26</xref>].</p>
+          <p id="Par4">Generative adversarial neural (GAN) networks [<xref ref-type="bibr" rid="CR27">27</xref>] have become a very popular architecture for generating highly realistic content [<xref ref-type="bibr" rid="CR28">28</xref>]. A GAN has two components, a generator and a discriminator, that compete against each other during training. The generator generates artificial data and the discriminator attempts to distinguish it from real data. The model is trained until the discriminator is unable to distinguish the artificial data from the real data. The first use in molecule generation was ORGAN [<xref ref-type="bibr" rid="CR29">29</xref>] and its improved version, ORGANIC [<xref ref-type="bibr" rid="CR30">30</xref>]. The former was tested with both molecular generation as well as musical scores, whereas the latter was targeted directly at inverse design of molecules. ORGANIC had trouble optimizing towards the discrete values from the Lipinski Rule of Five [<xref ref-type="bibr" rid="CR31">31</xref>] heuristic score but showed some success in optimizing the QED [<xref ref-type="bibr" rid="CR11">11</xref>] score. An algorithm combining GAN with RL was also used in RANC [<xref ref-type="bibr" rid="CR32">32</xref>] and ATNC [<xref ref-type="bibr" rid="CR33">33</xref>] where the central RNN was substituted by a differential neural computer (DNC) [<xref ref-type="bibr" rid="CR34">34</xref>], a more advanced recurrent neural network architecture. The authors demonstrated that DNC-based architectures can handle longer SMILES and generate more diversity.</p>
+          <p id="Par5">In this study, a new molecular generation strategy is described which combines an autoencoder and a GAN. The difference between this method and previous GAN methods such as ORGANIC and RANC is that the generator and discriminator network do not use SMILES strings as input, but instead n-dimensional vectors derived from the code-layer of an autoencoder trained as a SMILES heteroencoder [<xref ref-type="bibr" rid="CR35">35</xref>]. This allows the model to focus on optimizing the sampling and not worry about SMILES syntax issues. The decoder part of a pretrained heteroencoder [<xref ref-type="bibr" rid="CR22">22</xref>] neural network was used to translate the generated n-dimensional vector into molecular structures. We first trained the GAN on a set of ChEMBL [<xref ref-type="bibr" rid="CR36">36</xref>] compounds and, after training, the GAN model was able to generate drug-like structures. Next, additional GAN models were trained on three target specific datasets (corresponding to EGFR, HTR1A and S1PR1 targets). Our results show that these GAN model can generate compounds which are similar to the ones in the training set but are still novel structures. We envision the LatentGAN to be a useful tool for de novo molecule design.</p>
+        </sec>
+        <sec id="Sec2" sec-type="materials|methods">
+          <title>Methods and materials</title>
+          <sec id="Sec3">
+            <title>Heteroencoder architecture</title>
+            <p id="Par6">A heteroencoder is an autoencoder architecture trained on pairs of different representations of the same entity, i.e. different non-canonical SMILES of the same molecule. It consists of two neural networks, namely, the encoder and decoder, which are jointly trained as a transformation pipeline. The encoder is responsible for translating one-hot encoded SMILES strings into a numerical latent representation whereas the decoder accepts this latent representation and attempts to reconstruct one of the possible non-canonical SMILES string that it represents. The implementation followed the architecture previously reported in [<xref ref-type="bibr" rid="CR22">22</xref>] with some changes (Fig. <xref rid="Fig1" ref-type="fig">1</xref>, bottom).<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Workflow of the LatentGAN. The latent vectors generated from the encoder part of the heteroencoder is used as the input for the GAN. Once the training of the GAN is finished, new compounds are generated by first sampling the generator network of the GAN and then converting the sampled latent vector into a molecular structure using the decoder component of the heteroencoder</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_397_Fig1_HTML.png" /></fig></p>
+            <p id="Par7">Initially, the one-hot encoded SMILES string is propagated through a two-layer bidirectional encoder with 512 Long Short-Term Memory [<xref ref-type="bibr" rid="CR26">26</xref>] units per layer, half of which are used for the forward and half for the backward direction. The output of both directions is then concatenated and input to a feed-forward layer with 512 dimensions. As a regularizing step during training, the resulting vector is perturbed by applying additive zero-centered gaussian noise with a standard deviation of 0.1. The latent representation of the molecule is fed to a feed-forward layer, the output of which is copied and inserted as hidden and cell states to a four-layer unidirectional LSTM RNN decoder with the same specifications as the encoder. Finally, the output of the last layer is processed by a feed-forward layer with softmax activation, to return the probability of sampling each character of the known character set of the dataset. Batch normalization with a momentum value of 0.9 [<xref ref-type="bibr" rid="CR37">37</xref>] is applied on the output of every hidden layer, except for the gaussian noise layer.</p>
+            <p id="Par8">The heteroencoder network was trained for 100 epochs with a batch size of 128 and using a constant learning rate of 10<sup>−3</sup> for the first 50 epochs and an exponential decay following that, reaching a value of 10<sup>−6</sup> in the final epoch. The decoder was trained using the teacher’s forcing method [<xref ref-type="bibr" rid="CR38">38</xref>]. The model was trained using the decoding loss function of categorial cross entropy between the decoded and the training SMILES. After training the heteroencoder, the noise layer is deactivated, resulting in a deterministic encoding and decoding of the GAN training and sampled sets.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>The GAN architecture</title>
+            <p id="Par9">A Wasserstein GAN with gradient penalty (WGAN-GP) [<xref ref-type="bibr" rid="CR39">39</xref>, <xref ref-type="bibr" rid="CR40">40</xref>] was chosen as a GAN model. Every GAN consists of two neural networks, generator and discriminator that train simultaneously (Fig. <xref rid="Fig1" ref-type="fig">1</xref>, top). First, the discriminator, usually called the critic in the context of WGANs, tries to distinguish between real data and fake data. It is formed by three feed-forward layers of 256 dimensions each with the leaky ReLU [<xref ref-type="bibr" rid="CR41">41</xref>] activation function between, except for the last layer where no activation function was used. Second, the generator consists of five feed-forward layers of 256 dimensions each with batch normalization and leaky ReLU activation function between each.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Workflow for training and sampling of the LatentGAN</title>
+            <p id="Par10">The heteroencoder model was first pre-trained on the ChEMBL database for mapping structures to latent vectors. To train the full GAN model, first the latent vector <italic>h</italic> of the training set was generated using the encoder part of the heteroencoder. Then, it was used as the true data input for the discriminator, while a set of random vectors sampled from a uniform distribution were taken as fake data input to the generator. For every five batches of training for the discriminator, one batch was assigned to train the generator, so that the critic is kept ahead while providing the generator with higher gradients. Once the GAN training was finished, the Generator was sampled multiple times and the resulting latent vectors were fed into the decoder to obtain the SMILES strings of the underlying molecules.</p>
+          </sec>
+          <sec id="Sec6">
+            <title>Dataset and machine learning models for scoring</title>
+            <p id="Par11">The heteroencoder was trained on 1,347,173 SMILES from the ChEMBL [<xref ref-type="bibr" rid="CR36">36</xref>] dataset. This is a subset of ChEMBL 25 without duplicates that has been standardized using the MolVS [<xref ref-type="bibr" rid="CR42">42</xref>] v0.1.1 package with respect to the fragment, charge, isotope, stereochemistry and tautomeric states. The set is limited to SMILES of containing only [H, C, N, O, S, Cl, Br] atoms and a total of 50 heavy atoms or less. Furthermore, molecules known to be active towards DRD2 were removed as part of an experiment for the heteroencoder (the process of which can be found at [<xref ref-type="bibr" rid="CR35">35</xref>], which uses the same decoder model, but not the encoder). A set of randomly selected 100,000 ChEMBL compounds were later selected for training a general GAN model. Moreover, three target datasets (corresponding to EGFR, S1PR1 and HTR1A) were extracted from ExCAPE-DB [<xref ref-type="bibr" rid="CR43">43</xref>] for training target specific GANs. The ExCAPE-DB datasets were then clustered into training and test sets so that chemical series were assigned either to the training or to the test set (Table <xref rid="Tab1" ref-type="table">1</xref>). To benchmark the performance of the targeted models, RNN based generative models for the three targets were also created by first training a prior RNN model on the same ChEMBL set used for training the heteroencoder model and then using transfer learning [<xref ref-type="bibr" rid="CR7">7</xref>] on each focused target set. Target prediction models were calculated for each target using the Support vector machine learning (SVM) implementation in the Scikit-learn [<xref ref-type="bibr" rid="CR44">44</xref>] package and the 2048-length FCFP6 fingerprint were calculated using RDKit [<xref ref-type="bibr" rid="CR45">45</xref>].<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Targeted data set and the performance of the SVM models</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" rowspan="2"><p>Target</p></th><th align="left" rowspan="2"><p>Training set</p></th><th align="left" rowspan="2"><p>Test set</p></th><th align="left" colspan="2"><p>SVM model</p></th></tr><tr><th align="left"><p>ROC-AUC</p></th><th align="left"><p>Kappa value</p></th></tr></thead><tbody><tr><td align="left"><p>EGFR</p></td><td char="." align="char"><p>2949</p></td><td char="." align="char"><p>2326</p></td><td char="." align="char"><p>0.850</p></td><td char="." align="char"><p>0.56</p></td></tr><tr><td align="left"><p>HTR1A</p></td><td char="." align="char"><p>48,283</p></td><td char="." align="char"><p>23,048</p></td><td char="." align="char"><p>0.993</p></td><td char="." align="char"><p>0.90</p></td></tr><tr><td align="left"><p>S1PR1</p></td><td char="." align="char"><p>49,381</p></td><td char="." align="char"><p>23,745</p></td><td char="." align="char"><p>0.995</p></td><td char="." align="char"><p>0.91</p></td></tr></tbody></table><table-wrap-foot><p>Training set size (training set), test set size (test set), receiver operating characteristic area under the curve (ROC-AUC), kappa value</p></table-wrap-foot></table-wrap></p>
+          </sec>
+          <sec id="Sec7">
+            <title>Related works</title>
+            <p id="Par12">A related architecture to the LatentGAN is the Adversarial Autoencoder (AAE) [<xref ref-type="bibr" rid="CR46">46</xref>]. The AAE uses a discriminator to introduce adversarial training to the autoencoder and is trained typically using a 3-step training scheme of (a) discriminator, (b) encoder, (c) encoder and decoder, compared to the LatentGANs 2-step training. The AAE have been used in generative modeling of molecules to sample molecular fingerprints using additional encoder training steps [<xref ref-type="bibr" rid="CR47">47</xref>], as well as SMILES representations [<xref ref-type="bibr" rid="CR48">48</xref>, <xref ref-type="bibr" rid="CR49">49</xref>]. In other application areas, Conditional AAEs with similar training schemes have been applied to manipulate images of faces [<xref ref-type="bibr" rid="CR50">50</xref>]. For the later application, approaches that have utilized multiple discriminators have been used to combine conditional VAEs and conditional GANs to enforce constraints on the latent space [<xref ref-type="bibr" rid="CR51">51</xref>] and thus increase the realism of the images.</p>
+          </sec>
+        </sec>
+        <sec id="Sec8">
+          <title>Results and discussion</title>
+          <sec id="Sec9">
+            <title>Training the heteroencoder</title>
+            <p id="Par13">The heteroencoder was trained on the 1,347,173 ChEMBL dataset compounds for 100 epochs. SMILES generated validity for the whole training set was 99% and 18% of the molecules were not reconstructed properly. Notice that the reconstruction error corresponds to decoding to a valid SMILES that belongs to a different compound; reconstruction to a different SMILES of the same molecule is not counted as an error. Test set compounds were taken as input to the encoder and their latent values were calculated and then decoded to SMILES string, the validity and reconstruction error of test set are 98% and 20% respectively (Table <xref rid="Tab2" ref-type="table">2</xref>).<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>The performance of heteroencoder in both the training and test sets</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Dataset</p></th><th align="left"><p># compounds</p></th><th align="left"><p>Validity (%)</p></th><th align="left"><p>Reconstruction error (%)</p></th></tr></thead><tbody><tr><td align="left"><p>Training set</p></td><td char="." align="char"><p>974,105</p></td><td align="left"><p>99</p></td><td align="left"><p>18</p></td></tr><tr><td align="left"><p>Test set</p></td><td char="." align="char"><p>10,823</p></td><td align="left"><p>98</p></td><td align="left"><p>20</p></td></tr></tbody></table><table-wrap-foot><p>Percent of valid SMILES strings generated by the decoder (validity), percent of molecules not reconstructed correctly from valid SMILES (reconstruction error)</p></table-wrap-foot></table-wrap></p>
+          </sec>
+          <sec id="Sec10">
+            <title>Training on the ChEMBL subset</title>
+            <p id="Par14">A LatentGAN was trained on a randomly selected 100,000 ChEMBL subset with the objective of obtaining drug-like compounds. The model was trained for 30,000 epochs until both discriminator and generator models had converged. Next, 200,000 compounds were generated from the LatentGAN model and were compared with the 100,000 ChEMBL training compounds to examine the coverage of the chemical space. The MQN [<xref ref-type="bibr" rid="CR52">52</xref>] fingerprint was generated for all compounds in both sets and the top two principal components of a PCA were plotted (Fig. <xref rid="Fig2" ref-type="fig">2</xref>) and shows how both compound sets cover a similar chemical space.<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>Plot of the first two PCA components (explained variance 74.1%) of a set of 200,000 generated molecules from the ChEMBL LatentGAN model using the MQN fingerprint</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_397_Fig2_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec11">
+            <title>Training on the biased dataset</title>
+            <p id="Par15">Another interesting question to answer is if the LatentGAN can be trained to generate target specific compounds. The active compounds of training set were then used as the real data to train the LatentGAN. Each GAN model was trained 10,000 epochs and once the training was finished, 50,000 compounds were sampled from the generator and decoded with the heteroencoder. Then, three targets (EGFR, HTR1A and S1PR1) were selected and SVM target prediction models were built (see methods) to predict target activity on each target using the corresponding model (Table <xref rid="Tab3" ref-type="table">3</xref>). Results show that in all cases validity was above 80% and the uniqueness of valid compound was 56%, 66% and 31% for EGFR, HTR1A and S1PR1 respectively. Comparing with the sample set of ChEMBL model these numbers are much lower, but this can be due to the smaller size of training sets. Additionally, RNN models with transfer learning trained on the three targets (see “<xref rid="Sec2" ref-type="sec">Methods and materials</xref>”) show a higher percentage of validity, but their percentage of uniqueness is lower in all cases except for S1PR1. Regarding the novelty, the values are 97%, 95% and 98% for EGFR, HTR1A and S1PR1 respectively and are slightly higher than the values of the RNN transfer learning models. This demonstrates that LatentGAN not only can generate valid SMILES but also most of them are novel to the training set, which is very important for de novo design tasks. All the sampled valid SMILES were then evaluated by the SVM models and a high percentage of the LatentGAN generated ones were predicted as active for these three targets (71%, 71% and 44%, for EGFR, HTR1A and S1PR1 respectively). These scores were better than the RNN models with respect to EGFR, but worse with respect to other two. Additionally, the comparison between LatentGAN and RNN generated active structures (Fig. <xref rid="Fig3" ref-type="fig">3</xref>) shows that the overlap is very small between the two architectures at both compound and scaffold levels. The compounds generated by LatentGAN were evaluated using the RNN model for a probabilistic estimation of whether the RNN model eventually would cover the LatentGAN output space, and it was shown to be very unlikely (see Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>). This highlights that both architectures can work complementarily.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>Metrics obtained from a 50,000 SMILES sample of all the models trained</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Dataset</p></th><th align="left"><p>Arch.</p></th><th align="left"><p>Valid (%)</p></th><th align="left"><p>Unique (%)</p></th><th align="left"><p>Novel (%)</p></th><th align="left"><p>Active (%)</p></th><th align="left"><p>Recovered actives/total actives (%)</p></th><th align="left"><p>Recovered neighbors</p></th></tr></thead><tbody><tr><td align="left" rowspan="2"><p>EGFR</p></td><td align="left"><p>GAN</p></td><td align="left"><p>86</p></td><td align="left"><p>56</p></td><td align="left"><p>97</p></td><td align="left"><p>71</p></td><td char="." align="char"><p>5.26</p></td><td char="." align="char"><p>196</p></td></tr><tr><td align="left"><p>RNN</p></td><td align="left"><p>96</p></td><td align="left"><p>46</p></td><td align="left"><p>95</p></td><td align="left"><p>65</p></td><td char="." align="char"><p>7.74</p></td><td char="." align="char"><p>238</p></td></tr><tr><td align="left" rowspan="2"><p>HTR1A</p></td><td align="left"><p>GAN</p></td><td align="left"><p>86</p></td><td align="left"><p>66</p></td><td align="left"><p>95</p></td><td align="left"><p>71</p></td><td char="." align="char"><p>5.05</p></td><td char="." align="char"><p>284</p></td></tr><tr><td align="left"><p>RNN</p></td><td align="left"><p>96</p></td><td align="left"><p>50</p></td><td align="left"><p>90</p></td><td align="left"><p>81</p></td><td char="." align="char"><p>7.28</p></td><td char="." align="char"><p>384</p></td></tr><tr><td align="left" rowspan="2"><p>S1PR1</p></td><td align="left"><p>GAN</p></td><td align="left"><p>89</p></td><td align="left"><p>31</p></td><td align="left"><p>98</p></td><td align="left"><p>44</p></td><td char="." align="char"><p>0.93</p></td><td char="." align="char"><p>24</p></td></tr><tr><td align="left"><p>RNN</p></td><td align="left"><p>97</p></td><td align="left"><p>35</p></td><td align="left"><p>97</p></td><td align="left"><p>65</p></td><td char="." align="char"><p>3.72</p></td><td char="." align="char"><p>43</p></td></tr></tbody></table><table-wrap-foot><p>Dataset used (Dataset), Architecture used (Arch.), Percent of valid molecules in the sampled set (Valid), Percent of valid unique compounds (Unique), Percent of unique novel (not present in the training set) compounds (Novel), Percent of unique active compounds (Active), Recovered actives from the test set given the entire number of actives in the test set (Recovered actives/Total Actives), Recovered neighbors of active compounds using FCFP6 fingerprint with 2048 bits and a threshold Tanimoto similarity of 0.7</p></table-wrap-foot></table-wrap><fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>Venn diagram of LatentGAN (red) and RNN (blue) active compounds/scaffolds</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_397_Fig3_HTML.png" /></fig></p>
+            <p id="Par16">Full compound and Murcko scaffold [<xref ref-type="bibr" rid="CR53">53</xref>] similarity was calculated between the actives in the sampled set and the actives in training set. Results (Fig. <xref rid="Fig4" ref-type="fig">4</xref>) show that, for each target, there are around 5% of generated compounds that are identical to the training sets. Additionally, there are around 25%, 24% and 21% compounds having similarity lower than 0.4 to the training set in EGFR, HTR1A and S1PR1 respectively. This means that LatentGAN is able to generate very dissimilar compounds to the training set. In terms of scaffold similarity comparison, it is not surprising that the percentage of scaffolds identical to the training set is much higher for all the targets. Nevertheless, around 14% of scaffolds in the sample set have low similarity to the training set (&lt; 0.4) for all three tested cases.<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>The distribution of Murcko scaffold similarity (left) and FCFP6 Tanimoto compound similarity (right) to the training set of molecules generated by LatentGAN models for <bold>a</bold> EGFR, <bold>b</bold> S1PR1 and <bold>c</bold> HTR1A</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_397_Fig4_HTML.png" /></fig></p>
+            <p id="Par17">A PCA analysis using the MQN fingerprint was performed to compare the chemical space of sampled sets and training sets of all targets and shows that the sampled compound sets cover most of the chemical space of the training sets (Fig. <xref rid="Fig5" ref-type="fig">5</xref>). Interestingly, there are some regions in the PCA plots where most of the sampled compounds around the training compounds are predicted as inactive, for example the left lower corner in EGFR (Fig. <xref rid="Fig5" ref-type="fig">5</xref>a) and the right-hand side region in S1PR1 (Fig. <xref rid="Fig5" ref-type="fig">5</xref>c). The training compounds in those regions are non-druglike compounds and outliers in the training set and the SVM models predicted them as inactive. No conclusive relationship between these regions of outliers and the scaffolds of lower similarity (Fig. <xref rid="Fig6" ref-type="fig">6</xref>). Additionally, we also evaluated the amount of the actives in the test set recovered by the sample set (Table <xref rid="Tab3" ref-type="table">3</xref>). It is interesting to note that there are more active compounds belonging to the test set recovered by RNN model for all three targets, indicating that using multiple types of generative model for structure generation can be a viable strategy. Lastly, some examples generated by LatentGAN were drawn (Fig. <xref rid="Fig7" ref-type="fig">7</xref>) and the QED drug-likeness score [<xref ref-type="bibr" rid="CR11">11</xref>] and Synthetic Accessibility (SA) score [<xref ref-type="bibr" rid="CR54">54</xref>] distributions for each of the targets were plotted (Figs. <xref rid="Fig8" ref-type="fig">8</xref> and <xref rid="Fig9" ref-type="fig">9</xref>, respectively). Training set compounds have a slightly higher drug-likeness, yet the overall distributions are similar, showing that LatentGAN models can generate drug-like compounds.<fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p>PCA analysis for <bold>a</bold> EGFR (explained variance 82.8%), <bold>b</bold> HTR1A (explained variance 75.0%) and <bold>c</bold> S1PR1 (explained variance 79.3%) dataset. The red dots are the training set, the blue dots are the predicted inactive compounds in the sampled set and other dots are the predicted actives in the sampled set with different level of probability of being active</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_397_Fig5_HTML.png" /></fig><fig id="Fig6"><label>Fig. 6</label><caption xml:lang="en"><p>The same PCA analysis, showing the Murcko scaffold similarities of the predicted active compounds for <bold>a</bold> EGFR (explained variance 80.2%), <bold>b</bold> HTR1A (explained variance 74.1%) and <bold>c</bold> S1PR1 (explained variance 71.3%). Note that due to the lower amount in the outlier region of <bold>c</bold>, the image has been rotated slightly. No significant relationship between the scaffold similarities and the regions was found. For a separation of the generated points by similarity interval, see Additional file 1</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_397_Fig6_HTML.png" /></fig><fig id="Fig7"><label>Fig. 7</label><caption xml:lang="en"><p>Examples generated by the LatentGAN. Compound 1-3 are generated by the EGFR model, 4–6 are generated by HTR1A model and 7–9 are generated by S1PR1 model</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_397_Fig7_HTML.png" /></fig><fig id="Fig8"><label>Fig. 8</label><caption xml:lang="en"><p>QED distributions of sampled molecules from EGFR (<bold>a</bold>), HTR1A (<bold>b</bold>) and S1PR1 (<bold>c</bold>)</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_397_Fig8_HTML.png" /></fig><fig id="Fig9"><label>Fig. 9</label><caption xml:lang="en"><p>SA distributions of sampled molecules from EGFR (<bold>a</bold>), HTR1A (<bold>b</bold>) and S1PR1 (<bold>c</bold>)</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_397_Fig9_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec12">
+            <title>Comparison with similar generative networks</title>
+            <p id="Par18">The LatentGAN was assessed using the MOSES benchmark platform [<xref ref-type="bibr" rid="CR48">48</xref>], where several generative metrics are used to evaluate the properties of molecular generative networks on a sample of 30,000 SMILES after training on a canonical SMILES subset of the ZINC database [<xref ref-type="bibr" rid="CR55">55</xref>] of size 1,584,663. The full table of results for the MOSES benchmark is maintained and regularly updated at [<xref ref-type="bibr" rid="CR56">56</xref>]. When compared to the similar structured networks of VAE, JTN-VAE [<xref ref-type="bibr" rid="CR20">20</xref>] and AAE, it is noticeable that VAE model have an output distribution that has a significant overlap with the training set, as shown by the high scores of most test metrics (where the test set has a similar distribution to the training set) and the low novelty, indicating a mode collapse. When compared against the JTN-VAE and AAE models, the LatentGAN has shows comparable or better results in the Fréchet ChemNet Distance (FCD) [<xref ref-type="bibr" rid="CR57">57</xref>], Fragment (Frag) and Scaffold (Scaf) similarities, while producing slightly worse results in the cosine similarity to the nearest neighbor in the test set (SNN).</p>
+          </sec>
+          <sec id="Sec13">
+            <title>On the properties of autoencoder latent spaces</title>
+            <p id="Par19">In earlier VAE or AAE based architectures for generative molecular models, the role of the encoder is to forcefully fit the latent space of the training data to a Gaussian prior [<xref ref-type="bibr" rid="CR47">47</xref>] or at least some continuous distribution [<xref ref-type="bibr" rid="CR9">9</xref>], achieved in the latter with a loss function based on Kullback–Leibler (KL) divergence [<xref ref-type="bibr" rid="CR58">58</xref>]. This requires the assumption that by interpolating in the latent space between two molecules, the decoded molecule would then have either a structure or property that also lies between these molecules. This is not an intuitive representation, as the chemical space is clearly discontinuous—there is nothing between e.g. C<sub>4</sub>H<sub>10</sub> and C<sub>5</sub>H<sub>12</sub>. The LatentGAN heteroencoder instead makes no assumption with regards to the latent space as no ground truth exists for this representation. Instead it is trained based strictly on the categorial cross entropy loss of the reconstruction. The result in a space of encoded latent vectors that the GAN later trains on that does not necessarily have to be continuous.</p>
+            <p id="Par20">The complexity of the SMILES representation can also be a problem the training, as molecules of similar structures can have very different canonical SMILES when the starting atom changes, resulting in dissimilar latent representations of the same molecule. By training on non-canonical (random) SMILES [<xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR21">21</xref>], this issue is alleviated since different non-canonical forms of the same molecule are encoded to the same latent space point which furthermore leads to a more chemically relevant latent space [<xref ref-type="bibr" rid="CR22">22</xref>]. In addition, the multiple representations of the same molecule during training reduces the risk of overfitting the conditional probabilities of the decoder towards compounds who share a common substring of the SMILES in the canonical representation.</p>
+          </sec>
+        </sec>
+        <sec id="Sec14" sec-type="conclusion">
+          <title>Conclusions</title>
+          <p id="Par21">A new molecule de novo design method, LatentGAN, was proposed by combining a heteroencoder and a generative adversarial network. In our method, the pretrained autoencoder was used to map the molecular structure to latent vector and the GAN was trained using latent vectors as input as well as output, all in separate steps. Once the training of the GAN was finished, the sampled latent vectors were mapped back to structures by the decoder of the autoencoder neural network. As a first experiment, after training on a subset of ChEMBL compounds, the LatentGAN was able to generate similar drug-like compounds. We later applied the method on three target biased datasets (EGFR, HTR1A and S1PR1) to investigate the capability of the LatentGAN to generate biased compounds. Encouragingly, our results show that most of the sampled compounds from the trained model are predicted to be active to the target which it was trained against, with a substantial portion of the sampled compounds being novel with respect to the training set. Additionally, after comparing the structures generated from the LatentGAN and the RNN based models for the corresponding targets, it seems that there is very little overlap among the two sets implying that the two types of models can be complementary to each other. In summary, these results show that LatentGAN can be a valuable tool for de novo drug design.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>Not applicable.</p>
+        </ack>
+        <sec sec-type="author-contribution">
+          <title>Authors’ contributions</title>
+          <p>OP and SJ planned and performed the research. OP implemented the Wasserstein GAN and conducted training of the models. EJB and PK developed the heteroencoder. SJ, JAP and HC performed the analysis. SJ performed the benchmarking. OP, SJ, JAP and HC wrote the manuscript. OE and HC co-supervised the project. All authors read and approved the final manuscript.</p>
+        </sec>
+        <sec>
+          <title>Funding</title>
+          <p>Josep Arús-Pous is supported financially by the European Union’s Horizon 2020 research and innovation program under the Marie Skłodowska-Curie Grant Agreement No. 676434, “Big Data in Chemistry” (“BIGCHEM,” <ext-link xlink:href="http://bigchem.eu" ext-link-type="uri">http://bigchem.eu</ext-link>).</p>
+        </sec>
+        <sec sec-type="data-availability">
+          <title>Availability of data</title>
+          <p>The training sets and the trained heteroencoder model version used is available in through a GitHub repository (<ext-link xlink:href="https://github.com/Dierme/latent-gan" ext-link-type="uri">https://github.com/Dierme/latent-gan</ext-link>), which also contains the source code of the LatentGAN.</p>
+        </sec>
+        <sec sec-type="ethics-statement">
+          <sec id="FPar1" sec-type="COI-statement">
+            <title>Competing interests</title>
+            <p id="Par22">The authors declare that they have no competing interests.</p>
+          </sec>
+        </sec>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Engkvist</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Olivecrona</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Blaschke</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The rise of deep learning in drug discovery</article-title>
+                <source>Drug Discov Today</source>
+                <year>2018</year>
+                <volume>23</volume>
+                <issue>6</issue>
+                <fpage>1241</fpage>
+                <lpage>1250</lpage>
+                <pub-id pub-id-type="pmid">29366762</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.drudis.2018.01.039</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Kogej</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Engkvist</surname>
+                    <given-names>O</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Cheminformatics in drug discovery, an industrial perspective</article-title>
+                <source>Mol Inform</source>
+                <year>2018</year>
+                <volume>37</volume>
+                <issue>9–10</issue>
+                <fpage>1800041</fpage>
+                <pub-id pub-id-type="doi">10.1002/minf.201800041</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ekins</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The next era: deep learning in pharmaceutical research</article-title>
+                <source>Pharm Res</source>
+                <year>2016</year>
+                <volume>33</volume>
+                <issue>11</issue>
+                <fpage>2594</fpage>
+                <lpage>2603</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XhsF2gurnI</pub-id>
+                <pub-id pub-id-type="pmid">27599991</pub-id>
+                <pub-id pub-id-type="pmcid">5042864</pub-id>
+                <pub-id pub-id-type="doi">10.1007/s11095-016-2029-7</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gawehn</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Hiss</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Deep learning in drug discovery</article-title>
+                <source>Mol Inform</source>
+                <year>2016</year>
+                <volume>35</volume>
+                <issue>1</issue>
+                <fpage>3</fpage>
+                <lpage>14</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXitV2rs7bE</pub-id>
+                <pub-id pub-id-type="pmid">27491648</pub-id>
+                <pub-id pub-id-type="doi">10.1002/minf.201501008</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hessler</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Baringhaus</surname>
+                    <given-names>K-H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Artificial intelligence in drug design</article-title>
+                <source>Molecules</source>
+                <year>2018</year>
+                <volume>23</volume>
+                <issue>10</issue>
+                <fpage>2520</fpage>
+                <pub-id pub-id-type="pmcid">6222615</pub-id>
+                <pub-id pub-id-type="doi">10.3390/molecules23102520</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lo</surname>
+                    <given-names>Y-C</given-names>
+                  </name>
+                  <name>
+                    <surname>Rensi</surname>
+                    <given-names>SE</given-names>
+                  </name>
+                  <name>
+                    <surname>Torng</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Altman</surname>
+                    <given-names>RB</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Machine learning in chemoinformatics and drug discovery</article-title>
+                <source>Drug Discov Today</source>
+                <year>2018</year>
+                <volume>23</volume>
+                <issue>8</issue>
+                <fpage>1538</fpage>
+                <lpage>1546</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXptFCnuro%3D</pub-id>
+                <pub-id pub-id-type="pmid">29750902</pub-id>
+                <pub-id pub-id-type="pmcid">6078794</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.drudis.2018.05.010</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Segler</surname>
+                    <given-names>MHS</given-names>
+                  </name>
+                  <name>
+                    <surname>Kogej</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Tyrchan</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Waller</surname>
+                    <given-names>MP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Generating focused molecule libraries for drug discovery with recurrent neural networks</article-title>
+                <source>ACS Cent Sci</source>
+                <year>2018</year>
+                <volume>4</volume>
+                <issue>1</issue>
+                <fpage>120</fpage>
+                <lpage>131</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXitVCjsLfP</pub-id>
+                <pub-id pub-id-type="pmid">29392184</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acscentsci.7b00512</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Olivecrona</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Blaschke</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Engkvist</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Molecular de-novo design through deep reinforcement learning</article-title>
+                <source>J Cheminform.</source>
+                <year>2017</year>
+                <volume>9</volume>
+                <issue>1</issue>
+                <fpage>48</fpage>
+                <pub-id pub-id-type="pmid">29086083</pub-id>
+                <pub-id pub-id-type="pmcid">5583141</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13321-017-0235-x</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gómez-Bombarelli</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Wei</surname>
+                    <given-names>JN</given-names>
+                  </name>
+                  <name>
+                    <surname>Duvenaud</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Hernández-Lobato</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                  <name>
+                    <surname>Sánchez-Lengeling</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Sheberla</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Aguilera-Iparraguirre</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Hirzel</surname>
+                    <given-names>TD</given-names>
+                  </name>
+                  <name>
+                    <surname>Adams</surname>
+                    <given-names>RP</given-names>
+                  </name>
+                  <name>
+                    <surname>Aspuru-Guzik</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Automatic chemical design using a data-driven continuous representation of molecules</article-title>
+                <source>ACS Cent Sci</source>
+                <year>2018</year>
+                <volume>4</volume>
+                <issue>2</issue>
+                <fpage>268</fpage>
+                <lpage>276</lpage>
+                <pub-id pub-id-type="pmid">29532027</pub-id>
+                <pub-id pub-id-type="pmcid">5833007</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acscentsci.7b00572</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Geppert</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hartenfeller</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Reisen</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Klenner</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Reutlinger</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Hähnke</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Hiss</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Zettl</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Keppner</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Spänkuch</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Reaction-driven de novo design, synthesis and testing of potential type II kinase inhibitors</article-title>
+                <source>Future Med Chem</source>
+                <year>2011</year>
+                <volume>3</volume>
+                <issue>4</issue>
+                <fpage>415</fpage>
+                <lpage>424</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXktVClu7g%3D</pub-id>
+                <pub-id pub-id-type="pmid">21452978</pub-id>
+                <pub-id pub-id-type="doi">10.4155/fmc.11.8</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bickerton</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                  <name>
+                    <surname>Paolini</surname>
+                    <given-names>GV</given-names>
+                  </name>
+                  <name>
+                    <surname>Besnard</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Muresan</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Hopkins</surname>
+                    <given-names>AL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Quantifying the chemical beauty of drugs</article-title>
+                <source>Nat Chem</source>
+                <year>2012</year>
+                <volume>4</volume>
+                <fpage>90</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38Xht1aktLk%3D</pub-id>
+                <pub-id pub-id-type="pmid">22270643</pub-id>
+                <pub-id pub-id-type="pmcid">3524573</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nchem.1243</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">De novo design at the edge of chaos</article-title>
+                <source>J Med Chem</source>
+                <year>2016</year>
+                <volume>59</volume>
+                <issue>9</issue>
+                <fpage>4077</fpage>
+                <lpage>4086</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XisFahsLs%3D</pub-id>
+                <pub-id pub-id-type="pmid">26881908</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jmedchem.5b01849</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Arús-Pous</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Blaschke</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Ulander</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Reymond</surname>
+                    <given-names>J-L</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Engkvist</surname>
+                    <given-names>O</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Exploring the GDB-13 chemical space using deep generative models</article-title>
+                <source>J Cheminform</source>
+                <year>2019</year>
+                <volume>11</volume>
+                <issue>1</issue>
+                <fpage>20</fpage>
+                <pub-id pub-id-type="pmid">30868314</pub-id>
+                <pub-id pub-id-type="pmcid">6419837</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13321-019-0341-z</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Arús-Pous</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Johansson</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Prykhodko</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Bjerrum</surname>
+                    <given-names>EJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Tyrchan</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Reymond</surname>
+                    <given-names>J-L</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Engkvist</surname>
+                    <given-names>O</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Randomized SMILES strings improve the quality of molecular generative models</article-title>
+                <source>J Cheminform</source>
+                <year>2019</year>
+                <volume>11</volume>
+                <fpage>71</fpage>
+                <pub-id pub-id-type="pmcid">6873550</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13321-019-0393-0</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="other">Voss C (2015) Modeling molecules with recurrent neural networks. <ext-link xlink:href="https://csvoss.com/modeling-molecules-with-rnns" ext-link-type="uri">https://csvoss.com/modeling-molecules-with-rnns</ext-link>. Accessed 12 Nov 2019</mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Weininger</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SMILES, a chemical language and information system: 1: introduction to methodology and encoding rules</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1988</year>
+                <volume>28</volume>
+                <issue>1</issue>
+                <fpage>31</fpage>
+                <lpage>36</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL1cXnsVeqsA%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci00057a005</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Blaschke</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Olivecrona</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Engkvist</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Bajorath</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Application of generative autoencoder in de novo molecular design</article-title>
+                <source>Mol Inform</source>
+                <year>2018</year>
+                <pub-id pub-id-type="pmid">29235269</pub-id>
+                <pub-id pub-id-type="doi">10.1002/minf.201700123</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lim</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Ryu</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>JW</given-names>
+                  </name>
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>WY</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Molecular generative model based on conditional variational autoencoder for de novo molecular design</article-title>
+                <source>J Cheminform</source>
+                <year>2018</year>
+                <volume>10</volume>
+                <issue>1</issue>
+                <fpage>31</fpage>
+                <pub-id pub-id-type="pmid">29995272</pub-id>
+                <pub-id pub-id-type="pmcid">6041224</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13321-018-0286-7</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="other">Kusner MJ, Paige B, Hernández-Lobato JM (2017) Grammar variational autoencoder</mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="other">Jin W, Barzilay R, Jaakkola T (2018) Junction tree variational autoencoder for molecular graph generation</mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="other">Bjerrum EJ (2017) SMILES enumeration as data augmentation for neural network modeling of molecules</mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bjerrum</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Sattarov</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Improving chemical autoencoder latent space and molecular de novo generation diversity with heteroencoders</article-title>
+                <source>Biomolecules</source>
+                <year>2018</year>
+                <volume>8</volume>
+                <issue>4</issue>
+                <fpage>131</fpage>
+                <pub-id pub-id-type="pmcid">6316879</pub-id>
+                <pub-id pub-id-type="doi">10.3390/biom8040131</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="other">Li Y, Vinyals O, Dyer C, Pascanu R, Battaglia P (2018) Learning deep generative models of graphs. Iclr, pp 1–16</mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Multi-objective de novo drug design with conditional graph generative model</article-title>
+                <source>J Cheminform</source>
+                <year>2018</year>
+                <volume>10</volume>
+                <issue>1</issue>
+                <fpage>1</fpage>
+                <lpage>24</lpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-018-0287-6</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="other">You J, Liu B, Ying R, Pande V, Leskovec J (2018) Graph convolutional policy network for goal-directed molecular graph generation</mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="other">De Cao N, Kipf T (2018) MolGAN: an implicit generative model for small molecular graphs</mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="other">Goodfellow I, Pouget-Abadie J, Mirza M, Xu B, Warde-Farley D, Ozair S, Courville A, Bengio Y (2014) Generative adversarial nets. In: NIPS</mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="other">Karras T, Aila T, Laine S, Lehtinen J (2017) Progressive growing of GANs for improved quality, stability, and variation</mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="other">Guimaraes GL, Sanchez-Lengeling B, Outeiral C, Farias PLC, Aspuru-Guzik A (2017) Objective-reinforced generative adversarial networks (ORGAN) for sequence generation models</mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="other">Sanchez-Lengeling B, Outeiral C, Guimaraes GL, Aspuru-Guzik A (2017) Optimizing distributions over molecular space. An objective-reinforced generative adversarial network for inverse-design chemistry (ORGANIC)</mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lipinski</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <name>
+                    <surname>Lombardo</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Dominy</surname>
+                    <given-names>BW</given-names>
+                  </name>
+                  <name>
+                    <surname>Feeney</surname>
+                    <given-names>PJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Experimental and computational approaches to estimate solubility and permeability in drug discovery and development settings 1PII of original article: S0169–409X(96), 00423–1. The article was originally published in Advanced Drug Delivery Reviews 23 (1997)</article-title>
+                <source>Adv Drug Deliv Rev</source>
+                <year>2001</year>
+                <volume>46</volume>
+                <issue>1–3</issue>
+                <fpage>3</fpage>
+                <lpage>26</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3MXitVOhs7o%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/S0169-409X(00)00129-0</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Putin</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Asadulaev</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Ivanenkov</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Aladinskiy</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Sanchez-Lengeling</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Aspuru-Guzik</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhavoronkov</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Reinforced adversarial neural computer for de novo molecular design</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2018</year>
+                <volume>58</volume>
+                <issue>6</issue>
+                <fpage>1194</fpage>
+                <lpage>1204</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXpsVChtrs%3D</pub-id>
+                <pub-id pub-id-type="pmid">29762023</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.7b00690</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Putin</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Asadulaev</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Vanhaelen</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                  <name>
+                    <surname>Ivanenkov</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Aladinskaya</surname>
+                    <given-names>AV</given-names>
+                  </name>
+                  <name>
+                    <surname>Aliper</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhavoronkov</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Adversarial threshold neural computer for molecular de novo design</article-title>
+                <source>Mol Pharm</source>
+                <year>2018</year>
+                <volume>15</volume>
+                <issue>10</issue>
+                <fpage>4386</fpage>
+                <lpage>4397</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXlt1Kks7c%3D</pub-id>
+                <pub-id pub-id-type="pmid">29569445</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.molpharmaceut.7b01137</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Graves</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Wayne</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Reynolds</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Harley</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Danihelka</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Grabska-Barwińska</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Colmenarejo</surname>
+                    <given-names>SG</given-names>
+                  </name>
+                  <name>
+                    <surname>Grefenstette</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Ramalho</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Agapiou</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Badia</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Hermann</surname>
+                    <given-names>KM</given-names>
+                  </name>
+                  <name>
+                    <surname>Zwols</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Ostrovski</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Cain</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>King</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Summerfield</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Blunsom</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Kavukcuoglu</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Hassabis</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Hybrid computing using a neural network with dynamic external memory</article-title>
+                <source>Nature</source>
+                <year>2016</year>
+                <volume>538</volume>
+                <issue>7626</issue>
+                <fpage>471</fpage>
+                <lpage>476</lpage>
+                <pub-id pub-id-type="pmid">27732574</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nature20101</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="other">Kotsias P-C, Arús-Pous J, Chen H, Engkvist O, Tyrchan C, Bjerrum EJ (2019) Direct steering of de novo molecular generation using descriptor conditional recurrent neural networks (cRNNs)</mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gaulton</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Hersey</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Nowotka</surname>
+                    <given-names>ML</given-names>
+                  </name>
+                  <name>
+                    <surname>Patricia Bento</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Chambers</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Mendez</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Mutowo</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Atkinson</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Bellis</surname>
+                    <given-names>LJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Cibrian-Uhalte</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Davies</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Dedman</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Karlsson</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Magarinos</surname>
+                    <given-names>MP</given-names>
+                  </name>
+                  <name>
+                    <surname>Overington</surname>
+                    <given-names>JP</given-names>
+                  </name>
+                  <name>
+                    <surname>Papadatos</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Smit</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Leach</surname>
+                    <given-names>AR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The ChEMBL database in 2017</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2017</year>
+                <volume>45</volume>
+                <issue>D1</issue>
+                <fpage>D945</fpage>
+                <lpage>D954</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXhslWhurs%3D</pub-id>
+                <pub-id pub-id-type="pmid">27899562</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkw1074</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="other">Ioffe S, Szegedy C (2015) Batch normalization: accelerating deep network training by reducing internal covariate shift</mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Williams</surname>
+                    <given-names>RJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Zipser</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A learning algorithm for continually running fully recurrent neural networks</article-title>
+                <source>Neural Comput</source>
+                <year>2008</year>
+                <volume>1</volume>
+                <issue>2</issue>
+                <fpage>270</fpage>
+                <lpage>280</lpage>
+                <pub-id pub-id-type="doi">10.1162/neco.1989.1.2.270</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="other">Gulrajani I, Ahmed F, Arjovsky M, Dumoulin V, Courville A (2017) Improved training of wasserstein GANs</mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="other">Luo Y (2018) EEG data augmentation for emotion recognition using a conditional wasserstein GAN. In: Proceedings of the annual international conference of the IEEE engineering in medicine and biology society, EMBS, pp 2535–2538</mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="other">Maas AL, Hannun AY, Ng AY (2013) Rectifier nonlinearities improve neural network acoustic models</mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="other">MolVS: molecule validation and standardization. (2019) <ext-link xlink:href="https://molvs.readthedocs.io/en/latest/" ext-link-type="uri">https://molvs.readthedocs.io/en/latest/</ext-link>. Accessed 13 Nov 2019</mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sun</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Jeliazkova</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Chupakhin</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Golib-Dzib</surname>
+                    <given-names>J-F</given-names>
+                  </name>
+                  <name>
+                    <surname>Engkvist</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Carlsson</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Wegner</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Ceulemans</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Georgiev</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Jeliazkov</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Kochev</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Ashby</surname>
+                    <given-names>TJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ExCAPE-DB: an integrated large scale dataset facilitating Big Data analysis in chemogenomics</article-title>
+                <source>J Cheminform</source>
+                <year>2017</year>
+                <volume>9</volume>
+                <issue>1</issue>
+                <fpage>41</fpage>
+                <pub-id pub-id-type="pmid">29086166</pub-id>
+                <pub-id pub-id-type="pmcid">5471272</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13321-017-0222-2</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pedregosa</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Varoquaux</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Gramfort</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Michel</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Thirion</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Grisel</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Blondel</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Prettenhofer</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Weiss</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Dubourg</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Vanderplas</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Passos</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Cournapeau</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Brucher</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Perrot</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Duchesnay</surname>
+                    <given-names>É</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Scikit-learn: machine learning in python</article-title>
+                <source>J Mach Learn Res</source>
+                <year>2011</year>
+                <volume>12</volume>
+                <fpage>2825</fpage>
+                <lpage>2830</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="other">Landrum G (2014) RDKit: open-source cheminformatics. <ext-link xlink:href="http://www.rdkit.org/" ext-link-type="uri">http://www.rdkit.org/</ext-link>. Accessed 2 Sept 2019</mixed-citation>
+            </ref>
+            <ref id="CR46">
+              <label>46.</label>
+              <mixed-citation publication-type="other">Makhzani A, Shlens J, Jaitly N, Goodfellow I, Frey B (2015) Adversarial autoencoders</mixed-citation>
+            </ref>
+            <ref id="CR47">
+              <label>47.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kadurin</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Aliper</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Kazennov</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Mamoshina</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Vanhaelen</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                  <name>
+                    <surname>Khrabrov</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhavoronkov</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The cornucopia of meaningful leads: applying deep adversarial autoencoders for new molecule development in oncology</article-title>
+                <source>Oncotarget</source>
+                <year>2017</year>
+                <volume>8</volume>
+                <issue>7</issue>
+                <fpage>10883</fpage>
+                <lpage>10890</lpage>
+                <pub-id pub-id-type="pmid">28029644</pub-id>
+                <pub-id pub-id-type="doi">10.18632/oncotarget.14073</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR48">
+              <label>48.</label>
+              <mixed-citation publication-type="other">Polykovskiy D, Zhebrak A, Sanchez-Lengeling B, Golovanov S, Tatanov O, Belyaev S, Kurbanov R, Artamonov A, Aladinskiy V, Veselov M, Kadurin A, Johansson S, Chen H, Nikolenko S, Aspuru-Guzik A, Zhavoronkov A (2018) Molecular sets (MOSES): a benchmarking platform for molecular generation models</mixed-citation>
+            </ref>
+            <ref id="CR49">
+              <label>49.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Polykovskiy</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhebrak</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Vetrov</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Ivanenkov</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Aladinskiy</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Mamoshina</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Bozdaganyan</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Aliper</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhavoronkov</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Kadurin</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Entangled conditional adversarial autoencoder for de novo drug discovery</article-title>
+                <source>Mol Pharm</source>
+                <year>2018</year>
+                <volume>15</volume>
+                <issue>10</issue>
+                <fpage>4398</fpage>
+                <lpage>4405</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXhs1ensL%2FM</pub-id>
+                <pub-id pub-id-type="pmid">30180591</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.molpharmaceut.8b00839</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR50">
+              <label>50.</label>
+              <mixed-citation publication-type="other">Zhang Z, Song Y, Qi H (2017) Age progression/regression by conditional adversarial autoencoder</mixed-citation>
+            </ref>
+            <ref id="CR51">
+              <label>51.</label>
+              <mixed-citation publication-type="other">Engel J, Hoffman M, Roberts A (2017) Latent constraints: learning to generate conditionally from unconditional generative models</mixed-citation>
+            </ref>
+            <ref id="CR52">
+              <label>52.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Nguyen</surname>
+                    <given-names>KT</given-names>
+                  </name>
+                  <name>
+                    <surname>Blum</surname>
+                    <given-names>LC</given-names>
+                  </name>
+                  <name>
+                    <surname>van Deursen</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Reymond</surname>
+                    <given-names>J-L</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Classification of organic molecules by molecular quantum numbers</article-title>
+                <source>ChemMedChem</source>
+                <year>2009</year>
+                <volume>4</volume>
+                <issue>11</issue>
+                <fpage>1803</fpage>
+                <lpage>1805</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXhtlagu77M</pub-id>
+                <pub-id pub-id-type="pmid">19774591</pub-id>
+                <pub-id pub-id-type="doi">10.1002/cmdc.200900317</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR53">
+              <label>53.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bemis</surname>
+                    <given-names>GW</given-names>
+                  </name>
+                  <name>
+                    <surname>Murcko</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The properties of known drugs. 1. molecular frameworks</article-title>
+                <source>J Med Chem</source>
+                <year>1996</year>
+                <volume>39</volume>
+                <issue>15</issue>
+                <fpage>2887</fpage>
+                <lpage>2893</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28XjvVejtro%3D</pub-id>
+                <pub-id pub-id-type="pmid">8709122</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm9602928</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR54">
+              <label>54.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ertl</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Schuffenhauer</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Estimation of synthetic accessibility score of drug-like molecules based on molecular complexity and fragment contributions</article-title>
+                <source>J Cheminform.</source>
+                <year>2009</year>
+                <volume>1</volume>
+                <issue>1</issue>
+                <fpage>8</fpage>
+                <pub-id pub-id-type="pmid">20298526</pub-id>
+                <pub-id pub-id-type="pmcid">3225829</pub-id>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-1-8</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR55">
+              <label>55.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Irwin</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Shoichet</surname>
+                    <given-names>BK</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ZINC—a free database of commercially available compounds for virtual screening</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2005</year>
+                <volume>45</volume>
+                <issue>1</issue>
+                <fpage>177</fpage>
+                <lpage>182</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhtVOjt77J</pub-id>
+                <pub-id pub-id-type="pmid">1360656</pub-id>
+                <pub-id pub-id-type="pmcid">1360656</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci049714+</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR56">
+              <label>56.</label>
+              <mixed-citation publication-type="other">Polykovskiy D, Zhebrak A, Sanchez-Lengeling B, Golovanov S, Tatanov O, Belyaev S, Kurbanov R, Artamonov A, Aladinskiy V, Veselov M, Kadurin A, Johansson S, Chen H, Nikolenko S, Aspuru-Guzik A, Zhavoronkov A. MOSES GitHub repository. <ext-link xlink:href="https://github.com/molecularsets/moses/" ext-link-type="uri">https://github.com/molecularsets/moses/</ext-link>. Accessed 15 Nov 2019</mixed-citation>
+            </ref>
+            <ref id="CR57">
+              <label>57.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Preuer</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Renz</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Unterthiner</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hochreiter</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Klambauer</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Fréchet ChemNet distance: a metric for generative models for molecules in drug discovery</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2018</year>
+                <volume>58</volume>
+                <issue>9</issue>
+                <fpage>1736</fpage>
+                <lpage>1741</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXhsFejsLrL</pub-id>
+                <pub-id pub-id-type="pmid">30118593</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.8b00234</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR58">
+              <label>58.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kullback</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Leibler</surname>
+                    <given-names>RA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">On information and sufficiency</article-title>
+                <source>Ann Math Stat</source>
+                <year>1951</year>
+                <volume>22</volume>
+                <issue>1</issue>
+                <fpage>79</fpage>
+                <lpage>86</lpage>
+                <pub-id pub-id-type="doi">10.1214/aoms/1177729694</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec15">
+              <title>Supplementary information</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Supplementary information">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2019_397_MOESM1_ESM.docx" position="anchor">
+                    <caption xml:lang="en">
+                      <p><bold>Additional file 1.</bold> Supplementary figures and table.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+          </app>
+        </app-group>
+        <notes notes-type="ESMHint">
+          <title>Supplementary information</title>
+          <p><bold>Supplementary information</bold> accompanies this paper at <ext-link xlink:href="10.1186/s13321-019-0397-9" ext-link-type="doi">https://doi.org/10.1186/s13321-019-0397-9</ext-link>.</p>
+        </notes>
+        <notes notes-type="Misc">
+          <title>Publisher's Note</title>
+          <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+        </notes>
+      </back>
+    </article>

@@ -1,0 +1,2110 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0355-6</article-id>
+          <article-id pub-id-type="manuscript">355</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0355-6</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+            <subj-group subj-group-type="article-collection" specific-use="Regular">
+              <subject>Proceedings of the 11th International Conference on Chemical Structures</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">An exploration strategy improves the diversity of de novo ligands using deep reinforcement learning: a case for the adenosine A<sub>2A</sub> receptor</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" id="Au1">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0003-2368-4655</contrib-id>
+              <name>
+                <surname>Liu</surname>
+                <given-names>Xuhan</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au2">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-2851-6741</contrib-id>
+              <name>
+                <surname>Ye</surname>
+                <given-names>Kai</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au3">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-1915-3141</contrib-id>
+              <name>
+                <surname>van Vlijmen</surname>
+                <given-names>Herman W. T.</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff3">3</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au4">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-1182-2259</contrib-id>
+              <name>
+                <surname>IJzerman</surname>
+                <given-names>Adriaan P.</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au5">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0003-0717-1817</contrib-id>
+              <name>
+                <surname>van Westen</surname>
+                <given-names>Gerard J. P.</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDs1332101903556_cor5">e</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution content-type="org-division">Drug Discovery and Safety</institution>
+                <institution content-type="org-name">Leiden Academic Centre for Drug Research</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Einsteinweg 55</addr-line>
+              <addr-line content-type="city">Leiden</addr-line>
+              <country country="NL">The Netherlands</country>
+            </aff>
+            <aff id="Aff2">
+              <label>2</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 0599 1243</institution-id>
+                <institution-id institution-id-type="GRID">grid.43169.39</institution-id>
+                <institution content-type="org-division">Omics and Omics Informatics</institution>
+                <institution content-type="org-name">Xi’an Jiaotong University</institution>
+              </institution-wrap>
+              <addr-line content-type="street">28 Xianning W Rd</addr-line>
+              <addr-line content-type="city">Xi’an</addr-line>
+              <country country="CN">China</country>
+            </aff>
+            <aff id="Aff3">
+              <label>3</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 0623 0341</institution-id>
+                <institution-id institution-id-type="GRID">grid.419619.2</institution-id>
+                <institution content-type="org-name">Janssen Pharmaceutica NV</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Turnhoutseweg 30</addr-line>
+              <addr-line content-type="postcode">2340</addr-line>
+              <addr-line content-type="city">Beerse</addr-line>
+              <country country="BE">Belgium</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs1332101903556_cor5">
+              <label>e</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>24</day>
+            <month>5</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="35">1</issue>
+          <elocation-id>35</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>4</day>
+              <month>5</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>13</day>
+              <month>10</month>
+              <year>2018</year>
+            </date>
+            <date date-type="accepted">
+              <day>4</day>
+              <month>5</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>24</day>
+              <month>5</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">Over the last 5 years deep learning has progressed tremendously in both image recognition and natural language processing. Now it is increasingly applied to other data rich fields. In drug discovery, recurrent neural networks (RNNs) have been shown to be an effective method to generate novel chemical structures in the form of SMILES. However, ligands generated by current methods have so far provided relatively low diversity and do not fully cover the whole chemical space occupied by known ligands. Here, we propose a new method (DrugEx) to discover de novo drug-like molecules. DrugEx is an RNN model (generator) trained through reinforcement learning which was integrated with a special exploration strategy. As a case study we applied our method to design ligands against the adenosine A<sub>2A</sub> receptor. From ChEMBL data, a machine learning model (predictor) was created to predict whether generated molecules are active or not. Based on this predictor as the reward function, the generator was trained by reinforcement learning without any further data. We then compared the performance of our method with two previously published methods, REINVENT and ORGANIC. We found that candidate molecules our model designed, and predicted to be active, had a larger chemical diversity and better covered the chemical space of known ligands compared to the state-of-the-art.</p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Deep learning</kwd>
+            <kwd>Adenosine receptors</kwd>
+            <kwd>Cheminformatics</kwd>
+            <kwd>Reinforcement learning</kwd>
+            <kwd>Exploration strategy</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Nederlandse Organisatie voor Wetenschappelijk Onderzoek (NL)</institution>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">VENI 14410</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>van Westen</surname>
+                  <given-names>Gerard J. P.</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>5</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>4</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-collection-editor</meta-name>
+              <meta-value>Gerard van Westen, Markus Wagener</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_355.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (<ext-link xlink:href="10.1186/s13321-019-0355-6" ext-link-type="doi">https://doi.org/10.1186/s13321-019-0355-6</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p id="Par20">G Protein-Coupled Receptors (GPCRs) are the largest family of cell membrane-bound proteins [<xref ref-type="bibr" rid="CR1">1</xref>], containing more than 800 members encoded by approximately 4% of human genes. GPCRs are central to a large number of essential biological processes, including cell proliferation, cell survival, and cell motility [<xref ref-type="bibr" rid="CR2">2</xref>]. Currently, GPCRs form the main target of approximately 34% of all FDA approved drugs [<xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR4">4</xref>]. One of the most extensively studied GPCRs is the human adenosine A<sub>2A</sub> receptor (A<sub>2A</sub>R), which has been shown to be a promising drug target for among others Parkinson’s disease, cardiovascular diseases, and inflammatory disorders [<xref ref-type="bibr" rid="CR5">5</xref>]. Multiple crystal structures with different ligands have been resolved [<xref ref-type="bibr" rid="CR6">6</xref>, <xref ref-type="bibr" rid="CR7">7</xref>], and data on the biological activity of thousands of chemical compounds against the receptor was made available in the public ChEMBL database [<xref ref-type="bibr" rid="CR8">8</xref>]. Considering the amount of data available and our in-house expertise we exploited machine learning methods to design novel ligands with predicted activity on the A<sub>2A</sub>R.
+</p>
+          <p id="Par21">Over the last years, deep learning (DL) has been at the forefront of great breakthroughs in the field of artificial intelligence and its performance even surpassed human abilities for image recognition and natural language processing [<xref ref-type="bibr" rid="CR9">9</xref>]. Since then, deep learning is gradually being applied to other data rich fields [<xref ref-type="bibr" rid="CR10">10</xref>, <xref ref-type="bibr" rid="CR11">11</xref>]. In drug discovery DL has been used to construct quantitative structure-activity relationship (QSAR) models [<xref ref-type="bibr" rid="CR12">12</xref>] to predict the properties of chemical compounds, such as toxicity, partition coefficient and affinity for specific targets, etc [<xref ref-type="bibr" rid="CR13">13</xref>, <xref ref-type="bibr" rid="CR14">14</xref>]. Most commonly pre-defined descriptors such as Extended Connectivity Fingerprint (ECFP) [<xref ref-type="bibr" rid="CR15">15</xref>] were used as input to construct fully-connected neural networks [<xref ref-type="bibr" rid="CR16">16</xref>]. More recently studies were published using other methods wherein neural networks extract the descriptor from chemical structures automatically and directly, such as Mol2Vec [<xref ref-type="bibr" rid="CR17">17</xref>], DruGAN [<xref ref-type="bibr" rid="CR18">18</xref>], GraphConv [<xref ref-type="bibr" rid="CR19">19</xref>], etc.</p>
+          <p id="Par22">In addition to these <italic>prediction</italic> applications, DL can also be used in chemical structure <italic>generation</italic> [<xref ref-type="bibr" rid="CR14">14</xref>]. Gupta et al. [<xref ref-type="bibr" rid="CR20">20</xref>] constructed a recurrent neural network (RNN) model to learn the syntax of the SMILES notation and generate novel SMILES representing novel molecules. In addition, Olivecrona et al. [<xref ref-type="bibr" rid="CR21">21</xref>] combined RNNs and reinforcement learning (RL) to generate SMILES formatted molecules that are enriched for chemical and biological properties (named REINVENT). RL has been instrumental in the construction of “AlphaGo” designed by DeepMind, which defeated one of the best human Go players [<xref ref-type="bibr" rid="CR22">22</xref>]. Finally, similar to generative adversarial networks (GANs) for generating images [<xref ref-type="bibr" rid="CR23">23</xref>], Benjamin et al. exploited the GAN for a sequence generation model [<xref ref-type="bibr" rid="CR24">24</xref>] to generate molecules with multi-objective reinforcement learning (named ORGANIC) [<xref ref-type="bibr" rid="CR25">25</xref>].</p>
+          <p id="Par23">In order to maximize the chance to find interesting hits for a given target, generated drug candidates should (a) be chemically diverse, (b) possess biological activity, and (c) contain similar (physico) chemical properties to already known ligands [<xref ref-type="bibr" rid="CR26">26</xref>]. Although several groups have studied the application of DL for generating molecules as drug candidates, most current generative models cannot satisfy all of these three conditions simultaneously [<xref ref-type="bibr" rid="CR27">27</xref>]. Considering the variance in structure and function of GPCRs and the huge space of drug candidates, it is impossible to enumerate all possible virtual molecules in advance [<xref ref-type="bibr" rid="CR28">28</xref>]. Here we aimed to discover de novo drug-like molecules active against the A<sub>2A</sub>R by our proposed new method DrugEx in which an exploration strategy was integrated into a RL model. The integration of this function ensured that our model generated candidate molecules similar to known ligands of the A<sub>2A</sub>R with great chemical diversity and predicted affinity for the A<sub>2A</sub>R. All python code for this study is freely available at <ext-link xlink:href="http://github.com/XuhanLiu/DrugEx" ext-link-type="uri">http://github.com/XuhanLiu/DrugEx</ext-link>.</p>
+        </sec>
+        <sec id="Sec2">
+          <title>Dataset and methods</title>
+          <sec id="Sec3">
+            <title>Data source</title>
+            <p id="Par24">Drug-like molecules were collected from the ZINC database (version 15) [<xref ref-type="bibr" rid="CR29">29</xref>]. We randomly chose approximately one million SMILES formatted molecules that met the following criteria: − 2 &lt;predicted logP &lt; 6 and 200 &lt; molecular weight (MW) &lt; 600. The dataset (named <italic>ZINC</italic> hereafter) finally contained 1,018,517 molecules and was used for SMILES syntax learning. Furthermore, we extracted the known ligands for the A<sub>2A</sub>R (ChEMBL identifier: CHEMBL251) from ChEMBL (version 23) [<xref ref-type="bibr" rid="CR30">30</xref>]. If multiple measurements for the same ligand existed, the average pCHEMBL value (pKi or pIC50 value) was calculated and duplicate items were removed. If the pCHEMBL value was &lt; 6.5 or the compound was annotated as “Not Active” it was regarded as a negative sample; otherwise, it was regarded as a positive sample. In the end this dataset (named as <italic>A2AR</italic>) contained 2420 positive samples and 2562 negative samples.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Prediction model (QSAR)</title>
+            <p id="Par25">Binary classification through QSAR modelling was used as prediction task. Input data for the model were ECFP6 fingerprints with 4096 bits calculated by the RDKit Morgan Fingerprint algorithm with a three-bond radius [<xref ref-type="bibr" rid="CR31">31</xref>]. Hence, each molecule in the dataset was transformed into a 4096D vector. Model output value was the probability whether a given chemical compound was active based on this vector. Four algorithms were benchmarked for model construction, Random Forest (RF), Support Vector Machine (SVM), Naïve Bayesian (NB), and deep neural network (DNN). The RF, SVM and NB models were implemented through Scikit-Learn [<xref ref-type="bibr" rid="CR32">32</xref>], and DNN through PyTorch [<xref ref-type="bibr" rid="CR33">33</xref>]. In RF, the number of trees was set as 1000 and split criterion was “<italic>gini</italic>”. In SVM, a radial basis function (RBF) kernel was used and the parameter space of <italic>C</italic> and <italic>γ</italic> were set as [2<sup>−5</sup>, 2<sup>15</sup>] and [2<sup>−15</sup>, 2<sup>5</sup>], respectively. In DNN, the architecture contained three hidden layers activated by rectified linear unit (ReLU) between input and output layers (activated by sigmoid function), the number of neurons were 4096, 8000, 4000, 2000 and 1 for each layer. With 100 epochs of training process 20% of hidden neurons were randomly dropped out between each layer. The binary cross entropy was used to construct the loss function and optimized by Adam [<xref ref-type="bibr" rid="CR34">34</xref>] with a learning rate of 10<sup>−3</sup>. The area under the curve (AUC) of the receiver operator characteristic (ROC) curves was calculated to compare their mutual performance.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Generative model</title>
+            <p id="Par26">Starting from the SMILES format, each molecule in the <italic>ZINC</italic> set was split into a series of tokens, standing for different types of atoms, bonds, and grammar controlling tokens. Then, all tokens existing in this dataset were collected to construct the SMILES vocabulary. The final vocabulary contained 56 tokens (Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S1) which were selected and arranged sequentially into valid SMILES sequence following the correct grammar.
+</p>
+            <p id="Par27">The RNN model constructed for sequence generation contained six layers: one input layer, one embedding layer, three recurrent layers and one output layer (Fig. <xref rid="Fig1" ref-type="fig">1</xref>). After being represented by a sequence of tokens, molecules can be received as categorical features by the input layer. In the embedding layer, vocabulary size, and embedding dimension were set to 56 and 128, meaning each token could be transformed into a 128d vector. For the recurrent layer, a gated recurrent unit (GRU) [<xref ref-type="bibr" rid="CR35">35</xref>] was used as the recurrent cell with 512 hidden neurons. The output at each position was the probability that determined which token in the vocabulary would be chosen to construct the SMILES string.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Architecture of recurrent neural networks for the training and sampling processes with A<sub>2A</sub>R antagonist ZM241385 as an example. <bold>a</bold> In the training process of RNNs, each molecule is decomposed to a series of tokens and then taken as input. Subsequently, the input and output are combined with a start token and an end token, respectively. <bold>b</bold> Beginning with the start token “GO”, the model calculates the probability distribution of each token in the vocabulary. For each step, one of the available tokens is randomly chosen based on the probability distribution and is again received by RNNs as input to calculate the new probability distribution for the next step. The maximum of steps was set as 100 and the process will end if the end token “EOS” is sampled or the maximum of steps is reached</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_355_Fig1_HTML.png" /></fig></p>
+            <p id="Par28">During the training process we put the start token at the beginning of a batch of data as input and the end token at the end of the same batch of data as output. This ensures that the generative network could choose correct tokens based on the sequence it had generated (Fig. <xref rid="Fig1" ref-type="fig">1</xref>a). A negative log likelihood function was used to construct the loss function to guarantee that the token in the output sequence had the largest probability to be chosen after being trained. In order to optimize the parameters of the model, the Adam algorithm [<xref ref-type="bibr" rid="CR34">34</xref>] was used for optimization of loss function. Here, the learning rate was set at 10<sup>−3</sup>, batch size was 500, and training steps set at 1000 epochs.</p>
+          </sec>
+          <sec id="Sec6">
+            <title>Reinforcement learning</title>
+            <p id="Par29">SMILES sequence construction under the RL framework can be viewed as a series of decision-making steps (Fig. <xref rid="Fig2" ref-type="fig">2</xref>). At each step, the model determines the optimal token from the vocabulary based on the generated sequence in previous steps. However, the pure RNN model cannot guarantee that the percentage of desired molecules (i.e. predicted to be biologically active on the A<sub>2A</sub>R) being generated is as large as possible. To solve this problem RL is an appropriate method as it increases the probability of those molecules with higher rewards and avoids generating those molecules with lower rewards. We regarded the generator as the policy function and the predictor as the reward function. The generator <italic>G</italic><sub><italic>θ</italic></sub> was updated by employing a policy gradient based on the expected end reward received from the predictor <italic>Q</italic>. The objective function could be designated as generating a sequence from the start state to maximize the expected end reward [<xref ref-type="bibr" rid="CR24">24</xref>].<disp-formula id="Equa"><alternatives><mml:math display="block" id="Equa_Math"><mml:mrow><mml:mi>J</mml:mi><mml:mfenced close=")" open="("><mml:mi>θ</mml:mi></mml:mfenced><mml:mo>=</mml:mo><mml:mi>E</mml:mi><mml:mfenced close="]" open="[" separators=""><mml:mrow><mml:mi>R</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>T</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo><mml:mo stretchy="false">|</mml:mo><mml:mi>θ</mml:mi></mml:mrow></mml:mfenced><mml:mo>=</mml:mo><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>t</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>T</mml:mi></mml:munderover><mml:mi>l</mml:mi><mml:mi>o</mml:mi><mml:mi>g</mml:mi><mml:msub><mml:mi>G</mml:mi><mml:mi>θ</mml:mi></mml:msub><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:msub><mml:mi>y</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mrow><mml:mo stretchy="false">|</mml:mo></mml:mrow><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub></mml:mrow></mml:mfenced><mml:mo>·</mml:mo><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>Q</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>T</mml:mi></mml:mrow></mml:msub></mml:mfenced><mml:mo>-</mml:mo><mml:mi>β</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="Equa_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ J\left( \theta \right) = E\left[ {R(y_{1:T} ) |\theta } \right] = \mathop \sum \limits_{t = 1}^{T} log G_{\theta } \left( {y_{t} |y_{1:t - 1} } \right) \cdot \left( {Q\left( {y_{1:T} } \right) - \beta } \right) $$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_355_Article_Equa.gif" /></alternatives></disp-formula>Here <italic>R</italic> is the reward for a complete sequence which is given by the prediction model <italic>Q</italic>; the generative model <italic>G</italic><sub><italic>θ</italic></sub> can be regarded as policy function to determine the probability of each token from the vocabulary to be chosen. The parameter <italic>β</italic> was the baseline of the reward, meaning that if the reward score was not larger than the baseline, the model would take it as a minus score or punishment. The goal of the generative model is to construct a sequence which can obtain the highest score as judged by the predictor.<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>The workflow of deep reinforcement learning. For each loop, it contains several steps: (1) a batch of SMILES sequences was sampled by the RNN generator. (2) Each generated molecule represented by this SMILES format was encoded into a fingerprint; (3) a probability score of activity on the A<sub>2A</sub>R was assigned to each molecule, calculated by the QSAR model which had been trained in advance. (4) All of the generated molecules and their scores were sent back for training of the generator with the policy gradient method</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_355_Fig2_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec7">
+            <title>Exploration strategy</title>
+            <p id="Par30">In order to improve the diversity of generated molecules, the token selection was not only determined by the generator constructed by the RNN model as described above, but also by a second fixed well-trained RNN model (Fig. <xref rid="Fig3" ref-type="fig">3</xref>). The RNN requiring training is deemed the ‘exploitation network’ (<italic>G</italic><sub><italic>θ</italic></sub>) and the fixed RNN (not requiring training) is deemed the ‘exploration network’ (<italic>G</italic><sub><italic>φ</italic></sub>). Both had an identical network architecture. We define “exploring rate” (<italic>ε</italic>) in the range (0.0, 1.0) to determine which fraction of steps was determined by the exploration network. During the training process, each SMILES sequence was generated through the collaboration of these two RNNs. At each step a random number in [0.0, 1.0] was generated. If the value was smaller than <italic>ε</italic>, the <italic>G</italic><sub><italic>φ</italic></sub> would determine which token to be chosen, and vice versa. After the training process was finished, we removed <italic>G</italic><sub><italic>φ</italic></sub> and only <italic>G</italic><sub><italic>θ</italic></sub> was left as the final model of DrugEx for molecule generation.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>Molecule generation with the assistance of the exploration strategy during the training process. For each step of token selection, a random variable was generated between 0 and 1. If the value is larger than a pre-set threshold (exploring rate, <italic>ε</italic>), the probability distribution is determined by the current generator (exploitation network, <italic>G</italic><sub><italic>θ</italic></sub>). Otherwise, it was determined by the exploration network (<italic>G</italic><sub><italic>φ</italic></sub>)</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_355_Fig3_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec8">
+            <title>Molecular diversity</title>
+            <p id="Par31">The Tanimoto-similarity was used for measuring the similarity of molecules. Given two compounds <italic>a</italic> and <italic>b</italic> and their ECFP6 fingerprints <italic>m</italic><sub><italic>a</italic></sub> and <italic>m</italic><sub><italic>b</italic></sub>, the Tanimoto-similarity is defined as:<disp-formula id="Equb"><alternatives><mml:math display="block" id="Equb_Math"><mml:mrow><mml:msub><mml:mi>T</mml:mi><mml:mi>s</mml:mi></mml:msub><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>a</mml:mi><mml:mo>,</mml:mo><mml:mi>b</mml:mi></mml:mrow></mml:mfenced><mml:mo>=</mml:mo><mml:mfrac><mml:mfenced close="|" open="|" separators=""><mml:mrow><mml:msub><mml:mi>m</mml:mi><mml:mi>a</mml:mi></mml:msub><mml:mo>∩</mml:mo><mml:msub><mml:mi>m</mml:mi><mml:mi>b</mml:mi></mml:msub></mml:mrow></mml:mfenced><mml:mfenced close="|" open="|" separators=""><mml:mrow><mml:msub><mml:mi>m</mml:mi><mml:mi>a</mml:mi></mml:msub><mml:mo>∪</mml:mo><mml:msub><mml:mi>m</mml:mi><mml:mi>b</mml:mi></mml:msub></mml:mrow></mml:mfenced></mml:mfrac></mml:mrow></mml:math><tex-math id="Equb_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ T_{s} \left( {a, b} \right) = \frac{{\left| {m_{a} \cap m_{b} } \right|}}{{\left| {m_{a} \cup m_{b} } \right|}} $$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_355_Article_Equb.gif" /></alternatives></disp-formula>where |<italic>m</italic><sub><italic>a</italic></sub> ⋂ <italic>m</italic><sub><italic>b</italic></sub>| represents the number of common fingerprint bits, and | <italic>m</italic><sub><italic>a</italic></sub> ∪ <italic>m</italic><sub><italic>b</italic></sub> | donates the total number of fingerprint bits. The Tanimoto-distance is defined as:<disp-formula id="Equc"><alternatives><mml:math display="block" id="Equc_Math"><mml:mrow><mml:msub><mml:mi>T</mml:mi><mml:mi>d</mml:mi></mml:msub><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>a</mml:mi><mml:mo>,</mml:mo><mml:mi>b</mml:mi></mml:mrow></mml:mfenced><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>-</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mi>s</mml:mi></mml:msub><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>a</mml:mi><mml:mo>,</mml:mo><mml:mi>b</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="Equc_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ T_{d} \left( {a, b} \right) = 1 - T_{s} \left( {a, b} \right) $$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_355_Article_Equc.gif" /></alternatives></disp-formula></p>
+            <p id="Par32">Similar to Benhenda [<xref ref-type="bibr" rid="CR27">27</xref>], the diversity I of a set of molecules A (with size of |A|) is defined as the average of the Tanimoto-distance of every pair of molecules:<disp-formula id="Equd"><alternatives><mml:math display="block" id="Equd_Math"><mml:mrow><mml:mi>I</mml:mi><mml:mfenced close=")" open="("><mml:mi>A</mml:mi></mml:mfenced><mml:mo>=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:msup><mml:mfenced close="|" open="|"><mml:mi>A</mml:mi></mml:mfenced><mml:mn>2</mml:mn></mml:msup></mml:mfrac><mml:munder><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>a</mml:mi><mml:mo>,</mml:mo><mml:mi>b</mml:mi></mml:mrow></mml:mfenced><mml:mo>∈</mml:mo><mml:mi>A</mml:mi><mml:mo>×</mml:mo><mml:mi>A</mml:mi></mml:mrow></mml:munder><mml:msub><mml:mi>T</mml:mi><mml:mi>d</mml:mi></mml:msub><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>a</mml:mi><mml:mo>,</mml:mo><mml:mi>b</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="Equd_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ I\left( A \right) = \frac{1}{{\left| A \right|^{2} }}\mathop \sum \limits_{{\left( {a, b} \right) \in A \times A}} T_{d} \left( {a, b} \right) $$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_355_Article_Equd.gif" /></alternatives></disp-formula></p>
+            <p id="Par33">In a given set of molecules, the less similar each two molecules are, the larger the value of its diversity will be.</p>
+          </sec>
+        </sec>
+        <sec id="Sec9">
+          <title>Results and discussion</title>
+          <sec id="Sec10">
+            <title>Performance of predictors</title>
+            <p id="Par34">All molecules in the <italic>A2AR</italic> set were used for training the QSAR models, after being transformed into ECFP6 fingerprints. We then tested the performance of these different algorithms with fivefold cross validation of which the ROC curves are shown in Fig. <xref rid="Fig4" ref-type="fig">4</xref>. The RF model achieved the highest value of AUC, Matthews correlation coefficient (MCC), Sensitivity, and Accuracy, despite its Specificity being slightly lower than DNN. Hence this model was chosen as our predictor whose output would be regarded as the reward for the generator in RL. In our previous study [<xref ref-type="bibr" rid="CR16">16</xref>], the performance of the DNN was better than that of the RF on the chemical space of the whole ChEMBL database. A possible reason for the difference observed here can be that both the size of the <italic>A2AR</italic> set and its chemical diversity were much smaller than that of the ChEMBL set. This could have a negative influence on DNN, which had more parameters to be optimized than RF. Selecting the predictor was a critical step in this study, as this model would be used to determine whether the following generated molecules were active or inactive.<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>Performance of five different machine learning models based on fivefold cross validation in the <italic>A2AR</italic> set with different metrics, including AUC of ROC curve (<bold>a</bold>), MCC, Sensitivity, Specificity and Accuracy values (<bold>b</bold>). Except for specificity, the RF achieved highest scores among these models based on such measurements</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_355_Fig4_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec11">
+            <title>SMILES libraries generation</title>
+            <p id="Par35">For the training of RNNs all molecules in the <italic>ZINC</italic> set were used as training set after being decomposed into the tokens which belonged to our vocabulary set. Here, we defined that a SMILES sequence was valid if it could be parsed by RDKit [<xref ref-type="bibr" rid="CR31">31</xref>]. During the training process, the percentage of valid SMILES sequences through 1000 times sampling was calculated and was then recorded with the value of the loss function at each epoch (Fig. <xref rid="Fig5" ref-type="fig">5</xref>a). After about 300 epochs, the loss function had converged, indicating the model was trained well.<fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p>The value of the loss function and the percentage of valid SMILES sequences during the pre-training process on the <italic>ZINC</italic> set (<bold>a</bold>) and fine-tuning process on the <italic>A2AR</italic> set (<bold>b</bold>). The model was well pre-trained after 300 epochs and these two values converged to 0.19 and 93.88%, respectively. The performance of the fine-tuned model converged after 400 epochs with the two values reaching 0.09 and 99.73%, respectively</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_355_Fig5_HTML.png" /></fig></p>
+            <p id="Par36">Subsequently, we sampled 10,000 SMILES sequences based on this well-trained model and found that 93.88% of these sequences were grammatically correct SMILES. We then compared some properties of these generated molecules with those in the training set, including number of hydrogen bond donors/acceptors, rotatable bonds, and different kind of ring systems (Fig. <xref rid="Fig6" ref-type="fig">6</xref>a). The distribution of these properties in the generated molecules highly resembles the molecules in the <italic>ZINC</italic> set. The logP ~ MW plot (Fig. <xref rid="Fig7" ref-type="fig">7</xref>a) shows that most generated molecules were drug-like molecules and cover the vast majority of the square space occupied by the <italic>ZINC</italic> set. Besides these eight properties, we also calculated 11 other physicochemical properties (including topological polar surface area, molar refractivity, the fraction of sp<sup>3</sup> hybridized carbon atoms and number of amide bonds, bridgehead atoms, heteroatoms, heavy atoms, spiroatoms, rings, saturated rings, valence electrons) to form a 19D physicochemical descriptors (PhysChem). Subsequently, principal component analysis (PCA) and t-distributed stochastic neighbor embedding (t-SNE) [<xref ref-type="bibr" rid="CR36">36</xref>, <xref ref-type="bibr" rid="CR37">37</xref>] were employed for dimensionality reduction and chemical space visualization with the PhysChem and ECFP6 descriptors of these molecules, respectively. Generated molecules were found to cover almost the whole region occupied by molecules in the <italic>ZINC</italic> set (Fig. <xref rid="Fig7" ref-type="fig">7</xref>b, c) although the number of these generated molecules was less than 1% of the number of molecules in the <italic>ZINC</italic> set.<fig id="Fig6"><label>Fig. 6</label><caption xml:lang="en"><p>Comparison of the properties of generated molecules by the pre-trained (<bold>a</bold>) and fine-tuned models (<bold>b</bold>) and molecules in the <italic>ZINC</italic> set (<bold>a</bold>) and the <italic>A2AR</italic> set (<bold>b</bold>), respectively. These properties included the number of hydrogen bond acceptors/donors, rotatable bonds, aliphatic rings, aromatic rings, and heterocycles</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_355_Fig6_HTML.png" /></fig><fig id="Fig7"><label>Fig. 7</label><caption xml:lang="en"><p>The chemical space of generated molecules by the pre-trained model with the <italic>ZINC</italic> set (<bold>a</bold>–<bold>c</bold>) and the fine-tuned model with the <italic>A2AR</italic> set (<bold>d</bold>–<bold>f</bold>). The chemical space was represented by either logP ~ MW (<bold>a</bold>, <bold>d</bold>), first two components in PCA on PhysChem descriptors (<bold>c</bold>, <bold>e</bold>), and t-SNE on ECFP6 fingerprints (<bold>d</bold>, <bold>f</bold>)</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_355_Fig7_HTML.png" /></fig></p>
+            <p id="Par37">Subsequently we used the <italic>A2AR</italic> set to fine-tune this pre-trained model with 1000 epochs (Fig. <xref rid="Fig5" ref-type="fig">5</xref>b). After sampling another 10,000 times, we performed the same comparison with the <italic>A2AR</italic> set with respect to the properties mentioned above (Fig. <xref rid="Fig6" ref-type="fig">6</xref>b) and investigated the chemical space represented by logP ~ MW (Fig. <xref rid="Fig7" ref-type="fig">7</xref>d), the first two components of the PCA on PhysChem descriptors (Fig. <xref rid="Fig7" ref-type="fig">7</xref>e) and the t-SNE on ECFP6 fingerprints (Fig. <xref rid="Fig7" ref-type="fig">7</xref>f), yielding results similar to the model without fine-tuning but then focused on the <italic>A2AR</italic> chemical space. These results prove that RNN is an appropriate method to learn the SMILES grammar and to construct molecules similar to the ligands in the training set, which has also been shown in other work [<xref ref-type="bibr" rid="CR20">20</xref>, <xref ref-type="bibr" rid="CR38">38</xref>].</p>
+          </sec>
+          <sec id="Sec12">
+            <title>Conditional SMILES generation</title>
+            <p id="Par38">The RNN model trained on the <italic>ZINC</italic> set was used as an initial state for the policy gradient in RL. After the training process of RL and the model converged, 10,000 SMILES sequences were generated for performance evaluation. However, after removal of duplicates in these sequences, only less than 10 unique molecules were left which were similar to compounds in the <italic>A2AR</italic> set. When checking the log file of the training process and we noticed that these duplicated sequences were frequently sampled at each epoch and its duplication rate increased gradually. In order to decrease the bias caused by these molecules with high frequency, we removed all duplicated sequences sampled at each epoch for training with the policy gradient. We found that subsequently almost all of the molecules generated according to this procedure were located outside of the drug-like region with regard to logP ~ MW plot (Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Figure S2). This problem might be caused by the bias of the predictor. ECFP is a substructure-based fingerprint, implying that if the molecule contains some critical substructures, it will be prone to be predicted as active. That was the reason why generated SMILES sequences contained a large number of repetitive motifs. Several research groups have made improvements to guarantee that the final model has ability to generate drug-like candidate molecules [<xref ref-type="bibr" rid="CR21">21</xref>, <xref ref-type="bibr" rid="CR25">25</xref>]. In the next section, we will describe our proposed method, “DrugEx” by integrating an exploration strategy to solve this problem and compare it to existing methods.</p>
+          </sec>
+          <sec id="Sec13">
+            <title>Exploration strategy</title>
+            <p id="Par39">During the training process, the generated sequence is determined by both the <italic>G</italic><sub><italic>θ</italic></sub> and the <italic>G</italic><sub><italic>φ</italic></sub> where <italic>ε</italic> determines how many contributions the <italic>G</italic><sub><italic>φ</italic></sub> made. The <italic>G</italic><sub><italic>φ</italic></sub> and <italic>G</italic><sub><italic>θ</italic></sub> were both initialized by the pre-trained RNN model on the <italic>ZINC</italic> set. The <italic>G</italic><sub><italic>φ</italic></sub> was fixed and only parameters in the <italic>G</italic><sub><italic>θ</italic></sub> were updated. In order to optimize parameters, the parameter space was designated [0.01, 0.05, 0.10, 0.15, 0.20, 0.25] and [0.0, 0.1] for <italic>ε</italic> and <italic>β</italic>, respectively. After the model converged at 200 epochs (Fig. <xref rid="Fig8" ref-type="fig">8</xref>a), the performance of these models was evaluated subsequently based on 10,000 sampled sequences. Firstly, it was found that the number of duplicate SMILES notations was reduced dramatically and almost all SMILES notations represented drug-like molecules (Figs. <xref rid="Fig9" ref-type="fig">9</xref>a, <xref rid="Fig10" ref-type="fig">10</xref>d). Table <xref rid="Tab1" ref-type="table">1</xref> shows that when <italic>ε</italic> was increased, the model generated fewer active ligands for the A<sub>2A</sub>R but the diversity of generated molecules (represented as unique desired SMILES) increased significantly. It was also observed that with higher <italic>ε</italic>, the distribution of different kinds of ring systems in the generated desired molecules became more similar to the known active ligands in the <italic>A2AR</italic> set (Fig. <xref rid="Fig9" ref-type="fig">9</xref>a). The results with different combination of <italic>ε</italic> and <italic>β</italic> are shown in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Figure S3. Here, <italic>ε</italic> = 0.1 was selected as the optimal exploration rate by considering the combination between diversity and unique desired rate. The <italic>G</italic><sub><italic>φ</italic></sub> can hence help the model produce more molecules <italic>similar</italic> to known active ligands of the given target but not <italic>identical</italic> to them. At higher <italic>ε</italic>, the baseline can help the model improve the average score and generate more desired molecules. However, this effect was less pronounced at lower values of <italic>ε</italic>. It is worth noticing in this study that if <italic>β</italic> > 0.1 or <italic>ε</italic> > 0.25, the training process of the generative model did not converge.
+<fig id="Fig8"><label>Fig. 8</label><caption xml:lang="en"><p>The average score of generated SMILES sequences during the training processes of deep reinforcement learning with different <italic>ε</italic>, <italic>β and G</italic><sub><italic>φ</italic></sub>. The pre-trained model on the <italic>ZINC</italic> set (<bold>a</bold>) and the fine-tuned model on the <italic>A2AR</italic> set (<bold>b</bold>) were used as <italic>G</italic><sub><italic>φ</italic></sub>. After 200 epochs, the average scores for all training processes converged and whole of these models were well trained</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_355_Fig8_HTML.png" /></fig><fig id="Fig9"><label>Fig. 9</label><caption xml:lang="en"><p>Comparison of the properties of generated molecules by RL models with different <italic>ε</italic>, <italic>β</italic> and <italic>G</italic><sub><italic>φ</italic></sub>. The pre-trained model on the <italic>ZINC</italic> set (<bold>a</bold>) and the fine-tuned model on the <italic>A2AR</italic> set (<bold>b</bold>) were used as <italic>G</italic><sub><italic>φ</italic></sub>. These properties included the number of hydrogen bond donors/acceptors, rotatable bonds, aliphatic rings, aromatic rings, and heterocycles</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_355_Fig9_HTML.png" /></fig><fig id="Fig10"><label>Fig. 10</label><caption xml:lang="en"><p>Comparison of the chemical space of active ligands in the <italic>A2AR</italic> set and generated molecules by DrugEx (fine-tuned, <bold>a</bold>–<bold>c</bold>), DrugEx (pre-trained, <bold>d</bold>–<bold>f</bold>), REINVENT (<bold>g</bold>–<bold>i</bold>), and ORGANIC (<bold>j</bold>–<bold>l</bold>). Chemical Space was represented by logP ~ MW (<bold>a</bold>, <bold>d</bold>, <bold>g</bold>, <bold>j</bold>), the first two components in PCA on PhysChem descriptors (<bold>b</bold>, <bold>e</bold>, <bold>h</bold>, <bold>k</bold>), and t-SNE on ECFP6 fingerprints (<bold>c</bold>, <bold>f</bold>, <bold>i</bold>, <bold>l</bold>)</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_355_Fig10_HTML.png" /></fig><table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Comparison of the performance of the different methods</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" /><th align="left" colspan="4"><p>DrugEx (Pre-trained)</p></th><th align="left" colspan="4"><p>DrugEx (Fine-tuned)</p></th><th align="left"><p>REINVENT</p></th><th align="left"><p>ORGANIC</p></th><th align="left"><p>Pre-trained</p></th><th align="left"><p>Fine-tuned</p></th></tr></thead><tbody><tr><td align="left"><p><italic>ε</italic></p></td><td align="left"><p>0.01</p></td><td align="left"><p>0.01</p></td><td align="left"><p>0.1</p></td><td align="left"><p>0.1</p></td><td align="left"><p>0.01</p></td><td align="left"><p>0.01</p></td><td align="left"><p>0.1</p></td><td align="left"><p>0.1</p></td><td align="left"><p>–</p></td><td align="left"><p>–</p></td><td align="left"><p>–</p></td><td align="left"><p>–</p></td></tr><tr><td align="left"><p><italic>β</italic></p></td><td align="left"><p>0.0</p></td><td align="left"><p>0.1</p></td><td align="left"><p>0.0</p></td><td align="left"><p>0.1</p></td><td align="left"><p>0.0</p></td><td align="left"><p>0.1</p></td><td align="left"><p>0.0</p></td><td align="left"><p>0.1</p></td><td align="left"><p>–</p></td><td align="left"><p>–</p></td><td align="left"><p>–</p></td><td align="left"><p>–</p></td></tr><tr><td align="left"><p>Valid SMILES</p></td><td align="left"><p>98.3%</p></td><td align="left"><p>98.9%</p></td><td align="left"><p>95.9%</p></td><td align="left"><p>98.8%</p></td><td align="left"><p>99.1%</p></td><td align="left"><p>99.0%</p></td><td align="left"><p>98.2%</p></td><td align="left"><p>97.5%</p></td><td align="left"><p>98.8%</p></td><td align="left"><p>99.8%</p></td><td align="left"><p>93.9%</p></td><td align="left"><p>96.2%</p></td></tr><tr><td align="left"><p>Desired SMILES</p></td><td align="left"><p>97.5%</p></td><td align="left"><p>98.0%</p></td><td align="left"><p>74.6%</p></td><td align="left"><p>80.9%</p></td><td align="left"><p>98.3%</p></td><td align="left"><p>98.5%</p></td><td align="left"><p>94.4%</p></td><td align="left"><p>94.5%</p></td><td align="left"><p>98.2%</p></td><td align="left"><p>99.8%</p></td><td align="left"><p>0.7%</p></td><td align="left"><p>47.9%</p></td></tr><tr><td align="left"><p>Unique SMILES</p></td><td align="left"><p>96.5%</p></td><td align="left"><p>96.3%</p></td><td align="left"><p>73.0%</p></td><td align="left"><p>80.0%</p></td><td align="left"><p>96.5%</p></td><td align="left"><p>96.6%</p></td><td align="left"><p>84.8%</p></td><td align="left"><p>86.0%</p></td><td align="left"><p>95.8%</p></td><td align="left"><p>94.8%</p></td><td align="left"><p>0.7%</p></td><td align="left"><p>22.7%</p></td></tr><tr><td align="left"><p>Diversity</p></td><td align="left"><p>0.74</p></td><td align="left"><p>0.75</p></td><td align="left"><p>0.80</p></td><td align="left"><p>0.80</p></td><td align="left"><p>0.75</p></td><td align="left"><p>0.74</p></td><td align="left"><p>0.80</p></td><td align="left"><p>0.80</p></td><td align="left"><p>0.75</p></td><td align="left"><p>0.67</p></td><td align="left"><p>0.83</p></td><td align="left"><p>0.82</p></td></tr></tbody></table><table-wrap-foot><p>These methods included DrugEx with different <italic>ε</italic>, <italic>β</italic> and <italic>G</italic><sub><italic>φ</italic></sub> (shown in the parentheses), REINVENT, ORGANIC, the pre-trained network, and the fine-tuned network (both without using DrugEx)</p></table-wrap-foot></table-wrap></p>
+            <p id="Par40">Subsequently, the fine-tuned network was used as <italic>G</italic><sub><italic>φ</italic></sub> to be involved in our proposed training method of RL. After the training process converged at 200 epochs (Fig. <xref rid="Fig8" ref-type="fig">8</xref>b), 10,000 SMILES were generated. Compared to the pre-trained network, there were more unique molecules generated (Table <xref rid="Tab1" ref-type="table">1</xref>), most of which were drug-like compounds (Figs. <xref rid="Fig9" ref-type="fig">9</xref>b, <xref rid="Fig10" ref-type="fig">10</xref>a). However, with appropriate <italic>ε</italic> the fine-tuned network helped the model generate more valid desired SMILES than with the pre-trained network. At the same time the duplication rate was also increased and there were more repetitive molecules being generated. A possible reason is that the percentage of active ligands was higher in the <italic>A2AR</italic> set than in the <italic>ZINC</italic> set, while the size of the <italic>A2AR</italic> set was much smaller than the <italic>ZINC</italic> set, causing a higher number of duplicated samples generated by the fine-tuned model. In addition, a PCA showed that the fine-tuned network was more effective than the pre-trained network as <italic>G</italic><sub><italic>φ</italic></sub>, as it helped the model in generating molecules with larger chemical diversity while maintaining a higher similarity to the known active ligands (Figs. <xref rid="Fig9" ref-type="fig">9</xref>, <xref rid="Fig10" ref-type="fig">10</xref>). These results prove that the exploration strategy is an effective way to assist the model training for generating novel molecules with similar chemical and biological properties to existing molecules in a specific part of chemical space.</p>
+          </sec>
+          <sec id="Sec14">
+            <title>Comparison with other methods</title>
+            <p id="Par41">Several papers on SMILES generation using deep learning have been published. Olivecrona et al. [<xref ref-type="bibr" rid="CR21">21</xref>] proposed a method named “REINVENT”, in which a new loss function was introduced based on the Bayesian formula for RL,<disp-formula id="Eque"><alternatives><mml:math display="block" id="Eque_Math"><mml:mrow><mml:mi>L</mml:mi><mml:mfenced close=")" open="("><mml:mi>θ</mml:mi></mml:mfenced><mml:mo>=</mml:mo><mml:msup><mml:mfenced close="]" open="[" separators=""><mml:mrow><mml:mi>l</mml:mi><mml:mi>o</mml:mi><mml:mi>g</mml:mi><mml:msub><mml:mi>P</mml:mi><mml:mrow><mml:mi mathvariant="italic">Prior</mml:mi></mml:mrow></mml:msub><mml:mfenced close=")" open="(" separators=""><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>T</mml:mi></mml:mrow></mml:msub></mml:mfenced><mml:mo>+</mml:mo><mml:mi>σ</mml:mi><mml:mi>R</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>T</mml:mi></mml:mrow></mml:msub></mml:mfenced><mml:mo>-</mml:mo><mml:mi>l</mml:mi><mml:mi>o</mml:mi><mml:mi>g</mml:mi><mml:msub><mml:mi>P</mml:mi><mml:mrow><mml:mi mathvariant="italic">Agent</mml:mi></mml:mrow></mml:msub><mml:mfenced close=")" open="(" separators=""><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>T</mml:mi></mml:mrow></mml:msub></mml:mfenced></mml:mrow></mml:mfenced><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:math><tex-math id="Eque_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ L\left( \theta \right) = \left[ {logP_{Prior} \left( {y_{1:T} } \right) + \sigma R\left( {y_{1:T} } \right) - logP_{Agent} \left( {y_{1:T} } \right)} \right]^{2} $$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_355_Article_Eque.gif" /></alternatives></disp-formula></p>
+            <p id="Par42">The authors used all molecules in the ChEMBL database to pre-train an RNN model as the <italic>Priori</italic>. With the parameter <italic>σ</italic>, they integrated the reward <italic>R</italic> of each SMILES into the loss function. The final <italic>Agent</italic> model was regarded as the Posteriori and trained with the policy gradient. Finally, they successfully identified a large number of active ligands against the dopamine D2 receptor (DRD2).</p>
+            <p id="Par43">Likewise, Benjamin et al. [<xref ref-type="bibr" rid="CR25">25</xref>] proposed another method named “ORGANIC” by combining a GAN model for sequence generation and a prediction model to form a comprehensive reward function for RL.<disp-formula id="Equf"><alternatives><mml:math display="block" id="Equf_Math"><mml:mrow><mml:mi>R</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>t</mml:mi></mml:mrow></mml:msub></mml:mfenced><mml:mo>=</mml:mo><mml:mi>λ</mml:mi><mml:msub><mml:mi>R</mml:mi><mml:mi>d</mml:mi></mml:msub><mml:mfenced close=")" open="(" separators=""><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>T</mml:mi></mml:mrow></mml:msub></mml:mfenced><mml:mo>+</mml:mo><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mn>1</mml:mn><mml:mo>-</mml:mo><mml:mi>λ</mml:mi></mml:mrow></mml:mfenced><mml:msub><mml:mi>R</mml:mi><mml:mi>c</mml:mi></mml:msub><mml:mfenced close=")" open="(" separators=""><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>T</mml:mi></mml:mrow></mml:msub></mml:mfenced></mml:mrow></mml:math><tex-math id="Equf_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ R\left( {y_{1:t} } \right) = \lambda R_{d} \left( {y_{1:T} } \right) + \left( {1 - \lambda } \right)R_{c} \left( {y_{1:T} } \right) $$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_355_Article_Equf.gif" /></alternatives></disp-formula>Here, the reward is represented as the weighted sum of two parts determined by parameter <italic>λ</italic>: (1) the reward <italic>R</italic><sub><italic>c</italic></sub> was provided by the prediction model, and (2) the reward <italic>R</italic><sub><italic>d</italic></sub> was calculated by discriminator neural network <italic>D</italic>, which was trained with generator simultaneously by minimizing the following loss function:<disp-formula id="Equg"><alternatives><mml:math display="block" id="Equg_Math"><mml:mrow><mml:mi>L</mml:mi><mml:mfenced close=")" open="("><mml:mi>θ</mml:mi></mml:mfenced><mml:mo>=</mml:mo><mml:munder><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>y</mml:mi><mml:mo>∈</mml:mo><mml:mi>R</mml:mi><mml:mi>e</mml:mi><mml:mi>a</mml:mi><mml:mi>l</mml:mi></mml:mrow></mml:munder><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>l</mml:mi><mml:mi>o</mml:mi><mml:mi>g</mml:mi><mml:mi>D</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>T</mml:mi></mml:mrow></mml:msub></mml:mfenced></mml:mrow></mml:mfenced><mml:mo>+</mml:mo><mml:munder><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>y</mml:mi><mml:mo>∈</mml:mo><mml:mi>F</mml:mi><mml:mi>a</mml:mi><mml:mi>k</mml:mi><mml:mi>e</mml:mi></mml:mrow></mml:munder><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>l</mml:mi><mml:mi>o</mml:mi><mml:mi>g</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mn>1</mml:mn><mml:mo>-</mml:mo><mml:mi>D</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mn>1</mml:mn><mml:mo>:</mml:mo><mml:mi>T</mml:mi></mml:mrow></mml:msub></mml:mfenced></mml:mrow></mml:mfenced></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="Equg_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ L\left( \theta \right) = \mathop \sum \limits_{y \in Real} \left( {logD\left( {y_{1:T} } \right)} \right) + \mathop \sum \limits_{y \in Fake} \left( {log\left( {1 - D\left( {y_{1:T} } \right)} \right)} \right) $$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_355_Article_Equg.gif" /></alternatives></disp-formula></p>
+            <p id="Par44">With the policy gradient optimization, the final model generated many different desired molecules which were predicted as active ligand against a given target and were similar to the chemical compounds in the ligands set. In the following section DrugEx and its performance is compared with these two methods.</p>
+            <p id="Par45">The code of REINVENT and ORGANIC was downloaded from GitHub and executed with default parameters (<italic>σ</italic> = 60 in REINVENT and <italic>λ</italic> = 0.5 in ORGANIC). The prior network in REINVENT and generative network in ORGANIC were initialized with the pre-trained model, and the agent network in REINVENT was initialized with the fine-tuned model to make sure it could also employ this information. The RF-based predictor with ECFP6 was exploited as reward function for both methods identical to our own implementation. After these models were trained, 10,000 SMILES sequences were generated for performance comparison with each other (Table <xref rid="Tab1" ref-type="table">1</xref>). Our method generated molecules that had the larger diversity at <italic>ε</italic> = 0.1. While DrugEx did not outperform REINVENT based on the percentage of unique desired SMILES, this value was improved dramatically and closely resembled that of REINVENT at <italic>ε</italic> = 0.01. In addition, although most of the molecules generated by these methods were drug-like molecules (Fig. <xref rid="Fig10" ref-type="fig">10</xref>), we found that molecules generated by our method covered the whole region of chemical space occupied by known active ligands. Conversely, molecules generated by both REINVENT and ORGANIC only covered a small fraction of the desired chemical space and were mostly centered in Rule-of-5 compliant chemical space even though the chemical space for the A<sub>2A</sub>R transcends this region of space. To further compare the chemical space occupied by the molecules generated by the different methods, the k-means algorithm was employed to cluster the active ligands in the <italic>A2AR</italic> set and generated molecules into 20 clusters with the ECFP6 fingerprints of (a) the full compound structure, (b) the Murcko scaffold and, (c) the topological Murcko scaffold (Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Figure S4). The results indicated that the generated molecules by DrugEx covered all clusters that contain active ligands in the <italic>A2AR</italic> set, while some of these clusters were not covered by REINVENT and ORGANIC. Furthermore, the distribution of the molecules in each cluster generated by DrugEx more closely resembled the distribution by the active ligands in the <italic>A2AR</italic> set than was the case with either REINVENT or ORGANIC.</p>
+            <p id="Par46">Previous work on the binding mechanism between the A<sub>2A</sub>R and its ligands identified a number of critical substructures that play an important role to improve binding affinity [<xref ref-type="bibr" rid="CR39">39</xref>]. For example, the oxygen in the furan ring of ZM241385 and related ligands can form a hydrogen bond with residue N253, the purine ring acts as hydrogen bond donor to N253 and forms π-π interaction with F168 [<xref ref-type="bibr" rid="CR7">7</xref>]. However, molecules containing such a furan ring tend to be blocking the receptor (antagonists) rather than activating it (agonists). Hence, while the furan ring is common in the set of known A<sub>2A</sub>R ligands, its presence might not always be favorable for generated ligands. Moreover, fused rings have been shown in general to be important in the chemical structure of drugs [<xref ref-type="bibr" rid="CR40">40</xref>]. Therefore, we compared the percentage of molecules containing furan rings, fused rings, and benzene rings. Only 0.20% of the desired molecules generated by REINVENT contained a fused ring (Table <xref rid="Tab2" ref-type="table">2</xref>) while they were present in 79.09% of active ligands in the <italic>A2AR</italic> set. Similarly, ORGANIC only generated a very low percentage of molecules containing a fused ring system (0.02%).<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Comparison of the percentage of important substructures contained in the molecules generated by the different methods and the molecules in the <italic>ZINC</italic> and <italic>A2AR</italic> sets</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" /><th align="left"><p>Fused ring (%)</p></th><th align="left"><p>Furan ring (%)</p></th><th align="left"><p>Benzene ring (%)</p></th></tr></thead><tbody><tr><td align="left"><p>DrugEx (Pre-trained)</p></td><td char="." align="char"><p>9.12</p></td><td char="." align="char"><p>82.32</p></td><td char="." align="char"><p>61.48</p></td></tr><tr><td align="left"><p>DrugEx (Fine-tuned)</p></td><td char="." align="char"><p>60.69</p></td><td char="." align="char"><p>66.35</p></td><td char="." align="char"><p>65.62</p></td></tr><tr><td align="left"><p>REINVENT</p></td><td char="." align="char"><p>0.20</p></td><td char="." align="char"><p>95.26</p></td><td char="." align="char"><p>61.98</p></td></tr><tr><td align="left"><p>ORGANIC</p></td><td char="." align="char"><p>0.02</p></td><td char="." align="char"><p>99.96</p></td><td char="." align="char"><p>39.45</p></td></tr><tr><td align="left"><p>Pre-trained</p></td><td char="." align="char"><p>24.22</p></td><td char="." align="char"><p>4.51</p></td><td char="." align="char"><p>63.31</p></td></tr><tr><td align="left"><p>Fine-tuned</p></td><td char="." align="char"><p>76.33</p></td><td char="." align="char"><p>23.82</p></td><td char="." align="char"><p>72.85</p></td></tr><tr><td align="left"><p><italic>ZINC</italic></p></td><td char="." align="char"><p>26.66</p></td><td char="." align="char"><p>3.86</p></td><td char="." align="char"><p>63.97</p></td></tr><tr><td align="left" colspan="4"><p><italic>A2AR</italic></p></td></tr><tr><td align="left"><p> Active</p></td><td char="." align="char"><p>79.09</p></td><td char="." align="char"><p>40.29</p></td><td char="." align="char"><p>75.33</p></td></tr><tr><td align="left"><p> Inactive</p></td><td char="." align="char"><p>76.73</p></td><td char="." align="char"><p>9.33</p></td><td char="." align="char"><p>70.88</p></td></tr></tbody></table><table-wrap-foot><p>These methods contained DrugEx with pre-trained and fine-tuned model as different <italic>G</italic><sub><italic>φ</italic></sub> (in the parentheses), REINVENT, ORGANIC, Pre-trained model, and Fine-tuned model</p></table-wrap-foot></table-wrap></p>
+            <p id="Par48">With the pre-trained network as <italic>G</italic><sub><italic>φ</italic></sub>, DrugEx produced 9.12% of molecules containing fused rings, while the fine-tuned network improved the percentage of molecules containing fused rings up to 60.69%. For furan rings a similar image arises, 95.26% and 99.96% of molecules generated by REINVENT and ORGANIC contained a furan ring, respectively, while this percentage was only 40.29% for known active ligands. By comparison, in DrugEx, 82.32% of molecules contained a furan ring under the pre-trained network as <italic>G</italic><sub><italic>φ</italic></sub>, similar to the other two methods. However, when the fine-tuned network was used this rate decreased substantially to 66.35%.</p>
+            <p id="Par49">REINVENT and ORGANIC have been reported to generate various molecules containing different fused ring structures against DRD2 [<xref ref-type="bibr" rid="CR21">21</xref>, <xref ref-type="bibr" rid="CR25">25</xref>]. One possible reason they were not able to do so here might lie in the bias of <italic>A2AR</italic> set. In Table <xref rid="Tab2" ref-type="table">2</xref>, we noticed that there were more active ligands containing a furan ring than inactive ligands (fourfold difference). This led to both methods only generating molecules containing a furan ring which were prone to be predicted as active. However, both methods neglected to construct more complicated fused rings which is a decisive difference between active and inactive ligands in the <italic>A2AR</italic> set. These results indicate that DrugEx is more robust to overcome the bias of the training set to generate more similar compounds to known A<sub>2A</sub>R ligands (tuned for the target chemical space) and less generic SMILES sequences. Hence, we consider these molecules more appropriate drug candidates against A<sub>2A</sub>R than the molecules produced by REINVENT and ORGANIC. As an example, 24 candidate molecules generated by DrugEx were selected and are shown in Fig. <xref rid="Fig11" ref-type="fig">11</xref> ordered by the probability score and Tanimoto-distance to the <italic>A2AR</italic> set.<fig id="Fig11"><label>Fig. 11</label><caption xml:lang="en"><p>24 Candidate molecules were selected from 10,000 SMILES sequences generated by DrugEx. These molecules were ordered by the probability score given by the predictor and Tanimoto-distance to <italic>A2AR</italic> set</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_355_Fig11_HTML.png" /></fig></p>
+            <p id="Par50">In REINVENT, the pre-trained model acted as “priori” in the Bayesian formula to ensure that the generated SMILES are drug-like molecules. The final model was trained by improving the probability of desired generated SMILES while maintaining the probability of undesired generated SMILES similar to the pre-trained model. In DrugEx the pre-trained model was <italic>only</italic> used for initialization and did not directly affect the training process and performance evaluation. The mechanism of DrugEx appears quite similar to a genetic algorithm (GA) previously developed in our group for de novo drug design [<xref ref-type="bibr" rid="CR41">41</xref>]. The exploration strategy can be regarded as “random mutation” in a GA context for sequence generation. Instead of changing the token selection directly, this manipulation just changed the probability distribution of each token in the vocabulary. Furthermore, although “crossover” manipulation was not implemented here, such mutations can still help the model search the unfamiliar chemical space in which the molecules do not have a high probability to be sampled. In contrast to ORGANIC, there was no need to construct another neural network specifically to measure the similarity between generated and real molecules, saving valuable time and resources required to train and select appropriate parameters. Hence, we conclude that molecules generated by DrugEx can be regarded as reasonable drug candidates for A<sub>2A</sub>R.</p>
+          </sec>
+        </sec>
+        <sec id="Sec15">
+          <title>Conclusion and future prospects</title>
+          <p id="Par51">In this study a new method is proposed to improve the performance of deep reinforcement learning to generate SMILES based ligands for targets of interest. Applied to the A<sub>2A</sub>R, generated molecules had high diversity combined with chemical and predicted biological properties similar to known active compounds. Previous work has shown that RL cannot guarantee the model to generate molecules distributed over chemical space comparable to ligands of a target of interest. To solve this problem, another well-trained RNN model was employed as exploration strategy to force the model to enlarge the chemical space of the generated molecules during the training process of RL. Compared with other DL-based methods, DrugEx generated molecules with larger chemical diversity while maintaining a higher average similarity to known active ligands. However, the tradeoff is that slightly more inactive or duplicated molecules are being generated.</p>
+          <p id="Par52">In future work, our aim is to update DrugEx with multi-objective optimization for polypharmacology. As a given drug (candidate) likely binds to unexpected targets (i.e. off-target efficacy) which can cause side-effects [<xref ref-type="bibr" rid="CR42">42</xref>]. Incorporating multiple objectives in SMILES generation will allow the search for ways to eliminate potential off-target affinity.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>XL thanks Chinese Scholarship Council (CSC) for funding, GJPvW thanks the Dutch Research Council and Stichting Technologie Wetenschappen (STW) for financial support (Nederlandse Organisatie voor Wetenschappelijk Onderzoek (NL), STW-Veni #14410).
+</p>
+        </ack>
+        <sec sec-type="author-contribution">
+          <title>Authors’ contributions</title>
+          <p>XL and GJPvW conceived the study and performed the experimental work and analysis. KY, APIJ, and HWTvV provided feedback and critical input. All authors read and approved the final manuscript.
+</p>
+        </sec>
+        <sec sec-type="data-availability">
+          <title>Availability of data and materials</title>
+          <p>The data used in this study is publicly available ChEMBL data, the algorithm published in this manuscript is made available via GitHub, <ext-link xlink:href="https://github.com/XuhanLiu/DrugEx" ext-link-type="uri">https://github.com/XuhanLiu/DrugEx</ext-link>.</p>
+        </sec>
+        <sec sec-type="ethics-statement">
+          <sec id="FPar2" sec-type="COI-statement">
+            <title>Competing interests</title>
+            <p id="Par54">The authors declare that they have no competing interests.</p>
+          </sec>
+        </sec>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lv</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Shi</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                  <name>
+                    <surname>Tan</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                  <name>
+                    <surname>Wu</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Skinner</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Walker</surname>
+                    <given-names>AL</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhao</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Gu</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Xue</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Si</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Katritch</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>ZJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Stevens</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">In vitro expression and analysis of the 826 human G protein-coupled receptors</article-title>
+                <source>Protein Cell</source>
+                <year>2016</year>
+                <volume>7</volume>
+                <issue>5</issue>
+                <fpage>325</fpage>
+                <lpage>337</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28Xms12ks7c%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1007/s13238-016-0263-8</pub-id>
+                <pub-id pub-id-type="pmid">27085723</pub-id>
+                <pub-id pub-id-type="pmcid">4853319</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Dorsam</surname>
+                    <given-names>RT</given-names>
+                  </name>
+                  <name>
+                    <surname>Gutkind</surname>
+                    <given-names>JS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">G-protein-coupled receptors and cancer</article-title>
+                <source>Nat Rev Cancer</source>
+                <year>2007</year>
+                <volume>7</volume>
+                <issue>2</issue>
+                <fpage>79</fpage>
+                <lpage>94</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXotFOisw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nrc2069</pub-id>
+                <pub-id pub-id-type="pmid">17251915</pub-id>
+                <pub-id pub-id-type="pmcid">17251915</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hauser</surname>
+                    <given-names>AS</given-names>
+                  </name>
+                  <name>
+                    <surname>Attwood</surname>
+                    <given-names>MM</given-names>
+                  </name>
+                  <name>
+                    <surname>Rask-Andersen</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Schioth</surname>
+                    <given-names>HB</given-names>
+                  </name>
+                  <name>
+                    <surname>Gloriam</surname>
+                    <given-names>DE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Trends in GPCR drug discovery: new agents, targets and indications</article-title>
+                <source>Nat Rev Drug Discov</source>
+                <year>2017</year>
+                <volume>16</volume>
+                <issue>12</issue>
+                <fpage>829</fpage>
+                <lpage>842</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhslansbzF</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nrd.2017.178</pub-id>
+                <pub-id pub-id-type="pmid">29075003</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Santos</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Ursu</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Gaulton</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bento</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Donadi</surname>
+                    <given-names>RS</given-names>
+                  </name>
+                  <name>
+                    <surname>Bologa</surname>
+                    <given-names>CG</given-names>
+                  </name>
+                  <name>
+                    <surname>Karlsson</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Al-Lazikani</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Hersey</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Oprea</surname>
+                    <given-names>TI</given-names>
+                  </name>
+                  <name>
+                    <surname>Overington</surname>
+                    <given-names>JP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A comprehensive map of molecular drug targets</article-title>
+                <source>Nat Rev Drug Discov</source>
+                <year>2017</year>
+                <volume>16</volume>
+                <issue>1</issue>
+                <fpage>19</fpage>
+                <lpage>34</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XitVSms7rK</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nrd.2016.230</pub-id>
+                <pub-id pub-id-type="pmid">27910877</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>JF</given-names>
+                  </name>
+                  <name>
+                    <surname>Eltzschig</surname>
+                    <given-names>HK</given-names>
+                  </name>
+                  <name>
+                    <surname>Fredholm</surname>
+                    <given-names>BB</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Adenosine receptors as drug targets–what are the challenges?</article-title>
+                <source>Nat Rev Drug Discov</source>
+                <year>2013</year>
+                <volume>12</volume>
+                <issue>4</issue>
+                <fpage>265</fpage>
+                <lpage>286</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXks1Glsrs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nrd3955</pub-id>
+                <pub-id pub-id-type="pmid">23535933</pub-id>
+                <pub-id pub-id-type="pmcid">3930074</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Chun</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Thompson</surname>
+                    <given-names>AA</given-names>
+                  </name>
+                  <name>
+                    <surname>Chubukov</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Katritch</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Han</surname>
+                    <given-names>GW</given-names>
+                  </name>
+                  <name>
+                    <surname>Roth</surname>
+                    <given-names>CB</given-names>
+                  </name>
+                  <name>
+                    <surname>Heitman</surname>
+                    <given-names>LH</given-names>
+                  </name>
+                  <name>
+                    <surname>IJzerman</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Cherezov</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Stevens</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Structural basis for allosteric regulation of GPCRs by sodium ions</article-title>
+                <source>Science</source>
+                <year>2012</year>
+                <volume>337</volume>
+                <issue>6091</issue>
+                <fpage>232</fpage>
+                <lpage>236</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XpvVKqtbs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1126/science.1219218</pub-id>
+                <pub-id pub-id-type="pmid">3399762</pub-id>
+                <pub-id pub-id-type="pmcid">3399762</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jaakola</surname>
+                    <given-names>VP</given-names>
+                  </name>
+                  <name>
+                    <surname>Griffith</surname>
+                    <given-names>MT</given-names>
+                  </name>
+                  <name>
+                    <surname>Hanson</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <name>
+                    <surname>Cherezov</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Chien</surname>
+                    <given-names>EY</given-names>
+                  </name>
+                  <name>
+                    <surname>Lane</surname>
+                    <given-names>JR</given-names>
+                  </name>
+                  <name>
+                    <surname>Ijzerman</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Stevens</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The 2.6 angstrom crystal structure of a human A2A adenosine receptor bound to an antagonist</article-title>
+                <source>Science</source>
+                <year>2008</year>
+                <volume>322</volume>
+                <issue>5905</issue>
+                <fpage>1211</fpage>
+                <lpage>1217</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXhtlyqtbfN</pub-id>
+                <pub-id pub-id-type="doi">10.1126/science.1164772</pub-id>
+                <pub-id pub-id-type="pmid">2586971</pub-id>
+                <pub-id pub-id-type="pmcid">2586971</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gaulton</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bellis</surname>
+                    <given-names>LJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Bento</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Chambers</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Davies</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Hersey</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Light</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>McGlinchey</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Michalovich</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Al-Lazikani</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Overington</surname>
+                    <given-names>JP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ChEMBL: a large-scale bioactivity database for drug discovery</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2012</year>
+                <volume>40</volume>
+                <fpage>D1100</fpage>
+                <lpage>D1107</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhs12htbjN</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkr777</pub-id>
+                <pub-id pub-id-type="pmid">21948594</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>LeCun</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Bengio</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Hinton</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Deep learning</article-title>
+                <source>Nature</source>
+                <year>2015</year>
+                <volume>521</volume>
+                <issue>7553</issue>
+                <fpage>436</fpage>
+                <lpage>444</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXht1WlurzP</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nature14539</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mamoshina</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Vieira</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Putin</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhavoronkov</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Applications of deep learning in biomedicine</article-title>
+                <source>Mol Pharm</source>
+                <year>2016</year>
+                <volume>13</volume>
+                <issue>5</issue>
+                <fpage>1445</fpage>
+                <lpage>1454</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28Xks1eht7g%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.molpharmaceut.5b00982</pub-id>
+                <pub-id pub-id-type="pmid">27007977</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Miotto</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Jiang</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Dudley</surname>
+                    <given-names>JT</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Deep learning for healthcare: review, opportunities and challenges</article-title>
+                <source>Brief Bioinform</source>
+                <year>2017</year>
+                <pub-id pub-id-type="doi">10.1093/bib/bbx044</pub-id>
+                <pub-id pub-id-type="pmid">26876889</pub-id>
+                <pub-id pub-id-type="pmcid">6455466</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cherkasov</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Muratov</surname>
+                    <given-names>EN</given-names>
+                  </name>
+                  <name>
+                    <surname>Fourches</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Varnek</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Baskin</surname>
+                    <given-names>II</given-names>
+                  </name>
+                  <name>
+                    <surname>Cronin</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Dearden</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Gramatica</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Martin</surname>
+                    <given-names>YC</given-names>
+                  </name>
+                  <name>
+                    <surname>Todeschini</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Consonni</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuz’min</surname>
+                    <given-names>VE</given-names>
+                  </name>
+                  <name>
+                    <surname>Cramer</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Benigni</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Rathman</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Terfloth</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Gasteiger</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Richard</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Tropsha</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">QSAR modeling: where have you been? Where are you going to?</article-title>
+                <source>J Med Chem</source>
+                <year>2014</year>
+                <volume>57</volume>
+                <issue>12</issue>
+                <fpage>4977</fpage>
+                <lpage>5010</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXhvFCrsLnE</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm4004285</pub-id>
+                <pub-id pub-id-type="pmid">24351051</pub-id>
+                <pub-id pub-id-type="pmcid">4074254</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ekins</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The next era: deep learning in pharmaceutical research</article-title>
+                <source>Pharm Res</source>
+                <year>2016</year>
+                <volume>33</volume>
+                <issue>11</issue>
+                <fpage>2594</fpage>
+                <lpage>2603</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XhsF2gurnI</pub-id>
+                <pub-id pub-id-type="doi">10.1007/s11095-016-2029-7</pub-id>
+                <pub-id pub-id-type="pmid">27599991</pub-id>
+                <pub-id pub-id-type="pmcid">5042864</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Engkvist</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Olivecrona</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Blaschke</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The rise of deep learning in drug discovery</article-title>
+                <source>Drug Discov Today</source>
+                <year>2018</year>
+                <pub-id pub-id-type="doi">10.1016/j.drudis.2018.01.039</pub-id>
+                <pub-id pub-id-type="pmid">30583089</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rogers</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Hahn</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Extended-connectivity fingerprints</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2010</year>
+                <volume>50</volume>
+                <issue>5</issue>
+                <fpage>742</fpage>
+                <lpage>754</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXlt1Onsbg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci100050t</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lenselink</surname>
+                    <given-names>EB</given-names>
+                  </name>
+                  <name>
+                    <surname>Ten Dijke</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Bongers</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Papadatos</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>van Vlijmen</surname>
+                    <given-names>HWT</given-names>
+                  </name>
+                  <name>
+                    <surname>Kowalczyk</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>IJzerman</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>van Westen</surname>
+                    <given-names>GJP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Beyond the hype: deep neural networks outperform established methods using a ChEMBL bioactivity benchmark set</article-title>
+                <source>J Cheminform</source>
+                <year>2017</year>
+                <volume>9</volume>
+                <issue>1</issue>
+                <fpage>45</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXnsVygtLk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13321-017-0232-0</pub-id>
+                <pub-id pub-id-type="pmid">29086168</pub-id>
+                <pub-id pub-id-type="pmcid">5555960</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jaeger</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Fulle</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Turk</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Mol2vec: unsupervised machine learning approach with chemical intuition</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2018</year>
+                <volume>58</volume>
+                <issue>1</issue>
+                <fpage>27</fpage>
+                <lpage>35</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXitVWgurjN</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.7b00616</pub-id>
+                <pub-id pub-id-type="pmid">29268609</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kadurin</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Nikolenko</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Khrabrov</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Aliper</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhavoronkov</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">druGAN: an advanced generative adversarial autoencoder model for de novo generation of new molecules with desired molecular properties in silico</article-title>
+                <source>Mol Pharm</source>
+                <year>2017</year>
+                <volume>14</volume>
+                <issue>9</issue>
+                <fpage>3098</fpage>
+                <lpage>3104</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhtFGitbbF</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.molpharmaceut.7b00346</pub-id>
+                <pub-id pub-id-type="pmid">28703000</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="other">Duvenaud D, Maclaurin D, Aguilera-Iparraguirre J, Gómez-Bombarelli R, Hirzel T, Aspuru-Guzik A, Adams RP (2015) Convolutional networks on graphs for learning molecular fingerprints. <ext-link xlink:href="http://arxiv.org/abs/1509.09292" ext-link-type="uri">arXiv:1509.09292</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gupta</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Muller</surname>
+                    <given-names>AT</given-names>
+                  </name>
+                  <name>
+                    <surname>Huisman</surname>
+                    <given-names>BJH</given-names>
+                  </name>
+                  <name>
+                    <surname>Fuchs</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Generative recurrent networks for de novo drug design</article-title>
+                <source>Mol Inform</source>
+                <year>2018</year>
+                <pub-id pub-id-type="doi">10.1002/minf.201700111</pub-id>
+                <pub-id pub-id-type="pmid">29442444</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Olivecrona</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Blaschke</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Engkvist</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Molecular de-novo design through deep reinforcement learning</article-title>
+                <source>J Cheminform</source>
+                <year>2017</year>
+                <volume>9</volume>
+                <issue>1</issue>
+                <fpage>48</fpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-017-0235-x</pub-id>
+                <pub-id pub-id-type="pmid">29086083</pub-id>
+                <pub-id pub-id-type="pmcid">5583141</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Silver</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Maddison</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Guez</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Sifre</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>van den Driessche</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Schrittwieser</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Antonoglou</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Panneershelvam</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Lanctot</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Dieleman</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Grewe</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Nham</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Kalchbrenner</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Sutskever</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Lillicrap</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Leach</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Kavukcuoglu</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Graepel</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hassabis</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Mastering the game of Go with deep neural networks and tree search</article-title>
+                <source>Nature</source>
+                <year>2016</year>
+                <volume>529</volume>
+                <issue>7587</issue>
+                <fpage>484</fpage>
+                <lpage>489</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28Xhs12is7w%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nature16961</pub-id>
+                <pub-id pub-id-type="pmid">26819042</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="other">Goodfellow IJ, Pouget-Abadie J, Mirza M, Xu B, Warde-Farley D, Ozair S, Courville A, Bengio Y (2014) Generative adversarial networks. <ext-link xlink:href="http://arxiv.org/abs/1406.2661" ext-link-type="uri">arXiv:1406.2661</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="other">Yu L, Zhang W, Wang J, Yu Y (2016) SeqGAN: sequence generative adversarial nets with policy gradient. <ext-link xlink:href="http://arxiv.org/abs/1609.05473" ext-link-type="uri">arXiv:1609.05473</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="other">Benjamin S-L, Carlos O, Gabriel LG, Alan A-G (2017) Optimizing distributions over molecular space. An Objective-Reinforced Generative Adversarial Network for Inverse-design Chemistry (ORGANIC). <ext-link xlink:href="10.26434/chemrxiv.5309668.v3" ext-link-type="doi">https://doi.org/10.26434/chemrxiv.5309668.v3</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Preuer</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Renz</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Unterthiner</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hochreiter</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Klambauer</surname>
+                    <given-names>GUN</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Frechet ChemNet distance: a metric for generative models for molecules in drug discovery</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2018</year>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.8b00234</pub-id>
+                <pub-id pub-id-type="pmid">30118593</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="other">Benhenda M (2017) ChemGAN challenge for drug discovery: can AI reproduce natural chemical diversity? <ext-link xlink:href="http://arxiv.org/abs/1708.08227" ext-link-type="uri">arXiv:1708.08227</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Fechner</surname>
+                    <given-names>U</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Computer-based de novo design of drug-like molecules</article-title>
+                <source>Nat Rev Drug Discov</source>
+                <year>2005</year>
+                <volume>4</volume>
+                <issue>8</issue>
+                <fpage>649</fpage>
+                <lpage>663</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXmvVOqtro%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nrd1799</pub-id>
+                <pub-id pub-id-type="pmid">16056391</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sterling</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Irwin</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ZINC 15–ligand discovery for everyone</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2015</year>
+                <volume>55</volume>
+                <issue>11</issue>
+                <fpage>2324</fpage>
+                <lpage>2337</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXhs1OhurbF</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.5b00559</pub-id>
+                <pub-id pub-id-type="pmid">26479676</pub-id>
+                <pub-id pub-id-type="pmcid">4658288</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gaulton</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Hersey</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Nowotka</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Bento</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Chambers</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Mendez</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Mutowo</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Atkinson</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Bellis</surname>
+                    <given-names>LJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Cibrian-Uhalte</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Davies</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Dedman</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Karlsson</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Magarinos</surname>
+                    <given-names>MP</given-names>
+                  </name>
+                  <name>
+                    <surname>Overington</surname>
+                    <given-names>JP</given-names>
+                  </name>
+                  <name>
+                    <surname>Papadatos</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Smit</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Leach</surname>
+                    <given-names>AR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The ChEMBL database in 2017</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2017</year>
+                <volume>45</volume>
+                <issue>D1</issue>
+                <fpage>D945</fpage>
+                <lpage>D954</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXhslWhurs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkw1074</pub-id>
+                <pub-id pub-id-type="pmid">27899562</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="other">RDKit: Open-Source Cheminformatics Software (version 2018.09.2). <ext-link xlink:href="http://www.rdkit.org" ext-link-type="uri">http://www.rdkit.org</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="other">Scikit-Learn: machine learning in Python. (version 0.19.0). <ext-link xlink:href="http://www.scikit-learn.org/" ext-link-type="uri">http://www.scikit-learn.org/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="other">PyTorch (version 1.0.1). <ext-link xlink:href="https://pytorch.org/" ext-link-type="uri">https://pytorch.org/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="other">Kingma DP, Ba J (2014) Adam: a method for stochastic optimization. <ext-link xlink:href="http://arxiv.org/abs/1412.6980" ext-link-type="uri">arXiv:1412.6980</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="other">Chung J, Gulcehre C, Cho K, Bengio Y (2014) Empirical evaluation of gated recurrent neural networks on sequence modeling. <ext-link xlink:href="http://arxiv.org/abs/1412.3555" ext-link-type="uri">arXiv:1412.3555</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Janssen</surname>
+                    <given-names>APA</given-names>
+                  </name>
+                  <name>
+                    <surname>Grimm</surname>
+                    <given-names>SH</given-names>
+                  </name>
+                  <name>
+                    <surname>Wijdeven</surname>
+                    <given-names>RHM</given-names>
+                  </name>
+                  <name>
+                    <surname>Lenselink</surname>
+                    <given-names>EB</given-names>
+                  </name>
+                  <name>
+                    <surname>Neefjes</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>van Boeckel</surname>
+                    <given-names>CAA</given-names>
+                  </name>
+                  <name>
+                    <surname>van Westen</surname>
+                    <given-names>GJP</given-names>
+                  </name>
+                  <name>
+                    <surname>van der Stelt</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Drug discovery maps, a machine learning model that visualizes and predicts kinome-inhibitor interaction landscapes</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2018</year>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.8b00640</pub-id>
+                <pub-id pub-id-type="pmid">30372617</pub-id>
+                <pub-id pub-id-type="pmcid">6437696</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>van der Maaten</surname>
+                    <given-names>LJP</given-names>
+                  </name>
+                  <name>
+                    <surname>Hinton</surname>
+                    <given-names>GE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Visualizing high-dimensional data using t-SNE</article-title>
+                <source>J Mach Learn Res</source>
+                <year>2008</year>
+                <volume>9</volume>
+                <fpage>2579</fpage>
+                <lpage>2605</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Segler</surname>
+                    <given-names>MHS</given-names>
+                  </name>
+                  <name>
+                    <surname>Kogej</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Tyrchan</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Waller</surname>
+                    <given-names>MP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Generating focused molecule libraries for drug discovery with recurrent neural networks</article-title>
+                <source>ACS Central Sci</source>
+                <year>2018</year>
+                <volume>4</volume>
+                <issue>1</issue>
+                <fpage>120</fpage>
+                <lpage>131</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXitVCjsLfP</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acscentsci.7b00512</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jaakola</surname>
+                    <given-names>VP</given-names>
+                  </name>
+                  <name>
+                    <surname>Lane</surname>
+                    <given-names>JR</given-names>
+                  </name>
+                  <name>
+                    <surname>Lin</surname>
+                    <given-names>JY</given-names>
+                  </name>
+                  <name>
+                    <surname>Katritch</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Ijzerman</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Stevens</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Ligand binding and subtype selectivity of the human A(2A) adenosine receptor: identification and characterization of essential amino acid residues</article-title>
+                <source>J Biol Chem</source>
+                <year>2010</year>
+                <volume>285</volume>
+                <issue>17</issue>
+                <fpage>13032</fpage>
+                <lpage>13044</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXkvVGis7g%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1074/jbc.M109.096974</pub-id>
+                <pub-id pub-id-type="pmid">20147292</pub-id>
+                <pub-id pub-id-type="pmcid">2857108</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Feher</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Schmidt</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Property distributions: differences between drugs, natural products, and molecules from combinatorial chemistry</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <issue>1</issue>
+                <fpage>218</fpage>
+                <lpage>227</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XptlOksLg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci0200467</pub-id>
+                <pub-id pub-id-type="pmid">12546556</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lameijer</surname>
+                    <given-names>EW</given-names>
+                  </name>
+                  <name>
+                    <surname>Kok</surname>
+                    <given-names>JN</given-names>
+                  </name>
+                  <name>
+                    <surname>Back</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Ijzerman</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The molecule evoluator. An interactive evolutionary algorithm for the design of drug-like molecules</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2006</year>
+                <volume>46</volume>
+                <issue>2</issue>
+                <fpage>545</fpage>
+                <lpage>552</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XmvVahug%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci050369d</pub-id>
+                <pub-id pub-id-type="pmid">16562982</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Giacomini</surname>
+                    <given-names>KM</given-names>
+                  </name>
+                  <name>
+                    <surname>Krauss</surname>
+                    <given-names>RM</given-names>
+                  </name>
+                  <name>
+                    <surname>Roden</surname>
+                    <given-names>DM</given-names>
+                  </name>
+                  <name>
+                    <surname>Eichelbaum</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Hayden</surname>
+                    <given-names>MR</given-names>
+                  </name>
+                  <name>
+                    <surname>Nakamura</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">When good drugs go bad</article-title>
+                <source>Nature</source>
+                <year>2007</year>
+                <volume>446</volume>
+                <issue>7139</issue>
+                <fpage>975</fpage>
+                <lpage>977</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXksFektL0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/446975a</pub-id>
+                <pub-id pub-id-type="pmid">17460642</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec16">
+              <title>Additional file</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Additional file">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2019_355_MOESM1_ESM.docx" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0355-6" ext-link-type="uri">Additional file 1: Table S1.</ext-link> All tokens in vocabulary for SMILES sequence construction with RNN model. <bold>Figure S2.</bold> The chemical space of generated molecules by pre-trained models, traditional reinforced model and active ligands in the A2AR set. <bold>Figure S3.</bold> The performance of DrugEx with different <italic>G</italic><sub><italic>φ</italic></sub> (pre-trained and fine-tuned model) and hyperparameters (including <italic>ε</italic> and <italic>β</italic>). <bold>Figure S4.</bold> The percentage of molecules in 20 groups clustered by k-means algorithm on ECFP6 fingerprints of generated molecules with full compound (A), Murcko scaffold (B) and topological Murcko scaffold (C).</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+          </app>
+        </app-group>
+        <glossary>
+          <title>Abbreviations</title>
+          <def-list>
+            <def-item>
+              <term>A<sub>2A</sub>R</term>
+              <def>
+                <p id="Par2">adenosine A<sub>2A</sub> receptor</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>AUC</term>
+              <def>
+                <p>Area under the curve</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>DL</term>
+              <def>
+                <p id="Par3">deep learning</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>DNN</term>
+              <def>
+                <p id="Par4">Deep Neural Network</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>DRD2</term>
+              <def>
+                <p>dopamine D2 receptor</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>ECFP</term>
+              <def>
+                <p id="Par5">Extended Connectivity Fingerprint</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>GA</term>
+              <def>
+                <p id="Par6">genetic algorithm</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>GAN</term>
+              <def>
+                <p id="Par7">generative adversarial network</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>GPCR</term>
+              <def>
+                <p id="Par8">G Protein-Coupled Receptors</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>GRU</term>
+              <def>
+                <p id="Par9">gated recurrent unit</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>MW</term>
+              <def>
+                <p id="Par10">molecular weight</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>NB</term>
+              <def>
+                <p id="Par11">Naïve Bayesian</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PCA</term>
+              <def>
+                <p id="Par12">principal component analysis</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PhysChem</term>
+              <def>
+                <p>physicochemical descriptors</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>QSAR</term>
+              <def>
+                <p id="Par13">quantitative structure-activity relationship</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RBF</term>
+              <def>
+                <p id="Par14">radial basis function</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>ReLU</term>
+              <def>
+                <p id="Par15">rectified linear unit</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RF</term>
+              <def>
+                <p id="Par16">Random Forest</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RL</term>
+              <def>
+                <p id="Par17">reinforcement learning</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RNN</term>
+              <def>
+                <p id="Par18">recurrent neural network</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>ROC</term>
+              <def>
+                <p>receiver operator characteristic</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>SVM</term>
+              <def>
+                <p id="Par19">Support Vector Machine</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>t-SNE</term>
+              <def>
+                <p>t-distributed stochastic neighbor embedding</p>
+              </def>
+            </def-item>
+          </def-list>
+        </glossary>
+        <notes notes-type="Misc">
+          <title>Publisher's Note</title>
+          <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+        </notes>
+      </back>
+    </article>

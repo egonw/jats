@@ -1,0 +1,1329 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0336-9</article-id>
+          <article-id pub-id-type="manuscript">336</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0336-9</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Software</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Dimorphite-DL: an open-source program for enumerating the ionization states of drug-like small molecules</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" id="Au1">
+              <name>
+                <surname>Ropp</surname>
+                <given-names>Patrick J.</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au2">
+              <name>
+                <surname>Kaminsky</surname>
+                <given-names>Jesse C.</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au3">
+              <name>
+                <surname>Yablonski</surname>
+                <given-names>Sara</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au4">
+              <name>
+                <surname>Durrant</surname>
+                <given-names>Jacob D.</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDs1332101903369_cor4">d</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 1936 9000</institution-id>
+                <institution-id institution-id-type="GRID">grid.21925.3d</institution-id>
+                <institution content-type="org-division">Department of Biological Sciences</institution>
+                <institution content-type="org-name">University of Pittsburgh</institution>
+              </institution-wrap>
+              <addr-line content-type="street">4249 Fifth Avenue</addr-line>
+              <addr-line content-type="postcode">15260</addr-line>
+              <addr-line content-type="city">Pittsburgh</addr-line>
+              <addr-line content-type="state">PA</addr-line>
+              <country country="US">USA</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs1332101903369_cor4">
+              <label>d</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>14</day>
+            <month>2</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="14">1</issue>
+          <elocation-id>14</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>8</day>
+              <month>2</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>20</day>
+              <month>11</month>
+              <year>2018</year>
+            </date>
+            <date date-type="accepted">
+              <day>8</day>
+              <month>2</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>14</day>
+              <month>2</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">Small-molecule protonation can promote or discourage protein binding by altering hydrogen-bond, electrostatic, and van-der-Waals interactions. To improve virtual-screen pose and affinity predictions, researchers must account for all major small-molecule ionization states. But existing programs for calculating these states have notable limitations such as high cost, restrictive licenses, slow execution times, and poor modularity. Here, we present dimorphite-DL 1.0, a fast, accurate, accessible, and modular open-source program for enumerating small-molecule ionization states. Dimorphite-DL uses a straightforward empirical algorithm that leverages substructure searching and draws on a database of experimentally characterized ionizable molecules. We have tested dimorphite-DL using several versions of Python and RDKit on all major operating systems. We release it under the terms of the Apache License, Version 2.0. A copy is available free of charge from <ext-link xlink:href="http://durrantlab.com/dimorphite-dl/" ext-link-type="uri">http://durrantlab.com/dimorphite-dl/</ext-link>.</p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Ionization</kwd>
+            <kwd>pH</kwd>
+            <kwd>Protonation</kwd>
+            <kwd>Modeling</kwd>
+            <kwd>Virtual screening</kwd>
+            <kwd>Drug discovery</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>2</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>8</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_336.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (<ext-link xlink:href="10.1186/s13321-019-0336-9" ext-link-type="doi">https://doi.org/10.1186/s13321-019-0336-9</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+        <notes notes-type="AuthorContribution">
+          <p>Patrick J. Ropp and Jesse C. Kaminsky have contributed equally to this work</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p id="Par2">Structure-based virtual screening (VS) predicts the geometry of a small molecule bound to its receptor (i.e., the docked pose) and maps that geometry to a score that correlates with affinity. Ligand protonation can impact electrostatic, hydrogen-bond, and van-der-Waals interactions between the ligand and receptor [<xref ref-type="bibr" rid="CR1">1</xref>], potentially affecting both VS steps. Many ligands adopt multiple protonation states, or protomers. Protomers encompass ionization forms, which involve the gain or loss of a proton, and tautomeric forms, which involve the intramolecular transfer of a proton from one ligand atom to another [<xref ref-type="bibr" rid="CR1">1</xref>]. Transitions between protomers (e.g., via proton uptake or release [<xref ref-type="bibr" rid="CR2">2</xref>]) often accompany binding [<xref ref-type="bibr" rid="CR3">3</xref>]. As most small-molecule drugs are ionizable [<xref ref-type="bibr" rid="CR4">4</xref>, <xref ref-type="bibr" rid="CR5">5</xref>], accurate VS must consider the protomer that best complements the binding pocket [<xref ref-type="bibr" rid="CR6">6</xref>, <xref ref-type="bibr" rid="CR7">7</xref>].</p>
+          <p id="Par3">Predicting acid ionization constants (pK<sub>a</sub>) is a critical first step. Empirical approaches such as linear free-energy calculations [<xref ref-type="bibr" rid="CR8">8</xref>], quantitative structure–property relationships, and database similarity searches perform this prediction quickly and so are well suited for processing large compound libraries [<xref ref-type="bibr" rid="CR5">5</xref>]. In contrast, quantum mechanical methods are slower and not necessarily more accurate [<xref ref-type="bibr" rid="CR5">5</xref>].</p>
+          <p id="Par4">After using predicted pK<sub>a</sub> values to identify all possible ionization forms, the next step is to discard those forms that are rare. Ligands interconvert between all ionization states in solution, but the pH determines which state is favored. For example, at physiological pH (7.4), 99.96% of 3-chloropropanoic acid (pK<sub>a</sub> = 4.0 [<xref ref-type="bibr" rid="CR9">9</xref>]) exists in the deprotonated form, 3-chloropropanoate. It is reasonable to ignore the rare protonated form when performing a VS with limited computational resources. In contrast, 44.27% of 2,2,2 trifluoroethane 1 thiol (pK<sub>a</sub> = 7.3 [<xref ref-type="bibr" rid="CR10">10</xref>]) exists in the deprotonated form at physiological pH. Proper small-molecule preparation should consider both the deprotonated and protonated forms of this compound.</p>
+          <p id="Par5">Enumerating major small-molecule ionization states can improve virtual-screen predictivity, but available programs for performing this task are generally too expensive, have restrictive licenses, are too slow for use in high-throughput contexts, predict a single state rather than all major states, and/or cannot be easily incorporated into broader drug-discovery pipelines. There is a need for a fast, accurate, accessible, and modular open-source alternative. We have developed a computer program called dimorphite-DL to address this need. We have tested dimorphite-DL using several versions of Python (2.7.13, 3.6.3, 3.6.5, and 3.6.6) and RDKit (2016.09.2, 2018.03.1, and 2018.03.4) on macOS High Sierra 10.13.4, Ubuntu 18.04.1 LTS, and Windows 10 Home 1709. We release it under the terms of the Apache License, Version 2.0. A copy is available free of charge from <ext-link xlink:href="http://durrantlab.com/dimorphite-dl/" ext-link-type="uri">http://durrantlab.com/dimorphite-dl/</ext-link>.</p>
+        </sec>
+        <sec id="Sec2">
+          <title>Implementation</title>
+          <sec id="Sec3">
+            <title>A set of compounds with experimental pK<sub>a</sub> values</title>
+            <p id="Par6">We assembled a set of 1938 small molecules with single, diverse ionizable sites and mostly experimentally determined pK<sub>a</sub> values. To the extent possible, we limited our search to pK<sub>a</sub> values measured in neutral aqueous solutions near room temperature (e.g., between 23 and 27 °C). Sources of experimental data included PubChem<sup>®</sup>, a chemical database provided by the NIH’s National Library of Medicine; iBonD 2.0, the Internet Bond-Energy Databank provided by Tsinghua and Nankai Universities [<xref ref-type="bibr" rid="CR11">11</xref>]; Reaxys, a chemical database provided by Elsevier Life Sciences IP Limited; and a published work by Lee et al. [<xref ref-type="bibr" rid="CR12">12</xref>] that describes monoprotic small molecules. We also separately considered a set of 78 phosphates and phosphonates, which can lose up to two protons.</p>
+            <p id="Par7">We performed limited data filtering to improve applicability and accuracy. For example, we removed some molecules with multiple disconnected fragments (e.g., salts) and chiral centers. If a given molecule included multiple experimental pK<sub>a</sub> values that spanned a range greater than 1.0, we assumed experimental uncertainty and discarded the molecule. Otherwise, we averaged the available pK<sub>a</sub> values. Per previous studies [<xref ref-type="bibr" rid="CR12">12</xref>], we generally only considered molecules with measured pK<sub>a</sub> values between − 1.74 (H<sub>3</sub>O<sup>+</sup>) and 15.7 (H<sub>2</sub>O). In total, 98.8% of the pK<sub>a</sub> values in our database met this criterion. To ensure proper coverage, we included nine sulfonates and sulfates with pK<sub>a</sub> values less than − 1.74. We also included fourteen molecules with pK<sub>a</sub> values greater than 15.7: four non-phenol alcohols, three amides, and seven molecules with protonated but uncharged aromatic nitrogen atoms. Finally, to ensure that nitro-group oxygen atoms are always deprotonated, we assigned a very negative, arbitrary pK<sub>a</sub> value (− 1000.0) to this group.</p>
+            <p id="Par8">We grouped these compounds by ionizable moiety and constructed pK<sub>a</sub> histograms for each group. Although chemical features beyond the moiety itself (e.g., neighboring electronegative groups) do impact pK<sub>a</sub>, our analysis provided a typical pK<sub>a</sub> range for each ionizable site. In some cases, visual inspection of the histograms led us to reconsider some moiety definitions. For example, the distribution of amide pK<sub>a</sub> values was initially bimodal. By separating amides from nitrogens bonded to electronegative atoms, we divided this group into two chemically distinct populations.</p>
+            <p id="Par9">Ultimately, we settled on 38 ionizable substructures. In some cases, a given moiety could belong to two such categories. For example, every amide contains an amine group. To uniquely assign each moiety to a given categorization, we prioritized the substructures. Atoms belonging to high-priority substructures that cover more atoms (e.g., amides) were not considered when subsequently searching for lower-priority substructures (e.g., amines).</p>
+            <p id="Par10">For each set of compounds matching one of these substructures, we calculated the mean (µ) and standard deviation (σ) of the associated pK<sub>a</sub> values (Table <xref rid="Tab1" ref-type="table">1</xref>). In the case of the phosphates and phosphonates, each moiety was associated with two separate pK<sub>a</sub> means and standard deviations (µ<sub>1</sub> and σ<sub>1</sub>; and µ<sub>2</sub> and σ<sub>2</sub>), one for each ionizable proton. A range of reasonable pK<sub>a</sub> values for each moiety, range<sub>PKA</sub>, is given by [µ − <italic>n</italic>σ, µ + <italic>n</italic>σ], where <italic>n</italic> is a user-defined parameter we call the “pK<sub>a</sub> precision factor.”<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>The 38 ionizable dimorphite-DL substructures in order of decreasing priority from left to right, with representative compounds</p></caption><graphic xlink:href="MediaObjects/13321_2019_336_Tab1_HTML.png" id="MO1" /><table-wrap-foot><p>Exact substructure definitions are given in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S1. The pK<sub>a</sub> range is the average of all associated pK<sub>a</sub> values in the database, plus or minus the standard deviation</p></table-wrap-foot></table-wrap></p>
+          </sec>
+          <sec id="Sec4">
+            <title>Predicting ionization states</title>
+            <p id="Par11">Dimorphite-DL 1.0 uses the µ and σ values associated with each ionizable moiety to predict small-molecule ionization states for a given pH range. It accepts the following user inputs:<list list-type="order"><list-item><p id="Par12">A small-molecule library in SMILES format [<xref ref-type="bibr" rid="CR13">13</xref>], with each compound SMILES on its own line. Alternatively, the user can provide a single SMILES as a command-line parameter.</p></list-item><list-item><p id="Par13">The pK<sub>a</sub> precision factor to use when estimating moiety pK<sub>a</sub> ranges (<italic>n</italic>, 1.0 by default).</p></list-item><list-item><p id="Par14">The minimum pH to consider (<italic>pH</italic><sub><italic>min</italic></sub>, 6.4 by default).</p></list-item><list-item><p id="Par15">The maximum pH to consider (<italic>pH</italic><sub><italic>max</italic></sub>, 8.4 by default).</p></list-item></list></p>
+            <p id="Par16">For each molecule, dimorphite-DL uses RDKit [<xref ref-type="bibr" rid="CR14">14</xref>], an open-source cheminformatics library, to search for the 38 ionizable substructures described above (Table <xref rid="Tab1" ref-type="table">1</xref> and Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S1). The same prioritization scheme ensures that any given atom is assigned to at most only one category. The program outputs protonated/deprotonated SMILES, as appropriate for the user-specified pH range.</p>
+            <p id="Par17">Dimorphite-DL does not calculate pK<sub>a</sub> values explicitly. Rather, for each categorized moiety, it takes one of three actions (Fig. <xref rid="Fig1" ref-type="fig">1</xref>) based on a moiety-specific pK<sub>a</sub> range, range<sub>PKA</sub> = [µ − <italic>n</italic>σ, µ + <italic>n</italic>σ], and a user-defined pH range, range<sub>pH</sub> = [<italic>pH</italic><sub><italic>min</italic></sub>, <italic>pH</italic><sub><italic>max</italic></sub>]:<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>A schematic representation of the dimorphite-DL approach. Each ionizable moiety is associated with a pK<sub>a</sub> range (range<sub>PKA</sub>) defined by three parameters: µ, σ, and <italic>n</italic>. The user specifies a pH range (range<sub>pH</sub>) and pK<sub>a</sub> precision factor (<italic>n</italic>; default: 1.0). The mean (µ) and standard deviation (σ) associated with each moiety are derived from the database of small molecules with experimentally characterized pK<sub>a</sub> values. If range<sub>PKA</sub> is entirely less than range<sub>pH</sub>, dimorphite-DL outputs a deprotonated molecule. If range<sub>PKA</sub> is entirely greater than range<sub>pH</sub>, dimorphite-DL outputs a protonated molecule. If range<sub>PKA</sub> and range<sub>pH</sub> overlap, dimorphite-DL outputs both deprotonated and protonated molecules</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_336_Fig1_HTML.png" /></fig><list list-type="order"><list-item><p id="Par18">If µ + <italic>n</italic>σ &lt; <italic>pH</italic><sub><italic>min</italic></sub> (i.e., the entirety of range<sub>PKA</sub> is less than the entirety of range<sub>pH</sub>), the moiety is deprotonated.</p></list-item><list-item><p id="Par19">If <italic>pH</italic><sub><italic>max</italic></sub> &lt; µ − <italic>n</italic>σ (i.e., the entirety of range<sub>PKA</sub> is greater than the entirety of range<sub>pH</sub>), the moiety is protonated.</p></list-item><list-item><p id="Par20">If range<sub>PKA</sub> and range<sub>pH</sub> overlap, two distinct small-molecule models are generated, with the moiety protonated and deprotonated, respectively.</p></list-item></list></p>
+          </sec>
+          <sec id="Sec5">
+            <title>Substructure identification using SMARTS</title>
+            <p id="Par21">Dimorphite-DL uses SMARTS (SMILES arbitrary target specification [<xref ref-type="bibr" rid="CR15">15</xref>]) to determine which atoms in a given molecule belong to one of the 38 ionizable substructures. SMARTS is a language for molecular subgraph isomorphism and pattern matching that is an extension of the popular SMILES format [<xref ref-type="bibr" rid="CR13">13</xref>]. SMILES describes a molecule, but SMARTS describes a molecular pattern (e.g., a substructure). All SMILES strings are valid SMARTS strings, but SMARTS additionally allows for variable atom and bond specifications. A given SMARTS string can thus represent multiple related chemical structures.</p>
+            <p id="Par22">SMARTS pattern recognition requires standardized input molecules. Dimorphite-DL attempts to standardize all input SMILES strings automatically. For example, N[N+]#N, N=[N+]=N, NN#N, and N=N=N are all recognized as azides. Both [N+]([O−])=O and N(=O)=O are recognized as nitro groups. And aromatic rings are recognized regardless of whether the input SMILES string describes aromatic bonds (e.g., both Oc1ccccc1 and OC1=CC=CC=C1 are recognized as phenols).</p>
+            <p id="Par23">The Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref> includes the SMARTS representations of the 38 substructures, as well as the calculated µ and σ values (Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S1). The Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref> also describes how dimorphite-DL independently handles phosphate and phosphonate groups.</p>
+          </sec>
+        </sec>
+        <sec id="Sec6">
+          <title>Results and discussion</title>
+          <p id="Par24">Dimorphite-DL 1.0 is a fast, accessible, open-source Python program for predicting small-molecule ionization states. As a simple illustration of the importance of accounting for alternate ionization states, consider the local anesthetic lidocaine. The pK<sub>a</sub> of lidocaine is 8.01 [<xref ref-type="bibr" rid="CR16">16</xref>], so both the charged protonated- and deprotonated-amine forms are prevalent at physiological pH. Computational evidence suggests that both forms bind the sodium channel NavPas, preventing cell depolarization [<xref ref-type="bibr" rid="CR17">17</xref>]. But the two protomers have different poses [<xref ref-type="bibr" rid="CR17">17</xref>], and charged lidocaine binds with higher affinity [<xref ref-type="bibr" rid="CR17">17</xref>]. It is thus critical to account for both ionization states. Dimorphite-DL applied to lidocaine successfully predicted both forms.</p>
+          <sec id="Sec7">
+            <title>The dimorphite-DL approach</title>
+            <p id="Par25">Dimorphite-DL uses a substructure-based empirical algorithm to quickly prepare large compound libraries for virtual screening (VS). Importantly, it is not limited to identifying a single ionizable state per molecule. Rather, it can generate multiple states as appropriate for a given pH range, thus increasing the chance of identifying the most binding-compatible state.</p>
+            <p id="Par26">Because distant chemical groups can impact proton dissociation, the ideal program for enumerating ionizable states would calculate pK<sub>a</sub> values in the context of the whole molecule. But creating such a program is challenging. Methods that consider whole-molecule contexts, such as quantum mechanical approaches, are too slow for high-throughput use. Surprisingly, their pK<sub>a</sub> calculations are not necessarily more accurate than those of simpler algorithms [<xref ref-type="bibr" rid="CR5">5</xref>]. Empirical methods such as dimorphite-DL are faster, but they draw on chemical databases that cannot account for all possible chemical contexts. Dimorphite-DL predicts ionization states by considering only at most a few atoms adjacent to each ionizable moiety. In compounds with multiple ionizable sites, each site is considered independently. Our algorithm thus does not account for interactions between sites or other electronic effects.</p>
+            <p id="Par27">To compensate for this limitation, we associate 38 ionizable moieties with pK<sub>a</sub><italic>ranges</italic> rather than <italic>point values</italic>. We derive ranges from the experimental pK<sub>a</sub> values of 1938 small molecules (see Materials and Methods). For each moiety, range<sub>PKA</sub> = [µ − <italic>n</italic>σ, µ + <italic>n</italic>σ], where µ and σ are the mean and standard deviation of the associated experimental pK<sub>a</sub> values, respectively; and <italic>n</italic> is a user-defined “pK<sub>a</sub> precision factor”. Protonation is assigned based on the overlap between range<sub>PKA</sub> and the user-specified pH range (Fig. <xref rid="Fig1" ref-type="fig">1</xref>).</p>
+          </sec>
+          <sec id="Sec8">
+            <title>Dimorphite-DL accuracy: correct, excessive, and incorrect predictions</title>
+            <p id="Par28">Defining terms will allow us to better describe the accuracy of Dimorphite-DL predictions. Consider a user-defined pH range, range<sub>pH</sub> = [<italic>pH</italic><sub><italic>min</italic></sub>, <italic>pH</italic><sub><italic>max</italic></sub>], and a compound with an experimentally determined pK<sub>a</sub> value. Further assume that the compound can lose at most one proton. Applying dimorphite-DL to this compound can have one of three outcomes:<list list-type="order"><list-item><p id="Par29">Dimorphite-DL predicts the correct state<list list-type="alpha-lower"><list-item><p id="Par30">pK<sub>a</sub> &lt; <italic>pH</italic><sub><italic>min</italic></sub>, and dimorphite-DL deprotonates the compound</p></list-item><list-item><p id="Par31">pK<sub>a</sub> > <italic>pH</italic><sub><italic>max</italic></sub>, and dimorphite-DL protonates the compound</p></list-item><list-item><p id="Par32"><italic>pH</italic><sub><italic>min</italic></sub> ≤ pK<sub>a</sub> ≤ <italic>pH</italic><sub><italic>max</italic></sub>, and dimorphite-DL generates both deprotonated and protonated forms</p></list-item></list></p></list-item><list-item><p id="Par33">Dimorphite-DL predicts an excess state (i.e., two states when only one is appropriate)<list list-type="alpha-lower"><list-item><p id="Par34">pK<sub>a</sub> &lt; <italic>pH</italic><sub><italic>min</italic></sub> or pK<sub>a</sub> > <italic>pH</italic><sub><italic>max</italic></sub>, but dimorphite-DL generates both deprotonated and protonated forms</p></list-item></list></p></list-item><list-item><p id="Par35">Dimorphite-DL predicts the incorrect (or incomplete) state<list list-type="alpha-lower"><list-item><p id="Par36">pK<sub>a</sub> &lt; <italic>pH</italic><sub><italic>min</italic></sub>, but dimorphite-DL protonates the compound</p></list-item><list-item><p id="Par37">pK<sub>a</sub> > <italic>pH</italic><sub><italic>max</italic></sub>, but dimorphite-DL deprotonates the compound</p></list-item><list-item><p id="Par38"><italic>pH</italic><sub><italic>min</italic></sub> ≤ pK<sub>a</sub> ≤ <italic>pH</italic><sub><italic>max</italic></sub>, and dimorphite-DL either deprotonates or protonates the compound (not both)</p></list-item></list></p></list-item></list></p>
+            <p id="Par39">We distinguish between “excess-state” and “incorrect-state” outcomes because they differ in their consequences. If dimorphite-DL predicts an excess state, it needlessly expands the compound library and increases the computational expense of subsequent VS. But if it predicts an incorrect or incomplete state, VS accuracy may suffer because a relevant state is never generated.</p>
+          </sec>
+          <sec id="Sec9">
+            <title>The influence of the pK<sub>a</sub> precision factor on accuracy</title>
+            <p id="Par40">Recall that each moiety has an associated range<sub>PKA</sub> ([µ − <italic>n</italic>σ, µ + <italic>n</italic>σ]) determined in part by the user-specified pK<sub>a</sub> precision factor, <italic>n</italic>. To assess the influence of this factor on accuracy, we evaluated the compounds in our database using different values of <italic>n</italic> (Table <xref rid="Tab2" ref-type="table">2</xref>), always over the default range<sub>pH</sub> = [6.4, 8.4]. As <italic>n</italic> increases, more compounds are assigned excess states, reducing the number of entirely correct and entirely incorrect assignments (Table <xref rid="Tab2" ref-type="table">2</xref>, Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Tables S2, S3, and S4). We select <italic>n</italic> = 1.0 as our default, as it strikes a good balance between the three outcomes.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Dimorphite-DL accuracy</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>pK<sub>a</sub> precision factor, <italic>n</italic> (standard deviation)</p></th><th align="left"><p>Correct (%)</p></th><th align="left"><p>Excess (%)</p></th><th align="left"><p>Incorrect (%)</p></th></tr></thead><tbody><tr><td align="left"><p>0.0</p></td><td char="." align="char"><p>70.9</p></td><td char="." align="char"><p>23.9</p></td><td char="." align="char"><p>5.2</p></td></tr><tr><td align="left"><p>0.5</p></td><td char="." align="char"><p>69.1</p></td><td char="." align="char"><p>26.5</p></td><td char="." align="char"><p>4.4</p></td></tr><tr><td align="left"><p>1.0</p></td><td char="." align="char"><p>58.8</p></td><td char="." align="char"><p>40.2</p></td><td char="." align="char"><p>0.9</p></td></tr><tr><td align="left"><p>1.5</p></td><td char="." align="char"><p>51.2</p></td><td char="." align="char"><p>48.8</p></td><td char="." align="char"><p>0.0</p></td></tr><tr><td align="left"><p>2.0</p></td><td char="." align="char"><p>50.7</p></td><td char="." align="char"><p>49.3</p></td><td char="." align="char"><p>0.0</p></td></tr><tr><td align="left"><p>2.5</p></td><td char="." align="char"><p>23.9</p></td><td char="." align="char"><p>76.1</p></td><td char="." align="char"><p>0.0</p></td></tr><tr><td align="left"><p>3.0</p></td><td char="." align="char"><p>22.1</p></td><td char="." align="char"><p>77.9</p></td><td char="." align="char"><p>0.0</p></td></tr></tbody></table><table-wrap-foot><p>The percentage of molecules that are correctly/excessively/incorrectly protonated at different pK<sub>a</sub> precision factors (<italic>n</italic>), at physiological pH (6.4–8.4). To generate these statistics, we considered all 1938 compounds in our primary set, as well as the 78 additional phosphate and phosphonate compounds described in the Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref></p></table-wrap-foot></table-wrap></p>
+            <p id="Par41">Users can specify other values of <italic>n</italic> according to their needs. Tuning the pK<sub>a</sub> precision factor is particularly useful when one needs to limit the size of the compound library. To illustrate, consider a given library compound with <italic>i</italic> distinct ionizable moieties. Dimorphite-DL will process each moiety separately. If no moiety has a range<sub>PKA</sub> that overlaps with range<sub>pH</sub>, dimorphite-DL will produce only one protomer. If every range<sub>PKA</sub> overlaps with range<sub>pH</sub>, dimorphite-DL will produce 2<sup><italic>i</italic></sup> distinct protomers.</p>
+            <p id="Par42">Selecting lower values of <italic>n</italic> protects against combinatorial explosions, as range<sub>PKA</sub> and range<sub>pH</sub> are less likely to overlap. Narrowing the difference between <italic>pH</italic><sub><italic>min</italic></sub> and <italic>pH</italic><sub><italic>max</italic></sub> can further reduce overlap. These measures limit the size of the resulting compound library, reducing the computational cost of any subsequent VS. But restrictive parameters may force dimorphite-DL to ignore binding-relevant states, reducing VS accuracy. Table <xref rid="Tab2" ref-type="table">2</xref>, Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Tables S2, S3, and S4 will help the user find a good balance between accuracy, generalizability, and performance.</p>
+          </sec>
+          <sec id="Sec10">
+            <title>Accuracy per ionizable moiety</title>
+            <p id="Par43">Next, we evaluated how accurately dimorphite-DL predicts the ionization states of individual moieties (Table <xref rid="Tab3" ref-type="table">3</xref>). To simplify analysis, we considered only <italic>n</italic> = 1.0 and physiological pH (range<sub>pH</sub> = [6.4, 8.4]). Here, we focus on the amine (1°, 2°, and 3°), carboxylic acid, phenol, benzoic acid, and sulfonamide moieties because they are drug like and are well represented in our 1938-member compound set (21%, 20%, 10%, 7%, and 2%, respectively). A similar analysis of the remaining moieties can be found in the Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Tables S2, S3, and S4.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>Dimorphite-DL accuracy at physiological pH (6.4–8.4) for five common moieties</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" /><th align="left"><p>Correct (%)</p></th><th align="left"><p>Excess (%)</p></th><th align="left"><p>Incorrect (%)</p></th></tr></thead><tbody><tr><td align="left"><p>Amine (1°, 2°, and 3°)</p></td><td char="±" align="char"><p>26.9 ± 3.0</p></td><td char="±" align="char"><p>73.1 ± 3.0</p></td><td char="±" align="char"><p>0.0 ± 0.0</p></td></tr><tr><td align="left"><p>Carboxylic acid</p></td><td char="±" align="char"><p>100.0 ± 0.0</p></td><td char="±" align="char"><p>0.0 ± 0.0</p></td><td char="±" align="char"><p>0.0 ± 0.0</p></td></tr><tr><td align="left"><p>Phenol</p></td><td char="±" align="char"><p>33.7 ± 3.8</p></td><td char="±" align="char"><p>66.3 ± 3.8</p></td><td char="±" align="char"><p>0.0 ± 0.0</p></td></tr><tr><td align="left"><p>Benzoic acid</p></td><td char="±" align="char"><p>100.0 ± 0.0</p></td><td char="±" align="char"><p>0.0 ± 0.0</p></td><td char="±" align="char"><p>0.0 ± 0.0</p></td></tr><tr><td align="left"><p>Sulfonamide</p></td><td char="±" align="char"><p>37.1 ± 11.6</p></td><td char="±" align="char"><p>62.9 ± 11.6</p></td><td char="±" align="char"><p>0.0 ± 0.0</p></td></tr></tbody></table><table-wrap-foot><p>Mean ± standard-deviation percentages were calculated using three-fold cross validation. The pK<sub>a</sub> precision factor (<italic>n</italic>) is 1.0. Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Tables S2, S3, and S4 report similar accuracy measures for additional moieties, range<sub>pH</sub>, and <italic>n</italic></p></table-wrap-foot></table-wrap></p>
+            <p id="Par44">We evaluated each moiety using threefold cross validation. For each fold, we divided all the relevant molecules from our compound set into a training set (two thirds of all samples) and a testing set (the remaining one third of all samples). We calculated the pK<sub>a</sub> mean (µ) and standard deviation (σ) of the compounds in the training set and defined range<sub>PKA</sub> to be [µ − 1.0σ, µ + 1.0σ]. To evaluate accuracy, we calculated the percentage of testing-set compounds with correct, excess, and incorrect predicted states. This cross-validation approach was used only to evaluate our model. The published program uses range<sub>PKA</sub> values derived from all molecules.</p>
+          </sec>
+          <sec id="Sec11">
+            <title>Comparing dimorphite-DL to similar commercial programs</title>
+            <p id="Par45">Several other programs can predict small-molecule ionization states. A complete review of these programs is beyond the scope of this work. We direct interested readers to refs. [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR18">18</xref>–<xref ref-type="bibr" rid="CR20">20</xref>]. But we do wish to mention a few advantages that dimorphite-DL has over other packages.</p>
+            <p id="Par46">Dimorphite-DL is free and open source. Similar commercial programs can be expensive (e.g., Schrödinger’s Epik [<xref ref-type="bibr" rid="CR1">1</xref>, <xref ref-type="bibr" rid="CR4">4</xref>] and Jaguar; BIOVIA’s Pipeline Pilot; etc.). Not all academic researchers can afford the subscription fees, and labs that focus primarily on experimental work cannot justify so large a computational investment.</p>
+            <p id="Par47">Some programs (e.g., software by ChemAxon and OpenEye) have “free” academic licenses with concerning commercialization and intellectual-property (IP) restrictions. For example, OpenEye’s free license requires researchers to give up any IP rights and to promptly release their work to the public domain. Eligibility is also regularly reevaluated, and access may be unexpectedly and suddenly withdrawn. Many researchers are reluctant to incorporate commercial tools into existing pipelines, as they limit dissemination.</p>
+            <p id="Par48">Dimorphite-DL is well suited for preparing large compound libraries for use in VS. Unlike some other programs (e.g., ChemAxon’s Marvin [<xref ref-type="bibr" rid="CR5">5</xref>]), dimorphite-DL can process small molecules in batch. Its empirical approach also prepares large libraries quickly. The expensive quantum mechanical calculations used by some other programs (e.g., Schrödinger’s Jaguar) cannot be easily applied at scale. ARChem’s SPARC program, though capable of batch processing, also reportedly suffers from long runtimes [<xref ref-type="bibr" rid="CR5">5</xref>].</p>
+          </sec>
+          <sec id="Sec12">
+            <title>Comparing dimorphite-DL to Open Babel</title>
+            <p id="Par49">The popular cheminformatics program Open Babel [<xref ref-type="bibr" rid="CR21">21</xref>] is arguably most similar to dimorphite-DL in terms of its license and features. Like dimorphite-DL, Open Babel allows users to ionize small-molecule models as appropriate for a given pH. For each input molecule, Open Babel produces a single output molecule. In contrast, dimorphite-DL can produce multiple outputs, each with different ionization states. Open Babel and dimorphite-DL are also similar in that both are released under open-source licenses. But Open Babel is licensed under the GNU General Public License, a so-called viral license. Many who wish to incorporate an ionization module into their existing software will find this license unacceptable. In contrast, dimorphite-DL is released under the more permissive Apache License, Version 2.0.</p>
+            <p id="Par50">Open Babel ionizes small molecules per a rule-based approach similar to that of dimorphite-DL. Excluding its substructure rules specific to amino acids, Open Babel considers 14 generally applicable ionizable substructures. In contrast, dimorphite-DL considers 38 such substructures. There is a one-to-one mapping between many Open-Babel and dimorphite-DL substructure rules. Both programs recognize the same amines, hydroxamic acids, phosphate diesters, phosphonate esters, sulfinic acids, guanidines/amidines, and azides. In other cases, a single Open-Babel substructure maps to multiple dimorphite-DL substructures. For example, unlike Open Babel, dimorphite-DL distinguishes between carboxylates and phenyl carboxylates; phosphates and phosphonates; sulfates and sulfonates; and vinyl alcohols with and without conjugated ketones. Open Babel and dimorphite-DL also handle aromatic nitrogen atoms differently. Whereas Open Babel considers imidazoles and tetrazoles specifically, dimorphite-DL takes a more generalizable approach. When predicting ionization, dimorphite-DL considers only whether an uncharged aromatic nitrogen atom is protonated (e.g., 1<italic>H</italic>-pyrrole) or unprotonated (e.g., pyridine).</p>
+            <p id="Par51">Dimorphite-DL also better accounts for phosphate and phosphonate groups. These groups can exist in three ionization states (doubly deprotonated, singly deprotonated, and fully protonated). Dimorphite-DL can generate all three forms, but Open Babel generates only one of two (doubly deprotonated or fully protonated). Dimorphite-DL also generates both protonated and deprotonated azides (pK<sub>a</sub> = 4.65 [<xref ref-type="bibr" rid="CR22">22</xref>]); in contrast, Open Babel always protonates azides.</p>
+          </sec>
+        </sec>
+        <sec id="Sec13">
+          <title>Limitations</title>
+          <p id="Par52">As mentioned above, Dimorphite-DL uses an empirical approach with the advantages of speed and reasonable accuracy, but it does assign ionization states without regard for the larger intramolecular context. To understand why intramolecular effects are at times important, consider phenol (pK<sub>a</sub> of 9.99 at 25° in water [<xref ref-type="bibr" rid="CR23">23</xref>]). Adding hydrocarbon substituents to the phenyl ring increases the hydroxyl pK<sub>a</sub> (e.g., <italic>m</italic>-cresol, 4-(<italic>tert</italic>-butyl)phenol, and 2,6-di-<italic>tert</italic>-butyl-4-methyl-phenol have pK<sub>a</sub> values of 10.09 [<xref ref-type="bibr" rid="CR24">24</xref>], 10.32 [<xref ref-type="bibr" rid="CR25">25</xref>], and 12.55 [<xref ref-type="bibr" rid="CR26">26</xref>], respectively). In contrast, halide substituents tend to decrease the hydroxyl pK<sub>a</sub> (e.g., 2,3,4,5,6-pentachlorophenol, 2,4,6-trichlorophenol, 2,4-dichlorophenol, and 4-chlorophenol have pK<sub>a</sub> values of 4.79 [<xref ref-type="bibr" rid="CR27">27</xref>], 6.15 [<xref ref-type="bibr" rid="CR28">28</xref>], 7.85 [<xref ref-type="bibr" rid="CR29">29</xref>], and 9.59 [<xref ref-type="bibr" rid="CR25">25</xref>], respectively). Dimorphite-DL considers only the phenol substructure when predicting ionization states. It knows only that phenols in all their forms tend to have hydroxyl pK<sub>a</sub> values that center around 7.07, with a standard deviation of 3.28 (Table <xref rid="Tab1" ref-type="table">1</xref>).</p>
+          <p id="Par53">The same limitation applies to additional moieties that are themselves ionizable. For example, when a second ionizable hydroxyl group is added to a phenol aromatic ring, the pK<sub>a</sub> is slightly reduced (e.g., pyrocatechol, resorcinol, and hydroquinone have pK<sub>a</sub> values of 9.25 [<xref ref-type="bibr" rid="CR30">30</xref>], 9.44 [<xref ref-type="bibr" rid="CR31">31</xref>], and 9.85 [<xref ref-type="bibr" rid="CR32">32</xref>], respectively). Ionizable carboxylate groups also impact the pK<sub>a</sub> (e.g., 4-hydroxybenzoic acid and salicylic acid have hydroxyl pK<sub>a</sub> values of 9.23 [<xref ref-type="bibr" rid="CR33">33</xref>] and 13.3 [<xref ref-type="bibr" rid="CR34">34</xref>], respectively), as do ionizable sulfonate groups (e.g., 4-hydroxybenzenesulfonic acid and 3-hydroxybenzenesulfonic acid have hydroxyl pK<sub>a</sub> values of 8.7 and 9.07 [<xref ref-type="bibr" rid="CR35">35</xref>], respectively).</p>
+          <p id="Par54">Applying dimorphite-DL to salicylic acid (i.e., 2-hydroxybenzoic acid) at physiological pH (pH 6.4–8.4, default settings) illustrates the occasional pitfalls of our limited-substructure approach. Dimorphite-DL correctly recognized that protonated carboxyl groups are rare at this pH. But it incorrectly predicted that the hydroxyl group exists in both protonated and unprotonated forms. In reality, the pK<sub>a</sub> of the salicylic acid hydroxyl group is unusually high (13.3 [<xref ref-type="bibr" rid="CR34">34</xref>]), such that only the protonated hydroxyl is truly prevalent. While salicylic acid presents an admittedly extraordinary use case, we nevertheless welcome future high-throughput methods that take a more whole-molecule approach to ionization-state prediction.</p>
+          <p id="Par55">We note also that dimorphite-DL computes ionization states, but not prototropic tautomerization states [<xref ref-type="bibr" rid="CR36">36</xref>]. To clarify, ionization involves the gain or loss of a proton. Prototropic tautomerization involves intramolecular proton transfer from one atom to another. Existing open-source tools (e.g., MolVS [<xref ref-type="bibr" rid="CR37">37</xref>]) are available for modeling prototropic tautomerization. Using dimorphite-DL with these other programs will allow researchers to fully enumerate all protonation (i.e., ionization and tautomeric) states.</p>
+          <p id="Par56">These limitations aside, we expect that dimorphite-DL will be a useful tool for researchers engaged in structure-based VS. This free and open-source program for predicting small-molecule ionization states will improve VS accuracy, helping to identify novel bioactive molecules.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Authors’ contributions</title>
+          <sec>
+            <p>PJR and JDD wrote the software. JCK and SY evaluated the accuracy of the software. SY performed critical background research. JCK, SY, and JDD wrote the manuscript. All authors read and approved the final version.</p>
+          </sec>
+          <sec id="FPar1">
+            <title>Acknowledgements</title>
+            <p id="Par57">We acknowledge Jacob O. Spiegel for helpful discussions and code reviews.</p>
+          </sec>
+          <sec id="FPar2">
+            <title>Competing interests</title>
+            <p id="Par58">The authors declare that they have no competing interests.</p>
+          </sec>
+          <sec id="FPar3">
+            <title>Availability of data and materials</title>
+            <p id="Par59">Project name: Dimorphite-DL 1.0, Project home page: <ext-link xlink:href="http://durrantlab.com/dimorphite-dl/" ext-link-type="uri">http://durrantlab.com/dimorphite-dl/</ext-link>, Operating systems: macOS High Sierra, Ubuntu 18.04, and Windows 10 Home, Programming language: Python 2.7 or 3.6, Other requirements: RDKit 2016.09.2 or higher, License: Apache License, Version 2.0.</p>
+          </sec>
+          <sec id="FPar4">
+            <title>Funding</title>
+            <p id="Par60">Not applicable.</p>
+          </sec>
+          <sec id="FPar5">
+            <title>Publisher’s Note</title>
+            <p id="Par61">Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+          </sec>
+        </ack>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Shelley</surname>
+                    <given-names>JC</given-names>
+                  </name>
+                  <name>
+                    <surname>Cholleti</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Frye</surname>
+                    <given-names>LL</given-names>
+                  </name>
+                  <name>
+                    <surname>Greenwood</surname>
+                    <given-names>JR</given-names>
+                  </name>
+                  <name>
+                    <surname>Timlin</surname>
+                    <given-names>MR</given-names>
+                  </name>
+                  <name>
+                    <surname>Uchimaya</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Epik: a software program for pK(a) prediction and protonation state generation for drug-like molecules</article-title>
+                <source>J Comput Aided Mol Des</source>
+                <year>2007</year>
+                <volume>21</volume>
+                <fpage>681</fpage>
+                <lpage>691</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXhsVKrtbzP</pub-id>
+                <pub-id pub-id-type="doi">10.1007/s10822-007-9133-z</pub-id>
+                <pub-id pub-id-type="pmid">17899391</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mitra</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Shyam</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Mitra</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Miteva</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <name>
+                    <surname>Alexov</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Calculating the protonation states of proteins and small molecules: implications to ligand-receptor interactions</article-title>
+                <source>Curr Comput Aided Drug Des</source>
+                <year>2008</year>
+                <volume>4</volume>
+                <fpage>169</fpage>
+                <lpage>179</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXhtVKqt7w%3D</pub-id>
+                <pub-id pub-id-type="doi">10.2174/157340908785747393</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Petukh</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Stefl</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Alexov</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The role of protonation states in ligand-receptor recognition and binding</article-title>
+                <source>Curr Pharm Des</source>
+                <year>2013</year>
+                <volume>19</volume>
+                <fpage>4182</fpage>
+                <lpage>4190</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXpslyrt70%3D</pub-id>
+                <pub-id pub-id-type="doi">10.2174/1381612811319230004</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Greenwood</surname>
+                    <given-names>JR</given-names>
+                  </name>
+                  <name>
+                    <surname>Calkins</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Sullivan</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Shelley</surname>
+                    <given-names>JC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Towards the comprehensive, rapid, and accurate prediction of the favorable tautomeric states of drug-like molecules in aqueous solution</article-title>
+                <source>J Comput Aided Mol Des</source>
+                <year>2010</year>
+                <volume>24</volume>
+                <fpage>591</fpage>
+                <lpage>604</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXnsFGqtbo%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1007/S10822-010-9349-1</pub-id>
+                <pub-id pub-id-type="pmid">20354892</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Liao</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Nicklaus</surname>
+                    <given-names>MC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comparison of nine programs predicting pK(a) values of pharmaceutical substances</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2009</year>
+                <volume>49</volume>
+                <fpage>2801</fpage>
+                <lpage>2812</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXhsFWrsr7F</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci900289x</pub-id>
+                <pub-id pub-id-type="pmid">19961204</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rapp</surname>
+                    <given-names>CS</given-names>
+                  </name>
+                  <name>
+                    <surname>Schonbrun</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Jacobson</surname>
+                    <given-names>MP</given-names>
+                  </name>
+                  <name>
+                    <surname>Kalyanaraman</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>N</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Automated site preparation in physics-based rescoring of receptor ligand complexes</article-title>
+                <source>Proteins</source>
+                <year>2009</year>
+                <volume>77</volume>
+                <fpage>52</fpage>
+                <lpage>61</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXhtVChtLnE</pub-id>
+                <pub-id pub-id-type="doi">10.1002/prot.22415</pub-id>
+                <pub-id pub-id-type="pmid">19382204</pub-id>
+                <pub-id pub-id-type="pmcid">2744578</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Knox</surname>
+                    <given-names>AJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Meegan</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Carta</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Lloyd</surname>
+                    <given-names>DG</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Considerations in compound database preparation–”hidden” impact on virtual screening results</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2005</year>
+                <volume>45</volume>
+                <fpage>1908</fpage>
+                <lpage>1919</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXhtVyqsr%2FP</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci050185z</pub-id>
+                <pub-id pub-id-type="pmid">16309298</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Perrin</surname>
+                    <given-names>DD</given-names>
+                  </name>
+                  <name>
+                    <surname>Dempsey</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Serjeant</surname>
+                    <given-names>EP</given-names>
+                  </name>
+                </person-group>
+                <source>pKa prediction for organic acids and bases</source>
+                <year>1981</year>
+                <publisher-loc>Netherlands</publisher-loc>
+                <publisher-name>Springer</publisher-name>
+                <pub-id pub-id-type="doi">10.1007/978-94-009-5883-8</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lomas</surname>
+                    <given-names>JS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">1H NMR study of the hetero-association of unsaturated alcohols with pyridine</article-title>
+                <source>J Phys Org Chem</source>
+                <year>2012</year>
+                <volume>25</volume>
+                <fpage>620</fpage>
+                <lpage>627</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhsFOnsbbP</pub-id>
+                <pub-id pub-id-type="doi">10.1002/poc.1953</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>DeCollo</surname>
+                    <given-names>TV</given-names>
+                  </name>
+                  <name>
+                    <surname>Lees</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Effects of aromatic thiols on thiol–disulfide interchange reactions that occur during protein folding</article-title>
+                <source>JOrgChem</source>
+                <year>2001</year>
+                <volume>66</volume>
+                <fpage>4244</fpage>
+                <lpage>4249</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3MXjs1Cqsrg%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="other">Internet Bond-Energy Databank (2018). Tsinghua and Nankai Universities. <ext-link xlink:href="http://ibond.nankai.edu.cn/" ext-link-type="uri">http://ibond.nankai.edu.cn/</ext-link>. Accessed 13 Nov 2018</mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lee</surname>
+                    <given-names>AC</given-names>
+                  </name>
+                  <name>
+                    <surname>Yu</surname>
+                    <given-names>JY</given-names>
+                  </name>
+                  <name>
+                    <surname>Crippen</surname>
+                    <given-names>GM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">pKa prediction of monoprotic small molecules the SMARTS way</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2008</year>
+                <volume>48</volume>
+                <fpage>2042</fpage>
+                <lpage>2053</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXhtFygtLbO</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci8001815</pub-id>
+                <pub-id pub-id-type="pmid">18826209</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Weininger</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SMILES, a chemical language and information system. 1. Introduction to methodology and encoding rules</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1988</year>
+                <volume>28</volume>
+                <fpage>31</fpage>
+                <lpage>36</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL1cXnsVeqsA%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci00057a005</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="other">Landrum G (2018) RDKit: open-source cheminformatics. <ext-link xlink:href="http://www.rdkit.org/" ext-link-type="uri">http://www.rdkit.org/</ext-link>. Accessed 13 Nov 2018</mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="other">Daylight (2011) Daylight theory manual: SMARTS: a language for describing molecular patterns. Daylight Chemical Information Systems, Inc. <ext-link xlink:href="http://www.daylight.com/dayhtml/doc/theory/theory.smarts.html" ext-link-type="uri">http://www.daylight.com/dayhtml/doc/theory/theory.smarts.html</ext-link>. Accessed 1 Jan 2019</mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wishart</surname>
+                    <given-names>DS</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">DrugBank: a comprehensive resource for in silico drug discovery and exploration</article-title>
+                <source>Nucl Acids Res</source>
+                <year>2006</year>
+                <volume>34</volume>
+                <fpage>D668</fpage>
+                <lpage>D672</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XisFOrsw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkj067</pub-id>
+                <pub-id pub-id-type="pmid">16381955</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Buyan</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Sun</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Corry</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Protonation state of inhibitors determines interaction sites within voltage-gated sodium channels</article-title>
+                <source>Proc Natl Acad Sci U S A</source>
+                <year>2018</year>
+                <volume>115</volume>
+                <fpage>E3135</fpage>
+                <lpage>E3144</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXht1Chtr%2FO</pub-id>
+                <pub-id pub-id-type="doi">10.1073/pnas.1714131115</pub-id>
+                <pub-id pub-id-type="pmid">29467289</pub-id>
+                <pub-id pub-id-type="pmcid">5889629</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Dardonville</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Automated techniques in pKa determination: low, medium and high-throughput screening methods</article-title>
+                <source>Drug Discov Today Technol</source>
+                <year>2018</year>
+                <volume>27</volume>
+                <fpage>49</fpage>
+                <lpage>58</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.ddtec.2018.04.001</pub-id>
+                <pub-id pub-id-type="pmid">30103863</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Shields</surname>
+                    <given-names>GC</given-names>
+                  </name>
+                  <name>
+                    <surname>Seybold</surname>
+                    <given-names>PG</given-names>
+                  </name>
+                </person-group>
+                <source>Computational approaches for the prediction of pKa values</source>
+                <year>2013</year>
+                <publisher-loc>Boca Raton</publisher-loc>
+                <publisher-name>CRC Press</publisher-name>
+                <pub-id pub-id-type="doi">10.1201/b16128</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Balogh</surname>
+                    <given-names>GT</given-names>
+                  </name>
+                  <name>
+                    <surname>Tarcsay</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Keseru</surname>
+                    <given-names>GM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comparative evaluation of pK(a) prediction tools on a drug discovery dataset</article-title>
+                <source>J Pharm Biomed Anal</source>
+                <year>2012</year>
+                <volume>67–68</volume>
+                <fpage>63</fpage>
+                <lpage>70</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XosVait7c%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.jpba.2012.04.021</pub-id>
+                <pub-id pub-id-type="pmid">22633838</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>O’Boyle</surname>
+                    <given-names>NM</given-names>
+                  </name>
+                  <name>
+                    <surname>Banck</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>James</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <name>
+                    <surname>Morley</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Vandermeersch</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Open Babel: an open chemical toolbox</article-title>
+                <source>J Cheminform</source>
+                <year>2011</year>
+                <volume>3</volume>
+                <fpage>33</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhsVWjurbF</pub-id>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-3-33</pub-id>
+                <pub-id pub-id-type="pmid">21982300</pub-id>
+                <pub-id pub-id-type="pmcid">3198950</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Betterton</surname>
+                    <given-names>EA</given-names>
+                  </name>
+                  <name>
+                    <surname>Craig</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Kinetics and mechanism of the reaction of azide with ozone in aqueous solution</article-title>
+                <source>J Air Waste Manag Assoc</source>
+                <year>1999</year>
+                <volume>49</volume>
+                <fpage>1347</fpage>
+                <lpage>1354</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK1MXotV2js7k%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1080/10473289.1999.10463958</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bouchard</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Carrupt</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                  <name>
+                    <surname>Testa</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Gobry</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Girault</surname>
+                    <given-names>HH</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Lipophilicity and solvation of anionic drugs</article-title>
+                <source>Chemistry</source>
+                <year>2002</year>
+                <volume>8</volume>
+                <fpage>3478</fpage>
+                <lpage>3484</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38Xmt1aqsbk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/1521-3765(20020802)8:15&lt;3478::AID-CHEM3478>3.0.CO;2-U</pub-id>
+                <pub-id pub-id-type="pmid">12203328</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Biggs</surname>
+                    <given-names>AI</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The ionization constants of phenol and of some substituted phenols</article-title>
+                <source>Trans Faraday Soc</source>
+                <year>1956</year>
+                <volume>52</volume>
+                <fpage>35</fpage>
+                <lpage>39</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaG28Xmslyksw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1039/tf9565200035</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lugo-Gonzalez</surname>
+                    <given-names>JC</given-names>
+                  </name>
+                  <name>
+                    <surname>Gomez-Tagle</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>XM</given-names>
+                  </name>
+                  <name>
+                    <surname>del Campo</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                  <name>
+                    <surname>Yatsimirsky</surname>
+                    <given-names>AK</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Substrate specificity and leaving group effect in ester cleavage by metal complexes of an oximate nucleophile</article-title>
+                <source>InorgChem</source>
+                <year>2017</year>
+                <volume>56</volume>
+                <fpage>2060</fpage>
+                <lpage>2069</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXit1Wks7g%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.inorgchem.6b02739</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ohmori</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Ueda</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Nakagawa</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Nishiguchi</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Jeong</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Masui</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Unsymmetrical anodic C–C coupling of 2,6-Di-tert-butyl-4-methylphenol</article-title>
+                <source>Chem Pharm Bull</source>
+                <year>1986</year>
+                <volume>34</volume>
+                <fpage>508</fpage>
+                <lpage>515</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL2sXhslKruw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1248/cpb.34.508</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cevasco</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Thea</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The dissociative route in the alkaline hydrolysis of aryl 4-hydroxy-beta-styrenesulfonates</article-title>
+                <source>J Org Chem</source>
+                <year>1998</year>
+                <volume>63</volume>
+                <fpage>2125</fpage>
+                <lpage>2129</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK1cXhs12ktL0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jo971508w</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lente</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Espenson</surname>
+                    <given-names>JH</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Unusual kinetic role of a water-soluble iron (III) porphyrin catalyst in the oxidation of 2, 4, 6-trichlorophenol by hydrogen peroxide</article-title>
+                <source>Int J Chem Kinet</source>
+                <year>2004</year>
+                <volume>36</volume>
+                <fpage>449</fpage>
+                <lpage>455</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXlvFWmtLg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/kin.20018</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mock</surname>
+                    <given-names>WL</given-names>
+                  </name>
+                  <name>
+                    <surname>Morsch</surname>
+                    <given-names>LA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Low barrier hydrogen bonds within salicylate mono-anions</article-title>
+                <source>Tetrahedron</source>
+                <year>2001</year>
+                <volume>57</volume>
+                <fpage>2957</fpage>
+                <lpage>2964</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3MXisl2iurw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/S0040-4020(01)00158-2</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sever</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilker</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Absorption spectroscopy and binding constants for first-row transition metal complexes of a DOPA-containing peptide</article-title>
+                <source>Dalton Trans</source>
+                <year>2006</year>
+                <volume>6</volume>
+                <fpage>813</fpage>
+                <lpage>822</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XnsFSitQ%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1039/b509586g</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sanyal</surname>
+                    <given-names>SK</given-names>
+                  </name>
+                  <name>
+                    <surname>Mandal</surname>
+                    <given-names>SK</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Diffusion of phenols and benzyl alcohol through porous (G-4) diaphragm</article-title>
+                <source>Indian J Chem Sect A Inorg Bio-inorg Phys Theor Anal Chem</source>
+                <year>1985</year>
+                <volume>24</volume>
+                <fpage>603</fpage>
+                <lpage>604</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Baxendale</surname>
+                    <given-names>JH</given-names>
+                  </name>
+                  <name>
+                    <surname>Hardy</surname>
+                    <given-names>HR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The ionization constants of some hydroquinones</article-title>
+                <source>Trans Faraday Soc</source>
+                <year>1953</year>
+                <volume>49</volume>
+                <fpage>1140</fpage>
+                <lpage>1144</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaG2cXjvVShuw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1039/tf9534901140</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lugo-Gonzalez</surname>
+                    <given-names>JC</given-names>
+                  </name>
+                  <name>
+                    <surname>Gomez-Tagle</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>del Campo</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                  <name>
+                    <surname>Yatsimirsky</surname>
+                    <given-names>AK</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Substrate specificity and leaving group effect in ester cleavage by metal complexes of an oximate nucleophile</article-title>
+                <source>Inorg Chem</source>
+                <year>2017</year>
+                <volume>56</volume>
+                <fpage>2060</fpage>
+                <lpage>2069</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXit1Wks7g%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.inorgchem.6b02739</pub-id>
+                <pub-id pub-id-type="pmid">28170234</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Dhat</surname>
+                    <given-names>CR</given-names>
+                  </name>
+                  <name>
+                    <surname>Jahagirdar</surname>
+                    <given-names>DV</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Copper (II) chelates of substituted salicylic acids—a thermodynamic study</article-title>
+                <source>Indian J Chem Sect A Inorg Bio-inorg Phys Theor Anal Chem</source>
+                <year>1982</year>
+                <volume>21</volume>
+                <fpage>792</fpage>
+                <lpage>795</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zollinger</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Büchler</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Wittwer</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Wirkung der Sulfosäuregruppe auf aromatische Systeme: Hammett’s σ-Werte des SO<sub>3</sub><sup>−</sup>-Substituenten</article-title>
+                <source>Helv Chim Acta</source>
+                <year>1953</year>
+                <volume>36</volume>
+                <fpage>1711</fpage>
+                <lpage>1722</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaG2cXksVyksw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/hlca.19530360705</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>McNaught</surname>
+                    <given-names>AD</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilkinson</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Tautomerism</article-title>
+                <source>Compendium of chemical terminology, gold book</source>
+                <year>1997</year>
+                <edition>2</edition>
+                <publisher-loc>Research Triangle Park, North Carolina</publisher-loc>
+                <publisher-name>International Union of Pure and Applied Chemistry</publisher-name>
+                <fpage>1513</fpage>
+                <lpage>1515</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="other">Swain M (2018) MolVS: molecule validation and standardization. <ext-link xlink:href="https://github.com/mcs07/MolVS" ext-link-type="uri">https://github.com/mcs07/MolVS</ext-link>. Accessed 31 Dec 2018</mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec14">
+              <title>Additional file</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Additional file">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2019_336_MOESM1_ESM.docx" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0336-9" ext-link-type="uri">Additional file 1.</ext-link> Supplementary discussion and tables.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+          </app>
+        </app-group>
+      </back>
+    </article>

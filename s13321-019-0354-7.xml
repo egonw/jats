@@ -1,0 +1,2427 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0354-7</article-id>
+          <article-id pub-id-type="manuscript">354</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0354-7</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Bayesian optimization for conformer generation</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" id="Au1">
+              <name>
+                <surname>Chan</surname>
+                <given-names>Lucian</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au2">
+              <name>
+                <surname>Hutchison</surname>
+                <given-names>Geoffrey R.</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+              <xref ref-type="corresp" rid="IDs1332101903547_cor2">b</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au3">
+              <name>
+                <surname>Morris</surname>
+                <given-names>Garrett M.</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 1936 8948</institution-id>
+                <institution-id institution-id-type="GRID">grid.4991.5</institution-id>
+                <institution content-type="org-division">Department of Statistics</institution>
+                <institution content-type="org-name">University of Oxford</institution>
+              </institution-wrap>
+              <addr-line content-type="street">24-29 St Giles’</addr-line>
+              <addr-line content-type="postcode">OX1 3LB</addr-line>
+              <addr-line content-type="city">Oxford</addr-line>
+              <country country="GB">UK</country>
+            </aff>
+            <aff id="Aff2">
+              <label>2</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 1936 9000</institution-id>
+                <institution-id institution-id-type="GRID">grid.21925.3d</institution-id>
+                <institution content-type="org-division">Department of Chemistry and Chemical Engineering</institution>
+                <institution content-type="org-name">University of Pittsburgh</institution>
+              </institution-wrap>
+              <addr-line content-type="street">219 Parkman Avenue</addr-line>
+              <addr-line content-type="postcode">15260</addr-line>
+              <addr-line content-type="city">Pittsburgh</addr-line>
+              <addr-line content-type="state">PA</addr-line>
+              <country country="US">USA</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs1332101903547_cor2">
+              <label>b</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>21</day>
+            <month>5</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="32">1</issue>
+          <elocation-id>32</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>4</day>
+              <month>5</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>19</day>
+              <month>10</month>
+              <year>2018</year>
+            </date>
+            <date date-type="accepted">
+              <day>4</day>
+              <month>5</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>21</day>
+              <month>5</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">Generating low-energy molecular conformers is a key task for many areas of computational chemistry, molecular modeling and cheminformatics. Most current conformer generation methods primarily focus on generating geometrically diverse conformers rather than finding the most probable or energetically lowest minima. Here, we present a new stochastic search method called the Bayesian optimization algorithm (BOA) for finding the lowest energy conformation of a given molecule. We compare BOA with uniform random search, and systematic search as implemented in Confab, to determine which method finds the lowest energy. Energetic difference, root-mean-square deviation, and torsion fingerprint deviation are used to quantify the performance of the conformer search algorithms. In general, we find BOA requires far fewer evaluations than systematic or uniform random search to find low-energy minima. For molecules with four or more rotatable bonds, Confab typically evaluates <inline-formula id="IEq1"><alternatives><mml:math id="IEq1_Math"><mml:msup><mml:mn>10</mml:mn><mml:mn>4</mml:mn></mml:msup></mml:math><tex-math id="IEq1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$10^{4}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq1.gif" /></alternatives></inline-formula> (median) conformers in its search, while BOA only requires <inline-formula id="IEq2"><alternatives><mml:math id="IEq2_Math"><mml:msup><mml:mn>10</mml:mn><mml:mn>2</mml:mn></mml:msup></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$10^{2}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq2.gif" /></alternatives></inline-formula> energy evaluations to find top candidates. Despite using evaluating fewer conformers, 20–40% of the time BOA finds lower-energy conformations than a systematic Confab search for molecules with four or more rotatable bonds.</p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Bayesian optimization</kwd>
+            <kwd>Gaussian processes</kwd>
+            <kwd>Conformer generation</kwd>
+            <kwd>Rotatable bond</kwd>
+            <kwd>Torsion angle</kwd>
+            <kwd>Conformational space</kwd>
+            <kwd>Molecular energetics</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>National Science Foundation</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/501100008982</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">CHE-1800435</award-id>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Engineering and Physical Sciences Research Council</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/501100000266</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">EP/L016044/1</award-id>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>5</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>4</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_354.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (<ext-link xlink:href="10.1186/s13321-019-0354-7" ext-link-type="doi">https://doi.org/10.1186/s13321-019-0354-7</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Background</title>
+          <p id="Par9">Most small molecules are flexible and can adopt multiple energetically-accessible conformations. Even in medium-sized molecules, e.g. molecules with six or more rotatable bonds, there may be thousands or millions of possibilities. The multi-dimensional energy landscape and presence of huge numbers of local minima make finding low-energy conformations to be one of the key challenges in molecular modeling and cheminformatics [<xref ref-type="bibr" rid="CR1">1</xref>–<xref ref-type="bibr" rid="CR3">3</xref>].</p>
+          <p id="Par10">A variety of tools have been developed to generate conformers, including BALLOON [<xref ref-type="bibr" rid="CR4">4</xref>, <xref ref-type="bibr" rid="CR5">5</xref>], Confab [<xref ref-type="bibr" rid="CR6">6</xref>], FROG2 [<xref ref-type="bibr" rid="CR7">7</xref>], MOE [<xref ref-type="bibr" rid="CR8">8</xref>], OMEGA [<xref ref-type="bibr" rid="CR9">9</xref>] and RDKit [<xref ref-type="bibr" rid="CR10">10</xref>]. The search algorithms implemented in these tools can be broadly classified as either systematic or stochastic. A systematic method deterministically enumerates all of the allowed torsion angles for each rotatable bond in the molecule, and always outputs the same conformer with the lowest energy. This approach is restricted to molecules with a small number of rotatable bonds because of the combinatorial explosion of states as more search dimensions are added. Stochastic methods such as Monte Carlo simulated annealing [<xref ref-type="bibr" rid="CR11">11</xref>, <xref ref-type="bibr" rid="CR12">12</xref>], distance geometry [<xref ref-type="bibr" rid="CR13">13</xref>] and genetic algorithms [<xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR15">15</xref>], sample random values for the torsion angles, sometimes restricted to predefined ranges. Since the method is dependent on random numbers, the output conformation may vary, but they permit problems with higher dimensions to be handled.</p>
+          <p id="Par11">Knowledge-based methods (e.g. [<xref ref-type="bibr" rid="CR16">16</xref>, <xref ref-type="bibr" rid="CR17">17</xref>]) use predefined libraries (e.g. [<xref ref-type="bibr" rid="CR18">18</xref>]) for torsion angles and ring conformations, and these libraries are typically created from experimentally determined structures in databases such as the Cambridge Structural Database (CSD) [<xref ref-type="bibr" rid="CR19">19</xref>] or the Protein Data Bank (PDB) [<xref ref-type="bibr" rid="CR20">20</xref>].</p>
+          <p id="Par12">Knowledge-based methods are usually combined with different search algorithms mentioned before. For example, Experimental-Torsion Distance Geometry with basic Knowledge (ETKDG) [<xref ref-type="bibr" rid="CR21">21</xref>] is a relatively recent algorithm implemented in RDKit that combines knowledge about preferred torsion angles with distance geometry to produce more realistic conformations.</p>
+          <p id="Par13">These algorithms primarily focus on generating geometrically diverse, low-energy conformers, which are important to many applications including structure-based virtual screening, pharmacophore modeling, and generating 3D quantitative structure-activity relationships (QSAR). In this paper, we mainly focus on finding the lowest-energy conformation of a molecule instead of achieving geometric diversity. The energy landscape is effectively unknown a priori, without exhaustive—and sometimes expensive—energy evaluation. Therefore, intelligent search strategies are needed to find the lowest energy state, and its associated conformation, in the shortest time possible. Most methods perform well if the number of rotatable bonds is small, typically four or fewer. The combinatorial explosion that arises with more flexible molecules, however, makes finding this global optimum increasingly more challenging.</p>
+          <p id="Par14">We present a new approach to solve this difficult search problem, namely the Bayesian optimization algorithm, or BOA. This technique learns the most likely dihedral angles for an arbitrary molecule by ‘intelligently’ sampling new conformers from the multi-dimensional potential energy surface, regardless of the energy function used.</p>
+        </sec>
+        <sec id="Sec2">
+          <title>Bayesian optimization</title>
+          <p id="Par15">The Bayesian optimization algorithm (BOA) is a particularly effective strategy to find the optimum value of objective functions that are expensive to evaluate, for instance tuning hyperparameters in machine learning models [<xref ref-type="bibr" rid="CR22">22</xref>] and combinatorial optimization [<xref ref-type="bibr" rid="CR23">23</xref>, <xref ref-type="bibr" rid="CR24">24</xref>]. BOA is applicable in situations where we do not have a closed-form expression of the objective function, but we are able to obtain observations (possibly noisy) of this function at specifically sampled values. It is particularly useful when the objective is non-convex or derivatives are not available. Moreover, BOA allows one to incorporate prior beliefs about solutions to the problem (e.g. expected dihedral angles). Accurate priors can speed a search by directing to most likely configurations. Bayesian optimization algorithm has been applied successfully in different areas in chemistry, for instance material design [<xref ref-type="bibr" rid="CR25">25</xref>–<xref ref-type="bibr" rid="CR27">27</xref>] and high-throughput virtual screening [<xref ref-type="bibr" rid="CR28">28</xref>].</p>
+          <p id="Par16">The general idea of BOA is to construct an approximate surrogate model of the objective function, <italic>f</italic>(<italic>x</italic>), and then exploit the model to make decisions about the next points for evaluation. Different acquisition strategies can favor exploration of the parameter space (i.e. to find more diverse conformers) or exploitation (i.e. to find local optima). BOA uses all of the information available from previous evaluations of <italic>f</italic>(<italic>x</italic>) and hence results in a procedure that can find the optimum value of a non-convex function with a relatively small number of evaluations. The general procedure of BOA is shown in Algorithm 1.</p>
+          <fig id="Figa" position="anchor">
+            <graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_354_Figa_HTML.png" position="anchor" />
+          </fig>
+          <p id="Par17">There are two major choices that must be made in the optimization procedure, namely the prior over the functions, and the acquisition function. The prior expresses assumptions or gives information about the function being optimized, while the acquisition function is used to determine the next most favorable point for evaluation, most likely to reduce uncertainty in the function’s possible values. In this section, we briefly review the general Bayesian optimization algorithm, before discussing our application to optimize conformer geometry. For an overview of the Bayesian optimization formalism and a review of previous work, see Brochu et al. [<xref ref-type="bibr" rid="CR29">29</xref>] and Shahriari et al. [<xref ref-type="bibr" rid="CR23">23</xref>].</p>
+          <sec id="Sec3">
+            <title>Bayesian optimization with Gaussian process priors</title>
+            <p id="Par18">Different probabilistic models can be used in Bayesian optimization algorithm, for instance Gaussian process (GP) [<xref ref-type="bibr" rid="CR30">30</xref>], random forests [<xref ref-type="bibr" rid="CR24">24</xref>], or Student-<italic>t</italic> processes [<xref ref-type="bibr" rid="CR31">31</xref>]. Gaussian processes are the default choice because of their flexibility and tractability. A GP is a stochastic process for which any finite combination of random variables follow a multivariate Gaussian distribution and its properties are determined by a mean function and a positive definite covariance function. The properties of the Gaussian distribution allow us to compute marginals and conditionals in a closed form [<xref ref-type="bibr" rid="CR32">32</xref>].</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Covariance function</title>
+            <p id="Par19">The choice of covariance function for the Gaussian process is crucial as it determines the smoothness properties of the samples. Commonly used kernels include the squared-exponential, also known as the radial basis function or RBF kernel, <inline-formula id="IEq3"><alternatives><mml:math id="IEq3_Math"><mml:msub><mml:mi>k</mml:mi><mml:mrow><mml:mi mathvariant="italic">SE</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k_{SE}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq3.gif" /></alternatives></inline-formula>; and the periodic kernel, <inline-formula id="IEq4"><alternatives><mml:math id="IEq4_Math"><mml:msub><mml:mi>k</mml:mi><mml:mrow><mml:mi mathvariant="italic">PER</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq4_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k_{PER}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq4.gif" /></alternatives></inline-formula>, as shown in Eqs. <xref rid="Equ1" ref-type="disp-formula">2</xref> and <xref rid="Equ2" ref-type="disp-formula">3</xref>:<disp-formula id="Equ1"><label>2</label><alternatives><mml:math display="block" id="Equ1_Math"><mml:mrow><mml:msub><mml:mi>k</mml:mi><mml:mrow><mml:mi mathvariant="italic">SE</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:mi>y</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:msup><mml:mi>σ</mml:mi><mml:mn>2</mml:mn></mml:msup><mml:mo>exp</mml:mo><mml:mfenced close=")" open="(" separators=""><mml:mfrac><mml:msup><mml:mrow><mml:mo>-</mml:mo><mml:mo stretchy="false">|</mml:mo><mml:mi>x</mml:mi><mml:mo>-</mml:mo><mml:mi>y</mml:mi><mml:mo stretchy="false">|</mml:mo></mml:mrow><mml:mn>2</mml:mn></mml:msup><mml:mrow><mml:mn>2</mml:mn><mml:msup><mml:mi>l</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:mfrac></mml:mfenced></mml:mrow></mml:math><tex-math id="Equ1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k_{SE}(x,y) = \sigma ^{2}\exp \left( \frac{-|x-y|^{2}}{2l^{2}}\right)$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_354_Article_Equ1.gif" /></alternatives></disp-formula><disp-formula id="Equ2"><label>3</label><alternatives><mml:math display="block" id="Equ2_Math"><mml:mrow><mml:msub><mml:mi>k</mml:mi><mml:mrow><mml:mi mathvariant="italic">PER</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:mi>y</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:msup><mml:mi>σ</mml:mi><mml:mn>2</mml:mn></mml:msup><mml:mo>exp</mml:mo><mml:mfenced close=")" open="(" separators=""><mml:mfrac><mml:mrow><mml:mo>-</mml:mo><mml:mn>2</mml:mn><mml:msup><mml:mo>sin</mml:mo><mml:mn>2</mml:mn></mml:msup><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>π</mml:mi><mml:mo stretchy="false">|</mml:mo><mml:mi>x</mml:mi><mml:mo>-</mml:mo><mml:mi>y</mml:mi><mml:mo stretchy="false">|</mml:mo><mml:mo stretchy="false">/</mml:mo><mml:mi>p</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow><mml:msup><mml:mi>l</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mfrac></mml:mfenced></mml:mrow></mml:math><tex-math id="Equ2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k_{PER}(x,y) = \sigma ^{2}\exp \left( \frac{-2\sin ^{2}(\pi |x-y|/p)}{l^2}\right)$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_354_Article_Equ2.gif" /></alternatives></disp-formula>where <italic>l</italic>, <italic>p</italic>, and <inline-formula id="IEq5"><alternatives><mml:math id="IEq5_Math"><mml:msup><mml:mi>σ</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:math><tex-math id="IEq5_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sigma ^{2}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq5.gif" /></alternatives></inline-formula> are the length scale, period, and variance respectively.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Acquisition function</title>
+            <p id="Par20">Acquisition functions help determine which points in the search space should be evaluated, ideally providing information on the optimum value of <italic>f</italic>. A good acquisition function has to balance <italic>exploration</italic> against <italic>exploitation</italic>, with the trade-off based on the estimated uncertainty from a GP model. Exploration in this context involves seeking locations with high posterior variance (i.e., sampling uncertain areas), while exploitation focuses on seeking locations with low posterior mean (i.e., finding a local optimum). Three acquisition functions are commonly used, namely: probability of improvement (PI), expected improvement (EI), and GP lower confidence bound (GP-LCB), as shown in Eqs. <xref rid="Equ3" ref-type="disp-formula">4</xref>, <xref rid="Equ4" ref-type="disp-formula">5</xref>, and <xref rid="Equ5" ref-type="disp-formula">6</xref>. The GP-LCB is also sometimes referred as upper confidence bound (UCB), when the optimization involves function maximization rather than minimization [<xref ref-type="bibr" rid="CR29">29</xref>].<disp-formula id="Equ3"><label>4</label><alternatives><mml:math display="block" id="Equ3_Math"><mml:mrow><mml:mtable><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mtext>PI</mml:mtext><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mi mathvariant="normal">Φ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>z</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math><tex-math id="Equ3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \text {PI}(x) = \Phi (z(x)) \end{aligned}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_354_Article_Equ3.gif" /></alternatives></disp-formula><disp-formula id="Equ4"><label>5</label><alternatives><mml:math display="block" id="Equ4_Math"><mml:mrow><mml:mtable><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mtext>EI</mml:mtext><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mi>σ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo stretchy="false">(</mml:mo><mml:mi>z</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mi mathvariant="normal">Φ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>z</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo stretchy="false">)</mml:mo><mml:mo>+</mml:mo><mml:mi>ϕ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>z</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math><tex-math id="Equ4_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \text {EI}(x) = \sigma (x)(z(x)\Phi (z(x)) + \phi (z(x)) \end{aligned}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_354_Article_Equ4.gif" /></alternatives></disp-formula><disp-formula id="Equ5"><label>6</label><alternatives><mml:math display="block" id="Equ5_Math"><mml:mrow><mml:mtable><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mtext>GP-LCB</mml:mtext><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mi>μ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>-</mml:mo><mml:mi>κ</mml:mi><mml:mi>σ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math><tex-math id="Equ5_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \text {GP-LCB}(x) = \mu (x) - \kappa \sigma (x) \end{aligned}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_354_Article_Equ5.gif" /></alternatives></disp-formula>Here, <inline-formula id="IEq6"><alternatives><mml:math id="IEq6_Math"><mml:mrow><mml:mi>z</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mi>f</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mrow><mml:mi mathvariant="italic">best</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>-</mml:mo><mml:mi>μ</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow><mml:mrow><mml:mi>σ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mfrac></mml:mrow></mml:math><tex-math id="IEq6_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$z(x) = \frac{f(x_{best})-\mu (x)}{\sigma (x)}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq6.gif" /></alternatives></inline-formula>, where <inline-formula id="IEq7"><alternatives><mml:math id="IEq7_Math"><mml:msub><mml:mi>x</mml:mi><mml:mrow><mml:mi mathvariant="italic">best</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq7_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$x_{best}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq7.gif" /></alternatives></inline-formula>, <inline-formula id="IEq8"><alternatives><mml:math id="IEq8_Math"><mml:mrow><mml:mi>μ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><tex-math id="IEq8_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mu (x)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq8.gif" /></alternatives></inline-formula> and <inline-formula id="IEq9"><alternatives><mml:math id="IEq9_Math"><mml:mrow><mml:msup><mml:mi>σ</mml:mi><mml:mn>2</mml:mn></mml:msup><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:math><tex-math id="IEq9_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sigma ^{2}(x)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq9.gif" /></alternatives></inline-formula> are the best current value (i.e. <inline-formula id="IEq10"><alternatives><mml:math id="IEq10_Math"><mml:mrow><mml:msub><mml:mrow><mml:mspace width="0.166667em" /><mml:mrow><mml:mi mathvariant="normal">arg</mml:mi><mml:mspace width="0.166667em" /><mml:mi mathvariant="normal">min</mml:mi></mml:mrow><mml:mspace width="0.166667em" /></mml:mrow><mml:mi>x</mml:mi></mml:msub><mml:mi>f</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:math><tex-math id="IEq10_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${{\,\mathrm{arg\,min}\,}}_{x} f(x)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq10.gif" /></alternatives></inline-formula>), predictive mean and predictive variance respectively; while <inline-formula id="IEq11"><alternatives><mml:math id="IEq11_Math"><mml:mrow><mml:mi mathvariant="normal">Φ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><tex-math id="IEq11_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi (\cdot )$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq11.gif" /></alternatives></inline-formula>, <inline-formula id="IEq12"><alternatives><mml:math id="IEq12_Math"><mml:mrow><mml:mi>ϕ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><tex-math id="IEq12_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\phi (\cdot )$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq12.gif" /></alternatives></inline-formula> are the cumulative distribution function, probability density function respectively. <inline-formula id="IEq13"><alternatives><mml:math id="IEq13_Math"><mml:mi>κ</mml:mi></mml:math><tex-math id="IEq13_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\kappa$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq13.gif" /></alternatives></inline-formula> is a parameter that balances exploration against exploitation.</p>
+          </sec>
+        </sec>
+        <sec id="Sec6" sec-type="methods">
+          <title>Methods</title>
+          <sec id="Sec7">
+            <title>Implementation</title>
+            <p id="Par21">We compared four conformational search algorithms: one systematic method as implemented by Confab [<xref ref-type="bibr" rid="CR6">6</xref>] in Open Babel [<xref ref-type="bibr" rid="CR33">33</xref>] (“Confab”); and three stochastic search methods: uniform random search (“Uniform”), plus two variants of Bayesian optimization algorithm (“BOA”) each with different acquisition functions: BOA with expected improvement (“EI”), and BOA with Gaussian process lower confidence bound (“LCB”). We used the Python package, GPyOpt, [<xref ref-type="bibr" rid="CR34">34</xref>] for the Bayesian optimization algorithm variants and numpy [<xref ref-type="bibr" rid="CR35">35</xref>] to generate random numbers between 0 and <inline-formula id="IEq14"><alternatives><mml:math id="IEq14_Math"><mml:mrow><mml:mn>2</mml:mn><mml:mi>π</mml:mi></mml:mrow></mml:math><tex-math id="IEq14_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$2\pi$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq14.gif" /></alternatives></inline-formula> for the uniform search. Pybel [<xref ref-type="bibr" rid="CR36">36</xref>] was used to drive the torsion angles of the molecules for both uniform random search and BOA. We should note that the molecule’s bond lengths, bond angles, and ring systems remain unchanged throughout the search. Moreover, it is possible to sample torsion angles that generate steric clashes in the stochastic search, and it will return high energies.</p>
+            <p id="Par22">All methods explored the same search space for each molecule, as determined by the set of freely-rotatable bonds in each. The search space of the algorithms was thus defined by a hypercube <inline-formula id="IEq15"><alternatives><mml:math id="IEq15_Math"><mml:msup><mml:mrow><mml:mo stretchy="false">[</mml:mo><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mn>2</mml:mn><mml:mi>π</mml:mi><mml:mo stretchy="false">]</mml:mo></mml:mrow><mml:mi>d</mml:mi></mml:msup></mml:math><tex-math id="IEq15_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$[0,2\pi ]^{d}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq15.gif" /></alternatives></inline-formula>, where <italic>d</italic> is the number of rotatable bonds in the molecule.</p>
+            <p id="Par23">In order to compare all of the search algorithms fairly, we used the same number of iterations, <italic>K</italic> (i.e. number of conformers explored), for all of the stochastic search methods, i.e. uniform random search and BOA. We used <inline-formula id="IEq16"><alternatives><mml:math id="IEq16_Math"><mml:mrow><mml:mi>K</mml:mi><mml:mo>=</mml:mo><mml:mn>50</mml:mn></mml:mrow></mml:math><tex-math id="IEq16_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$K=50$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq16.gif" /></alternatives></inline-formula> for molecules with three or fewer rotatable bonds, and <inline-formula id="IEq17"><alternatives><mml:math id="IEq17_Math"><mml:mrow><mml:mi>K</mml:mi><mml:mo>=</mml:mo><mml:mn>100</mml:mn></mml:mrow></mml:math><tex-math id="IEq17_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$K=100$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq17.gif" /></alternatives></inline-formula> otherwise. Note that by the nature of the algorithm, BOA needs initial observations of the energy landscape in order to fit a Gaussian process. For each molecule, five observations were obtained by randomly sampling the conformational space at the beginning of the search. Hence only (<inline-formula id="IEq18"><alternatives><mml:math id="IEq18_Math"><mml:mrow><mml:mi>K</mml:mi><mml:mo>-</mml:mo><mml:mn>5</mml:mn></mml:mrow></mml:math><tex-math id="IEq18_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$K-5$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq18.gif" /></alternatives></inline-formula>) conformers were evaluated after initial random sampling in BOA.</p>
+            <p id="Par24">An energy cutoff of 500 kcal/mol was used in Confab, with up to one million conformers and a root mean square deviation clustering threshold of <inline-formula id="IEq19"><alternatives><mml:math id="IEq19_Math"><mml:mrow><mml:mn>0.05</mml:mn><mml:mspace width="0.277778em" /><mml:mi mathvariant="normal">Å</mml:mi></mml:mrow></mml:math><tex-math id="IEq19_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$0.05\; { \AA }$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq19.gif" /></alternatives></inline-formula>; all other Confab parameters were left as their default values. The RMSD cutoff of <inline-formula id="IEq20"><alternatives><mml:math id="IEq20_Math"><mml:mrow><mml:mn>0.05</mml:mn><mml:mspace width="0.277778em" /><mml:mi mathvariant="normal">Å</mml:mi></mml:mrow></mml:math><tex-math id="IEq20_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$0.05\; { \AA }$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq20.gif" /></alternatives></inline-formula> was used so as to eliminate duplicate conformers with identical geometry to existing conformers. Note that only one compound (cochliodinol, a molecule with six rotatable bonds) would have generated more than one million conformers (1,327,104).</p>
+          </sec>
+          <sec id="Sec8">
+            <title>Search duration</title>
+            <p id="Par25">In order to understand how many energy evaluations are required to recover a better conformation or achieve high recovery rate, we investigated the effect of doubling the maximum number of energy evaluations, i.e. <inline-formula id="IEq21"><alternatives><mml:math id="IEq21_Math"><mml:mrow><mml:mi>K</mml:mi><mml:mo>=</mml:mo><mml:mn>200</mml:mn></mml:mrow></mml:math><tex-math id="IEq21_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$K = 200$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq21.gif" /></alternatives></inline-formula>, in BOA search for the set of molecules with five rotatable bonds, and repeated the experiment four times for each molecule in the set.</p>
+          </sec>
+          <sec id="Sec9">
+            <title>Torsion angle potentials and kernel</title>
+            <p id="Par26">For each method, the torsion angles of all possible rotatable bonds in the molecule were used as model input variables and ranged from 0 to <inline-formula id="IEq22"><alternatives><mml:math id="IEq22_Math"><mml:mrow><mml:mn>2</mml:mn><mml:mi>π</mml:mi></mml:mrow></mml:math><tex-math id="IEq22_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$2\pi$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq22.gif" /></alternatives></inline-formula>. Torsion angle preferences have previously been derived by Guba et al. [<xref ref-type="bibr" rid="CR18">18</xref>] from commonly-occurring types of rotatable bonds observed in small molecule and protein-ligand X-ray crystal structures. We incorporated this prior knowledge into our Bayesian optimization algorithm using appropriately chosen kernels.</p>
+            <p id="Par27">Specifically, we used a locally periodic kernel, i.e. a product of a periodic kernel and a squared exponential kernel. This allowed us to model torsional potentials with varying amplitudes as well as different local minima and maxima [<xref ref-type="bibr" rid="CR37">37</xref>]. We derived the periodicity parameters for our kernels from the torsion potentials corresponding to 364 rotatable bond SMARTS patterns [<xref ref-type="bibr" rid="CR18">18</xref>]. The periodicity for each pattern is given in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>. Note that when the list of patterns did not cover a specific type of rotatable bond, we assigned general values for the periodicity parameter based on the atomic hybridization of the two atoms in the rotatable bond, i.e. <inline-formula id="IEq23"><alternatives><mml:math id="IEq23_Math"><mml:mrow><mml:mi>s</mml:mi><mml:msup><mml:mi>p</mml:mi><mml:mn>2</mml:mn></mml:msup><mml:mo>-</mml:mo><mml:mi>s</mml:mi><mml:msup><mml:mi>p</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:math><tex-math id="IEq23_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$sp^{2}-sp^{2}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq23.gif" /></alternatives></inline-formula>, <inline-formula id="IEq24"><alternatives><mml:math id="IEq24_Math"><mml:mrow><mml:mi>s</mml:mi><mml:msup><mml:mi>p</mml:mi><mml:mn>2</mml:mn></mml:msup><mml:mo>-</mml:mo><mml:mi>s</mml:mi><mml:msup><mml:mi>p</mml:mi><mml:mn>3</mml:mn></mml:msup></mml:mrow></mml:math><tex-math id="IEq24_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$sp^{2}-sp^{3}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq24.gif" /></alternatives></inline-formula>, and <inline-formula id="IEq25"><alternatives><mml:math id="IEq25_Math"><mml:mrow><mml:mi>s</mml:mi><mml:msup><mml:mi>p</mml:mi><mml:mn>3</mml:mn></mml:msup><mml:mo>-</mml:mo><mml:mi>s</mml:mi><mml:msup><mml:mi>p</mml:mi><mml:mn>3</mml:mn></mml:msup></mml:mrow></mml:math><tex-math id="IEq25_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$sp^{3}-sp^{3}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq25.gif" /></alternatives></inline-formula>.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Example: <bold>a</bold> Biphenyl in 2D. <bold>b</bold> Simulated energy landscape under MMFF94. The blue line and the shaded blue region in <bold>c</bold>–<bold>f</bold> represent the mean function of the Gaussian process and express the uncertainty of the function respectively. The red points are the evaluated points. The red curve at the bottom of the graph shows the acquisition function, in particular expected improvement (EI) is used in this example. The red vertical line indicates the highest value of the EI, i.e. the point to be evaluated next. Note that the we normalized the output (energy) in Bayesian optimization algorithm, hence the normalized energy landscape is shown in <bold>c</bold>–<bold>f</bold>. <bold>c</bold> Second iteration, <bold>d</bold> third iteration, <bold>e</bold> fourth iteration, <bold>f</bold> final iteration</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_354_Fig1_HTML.png" /></fig></p>
+            <p id="Par28">We illustrate the idea with a simple molecule, biphenyl (Fig. <xref rid="Fig1" ref-type="fig">1</xref>), which has one rotatable bond. Here we set a periodicity of two for the locally periodic kernel and chose expected improvement (EI) as the acquisition function; 15 iterations of BOA were used.</p>
+          </sec>
+          <sec id="Sec10">
+            <title>Energy evaluation</title>
+            <p id="Par29">The Merck Molecular Force Field, MMFF94 [<xref ref-type="bibr" rid="CR38">38</xref>] was used to evaluate the energy of a given molecule as implemented in Open Babel 2.4.1 [<xref ref-type="bibr" rid="CR33">33</xref>]. This is an approximation of the molecule’s actual energy landscape; ideally, we would use quantum chemical methods to compute the molecule’s energy as accurately as possible [<xref ref-type="bibr" rid="CR39">39</xref>].</p>
+          </sec>
+          <sec id="Sec11">
+            <title>Datasets</title>
+            <p id="Par30">To benchmark the optimization performance of the search algorithms, we used the dataset assembled by Ebejer et al. [<xref ref-type="bibr" rid="CR40">40</xref>], which consists of 708 distinct small molecules and includes ligands from the Astex diverse set [<xref ref-type="bibr" rid="CR41">41</xref>]. We filtered this set for molecules with six or fewer rotatable bonds, giving a subset of 576 molecules, including four with no rotatable bonds. For each molecule, we generated conformers using Confab as implemented in Open Babel. The conformer with the lowest MMFF94 energy across all search methods was used as the reference conformation for that molecule. This criterion differs from that usually used to assess conformer generation algorithms, namely the X-ray crystallographic structure(s) of the small molecule. This is because the conformations observed in crystal structures are not necessarily the lowest energy conformation in the force field used for the search. Our task when evaluating search methods is to find the geometry that gives the lowest energy in the function we are exploring.</p>
+          </sec>
+          <sec id="Sec12">
+            <title>Analysis</title>
+            <p id="Par31">Three different measures were used to evaluate the performance of each search method, namely: (i) heavy atom root mean square deviation (RMSD); (ii) torsion fingerprint deviation (TFD) [<xref ref-type="bibr" rid="CR42">42</xref>]; and (iii) the difference in MMFF94 energy (<inline-formula id="IEq26"><alternatives><mml:math id="IEq26_Math"><mml:mrow><mml:mi mathvariant="normal">Δ</mml:mi><mml:msub><mml:mi>E</mml:mi><mml:mrow><mml:mi>M</mml:mi><mml:mi>M</mml:mi><mml:mi>F</mml:mi><mml:mi>F</mml:mi><mml:mn>94</mml:mn></mml:mrow></mml:msub></mml:mrow></mml:math><tex-math id="IEq26_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Delta E_{MMFF94}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq26.gif" /></alternatives></inline-formula>).</p>
+            <p id="Par32">
+              <italic>Root-mean-square deviation</italic>
+            </p>
+            <p id="Par33">The atom-positional RMSD between the conformation of the reference molecule and the generated conformer was calculated as follows:<disp-formula id="Equ6"><label>7</label><alternatives><mml:math display="block" id="Equ6_Math"><mml:mrow><mml:mtable><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mtext>RMSD</mml:mtext><mml:mo>=</mml:mo><mml:msqrt><mml:mrow><mml:mfrac><mml:mn>1</mml:mn><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">atoms</mml:mi></mml:mrow></mml:msub></mml:mfrac><mml:munderover><mml:mo>∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">atoms</mml:mi></mml:mrow></mml:msub></mml:munderover><mml:msup><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>r</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>-</mml:mo><mml:msub><mml:mi>r</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>f</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:msqrt></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math><tex-math id="Equ6_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \text {RMSD} = \sqrt{\frac{1}{N_{atoms}}\sum _{i=1}^{N_{atoms}}(r_{i}-r_{i,ref})^{2}} \end{aligned}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_354_Article_Equ6.gif" /></alternatives></disp-formula>where <inline-formula id="IEq27"><alternatives><mml:math id="IEq27_Math"><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">atoms</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq27_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$N_{atoms}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq27.gif" /></alternatives></inline-formula> is the number of non-hydrogen atoms considered, <inline-formula id="IEq28"><alternatives><mml:math id="IEq28_Math"><mml:msub><mml:mi>r</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math><tex-math id="IEq28_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$r_i$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq28.gif" /></alternatives></inline-formula> is the position of atom <italic>i</italic> in the query conformer, and <inline-formula id="IEq29"><alternatives><mml:math id="IEq29_Math"><mml:msub><mml:mi>r</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>f</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq29_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$r_{i,ref}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq29.gif" /></alternatives></inline-formula> is the corresponding position in the reference structure. The lowest MMFF94 energy conformation was used as the reference structure. Moreover, symmetry was taken into account when comparing molecules. For instance, both orientations of a benzene ring flipped by <inline-formula id="IEq30"><alternatives><mml:math id="IEq30_Math"><mml:msup><mml:mn>180</mml:mn><mml:mo>∘</mml:mo></mml:msup></mml:math><tex-math id="IEq30_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$180^{\circ }$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq30.gif" /></alternatives></inline-formula> along its twofold symmetry axis would give an RMSD of <inline-formula id="IEq31"><alternatives><mml:math id="IEq31_Math"><mml:mrow><mml:mn>0</mml:mn><mml:mspace width="0.277778em" /><mml:mi mathvariant="normal">Å</mml:mi></mml:mrow></mml:math><tex-math id="IEq31_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$0 \;{ \AA }$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq31.gif" /></alternatives></inline-formula>. We used the RMSD calculation as implemented in Open Babel, Version 2.4.1.</p>
+            <p id="Par34">
+              <italic>Torsion fingerprint deviation (TFD)</italic>
+            </p>
+            <p id="Par35">Another way of comparing conformations is the torsion fingerprint deviation (TFD) and it is a non-superpositional method. The torsion angles of the non-terminal acyclic bonds and ring systems are extracted from two conformations and weighted according to their distance from the center of the molecule, and the difference is recorded. TFD values range from zero to one, with zero representing a perfect alignment of identical conformations. The topological weighting step ensures that changes of the torsional angle in the core of the molecule have more influence on TFD than changes toward the edges. Similarly, we used the lowest energy conformation as the reference conformation. We used the implementation of TFD in RDKit (2018.03.1) [<xref ref-type="bibr" rid="CR10">10</xref>].</p>
+            <p id="Par36">
+              <italic>Energy difference</italic>
+            </p>
+            <p id="Par37">For each conformer, we computed the energy difference between the lowest energy conformation found by the search algorithm and that found by Confab. Negative values indicate a better conformation was found by the search than by Confab.</p>
+            <p id="Par38">
+              <italic>Statistical tests</italic>
+            </p>
+            <p id="Par39">The Wilcoxon signed-rank test was used to test whether the distributions of the lowest energy conformations found by each pair of search algorithms was statistically significantly different from one another, i.e. two-sided test. Here, the null hypothesis was that two related, paired samples (<italic>x</italic>, <italic>y</italic>), come from the same distribution. In particular, we compared three pairs of methods, namely (EI, Uniform), (LCB, Uniform), and (EI, LCB), and used a significance level of 5%.</p>
+          </sec>
+        </sec>
+        <sec id="Sec13">
+          <title>Results and discussion</title>
+          <p id="Par40">We repeated each run of the stochastic search algorithms (Uniform, EI, and LCB) five times for each of 572 molecules. Four rigid molecules were ignored, and the results are summarized below. Note that due to occasional numerical instabilities, GPyOpt terminated early before reaching the maximum number of iterations requested. This was manifested by a non-positive definite kernel error. We separated out these molecules with “early stopping”, and are listed in Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>. We also discuss possible solutions to address this issue “<xref rid="Sec20" ref-type="sec">Gaussian process initialization in BOA</xref>” in section.<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>Distributions of the number of energy evaluations used by Confab versus the number of rotatable bonds</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_354_Fig2_HTML.png" /></fig></p>
+          <p id="Par41">We first analyzed the number of conformers sampled by systematic search (Confab). Figure <xref rid="Fig2" ref-type="fig">2</xref> shows that up to <inline-formula id="IEq32"><alternatives><mml:math id="IEq32_Math"><mml:msup><mml:mn>10</mml:mn><mml:mn>6</mml:mn></mml:msup></mml:math><tex-math id="IEq32_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$10^{6}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq32.gif" /></alternatives></inline-formula> conformers were explored for molecules with six rotatable bonds. For molecules with four or more rotatable bonds, the median number of conformers generated was approximately <inline-formula id="IEq33"><alternatives><mml:math id="IEq33_Math"><mml:msup><mml:mn>10</mml:mn><mml:mn>3</mml:mn></mml:msup></mml:math><tex-math id="IEq33_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$10^{3}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq33.gif" /></alternatives></inline-formula> to <inline-formula id="IEq34"><alternatives><mml:math id="IEq34_Math"><mml:msup><mml:mn>10</mml:mn><mml:mn>4</mml:mn></mml:msup></mml:math><tex-math id="IEq34_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$10^{4}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq34.gif" /></alternatives></inline-formula>. Cochliodinol has six rotatable bonds and had generated over one million conformers, with 750,402 conformers retained, and the lowest energy of 146.04 kcal/mol. Bayesian optimization algorithm, on the other hand, required only <inline-formula id="IEq35"><alternatives><mml:math id="IEq35_Math"><mml:msup><mml:mn>10</mml:mn><mml:mn>2</mml:mn></mml:msup></mml:math><tex-math id="IEq35_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$10^{2}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq35.gif" /></alternatives></inline-formula> evaluations to obtain low energy conformations, and the best conformation out of five trials had an almost identical energy of 146.13 kcal/mol. This highlights the power of BOA, and we will show that BOA gives good performance in general despite using orders of magnitude fewer energy evaluations.</p>
+          <sec id="Sec14">
+            <title>Search performance</title>
+            <p id="Par42">Uniform random search performed the worst of all search methods. It gave higher median energy differences and larger ranges in energy difference than BOA search across all sets of rotatable bonds (Fig. <xref rid="Fig3" ref-type="fig">3</xref>). The distributions of the energy differences are very similar for BOA search, with both acquisition functions, EI and LCB. When constrained by a maximum number of energy evaluations, uniform random search suffers more in higher dimensions than BOA, and the median of the energy differences increases rapidly. On the other hand, the median of the energy differences in BOA search increases slowly and reaches approximately 9 kcal/mol for molecules with six rotatable bonds.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>Energy difference versus number of rotatable bonds: BOA and uniform random search. The red dotted line indicates no energy difference between the lowest energy conformation found by the search algorithm and that found by Confab. The black line indicates the median energy difference of the uniform random search. Note that the median (213 kcal/mol) for molecules with six rotatable bonds is not shown in figure. The blue and orange groups show the result for BOA with EI, and BOA with LCB, respectively</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_354_Fig3_HTML.png" /></fig></p>
+            <p id="Par43">Confab was used to enumerate systematically all conformers for each molecule using the ‘torsion driving approach’. Confab iterates systematically through a set of allowed torsion angles for each rotatable bond in the molecule. Being a systematic search, Confab was thus expected to identify all the low energy conformations for each molecule. However, the best torsion angles may not be covered by the set of the torsion angles used in Confab. On the other hand, BOA samples torsion angles freely in the space and learns from the observed conformations, which enables it to recover conformations with lower energies using orders of magnitude fewer evaluations than Confab.<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>Frequency with which any method can find the lowest possible energy found by any of the search methods, from five independent trials. Note that Confab tends to use orders of magnitude more iterations than either BOA (EI and LCB) or uniform—the maximum number of iterations used for Confab is shown in Fig. <xref rid="Fig2" ref-type="fig">2</xref>, while a maximum of <inline-formula id="IEq36"><alternatives><mml:math id="IEq36_Math"><mml:msup><mml:mn>10</mml:mn><mml:mn>2</mml:mn></mml:msup></mml:math><tex-math id="IEq36_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$10^{2}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq36.gif" /></alternatives></inline-formula> iterations was used for both BOA and uniform random search</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_354_Fig4_HTML.png" /></fig><fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p>Examples where BOA found lower energies than Confab: <bold>a</bold> for omegacsd-FUPFIF, the lowest energy Confab found was 117 kcal/mol, while for BO, it was 70 kcal/mol; <bold>b</bold> for omegacsd-CDBMPI10, the lowest energy Confab found was 150 kcal/mol, while for BO: 118 kcal/mol; <bold>c</bold> for omegapdb-1sn5, the lowest energy Confab found was 131 kcal/mol, while for Bayesian optimization, it was: 99 kcal/mol. The lowest energy conformations found by Confab and BOA are shown in green and orange respectively. Figures are generated by PyMOL</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2019_354_Fig5_HTML.jpg" /></fig></p>
+            <p id="Par44">We define the lowest energy conformer (LEC) for a given molecule as the lowest energy conformation found by any search method in our experiments. We computed the frequency that each method (Confab, BOA, and Uniform) was able to find each molecule’s LEC. Figure <xref rid="Fig4" ref-type="fig">4</xref> shows that BOA recovers the most LECs for molecules with three or fewer rotatable bonds. This suggests that the geometries of the LECs deviate slightly from those with ideal torsion angles. It should be noted that these non-ideal conformers cannot be generated by Confab. Examples of molecules with conformations found by BOA that have significantly lower energies than those found by Confab are shown in Fig. <xref rid="Fig5" ref-type="fig">5</xref>. The proportion of LECs recovered by BOA decreased as the number of rotatable bonds increased. This is because BOA was limited to a maximum of 100 energy evaluations. Confab, on the other hand, had the opposite trend of that for BOA, as it was able to consume orders of magnitude more energy evaluations than BOA (Fig. <xref rid="Fig2" ref-type="fig">2</xref>).<fig id="Fig6"><label>Fig. 6</label><caption xml:lang="en"><p>Champion rate: percentage of conformers with lower energy than Confab recovered by BOA with EI, BOA with LCB, and uniform random search. The error bars show the variation in the trials. It can be seen that both variants of BOA recover a lower energy conformer than Confab much more often than uniform random search, although the overall recovery rate drops as the number of rotatable bonds increases. A maximum of 100 iterations was used for molecules with four or more rotatable bonds and 50 iterations otherwise</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_354_Fig6_HTML.png" /></fig></p>
+            <p id="Par45">We assessed the ‘champion rate’ of all search methods in each trial, i.e. the percentage of molecules that the search algorithm found better conformations than Confab in a single trial. Uniform random search had the lowest champion rate (see Fig. <xref rid="Fig6" ref-type="fig">6</xref>). We observed a similar rate in BOA search with both acquisition functions, EI and LCB. BOA search has a very high champion rate of 100% and 55% in molecules with one and two rotatable bonds, respectively. As expected, it decreases as the number of rotatable bonds increases. The champion rate is approximately 25% for molecules with three and four rotatable bonds, and 10% for molecules with five or more rotatable bonds. A key question here is how many samples are required to recover a better conformation and thus achieve a high recovery rate. We address the influence of the maximum number of evaluations “<xref rid="Sec17" ref-type="sec">Search duration</xref>” in section.</p>
+            <sec id="Sec15">
+              <title>Wilcoxon signed-rank test</title>
+              <p id="Par46">
+                <table-wrap id="Tab1">
+                  <label>Table 1</label>
+                  <caption xml:lang="en">
+                    <p>Energy difference: Wilcoxon signed-rank test on each method pair</p>
+                  </caption>
+                  <table frame="hsides" rules="groups">
+                    <thead>
+                      <tr>
+                        <th align="left">
+                          <p>Method-pair <inline-formula id="IEq38"><alternatives><mml:math id="IEq38_Math"><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">rot</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq38_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$N_{rot}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq38.gif" /></alternatives></inline-formula></p>
+                        </th>
+                        <th align="left">
+                          <p>1,2,3</p>
+                        </th>
+                        <th align="left">
+                          <p>4</p>
+                        </th>
+                        <th align="left">
+                          <p>5</p>
+                        </th>
+                        <th align="left">
+                          <p>6</p>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="left">
+                          <p>Uniform-EI</p>
+                        </td>
+                        <td align="left">
+                          <p>
+                            <inline-formula id="IEq39">
+                              <alternatives>
+                                <mml:math id="IEq39_Math">
+                                  <mml:mrow>
+                                    <mml:mn>8.1</mml:mn>
+                                    <mml:mo>×</mml:mo>
+                                    <mml:msup>
+                                      <mml:mn>10</mml:mn>
+                                      <mml:mrow>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>24</mml:mn>
+                                      </mml:mrow>
+                                    </mml:msup>
+                                  </mml:mrow>
+                                </mml:math>
+                                <tex-math id="IEq39_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${8.1\times 10^{-24}}$$\end{document}</tex-math>
+                                <inline-graphic xlink:href="13321_2019_354_Article_IEq39.gif" />
+                              </alternatives>
+                            </inline-formula>
+                          </p>
+                        </td>
+                        <td align="left">
+                          <p>
+                            <inline-formula id="IEq40">
+                              <alternatives>
+                                <mml:math id="IEq40_Math">
+                                  <mml:mrow>
+                                    <mml:mn>4.5</mml:mn>
+                                    <mml:mo>×</mml:mo>
+                                    <mml:msup>
+                                      <mml:mn>10</mml:mn>
+                                      <mml:mrow>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>23</mml:mn>
+                                      </mml:mrow>
+                                    </mml:msup>
+                                  </mml:mrow>
+                                </mml:math>
+                                <tex-math id="IEq40_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${4.5\times 10^{-23}}$$\end{document}</tex-math>
+                                <inline-graphic xlink:href="13321_2019_354_Article_IEq40.gif" />
+                              </alternatives>
+                            </inline-formula>
+                          </p>
+                        </td>
+                        <td align="left">
+                          <p>
+                            <inline-formula id="IEq41">
+                              <alternatives>
+                                <mml:math id="IEq41_Math">
+                                  <mml:mrow>
+                                    <mml:mn>3.5</mml:mn>
+                                    <mml:mo>×</mml:mo>
+                                    <mml:msup>
+                                      <mml:mn>10</mml:mn>
+                                      <mml:mrow>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>17</mml:mn>
+                                      </mml:mrow>
+                                    </mml:msup>
+                                  </mml:mrow>
+                                </mml:math>
+                                <tex-math id="IEq41_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${3.5\times 10^{-17}}$$\end{document}</tex-math>
+                                <inline-graphic xlink:href="13321_2019_354_Article_IEq41.gif" />
+                              </alternatives>
+                            </inline-formula>
+                          </p>
+                        </td>
+                        <td align="left">
+                          <p>
+                            <inline-formula id="IEq42">
+                              <alternatives>
+                                <mml:math id="IEq42_Math">
+                                  <mml:mrow>
+                                    <mml:mn>2.8</mml:mn>
+                                    <mml:mo>×</mml:mo>
+                                    <mml:msup>
+                                      <mml:mn>10</mml:mn>
+                                      <mml:mrow>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>15</mml:mn>
+                                      </mml:mrow>
+                                    </mml:msup>
+                                  </mml:mrow>
+                                </mml:math>
+                                <tex-math id="IEq42_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${2.8\times 10^{-15}}$$\end{document}</tex-math>
+                                <inline-graphic xlink:href="13321_2019_354_Article_IEq42.gif" />
+                              </alternatives>
+                            </inline-formula>
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left">
+                          <p>Uniform-LCB</p>
+                        </td>
+                        <td align="left">
+                          <p>
+                            <inline-formula id="IEq43">
+                              <alternatives>
+                                <mml:math id="IEq43_Math">
+                                  <mml:mrow>
+                                    <mml:mn>4.5</mml:mn>
+                                    <mml:mo>×</mml:mo>
+                                    <mml:msup>
+                                      <mml:mn>10</mml:mn>
+                                      <mml:mrow>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>24</mml:mn>
+                                      </mml:mrow>
+                                    </mml:msup>
+                                  </mml:mrow>
+                                </mml:math>
+                                <tex-math id="IEq43_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${4.5\times 10^{-24}}$$\end{document}</tex-math>
+                                <inline-graphic xlink:href="13321_2019_354_Article_IEq43.gif" />
+                              </alternatives>
+                            </inline-formula>
+                          </p>
+                        </td>
+                        <td align="left">
+                          <p>
+                            <inline-formula id="IEq44">
+                              <alternatives>
+                                <mml:math id="IEq44_Math">
+                                  <mml:mrow>
+                                    <mml:mn>4.5</mml:mn>
+                                    <mml:mo>×</mml:mo>
+                                    <mml:msup>
+                                      <mml:mn>10</mml:mn>
+                                      <mml:mrow>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>23</mml:mn>
+                                      </mml:mrow>
+                                    </mml:msup>
+                                  </mml:mrow>
+                                </mml:math>
+                                <tex-math id="IEq44_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${4.5\times 10^{-23}}$$\end{document}</tex-math>
+                                <inline-graphic xlink:href="13321_2019_354_Article_IEq44.gif" />
+                              </alternatives>
+                            </inline-formula>
+                          </p>
+                        </td>
+                        <td align="left">
+                          <p>
+                            <inline-formula id="IEq45">
+                              <alternatives>
+                                <mml:math id="IEq45_Math">
+                                  <mml:mrow>
+                                    <mml:mn>3.7</mml:mn>
+                                    <mml:mo>×</mml:mo>
+                                    <mml:msup>
+                                      <mml:mn>10</mml:mn>
+                                      <mml:mrow>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>17</mml:mn>
+                                      </mml:mrow>
+                                    </mml:msup>
+                                  </mml:mrow>
+                                </mml:math>
+                                <tex-math id="IEq45_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${3.7\times 10^{-17}}$$\end{document}</tex-math>
+                                <inline-graphic xlink:href="13321_2019_354_Article_IEq45.gif" />
+                              </alternatives>
+                            </inline-formula>
+                          </p>
+                        </td>
+                        <td align="left">
+                          <p>
+                            <inline-formula id="IEq46">
+                              <alternatives>
+                                <mml:math id="IEq46_Math">
+                                  <mml:mrow>
+                                    <mml:mn>2.6</mml:mn>
+                                    <mml:mo>×</mml:mo>
+                                    <mml:msup>
+                                      <mml:mn>10</mml:mn>
+                                      <mml:mrow>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>15</mml:mn>
+                                      </mml:mrow>
+                                    </mml:msup>
+                                  </mml:mrow>
+                                </mml:math>
+                                <tex-math id="IEq46_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${2.6\times 10^{-15}}$$\end{document}</tex-math>
+                                <inline-graphic xlink:href="13321_2019_354_Article_IEq46.gif" />
+                              </alternatives>
+                            </inline-formula>
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left">
+                          <p>EI-LCB</p>
+                        </td>
+                        <td align="left">
+                          <p>
+                            <inline-formula id="IEq47">
+                              <alternatives>
+                                <mml:math id="IEq47_Math">
+                                  <mml:mrow>
+                                    <mml:mn>0.02</mml:mn>
+                                  </mml:mrow>
+                                </mml:math>
+                                <tex-math id="IEq47_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${0.02}$$\end{document}</tex-math>
+                                <inline-graphic xlink:href="13321_2019_354_Article_IEq47.gif" />
+                              </alternatives>
+                            </inline-formula>
+                          </p>
+                        </td>
+                        <td align="left">
+                          <p>0.44</p>
+                        </td>
+                        <td align="left">
+                          <p>0.89</p>
+                        </td>
+                        <td align="left">
+                          <p>0.09</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table-wrap-foot>
+                    <p>Molecules with three or fewer rotatable bonds (<inline-formula id="IEq37"><alternatives><mml:math id="IEq37_Math"><mml:mrow><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">rot</mml:mi></mml:mrow></mml:msub><mml:mo>:</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>2</mml:mn><mml:mo>,</mml:mo><mml:mn>3</mml:mn></mml:mrow></mml:math><tex-math id="IEq37_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$N_{rot}: 1,2,3$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq37.gif" /></alternatives></inline-formula>) are grouped together due to small sample size. The <italic>p</italic>-values are rounded to 2 significant figures</p>
+                  </table-wrap-foot>
+                </table-wrap>
+              </p>
+              <p id="Par47">The Wilcoxon signed-rank test of energy difference distributions (Table <xref rid="Tab1" ref-type="table">1</xref>) showed that uniform random search is significantly different from BOA with EI and LCB (<italic>p</italic>-value <inline-formula id="IEq48"><alternatives><mml:math id="IEq48_Math"><mml:mo>≪</mml:mo></mml:math><tex-math id="IEq48_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\ll$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq48.gif" /></alternatives></inline-formula> 0.01) for all numbers of rotatable bonds. Note that the sample sizes of the sets of molecules with one and two rotatable bonds are small, and we combined these with molecules having three rotatable bonds for the statistical test. This gave more reliable test results. For the EI-LCB pair, we obtained a large <italic>p</italic>-value except for molecules with one to three rotatable bond (<italic>p</italic>-value of 0.02). Thus we found no evidence to reject the null hypothesis that the results for EI and LCB come from the same distribution.</p>
+              <p id="Par48">Furthermore, we assessed the variation in energies found by BOA. In particular, we computed the maximum variation for each molecule, by extracting the lowest energy conformation found in each trial and computing the maximum difference in energy among these conformations. The results are summarized in Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>. We observed a smaller variation in BOA than uniform search. The variation increases exponentially in uniform search while the variation increases gradually as the number of rotatable bonds increases in BOA search. The median reaches approximately 9 kcal/mol for molecules with six rotatable bonds in BOA search with EI and LCB. The range is larger in BOA with LCB than BOA with EI, except for molecules with five rotatable bonds.</p>
+            </sec>
+            <sec id="Sec16">
+              <title>RMSD and TFD</title>
+              <p id="Par49">Both RMSD and TFD were used to measure the distance between reference conformer and that obtained by various search methods. The lowest energy conformation across all methods was used as the reference conformer, and two scenarios were considered. Case 1 considered the lowest energy conformation found by either BOA or uniform random search from all trials for each molecule, while Case 2 considered the lowest energy conformation found by Confab.</p>
+              <p id="Par50">The conformers generated by uniform random search usually have higher RMSD and TFD values than those generated by BOA (see Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>). The conformations found by BOA with both acquisition functions had similar distributions in RMSD and TFD values in Case 2, while EI and LCB slightly vary in Case 1.</p>
+              <p id="Par51">Similarly, we grouped molecules with three or fewer rotatable bonds together. In addition, we combined molecules with five or more rotatable bonds together in Case (1) due to the small sample size in molecules with six rotatable bonds. Wilcoxon signed-rank tests for the RMSD and TFD distributions showed consistent results (see Additional file <xref ref-type="supplementary-material" rid="MOESM4">4</xref>): the distribution of conformers generated by uniform random search is significantly different from that generated by BOA (<italic>p</italic> value <inline-formula id="IEq49"><alternatives><mml:math id="IEq49_Math"><mml:mo>≪</mml:mo></mml:math><tex-math id="IEq49_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\ll$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq49.gif" /></alternatives></inline-formula> 0.01). The conformers generated by BOA with both acquisition functions, EI and LCB, are not statistically different from each other.</p>
+            </sec>
+          </sec>
+          <sec id="Sec17">
+            <title>Search duration</title>
+            <p id="Par52">
+              <fig id="Fig7">
+                <label>Fig. 7</label>
+                <caption xml:lang="en">
+                  <p>Effect of doubling the maximum number of energy evaluations: <bold>a</bold> energy difference; <bold>b</bold> maximum variation in energy. Note that only molecules with five rotatable bonds are tested. BOA with 100 iterations and 200 iterations are shown in blue and orange respectively. As expected, the energy difference and variation in energy decreases as number of energy valuations increases</p>
+                </caption>
+                <graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_354_Fig7_HTML.png" />
+              </fig>
+            </p>
+            <p id="Par53">We investigated the effect of doubling the maximum number of energy evaluations to 200 on the Bayesian optimization algorithm, for the set of molecules with five rotatable bonds. We found that the results were more robust and had smaller ranges of energetic differences than were found with 100 iterations. Figure <xref rid="Fig7" ref-type="fig">7</xref> shows that the median of the energy difference distributions decreased by 1.1 kcal/mol for EI, and 1.3 kcal/mol for LCB. The maximum variation also decreased, by 1.5 kcal/mol for EI, and 1.7 kcal/mol for LCB. Thus, increasing the maximum number of iterations improves the likelihood of finding low-energy minima, and decreases the stochastic variance between multiple runs.</p>
+          </sec>
+          <sec id="Sec18">
+            <title>Computational cost</title>
+            <p id="Par54">
+              <fig id="Fig8">
+                <label>Fig. 8</label>
+                <caption xml:lang="en">
+                  <p>Average computational time for BOA with two difference acquisition function (EI or LCB) and different number of evaluations (50 or 100). Five molecules were randomly sampled for each rotor. The average computational time increases as number of rotatable bonds increase, but is primarily dominated by the number of conformers generated</p>
+                </caption>
+                <graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_354_Fig8_HTML.png" />
+              </fig>
+            </p>
+            <p id="Par55">Performance in terms of finding the lowest energy is improved by increasing the maximum number of energy evaluations. However, the computational cost also grows significantly (see Fig. <xref rid="Fig8" ref-type="fig">8</xref>). We should note that the computational complexity of the Gaussian process regression is <inline-formula id="IEq50"><alternatives><mml:math id="IEq50_Math"><mml:mrow><mml:mi>O</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msup><mml:mi>N</mml:mi><mml:mn>3</mml:mn></mml:msup><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><tex-math id="IEq50_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$O(N^{3})$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq50.gif" /></alternatives></inline-formula>, where <italic>N</italic> is the number of evaluations. The run time analysis on BOA was performed on a desktop running Fedora 28 with an Intel Core i7-6700 operating at 3.40 GHz, and 32 GB of RAM. A single core was used for MMFF94 energy evaluation and driving the torsion angles. All cores were used in the GPyOpt operations. The time did not include the time to read input molecules or write the conformers to disk. It took about 7 ms to update the torsions and evaluate the energy 100 times in a molecule with six rotatable bonds. Hence, the computational time is dominated by the operations within GPyOpt. This is not surprising as we chose a relatively fast energy function, i.e. MMFF94. If the energy function was replaced by a more accurate but computationally more expensive method, such as a quantum mechanical method, we expect that the Bayesian optimization algorithm would become a more competitive search strategy than those used by other stochastic search methods.</p>
+            <p id="Par56">In future work, we plan to explore two approaches to reduce computational cost: (a) using different surrogate models that have lower computational complexity [<xref ref-type="bibr" rid="CR43">43</xref>, <xref ref-type="bibr" rid="CR44">44</xref>]; and (b) incorporating more accurate priors to improve the search speed.</p>
+          </sec>
+          <sec id="Sec19">
+            <title>Alternative energy functions in BOA</title>
+            <p id="Par57">The energy function explored by Bayesian optimization algorithm could be the result of a multi-step, “black box” protocol. For example, each energy value at a given point in the search space could be the result of a short MMFF94 optimization—not just a single-point energy calculation as used here (i.e. the common “fixed-rotor” approximation) [<xref ref-type="bibr" rid="CR1">1</xref>]. In such a scenario, BOA would “learn” the torsion angles that minimize steric clashes in the molecule. This would not be comparable with the systematic Confab and uniform random search methods investigated here, because changes in bond lengths and bond angles introduced by the MMFF94 optimization would also change the energy landscape being optimized. Bond lengths and bond angles are never changed by Confab or torsion-driven uniform random search. This makes it hard to compare our current results with other stochastic search methods such as distance geometry, constrained distance geometry, and molecular mechanics energy minimization provided by tools such as RDKit. We intend to complete a comprehensive comparison with free, open-source, and commercial toolkits in the future, but note that at present among common tools, only the BOA strategy seeks to find the lowest energy conformer.</p>
+          </sec>
+          <sec id="Sec20">
+            <title>Gaussian process initialization in BOA</title>
+            <p id="Par58">Parameter initialization is important in GP regression. Poor initialization can easily lead to numerical instabilities, and several approaches can be used to address the issue: one would be to place priors on the parameters; alternatively, it may be possible to set boundary constraints on the parameters. The former approach would require more computational cost but would give a more robust estimation of the parameters.</p>
+          </sec>
+        </sec>
+        <sec id="Sec21" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p id="Par59">In this study, Bayesian optimization algorithm was used to find the lowest energy conformation for a set of 572 molecules with one to six rotatable bonds selected from the dataset assembled by Ebejer et al. [<xref ref-type="bibr" rid="CR40">40</xref>]. Using this strategy, we have been able to incorporate our prior knowledge about torsion angle preferences extracted from crystal structures to accelerate the search for the lowest energy conformation.</p>
+          <p id="Par60">We find that, by inherently sampling all possible dihedral angles, this approach often finds lower energy minima even below those generated by systematic enumeration, and with far fewer conformations. For small numbers of rotatable bonds (e.g., 1–3), BOA frequently finds lower energy conformations compared to systematic search in Confab. As the search space increase, BOA still finds lower energy geometries <inline-formula id="IEq51"><alternatives><mml:math id="IEq51_Math"><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq51_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sim$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_354_Article_IEq51.gif" /></alternatives></inline-formula>20–40% of the time, despite many times fewer iterations.</p>
+          <p id="Par61">More efficient methods for finding the lowest energy conformation of a small molecule will help accelerate the calculation of molecular properties and thus help to advance the fields of material design and drug discovery. Further studies are required to validate the search performance of BOA in higher dimensional space, and thus tackle more flexible molecules with more rotatable bonds.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements and funding</title>
+          <p>GRH thanks the National Science Foundation (CHE-1800435) for support. GMM thanks the EPSRC and MRC for financial support under Grant No. EP/L016044/1. We thank David Koes for his constructive comments.</p>
+        </ack>
+        <sec sec-type="author-contribution">
+          <title>Authors' contributions</title>
+          <p>GRH derived the concept, wrote relevant code in Open Babel and Pybel, and generated the set of exhaustive conformers with Confab. LC implemented the Bayesian Optimization for conformer geometries, and carried out the analysis. GMM designed the Bayesian priors and GMM and GRH supervised the project. All authors read and approved the final manuscript.</p>
+        </sec>
+        <sec sec-type="data-availability">
+          <title>Availability of data and materials</title>
+          <p>All the data and code is available at <ext-link xlink:href="https://figshare.com/articles/Conformers_Dataset/8120912" ext-link-type="uri">https://figshare.com/articles/Conformers_Dataset/8120912</ext-link> and GitHub <ext-link xlink:href="https://github.com/lucianlschan/Conformer-Geometry" ext-link-type="uri">https://github.com/lucianlschan/Conformer-Geometry</ext-link> respectively.</p>
+        </sec>
+        <sec sec-type="ethics-statement">
+          <sec sec-type="COI-statement">
+            <title>Competing interests</title>
+            <p>The authors declare that they have no competing interests.</p>
+          </sec>
+        </sec>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hawkins</surname>
+                    <given-names>PCD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Conformation generation: the state of the art</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2017</year>
+                <volume>57</volume>
+                <issue>8</issue>
+                <fpage>1747</fpage>
+                <lpage>1756</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhtFagu7bE</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.7b00221</pub-id>
+                <pub-id pub-id-type="pmid">28682617</pub-id>
+                <comment>PMID: 28682617</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Friedrich</surname>
+                    <given-names>N-O</given-names>
+                  </name>
+                  <name>
+                    <surname>Meyder</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>de Bruyn Kops</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Sommer</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Flachsenberg</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Kirchmair</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">High-quality dataset of protein-bound ligand conformations and its application to benchmarking conformer ensemble generators</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2017</year>
+                <volume>57</volume>
+                <issue>3</issue>
+                <fpage>529</fpage>
+                <lpage>539</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXislKisLs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.6b00613</pub-id>
+                <pub-id pub-id-type="pmid">28206754</pub-id>
+                <comment>PMID: 28206754</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Friedrich</surname>
+                    <given-names>N-O</given-names>
+                  </name>
+                  <name>
+                    <surname>de Bruyn Kops</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Flachsenberg</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Sommer</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Kirchmair</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Benchmarking commercial conformer ensemble generators</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2017</year>
+                <volume>57</volume>
+                <issue>11</issue>
+                <fpage>2719</fpage>
+                <lpage>2728</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhsFylsr7M</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.7b00505</pub-id>
+                <pub-id pub-id-type="pmid">28967749</pub-id>
+                <comment>PMID: 28967749</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Vainio</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Johnson</surname>
+                    <given-names>MS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Generating conformer ensembles using a multiobjective genetic algorithm</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <issue>6</issue>
+                <fpage>2462</fpage>
+                <lpage>74</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXhtVOnsL7L</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci6005646</pub-id>
+                <pub-id pub-id-type="pmid">17892278</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Puranen</surname>
+                    <given-names>JS</given-names>
+                  </name>
+                  <name>
+                    <surname>Vainio</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Johnson</surname>
+                    <given-names>MS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Accurate conformation-dependent molecular electrostatic potentials for high-throughput in silico drug discovery</article-title>
+                <source>J Comput Chem</source>
+                <year>2010</year>
+                <volume>31</volume>
+                <issue>8</issue>
+                <fpage>1722</fpage>
+                <lpage>32</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXkslSks70%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.21460</pub-id>
+                <pub-id pub-id-type="pmid">20020481</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>O’Boyle</surname>
+                    <given-names>NM</given-names>
+                  </name>
+                  <name>
+                    <surname>Vandermeersch</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Flynn</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Maguire</surname>
+                    <given-names>AR</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Confab-Systematic generation of diverse low-energy conformers</article-title>
+                <source>J Cheminform</source>
+                <year>2011</year>
+                <volume>3</volume>
+                <issue>1</issue>
+                <fpage>8</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXksF2isr4%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-3-8</pub-id>
+                <pub-id pub-id-type="pmid">21410983</pub-id>
+                <pub-id pub-id-type="pmcid">3073927</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Miteva</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <name>
+                    <surname>Guyon</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Tufféry</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Frog2: efficient 3D conformation ensemble generator for small compounds</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2010</year>
+                <volume>38</volume>
+                <fpage>622</fpage>
+                <lpage>627</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXotVSqsr8%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkq325</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="other">CCG: Molecular Operating Environment (MOE). Chemical Computing Group ULC (2018). <ext-link xlink:href="http://www.chemcomp.com/" ext-link-type="uri">http://www.chemcomp.com/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hawkins</surname>
+                    <given-names>PC</given-names>
+                  </name>
+                  <name>
+                    <surname>Skillman</surname>
+                    <given-names>AG</given-names>
+                  </name>
+                  <name>
+                    <surname>Warren</surname>
+                    <given-names>GL</given-names>
+                  </name>
+                  <name>
+                    <surname>Ellingson</surname>
+                    <given-names>BA</given-names>
+                  </name>
+                  <name>
+                    <surname>Stahl</surname>
+                    <given-names>MT</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Conformer generation with OMEGA: algorithm and validation using high quality structures from the Protein Databank and Cambridge Structural database</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2010</year>
+                <volume>50</volume>
+                <issue>4</issue>
+                <fpage>572</fpage>
+                <lpage>84</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXjtlaisrY%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci100031x</pub-id>
+                <pub-id pub-id-type="pmid">20235588</pub-id>
+                <pub-id pub-id-type="pmcid">2859685</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="other">Landrum G (2011) RDKit: open-source cheminformatics. <ext-link xlink:href="http://www.rdkit.org" ext-link-type="uri">http://www.rdkit.org</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chang</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Guida</surname>
+                    <given-names>WC</given-names>
+                  </name>
+                  <name>
+                    <surname>Still</surname>
+                    <given-names>WC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An internal-coordinate Monte Carlo method for searching conformational space</article-title>
+                <source>J Am Chem Soc</source>
+                <year>1989</year>
+                <volume>111</volume>
+                <issue>12</issue>
+                <fpage>4379</fpage>
+                <lpage>4386</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL1MXitlSrsLo%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ja00194a035</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wilson</surname>
+                    <given-names>SR</given-names>
+                  </name>
+                  <name>
+                    <surname>Cui</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Moskowitz</surname>
+                    <given-names>JW</given-names>
+                  </name>
+                  <name>
+                    <surname>Schmidt</surname>
+                    <given-names>KE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Applications of simulated annealing to the conformational analysis of flexible molecules</article-title>
+                <source>J Comput Chem</source>
+                <year>1991</year>
+                <volume>12</volume>
+                <issue>3</issue>
+                <fpage>342</fpage>
+                <lpage>349</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK3MXitVKhsLw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.540120307</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Spellmeyer</surname>
+                    <given-names>DC</given-names>
+                  </name>
+                  <name>
+                    <surname>Wong</surname>
+                    <given-names>AK</given-names>
+                  </name>
+                  <name>
+                    <surname>Bower</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Blaney</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Conformational analysis using distance geometry methods</article-title>
+                <source>J Mol Graph Model</source>
+                <year>1997</year>
+                <volume>15</volume>
+                <issue>1</issue>
+                <fpage>18</fpage>
+                <lpage>36</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2sXltlyisrY%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/S1093-3263(97)00014-4</pub-id>
+                <pub-id pub-id-type="pmid">9346820</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mekenyan</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Dimitrov</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Nikolova</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Karabunarliev</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Conformational coverage by a genetic algorithm</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1999</year>
+                <volume>39</volume>
+                <issue>6</issue>
+                <fpage>997</fpage>
+                <lpage>1016</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK1MXktlKrurk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci990303g</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Vainio</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Johnson</surname>
+                    <given-names>MS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Generating conformer ensembles using a multiobjective genetic algorithm</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <issue>6</issue>
+                <fpage>2462</fpage>
+                <lpage>2474</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXhtVOnsL7L</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci6005646</pub-id>
+                <pub-id pub-id-type="pmid">17892278</pub-id>
+                <comment>PMID: 17892278</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cole</surname>
+                    <given-names>JC</given-names>
+                  </name>
+                  <name>
+                    <surname>Korb</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>McCabe</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Read</surname>
+                    <given-names>MG</given-names>
+                  </name>
+                  <name>
+                    <surname>Taylor</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Knowledge-based conformer generation using the cambridge structural database</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2018</year>
+                <volume>58</volume>
+                <issue>3</issue>
+                <fpage>615</fpage>
+                <lpage>629</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXisVOks7c%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.7b00697</pub-id>
+                <pub-id pub-id-type="pmid">29425456</pub-id>
+                <comment>PMID: 29425456</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kothiwale</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Mendenhall</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                  <name>
+                    <surname>Meiler</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">BCL::Conf: small molecule conformational sampling using a knowledge based rotamer library</article-title>
+                <source>J Cheminform</source>
+                <year>2015</year>
+                <volume>7</volume>
+                <issue>1</issue>
+                <fpage>47</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28Xos1ejtLY%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13321-015-0095-1</pub-id>
+                <pub-id pub-id-type="pmid">26473018</pub-id>
+                <pub-id pub-id-type="pmcid">4607025</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Guba</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Meyder</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Hert</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Torsion library reloaded: a new version of expert-derived SMARTS rules for assessing conformations of small molecules</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2016</year>
+                <volume>56</volume>
+                <issue>1</issue>
+                <fpage>1</fpage>
+                <lpage>5</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XovFKjsA%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.5b00522</pub-id>
+                <pub-id pub-id-type="pmid">26679290</pub-id>
+                <comment>PMID: 26679290</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Allen</surname>
+                    <given-names>FH</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The Cambridge Structural Database: a quarter of a million crystal structures and rising</article-title>
+                <source>Acta Crystallogr Sect B</source>
+                <year>2002</year>
+                <volume>58</volume>
+                <issue>(3 Part 1)</issue>
+                <fpage>380</fpage>
+                <lpage>388</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XktVOqu74%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1107/S0108768102003890</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Berman</surname>
+                    <given-names>HM</given-names>
+                  </name>
+                  <name>
+                    <surname>Westbrook</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Feng</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Gilliland</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Bhat</surname>
+                    <given-names>TN</given-names>
+                  </name>
+                  <name>
+                    <surname>Weissig</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Shindyalov</surname>
+                    <given-names>IN</given-names>
+                  </name>
+                  <name>
+                    <surname>Bourne</surname>
+                    <given-names>PE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The protein data bank</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2000</year>
+                <volume>28</volume>
+                <fpage>235</fpage>
+                <lpage>242</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3cXhvVKjt7w%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/28.1.235</pub-id>
+                <pub-id pub-id-type="pmid">10592235</pub-id>
+                <pub-id pub-id-type="pmcid">102472</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Riniker</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Landrum</surname>
+                    <given-names>GA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Better informed distance geometry: using what we know to improve conformation generation</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2015</year>
+                <volume>55</volume>
+                <issue>12</issue>
+                <fpage>2562</fpage>
+                <lpage>2574</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXhvVeqsrjP</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.5b00654</pub-id>
+                <pub-id pub-id-type="pmid">26575315</pub-id>
+                <comment>PMID: 26575315</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="other">Snoek J, Larochelle H, Adams RP (2012) Practical Bayesian optimization of machine learning algorithms. In: Proceedings of the 25th international conference on neural information processing systems—volume 2. NIPS’12. Curran Associates Inc., USA, pp. 2951–2959. <ext-link xlink:href="http://dl.acm.org/citation.cfm?id=2999325.2999464" ext-link-type="uri">http://dl.acm.org/citation.cfm?id=2999325.2999464</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Shahriari</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Swersky</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Adams</surname>
+                    <given-names>RP</given-names>
+                  </name>
+                  <name>
+                    <surname>de Freitas</surname>
+                    <given-names>N</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Taking the human out of the loop: a review of Bayesian optimization</article-title>
+                <source>Proc IEEE</source>
+                <year>2016</year>
+                <volume>104</volume>
+                <issue>1</issue>
+                <fpage>148</fpage>
+                <lpage>175</lpage>
+                <pub-id pub-id-type="doi">10.1109/JPROC.2015.2494218</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="other">Hutter F, Hoos HH, Leyton-Brown K (2011) Sequential model-based optimization for general algorithm configuration. In: Proceedings of the 5th international conference on learning and intelligent optimization. LION’05. Springer, Berlin, Heidelberg, pp. 507–523. <ext-link xlink:href="10.1007/978-3-642-25566-340" ext-link-type="doi">https://doi.org/10.1007/978-3-642-25566-340</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ueno</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Rhone</surname>
+                    <given-names>TD</given-names>
+                  </name>
+                  <name>
+                    <surname>Hou</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Mizoguchi</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Tsuda</surname>
+                    <given-names>K</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">COMBO: an efficient Bayesian optimization library for materials science</article-title>
+                <source>Mater Discov</source>
+                <year>2016</year>
+                <volume>4</volume>
+                <fpage>18</fpage>
+                <lpage>21</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.md.2016.04.001</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Frazier</surname>
+                    <given-names>PI</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Lookman</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Alexander</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Rajan</surname>
+                    <given-names>K</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Bayesian optimization for materials design</article-title>
+                <source>Information Science for Materials Discovery and Design</source>
+                <year>2016</year>
+                <publisher-loc>Cham</publisher-loc>
+                <publisher-name>Springer</publisher-name>
+                <fpage>45</fpage>
+                <lpage>75</lpage>
+                <pub-id pub-id-type="doi">10.1007/978-3-319-23871-5_3</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="other">Balachandran PV, Xue D, Theiler J, Hogden J, Lookman T (2016) Adaptive strategies for materials design using uncertainties. In: Scientific reports</mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="other">Hernández-Lobato JM, Requeima J, Pyzer-Knapp EO, Aspuru-Guzik A (2017) Parallel and distributed Thompson sampling for large-scale accelerated exploration of chemical space. In: Proceedings of the 34th international conference on machine learning. Proceedings of machine learning research, vol 70. PMLR, International Convention Centre, Sydney, Australia, pp 1470–1479. <ext-link xlink:href="http://proceedings.mlr.press/v70/hernandez-lobato17a.html" ext-link-type="uri">http://proceedings.mlr.press/v70/hernandez-lobato17a.html</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="other">Brochu E, Cora VM, de Freitas N (2010) A tutorial on Bayesian optimization of expensive cost functions, with application to active user modeling and hierarchical reinforcement learning. CoRR. <ext-link xlink:href="http://arxiv.org/abs/1012.2599" ext-link-type="uri">arxiv:1012.2599</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="other">Srinivas N, Krause A, Kakade S, Seeger M (2010) Gaussian process optimization in the bandit setting: no regret and experimental design. In: Proceedings of the 27th international conference on international conference on machine learning. ICML’10. Omnipress, USA, pp 1015–1022. <ext-link xlink:href="http://dl.acm.org/citation.cfm?id=3104322.3104451" ext-link-type="uri">http://dl.acm.org/citation.cfm?id=3104322.3104451</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="other">Shah A, Wilson AG, Ghahramani Z (2014) Student-t processes as alternatives to Gaussian processes. <ext-link xlink:href="http://arxiv.org/abs/1402.4306v2" ext-link-type="uri">arXiv: 1402.4306v2</ext-link> [stat.ML]</mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rasmussen</surname>
+                    <given-names>CE</given-names>
+                  </name>
+                  <name>
+                    <surname>Williams</surname>
+                    <given-names>CKI</given-names>
+                  </name>
+                </person-group>
+                <source>Gaussian processes for machine learning</source>
+                <year>2006</year>
+                <publisher-loc>Cambridge</publisher-loc>
+                <publisher-name>The MIT Press</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>O’Boyle</surname>
+                    <given-names>NM</given-names>
+                  </name>
+                  <name>
+                    <surname>Banck</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>James</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <name>
+                    <surname>Morley</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Vandermeersch</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Open Babel: an open chemical toolbox</article-title>
+                <source>J Cheminform</source>
+                <year>2011</year>
+                <volume>3</volume>
+                <issue>1</issue>
+                <fpage>33</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhsVWjurbF</pub-id>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-3-33</pub-id>
+                <pub-id pub-id-type="pmid">21982300</pub-id>
+                <pub-id pub-id-type="pmcid">3198950</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="other">J González TG (2016) GPyOpt: a Bayesian optimization framework in Python. <ext-link xlink:href="http://github.com/SheffieldML/GPyOpt" ext-link-type="uri">http://github.com/SheffieldML/GPyOpt</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Walt</surname>
+                    <given-names>Svd</given-names>
+                  </name>
+                  <name>
+                    <surname>Colbert</surname>
+                    <given-names>SC</given-names>
+                  </name>
+                  <name>
+                    <surname>Varoquaux</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The NumPy array: a structure for efficient numerical computation</article-title>
+                <source>Comput Sci Eng</source>
+                <year>2011</year>
+                <volume>13</volume>
+                <issue>2</issue>
+                <fpage>22</fpage>
+                <lpage>30</lpage>
+                <pub-id pub-id-type="doi">10.1109/MCSE.2011.37</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>O’Boyle</surname>
+                    <given-names>NM</given-names>
+                  </name>
+                  <name>
+                    <surname>Morley</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Pybel: a Python wrapper for the OpenBabel cheminformatics toolkit</article-title>
+                <source>Chem Central J</source>
+                <year>2008</year>
+                <volume>2</volume>
+                <issue>1</issue>
+                <fpage>5</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXntV2msLw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/1752-153X-2-5</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="other">Duvenaud DK (2014) Automatic model construction with Gaussian processes</mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Merck molecular force field. I. basis, form, scope, parameterization, and performance of MMFF94</article-title>
+                <source>J Comput Chem</source>
+                <year>1996</year>
+                <volume>17</volume>
+                <issue>5</issue>
+                <fpage>490</fpage>
+                <lpage>519</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28XhvVGmsbk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1096-987X(199604)17:5/6&lt;490::AID-JCC1>3.0.CO;2-P</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kanal</surname>
+                    <given-names>IY</given-names>
+                  </name>
+                  <name>
+                    <surname>Keith</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A sobering assessment of small-molecule force field methods for low energy conformer predictions</article-title>
+                <source>Int J Quantum Chem</source>
+                <year>2018</year>
+                <volume>118</volume>
+                <issue>5</issue>
+                <fpage>25512</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhs1Cntb%2FK</pub-id>
+                <pub-id pub-id-type="doi">10.1002/qua.25512</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ebejer</surname>
+                    <given-names>J-P</given-names>
+                  </name>
+                  <name>
+                    <surname>Morris</surname>
+                    <given-names>GM</given-names>
+                  </name>
+                  <name>
+                    <surname>Deane</surname>
+                    <given-names>CM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Freely available conformer generation methods: How good are they?</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2012</year>
+                <volume>52</volume>
+                <issue>5</issue>
+                <fpage>1146</fpage>
+                <lpage>1158</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38Xlt1Snu7s%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci2004658</pub-id>
+                <pub-id pub-id-type="pmid">22482737</pub-id>
+                <comment>PMID: 22482737</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hartshorn</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Verdonk</surname>
+                    <given-names>ML</given-names>
+                  </name>
+                  <name>
+                    <surname>Chessari</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Brewerton</surname>
+                    <given-names>SC</given-names>
+                  </name>
+                  <name>
+                    <surname>Mooij</surname>
+                    <given-names>WTM</given-names>
+                  </name>
+                  <name>
+                    <surname>Mortenson</surname>
+                    <given-names>PN</given-names>
+                  </name>
+                  <name>
+                    <surname>Murray</surname>
+                    <given-names>CW</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Diverse, high quality test set for the validation of protein ligand docking performance</article-title>
+                <source>J Med Chem</source>
+                <year>2007</year>
+                <volume>50</volume>
+                <issue>4</issue>
+                <fpage>726</fpage>
+                <lpage>741</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXmsVymtg%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm061277y</pub-id>
+                <pub-id pub-id-type="pmid">17300160</pub-id>
+                <comment>PMID: 17300160</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schulz-Gasch</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Schärfer</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Guba</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">TFD: torsion fingerprints as a new measure to compare small molecule conformations</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2012</year>
+                <volume>52</volume>
+                <issue>6</issue>
+                <fpage>1499</fpage>
+                <lpage>1512</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XotVKrsr8%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci2002318</pub-id>
+                <pub-id pub-id-type="pmid">22670896</pub-id>
+                <comment>PMID: 22670896</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="other">Snoek J, Rippel O, Swersky K, Kiros R, Satish N, Sundaram N, Patwary MMA, Prabhat P, Adams RP (2015) Scalable Bayesian optimization using deep neural networks. In: Proceedings of the 32nd international conference on international conference on machine learning, vol 37. ICML’15, pp 2171–2180</mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Häse</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Roch</surname>
+                    <given-names>LM</given-names>
+                  </name>
+                  <name>
+                    <surname>Kreisbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Aspuru-Guzik</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Phoenics: A Bayesian Optimizer for Chemistry</article-title>
+                <source>ACS Central Science</source>
+                <year>2018</year>
+                <volume>4</volume>
+                <issue>9</issue>
+                <fpage>1134</fpage>
+                <lpage>1145</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXhsFOjt7rN</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acscentsci.8b00307</pub-id>
+                <pub-id pub-id-type="pmid">30276246</pub-id>
+                <pub-id pub-id-type="pmcid">6161047</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec22">
+              <title>Additional file</title>
+              <p id="Par66">
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Additional file">
+                  <media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2019_354_MOESM1_ESM.pdf" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0354-7" ext-link-type="uri">Additional file 1.</ext-link> Library of rotatable bond SMARTS patterns.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM2" xlink:title="Additional file">
+                  <media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2019_354_MOESM2_ESM.pdf" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0354-7" ext-link-type="uri">Additional file 2.</ext-link> List of molecules that excluded from analysis.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM3" xlink:title="Additional file">
+                  <media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2019_354_MOESM3_ESM.pdf" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0354-7" ext-link-type="uri">Additional file 3.</ext-link> Figures for RMSD, TFD and maximum variation in energy.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM4" xlink:title="Additional file">
+                  <media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2019_354_MOESM4_ESM.pdf" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0354-7" ext-link-type="uri">Additional file 4.</ext-link> Tables of p-values for RMSD and TFD.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+          </app>
+        </app-group>
+        <glossary>
+          <title>Abbreviations</title>
+          <def-list>
+            <def-item>
+              <term>BOA</term>
+              <def>
+                <p id="Par2">Bayesian optimization algorithm</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>GP</term>
+              <def>
+                <p id="Par3">Gaussian process</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>EI</term>
+              <def>
+                <p id="Par4">expected improvement</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>LCB</term>
+              <def>
+                <p id="Par5">lower confidence bound</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>LEC</term>
+              <def>
+                <p id="Par6">lowest energy conformer</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RMSD</term>
+              <def>
+                <p id="Par7">root mean square deviation</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>TFD</term>
+              <def>
+                <p id="Par8">torsion fingerprint deviation</p>
+              </def>
+            </def-item>
+          </def-list>
+        </glossary>
+        <notes notes-type="Misc">
+          <title>Publisher’s Note</title>
+          <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+        </notes>
+      </back>
+    </article>

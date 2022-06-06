@@ -1,0 +1,1045 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0362-7</article-id>
+          <article-id pub-id-type="manuscript">362</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0362-7</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">DockRMSD: an open-source tool for atom mapping and RMSD calculation of symmetric molecules through graph isomorphism</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" id="Au1">
+              <name>
+                <surname>Bell</surname>
+                <given-names>Eric W.</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au2">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-2739-1916</contrib-id>
+              <name>
+                <surname>Zhang</surname>
+                <given-names>Yang</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDs1332101903627_cor2">b</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000000086837370</institution-id>
+                <institution-id institution-id-type="GRID">grid.214458.e</institution-id>
+                <institution content-type="org-division">Department of Computational Medicine and Bioinformatics</institution>
+                <institution content-type="org-name">University of Michigan</institution>
+              </institution-wrap>
+              <addr-line content-type="street">100 Washtenaw Avenue</addr-line>
+              <addr-line content-type="postcode">48109-2218</addr-line>
+              <addr-line content-type="city">Ann Arbor</addr-line>
+              <addr-line content-type="state">MI</addr-line>
+              <country country="US">USA</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs1332101903627_cor2">
+              <label>b</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>7</day>
+            <month>6</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="40">1</issue>
+          <elocation-id>40</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>30</day>
+              <month>5</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>21</day>
+              <month>2</month>
+              <year>2019</year>
+            </date>
+            <date date-type="accepted">
+              <day>30</day>
+              <month>5</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>7</day>
+              <month>6</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">Comparison of ligand poses generated by protein–ligand docking programs has often been carried out with the assumption of direct atomic correspondence between ligand structures. However, this correspondence is not necessarily chemically relevant for symmetric molecules and can lead to an artificial inflation of ligand pose distance metrics, particularly those that depend on receptor superposition (rather than ligand superposition), such as docking root mean square deviation (RMSD). Several of the commonly-used RMSD calculation algorithms that correct for molecular symmetry do not take into account the bonding structure of molecules and can therefore result in non-physical atomic mapping. Here, we present DockRMSD, a docking pose distance calculator that converts the symmetry correction to a graph isomorphism searching problem, in which the optimal atomic mapping and RMSD calculation are performed by an exhaustive and fast matching search of all isomorphisms of the ligand structure graph. We show through evaluation of docking poses generated by AutoDock Vina on the CSAR Hi-Q set that DockRMSD is capable of deterministically identifying the minimum symmetry-corrected RMSD and is able to do so without significant loss of computational efficiency compared to other methods. The open-source DockRMSD program can be conveniently integrated with various docking pipelines to assist with accurate atomic mapping and RMSD calculations, which can therefore help improve docking performance, especially for ligand molecules with complicated structural symmetry.</p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Symmetric molecules</kwd>
+            <kwd>Protein–ligand docking</kwd>
+            <kwd>Ligand pose comparison</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>National Institute of General Medical Sciences</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/100000057</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">GM070449</award-id>
+              <award-id award-type="FundRef grant">GM083107</award-id>
+              <award-id award-type="FundRef grant">GM116960</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Bell</surname>
+                  <given-names>Eric W.</given-names>
+                </name>
+              </principal-award-recipient>
+              <principal-award-recipient>
+                <name>
+                  <surname>Zhang</surname>
+                  <given-names>Yang</given-names>
+                </name>
+              </principal-award-recipient>
+              <principal-award-recipient>
+                <name>
+                  <surname>Zhang</surname>
+                  <given-names>Yang</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>National Institute of Allergy and Infectious Diseases</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/100000060</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">AI134678</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Zhang</surname>
+                  <given-names>Yang</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Division of Biological Infrastructure</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/100000153</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">DBI1564756</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Zhang</surname>
+                  <given-names>Yang</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>No</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>5</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>30</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_362.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p id="Par2">Computer-aided drug design, in particular protein–ligand docking, has brought about the discovery of many biologically active drugs [<xref ref-type="bibr" rid="CR1">1</xref>, <xref ref-type="bibr" rid="CR2">2</xref>]. In many protein–ligand docking programs, a flexible small molecule structure is docked in a rigid protein receptor structure in order to find the optimal binding conformation and affinity of the small molecule within the protein binding pocket. Since the ability of these programs to accurately assess binding affinity is dependent on their ability to find the optimal conformation of the ligand in the protein binding pocket, docking programs are often benchmarked by their ability to reproduce the native binding pose of a ligand from a protein–ligand complex crystal structure. A common metric used to evaluate distance between the predicted pose and the native pose, given a superposition of their protein receptor structures, is the root mean square deviation (RMSD) between their respective atoms (Eq. <xref rid="Equ1" ref-type="disp-formula">1</xref>):<disp-formula id="Equ1"><label>1</label><alternatives><mml:math display="block" id="Equ1_Math"><mml:mrow><mml:mi>R</mml:mi><mml:mi>M</mml:mi><mml:mi>S</mml:mi><mml:mi>D</mml:mi><mml:mo>=</mml:mo><mml:msqrt><mml:mrow><mml:mfrac><mml:mn>1</mml:mn><mml:mi>N</mml:mi></mml:mfrac><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>N</mml:mi></mml:munderover><mml:msubsup><mml:mi>d</mml:mi><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:msqrt></mml:mrow></mml:math><tex-math id="Equ1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$RMSD = \sqrt {\frac{1}{N}\mathop \sum \limits_{i = 1}^{N} d_{i}^{2} }$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_362_Article_Equ1.gif" /></alternatives></disp-formula>where <italic>N</italic> is the number of atoms in the ligand, and <italic>d</italic><sub><italic>i</italic></sub> is the Euclidean distance between the <italic>i</italic>th pair of <italic>corresponding</italic> atoms.</p>
+          <p id="Par3">Docking RMSD can be most naïvely calculated with the assumption of direct atomic correspondence, or in other words, the assumption that the atomic labels between ligand structures in the given structure files are ordered and should remain static in the docking process. This assumption holds for asymmetric molecules like caffeine (Fig. <xref rid="Fig1" ref-type="fig">1</xref>a), but this correspondence is not always practically relevant for molecules with symmetric functional groups (e.g. ibuprofen, Fig. <xref rid="Fig1" ref-type="fig">1</xref>b) or whole-molecule symmetry (e.g. the pyrrolidine-based inhibitor of HIV-1 protease [<xref ref-type="bibr" rid="CR3">3</xref>] in Fig. <xref rid="Fig1" ref-type="fig">1</xref>c), as they can give rise to binding poses that are identical in terms of chemistry, but not in terms of correspondence. Here, ibuprofen and HIV-1 protease pyrrolidine-based inhibitor have been chosen as illustrative examples, although there are various other molecules with symmetric structures in which naïve correspondence can result in false inflation of RMSD (e.g. the inhibitor BEA403 [<xref ref-type="bibr" rid="CR4">4</xref>], c-di-GMP [<xref ref-type="bibr" rid="CR5">5</xref>], etc.). For example, if one were to perfectly overlap two benzene molecules, their docking RMSD would have a value of zero. If one were to then rotate one molecule along one of its axes of symmetry until the two structures overlapped perfectly again, their docking RMSD should be zero due to the chemical identity of the overlap; since the overlapping atoms are differently labeled between the two molecules in this example, naïve docking RMSD would have a nonzero value. Therefore, molecular symmetry needs to be taken into account in order to derive an accurate docking RMSD value.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Examples of <bold>a</bold> an asymmetric ligand (PDB Ligand ID: CFF); <bold>b</bold> a slightly symmetric ligand (PDB Ligand ID: IBP); <bold>c</bold> a highly symmetric ligand (PDB Ligand ID: QN3). <bold>d</bold> An example ligand structure (left) and the resulting ligand structure when the atoms are reordered according to the optimal query-template atomic correspondence generated by the Hungarian method (right). Since the Hungarian method only takes atom type into account and not the bonds between atoms, the hypothetical molecule proposed by the Hungarian correspondence is physically impossible</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_362_Fig1_HTML.png" /></fig></p>
+          <p id="Par4">Several docking programs have implemented docking RMSD modules to accommodate ligand symmetry. AutoDock Vina [<xref ref-type="bibr" rid="CR6">6</xref>] was one of the first to implement symmetry correction in docking RMSD calculation, providing a module that creates correspondence by mapping each atom of one pose to the closest atom of the same type from the other pose. However, this method allows the potential for atoms that are close between the two structures to be used repeatedly and atoms that are distant to not be used at all. In response to this, Allen and Rizzo [<xref ref-type="bibr" rid="CR7">7</xref>] implemented their own docking RMSD calculator in DOCK6 [<xref ref-type="bibr" rid="CR8">8</xref>] which presents atomic correspondence mapping as a cost-minimization assignment problem, solved by using the Hungarian algorithm [<xref ref-type="bibr" rid="CR9">9</xref>, <xref ref-type="bibr" rid="CR10">10</xref>]. However, considering the mapping problem in this way ignores the bonding structure of the ligand, and can potentially provide nonphysical assignments (Fig. <xref rid="Fig1" ref-type="fig">1</xref>d) and docking RMSD values that are lower than what should be physically possible. Several other docking programs, such as GOLD [<xref ref-type="bibr" rid="CR11">11</xref>], AmberTools [<xref ref-type="bibr" rid="CR12">12</xref>], and Glide [<xref ref-type="bibr" rid="CR13">13</xref>, <xref ref-type="bibr" rid="CR14">14</xref>] also contain modules that calculate symmetry-corrected RMSD, but these modules generally do not publicly offer thoroughly detailed explanations of their symmetry correction algorithms and demand that the user install a much larger package to calculate symmetry corrected RMSD. Finally, OpenBabel [<xref ref-type="bibr" rid="CR15">15</xref>] contains a C++ open source tool, <italic>obrms</italic>, that considers symmetry correction as a graph isomorphism problem, solved by the VF2 algorithm [<xref ref-type="bibr" rid="CR16">16</xref>], but also currently requires that the user install the entirety of OpenBabel to use this tool. Docking RMSD calculated by these modules is distinct from conformational distance metrics calculated by programs such as LS-align [<xref ref-type="bibr" rid="CR17">17</xref>] and RDKit [<xref ref-type="bibr" rid="CR18">18</xref>], as these metrics are based on a superposition of the ligand structures themselves, not the receptor on which they are docked. Such a superposition is inappropriate for evaluation of docking poses due to the lack of consideration of the position and orientation of the ligand relative to the receptor; it is more appropriate for purely cheminformatic problems, such as ligand structural similarity comparisons. Therefore, there exists a need for a universal docking RMSD calculation module that properly considers molecular symmetry and does so with a clear, detailed description of its methodology.</p>
+          <p id="Par5">Here we propose a new, open-source module, DockRMSD, to solve the atom mapping issue for symmetric molecular structures through graph isomorphism, where the optimal docking RMSD is calculated by searching through a pruned state space of all isomorphic mappings between two molecular structures. Source code in C, compiled binaries, and a web server implementation of DockRMSD are made freely available at the DockRMSD web site [<xref ref-type="bibr" rid="CR19">19</xref>].</p>
+        </sec>
+        <sec id="Sec2">
+          <title>Implementation</title>
+          <p id="Par6">A general overview of the DockRMSD algorithm is presented in Fig. <xref rid="Fig2" ref-type="fig">2</xref>. To begin, the user provides a pair of structure files in MOL2 format, each containing a specific pose of the same ligand. The first file is arbitrarily defined as the “query” structure and the second as the “template” structure, for convenience of description. The elements of the heavy (non-H) atoms present in each structure, the coordinates of those atoms, and the bonding network between the pairs of atoms are read from the structure files. Subsequently, the atom and bond sets are compared in order to ensure that the two structures are of the same ligand molecule. Bonds are represented by a symmetric two-dimensional array which contains a string corresponding to bond type (single = “1”, double = “2”, aromatic = “ar”, etc.) between bonded atoms <italic>i</italic> and <italic>j</italic> at array position [<italic>i</italic>, <italic>j</italic>], and contains empty strings otherwise. If the bond types do not agree between the two files, the bond network is stripped of bond types, preserving only which atoms are bonded.<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>The DockRMSD algorithm. DockRMSD calculates the optimal atom mapping and RMSD value for any given pair of poses for the same ligand, input as a pair of MOL2 structure files</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_362_Fig2_HTML.png" /></fig></p>
+          <p id="Par7">Once the ligand structural information has been extracted, the next step is to determine the set of template atoms to which each query atom is chemically identical, referred to as the atom identity search. For each atom of the query structure, all atoms of the template structure of the same element are initially considered to be candidate mapping partners. Then, the set of atoms that the query atom is bonded to, as well as the bond types between them, is evaluated against the set of atoms and bonds present for each candidate mapping partner in the template; candidate template atoms are eliminated if their bonding structure does not match the query atom. This process is repeated, checking for identity between not only their set of bonded neighbor atoms, but the neighbors of those neighbor atoms as well, once again removing candidate atoms if the sets are not identical. A deeper search involving further neighbor atoms was attempted, but it was found that including more neighbors ultimately did not change the final optimal correspondence. Therefore, the identity search stops at this neighbor atom depth in order to minimize unnecessary neighbor set comparisons and optimize runtime. If more than one candidate remains, there is likely more than one atom in the template that is chemically identical to the query atom, meaning that the ligand has some degree of symmetry. Once the atom identity search is complete, each query atom will have a set of template atoms that are chemically equivalent to that query atom. For a completely asymmetric molecule (Fig. <xref rid="Fig1" ref-type="fig">1</xref>a), each query atom will only have one corresponding template atom. Therefore, calculating the optimal RMSD for these asymmetric molecules is a simple task of matching each query atom to its respective template atom and returning the RMSD calculated from this correspondence. However, for symmetric molecules, one must search through all possible assignments of template atoms in order to find the mapping whose RMSD is minimal. The putative computational expense of this search is calculated as the total number of possible mappings, i.e. the product of each query atoms’ candidate atom set length.</p>
+          <p id="Par8">In order to find the deterministically optimal mapping between query and template atoms, an exhaustive assignment search reminiscent of the VF2 algorithm [<xref ref-type="bibr" rid="CR16">16</xref>] coupled with Dead-End Elimination (DEE) [<xref ref-type="bibr" rid="CR20">20</xref>] is implemented. In this procedure, query atoms are iteratively assigned the template label that provides the smallest squared interpose distance and can feasibly added to the existing assignments. The first of these feasibility criteria is if the candidate template atom that is being assigned has already been assigned to a previous query atom, this assignment is disallowed. This restriction ensures that all mappings are one-to-one such that no template atom is mapped to more than one query atom. Second, if the query atom that is currently being mapped is bonded to already mapped atoms, the template bonding network is checked to ensure that a bond also exists in the template between the labels given to those atoms from the query. If the bonds being formed by query atom assignment are not supposed to be formed according to the template, the proposed assignment is not feasible. Finally, the last feasibility criterion is DEE, which ceases assignment of a particular atom if all subsequent feasible assignments would result in an RMSD larger than the smallest heretofore observed RMSD (which is infinity if no RMSD has yet been observed). The query atoms are mapped in order of number of possible template labels (smallest first), then number of bonds to already mapped query atoms (largest first), and finally, the order in which they appear in the query file (smallest first). Once all query atoms have been assigned to template atoms, this correspondence is used to calculate RMSD. The minimum RMSD for all mappings and the mapping that gave rise to that RMSD are then printed by the program. In addition, the number of possible mappings is printed.</p>
+        </sec>
+        <sec id="Sec3">
+          <title>Results and discussion</title>
+          <sec id="Sec4">
+            <title>Docking conformation dataset and generation</title>
+            <p id="Par9">To evaluate DockRMSD’s symmetry correction and the reliability of the greedy search heuristic, we generated docking conformations based on the CSAR Hi-Q protein-ligand dataset [<xref ref-type="bibr" rid="CR21">21</xref>]. This dataset contains 343 protein structures with manually refined binding pockets, each in complex with their respective ligand, where the docking decoy conformations have been generated by ourselves using the AutoDock Vina program [<xref ref-type="bibr" rid="CR6">6</xref>]. For each protein–ligand pair, the native ligand structure was removed, conformationally randomized using OpenBabel [<xref ref-type="bibr" rid="CR15">15</xref>], and re-docked into the binding pocket using AutoDock Vina [<xref ref-type="bibr" rid="CR6">6</xref>]. The generation of input PDBQT files for docking and the output file conversion from PDBQT to MOL2 was performed by OpenBabel. Docking RMSD was calculated between all 10 possible pairwise combinations of the top five poses generated from a single re-docking experiment, leading to a total of 3430 RMSD calculations (10 per protein–ligand pair, 343 protein–ligand pairs in total). All 3430 calculations were performed using a list of different programs on a Red Hat Enterprise Linux machine with an Intel i5-4590 CPU @ 3.30 GHz. The average total walltime for all 3430 RMSD calculations was 4.8 ± 0.7 s, 5.3 ± 0.9 s, and 60.1 ± 0.1 s for DockRMSD, naïve RMSD, and <italic>obrms</italic>, respectively (see “<xref rid="Sec6" ref-type="sec">DockRMSD runtime comparison</xref>” section for a more detailed runtime analysis).</p>
+            <p id="Par10">Here, naïve RMSD calculations relative to the native crystal structure pose were not calculated because the AutoDock Vina ligand preparation process removes direct atomic correspondence between the redocked ligand and the native ligand. AutoDock Vina re-orders the atoms of the ligand according to the ligand’s torsional tree, and therefore, all Vina poses have direct correspondence with each other, but not with the original native ligand structure. Therefore, only programs that can find atomic correspondence between files can be used to compare the Vina poses to the native crystal structure pose. This limitation is why the dataset used to evaluate the programs consists only of docked poses; direct correspondence cannot be drawn between the native crystal structure and Vina-generated poses. Ligand structures have been visualized using UCSF Chimera [<xref ref-type="bibr" rid="CR22">22</xref>].</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Docking RMSD calculation through DockRMSD</title>
+            <p id="Par11">To examine the impact of symmetry correction in docking RMSD calculation, we compare in Fig. <xref rid="Fig3" ref-type="fig">3</xref>a the symmetry-corrected RMSD calculated from DockRMSD and the naïve RMSD which was calculated from the default atom order of the structure files. While 2109 of the 3430 cases require no symmetry correction, the remaining 1321 (38.5%) are cases where adhering to naïve RMSD artificially inflates the docking RMSD, by more than 2 Å in 54 of these cases (Table <xref rid="Tab1" ref-type="table">1</xref>). The most extreme examples of this are when a ligand molecule is large and possesses a mirror plane of symmetry, and when the ligand poses roughly overlap. For these cases, determining the optimal mapping is essential because misplaced correspondence will give rise to unreasonably large interatom distances, especially when compared to the relatively small “true” RMSD. An example of a Huperzine A-based ligand of acetylcholinesterase [<xref ref-type="bibr" rid="CR23">23</xref>] is shown in Fig. <xref rid="Fig3" ref-type="fig">3</xref>b, where the two halves of the molecule are chemically identical to another and by eye should have a relatively small RMSD value. DockRMSD’s calculation aligns with this rough assessment, calculating an RMSD value of 3.42 Å. However, due to the fact that the query is flipped relative to the template, naïve RMSD considers this reorientation an important distinction, and therefore calculates the RMSD to be 10.74 Å.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p><bold>a</bold> Ligand RMSD calculated by DockRMSD versus that by the naïve RMSD calculations on 1321 ligand molecules with symmetric structures. <bold>b</bold> An example pair of poses where naïve RMSD calculation failed to provide the optimal RMSD due to molecular symmetry (Ligand PDB ID: E10; Receptor PDB ID: 1H22 [<xref ref-type="bibr" rid="CR23">23</xref>]). Interpose correspondence between oxygen atoms is drawn to represent the source of the RMSD disagreement by different methods</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_362_Fig3_HTML.png" /></fig><table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Counts of 3430 total RMSD calculations whose error relative to the deterministic DockRMSD calculation is zero, small (nonzero but smaller than 2.0 Å), or large (greater than 2.0 Å)</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" /><th align="left"><p>N (Error = 0)</p></th><th align="left"><p>N (0 &lt; Error ≤ 2.0 Å)</p></th><th align="left"><p>N (Error > 2.0 Å)</p></th></tr></thead><tbody><tr><td align="left"><p>Naïve</p></td><td char="(" align="char"><p>2109 (61.5%)</p></td><td char="(" align="char"><p>1267 (36.9%)</p></td><td char="(" align="char"><p>54 (1.6%)</p></td></tr><tr><td align="left"><p>Hungarian</p></td><td char="(" align="char"><p>161 (4.7%)</p></td><td char="(" align="char"><p>2548 (74.3%)</p></td><td char="(" align="char"><p>721 (21.0%)</p></td></tr></tbody></table></table-wrap></p>
+            <p id="Par12">In Fig. <xref rid="Fig4" ref-type="fig">4</xref>a, we present a comparison between the RMSD of DockRMSD and that calculated by the Hungarian algorithm, which has been adopted by several established methods, such as DOCK6 [<xref ref-type="bibr" rid="CR8">8</xref>]. In the Hungarian algorithm, the mapping is generated through iterative manipulation of a cost matrix (i.e. an interatom distance matrix) such that a pattern of zero values corresponding to the optimal assignment appears. The performance of the Hungarian algorithm was evaluated using a Python implementation of the docking RMSD calculation procedure similar to what is described by Allen and Rizzo [<xref ref-type="bibr" rid="CR7">7</xref>]. The script uses the Python Munkres package [<xref ref-type="bibr" rid="CR24">24</xref>] to generate query-template atomic correspondence such that assignments can only be made between atoms of the same element. As explained above, the laxness of this algorithm causes it to over-optimize and generate RMSD values below what should be possible. As a result, in nearly every case analyzed, the Hungarian algorithm generated an RMSD value below the optimal answer found by DockRMSD (3269 of 3430 RMSD calculations, 95.3%; Table <xref rid="Tab1" ref-type="table">1</xref>). This implies that the over-correction issue introduced by the Hungarian algorithm is not trivial.<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p><bold>a</bold> Comparison of the Hungarian algorithm against DockRMSD for the 3112 molecules whose RMSD was underestimated by the Hungarian algorithm. <bold>b</bold> Comparison of the Hungarian algorithm against DockRMSD for the 190 molecules whose RMSD was underestimated by the Hungarian algorithm in the native ligand pose benchmark. <bold>c</bold> An example pair of poses where the Hungarian algorithm grossly overcorrected for symmetry due to its insensitivity to global molecular topology (Ligand PDB ID: BEG; Receptor PDB ID: 1D4I [<xref ref-type="bibr" rid="CR25">25</xref>]). Interpose correspondence between central carbon atoms and nitrogen atoms is drawn to represent the source of the RMSD disagreement. Hungarian correspondence is drawn in red to demonstrate that the correspondence should not be allowed according to the chemical inequivalence of the atoms bonded to each atom of the pair</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_362_Fig4_HTML.png" /></fig></p>
+            <p id="Par13">In contrast to the comparison between DockRMSD and naïve RMSD, the largest discrepancies between DockRMSD and the Hungarian algorithm are present in near mirror-symmetric molecules whose poses overlap almost exactly. As an illustrative example, we present in Fig. <xref rid="Fig4" ref-type="fig">4</xref>c a result from the HIV-1 protease inhibitor BEA425 [<xref ref-type="bibr" rid="CR25">25</xref>], where the poses presented look nearly identical by eye, and thus, one would anticipate the RMSD value should be low. However, this molecule is not truly symmetric due to a hydroxyl group near the center of the molecule, and therefore, the two poses are not truly chemically identical. Since the Hungarian algorithm only takes into account individual atom types and not global chemical identity, cases like these fool the algorithm into accepting regions of local correspondence at the cost of properly considering which atoms are bonded. Although the algorithm generates lower RMSD values, these values do not reflect correct correspondence of the atomic mapping derived from the ligand bonding structures.</p>
+            <p id="Par14">Here, it is noted that the above RMSD calculations are performed on the AutoDock Vina docked conformations, which was chosen purely to enable the comparison of different RMSD calculation programs with direct correspondence. In fact, one of the most common applications of ligand RMSD calculation is for benchmarking experiments that evaluate a docking program’s ability to produce ligand poses that closely resemble the native conformation. In such experiments, poses are typically considered “near-native” if their RMSD relative to the native pose is  ≤  2.0 Å. In order to examine the performance of different programs with respect to this task, the top ranked AutoDock Vina pose for each of the 343 protein–ligand pairs was compared against the crystal structure pose of the ligand as provided by the CSAR Hi-Q set using both DockRMSD and the Hungarian algorithm, the results of which are presented in Fig. <xref rid="Fig4" ref-type="fig">4</xref>b and Table <xref rid="Tab2" ref-type="table">2</xref>. It was shown that in 190 of the 343 cases, the Hungarian algorithm resulted in a lower value than the optimal value as determined by DockRMSD, where 10 of them would have resulted in a false positive classification of a “near native” pose. These results demonstrate that evaluation of a docking algorithm by RMSD values using incorrect atomic correspondences can lead to artificial inflations of docking results.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>A contingency table for 343 RMSD calculations between docked ligand poses and their respective native crystal structure ligand poses, calculated both by DockRMSD and the Hungarian algorithm</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" /><th align="left"><p>Hungarian RMSD > 2.0 Å</p></th><th align="left"><p>Hungarian RMSD ≤ 2.0 Å</p></th></tr></thead><tbody><tr><td align="left"><p>DockRMSD > 2.0 Å</p></td><td char="." align="char"><p>157</p></td><td char="." align="char"><p>10</p></td></tr><tr><td align="left"><p>DockRMSD ≤ 2.0 Å</p></td><td char="." align="char"><p>0</p></td><td char="." align="char"><p>176</p></td></tr></tbody></table></table-wrap></p>
+          </sec>
+          <sec id="Sec6">
+            <title>DockRMSD runtime comparison</title>
+            <p id="Par15">In order to evaluate the runtime efficiency of DockRMSD, both naïve and symmetry-corrected RMSD calculations on all 3430 pose pairs were compared to the runtimes of <italic>obrms</italic>. The <italic>obrms</italic> package is a tool from OpenBabel that calculates RMSD through solving the graph isomorphism problem using a similar algorithm relative to DockRMSD. The values calculated between <italic>obrms</italic> and DockRMSD (if the bond type information is not used in DockRMSD) are identical; therefore, the most poignant comparison between these two programs is to determine how quickly they respectively come to the correct answer. The results of this experiment are summarized in Fig. <xref rid="Fig5" ref-type="fig">5</xref>, with runtimes being log-transformed to more closely resemble normal distributions. As is shown, every calculation performed by DockRMSD was faster than the fastest calculation made by <italic>obrms</italic>, which is consistent with the statistically significant difference between their average runtimes (t = 310.6, p &lt; 10<sup>−20,000</sup> by one-tailed paired t-test). The difference between symmetry-corrected and symmetry-uncorrected runtime is also statistically significant (t = 43.9, p &lt; 10<sup>−400</sup> by one-tailed paired t-test), but the magnitude of mean difference between DockRMSD and <italic>obrms</italic> (1.04 log<sub>10</sub>(seconds)) is much larger than between symmetry-corrected and naïve runtime (0.21 log<sub>10</sub>(seconds)). This data suggests that while the impact of symmetry correction on RMSD calculation time is observable, its impact on runtime relative to <italic>obrms</italic>, which performs a similar symmetry correction, is minimized.<fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p>Box and whisker plots of the walltime distributions (in log<sub>10</sub>(sec)) for each of the 3430 RMSD calculations as calculated by symmetry-corrected DockRMSD, symmetry-uncorrected naïve RMSD, and symmetry-corrected <italic>obrms</italic></p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_362_Fig5_HTML.png" /></fig></p>
+            <p id="Par16">While a good portion of this runtime difference can be attributed to the fact that <italic>obrms</italic> is implemented using OpenBabel’s object-oriented framework and thus leads to the instantiation of more computationally intensive data structures than is necessary for this problem, DEE also contributes to the increased efficiency of DockRMSD. As an illustrative example of DEE’s power, a buckminsterfullerene (C<sub>60</sub>) molecule was docked onto tRNA-Guanine Transglycosylase [<xref ref-type="bibr" rid="CR26">26</xref>] using AutoDock Vina, and subsequently, docking RMSD was calculated between the top five poses using DockRMSD without DEE, DockRMSD with DEE, and <italic>obrms</italic> for runtime analysis. The choice of receptor was random and arbitrary in this experiment; docking on this receptor was only a means to generate hypothetical poses for the ligand and implies no greater biological relevance. However, the reason buckminsterfullerene molecule was chosen as the ligand is that it is one of the most highly symmetric molecules that has been observed in nature: each carbon is chemically identical to every other carbon in the molecule, leading to a total state space of 60<sup>60</sup> possible mappings, a greater number of mappings than there are atoms in the universe. Therefore, proper pruning of the mapping search space is essential to efficiently find the minimum RMSD for this molecule. Reflective of this, DockRMSD without DEE requires a relatively high amount of time (on average 93.3 ± 0.9 ms per ligand pair) to find the optimal solution, as the only pruning done is the bond-based and duplicate criteria described in the implementation; the atom identity search provides no information due to the symmetry of buckminsterfullerene. The <italic>obrms</italic> tool prunes more efficiently (on average 59.6 ± 0.9 ms per ligand pair) due to its direct implementation of the VF2 feasibility criteria, but still needs to enumerate through every valid mapping to find the optimal one and thus takes longer to arrive at the optimal answer. However, since DEE prunes mappings based on their cumulative square distance, DockRMSD is able to find the optimal solution within a timeframe that rivals the runtime of <italic>obrms</italic> on most other molecules (on average 8.7 ± 0.7 ms per ligand pair).</p>
+          </sec>
+        </sec>
+        <sec id="Sec7" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p id="Par17">The inability of naïve RMSD calculation to account for molecular symmetry negatively impacts how we evaluate ligand poses generated by protein–ligand docking. In the dataset we analyzed, about two out of every five ligands require some sort of symmetry correction to achieve accurate docking RMSD values, some of which demonstrated an RMSD correction of more than 2.0 Å. While several attempts have been made to address this need, implementations that find mappings without considering atomic connectivity, such as those in DOCK6 and AutoDock Vina, ultimately fail to consider properties of the ligand that are necessary to find the true optimal symmetry-corrected RMSD. While modules from commercial programs like GOLD and Glide are also capable of finding the optimal solution and are likely more convenient if the poses being evaluated were generated from these programs, users who wish to use these programs must purchase a license or install hefty software packages to perform RMSD calculations. Finally, even when compared to analogous open-source modules, such as <italic>obrms</italic>, DockRMSD has demonstrated much faster calculations in all cases (particularly high-symmetry cases) due to its lightweight implementation. In addition to symmetry correction, the atomic correspondence search of DockRMSD promotes easier comparison between docking programs in benchmarking studies. Ligand poses generated by several programs do not necessarily have direct atomic correspondence, and so DockRMSD could be used as a universal analysis module to ensure all programs are able to be compared and that the comparison is fair.</p>
+          <p id="Par18">Despite the ability of DockRMSD to calculate symmetry-corrected RMSD, a few shortcomings of the program remain. For example, DockRMSD requires that the two molecules that are provided are the same molecule due to the atom identity search step. This could potentially be solved through implementation of maximum common substructure searching. However, if the molecule being analyzed is symmetric, a common substructure could potentially correspond to several positions in the molecule, leading to several different potential RMSD values. In addition, DockRMSD currently only evaluates ligand pose distance through docking RMSD because of the popularity of this metric. However, RMSD is far from a perfect metric, particularly because of its inability to capture the conservation of essential protein–ligand interactions that confer high binding affinity. As of now, DockRMSD does not include metrics that address these shortcomings of RMSD because they require the consideration of the protein receptor structure, but future iterations of this software could feasibly incorporate this information along with the typical RMSD calculation.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <sec>
+            <p>We would like to thank Dr. Wallace Chan for his critique of this manuscript. Molecular graphics performed with UCSF Chimera, developed by the Resource for Biocomputing, Visualization, and Informatics at the University of California, San Francisco, with support from NIH P41-GM103311.</p>
+          </sec>
+          <sec id="FPar2">
+            <title>Availability and requirements</title>
+            <p id="Par20">Project Name: DockRMSD.</p>
+            <p id="Par21">Project home page: <ext-link xlink:href="https://zhanglab.ccmb.med.umich.edu/DockRMSD/" ext-link-type="uri">https://zhanglab.ccmb.med.umich.edu/DockRMSD/</ext-link>.</p>
+            <p id="Par22">Operating system: Binary in Linux, Source code platform independent.</p>
+            <p id="Par23">Programming language: C.</p>
+            <p id="Par24">Other requirements: GCC 4.3.1 or higher or compatible Linux operating system.</p>
+            <p id="Par25">License: GNU GPL.</p>
+          </sec>
+        </ack>
+        <sec sec-type="author-contribution">
+          <title>Authors’ contributions</title>
+          <p>EWB designed and implemented DockRMSD. YZ oversaw the process as a Principal Investigator and was heavily involved in manuscript revision. Both authors read and approved the final manuscript.</p>
+        </sec>
+        <sec>
+          <title>Funding</title>
+          <p>The study is supported in part by the National Institute of General Medical Sciences [GM070449, GM083107, GM116960], National Institute of Allergy and Infectious Diseases [AI134678], and the National Science Foundation [DBI1564756].</p>
+        </sec>
+        <sec sec-type="data-availability">
+          <title>Availability of data and materials</title>
+          <p>The datasets generated and analysed during the current study as well as DockRMSD source code are available at the DockRMSD webserver, <ext-link xlink:href="https://zhanglab.ccmb.med.umich.edu/DockRMSD/" ext-link-type="uri">https://zhanglab.ccmb.med.umich.edu/DockRMSD/</ext-link>.</p>
+        </sec>
+        <sec sec-type="ethics-statement">
+          <sec id="FPar3" sec-type="COI-statement">
+            <title>Competing interests</title>
+            <p id="Par26">The authors declare that they have no competing interests.</p>
+          </sec>
+        </sec>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Tuccinardi</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Docking-based virtual screening: recent developments</article-title>
+                <source>Comb Chem High Throughput Screen</source>
+                <year>2009</year>
+                <volume>12</volume>
+                <fpage>303</fpage>
+                <lpage>314</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXks1CgtLk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.2174/138620709787581666</pub-id>
+                <pub-id pub-id-type="pmid">19275536</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Śledź</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Caflisch</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Protein structure-based drug design: from docking to molecular dynamics</article-title>
+                <source>Curr Opin Struct Biol</source>
+                <year>2018</year>
+                <volume>48</volume>
+                <fpage>93</fpage>
+                <lpage>102</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhslygsbzF</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.sbi.2017.10.010</pub-id>
+                <pub-id pub-id-type="pmid">29149726</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Blum</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Böttcher</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Heine</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Structure-guided design of C2-symmetric HIV-1 protease inhibitors based on a pyrrolidine scaffold</article-title>
+                <source>J Med Chem</source>
+                <year>2008</year>
+                <volume>51</volume>
+                <fpage>2078</fpage>
+                <lpage>2087</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXjsVGnurw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm701142s</pub-id>
+                <pub-id pub-id-type="pmid">18348517</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lindberg</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Pyring</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Löwgren</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Symmetric fluoro-substituted diol-based HIV protease inhibitors: ortho-fluorinated and meta-fluorinated P1/P1′-benzyloxy side groups significantly improve the antiviral activity and preserve binding efficacy</article-title>
+                <source>Eur J Biochem</source>
+                <year>2004</year>
+                <volume>271</volume>
+                <fpage>4594</fpage>
+                <lpage>4602</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhtVKmtbrE</pub-id>
+                <pub-id pub-id-type="doi">10.1111/j.1432-1033.2004.04431.x</pub-id>
+                <pub-id pub-id-type="pmid">15560801</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Benach</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Swaminathan</surname>
+                    <given-names>SS</given-names>
+                  </name>
+                  <name>
+                    <surname>Tamayo</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">The structural basis of cyclic diguanylate signal transduction by PilZ domains</article-title>
+                <source>EMBO J</source>
+                <year>2007</year>
+                <volume>26</volume>
+                <fpage>5153</fpage>
+                <lpage>5166</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXhsVWgsr7K</pub-id>
+                <pub-id pub-id-type="doi">10.1038/sj.emboj.7601918</pub-id>
+                <pub-id pub-id-type="pmid">18034161</pub-id>
+                <pub-id pub-id-type="pmcid">2140105</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Trott</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Olson</surname>
+                    <given-names>AJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">AutoDock Vina: improving the speed and accuracy of docking with a new scoring function, efficient optimization, and multithreading</article-title>
+                <source>J Comput Chem</source>
+                <year>2010</year>
+                <volume>31</volume>
+                <fpage>455</fpage>
+                <lpage>461</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXhsFGnur3O</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.21334</pub-id>
+                <pub-id pub-id-type="pmid">19499576</pub-id>
+                <pub-id pub-id-type="pmcid">3041641</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Allen</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Rizzo</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Implementation of the Hungarian algorithm to account for ligand symmetry and similarity in structure-based design</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2014</year>
+                <volume>54</volume>
+                <fpage>518</fpage>
+                <lpage>529</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXmsVSmtg%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci400534h</pub-id>
+                <pub-id pub-id-type="pmid">24410429</pub-id>
+                <pub-id pub-id-type="pmcid">3958141</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Allen</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Balius</surname>
+                    <given-names>TE</given-names>
+                  </name>
+                  <name>
+                    <surname>Mukherjee</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">DOCK 6: impact of new features and current docking performance</article-title>
+                <source>J Comput Chem</source>
+                <year>2015</year>
+                <volume>36</volume>
+                <fpage>1132</fpage>
+                <lpage>1156</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXnt1Smtbs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.23905</pub-id>
+                <pub-id pub-id-type="pmid">25914306</pub-id>
+                <pub-id pub-id-type="pmcid">4469538</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kuhn</surname>
+                    <given-names>HW</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The Hungarian method for the assignment problem</article-title>
+                <source>Nav Res Logist Q</source>
+                <year>1955</year>
+                <volume>2</volume>
+                <fpage>83</fpage>
+                <lpage>97</lpage>
+                <pub-id pub-id-type="doi">10.1002/nav.3800020109</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Munkres</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Algorithms for the assignment and transportation problems</article-title>
+                <source>J Soc Ind Appl Math</source>
+                <year>1957</year>
+                <volume>5</volume>
+                <fpage>32</fpage>
+                <lpage>38</lpage>
+                <pub-id pub-id-type="doi">10.1137/0105003</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jones</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Glen</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Development and validation of a genetic algorithm for flexible docking</article-title>
+                <source>J Mol Biol</source>
+                <year>1997</year>
+                <volume>267</volume>
+                <fpage>727</fpage>
+                <lpage>748</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2sXis1KntLo%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1006/jmbi.1996.0897</pub-id>
+                <pub-id pub-id-type="pmid">9126849</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="other">D.A. Case, I.Y. Ben-Shalom, S.R. Brozell, D.S. Cerutti, T.E. Cheatham, III, V.W.D. Cruzeiro TAD, R.E. Duke, D. Ghoreishi, M.K. Gilson, H. Gohlke, A.W. Goetz, D. Greene, R Harris, N. Homeyer YH, S. Izadi, A. Kovalenko, T. Kurtzman, T.S. Lee, S. LeGrand, P. Li, C. Lin, J. Liu, T. Luchko, R. Luo DJ, et al. AMBER 2018; 2018</mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Friesner</surname>
+                    <given-names>RA</given-names>
+                  </name>
+                  <name>
+                    <surname>Banks</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                  <name>
+                    <surname>Murphy</surname>
+                    <given-names>RB</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Glide: a new approach for rapid, accurate docking and scoring. 1. Method and assessment of docking accuracy</article-title>
+                <source>J Med Chem</source>
+                <year>2004</year>
+                <volume>47</volume>
+                <fpage>1739</fpage>
+                <lpage>1749</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhsFyit74%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm0306430</pub-id>
+                <pub-id pub-id-type="pmid">15027865</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                  <name>
+                    <surname>Murphy</surname>
+                    <given-names>RB</given-names>
+                  </name>
+                  <name>
+                    <surname>Friesner</surname>
+                    <given-names>RA</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Glide: a new approach for rapid, accurate docking and scoring. 2. Enrichment factors in database screening</article-title>
+                <source>J Med Chem</source>
+                <year>2004</year>
+                <volume>47</volume>
+                <fpage>1750</fpage>
+                <lpage>1759</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhsFyit78%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm030644s</pub-id>
+                <pub-id pub-id-type="pmid">15027866</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>O’Boyle</surname>
+                    <given-names>NM</given-names>
+                  </name>
+                  <name>
+                    <surname>Banck</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>James</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Open Babel: an open chemical toolbox</article-title>
+                <source>J Cheminform</source>
+                <year>2011</year>
+                <volume>3</volume>
+                <fpage>33</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhsVWjurbF</pub-id>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-3-33</pub-id>
+                <pub-id pub-id-type="pmid">21982300</pub-id>
+                <pub-id pub-id-type="pmcid">3198950</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Vento</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Cordella</surname>
+                    <given-names>LP</given-names>
+                  </name>
+                  <name>
+                    <surname>Foggia</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Sansone</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A (sub) graph isomorphism algorithm for matching large graphs</article-title>
+                <source>IEEE Trans Pattern Anal Mach Intell</source>
+                <year>2004</year>
+                <volume>26</volume>
+                <fpage>1367</fpage>
+                <lpage>1372</lpage>
+                <pub-id pub-id-type="doi">10.1109/TPAMI.2004.75</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hu</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Yu</surname>
+                    <given-names>DJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">LS-align: an atom-level, flexible ligand structural alignment algorithm for high-throughput virtual screening</article-title>
+                <source>Bioinformatics</source>
+                <year>2018</year>
+                <volume>34</volume>
+                <fpage>2209</fpage>
+                <lpage>2218</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1MXovFSjt7o%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/bty081</pub-id>
+                <pub-id pub-id-type="pmid">29462237</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="other">RDKit: Open-source cheminformatics. <ext-link xlink:href="http://www.rdkit.org" ext-link-type="uri">http://www.rdkit.org</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="other">DockRMSD: docking pose distance calculation. <ext-link xlink:href="https://zhanglab.ccmb.med.umich.edu/DockRMSD/" ext-link-type="uri">https://zhanglab.ccmb.med.umich.edu/DockRMSD/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Desmet</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>De Maeyer</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Hazes</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Lasters</surname>
+                    <given-names>I</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The dead-end elimination theorem and its use in protein side-chain positioning</article-title>
+                <source>Nature</source>
+                <year>1992</year>
+                <volume>356</volume>
+                <fpage>539</fpage>
+                <lpage>542</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK38XisFWls7Y%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/356539a0</pub-id>
+                <pub-id pub-id-type="pmid">21488406</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Dunbar</surname>
+                    <given-names>JB</given-names>
+                  </name>
+                  <name>
+                    <surname>Smith</surname>
+                    <given-names>RD</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>CY</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">CSAR benchmark exercise of 2010: selection of the protein-ligand complexes</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2011</year>
+                <volume>51</volume>
+                <fpage>2036</fpage>
+                <lpage>2046</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXpt1Cjur4%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci200082t</pub-id>
+                <pub-id pub-id-type="pmid">21728306</pub-id>
+                <pub-id pub-id-type="pmcid">3180202</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pettersen</surname>
+                    <given-names>EF</given-names>
+                  </name>
+                  <name>
+                    <surname>Goddard</surname>
+                    <given-names>TD</given-names>
+                  </name>
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>CC</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">UCSF Chimera—a visualization system for exploratory research and analysis</article-title>
+                <source>J Comput Chem</source>
+                <year>2004</year>
+                <volume>25</volume>
+                <fpage>1605</fpage>
+                <lpage>1612</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXmvVOhsbs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.20084</pub-id>
+                <pub-id pub-id-type="pmid">15264254</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wong</surname>
+                    <given-names>DM</given-names>
+                  </name>
+                  <name>
+                    <surname>Greenblatt</surname>
+                    <given-names>HM</given-names>
+                  </name>
+                  <name>
+                    <surname>Dvir</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Acetylcholinesterase complexed with bivalent ligands related to Huperzine A: experimental evidence for species-dependent protein–ligand complementarity</article-title>
+                <source>J Am Chem Soc</source>
+                <year>2003</year>
+                <volume>125</volume>
+                <fpage>363</fpage>
+                <lpage>373</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XpsVentbo%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ja021111w</pub-id>
+                <pub-id pub-id-type="pmid">12517147</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="other">munkres - Munkres implementation for Python. <ext-link xlink:href="http://software.clapper.org/munkres/index.html" ext-link-type="uri">http://software.clapper.org/munkres/index.html</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Andersson</surname>
+                    <given-names>HO</given-names>
+                  </name>
+                  <name>
+                    <surname>Fridborg</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Löwgren</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Optimization of P1–P3 groups in symmetric and asymmetric HIV-1 protease inhibitors</article-title>
+                <source>Eur J Biochem</source>
+                <year>2003</year>
+                <volume>270</volume>
+                <fpage>1746</fpage>
+                <lpage>1758</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3sXjtl2ju74%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1046/j.1432-1033.2003.03533.x</pub-id>
+                <pub-id pub-id-type="pmid">12694187</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Biela</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Tidten-Luksch</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Immekus</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Investigation of specificity determinants in bacterial tRNA-guanine transglycosylase reveals queuine, the substrate of its eucaryotic counterpart, as inhibitor</article-title>
+                <source>PLoS ONE</source>
+                <year>2013</year>
+                <volume>8</volume>
+                <fpage>e64240</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXovVKgsLg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1371/journal.pone.0064240</pub-id>
+                <pub-id pub-id-type="pmid">23704982</pub-id>
+                <pub-id pub-id-type="pmcid">3660597</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <notes notes-type="Misc">
+          <title>Publisher's Note</title>
+          <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+        </notes>
+      </back>
+    </article>

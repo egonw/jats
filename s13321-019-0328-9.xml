@@ -1,0 +1,1826 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0328-9</article-id>
+          <article-id pub-id-type="manuscript">328</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0328-9</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">QBMG: quasi-biogenic molecule generator with deep recurrent neural network</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" id="Au1">
+              <name>
+                <surname>Zheng</surname>
+                <given-names>Shuangjia</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au2">
+              <name>
+                <surname>Yan</surname>
+                <given-names>Xin</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDs1332101903289_cor2">b</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au3">
+              <name>
+                <surname>Gu</surname>
+                <given-names>Qiong</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au4">
+              <name>
+                <surname>Yang</surname>
+                <given-names>Yuedong</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff3">3</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au5">
+              <name>
+                <surname>Du</surname>
+                <given-names>Yunfei</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff3">3</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au6">
+              <name>
+                <surname>Lu</surname>
+                <given-names>Yutong</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff3">3</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au7">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-1075-0337</contrib-id>
+              <name>
+                <surname>Xu</surname>
+                <given-names>Jun</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+              <xref ref-type="corresp" rid="IDs1332101903289_cor7">g</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 2360 039X</institution-id>
+                <institution-id institution-id-type="GRID">grid.12981.33</institution-id>
+                <institution content-type="org-division">Research Center for Drug Discovery, School of Pharmaceutical Sciences</institution>
+                <institution content-type="org-name">Sun Yat-Sen University</institution>
+              </institution-wrap>
+              <addr-line content-type="street">132 East Circle at University City</addr-line>
+              <addr-line content-type="postcode">510006</addr-line>
+              <addr-line content-type="city">Guangzhou</addr-line>
+              <country country="CN">China</country>
+            </aff>
+            <aff id="Aff2">
+              <label>2</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 2375 7370</institution-id>
+                <institution-id institution-id-type="GRID">grid.500400.1</institution-id>
+                <institution content-type="org-division">School of Computer Science and Technology</institution>
+                <institution content-type="org-name">Wuyi University</institution>
+              </institution-wrap>
+              <addr-line content-type="street">99 Yingbin Road</addr-line>
+              <addr-line content-type="postcode">529020</addr-line>
+              <addr-line content-type="city">Jiangmen</addr-line>
+              <country country="CN">China</country>
+            </aff>
+            <aff id="Aff3">
+              <label>3</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 2360 039X</institution-id>
+                <institution-id institution-id-type="GRID">grid.12981.33</institution-id>
+                <institution content-type="org-division">National Supercomputer Center in Guangzhou and School of Data and Computer Science</institution>
+                <institution content-type="org-name">Sun Yat-Sen University</institution>
+              </institution-wrap>
+              <addr-line content-type="street">132 East Circle at University City</addr-line>
+              <addr-line content-type="postcode">510006</addr-line>
+              <addr-line content-type="city">Guangzhou</addr-line>
+              <country country="CN">China</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs1332101903289_cor2">
+              <label>b</label>
+              <email>HIDDEN</email>
+            </corresp>
+            <corresp id="IDs1332101903289_cor7">
+              <label>g</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>17</day>
+            <month>1</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="5">1</issue>
+          <elocation-id>5</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>9</day>
+              <month>1</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>2</day>
+              <month>7</month>
+              <year>2018</year>
+            </date>
+            <date date-type="accepted">
+              <day>9</day>
+              <month>1</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>17</day>
+              <month>1</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">Biogenic compounds are important materials for drug discovery and chemical biology. In this work, we report a quasi-biogenic molecule generator (QBMG) to compose virtual quasi-biogenic compound libraries by means of gated recurrent unit recurrent neural networks. The library includes stereo-chemical properties, which are crucial features of natural products. QMBG can reproduce the property distribution of the underlying training set, while being able to generate realistic, novel molecules outside of the training set. Furthermore, these compounds are associated with known bioactivities. A focused compound library based on a given chemotype/scaffold can also be generated by this approach combining transfer learning technology. This approach can be used to generate virtual compound libraries for pharmaceutical lead identification and optimization.<fig id="Figa" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_328_Figa_HTML.png" position="anchor" /></fig></p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Deep learning</kwd>
+            <kwd>Recurrent neural networks</kwd>
+            <kwd>Natural product</kwd>
+            <kwd>Virtual library</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>the national science &amp; technology major project of the ministry of science and technology of China</institution>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">2018ZX09735010</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Xu</surname>
+                  <given-names>Jun</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>GD Frontier &amp; Key Techn. Innovation Program</institution>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">2015B010109004</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Xu</surname>
+                  <given-names>Jun</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>GD-NSF</institution>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">2016A030310228</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Yan</surname>
+                  <given-names>Xin</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>National Science Foundation of China</institution>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">U1611261</award-id>
+              <award-id award-type="FundRef grant">81473138</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Lu</surname>
+                  <given-names>Yutong</given-names>
+                </name>
+              </principal-award-recipient>
+              <principal-award-recipient>
+                <name>
+                  <surname>Xu</surname>
+                  <given-names>Jun</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>National Natural Science Foundation of China</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/501100001809</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">U1611261</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Yang</surname>
+                  <given-names>Yuedong</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Guangdong Introducing Innovative and Enterpreneurial Teams</institution>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">2016ZT06D211</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Yang</surname>
+                  <given-names>Yuedong</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>9</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_328.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="AuthorContribution">
+          <p>Shuangjia Zheng and Xin Yan are equal contributors</p>
+        </notes>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (<ext-link xlink:href="10.1186/s13321-019-0328-9" ext-link-type="doi">https://doi.org/10.1186/s13321-019-0328-9</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p id="Par8">Biogenic compounds are important for medicinal chemistry and chemical biology [<xref ref-type="bibr" rid="CR1">1</xref>]. It was reported that more than 50% of marketed drugs were derived from biogenic molecules [<xref ref-type="bibr" rid="CR2">2</xref>]. The reason is that both biogenic compounds and pharmaceutical agents are biologically relevant and recognized by organisms [<xref ref-type="bibr" rid="CR3">3</xref>]. However, it requires tremendous efforts to identify and isolate biogenic compounds from natural resources [<xref ref-type="bibr" rid="CR4">4</xref>]. Current virtual screening technologies allow us to efficiently identify biogenic molecules for pharmaceutical uses [<xref ref-type="bibr" rid="CR5">5</xref>], but, it is getting rare to identify biogenic compounds with new scaffolds [<xref ref-type="bibr" rid="CR6">6</xref>]. Practically, biogenic compounds can be probes for pharmaceutical and biological studies and, inspire chemists to make quasi-biogenic compounds (compounds modified from natural products).</p>
+          <p id="Par9">Hence, many experimental approaches have been reported to synthesize quasi-biogenic compound libraries, such as targeted-oriented synthesis [<xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR8">8</xref>], diversity-oriented synthesis (DOS) [<xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR9">9</xref>, <xref ref-type="bibr" rid="CR10">10</xref>], biology-oriented synthesis (BIOS) [<xref ref-type="bibr" rid="CR11">11</xref>, <xref ref-type="bibr" rid="CR12">12</xref>], and functional-oriented synthesis (FOS) [<xref ref-type="bibr" rid="CR13">13</xref>]. Meanwhile, virtual quasi-biogenic compound library generation methods were also reported, such as Yu reported a recursive atom-based compound library enumeration [<xref ref-type="bibr" rid="CR14">14</xref>]. Based on property distribution analyses on the differences between drugs, natural products, and combinatorial libraries, Feher and Schmidt reported that those natural product-like libraries were more like synthetic compounds rather than natural products [<xref ref-type="bibr" rid="CR15">15</xref>]. The entirety of the biologically relevant chemical space is largely ignored [<xref ref-type="bibr" rid="CR1">1</xref>]. Therefore, the biological relevant features should be taken into account while generating natural product-like libraries.</p>
+          <p id="Par10">Recent advances in deep learning technology have brought many achievements in small molecule and peptide design. Aspuru-Guzik’s group reported an automated chemical design using a data-driven continuous representation of molecules [<xref ref-type="bibr" rid="CR16">16</xref>]. Segler and colleagues reported a method to generate virtual focused library using recurrent neural networks fine-tuned with small number of known active compounds [<xref ref-type="bibr" rid="CR17">17</xref>]. Later, more studies were done by combining deep reinforcement learning [<xref ref-type="bibr" rid="CR18">18</xref>], Monte Carlo search [<xref ref-type="bibr" rid="CR19">19</xref>], de novo peptide design method [<xref ref-type="bibr" rid="CR20">20</xref>], and generative adversarial network [<xref ref-type="bibr" rid="CR21">21</xref>].</p>
+          <p id="Par11">The main deficits of previous approaches are (1) stereochemistry was not explicitly considered in the generated libraries, (2) there was no de novo approach to generate focused libraries biased on a specified scaffold/chemotype (this is important for lead optimization in medicinal chemistry). In the meantime, we are not aware of any models that used to construct specific virtual biogenic-like compounds libraries of the type we envisioned.</p>
+          <p id="Par12">In this work, we report a deep recurrent neural networks (RNN) [<xref ref-type="bibr" rid="CR22">22</xref>] with gate recurrent unit (GRU) [<xref ref-type="bibr" rid="CR23">23</xref>] to overcome these deficits, and generate quasi-biogenic compound library to explore greater biogenic diversity space for medicinal chemistry and chemical biology studies. By combining transfer learning [<xref ref-type="bibr" rid="CR24">24</xref>], we can build focused compound libraries biased on a specific chemotype for lead optimization.</p>
+        </sec>
+        <sec id="Sec2" sec-type="methods">
+          <title>Methods</title>
+          <sec id="Sec3">
+            <title>Biogenic compound structure data</title>
+            <p id="Par13">163,000 biogenic compound structures were derived from biogenic library of ZINC15 [<xref ref-type="bibr" rid="CR25">25</xref>]. These compounds are primary and secondary metabolites. The chemical structure data were converted in canonicalized SMILES format [<xref ref-type="bibr" rid="CR26">26</xref>]. The chemical structures were filtered by removing the molecules containing metal elements, small molecules (the number of non-hydrogen atoms less than 10), and larger molecules (the number of non-hydrogen atoms greater than 100). This process resulted in 153,733 biogenic structures.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>ZINC biogenic-like compound reference</title>
+            <p id="Par14">5060 ZINC biogenic-like compounds were collected from biogenic-like subset of ZINC12 [<xref ref-type="bibr" rid="CR27">27</xref>]. This library consisted of synthetic compounds that having Tanimoto 80% similarity or better with biogenic library.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Active compound reference</title>
+            <p id="Par15">The compounds in ChEMBL23 [<xref ref-type="bibr" rid="CR28">28</xref>] are used as active compound references.</p>
+          </sec>
+          <sec id="Sec09">
+            <title>Molecular representation and tokenization</title>
+            <p id="Par16">Biogenic molecules have many chiral centers, charges, cyclic connection descriptive SMILES notations, which are called as tokens in machine learning studies, such as @, = , #, etc. Conventionally, each letter in a molecular SMILES notation was sent to RNNs for training. This process cannot reflect the biogenic features of chiral centers, charges, cyclic connection descriptors. To preserve these important features, we train RNNs with normal tokens and combined tokens (the SMILES notations grouped by a pair of square brackets []). With this rule, the original SMILES data consisted the vocabulary as shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref>. Compared to 35 tokens and average sequence length of 82.1 ± 34.9 (mean ± SD) with conventional method, this way resulted in 87 tokens and average sequence length of 62.4 ± 25.27 in biogenic library.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Molecular representation and tokenization. The SMILES notations grouped by a pair of square brackets is considered as one token</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_328_Fig1_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec6">
+            <title>Word embedding process</title>
+            <p id="Par17">In a conventional one-hot encoding approach, each molecule is represented by a number of token vectors. All token vectors have the same length (in our case, it is 87 as shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref>). Each component in a vector is set as zero except the one at the token’s index position. This data storage protocol occupies great memory space and result in inefficient performance. Therefore, we adopt word embedding, which is usually used in natural language process [<xref ref-type="bibr" rid="CR29">29</xref>]. With this method, each conventional token vector was compressed into an information enriched vector. Thus, a token transformed from a space with one dimension per word to a continuous vector through unsupervised learning. This data representation can record the “semantic similarity” of every token. This process expedites the convergence of a training [<xref ref-type="bibr" rid="CR30">30</xref>]. In summary, each molecular structure in our work is converted in a SMILES string, which is then encoded into a one-hot matrix, and then is transformed to a word embedding matrix at the embedding layer.</p>
+          </sec>
+          <sec id="Sec7">
+            <title>Network architecture</title>
+            <p id="Par18">The modified recurrent neural network structure is depicted in Fig. <xref rid="Fig2" ref-type="fig">2</xref>a. The whole model consists of embedding layer, GRU structure and densely connected layer. The embedding layer consists of 64 units, which translate every single token from a one-hot vector to a 64-dimensional vector. This vector is then transferred to GRUs. The GRUs consists 3 layers, in which each layer has 512 neurons. The GRU output data to the densely connected linear layer with 89 neurons, combining the output signals with a <italic>softmax</italic> function. The number of the neurons in densely connected layer is the same as the number of the vocabularies. &lt;START> and &lt;END> are additional tokens, which mark the starting and ending of a SMILES string. For a GRU cell (Fig. <xref rid="Fig2" ref-type="fig">2</xref>a), <inline-formula id="IEq1"><alternatives><mml:math id="IEq1_Math"><mml:msub><mml:mi>h</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$h_{t }$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_328_Article_IEq1.gif" /></alternatives></inline-formula> is the hidden state and <inline-formula id="IEq2"><alternatives><mml:math id="IEq2_Math"><mml:msub><mml:mover accent="true"><mml:mi>h</mml:mi><mml:mo stretchy="false">~</mml:mo></mml:mover><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\tilde{h}_{t}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_328_Article_IEq2.gif" /></alternatives></inline-formula> is the candidate hidden state.<inline-formula id="IEq3"><alternatives><mml:math id="IEq3_Math"><mml:msub><mml:mi>r</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$r_{t }$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_328_Article_IEq3.gif" /></alternatives></inline-formula> and <inline-formula id="IEq4"><alternatives><mml:math id="IEq4_Math"><mml:msub><mml:mi>z</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq4_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$z_{t }$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_328_Article_IEq4.gif" /></alternatives></inline-formula> are reset gate and update gate. With these gates, the network ‘knows’ how to combine the new input with the previously memorized data and update the memory. The details of GRU operations are described in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>.<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>Network architecture and training procedure. <bold>a</bold> Unfolded representation of the training model, which contains embedding layer, GRU structure, fully-connected linear layer and output layer. The structure of GRU cell is detailed on the right. <bold>b</bold> Flow-chart for the training procedure with a molecule. A vectorized token of the molecule is input as <inline-formula id="IEq7"><alternatives><mml:math id="IEq7_Math"><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq7_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$x_{t}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_328_Article_IEq7.gif" /></alternatives></inline-formula> in a time step, and the probability of the output to <inline-formula id="IEq8"><alternatives><mml:math id="IEq8_Math"><mml:msub><mml:mi>x</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>+</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub></mml:math><tex-math id="IEq8_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$x_{t + 1}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_328_Article_IEq8.gif" /></alternatives></inline-formula> as the next token is maximized. <bold>c</bold> The new molecular structure is composed by sequentially cascading the SMILES sub-strings replied by the RNN network</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_328_Fig2_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec8">
+            <title>Training procedure</title>
+            <p id="Par19">Training an RNN for generating SMILES strings is done by maximizing the probability of the next token positioned in the target SMILES string based on the previous training steps. At each step, the RNN model produces a probability distribution over what the next character is likely to be, and the aim is to minimize the loss function value and maximize the likelihood assigned to the expected token. The parameters <inline-formula id="IEq5"><alternatives><mml:math id="IEq5_Math"><mml:mi>θ</mml:mi></mml:math><tex-math id="IEq5_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\theta$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_328_Article_IEq5.gif" /></alternatives></inline-formula> in the network were trained with following loss function <inline-formula id="IEq6"><alternatives><mml:math id="IEq6_Math"><mml:mrow><mml:mi>J</mml:mi><mml:mfenced close=")" open="("><mml:mi>θ</mml:mi></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq6_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$J\left( \theta \right)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_328_Article_IEq6.gif" /></alternatives></inline-formula>:<disp-formula id="Equa"><alternatives><mml:math display="block" id="Equa_Math"><mml:mrow><mml:mi>J</mml:mi><mml:mfenced close=")" open="("><mml:mi>θ</mml:mi></mml:mfenced><mml:mo>=</mml:mo><mml:mo>-</mml:mo><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>t</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>T</mml:mi></mml:munderover><mml:mo>log</mml:mo><mml:mi>P</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msup><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msup><mml:mo stretchy="false">|</mml:mo><mml:msup><mml:mi>x</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msup><mml:mi>x</mml:mi><mml:mn>1</mml:mn></mml:msup><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:math><tex-math id="Equa_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$J\left( \theta \right) = - \mathop \sum \limits_{t = 1}^{T} \log P(x^{t} |x^{t - 1} , \ldots ,x^{1} )$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_328_Article_Equa.gif" /></alternatives></disp-formula></p>
+            <p id="Par20">Simplified depiction of the training procedure with one biogenic molecule has been shown in Fig. <xref rid="Fig2" ref-type="fig">2</xref>b.</p>
+          </sec>
+          <sec id="Sec9">
+            <title>Sampling procedure</title>
+            <p id="Par21">The model predicts biogenic molecules based upon the token probability distributions learned from the training set. The prediction consists of the following steps:<list list-type="order"><list-item><p id="Par22">a &lt;START> token is sent to the network;</p></list-item><list-item><p id="Par23">the network replies with another token (a SMILES sub-string);</p></list-item><list-item><p id="Par24">the new token is sent to the network again to get a newer token;</p></list-item><list-item><p id="Par25">repeat (3) till the network replies with &lt;END> token.</p></list-item></list></p>
+            <p id="Par26">The new molecular structure is composed by sequentially cascading the SMILES sub-strings replied by the RNN network.</p>
+            <p id="Par27">The GRU model was implemented using Pytorch library [<xref ref-type="bibr" rid="CR31">31</xref>], and trained with ADAM optimizer [<xref ref-type="bibr" rid="CR32">32</xref>] using a batch size of 128 and 0.001 learning rate. The model was trained until convergence. For each training epoch, a sampled set of 512 SMILES strings was generated to evaluate the validity using RDkit [<xref ref-type="bibr" rid="CR33">33</xref>].</p>
+          </sec>
+          <sec id="Sec10">
+            <title>Validating the predicted compound library</title>
+            <p id="Par28">The following criteria are used to evaluate the compound library generated by the RNN model.<list list-type="order"><list-item><p id="Par29"><italic>Natural product</italic>-<italic>likeness.</italic> Natural product-likeness score [<xref ref-type="bibr" rid="CR34">34</xref>], a Bayesian measure which allows for the determination of how molecules are similar to the chemical space covered by natural products based on atom-center fragment (a kind of fingerprint), were implemented to score the generated molecules. Note that we used the version that was packaged into RDkit in 2015.</p></list-item><list-item><p id="Par30"><italic>Physico</italic>-<italic>chemical properties/descriptors</italic>. To visually compare the generated library against the biogenic library (the training set) and ZINC biogenic-like library, t-SNE (t-distributed stochastic neighbor embedding) maps are calculated with a set of physico-chemical properties/descriptors (cLogP, MW, HDs, HAs, rotatable bonds, number of aromatic ring systems, and TPSA) following the method reported by Chevillard and Kolb [<xref ref-type="bibr" rid="CR35">35</xref>]. It is believed that biogenic compounds are structurally diverse in terms of molecular weight, polarity, hydrophobicity, and aromaticity [<xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR36">36</xref>, <xref ref-type="bibr" rid="CR37">37</xref>].</p></list-item><list-item><p id="Par31"><italic>Ability to reproduce biogenic molecules</italic>. The generated compound library should be able to reproduced already existed biogenic molecular structures [<xref ref-type="bibr" rid="CR17">17</xref>]. To validate the ability to reproduce biogenic molecules, a variant five-fold cross-validation method is used. The process consisted of the following steps:</p></list-item><list-item><p id="Par32">the biogenic library was randomly divided into five sub-libraries (each sub-library has 30,747 compounds);</p></list-item><list-item><p id="Par33">these sub-libraries were used in a five-fold cross-validation protocol (one sub-library was used as the test set; the others were used as the training sets) to validate the RNN model;</p></list-item><list-item><p id="Par34">sampling 153,733 (the same number of compounds in the biogenic library) unique compounds excluding the repeated ones in the training sets each fold after training;</p></list-item><list-item><p id="Par35">comparing the generated library against the test library to identify overlapped molecules, and calculate the ratio of reproduced compounds;</p></list-item><list-item><p id="Par36">the five-fold cross-validation process was repeated for three times.</p></list-item><list-item><p id="Par37"><italic>Scaffold validation.</italic> To validate the new scaffold generation capacity of the RNN model, the generated, training and test libraries were analyzed using scaffold-based classification (SCA) method [<xref ref-type="bibr" rid="CR38">38</xref>]. The Tanimoto similarities of the scaffolds derived from the generated library and training library were calculated with standard RDKit similarity based on ECFP6 molecular fingerprints [<xref ref-type="bibr" rid="CR39">39</xref>]. These similarities were used to compare the generated new scaffolds against the biogenic scaffolds.</p></list-item></list></p>
+          </sec>
+          <sec id="Sec11">
+            <title>Transfer learning for chemotype-biased library generation</title>
+            <p id="Par38">It is important to generate a chemotype-biased library for lead optimization if a privileged scaffold is known. The transfer learning process consists of the following steps:<list list-type="order"><list-item><p id="Par39">selecting focused compound library (FCL) from the biogenic library. All compounds in FCL have a common scaffold/chemotype;</p></list-item><list-item><p id="Par40">re-trained the RNN model with FCL;</p></list-item><list-item><p id="Par41">predict a chemotype-biased library.</p></list-item></list></p>
+          </sec>
+        </sec>
+        <sec id="Sec12">
+          <title>Results and discussion</title>
+          <p id="Par42">The ZINC biogenic library with 153,733 compounds were used to train an RNN model. Along with the number of the epochs grew, the model was converging (See Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref> for learning curves). After training for 50 epochs, the model can generate an average of 97% valid SMILES strings. 250,000 valid and unique SMILES strings were generated as the predicted library. After removing compounds that were found in the training set from the predicted library, we got 194,489 compounds. The average number of tokens for each compound was 59.4 ± 23.1 (similar to the one for a compound in the biogenic library). 153,733 (the same number of the compounds in the training library) compounds were selected from the predicted library to study their natural product-likeness and physico-chemical properties/descriptor profiles.</p>
+          <sec id="Sec13">
+            <title>Natural product-likeness of the predicted library</title>
+            <p id="Par43">The natural product-likenesses of ZINC biogenic library (ZBL), ZINC biogenic-like library (ZLL), and our predicted compound library (PCL) were compared as shown in Fig. <xref rid="Fig3" ref-type="fig">3</xref>. The average natural product-likeness scores of PCL and ZBL were 1.09 ± 1.46 (mean ± SD) and 1.22 ± 1.56, indicating that they were both natural product-like, and similar to each other. The average natural product-likeness of a ZLL compound was − 1.25 ± 0.60, indicating that ZLL compounds were different from ZBL compounds, and compounds only partially overlapped the biogenic chemical diversity space.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>PCL is quasi-biogenic and ZBL is biogenic, and they are similar to each other. ZLL is different from ZBL, and only partially overlapping the biogenic chemical diversity space</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_328_Fig3_HTML.png" /></fig></p>
+            <p id="Par44">The chemical structures of top-twelve PCL compounds and their natural product-likeness scores are depicted in Fig. <xref rid="Fig4" ref-type="fig">4</xref>. The important feature of our method is that our predicted quasi-biogenic compound library includes chiral molecules, which are important characteristics in natural products. The previous reported methods were not able to generate chiral isomers [<xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR17">17</xref>–<xref ref-type="bibr" rid="CR19">19</xref>]. Top-200 PCL compounds and their natural product-likeness scores were listed in Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>.<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>Top-twelve PCL compounds and their natural product-likeness scores</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_328_Fig4_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec14">
+            <title>The physico-chemical properties/descriptors profile of the predicted library</title>
+            <p id="Par45">A t-SNE plot was derived based on physico-chemical properties/descriptors (cLogP, MW, HDs, HAs, rotatable bonds, number of aromatic ring systems, and TPSA) to profile compound libraries, and compare their chemical diversity space occupations (Fig. <xref rid="Fig5" ref-type="fig">5</xref>). Again, PCL and ZBL occupied almost the same chemical diversity space. ZLL, however, only partially occupies the chemical diversity space occupied by PCL and ZBL. The plot also indicated that ZLL were not structurally as diverse as PCL and ZBL.<fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p>Two-dimensional t-distributed stochastic neighbor embedding (t-SNE) plot for PCL, ZBL, and ZLL. PCL and ZBL occupy almost the same chemical diversity space. ZLL partially occupies the chemical diversity space occupied by PCL and ZBL</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_328_Fig5_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec15">
+            <title>Ability to reproduce biogenic molecules</title>
+            <p id="Par46">Five-fold cross validation experiments indicated that the RNN model was mature after being trained for 20 epochs. The criterion of the training end was determined according to the change of the loss values during training. At this stage, quasi-biogenic molecules were sampled for studying the ability to reproduce already existed biogenic molecules. The results were represented in Table <xref rid="Tab1" ref-type="table">1</xref>. Five-fold cross validation experiments were repeated for three times. The results demonstrated that the model can predict more than 25% compounds existing in the test library (TL). The RNN was robust because there were little fluctuations in three validation experiments as indicated at the last column of Table <xref rid="Tab1" ref-type="table">1</xref>. It is worth noting that the RPP would slightly grow with longer training, even though the loss values were stable. To prevent overfitting of the model, we chose a moderate stage (20 epochs) for later experiments. The Epochs-Loss and Epochs-RPP curves were shown in Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>The reproducibility studies with five-fold cross validation experiments</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Exp. no.</p></th><th align="left"><p>ZBL</p></th><th align="left"><p>TRL</p></th><th align="left"><p>TL</p></th><th align="left"><p>PCL</p></th><th align="left"><p>RP</p></th><th align="left"><p>RPP (%)</p></th></tr></thead><tbody><tr><td align="left"><p>EXP1</p></td><td char="." align="char"><p>153,733</p></td><td char="." align="char"><p>122,896</p></td><td char="." align="char"><p>30,747</p></td><td char="." align="char"><p>153,733</p></td><td char="±" align="char"><p>7935 ± 267</p></td><td char="±" align="char"><p>25.81 ± 0.87</p></td></tr><tr><td align="left"><p>EXP2</p></td><td char="." align="char"><p>153,733</p></td><td char="." align="char"><p>122,896</p></td><td char="." align="char"><p>30,747</p></td><td char="." align="char"><p>153,733</p></td><td char="±" align="char"><p>7961 ± 341</p></td><td char="±" align="char"><p>25.89 ± 1.10</p></td></tr><tr><td align="left"><p>EXP3</p></td><td char="." align="char"><p>153,733</p></td><td char="." align="char"><p>122,896</p></td><td char="." align="char"><p>30,747</p></td><td char="." align="char"><p>153,733</p></td><td char="±" align="char"><p>7800 ± 120</p></td><td char="±" align="char"><p>25.37 ± 0.39</p></td></tr></tbody></table><table-wrap-foot><p><italic>ZBL</italic> ZINC biogenic library; <italic>TRL</italic> training library; <italic>TL</italic> test library; <italic>PCL</italic> predicted compound library; <italic>RP</italic> repeated molecules existing in TL; <italic>RPP</italic> percent of repeated molecules (RP/TL)</p></table-wrap-foot></table-wrap></p>
+            <p id="Par47">At the first trial of the first five-fold cross validation experiment, we also generated a series of libraries with increased sizes (the 1, 5, 10, 25, 50 and 100 times of TL size, which is 30,747). As shown in Fig. <xref rid="Fig6" ref-type="fig">6</xref>, RPP increases exponentially when the PCL size grows to 30 × TL. And, RPP trends to be mature when PCL size increases further, and ends around 60% ~ 70%.<fig id="Fig6"><label>Fig. 6</label><caption xml:lang="en"><p>Reproducing known biogenic molecules in TL (30747) with different scale of generated set (1, 5, 10, 25, 50 and 100 times to TL)</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_328_Fig6_HTML.png" /></fig></p>
+            <p id="Par48">Several chemical structures reproduced by the RNN model from TL are listed in Fig. <xref rid="Fig7" ref-type="fig">7</xref>. More such compounds can be found in Additional file <xref ref-type="supplementary-material" rid="MOESM4">4</xref>.<fig id="Fig7"><label>Fig. 7</label><caption xml:lang="en"><p>Chemical structures reproduced by the RNN model from TL</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_328_Fig7_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec16">
+            <title>Scaffold diversity and novelty of the predicted library</title>
+            <p id="Par49">At the first trial of the first five-fold cross validation experiment, the scaffolds of compound libraries TRL (122,896 compounds), TL (30,747 compounds), and PCL (153,733 compounds) were analyzed with scaffold-based classification approach (SCA). The results are depicted in Fig. <xref rid="Fig8" ref-type="fig">8</xref>. 48,444 new scaffolds are derived from PCL, which are 2 times more than the total scaffolds (23,806) derived from TRL and TL. 463 scaffolds are exclusively derived from both PCL and TL, indicating that the RNN model can generate new scaffolds, but predict repeated scaffolds in TL, which are outside the training library (TRL). To summarize, the RNN model is capable of generating diversified and novel compounds.<fig id="Fig8"><label>Fig. 8</label><caption xml:lang="en"><p>Scaffold diversity and novelty of the predicted compound library</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_328_Fig8_HTML.png" /></fig></p>
+            <p id="Par50">Another way to measure the structural diversity and novelty of PCL is to check the distribution of the similarity of PCL and TRL. For each scaffold in PCL, we selected the most similar scaffold in TRL through calculating their Tanimoto similarity. The PCL-TRL similarity distribution was depicted in Fig. <xref rid="Fig9" ref-type="fig">9</xref>a, which demonstrates an unbalanced Gaussian distribution biased to higher similarity scores. The similarity values range between 50 and 100%. This implied that PCL scaffolds were similar to TRL scaffolds with variations in chemical diversity. We also calculated the nearest-neighbor Tanimoto similarity distributions of the scaffolds of PCL and TRL, which were depicted in Fig. <xref rid="Fig9" ref-type="fig">9</xref>b, c. The distributions of Tanimoto similarity indicated that the chemical space of PCL was diverse than TRL. This analysis further proved that the RNN model can generate diversified and novel quasi-biogenic compounds.<fig id="Fig9"><label>Fig. 9</label><caption xml:lang="en"><p>The nearest-neighbor scaffold similarity distributions of <bold>a</bold> PCL-TRL, <bold>b</bold> PCL–PCL and <bold>c</bold> TRL–TRL</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_328_Fig9_HTML.png" /></fig></p>
+            <p id="Par51">Some similar compound scaffold pairs between PCL and TRL were listed in Table <xref rid="Tab2" ref-type="table">2</xref>.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Six similar compound scaffold pairs between TRL and PCL</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>No.</p></th><th align="left"><p>TRL Scaffold</p></th><th align="left"><p>PCL Scaffold</p></th><th align="left"><p>Tanimoto similarity</p></th></tr></thead><tbody><tr><td align="left"><p>1</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figb_HTML.gif" /></p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figc_HTML.gif" /></p></td><td char="." align="char"><p>0.94</p></td></tr><tr><td align="left"><p>2</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figd_HTML.gif" /></p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Fige_HTML.gif" /></p></td><td char="." align="char"><p>0.87</p></td></tr><tr><td align="left"><p>3</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figf_HTML.gif" /></p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figg_HTML.gif" /></p></td><td char="." align="char"><p>0.82</p></td></tr><tr><td align="left"><p>4</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figh_HTML.gif" /></p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figi_HTML.gif" /></p></td><td char="." align="char"><p>0.80</p></td></tr><tr><td align="left"><p>5</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figj_HTML.gif" /></p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figk_HTML.gif" /></p></td><td char="." align="char"><p>0.77</p></td></tr><tr><td align="left"><p>6</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figl_HTML.gif" /></p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figm_HTML.gif" /></p></td><td char="." align="char"><p>0.71</p></td></tr></tbody></table></table-wrap></p>
+          </sec>
+          <sec id="Sec17">
+            <title>Potential bioactivities of the predicted library</title>
+            <p id="Par52">For each PCL containing 150 K compounds, there were about 1% (1510 ± 221, mean ± SD) existed in the ChEMBL library, which are associated with bioactivities. Among those generated bioactive compounds, about 25% compound (371 ± 71) were found in the corresponding test libraries. Top-six such compounds and their activities were listed in Table <xref rid="Tab3" ref-type="table">3</xref>.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>The generated six most bioactive molecules. 1, 2 and 3 existed in test set</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>No.</p></th><th align="left"><p>Structure</p></th><th align="left"><p>ChEMBL ID</p></th><th align="left"><p>IC<sub>50</sub>(nM)</p></th><th align="left"><p>Targets</p></th></tr></thead><tbody><tr><td align="left"><p>1</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Fign_HTML.gif" /></p></td><td align="left"><p>CHEMBL65</p></td><td align="left"><p>0.004–1.4</p></td><td align="left"><p>P388; Plasmodium falciparum;</p><p>CCRF-CEM; Jurkat;</p></td></tr><tr><td align="left"><p>2</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figo_HTML.gif" /></p></td><td align="left"><p>CHEMBL489140</p></td><td align="left"><p>2–10</p></td><td align="left"><p>PBMC</p></td></tr><tr><td align="left"><p>3</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figp_HTML.gif" /></p></td><td align="left"><p>CHEMBL2420226</p></td><td align="left"><p>~ 7</p></td><td align="left"><p>PBMC</p></td></tr><tr><td align="left"><p>4</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figq_HTML.gif" /></p></td><td align="left"><p>CHEMBL815</p></td><td align="left"><p>2.25–7</p></td><td align="left"><p>Prostanoid FP receptor</p></td></tr><tr><td align="left"><p>5</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figr_HTML.gif" /></p></td><td align="left"><p>CHEMBL2042018</p></td><td align="left"><p>5.2–6.2</p></td><td align="left"><p>Neurokinin 1 receptor</p></td></tr><tr><td align="left"><p>6</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figs_HTML.gif" /></p></td><td align="left"><p>CHEMBL226036</p></td><td align="left"><p>9.2</p></td><td align="left"><p>Human herpesvirus 4</p></td></tr></tbody></table></table-wrap></p>
+          </sec>
+          <sec id="Sec18">
+            <title>Transfer learning for chemotype-biased library generation</title>
+            <p id="Par53">Coumarin scaffold broadly exists in Rutaceae and Umbelliferae families. Its derivatives have many bioactivities such as activities of anticancer and anti-inflammatory [<xref ref-type="bibr" rid="CR40">40</xref>–<xref ref-type="bibr" rid="CR42">42</xref>]. The previously trained RNN model was re-trained with 2237 biogenic coumarin derivatives from ZBL. The model predicted 50 K compounds at 20, 50, or 100 epochs, respectively. In the three batches of the 50 K compounds, the compounds existing in TRL were excluded. 14,192 coumarin derivatives from ChEMBL23 database were extracted as bioactive reference library (BRL), in which the compounds duplicated in ZBL were removed. As a comparison, we also trained biogenic coumarin derivatives without transfer learning and followed the same processes described above. The scaffolds of each generated library were calculated with SCA for analyzing the diversity of chemical space.</p>
+            <p id="Par54">The results of the transfer learning for chemotype-biased library generation were listed in Table <xref rid="Tab4" ref-type="table">4</xref>. Comparing with the pre-trained RNN model, the number of coumarin derivatives is significantly increased (from 662 to more than 32 K). Besides, results demonstrated that the model without transfer learning generated compounds libraries with limited structural diversity and low correlation of bioactivity, though it can generate more coumarin derivatives. Also, when the number of transfer training epochs increased, the RNN model with transfer learning generated more coumarin-biased compounds. Table <xref rid="Tab4" ref-type="table">4</xref> also indicated that the number of coumarin-biased compounds trends mature along with the transfer epochs. The number of epochs should be limited to avoid overfitting.<table-wrap id="Tab4"><label>Table 4</label><caption xml:lang="en"><p>Results of transfer learning for chemotype-biased library generation</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Model type</p></th><th align="left"><p>Epoch</p></th><th align="left"><p>TRL</p></th><th align="left"><p>BRL</p></th><th align="left"><p>PCL</p></th><th align="left"><p>Coumarin derivatives</p></th><th align="left"><p>PCL Scaffold</p></th><th align="left"><p>RP</p></th></tr></thead><tbody><tr><td align="left"><p>Pre-trained</p></td><td align="left"><p>50</p></td><td align="left"><p>153,733(ZBL)</p></td><td char="." align="char"><p>14,192</p></td><td char="." align="char"><p>50,000</p></td><td char="." align="char"><p>662</p></td><td char="." align="char"><p>18,446</p></td><td char="." align="char"><p>19</p></td></tr><tr><td align="left" rowspan="3"><p>Direct-GRU</p></td><td align="left"><p>20</p></td><td align="left"><p>2237</p></td><td char="." align="char"><p>14,192</p></td><td char="." align="char"><p>50,000</p></td><td char="." align="char"><p>37,647</p></td><td char="." align="char"><p>6828</p></td><td char="." align="char"><p>0</p></td></tr><tr><td align="left"><p>50</p></td><td align="left"><p>2237</p></td><td char="." align="char"><p>14,192</p></td><td char="." align="char"><p>50,000</p></td><td char="." align="char"><p>43,402</p></td><td char="." align="char"><p>7642</p></td><td char="." align="char"><p>0</p></td></tr><tr><td align="left"><p>100</p></td><td align="left"><p>2237</p></td><td char="." align="char"><p>14,192</p></td><td char="." align="char"><p>50,000</p></td><td char="." align="char"><p>43,094</p></td><td char="." align="char"><p>7231</p></td><td char="." align="char"><p>0</p></td></tr><tr><td align="left" rowspan="3"><p>Transfer-GRU</p></td><td align="left"><p>20</p></td><td align="left"><p>2237</p></td><td char="." align="char"><p>14,192</p></td><td char="." align="char"><p>50,000</p></td><td char="." align="char"><p>32,025</p></td><td char="." align="char"><p>13,543</p></td><td char="." align="char"><p>381</p></td></tr><tr><td align="left"><p>50</p></td><td align="left"><p>2237</p></td><td char="." align="char"><p>14,192</p></td><td char="." align="char"><p>50,000</p></td><td char="." align="char"><p>35,890</p></td><td char="." align="char"><p>14,251</p></td><td char="." align="char"><p>391</p></td></tr><tr><td align="left"><p>100</p></td><td align="left"><p>2237</p></td><td char="." align="char"><p>14,192</p></td><td char="." align="char"><p>50,000</p></td><td char="." align="char"><p>35,972</p></td><td char="." align="char"><p>13,892</p></td><td char="." align="char"><p>384</p></td></tr></tbody></table><table-wrap-foot><p><italic>TRL</italic> training library; <italic>BRL</italic> bioactive reference library; <italic>PCL</italic> predicted compound library; <italic>RP</italic> number of compounds existing both PCL and BRL</p></table-wrap-foot></table-wrap></p>
+            <p id="Par55">The top-six predicted coumarin derivatives that existing in BRL and their bioactivities were listed in Table <xref rid="Tab5" ref-type="table">5</xref>.<table-wrap id="Tab5"><label>Table 5</label><caption xml:lang="en"><p>The top-six predicted coumarin derivatives that existing in BRL and their bioactivities</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>No.</p></th><th align="left"><p>Structure</p></th><th align="left"><p>ChEMBL ID</p></th><th align="left"><p>IC<sub>50</sub>(nM)</p></th><th align="left"><p>Targets</p></th></tr></thead><tbody><tr><td align="left"><p>1</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figt_HTML.gif" /></p></td><td align="left"><p>CHEMBL307341</p></td><td char="." align="char"><p>0.0006–0.0346</p></td><td align="left"><p>Monoamine oxidase B</p><p>Monoamine oxidase A</p></td></tr><tr><td align="left"><p>2</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figu_HTML.gif" /></p></td><td align="left"><p>CHEMBL177697</p></td><td char="." align="char"><p>0.29</p></td><td align="left"><p>Influenza A virus</p></td></tr><tr><td align="left"><p>3</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figv_HTML.gif" /></p></td><td align="left"><p>CHEMBL1078838</p></td><td char="." align="char"><p>0.32</p></td><td align="left"><p>Influenza A virus</p></td></tr><tr><td align="left"><p>4</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figw_HTML.gif" /></p></td><td align="left"><p>CHEMBL262328</p></td><td char="." align="char"><p>0.68</p></td><td align="left"><p>HCT-116</p></td></tr><tr><td align="left"><p>5</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figx_HTML.gif" /></p></td><td align="left"><p>CHEMBL465326</p></td><td char="." align="char"><p>1.4</p></td><td align="left"><p>Liver microsomes</p></td></tr><tr><td align="left"><p>6</p></td><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_328_Figy_HTML.gif" /></p></td><td align="left"><p>CHEMBL52229</p></td><td char="." align="char"><p>3.1</p></td><td align="left"><p>P388</p></td></tr></tbody></table></table-wrap></p>
+          </sec>
+        </sec>
+        <sec id="Sec19" sec-type="conclusions">
+          <title>Conclusions</title>
+          <p id="Par56">In this work, for the first time, the gated recurrent unit deep neural network learning approach is applied in quasi-biogenic compound generation. We have also shown that a compound library biased on a specific chemotype/scaffold can be generated by re-training the RNN model through transfer learning with a focused training library.</p>
+          <p id="Par57">In summary, our method is able to (1) generate libraries including stereochemistry, (2) significantly repeat compounds containing known bioactive compounds outside of the training sets, (3) create a de novo approach to generate focused libraries biased on a specified scaffold.</p>
+          <p id="Par58">Our RNN model predicts biogenic compounds with a number of epochs depending on the size of the training data set. For a training set of about 150 K molecules, the number of training epochs can be less than 50, the optimized epochs can be figured out by monitoring the loss values and the capacity of generating new quasi-biogenic scaffolds. For a predicted biogenic compound, the average number of SMILES tokens is about 60 (similar to the one for a compound in the training set).</p>
+          <p id="Par59">QBMG can be used to generate virtual biogenic compound libraries for pharmaceutical lead identification, and design focused library for lead optimization.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Authors’ contributions</title>
+          <sec>
+            <p>SZ, XY, and JX contributed concept and implementation. SZ and XY co-designed experiments. SZ was responsible for programming. All authors contributed to the interpretation of results. SZ and XY wrote the manuscript. JX reviewed and edited the manuscript. All authors read and approved the final manuscript.</p>
+          </sec>
+          <sec id="FPar1">
+            <title>Acknowledgements</title>
+            <p id="Par60">National Supercomputer Center in Guangzhou provide computing resources for this project.</p>
+          </sec>
+          <sec id="FPar2">
+            <title>Competing interests</title>
+            <p id="Par61">The authors declare that they have no competing interests</p>
+          </sec>
+          <sec id="FPar3">
+            <title>Availability of data and materials</title>
+            <p id="Par62">Project home page: <ext-link xlink:href="https://github.com/SYSU-RCDD/QBMG" ext-link-type="uri">https://github.com/SYSU-RCDD/QBMG</ext-link>. Operating system: Platform independent. Programming language: Python. Other requirements: Python3.6, Pytorch, RDKit. License: MIT.</p>
+          </sec>
+          <sec id="FPar4">
+            <title>Funding</title>
+            <p id="Par63">This work has funded in part of the national science &amp; technology major project of the ministry of science and technology of China (2018ZX09735010), GD Frontier &amp; Key Techn. Innovation Program (2015B010109004), GD-NSF (2016A030310228), Natural Science Foundation of China (U1611261, 61772566) and the program for Guangdong Introducing Innovative and Enterpreneurial Teams (2016ZT06D211), National Science Foundation of China (81473138).</p>
+          </sec>
+          <sec id="FPar6">
+            <title>Publisher’s Note</title>
+            <p id="Par65">Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+          </sec>
+        </ack>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hert</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Irwin</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Laggner</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Keiser</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Shoichet</surname>
+                    <given-names>BK</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Quantifying biogenic bias in screening libraries</article-title>
+                <source>Nat Chem Biol</source>
+                <year>2009</year>
+                <volume>5</volume>
+                <issue>7</issue>
+                <fpage>479</fpage>
+                <lpage>483</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXms1aksbg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nchembio.180</pub-id>
+                <pub-id pub-id-type="pmid">19483698</pub-id>
+                <pub-id pub-id-type="pmcid">2783405</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Newman</surname>
+                    <given-names>DJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Cragg</surname>
+                    <given-names>GM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Natural products as sources of new drugs from 1981 to 2014</article-title>
+                <source>J Nat Prod</source>
+                <year>2016</year>
+                <volume>79</volume>
+                <issue>3</issue>
+                <fpage>629</fpage>
+                <lpage>661</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28Xit1Kqu7k%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jnatprod.5b01055</pub-id>
+                <pub-id pub-id-type="pmid">26852623</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pascolutti</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Quinn</surname>
+                    <given-names>RJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Natural products as lead structures: chemical transformations to create lead-like libraries</article-title>
+                <source>Drug Discov Today</source>
+                <year>2014</year>
+                <volume>19</volume>
+                <issue>3</issue>
+                <fpage>215</fpage>
+                <lpage>221</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXhslOkur3N</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.drudis.2013.10.013</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rodrigues</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Reker</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Counting on natural products for drug design</article-title>
+                <source>Nat Chem</source>
+                <year>2016</year>
+                <volume>8</volume>
+                <issue>6</issue>
+                <fpage>531</fpage>
+                <lpage>541</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XmslSrsbk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nchem.2479</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>de Bruyn</surname>
+                    <given-names>Kops C</given-names>
+                  </name>
+                  <name>
+                    <surname>Kirchmair</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Data resources for the computer-guided discovery of bioactive natural products</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2017</year>
+                <volume>57</volume>
+                <issue>9</issue>
+                <fpage>2099</fpage>
+                <lpage>2111</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhtl2qs7%2FI</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.7b00341</pub-id>
+                <pub-id pub-id-type="pmid">28853576</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pye</surname>
+                    <given-names>CR</given-names>
+                  </name>
+                  <name>
+                    <surname>Bertin</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Lokey</surname>
+                    <given-names>RS</given-names>
+                  </name>
+                  <name>
+                    <surname>Gerwick</surname>
+                    <given-names>WH</given-names>
+                  </name>
+                  <name>
+                    <surname>Linington</surname>
+                    <given-names>RG</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Retrospective analysis of natural products provides insights for future discovery trends</article-title>
+                <source>Proc Natl Acad Sci USA</source>
+                <year>2017</year>
+                <volume>114</volume>
+                <issue>22</issue>
+                <fpage>5601</fpage>
+                <lpage>5606</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXmvFSgsro%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1073/pnas.1614680114</pub-id>
+                <pub-id pub-id-type="pmid">28461474</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schreiber</surname>
+                    <given-names>SL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Target-oriented and diversity-oriented organic synthesis in drug discovery</article-title>
+                <source>Science</source>
+                <year>2000</year>
+                <volume>287</volume>
+                <issue>5460</issue>
+                <fpage>1964</fpage>
+                <lpage>1969</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3cXhvFyrurw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1126/science.287.5460.1964</pub-id>
+                <pub-id pub-id-type="pmid">10720315</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Burke</surname>
+                    <given-names>MD</given-names>
+                  </name>
+                  <name>
+                    <surname>Lalic</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Teaching target-oriented and diversity-oriented organic synthesis at Harvard University</article-title>
+                <source>Chem Biol</source>
+                <year>2002</year>
+                <volume>9</volume>
+                <issue>5</issue>
+                <fpage>535</fpage>
+                <lpage>541</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XjvVWisr4%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/S1074-5521(02)00143-6</pub-id>
+                <pub-id pub-id-type="pmid">12031659</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Tan</surname>
+                    <given-names>DS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Diversity-oriented synthesis: exploring the intersections between chemistry and biology</article-title>
+                <source>Nat Chem Biol</source>
+                <year>2005</year>
+                <volume>1</volume>
+                <issue>2</issue>
+                <fpage>74</fpage>
+                <lpage>84</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXls1OmsLo%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nchembio0705-74</pub-id>
+                <pub-id pub-id-type="pmid">16408003</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Dandapani</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Marcaurelle</surname>
+                    <given-names>LA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Current strategies for diversity-oriented synthesis</article-title>
+                <source>Curr Opin Chem Biol</source>
+                <year>2010</year>
+                <volume>14</volume>
+                <issue>3</issue>
+                <fpage>362</fpage>
+                <lpage>370</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXmvVWqsLg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.cbpa.2010.03.018</pub-id>
+                <pub-id pub-id-type="pmid">20409744</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Noren-Muller</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Reis-Correa</surname>
+                    <given-names>I</given-names>
+                    <suffix>Jr</suffix>
+                  </name>
+                  <name>
+                    <surname>Prinz</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Rosenbaum</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Saxena</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Schwalbe</surname>
+                    <given-names>HJ</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Discovery of protein phosphatase inhibitor classes by biology-oriented synthesis</article-title>
+                <source>Proc Natl Acad Sci USA</source>
+                <year>2006</year>
+                <volume>103</volume>
+                <issue>28</issue>
+                <fpage>10606</fpage>
+                <lpage>10611</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XntFWms78%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1073/pnas.0601490103</pub-id>
+                <pub-id pub-id-type="pmid">16809424</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Basu</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Ellinger</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Rizzo</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Deraeve</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Schurmann</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Preut</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Biology-oriented synthesis of a natural-product inspired oxepane collection yields a small-molecule activator of the Wnt-pathway</article-title>
+                <source>Proc Natl Acad Sci USA</source>
+                <year>2011</year>
+                <volume>108</volume>
+                <issue>17</issue>
+                <fpage>6805</fpage>
+                <lpage>6810</lpage>
+                <pub-id pub-id-type="doi">10.1073/pnas.1015269108</pub-id>
+                <pub-id pub-id-type="pmid">21415367</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wender</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                  <name>
+                    <surname>Baryza</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                  <name>
+                    <surname>Brenner</surname>
+                    <given-names>SE</given-names>
+                  </name>
+                  <name>
+                    <surname>Clarke</surname>
+                    <given-names>MO</given-names>
+                  </name>
+                  <name>
+                    <surname>Craske</surname>
+                    <given-names>ML</given-names>
+                  </name>
+                  <name>
+                    <surname>Horan</surname>
+                    <given-names>JC</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Function oriented synthesis: the design, synthesis, PKC binding and translocation activity of a new bryostatin analog</article-title>
+                <source>Curr Drug Discov Technol</source>
+                <year>2004</year>
+                <volume>1</volume>
+                <issue>1</issue>
+                <fpage>1</fpage>
+                <lpage>11</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXjsVKjtbY%3D</pub-id>
+                <pub-id pub-id-type="doi">10.2174/1570163043484888</pub-id>
+                <pub-id pub-id-type="pmid">16472215</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Yu</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Natural product-like virtual libraries: recursive atom-based enumeration</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2011</year>
+                <volume>51</volume>
+                <issue>3</issue>
+                <fpage>541</fpage>
+                <lpage>557</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXivFCns7Y%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci1002087</pub-id>
+                <pub-id pub-id-type="pmid">21388152</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Feher</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Schmidt</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Property distributions: differences between drugs, natural products, and molecules from combinatorial chemistry</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <issue>1</issue>
+                <fpage>218</fpage>
+                <lpage>227</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XptlOksLg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci0200467</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gomez-Bombarelli</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Wei</surname>
+                    <given-names>JN</given-names>
+                  </name>
+                  <name>
+                    <surname>Duvenaud</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Hernandez-Lobato</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                  <name>
+                    <surname>Sanchez-Lengeling</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Sheberla</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Automatic chemical design using a data-driven continuous representation of molecules</article-title>
+                <source>ACS Cent Sci</source>
+                <year>2018</year>
+                <volume>4</volume>
+                <issue>2</issue>
+                <fpage>268</fpage>
+                <lpage>276</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXntlWquw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acscentsci.7b00572</pub-id>
+                <pub-id pub-id-type="pmid">29532027</pub-id>
+                <pub-id pub-id-type="pmcid">5833007</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Segler</surname>
+                    <given-names>MHS</given-names>
+                  </name>
+                  <name>
+                    <surname>Kogej</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Tyrchan</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Waller</surname>
+                    <given-names>MP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Generating focused molecule libraries for drug discovery with recurrent neural networks</article-title>
+                <source>ACS Cent Sci</source>
+                <year>2018</year>
+                <volume>4</volume>
+                <issue>1</issue>
+                <fpage>120</fpage>
+                <lpage>131</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXitVCjsLfP</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acscentsci.7b00512</pub-id>
+                <pub-id pub-id-type="pmid">29392184</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Olivecrona</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Blaschke</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Engkvist</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Molecular de-novo design through deep reinforcement learning</article-title>
+                <source>J Cheminform</source>
+                <year>2017</year>
+                <volume>9</volume>
+                <issue>1</issue>
+                <fpage>48</fpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-017-0235-x</pub-id>
+                <pub-id pub-id-type="pmid">29086083</pub-id>
+                <pub-id pub-id-type="pmcid">5583141</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Yoshizoe</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Terayama</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Tsuda</surname>
+                    <given-names>K</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ChemTS: an efficient python library for de novo molecular generation</article-title>
+                <source>Sci Technol Adv Mater</source>
+                <year>2017</year>
+                <volume>18</volume>
+                <issue>1</issue>
+                <fpage>972</fpage>
+                <lpage>976</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXhsFamu7rO</pub-id>
+                <pub-id pub-id-type="doi">10.1080/14686996.2017.1401424</pub-id>
+                <pub-id pub-id-type="pmid">29435094</pub-id>
+                <pub-id pub-id-type="pmcid">5801530</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Muller</surname>
+                    <given-names>AT</given-names>
+                  </name>
+                  <name>
+                    <surname>Hiss</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Recurrent neural network model for constructive peptide design</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2018</year>
+                <volume>58</volume>
+                <issue>2</issue>
+                <fpage>472</fpage>
+                <lpage>479</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXht1ynu7w%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.7b00414</pub-id>
+                <pub-id pub-id-type="pmid">29355319</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Putin</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Asadulaev</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Vanhaelen</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                  <name>
+                    <surname>Ivanenkov</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Aladinskaya</surname>
+                    <given-names>AV</given-names>
+                  </name>
+                  <name>
+                    <surname>Aliper</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Adversarial threshold neural computer for molecular de novo design</article-title>
+                <source>Mol Pharm</source>
+                <year>2018</year>
+                <pub-id pub-id-type="doi">10.1021/acs.molpharmaceut.7b01137</pub-id>
+                <pub-id pub-id-type="pmid">29569445</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="other">Cho K, van Merrienboer B, Gulcehre C, Bahdanau D, Bougares F, Schwenk H, et al. (2014) Learning phrase representations using RNN encoder-decoder for statistical machine translation. <ext-link xlink:href="http://arxiv.org/abs/1406.1018" ext-link-type="uri">arXiv:1406.1018</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="other">Chung J, Gulcehre C, Cho K, Bengio Y (2014) Empirical evaluation of gated recurrent neural networks on sequence modeling. <ext-link xlink:href="http://arxiv.org/abs/1412.3555v1" ext-link-type="uri">arXiv:1412.3555v1</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Shao</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhu</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>X</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Transfer learning for visual categorization: a survey</article-title>
+                <source>IEEE Trans Neural Netw Learn Syst</source>
+                <year>2015</year>
+                <volume>26</volume>
+                <issue>5</issue>
+                <fpage>1019</fpage>
+                <lpage>1034</lpage>
+                <pub-id pub-id-type="doi">10.1109/TNNLS.2014.2330900</pub-id>
+                <pub-id pub-id-type="pmid">25014970</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sterling</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Irwin</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ZINC 15—ligand discovery for everyone</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2015</year>
+                <volume>55</volume>
+                <issue>11</issue>
+                <fpage>2324</fpage>
+                <lpage>2337</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXhs1OhurbF</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.5b00559</pub-id>
+                <pub-id pub-id-type="pmid">4658288</pub-id>
+                <pub-id pub-id-type="pmcid">4658288</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="other">SMILES. <ext-link xlink:href="http://www.daylight.com/dayhtml/doc/theory/theory.smiles.html" ext-link-type="uri">http://www.daylight.com/dayhtml/doc/theory/theory.smiles.html</ext-link>. Accessed 15 May 2018</mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="other">Zni All. <ext-link xlink:href="http://zinc.docking.org/subsets/zni-all" ext-link-type="uri">http://zinc.docking.org/subsets/zni-all</ext-link>. Accessed 15 May 2018</mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gaulton</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bellis</surname>
+                    <given-names>LJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Bento</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Chambers</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Davies</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Hersey</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">ChEMBL: a large-scale bioactivity database for drug discovery</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2012</year>
+                <volume>40</volume>
+                <issue>Database issue</issue>
+                <fpage>D1100</fpage>
+                <lpage>D1107</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhs12htbjN</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkr777</pub-id>
+                <pub-id pub-id-type="pmid">21948594</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="other">Mikolov T, Chen K, Corrado G, Dean J (2013) Efficient estimation of word representations in vector space. <ext-link xlink:href="http://arxiv.org/abs/1301.3781" ext-link-type="uri">arXiv:1301.3781</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jaeger</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Fulle</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Turk</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Mol2vec: unsupervised machine learning approach with chemical intuition</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2018</year>
+                <volume>58</volume>
+                <issue>1</issue>
+                <fpage>27</fpage>
+                <lpage>35</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXitVWgurjN</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.7b00616</pub-id>
+                <pub-id pub-id-type="pmid">29268609</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="other">Pytorch. Version: 0.4.0. <ext-link xlink:href="https://pytorch.org/" ext-link-type="uri">https://pytorch.org/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="other">Kingma DP, Ba J (2014) Adam: a method for stochastic optimization. <ext-link xlink:href="http://arxiv.org/abs/1412.6980" ext-link-type="uri">arXiv:1412.6980</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="other">RDKit: open source cheminformatics. Version: 2017-09-3. <ext-link xlink:href="http://www.rdkit.org/" ext-link-type="uri">http://www.rdkit.org/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ertl</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Roggo</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Schuffenhauer</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Natural product-likeness score and its application for prioritization of compound libraries</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2008</year>
+                <volume>48</volume>
+                <issue>1</issue>
+                <fpage>68</fpage>
+                <lpage>74</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXhtlCqtLfP</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci700286x</pub-id>
+                <pub-id pub-id-type="pmid">18034468</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chevillard</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Kolb</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SCUBIDOO: a large yet screenable and easily searchable database of computationally created chemical compounds optimized toward high likelihood of synthetic tractability</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2015</year>
+                <volume>55</volume>
+                <issue>9</issue>
+                <fpage>1824</fpage>
+                <lpage>1835</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXhtlCltbzL</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.5b00203</pub-id>
+                <pub-id pub-id-type="pmid">26282054</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rosen</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Gottfries</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Muresan</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Backlund</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Oprea</surname>
+                    <given-names>TI</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Novel chemical space exploration via natural products</article-title>
+                <source>J Med Chem</source>
+                <year>2009</year>
+                <volume>52</volume>
+                <issue>7</issue>
+                <fpage>1953</fpage>
+                <lpage>1962</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXislKqu78%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm801514w</pub-id>
+                <pub-id pub-id-type="pmid">19265440</pub-id>
+                <pub-id pub-id-type="pmcid">2696019</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Koch</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <name>
+                    <surname>Schuffenhauer</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Scheck</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Wetzel</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Casaulta</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Odermatt</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Charting biologically relevant chemical space: a structural classification of natural products (SCONP)</article-title>
+                <source>Proc Natl Acad Sci USA</source>
+                <year>2005</year>
+                <volume>102</volume>
+                <issue>48</issue>
+                <fpage>17272</fpage>
+                <lpage>17277</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXhtlSqtLfO</pub-id>
+                <pub-id pub-id-type="doi">10.1073/pnas.0503647102</pub-id>
+                <pub-id pub-id-type="pmid">16301544</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A new approach to finding natural chemical structure classes</article-title>
+                <source>J Med Chem</source>
+                <year>2002</year>
+                <volume>45</volume>
+                <issue>24</issue>
+                <fpage>5311</fpage>
+                <lpage>5320</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XotVymsLs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm010520k</pub-id>
+                <pub-id pub-id-type="pmid">12431058</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rogers</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Hahn</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Extended-connectivity fingerprints</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2010</year>
+                <volume>50</volume>
+                <issue>5</issue>
+                <fpage>742</fpage>
+                <lpage>754</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXlt1Onsbg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci100050t</pub-id>
+                <pub-id pub-id-type="pmid">20426451</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wu</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Farzaneh</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The structure and pharmacological functions of coumarins and their derivatives</article-title>
+                <source>Curr Med Chem</source>
+                <year>2009</year>
+                <volume>16</volume>
+                <issue>32</issue>
+                <fpage>4236</fpage>
+                <lpage>4260</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXhsFGht7rE</pub-id>
+                <pub-id pub-id-type="doi">10.2174/092986709789578187</pub-id>
+                <pub-id pub-id-type="pmid">19754420</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kontogiorgis</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Detsi</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Hadjipavlou-Litina</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Coumarin-based drugs: a patent review (2008-present)</article-title>
+                <source>Expert Opin Ther Pat</source>
+                <year>2012</year>
+                <volume>22</volume>
+                <issue>4</issue>
+                <fpage>437</fpage>
+                <lpage>454</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XltVKis7c%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1517/13543776.2012.678835</pub-id>
+                <pub-id pub-id-type="pmid">22475457</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Borges</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Roleira</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Milhazes</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Santana</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Uriarte</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Simple coumarins and analogues in medicinal chemistry: occurrence, synthesis and biological activity</article-title>
+                <source>Curr Med Chem</source>
+                <year>2005</year>
+                <volume>12</volume>
+                <issue>8</issue>
+                <fpage>887</fpage>
+                <lpage>916</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXjtVCjsb4%3D</pub-id>
+                <pub-id pub-id-type="doi">10.2174/0929867053507315</pub-id>
+                <pub-id pub-id-type="pmid">15853704</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec20">
+              <title>Additional files</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Additional files">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2019_328_MOESM1_ESM.docx" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0328-9" ext-link-type="uri">Additional file 1.</ext-link> GRU operations.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM2" xlink:title="Additional files">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2019_328_MOESM2_ESM.docx" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0328-9" ext-link-type="uri">Additional file 2.</ext-link> Learning curves of biogenic library training.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM3" xlink:title="Additional files">
+                  <media mimetype="text" mime-subtype="plain" xlink:href="MediaObjects/13321_2019_328_MOESM3_ESM.csv" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0328-9" ext-link-type="uri">Additional file 3.</ext-link> Top-200 PCL compounds and their natural product-likeness scores.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM4" xlink:title="Additional files">
+                  <media mimetype="text" mime-subtype="plain" xlink:href="MediaObjects/13321_2019_328_MOESM4_ESM.csv" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0328-9" ext-link-type="uri">Additional file 4.</ext-link> Compounds reproduced by the RNN model from test library.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+          </app>
+        </app-group>
+        <glossary>
+          <title>Abbreviations</title>
+          <def-list>
+            <def-item>
+              <term>RNN</term>
+              <def>
+                <p id="Par3">recurrent neural network</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>GRU</term>
+              <def>
+                <p id="Par4">gate recurrent unit</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>ZBL</term>
+              <def>
+                <p id="Par5">ZINC biogenic library</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>ZLL</term>
+              <def>
+                <p id="Par6">ZINC biogenic-like library</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PCL</term>
+              <def>
+                <p id="Par7">predicted compound library</p>
+              </def>
+            </def-item>
+          </def-list>
+        </glossary>
+      </back>
+    </article>

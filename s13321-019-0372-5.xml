@@ -1,0 +1,2245 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0372-5</article-id>
+          <article-id pub-id-type="manuscript">372</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0372-5</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Software</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Fast, efficient fragment-based coordinate generation for Open Babel</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" id="Au1">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0003-1546-8709</contrib-id>
+              <name>
+                <surname>Yoshikawa</surname>
+                <given-names>Naruki</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au2">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-1757-1980</contrib-id>
+              <name>
+                <surname>Hutchison</surname>
+                <given-names>Geoffrey R.</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+              <xref ref-type="corresp" rid="IDs1332101903725_cor2">b</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 2151 536X</institution-id>
+                <institution-id institution-id-type="GRID">grid.26999.3d</institution-id>
+                <institution content-type="org-division">Department of Computational Biology and Medical Sciences, Graduate School of Frontier Sciences</institution>
+                <institution content-type="org-name">The University of Tokyo</institution>
+              </institution-wrap>
+              <addr-line content-type="city">Kashiwa</addr-line>
+              <addr-line content-type="state">Chiba</addr-line>
+              <country country="JP">Japan</country>
+            </aff>
+            <aff id="Aff2">
+              <label>2</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 1936 9000</institution-id>
+                <institution-id institution-id-type="GRID">grid.21925.3d</institution-id>
+                <institution content-type="org-division">Department of Chemistry and Chemical Engineering</institution>
+                <institution content-type="org-name">University of Pittsburgh</institution>
+              </institution-wrap>
+              <addr-line content-type="street">219 Parkman Avenue</addr-line>
+              <addr-line content-type="postcode">15260</addr-line>
+              <addr-line content-type="city">Pittsburgh</addr-line>
+              <addr-line content-type="state">PA</addr-line>
+              <country country="US">USA</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs1332101903725_cor2">
+              <label>b</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>1</day>
+            <month>8</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="49">1</issue>
+          <elocation-id>49</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>24</day>
+              <month>7</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>30</day>
+              <month>3</month>
+              <year>2019</year>
+            </date>
+            <date date-type="accepted">
+              <day>23</day>
+              <month>7</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>1</day>
+              <month>8</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">Rapidly predicting an accurate three dimensional geometry of a molecule is a crucial task for cheminformatics and across a wide range of molecular modeling. Consequently, developing a fast, accurate, and open implementation of structure prediction is necessary for reproducible cheminformatics research. We introduce a fragment-based coordinate generation implementation for Open Babel, a widely-used open source toolkit for cheminformatics. The new implementation improves speed and stereochemical accuracy, while retaining or improving accuracy of bond lengths, bond angles, and dihedral torsions. Input molecules are broken into fragments by cutting at rotatable bonds. The coordinates of fragments are set according to a fragment library, prepared from open crystallographic databases. Since the coordinates of multiple atoms are decided at once, coordinate prediction is accelerated over the previous rules-based implementation in Open Babel, as well as the widely-used distance geometry methods in RDKit. This new implementation will be beneficial for a wide range of applications, including computational property prediction in polymers, molecular materials and drug design.</p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Coordinate generation</kwd>
+            <kwd>Fragments</kwd>
+            <kwd>Molecular geometry</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Division of Chemistry</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/100000165</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">CHE-1800435</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Yoshikawa</surname>
+                  <given-names>Naruki</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>7</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>24</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_372.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (<ext-link xlink:href="10.1186/s13321-019-0372-5" ext-link-type="doi">https://doi.org/10.1186/s13321-019-0372-5</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p id="Par2">Accurate prediction of the three-dimensional structure of a molecule is critical to a wide range of cheminformatics and molecular modeling tasks, since electrostatic, intermolecular, and other conformation-driven properties depend on the interatomic distances. There is an increasing interest in the “inverse design” of molecules [<xref ref-type="bibr" rid="CR1">1</xref>] with optimal or near-optimal properties. For example, generative neural networks [<xref ref-type="bibr" rid="CR2">2</xref>–<xref ref-type="bibr" rid="CR4">4</xref>] and genetic algorithms [<xref ref-type="bibr" rid="CR5">5</xref>–<xref ref-type="bibr" rid="CR7">7</xref>] create molecules with desirable target properties. Moreover, many computational chemistry simulations, including molecular dynamics and quantum chemistry require full three-dimensional structures to run.</p>
+          <p id="Par3">Consequently, there have been many proposed methods for three-dimensional coordinate generation, including rule-based, [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR9">9</xref>] fragment-based [<xref ref-type="bibr" rid="CR10">10</xref>, <xref ref-type="bibr" rid="CR11">11</xref>], and distance geometry embedding methods [<xref ref-type="bibr" rid="CR12">12</xref>–<xref ref-type="bibr" rid="CR18">18</xref>]. There are a few free or open source packages capable of coordinatte generation, including BALL [<xref ref-type="bibr" rid="CR19">19</xref>], FROG [<xref ref-type="bibr" rid="CR20">20</xref>, <xref ref-type="bibr" rid="CR21">21</xref>], RDKit [<xref ref-type="bibr" rid="CR22">22</xref>], and Open Babel [<xref ref-type="bibr" rid="CR23">23</xref>]. The latter, which is highly popular, has used a rule-based coordinate builder with a small set of ring fragments, followed by force field minimization. Fragment-based approaches [<xref ref-type="bibr" rid="CR10">10</xref>] have reported increased accuracy and speed over Open Babel, since no force field minimization is required.</p>
+          <p id="Par4">In this work, we discuss an open source implementation of a new fragment-based approach for coordinate generation in Open Babel, with improved accuracy and performance. We compare the stereochemical accuracy with the previous implementation and the open source RDKit distance geometry method, as well as speed and geometric accuracy, measured by heavy-atom root mean square displacement with experimental crystal structures (RMSD), bond distance, bond angle, and torsional/dihedral angle errors. RDKit is chosen as a baseline because it is widely used and a benchmark paper [<xref ref-type="bibr" rid="CR24">24</xref>] describes it as “competitive with the commercial algorithms”. We also discuss molecules with large geometric or stereochemical errors and future work to improve both geometric and stereochemical accuracy while retaining fast performance.</p>
+        </sec>
+        <sec id="Sec2">
+          <title>Implementation</title>
+          <p id="Par5">The new implementation, using a fragment database, required generation of a suitable fragment library, as well as code in Open Babel to perform the new coordinate generation method.</p>
+          <p id="Par6">The new fragment-based coordinate generation requires several steps: (1) break the input molecule into fragments, (2) look up fragments from the library, and (3) generate a 3D structure by stitching fragments together. Figure <xref rid="Fig1" ref-type="fig">1</xref> shows an overview of the method. Since fragments include multiple atoms, placement of fragments improves both speed and accuracy over the rule-based method, in which the position of heavy atoms were determined one-by-one.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>An overview of fragment-based coordinate generation. An input molecule is given without 3D information (e.g. SMILES). The molecule is broken into fragments, which are retrieved from the fragment database. The coordinates of all atoms in a matched fragment are determined in one step, accelerating overall speed of coordinate generation. Fragments and non-fragment atoms are stitched together to generate the final structure</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_372_Fig1_HTML.png" /></fig></p>
+          <p id="Par7">All figures are produced by Avogadro version 1.2 from the corresponding SDF files [<xref ref-type="bibr" rid="CR25">25</xref>].</p>
+          <sec id="Sec3">
+            <title>Generating the fragment library</title>
+            <p id="Par8">Before fragment-based coordinate generation can be implemented, a library of known fragments must be created. For this implementation, any molecular substructure which does not have rotatable bonds is considered a fragment. Thus, each molecule is divided into fragments by cutting at all rotatable bonds, including both rings and large non-rotatable functional groups. Small fragments (less than 5 atoms) are not currently stored into the library.</p>
+            <p id="Par9">In generating the library of known fragment geometries, we collected 3D structure information from the Crystallography Open Database (COD) [<xref ref-type="bibr" rid="CR26">26</xref>], the Platinum Dataset [<xref ref-type="bibr" rid="CR24">24</xref>], and Ligand Expo [<xref ref-type="bibr" rid="CR27">27</xref>]. We stored only fragments with at least 5 atoms that occurred at least 3 times in the superset of these repositories, creating a total of 5,779 fragments. For each fragment the canonical SMILES was stored—ensuring that only unique substructures were retained. When the same fragment was encountered multiple times, only the first conformation found in the database was stored. Future work will focus on including averaged consensus geometries from similar fragment conformers (e.g., chair vs. twist-boat cyclohexane).</p>
+            <p id="Par10">In addition to this main fragment library, the pre-existing Open Babel database of generic ring fragments was retained. This includes <inline-formula id="IEq1"><alternatives><mml:math id="IEq1_Math"><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sim$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_372_Article_IEq1.gif" /></alternatives></inline-formula>1000 of the most common ring fragments from analysis of the NCI Open Database [<xref ref-type="bibr" rid="CR28">28</xref>] and ZINC [<xref ref-type="bibr" rid="CR29">29</xref>], as well as ring templates from <inline-formula id="IEq2"><alternatives><mml:math id="IEq2_Math"><mml:mrow><mml:mn>3</mml:mn><mml:mo>-</mml:mo><mml:mn>18</mml:mn></mml:mrow></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$3-18$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_372_Article_IEq2.gif" /></alternatives></inline-formula> atoms in size, stored as generic SMARTS patterns [<xref ref-type="bibr" rid="CR30">30</xref>, <xref ref-type="bibr" rid="CR31">31</xref>]. This additional library is intended to ensure other ring fragments not explicitly covered in the larger fragment database have approximate matches (e.g., if the stereochemistry or elemental composition differs slightly). Using this auxiliary database is discussed below.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Breaking down fragments</title>
+            <p id="Par11">Coordinate prediction starts by breaking the query molecule into multiple fragments of non-rotatable bonds. For each fragment, the canonical SMILES of each fragment is determined.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Fragment search</title>
+            <p id="Par12">Using the canonical SMILES of a fragment, the coordinates of all atoms in a fragment are retrieved from the flat-file database. To improve performance, an index file is used to determine the file offset of the particular coordinates. The speedup provided by the index is discussed below.</p>
+            <p id="Par13">If the exact canonical SMILES is not found in the fragment database, the fragment is tested against the SMARTS patterns of general ring fragments in the auxiliary database. If a fragment is not found in both databases, the atoms are handled by the rules-based atom-by-atom builder. In the set of 4548 Platinum compounds, there were 9741 fragments which have at least five atoms, and 7852 (80.6%) of fragments are found in the COD-based rigid fragment database, 1,887 (19.4%) are partially found in general ring database, and only two fragments are not found in either database.</p>
+          </sec>
+          <sec id="Sec6">
+            <title>Stitching fragments</title>
+            <p id="Par14">Building up the entire geometry requires connecting fragments and atom-by-atom rules-based coordinate generation. A working molecule is prepared in the beginning of this process. It only includes atoms of the input molecule, i.e. all bonds are removed. Atoms are iterated by depth-first search order of original molecule. Any atom that has already been determined is skipped from further processing. Otherwise, it is checked for a fragment match. All atoms not matching fragments are connected one-by-one to the working molecule by the previous Open Babel rules-based builder code.</p>
+            <p id="Par15">For each fragment match, the geometry of the match is retrieved from the database, and translated to connect to the neighboring atom in the working molecule. The bond vector between the existing atom and the new fragment is determined based on the perceived hybridization of the atom (e.g., sp, sp<sup>2</sup>, sp<sup>3</sup>), the covalent radii of the two elements, and the bond order (i.e., single, double, triple, aromatic).</p>
+          </sec>
+        </sec>
+        <sec id="Sec7">
+          <title>Results and discussion</title>
+          <p id="Par16">We evaluated the performance of our method on the Platinum dataset, including 4548 organic ligands from the Protein Data Bank [<xref ref-type="bibr" rid="CR32">32</xref>]. For testing, we used 4432 fragments from the open crystallographic database (COD) to avoid overlap of “training” and test sets. If fragments were drawn from test set molecules, RMSD and other geometric errors would reduce unfairly as fragments know the “answer” of the prediction. For comparison, we considered the most recent release of Open Babel (v. 2.4.1), RDKit (Release 2018.09.1) with the ETKDG method [<xref ref-type="bibr" rid="CR33">33</xref>] and this new implementation. Each molecule was supplied to the programs as the corresponding SMILES string.</p>
+          <p id="Par17">Across the entire set of molecules, we considered the time to generate coordinates and heavy-atom root mean square deviation (RMSD) between the generated and reference molecule. As the RMSD is highly susceptible to differences in conformers, we also considered the mean bond length error, mean bond angle error, and dihedral angle error. Finally, we tested the “success” of retaining the stereochemistry of the original SMILES. All experiments are conducted as single-core processes on a Thinkpad X1 Carbon laptop with Core i7-7500U (2.70GHz), 16GB RAM and Ubuntu 16.04 running on Docker (18.09.1).<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Comparison between implementations</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Software</p></th><th align="left"><p>Time (s)</p></th><th align="left"><p>RMSD (Å)</p></th><th align="left"><p>Bond (Å)</p></th><th align="left"><p>Angle (<inline-formula id="IEq6"><alternatives><mml:math id="IEq6_Math"><mml:msup><mml:mrow /><mml:mo>∘</mml:mo></mml:msup></mml:math><tex-math id="IEq6_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$^\circ$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_372_Article_IEq6.gif" /></alternatives></inline-formula>)</p></th><th align="left"><p>Torsion (<inline-formula id="IEq5"><alternatives><mml:math id="IEq5_Math"><mml:msup><mml:mrow /><mml:mo>∘</mml:mo></mml:msup></mml:math><tex-math id="IEq5_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$^\circ$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_372_Article_IEq5.gif" /></alternatives></inline-formula>)</p></th><th align="left"><p>TFD</p></th><th align="left"><p>Success (%)</p></th></tr></thead><tbody><tr><td align="left"><p>Open Babel</p></td><td char="." align="char"><p>93.7</p></td><td char="." align="char"><p>1.75</p></td><td char="." align="char"><p>0.055</p></td><td char="." align="char"><p>2.40</p></td><td char="." align="char"><p>48.8</p></td><td char="." align="char"><p>0.27</p></td><td char="." align="char"><p>76.3</p></td></tr><tr><td align="left"><p>RDKit (ETKDG)</p></td><td char="." align="char"><p>274.6</p></td><td char="." align="char"><p>1.59</p></td><td char="." align="char"><p>0.060</p></td><td char="." align="char"><p>2.87</p></td><td char="." align="char"><p>43.9</p></td><td char="." align="char"><p>0.21</p></td><td char="." align="char"><p>99.5</p></td></tr><tr><td align="left"><p>This work</p></td><td char="." align="char"><p>54.8</p></td><td char="." align="char"><p>1.75</p></td><td char="." align="char"><p>0.049</p></td><td char="." align="char"><p>2.49</p></td><td char="." align="char"><p>44.1</p></td><td char="." align="char"><p>0.27</p></td><td char="." align="char"><p>93.9</p></td></tr></tbody></table><table-wrap-foot><p>The performance on 4548 molecules in the Platinum dataset is shown. Time column shows the total time to process all molecules in second. RMSD column shows mean RMSD. Bond, Angle, Torsion columns show mean error of each. TFD column shows mean of the torsion fingerprint deviation [<xref ref-type="bibr" rid="CR34">34</xref>]. Success indicates the percent of predicted molecules whose InChIKey match that of the original molecule. RMSD and mean error are calculated over successful molecules</p></table-wrap-foot></table-wrap></p>
+          <p id="Par19">As compiled in Table <xref rid="Tab1" ref-type="table">1</xref> the new implementation improves the stereochemical success rate from 76.3% to 93.9% while dramatically decreasing the time required by almost a factor of two (93.7 s to 54.8 s). The geometric accuracy increases very slightly, in part due to overall decreases in bond and dihedral/torsion errors. The differences between methods in RMSD, bond errors, angles and torsions are all statistically significant through analysis of variance (ANOVA) with p-values less than <inline-formula id="IEq7"><alternatives><mml:math id="IEq7_Math"><mml:mrow><mml:mn>1.0</mml:mn><mml:mo>×</mml:mo><mml:msup><mml:mn>10</mml:mn><mml:mrow><mml:mo>-</mml:mo><mml:mn>11</mml:mn></mml:mrow></mml:msup></mml:mrow></mml:math><tex-math id="IEq7_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$1.0\times 10^{-11}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_372_Article_IEq7.gif" /></alternatives></inline-formula>. Illustrated in Fig. <xref rid="Fig2" ref-type="fig">2</xref>, the distribution of RMSD across the entire set of 4548 ligands is fairly similar between the original Open Babel implementation, RDKit ETKDG and the new implementation. The relatively high RMSD distribution is largely due to differences in conformations between the stochastic single pose considered here and an ensemble of diverse conformers needed to find low-RMSD geometries.[<xref ref-type="bibr" rid="CR35">35</xref>–<xref ref-type="bibr" rid="CR37">37</xref>]</p>
+          <p id="Par20">In addition to the mean torsion angle error between the generated geometries and the experimental geometries, we computed the torsion fingerprint deviation (TFD) [<xref ref-type="bibr" rid="CR34">34</xref>] using RDKit, as an established metric for comparison of torsional errors. The metric ignores hydrogen atoms and minimizes effects of dihedral angles with multiple symmetric atoms. Both the mean torsion angle errors and TFD metrics in Table <xref rid="Tab1" ref-type="table">1</xref> indicate evident differences in dihedral angles between generated geometries and experimental—the main cause for the relatively high observed RMSD.<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>Histograms of heavy-atom RMSD (Å) for <bold>a</bold> the original Open Babel rule-based coordinate generation, <bold>b</bold> RDKit distance geometry method, and <bold>c</bold> current work</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_372_Fig2_HTML.png" /></fig></p>
+          <p id="Par21">The fragment-based method is much faster than other methods because it can determine the coordinates of many atoms at once from the database. Compared to ETKDG, bond length errors and angle errors are generally better (e.g., 0.049 Å vs. 0.060 Å, respectively and 2.49<inline-formula id="IEq8"><alternatives><mml:math id="IEq8_Math"><mml:msup><mml:mrow /><mml:mo>∘</mml:mo></mml:msup></mml:math><tex-math id="IEq8_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$^\circ$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_372_Article_IEq8.gif" /></alternatives></inline-formula> vs. 2.87<inline-formula id="IEq9"><alternatives><mml:math id="IEq9_Math"><mml:msup><mml:mrow /><mml:mo>∘</mml:mo></mml:msup></mml:math><tex-math id="IEq9_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$^\circ$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_372_Article_IEq9.gif" /></alternatives></inline-formula>, respectively). On the other hand, RMSD and torsion errors are slightly worse than ETKDG, possibly because the current implementation does not consider torsion angle explicitly. Some stereo errors remain, likely because of issues with poor layout of some non-fragment bonds, resulting in incorrect stereochemistry.</p>
+          <p id="Par22">Overall, the new implementation is a notable improvement. For example, Fig. <xref rid="Fig3" ref-type="fig">3</xref> indicates two example molecules with very low RMSD to the experimental structure. The processing time is much faster than both released versions of Open Babel and RDKit.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>Examples of molecules with low RMSD. Across the molecules in the Platinum set the heavy-atom RMSD between predicted structures and experiment 5.2% falls below 0.5 Å, and 20.5% falls below 1.0 Å, without further force field optimization</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_372_Fig3_HTML.png" /></fig></p>
+          <p id="Par23">While errors in dihedral/torsion angles exist, the purpose of this study is not to find the conformer that best matches experiment by generating various conformers, but rapidly generating initial geometries for further processing. Some evaluation papers (e.g. [<xref ref-type="bibr" rid="CR24">24</xref>, <xref ref-type="bibr" rid="CR36">36</xref>]) report better RMSD for RDKit or Confab. This is because they generate multiple, geometrically diverse conformers and to find the best RMSD. Such conformer generation is recommended subsequent to creating an initial three-dimensional geometry if desired.[<xref ref-type="bibr" rid="CR36">36</xref>, <xref ref-type="bibr" rid="CR38">38</xref>–<xref ref-type="bibr" rid="CR45">45</xref>]</p>
+          <sec id="Sec8">
+            <title>Analysis of problem molecules</title>
+            <p id="Par24">We find that 9.6% of molecules have RMSD above 3.5 Å or incorrect stereochemistry, compared to 26.8% for the original Open Babel implementation, and only 2.8% for RDKit ETKDG. Figure <xref rid="Fig4" ref-type="fig">4</xref> shows two examples of predicted molecule with high RMSD. In both cases, the main differences between experimental and predicted structures come from inter-fragment dihedral angles. In the bottom example, Fig. <xref rid="Fig4" ref-type="fig">4</xref>c, d the predicted conformation is more extended than in experiment. While additional post-processing with conformational searches help to minimize such differences, further work to find patterns of inter-fragment dihedral angle preferences will also improve initial predictions.<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>Examples of molecules with high RMSD > 4.0 Å. Note that differences in dihedral angles produce apparently different geometries as judged by RMSD</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_372_Fig4_HTML.png" /></fig></p>
+            <p id="Par25">Beyond poor placement of fragments and choice of dihedral angles, some molecules exhibit incorrect stereochemistry after coordinate generation. Figure <xref rid="Fig5" ref-type="fig">5</xref> shows two examples of molecule with stereochemistry errors. In the first case, an incorrect geometry at the circled carbon yields a difference in stereochemistry after hydrogen atom placement.</p>
+            <p id="Par26">In the second case, an extended ring-closure bond occurs in a macrocycle. This structure is generated by stitching small ring fragments together, and they are placed one by one i.e. without considering overall structure. As a result, a long ring-closure bond is inevitable to make ends meet. Post-processing by MMFF optimization (discussed later) reduces these strange connections, but stereochemistry can become scrambled in the process.</p>
+            <p id="Par27">As noted above, distance geometry methods such as RDKit ETKDG [<xref ref-type="bibr" rid="CR33">33</xref>] and stochastic proximity embedding [<xref ref-type="bibr" rid="CR18">18</xref>] provide greater stereochemistry success rates. The implementation could potentially be improved by using distance geometry to create fragment geometries for species not in the database. Other techniques to augment generation of unusual ring systems and macrocycles should also be explored [<xref ref-type="bibr" rid="CR46">46</xref>, <xref ref-type="bibr" rid="CR47">47</xref>].<fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p>Examples of molecules with incorrect stereochemistry. Note that the bottom case indicates a case with a long ring closure bond in a macrocycle</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_372_Fig5_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec9">
+            <title>Effects of implementation and post-processing</title>
+            <p id="Par28">In order to accelerate the fragment search, we prepared an index file, which stores only the canonical SMILES of fragments and the corresponding position in fragment geometry database. When a match occurs, the file offset of the query fragment is retrieved and the database can be read directly to that position without requiring parsing or searching the entire database. While the latter is currently only <inline-formula id="IEq10"><alternatives><mml:math id="IEq10_Math"><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq10_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sim$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_372_Article_IEq10.gif" /></alternatives></inline-formula>744 kb in size, as indicated in Table <xref rid="Tab2" ref-type="table">2</xref> the use of this index file improves performance by a factor of <inline-formula id="IEq11"><alternatives><mml:math id="IEq11_Math"><mml:mrow><mml:mn>2.6</mml:mn><mml:mo>×</mml:mo></mml:mrow></mml:math><tex-math id="IEq11_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$2.6\times$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_372_Article_IEq11.gif" /></alternatives></inline-formula> (i.e., 140.9 s without the index to 54.8 s with the index).</p>
+            <p id="Par29">Beyond the use of the index file, as described above, we also used an auxiliary database of general ring fragments to improve database hit rate. As indicated in Table <xref rid="Tab2" ref-type="table">2</xref>, we tried using the generic fragments before and after placing fragments. Using the generic rings results in better RMSD, in exchange for somewhat longer prediction time (e.g., 20.6 s vs. 54.8 s). More importantly, the generic fragments reduce bond and angle errors and increase stereochemical success. By searching ring fragments before rigid fragments, the prediction accuracy slightly improved but speed and success rate deteriorated. The final implementation places generic ring fragments after exact matching with rigid fragments.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Effect of implementation</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Difference from final</p></th><th align="left"><p>Time (s)</p></th><th align="left"><p>RMSD (Å)</p></th><th align="left"><p>Bond (Å)</p></th><th align="left"><p>Angle (<inline-formula id="IEq12"><alternatives><mml:math id="IEq12_Math"><mml:msup><mml:mrow /><mml:mo>∘</mml:mo></mml:msup></mml:math><tex-math id="IEq12_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$^\circ$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_372_Article_IEq12.gif" /></alternatives></inline-formula>)</p></th><th align="left"><p>Torsion (<inline-formula id="IEq13"><alternatives><mml:math id="IEq13_Math"><mml:msup><mml:mrow /><mml:mo>∘</mml:mo></mml:msup></mml:math><tex-math id="IEq13_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$^\circ$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_372_Article_IEq13.gif" /></alternatives></inline-formula>)</p></th><th align="left"><p>TFD</p></th><th align="left"><p>Success (%)</p></th></tr></thead><tbody><tr><td align="left"><p>No index</p></td><td char="." align="char"><p>140.9</p></td><td char="." align="char"><p>1.78</p></td><td char="." align="char"><p>0.056</p></td><td char="." align="char"><p>2.77</p></td><td char="." align="char"><p>45.5</p></td><td char="." align="char"><p>0.30</p></td><td char="." align="char"><p>92.8</p></td></tr><tr><td align="left"><p>No generic rings</p></td><td char="." align="char"><p>20.6</p></td><td char="." align="char"><p>2.01</p></td><td char="." align="char"><p>0.103</p></td><td char="." align="char"><p>4.75</p></td><td char="." align="char"><p>51.5</p></td><td char="." align="char"><p>0.51</p></td><td char="." align="char"><p>89.4</p></td></tr><tr><td align="left"><p>Match generic rings before fragments</p></td><td char="." align="char"><p>56.7</p></td><td char="." align="char"><p>1.78</p></td><td char="." align="char"><p>0.061</p></td><td char="." align="char"><p>2.76</p></td><td char="." align="char"><p>46.9</p></td><td char="." align="char"><p>0.31</p></td><td char="." align="char"><p>92.7</p></td></tr><tr><td align="left"><p>Final implementation</p></td><td char="." align="char"><p>54.8</p></td><td char="." align="char"><p>1.75</p></td><td char="." align="char"><p>0.049</p></td><td char="." align="char"><p>2.49</p></td><td char="." align="char"><p>44.1</p></td><td char="." align="char"><p>0.27</p></td><td char="." align="char"><p>93.9</p></td></tr></tbody></table><table-wrap-foot><p>The performance on 4548 molecules in the Platinum dataset is shown. Time column shows the total time to process all molecules in second. RMSD column shows mean RMSD in Å. Bond, Angle, Torsion columns show mean error of each. TFD column shows mean of the torsion fingerprint deviation [<xref ref-type="bibr" rid="CR34">34</xref>]. Success indicates the percent of predicted molecules whose InChIKey match that of the original molecule. RMSD and mean error are calculated over successful molecules</p></table-wrap-foot></table-wrap></p>
+            <p id="Par31">We also evaluated the effect of post-processing after coordinate generation. The default –gen3d option for Open Babel performs coordinate generation followed by MMFF94 [<xref ref-type="bibr" rid="CR48">48</xref>–<xref ref-type="bibr" rid="CR52">52</xref>] geometry optimization and conformer searching, increasing processing time in favor of producing fewer poor geometries (i.e., incorrectly extended ring closure bonds). As illustrated in Table <xref rid="Tab3" ref-type="table">3</xref>, we find that both methods improve RMSD, bond and angle errors and somewhat increase stereochemical accuracy (to 94.0%) at the cost of <inline-formula id="IEq14"><alternatives><mml:math id="IEq14_Math"><mml:mrow><mml:mn>10</mml:mn><mml:mo>-</mml:mo><mml:mn>20</mml:mn><mml:mo>×</mml:mo></mml:mrow></mml:math><tex-math id="IEq14_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$10-20\times$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_372_Article_IEq14.gif" /></alternatives></inline-formula> increased processing time.</p>
+            <p id="Par32">The current default Open Babel conformer search is a weighted stochastic rotor search, changing the likelihood of different dihedral angles on the basis of evaluated MMFF94 energies. That is, during the Monte Carlo search, a high-energy conformation will lead to lower likelihood of the associated dihedral angles being chosen in subsequent iterations.</p>
+            <p id="Par33">We would generally suggest that users should use both force field optimization and conformer search to reduce bond, angle and RMSD errors, since the resulting processing time is still an average of 0.16s per compound with a single core process on a laptop. This is set as the default option in Open Babel, although users can opt for “fastest” processing if other optimization or conformer search methods are desired.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>Effect of post-processing with MMFF94</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Speed</p></th><th align="left"><p>Time (s)</p></th><th align="left"><p>RMSD (Å)</p></th><th align="left"><p>Bond (Å)</p></th><th align="left"><p>Angle (<inline-formula id="IEq15"><alternatives><mml:math id="IEq15_Math"><mml:msup><mml:mrow /><mml:mo>∘</mml:mo></mml:msup></mml:math><tex-math id="IEq15_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$^\circ$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_372_Article_IEq15.gif" /></alternatives></inline-formula>)</p></th><th align="left"><p>Torsion (<inline-formula id="IEq16"><alternatives><mml:math id="IEq16_Math"><mml:msup><mml:mrow /><mml:mo>∘</mml:mo></mml:msup></mml:math><tex-math id="IEq16_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$^\circ$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_372_Article_IEq16.gif" /></alternatives></inline-formula>)</p></th><th align="left"><p>TFD</p></th><th align="left"><p>Success (%)</p></th></tr></thead><tbody><tr><td align="left"><p>Fastest (No MMFF)</p></td><td char="." align="char"><p>54.8</p></td><td char="." align="char"><p>1.75</p></td><td char="." align="char"><p>0.049</p></td><td char="." align="char"><p>2.49</p></td><td char="." align="char"><p>44.1</p></td><td char="." align="char"><p>0.27</p></td><td char="." align="char"><p>93.9</p></td></tr><tr><td align="left"><p>Fast (100 MMFF)</p></td><td char="." align="char"><p>372.7</p></td><td char="." align="char"><p>1.72</p></td><td char="." align="char"><p>0.049</p></td><td char="." align="char"><p>2.90</p></td><td char="." align="char"><p>44.1</p></td><td char="." align="char"><p>0.26</p></td><td char="." align="char"><p>93.6</p></td></tr><tr><td align="left"><p>Med (200 MMFF + conf. search)</p></td><td char="." align="char"><p>732.1</p></td><td char="." align="char"><p>1.60</p></td><td char="." align="char"><p>0.048</p></td><td char="." align="char"><p>2.52</p></td><td char="." align="char"><p>43.0</p></td><td char="." align="char"><p>0.23</p></td><td char="." align="char"><p>93.9</p></td></tr></tbody></table><table-wrap-foot><p>The performance on 4548 molecules in the Platinum dataset is shown. Time column shows the total time to process all molecules in second. RMSD column shows mean RMSD in Å. Bond, Angle, Torsion columns show mean error of each. TFD column shows mean of the torsion fingerprint deviation [<xref ref-type="bibr" rid="CR34">34</xref>]. Success indicates the percent of predicted molecules whose InChIKey match that of the original molecule. RMSD and mean error are calculated over successful molecules</p></table-wrap-foot></table-wrap></p>
+            <p id="Par35">Despite the geometry optimization and low-energy conformer search, the RMSD remains fairly high. In some cases, this occurs because the lowest energy conformation is not necessarily the same as that in the experimental crystal structure [<xref ref-type="bibr" rid="CR53">53</xref>]. For example in Fig. <xref rid="Fig6" ref-type="fig">6</xref>, the generated structure reflects an extended alkyl chain, the low energy conformation, but the experimental structure is folded. Generating geometrically diverse conformers is one method to find geometries matching such experimental pose. As stated above, performing a thorough conformer search is recommended to find either low-energy structures for modeling or diverse geometries to match experimental conformations found in crystal structures.<fig id="Fig6"><label>Fig. 6</label><caption xml:lang="en"><p>Examples of molecules with high RMSD due to differing dihedral angles. Note that while the experimental conformer reflects a folded alkyl chain, the predicted geometry favors the low-energy extended chain</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_372_Fig6_HTML.png" /></fig></p>
+            <p id="Par36">Finally, we considered use of a larger fragment database by extracting fragments from all of the COD, Ligand Expo and the Platinum set itself. This larger fragments database includes 5,779 fragments, an additional 1,347 fragments more than the COD-only database, discussed above. Results are compiled in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S1. In 9,741 fragments (≥ 5 atoms), 9,004 (92.4%) were found in the rigid fragment database. The number of matches increased from 7,852 (80.6%) in case of using the COD-only database. This increase of matches reduced execution time (54.8 s to 28.1 s, respectively), since more fragments could be placed before searching general ring fragments. However, since almost all fragments were found in either of database even in case of COD-only database, the larger fragment data set did not contribute to increased accuracy.</p>
+          </sec>
+        </sec>
+        <sec id="Sec10" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p id="Par37">We developed a highly efficient open source coordinate prediction method based on a fragment library. The new implementation improves both speed and stereochemical accuracy over the previous rules-based Open Babel implementation. We find that remaining issues often result from missing fragments, resulting in extended ring-closure bonds and in incorrect dihedral angles. Adding explicit rules to handle rare ring fragments and macrocycles will improve these issues. In some cases, molecules with large RMSD to experimental geometries reflect a difference between the low-energy conformer generated by this implementation and the experimental pose, a known problem [<xref ref-type="bibr" rid="CR53">53</xref>, <xref ref-type="bibr" rid="CR54">54</xref>].</p>
+          <p id="Par38">We note that increasing the size of the fragment database decreases the generation time, since more atoms can be placed in one step. As an open source, open data method, we anticipate further improvements in the performance of the implementation over time. For example, drawing from sources such as PubChemQC [<xref ref-type="bibr" rid="CR55">55</xref>, <xref ref-type="bibr" rid="CR56">56</xref>] and ZINC [<xref ref-type="bibr" rid="CR29">29</xref>] will enable incorporating an increasing number of structurally diverse fragments.</p>
+          <p id="Par39">Finally, we note that future work, blending this fragment-based method with distance geometry methods (e.g., ETKDG) used by RDKit will combine the speed of fragment-based placement with improved geometric and stereochemical accuracy. As noted above, fragment methods face challenges on less common, macrocyclic, or systems with overlapping fragments. On the other hand, distance-geometry methods face challenges in producing planar aromatic ring systems, which can be found in fragment databases. By combining both methods, we anticipate improved performance across multiple metrics.</p>
+        </sec>
+        <sec id="Sec11">
+          <title>Availability and requirements</title>
+          <p id="Par40">
+            <list list-type="bullet">
+              <list-item>
+                <p id="Par41">Project name: Open Babel</p>
+              </list-item>
+              <list-item>
+                <p id="Par42">Project home page: <ext-link xlink:href="http://openbabel.org/" ext-link-type="uri">http://openbabel.org/</ext-link></p>
+              </list-item>
+              <list-item>
+                <p id="Par43">Operating system(s): Platform independent</p>
+              </list-item>
+              <list-item>
+                <p id="Par44">Programming languages: C++, Python, Ruby, Java, C#</p>
+              </list-item>
+              <list-item>
+                <p id="Par45">Other requirements: Modern C++ compiler</p>
+              </list-item>
+              <list-item>
+                <p id="Par46">License: GNU GPL v2.</p>
+              </list-item>
+            </list>
+          </p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements and funding</title>
+          <p>The authors appreciate helpful comments and discussion from Noel O’Boyle and Greg Landrum. GRH thanks the National Science Foundation (CHE-1800435) for support. N.Y. thanks the Google Summer of Code 2018 program for support.</p>
+        </ack>
+        <sec sec-type="author-contribution">
+          <title>Authors' contributions</title>
+          <p>NY implemented the method and wrote paper. GH supervised the whole project. Both authors read and approved the final manuscript.</p>
+        </sec>
+        <sec sec-type="data-availability">
+          <title>Availability of data and materials</title>
+          <p>All the data, including timing logs, SDF files of all 3D coordinates from Open Babel v2.4.1, RDKit, and this implementation, plus evaluation code is available at <ext-link xlink:href="https://github.com/n-yoshikawa/ob-fragment-generation" ext-link-type="uri">https://github.com/n-yoshikawa/ob-fragment-generation</ext-link>. The code and fragment database have been successfully merged into the Open Babel development “master” codebase, available at <ext-link xlink:href="https://github.com/openbabel/openbabel" ext-link-type="uri">https://github.com/openbabel/openbabel</ext-link>, intended to be part of the future 3.0 release.</p>
+        </sec>
+        <sec sec-type="ethics-statement">
+          <sec sec-type="COI-statement">
+            <title>Competing interests</title>
+            <p id="Par49">The authors declare that they have no competing interests.</p>
+          </sec>
+        </sec>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sanchez-Lengeling</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Aspuru-Guzik</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Inverse molecular design using machine learning: generative models for matter engineering</article-title>
+                <source>Science</source>
+                <year>2018</year>
+                <volume>361</volume>
+                <issue>6400</issue>
+                <fpage>360</fpage>
+                <lpage>365</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXhtlyitr3L</pub-id>
+                <pub-id pub-id-type="pmid">30049875</pub-id>
+                <pub-id pub-id-type="doi">10.1126/science.aat2663</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gómez-Bombarelli</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Wei</surname>
+                    <given-names>JN</given-names>
+                  </name>
+                  <name>
+                    <surname>Duvenaud</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Hernández-Lobato</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                  <name>
+                    <surname>Sánchez-Lengeling</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Sheberla</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Aguilera-Iparraguirre</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Hirzel</surname>
+                    <given-names>TD</given-names>
+                  </name>
+                  <name>
+                    <surname>Adams</surname>
+                    <given-names>RP</given-names>
+                  </name>
+                  <name>
+                    <surname>Aspuru-Guzik</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Automatic chemical design using a data-driven continuous representation of molecules</article-title>
+                <source>ACS Cent Sci</source>
+                <year>2018</year>
+                <volume>4</volume>
+                <issue>2</issue>
+                <fpage>268</fpage>
+                <lpage>276</lpage>
+                <pub-id pub-id-type="pmid">29532027</pub-id>
+                <pub-id pub-id-type="pmcid">5833007</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acscentsci.7b00572</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Segler</surname>
+                    <given-names>MH</given-names>
+                  </name>
+                  <name>
+                    <surname>Kogej</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Tyrchan</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Waller</surname>
+                    <given-names>MP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Generating focused molecule libraries for drug discovery with recurrent neural networks</article-title>
+                <source>ACS Cent Sci</source>
+                <year>2017</year>
+                <volume>4</volume>
+                <issue>1</issue>
+                <fpage>120</fpage>
+                <lpage>131</lpage>
+                <pub-id pub-id-type="pmid">29392184</pub-id>
+                <pub-id pub-id-type="pmcid">5785775</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acscentsci.7b00512</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Olivecrona</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Blaschke</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Engkvist</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Molecular de-novo design through deep reinforcement learning</article-title>
+                <source>J Cheminform</source>
+                <year>2017</year>
+                <volume>9</volume>
+                <issue>1</issue>
+                <fpage>48</fpage>
+                <pub-id pub-id-type="pmid">29086083</pub-id>
+                <pub-id pub-id-type="pmcid">5583141</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13321-017-0235-x</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Yoshikawa</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Terayama</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Sumita</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Homma</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Oono</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Tsuda</surname>
+                    <given-names>K</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Population-based de novo molecule generation, using grammatical evolution</article-title>
+                <source>Chem Lett</source>
+                <year>2018</year>
+                <volume>47</volume>
+                <issue>11</issue>
+                <fpage>1431</fpage>
+                <lpage>1434</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXitlKnsLvP</pub-id>
+                <pub-id pub-id-type="doi">10.1246/cl.180665</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kanal</surname>
+                    <given-names>IY</given-names>
+                  </name>
+                  <name>
+                    <surname>Owens</surname>
+                    <given-names>SG</given-names>
+                  </name>
+                  <name>
+                    <surname>Bechtel</surname>
+                    <given-names>JS</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Efficient computational screening of organic polymer photovoltaics</article-title>
+                <source>J Phys Chem Lett</source>
+                <year>2013</year>
+                <volume>4</volume>
+                <issue>10</issue>
+                <fpage>1613</fpage>
+                <lpage>1623</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXmsFGktro%3D</pub-id>
+                <pub-id pub-id-type="pmid">26282968</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jz400215j</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>O’Boyle</surname>
+                    <given-names>NM</given-names>
+                  </name>
+                  <name>
+                    <surname>Campbell</surname>
+                    <given-names>CM</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Computational design and selection of optimal organic photovoltaic materials</article-title>
+                <source>J Phys Chem C</source>
+                <year>2011</year>
+                <volume>115</volume>
+                <issue>32</issue>
+                <fpage>16200</fpage>
+                <lpage>16210</lpage>
+                <pub-id pub-id-type="doi">10.1021/jp202765c</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sadowski</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Gasteiger</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">From atoms and bonds to three-dimensional atomic coordinates: automatic model builders</article-title>
+                <source>Chem Rev</source>
+                <year>1993</year>
+                <volume>93</volume>
+                <issue>7</issue>
+                <fpage>2567</fpage>
+                <lpage>2581</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK3sXmt1GgsLs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/cr00023a012</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gasteiger</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Rudolph</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Sadowski</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Automatic generation of 3d-atomic coordinates for organic molecules</article-title>
+                <source>Tetrahedron Comput Methodol</source>
+                <year>1990</year>
+                <volume>3</volume>
+                <issue>6</issue>
+                <fpage>537</fpage>
+                <lpage>547</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK3sXmtlCn</pub-id>
+                <pub-id pub-id-type="doi">10.1016/0898-5529(90)90156-3</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Andronico</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Randall</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Benz</surname>
+                    <given-names>RW</given-names>
+                  </name>
+                  <name>
+                    <surname>Baldi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Data-driven high-throughput prediction of the 3-D structure of small molecules: review and progress</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2011</year>
+                <volume>51</volume>
+                <issue>4</issue>
+                <fpage>760</fpage>
+                <lpage>776</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXjsVCktrY%3D</pub-id>
+                <pub-id pub-id-type="pmid">21417267</pub-id>
+                <pub-id pub-id-type="pmcid">3081951</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci100223t</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kothiwale</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Mendenhall</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                  <name>
+                    <surname>Meiler</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Bcl: Conf: small molecule conformational sampling using a knowledge based rotamer library</article-title>
+                <source>J Cheminf</source>
+                <year>2015</year>
+                <volume>7</volume>
+                <issue>1</issue>
+                <fpage>47</fpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-015-0095-1</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Crippen</surname>
+                    <given-names>GM</given-names>
+                  </name>
+                  <name>
+                    <surname>Smellie</surname>
+                    <given-names>AS</given-names>
+                  </name>
+                  <name>
+                    <surname>Peng</surname>
+                    <given-names>JW</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Use of augmented Lagrangians in the calculation of molecular conformations by distance geometry</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1988</year>
+                <volume>28</volume>
+                <issue>3</issue>
+                <fpage>125</fpage>
+                <lpage>128</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL1cXkvVSisL8%3D</pub-id>
+                <pub-id pub-id-type="pmid">3182949</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci00059a001</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Havel</surname>
+                    <given-names>TF</given-names>
+                  </name>
+                  <name>
+                    <surname>Crippen</surname>
+                    <given-names>GM</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuntz</surname>
+                    <given-names>ID</given-names>
+                  </name>
+                  <name>
+                    <surname>Blaney</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The combinatorial distance geometry method for the calculation of molecular conformation. II. Sample problems and computational statistics</article-title>
+                <source>J Theor Biol</source>
+                <year>1983</year>
+                <volume>104</volume>
+                <issue>3</issue>
+                <fpage>383</fpage>
+                <lpage>400</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL2cXitVSjtw%3D%3D</pub-id>
+                <pub-id pub-id-type="pmid">6197591</pub-id>
+                <pub-id pub-id-type="doi">10.1016/0022-5193(83)90113-3</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Havel</surname>
+                    <given-names>TF</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuntz</surname>
+                    <given-names>ID</given-names>
+                  </name>
+                  <name>
+                    <surname>Crippen</surname>
+                    <given-names>GM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The combinatorial distance geometry method for the calculation of molecular conformation. I. A new approach to an old problem</article-title>
+                <source>J Theor Biol</source>
+                <year>1983</year>
+                <volume>104</volume>
+                <issue>3</issue>
+                <fpage>359</fpage>
+                <lpage>381</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:STN:280:DyaL2c%2FptFKmuw%3D%3D</pub-id>
+                <pub-id pub-id-type="pmid">6656266</pub-id>
+                <pub-id pub-id-type="doi">10.1016/0022-5193(83)90112-1</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Blaney</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                  <name>
+                    <surname>Dixon</surname>
+                    <given-names>JS</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Lipkowitz</surname>
+                    <given-names>KB</given-names>
+                  </name>
+                  <name>
+                    <surname>Boyd</surname>
+                    <given-names>DB</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Distance geometry in molecular modeling</article-title>
+                <source>Reviews in computational chemistry</source>
+                <year>2007</year>
+                <publisher-loc>New York</publisher-loc>
+                <publisher-name>Wiley</publisher-name>
+                <fpage>299</fpage>
+                <lpage>335</lpage>
+                <pub-id pub-id-type="doi">10.1002/9780470125823.ch6</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Spellmeyer</surname>
+                    <given-names>DC</given-names>
+                  </name>
+                  <name>
+                    <surname>Wong</surname>
+                    <given-names>AK</given-names>
+                  </name>
+                  <name>
+                    <surname>Bower</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Blaney</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Conformational analysis using distance geometry methods</article-title>
+                <source>J Mol Graph Modell</source>
+                <year>2003</year>
+                <volume>15</volume>
+                <issue>1</issue>
+                <fpage>18</fpage>
+                <lpage>36</lpage>
+                <pub-id pub-id-type="doi">10.1016/S1093-3263(97)00014-4</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Agrafiotis</surname>
+                    <given-names>DK</given-names>
+                  </name>
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A self-organizing principle for learning nonlinear manifolds</article-title>
+                <source>Proc Natl Acad Sci USA</source>
+                <year>2002</year>
+                <volume>99</volume>
+                <issue>25</issue>
+                <fpage>15869</fpage>
+                <lpage>15872</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38Xps1egtbo%3D</pub-id>
+                <pub-id pub-id-type="pmid">12444256</pub-id>
+                <pub-id pub-id-type="doi">10.1073/pnas.242424399</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Agrafiotis</surname>
+                    <given-names>DK</given-names>
+                  </name>
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhu</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Bandyopadhyay</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Stochastic proximity embedding: methods and applications</article-title>
+                <source>Mol Inf</source>
+                <year>2010</year>
+                <volume>29</volume>
+                <issue>11</issue>
+                <fpage>758</fpage>
+                <lpage>770</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXhsVGisL7P</pub-id>
+                <pub-id pub-id-type="doi">10.1002/minf.201000134</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hildebrandt</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Dehof</surname>
+                    <given-names>AK</given-names>
+                  </name>
+                  <name>
+                    <surname>Rurainski</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bertsch</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Schumann</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Toussaint</surname>
+                    <given-names>NC</given-names>
+                  </name>
+                  <name>
+                    <surname>Moll</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Stöckel</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Nickels</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Mueller</surname>
+                    <given-names>SC</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Ball-biochemical algorithms library 1.3</article-title>
+                <source>BMC Bioinf</source>
+                <year>2010</year>
+                <volume>11</volume>
+                <issue>1</issue>
+                <fpage>531</fpage>
+                <pub-id pub-id-type="doi">10.1186/1471-2105-11-531</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Leite</surname>
+                    <given-names>TB</given-names>
+                  </name>
+                  <name>
+                    <surname>Gomes</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Miteva</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <name>
+                    <surname>Chomilier</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Villoutreix</surname>
+                    <given-names>BO</given-names>
+                  </name>
+                  <name>
+                    <surname>Tufféry</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Frog: a free online drug 3d conformation generator</article-title>
+                <source>Nucleic acids Res</source>
+                <year>2007</year>
+                <volume>35</volume>
+                <issue>suppl–2</issue>
+                <fpage>568</fpage>
+                <lpage>572</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gkm289</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Miteva</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Frog2: Efficient 3D conformation ensemble generator for small compounds</article-title>
+                <source>Nucleic acids Res</source>
+                <year>2010</year>
+                <volume>38</volume>
+                <issue>Suppl–2</issue>
+                <fpage>622</fpage>
+                <lpage>677</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gkq325</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="other">RDKit: Open-source cheminformatics. <ext-link xlink:href="http://www.rdkit.org" ext-link-type="uri">http://www.rdkit.org</ext-link>. Accessed 1 Mar 2019</mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>O’Boyle</surname>
+                    <given-names>NM</given-names>
+                  </name>
+                  <name>
+                    <surname>Banck</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>James</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <name>
+                    <surname>Morley</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Vandermeersch</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Open babel: an open chemical toolbox</article-title>
+                <source>J Cheminf</source>
+                <year>2011</year>
+                <volume>3</volume>
+                <issue>1</issue>
+                <fpage>33</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-3-33</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Friedrich</surname>
+                    <given-names>N-O</given-names>
+                  </name>
+                  <name>
+                    <surname>de Bruyn Kops</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Flachsenberg</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Sommer</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Kirchmair</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Benchmarking commercial conformer ensemble generators</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2017</year>
+                <volume>57</volume>
+                <issue>11</issue>
+                <fpage>2719</fpage>
+                <lpage>2728</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhsFylsr7M</pub-id>
+                <pub-id pub-id-type="pmid">28967749</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.7b00505</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hanwell</surname>
+                    <given-names>MD</given-names>
+                  </name>
+                  <name>
+                    <surname>Curtis</surname>
+                    <given-names>DE</given-names>
+                  </name>
+                  <name>
+                    <surname>Lonie</surname>
+                    <given-names>DC</given-names>
+                  </name>
+                  <name>
+                    <surname>Vandermeersch</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Zurek</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Avogadro: an advanced semantic chemical editor, visualization, and analysis platform</article-title>
+                <source>J Cheminf</source>
+                <year>2012</year>
+                <volume>4</volume>
+                <issue>1</issue>
+                <fpage>17</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXhsVGksLg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-4-17</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gražulis</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Daškevič</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Merkys</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Chateigner</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Lutterotti</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Quirós</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Serebryanaya</surname>
+                    <given-names>NR</given-names>
+                  </name>
+                  <name>
+                    <surname>Moeck</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Downs</surname>
+                    <given-names>RT</given-names>
+                  </name>
+                  <name>
+                    <surname>Le Bail</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Crystallography open database (cod): an open-access collection of crystal structures and platform for world-wide collaboration</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2012</year>
+                <volume>40</volume>
+                <issue>D1</issue>
+                <fpage>420</fpage>
+                <lpage>427</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gkr900</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Feng</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Maddula</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Akcan</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Oughtred</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Berman</surname>
+                    <given-names>HM</given-names>
+                  </name>
+                  <name>
+                    <surname>Westbrook</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Ligand depot: a data warehouse for ligands bound to macromolecules</article-title>
+                <source>Bioinformatics</source>
+                <year>2004</year>
+                <volume>20</volume>
+                <issue>13</issue>
+                <fpage>2153</fpage>
+                <lpage>2155</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXnsVyiurw%3D</pub-id>
+                <pub-id pub-id-type="pmid">15059838</pub-id>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/bth214</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="other">NCI Open Database. <ext-link xlink:href="https://cactus.nci.nih.gov/download/nci/" ext-link-type="uri">https://cactus.nci.nih.gov/download/nci/</ext-link>. Accessed 1 Mar 2019</mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Irwin</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Shoichet</surname>
+                    <given-names>BK</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Zinc—a free database of commercially available compounds for virtual screening</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2005</year>
+                <volume>45</volume>
+                <issue>1</issue>
+                <fpage>177</fpage>
+                <lpage>182</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhtVOjt77J</pub-id>
+                <pub-id pub-id-type="pmid">15667143</pub-id>
+                <pub-id pub-id-type="pmcid">1360656</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci049714+</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="other">Sayle R (1997) 1st-class smarts patterns. In: EuroMUG 97</mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="other">Skillman G, Kuntz T (1998) Recursive smarts for synthetic chemists. In: EuroMUG 98</mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Berman</surname>
+                    <given-names>HM</given-names>
+                  </name>
+                  <name>
+                    <surname>Westbrook</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Feng</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Gilliland</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Bhat</surname>
+                    <given-names>TN</given-names>
+                  </name>
+                  <name>
+                    <surname>Weissig</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Shindyalov</surname>
+                    <given-names>IN</given-names>
+                  </name>
+                  <name>
+                    <surname>Bourne</surname>
+                    <given-names>PE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The protein data bank</article-title>
+                <source>Nucleic acids Res</source>
+                <year>2000</year>
+                <volume>28</volume>
+                <issue>1</issue>
+                <fpage>235</fpage>
+                <lpage>242</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3cXhvVKjt7w%3D</pub-id>
+                <pub-id pub-id-type="pmid">10592235</pub-id>
+                <pub-id pub-id-type="pmcid">102472</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/28.1.235</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Riniker</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Landrum</surname>
+                    <given-names>GA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Better informed distance geometry: using what we know to improve conformation generation</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2015</year>
+                <volume>55</volume>
+                <issue>12</issue>
+                <fpage>2562</fpage>
+                <lpage>2574</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXhvVeqsrjP</pub-id>
+                <pub-id pub-id-type="pmid">26575315</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.5b00654</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schulz-Gasch</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Schärfer</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Guba</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Tfd: torsion fingerprints as a new measure to compare small molecule conformations</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2012</year>
+                <volume>52</volume>
+                <issue>6</issue>
+                <fpage>1499</fpage>
+                <lpage>1512</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XotVKrsr8%3D</pub-id>
+                <pub-id pub-id-type="pmid">22670896</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci2002318</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Friedrich</surname>
+                    <given-names>N-O</given-names>
+                  </name>
+                  <name>
+                    <surname>Meyder</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bruyn Kops</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Sommer</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Flachsenberg</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Kirchmair</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">High-quality dataset of protein-bound ligand conformations and its application to benchmarking conformer ensemble generators</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2017</year>
+                <volume>57</volume>
+                <fpage>529</fpage>
+                <lpage>539</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXislKisLs%3D</pub-id>
+                <pub-id pub-id-type="pmid">28206754</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.6b00613</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ebejer</surname>
+                    <given-names>J-P</given-names>
+                  </name>
+                  <name>
+                    <surname>Morris</surname>
+                    <given-names>GM</given-names>
+                  </name>
+                  <name>
+                    <surname>Deane</surname>
+                    <given-names>CM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Freely available conformer generation methods: how good are they?</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2012</year>
+                <volume>52</volume>
+                <issue>5</issue>
+                <fpage>1146</fpage>
+                <lpage>1158</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38Xlt1Snu7s%3D</pub-id>
+                <pub-id pub-id-type="pmid">22482737</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci2004658</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>O’Boyle</surname>
+                    <given-names>NM</given-names>
+                  </name>
+                  <name>
+                    <surname>Vandermeersch</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Flynn</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Maguire</surname>
+                    <given-names>AR</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Confab—systematic generation of diverse low-energy conformers</article-title>
+                <source>J Cheminf</source>
+                <year>2011</year>
+                <volume>3</volume>
+                <issue>1</issue>
+                <fpage>8</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-3-8</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chan</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                  <name>
+                    <surname>Morris</surname>
+                    <given-names>GM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Bayesian optimization for conformer generation</article-title>
+                <source>J Cheminf</source>
+                <year>2019</year>
+                <volume>11</volume>
+                <issue>1</issue>
+                <fpage>32</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1MXhtVajurjP</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13321-019-0354-7</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Iuzzolino</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Reilly</surname>
+                    <given-names>AM</given-names>
+                  </name>
+                  <name>
+                    <surname>McCabe</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Price</surname>
+                    <given-names>SL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Use of crystal structure informatics for defining the conformational space needed for predicting crystal structures of pharmaceutical molecules</article-title>
+                <source>J Chem Theory Comput</source>
+                <year>2017</year>
+                <volume>13</volume>
+                <issue>10</issue>
+                <fpage>5163</fpage>
+                <lpage>5171</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhsVKmur3O</pub-id>
+                <pub-id pub-id-type="pmid">28892623</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jctc.7b00623</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gunby</surname>
+                    <given-names>NR</given-names>
+                  </name>
+                  <name>
+                    <surname>Masters</surname>
+                    <given-names>SL</given-names>
+                  </name>
+                  <name>
+                    <surname>Crittenden</surname>
+                    <given-names>DL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Embracing chemical and structural diversity with UCONGA: a universal conformer generation and analysis program</article-title>
+                <source>J Mol Graph Modell</source>
+                <year>2017</year>
+                <volume>77</volume>
+                <fpage>286</fpage>
+                <lpage>294</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhsV2ju7zE</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.jmgm.2017.09.007</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hawkins</surname>
+                    <given-names>PCD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Conformation generation: the state of the art</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2017</year>
+                <volume>57</volume>
+                <issue>8</issue>
+                <fpage>1747</fpage>
+                <lpage>1756</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhtFagu7bE</pub-id>
+                <pub-id pub-id-type="pmid">28682617</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.7b00221</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gürsoy</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Smieško</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Searching for bioactive conformations of drug-like ligands with current force fields: how good are we?</article-title>
+                <source>J Cheminform</source>
+                <year>2017</year>
+                <volume>9</volume>
+                <issue>1</issue>
+                <fpage>29</fpage>
+                <pub-id pub-id-type="pmid">29086109</pub-id>
+                <pub-id pub-id-type="pmcid">5432473</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13321-017-0216-0</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cleves</surname>
+                    <given-names>AE</given-names>
+                  </name>
+                  <name>
+                    <surname>Jain</surname>
+                    <given-names>AN</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ForceGen 3D structure and conformer generation: from small lead-like molecules to macrocyclic drugs</article-title>
+                <source>J Comput Aided Mol Des</source>
+                <year>2017</year>
+                <volume>31</volume>
+                <issue>5</issue>
+                <fpage>419</fpage>
+                <lpage>439</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXktFymtLg%3D</pub-id>
+                <pub-id pub-id-type="pmid">28289981</pub-id>
+                <pub-id pub-id-type="pmcid">5429375</pub-id>
+                <pub-id pub-id-type="doi">10.1007/s10822-017-0015-8</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kothiwale</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Mendenhall</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                  <name>
+                    <surname>Meiler</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">BCL: C onf : small molecule conformational sampling using a knowledge based rotamer library</article-title>
+                <source>J Cheminf</source>
+                <year>2015</year>
+                <volume>7</volume>
+                <issue>1</issue>
+                <fpage>47</fpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-015-0095-1</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Bolton</surname>
+                    <given-names>EE</given-names>
+                  </name>
+                  <name>
+                    <surname>Bryant</surname>
+                    <given-names>SH</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">PubChem3D: conformer ensemble accuracy</article-title>
+                <source>J Cheminf</source>
+                <year>2013</year>
+                <volume>5</volume>
+                <issue>1</issue>
+                <fpage>1</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-5-1</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR46">
+              <label>46.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wagner</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Jantz</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Briem</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Sommer</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Christ</surname>
+                    <given-names>CD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Computational macrocyclization: from de novo macrocycle generation to binding affinity estimation</article-title>
+                <source>ChemMedChem</source>
+                <year>2017</year>
+                <volume>12</volume>
+                <issue>22</issue>
+                <fpage>1866</fpage>
+                <lpage>1872</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhslSktbnI</pub-id>
+                <pub-id pub-id-type="pmid">28977738</pub-id>
+                <pub-id pub-id-type="pmcid">5725703</pub-id>
+                <pub-id pub-id-type="doi">10.1002/cmdc.201700478</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR47">
+              <label>47.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Friedrich</surname>
+                    <given-names>N-O</given-names>
+                  </name>
+                  <name>
+                    <surname>Flachsenberg</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Meyder</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Sommer</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Kirchmair</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Conformator: a novel method for the generation of conformer ensembles</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2018</year>
+                <volume>59</volume>
+                <issue>2</issue>
+                <fpage>731</fpage>
+                <lpage>742</lpage>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.8b00704</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR48">
+              <label>48.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Merck molecular force field. i. basis, form, scope, parameterization, and performance of mmff94</article-title>
+                <source>J Comput Chem</source>
+                <year>1996</year>
+                <volume>17</volume>
+                <issue>5–6</issue>
+                <fpage>490</fpage>
+                <lpage>519</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28XhvVGmsbk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1096-987X(199604)17:5/6&lt;490::AID-JCC1>3.0.CO;2-P</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR49">
+              <label>49.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Merck molecular force field. II. MMFF94 van der Waals and electrostatic parameters for intermolecular interactions</article-title>
+                <source>J Comput Chem</source>
+                <year>1996</year>
+                <volume>17</volume>
+                <issue>5–6</issue>
+                <fpage>520</fpage>
+                <lpage>552</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28XhvVGmsbY%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1096-987X(199604)17:5/6&lt;520::AID-JCC2>3.0.CO;2-W</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR50">
+              <label>50.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Merck molecular force field. III. Molecular geometries and vibrational frequencies for MMFF94</article-title>
+                <source>J Comput Chem</source>
+                <year>1996</year>
+                <volume>17</volume>
+                <issue>5–6</issue>
+                <fpage>553</fpage>
+                <lpage>586</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28XhvVGmsbc%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1096-987X(199604)17:5/6&lt;553::AID-JCC3>3.0.CO;2-T</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR51">
+              <label>51.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                  <name>
+                    <surname>Nachbar</surname>
+                    <given-names>RB</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Merck molecular force field. IV. Conformational energies and geometries for MMFF94</article-title>
+                <source>J Comput Chem</source>
+                <year>1996</year>
+                <volume>17</volume>
+                <issue>5–6</issue>
+                <fpage>587</fpage>
+                <lpage>615</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28XhvVGmtr4%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR52">
+              <label>52.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Merck molecular force field. V. Extension of MMFF94 using experimental data, additional computational data, and empirical rules</article-title>
+                <source>J Comput Chem</source>
+                <year>1996</year>
+                <volume>17</volume>
+                <issue>5–6</issue>
+                <fpage>616</fpage>
+                <lpage>641</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28XhvVGmtr8%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1096-987X(199604)17:5/6&lt;616::AID-JCC5>3.0.CO;2-X</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR53">
+              <label>53.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Peach</surname>
+                    <given-names>ML</given-names>
+                  </name>
+                  <name>
+                    <surname>Cachau</surname>
+                    <given-names>RE</given-names>
+                  </name>
+                  <name>
+                    <surname>Nicklaus</surname>
+                    <given-names>MC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Conformational energy range of ligands in protein crystal structures: the difficult quest for accurate understanding</article-title>
+                <source>J Mol Recogn</source>
+                <year>2017</year>
+                <volume>30</volume>
+                <issue>8</issue>
+                <fpage>2618</fpage>
+                <pub-id pub-id-type="doi">10.1002/jmr.2618</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR54">
+              <label>54.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sitzmann</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Weidlich</surname>
+                    <given-names>IE</given-names>
+                  </name>
+                  <name>
+                    <surname>Filippov</surname>
+                    <given-names>IV</given-names>
+                  </name>
+                  <name>
+                    <surname>Liao</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Peach</surname>
+                    <given-names>ML</given-names>
+                  </name>
+                  <name>
+                    <surname>Ihlenfeldt</surname>
+                    <given-names>W-D</given-names>
+                  </name>
+                  <name>
+                    <surname>Karki</surname>
+                    <given-names>RG</given-names>
+                  </name>
+                  <name>
+                    <surname>Borodina</surname>
+                    <given-names>YV</given-names>
+                  </name>
+                  <name>
+                    <surname>Cachau</surname>
+                    <given-names>RE</given-names>
+                  </name>
+                  <name>
+                    <surname>Nicklaus</surname>
+                    <given-names>MC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">PDB ligand conformational energies calculated quantum-mechanically</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2012</year>
+                <volume>52</volume>
+                <issue>3</issue>
+                <fpage>739</fpage>
+                <lpage>756</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XhslGitbY%3D</pub-id>
+                <pub-id pub-id-type="pmid">22303903</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci200595n</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR55">
+              <label>55.</label>
+              <mixed-citation publication-type="other">Nakata M (2015) The pubchemqc project: A large chemical database from the first principle calculations. In: AIP conference proceedings, vol. 1702, p. 090058. AIP Publishing</mixed-citation>
+            </ref>
+            <ref id="CR56">
+              <label>56.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Nakata</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Shimazaki</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Pubchemqc project: a large-scale first-principles electronic structure database for data-driven chemistry</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2017</year>
+                <volume>57</volume>
+                <issue>6</issue>
+                <fpage>1300</fpage>
+                <lpage>1308</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXntFKnt7g%3D</pub-id>
+                <pub-id pub-id-type="pmid">28481528</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.7b00083</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec20">
+              <title>Additional file</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Additional file">
+                  <media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2019_372_MOESM1_ESM.pdf" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0372-5" ext-link-type="uri">Additional file 1.</ext-link> Histgrams of bond length errors, angle errors, torsion angle errors, torsion fingerprint deviation. Plot of relationship between RMSD and molecular weight, and execution time and molecular weight.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+          </app>
+        </app-group>
+        <notes notes-type="Misc">
+          <title>Publisher’s Note</title>
+          <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+        </notes>
+      </back>
+    </article>

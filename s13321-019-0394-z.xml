@@ -1,0 +1,2379 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0394-z</article-id>
+          <article-id pub-id-type="manuscript">394</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0394-z</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">ACID: a free tool for drug repurposing using consensus inverse docking strategy</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" id="Au1">
+              <name>
+                <surname>Wang</surname>
+                <given-names>Fan</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au2">
+              <name>
+                <surname>Wu</surname>
+                <given-names>Feng-Xu</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au3">
+              <name>
+                <surname>Li</surname>
+                <given-names>Cheng-Zhang</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au4">
+              <name>
+                <surname>Jia</surname>
+                <given-names>Chen-Yang</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au5">
+              <name>
+                <surname>Su</surname>
+                <given-names>Sun-Wen</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au6">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0003-4090-8411</contrib-id>
+              <name>
+                <surname>Hao</surname>
+                <given-names>Ge-Fei</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff3">3</xref>
+              <xref ref-type="corresp" rid="IDs133210190394z_cor6">f</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au7">
+              <name>
+                <surname>Yang</surname>
+                <given-names>Guang-Fu</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+              <xref ref-type="aff" rid="Aff4">4</xref>
+              <xref ref-type="corresp" rid="IDs133210190394z_cor7">g</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 1760 2614</institution-id>
+                <institution-id institution-id-type="GRID">grid.411407.7</institution-id>
+                <institution content-type="org-division">Key Laboratory of Pesticide &amp; Chemical Biology, Ministry of Education, College of Chemistry</institution>
+                <institution content-type="org-name">Central China Normal University</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">430079</addr-line>
+              <addr-line content-type="city">Wuhan</addr-line>
+              <country country="CN">People’s Republic of China</country>
+            </aff>
+            <aff id="Aff2">
+              <label>2</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 1760 2614</institution-id>
+                <institution-id institution-id-type="GRID">grid.411407.7</institution-id>
+                <institution content-type="org-division">International Joint Research Center for Intelligent Biosensor Technology and Health</institution>
+                <institution content-type="org-name">Central China Normal University</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">430079</addr-line>
+              <addr-line content-type="city">Wuhan</addr-line>
+              <country country="CN">China</country>
+            </aff>
+            <aff id="Aff3">
+              <label>3</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 1804 268X</institution-id>
+                <institution-id institution-id-type="GRID">grid.443382.a</institution-id>
+                <institution content-type="org-division">State Key Laboratory Breeding Base of Green Pesticide and Agricultural Bioengineering, Key Laboratory of Green Pesticide and Agricultural Bioengineering, Ministry of Education, Research and Development Center for Fine Chemicals</institution>
+                <institution content-type="org-name">Guizhou University</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">550025</addr-line>
+              <addr-line content-type="city">Guiyang</addr-line>
+              <country country="CN">People’s Republic of China</country>
+            </aff>
+            <aff id="Aff4">
+              <label>4</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 1761 2484</institution-id>
+                <institution-id institution-id-type="GRID">grid.33763.32</institution-id>
+                <institution content-type="org-name">Collaborative Innovation Center of Chemical Science and Engineering</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">300072</addr-line>
+              <addr-line content-type="city">Tianjing</addr-line>
+              <country country="CN">People’s Republic of China</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs133210190394z_cor6">
+              <label>f</label>
+              <email>HIDDEN</email>
+            </corresp>
+            <corresp id="IDs133210190394z_cor7">
+              <label>g</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>27</day>
+            <month>11</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="73">1</issue>
+          <elocation-id>73</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>9</day>
+              <month>11</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>22</day>
+              <month>8</month>
+              <year>2019</year>
+            </date>
+            <date date-type="accepted">
+              <day>9</day>
+              <month>11</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>27</day>
+              <month>11</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">Drug repurposing offers a promising alternative to dramatically shorten the process of traditional de novo development of a drug. These efforts leverage the fact that a single molecule can act on multiple targets and could be beneficial to indications where the additional targets are relevant. Hence, extensive research efforts have been directed toward developing drug based computational approaches. However, many drug based approaches are known to incur low successful rates, due to incomplete modeling of drug-target interactions. There are also many technical limitations to transform theoretical computational models into practical use. Drug based approaches may, thus, still face challenges for drug repurposing task. Upon this challenge, we developed a consensus inverse docking (CID) workflow, which has a ~ 10% enhancement in success rate compared with current best method. Besides, an easily accessible web server named auto in silico consensus inverse docking (ACID) was designed based on this workflow (<ext-link xlink:href="http://chemyang.ccnu.edu.cn/ccb/server/ACID" ext-link-type="uri">http://chemyang.ccnu.edu.cn/ccb/server/ACID</ext-link>).</p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>ACID</kwd>
+            <kwd>Web server</kwd>
+            <kwd>Drug repurposing</kwd>
+            <kwd>Consensus inverse docking</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>National Natural Science Foundation of China</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/501100001809</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">No. 21772059</award-id>
+              <award-id award-type="FundRef grant">91853127</award-id>
+              <award-id award-type="FundRef grant">31960548</award-id>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>National Excellent Doctoral Dissertation of PR China</institution>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">No. 201472</award-id>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>National Key R&amp;D Program</institution>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">2017YFD0200501</award-id>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>11</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>9</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_394.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="AuthorContribution">
+          <p>Fan Wang and Feng-Xu Wu co-first authors.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p id="Par16">In recent years, the productivity challenge facing the pharmaceutical industry has become particularly difficult to overcome [<xref ref-type="bibr" rid="CR1">1</xref>]. By many estimates, the number of new molecular entity approved to market per billion US dollars spent on (research and development) R&amp;D has halved roughly every one decade, falling around 80‑fold in inflation-adjusted terms [<xref ref-type="bibr" rid="CR2">2</xref>]. To increase drug-discovery productivity, more and more attention has been paid to exploring the relationship between drug and disease, which can advance our knowledge of molecular mechanism of disease indication and lead to new strategies to treat productivity challenge [<xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR4">4</xref>]. Nevertheless, traditional strategies which typically oriented on a search for a novel therapeutic compound combined with discovery of a new therapeutic target are time consuming, expensive and risky because of the necessity for multiple experimental and clinical validation [<xref ref-type="bibr" rid="CR5">5</xref>].</p>
+          <p id="Par17">Drug repurposing/repositioning/rescue, the application of an existing drug to a new disease indication, is a promising approach to address the ‘productivity gap’, especially the demand of rapid clinical impact at a lower cost by the ‘starting-from-scratch’ drug development [<xref ref-type="bibr" rid="CR6">6</xref>]. Compared with brand new drug discovery for a given disease indication, this method has several advantages. First, due to the existing drug has already been proved to be sufficiently safe in humans, the safety risk of clinical failure is much lower at least from a safety point of view. Second, due to the safety assessment and most of formulation task have already been completed, the development cycle should be largely reduced. Third, the investment is always less [<xref ref-type="bibr" rid="CR7">7</xref>]. These advantages have made the development of repurposed drugs into a task of low risk investments with faster and higher returns. Hence, Drug repurposing is drowning widespread attention from the pharmaceutical industry, government agencies and academic institutes, such as ‘Discovering New Therapeutic Uses for Existing Molecules Plan’ by NIH (USA). However, drug repurposing is vastly more complicated than typically imagined and to date there has not been a systematic approach to identify repurposing opportunities.</p>
+          <p id="Par18">In order to reduce the number of “wet” experiments and thereby reduce cost, extensive research efforts have been directed toward developing computational (virtual or in silico) approaches, which have been proved extremely valuable in identifying potential opportunities in these fields. Of the several techniques for generating computational repositioning hypotheses, inverse/reverse docking, involved docking an existing drug in the potential binding cavities of a set of clinically relevant disease targets, is proving to be a powerful tool for drug repositioning [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR9">9</xref>]. Inverse docking is ‘one ligand-many targets’ scenario, representing a structure-based computational strategy. Different with the conventional drug virtual screening, inverse virtual screening was performed for a small-molecule against a large collection of binding-sites of clinically relevant macromolecular targets. The top-ranking targets based on the binding complementarity (shape and electrostatics) with the drug are likely to result in potential drug repositioning. Hence, efficient tools were developed for inverse docking, for example, INVDOCK [<xref ref-type="bibr" rid="CR10">10</xref>], TarFisDock [<xref ref-type="bibr" rid="CR11">11</xref>], PDTD [<xref ref-type="bibr" rid="CR12">12</xref>], and idTarget [<xref ref-type="bibr" rid="CR13">13</xref>]. Moreover, successful drug repurposing examples along with these tools are steadily grows, such as sildenafil and thalidomide [<xref ref-type="bibr" rid="CR14">14</xref>]. Since the basic philosophy behind reverse docking is the same with docking and the critical parameters of the docking programs were always optimized based on some of the specific ligand and target systems, the performance in docking pose search itself and scoring of the docked poses may, thus, still face challenges for reverse docking methods. Up to date, many studies have proved that the consensus strategy that combining several types of docking algorithm can achieve higher success rates in pose prediction than single docking algorithm [<xref ref-type="bibr" rid="CR15">15</xref>]. Hence, development of consensus inverse docking algorithms to address the inherent difficulties involved in the molecular docking, is extremely valuable in identifying potential opportunities of drug repurposing [<xref ref-type="bibr" rid="CR9">9</xref>]. In addition, due to that almost all current docking tools are designed for ‘one ligand-many targets’ scenario, the usability of tools for inverse virtual screening task is occasionally restricted by code-writing dependencies and tedious operation steps, which bring challenges for non-expert users. Therefore, there is still a strong demand for a new free server of inverse docking.</p>
+          <p id="Par19">Hence, we developed a computational protocol by combining the results of several dissimilar types of free docking method into a consensus inverse docking (CID) scheme. Here, we selected AutoDock Vina, LEDOCK, PLANTS, and PSOVina for binding pose search as they represent significantly different docking methodologies (i.e., different conformational search algorithm, different global and local optimizers, and different scoring functions) and have employed different collections of crystal complexes and binding data to calibrate their optimization algorithms. In addition, we used Molecular Mechanics/Poisson–Boltzmann Surface Area (MM/PBSA) and X-SCORE for final binding energy calculation as they are more rigorous than the intrinsic scoring function in principle. The intention was to investigate whether integration of these to develop a consensus strategy to the inverse docking problem would result in improvements in posing accuracy and prediction of binding modes. Besides, in order to significantly reduce user time for data gathering and multi-step analysis for drug repurposing task, an comprehensive web platform named Auto in silico consensus inverse docking (ACID) (<ext-link xlink:href="http://chemyang.ccnu.edu.cn/ccb/server/ACID" ext-link-type="uri">http://chemyang.ccnu.edu.cn/ccb/server/ACID</ext-link>) with a user-friendly interface was also designed for an easy evaluation and application of this strategy, which consists of the following three tools: (i) an automated consensus inverse docking workflow program, (ii) a compound database containing 2086 approved drugs with original therapeutic information, (iii) a known target database containing 831 protein structures from PDB covering 30 therapeutic areas.</p>
+        </sec>
+        <sec id="Sec2" sec-type="methods">
+          <title>Methods</title>
+          <sec id="Sec3">
+            <title>Selection of test set</title>
+            <p id="Par20">The PDB-bind database is a large collection of protein−ligand crystal complexes with associated experimentally determined binding data [<xref ref-type="bibr" rid="CR16">16</xref>]. A total of 16,151 protein–ligand entries are contained in the PDB-bind database. In all protein–ligand entries, there are 4463 entries with good quality structural and binding data. The experimental resolution of any chosen crystal structure should be lower than 3.0 Å, because adopting structures with poor resolution may generate false predicted conformations [<xref ref-type="bibr" rid="CR17">17</xref>]. No NMR-solved structures were selected in our benchmark dataset. Any complexes with ligands containing off-standard atom types (like Si or Be) were rejected. Finally, we only chose complexes with a single drug like molecule bound in the active site. Hence, a subset contains 195 complex structures of these have been selected as the “core set”, aiming to provide high-quality complexes that represents a broad cross-section of the database. This is of appropriate size for evaluation studies of docking and scoring performance [<xref ref-type="bibr" rid="CR18">18</xref>].</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Preparation of structures for inverse docking</title>
+            <p id="Par21">For each complex, the original conformation of ligand was extracted from the PDB file; similarly, the 3D structure of corresponding protein was generated. As for the proteins, water molecules were removed and the program PDB2PQR 1.6 21 was used to assign position-optimized hydrogen atoms under the protonation state simulated to pH = 7.0. The AMBER ff14SB [<xref ref-type="bibr" rid="CR19">19</xref>] force field were adopted for charge assignment. The MOL2 format representation of each receptor was prepared by SPORES tool in Plants software package. The Autodock Tools 1.5.4 utility prepare_receptor4.py was used to assign Gasteiger charges to atoms. The Autodock Tools utility prepare_ligand4.py was used to assign Gasteiger charges and rotatable bonds. The input grid files were prepared by dms and sphgen_cpp tools of DOCK software package.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Selection of docking softwares</title>
+            <p id="Par22">Seven docking softwares were carefully evaluated to build consensus strategy, including AUTODOCK [<xref ref-type="bibr" rid="CR20">20</xref>], VINA [<xref ref-type="bibr" rid="CR21">21</xref>], DOCK [<xref ref-type="bibr" rid="CR22">22</xref>], PLANTS [<xref ref-type="bibr" rid="CR23">23</xref>], PSOVINA [<xref ref-type="bibr" rid="CR24">24</xref>], LEDOCK (<ext-link xlink:href="http://www.lephar.com" ext-link-type="uri">http://www.lephar.com</ext-link>) and GOLD [<xref ref-type="bibr" rid="CR25">25</xref>]. This selection covers a wide variety of conformation search algorithm and scoring function (Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S1), thus representing an abundant source for optimizing the consensus protocol. The docking calculation was performed on the prepared dataset of 195 receptors and ligands by using these seven docking softwares based on default parameters. The box within the surrounding 12.5 Å of the bound ligand was defined as active site. 100 conformations for each ligand versus its corresponding active site were produced by each software. The one with highest score were selected as the final pose.</p>
+          </sec>
+          <sec id="Sec6">
+            <title>Binding free energy calculation</title>
+            <p id="Par23">Before binding free energy calculation, the Sander module in Amber16 [<xref ref-type="bibr" rid="CR26">26</xref>] program was used to perform the three-step optimization of the ligand-receptor complex. Firstly, only waters, ions and hydrogens were allowed to move. Secondly, the backbone atoms of the protein were fixed while others were allowed to move. Thirdly, all the atoms of the system were free to move. In the three optimization process, 2000 steps steepest descent method followed by 2000 steps conjugated gradient method were used for each ligand-receptor binding system. Finally, the binding free enegy (Δ<italic>G</italic><sub>bind</sub>) is calculated by using the MM/PBSA [<xref ref-type="bibr" rid="CR27">27</xref>, <xref ref-type="bibr" rid="CR28">28</xref>] and X-score methods [<xref ref-type="bibr" rid="CR29">29</xref>, <xref ref-type="bibr" rid="CR30">30</xref>].</p>
+            <p id="Par24">As for the X-score method, it is assumed that the overall binding free energy in a protein-ligand binding process can be divided into several terms (shown in Eq. <xref rid="Equ1" ref-type="disp-formula">1</xref>) [<xref ref-type="bibr" rid="CR31">31</xref>]. Here, Δ<italic>G</italic><sub>vdw</sub> represents the van der Waals interaction between the receptor and the ligand; Δ<italic>G</italic><sub>H-bond</sub> represents the hydrogen bonding between the receptor and the ligand; Δ<italic>G</italic><sub>deformation</sub> represents the deformation effect; Δ<italic>G</italic><sub>hydrophobic</sub> represents the hydrophobic effect; Δ<italic>G</italic><sub>0</sub> represents a regression constant. Δ<italic>G</italic><sub>bind</sub> value between the receptor and ligand could be calculated simply by the X-score software package.<disp-formula id="Equ1"><label>1</label><alternatives><mml:math display="block" id="Equ1_Math"><mml:mrow><mml:mi mathvariant="normal">Δ</mml:mi><mml:msub><mml:mi>G</mml:mi><mml:mtext>bind</mml:mtext></mml:msub><mml:mo>=</mml:mo><mml:mi mathvariant="normal">Δ</mml:mi><mml:msub><mml:mi>G</mml:mi><mml:mtext>vdw</mml:mtext></mml:msub><mml:mo>+</mml:mo><mml:mi mathvariant="normal">Δ</mml:mi><mml:msub><mml:mi>G</mml:mi><mml:mrow><mml:mtext>H</mml:mtext><mml:mo>-</mml:mo><mml:mtext>bond</mml:mtext></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:mi mathvariant="normal">Δ</mml:mi><mml:msub><mml:mi>G</mml:mi><mml:mtext>deformation</mml:mtext></mml:msub><mml:mo>+</mml:mo><mml:mi mathvariant="normal">Δ</mml:mi><mml:msub><mml:mi>G</mml:mi><mml:mtext>hydrophobic</mml:mtext></mml:msub><mml:mo>+</mml:mo><mml:mi mathvariant="normal">Δ</mml:mi><mml:msub><mml:mi>G</mml:mi><mml:mn>0</mml:mn></mml:msub></mml:mrow></mml:math><tex-math id="Equ1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Delta G_{\text{bind}} = \Delta G_{\text{vdw}} + \Delta G_{{{\text{H}} - {\text{bond}}}} + \Delta G_{\text{deformation}} + \Delta G_{\text{hydrophobic}} + \Delta G_{0}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_394_Article_Equ1.gif" /></alternatives></disp-formula></p>
+            <p id="Par25">In the MM/PBSA method [<xref ref-type="bibr" rid="CR32">32</xref>], the free energy of the receptor/protein-inhibitor binding, ∆<italic>G</italic><sub>bind</sub>, is obtained from the difference between the free energies of the receptor/protein-ligand complex (<italic>G</italic><sub>cpx</sub>) and the unbound receptor/protein (<italic>G</italic><sub>rec</sub>) and ligand (<italic>G</italic><sub>lig</sub>). The binding free energy (Δ<italic>G</italic><sub>bind</sub>) was evaluated as a sum of the changes in the binding energy (Δ<italic>E</italic><sub>bind</sub>), solvation entropy (−<italic>T</italic>Δ<italic>S</italic><sub>sol</sub>), and conformational entropy (−<italic>T</italic>Δ<italic>S</italic><sub>conf</sub>) (shown in Eq. <xref rid="Equ2" ref-type="disp-formula">2</xref>) [<xref ref-type="bibr" rid="CR33">33</xref>]. Where ∆<italic>E</italic><sub>bind</sub> is interaction energies between a ligand and a protein, which were computed using the Sander modules of the Amber16 program. The entropy contribution to the binding free energy (−<italic>T</italic>∆<italic>S</italic>) was obtained by using a local program developed in our own laboratory [<xref ref-type="bibr" rid="CR33">33</xref>].<disp-formula id="Equ2"><label>2</label><alternatives><mml:math display="block" id="Equ2_Math"><mml:mrow><mml:mi mathvariant="normal">Δ</mml:mi><mml:msub><mml:mi>G</mml:mi><mml:mtext>bind</mml:mtext></mml:msub><mml:mo>=</mml:mo><mml:mspace width="0.166667em" /><mml:mi mathvariant="normal">Δ</mml:mi><mml:msub><mml:mi>E</mml:mi><mml:mtext>bind</mml:mtext></mml:msub><mml:mo>-</mml:mo><mml:mi>T</mml:mi><mml:mi mathvariant="normal">Δ</mml:mi><mml:msub><mml:mi>S</mml:mi><mml:mtext>sol</mml:mtext></mml:msub><mml:mo>-</mml:mo><mml:mi>T</mml:mi><mml:mi mathvariant="normal">Δ</mml:mi><mml:msub><mml:mi>S</mml:mi><mml:mtext>conf</mml:mtext></mml:msub></mml:mrow></mml:math><tex-math id="Equ2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Delta G_{\text{bind}} = \, \Delta E_{\text{bind}} {-}T\Delta S_{\text{sol}} {-}T\Delta S_{\text{conf}}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_394_Article_Equ2.gif" /></alternatives></disp-formula></p>
+          </sec>
+          <sec id="Sec7">
+            <title>Server implementation</title>
+            <p id="Par26">As shown in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Figure S1, ACID web server mainly consists of three parts: Model (M), View (V) and Controller(C). Model is an object, which can provide a series of convenient APIs to access database. View represents the web service available for users. Controller is a Perl script program to control the whole consensus inverse docking protocol. A dedicated Linux machine in the high-performance computer cluster is used to run ACID web server. PHP (version 5.6), Apache (version 2.0.51), HTML5 and Javascript are used in the web application to provide online web service. The web server was established in the ‘Linux + Apache + MySQL + PHP + Javascript’ framework. The web interface is written in JavaScript using the React.js (input page, output page, and dataset visualization) and Ember.js (results and analysis pages) frameworks. The server side is written as a Python Cornice Web Framework with a GO component for rapid searching. A Torque management system is used to queue submitted jobs. The database which stores corresponding messages and results of each task is implemented by using MySQL (version 5.1.73). Results are stored for one month before deletion. The JSmol interactive molecular viewer plugin (<ext-link xlink:href="http://www.jmol.org/" ext-link-type="uri">http://www.jmol.org/</ext-link>) is applied in structure visualization. Firefox or Chrome explorer is recommended for browsing the server. Computer Screen with resolution higher than 1440 × 900 is recommended for displaying the web pages.</p>
+          </sec>
+        </sec>
+        <sec id="Sec8">
+          <title>Results and discussion</title>
+          <sec id="Sec9">
+            <title>Consensus inverse docking strategy</title>
+            <p id="Par27">Consensus strategy may have relatively higher pose prediction performance than single docking software [<xref ref-type="bibr" rid="CR34">34</xref>]. Hence, to select suitable docking methods to construct consensus inverse docking protocol, conformation prediction performance of these softwares was carefully evaluated. The final pose of each software was selected according to docking score. The RMSD value between each pose and its original conformation in complex crystal were calculated. If the RMSD &lt; 2.0 Å, the corresponding pose prediction was success. The testing results are shown in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Figure S2. In our benchmark, GOLD software with GoldScore showed a slightly higher accuracy 66%. Taking the commercial copyright restriction into account, four academically free softwares, including VINA (63%), PLANTS (62%), PSOVINA (64%), and LEDOCK (64%) were selected to construct the consensus inverse docking method.</p>
+            <p id="Par28">The consensus strategy can simulate a real-life voting process, because a wide range of voting processes can effectively avoid mistakes in decisions. Hence, a well-designed conformational <italic>cluster</italic>-<italic>vote</italic> strategy was optimized by using these four softwares (shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref>). The detailed process of CID is like the following: First, initial 3D conformations of the given active molecule was generated and optimized by using MMFF94 force field [<xref ref-type="bibr" rid="CR35">35</xref>]. Secondly, the optimized conformation was docked into the active site of each protein and four subsets of docking conformations were produced, which contain the poses independently predicted by a certain docking program. Third, the conformational clustering is performed in each conformational group. We calculate the RMSD value between each pose and create a similarity matrix in a conformational group. The conformations with RMSD value lower than 2.0 Å can be considered as the same conformational cluster. The <italic>vote</italic> value of each conformational cluster is equal to the pose number in this cluster. The conformation with best score can be used as a representative of this conformational cluster. Finally, the number of conformational cluster of each individual docking method could be obtained.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Workflow of consensus inverse docking protocol. The arrows denote the computational process</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_394_Fig1_HTML.png" /></fig></p>
+            <p id="Par29">A set of representative conformations from each docking algorithm were selected to efficiently inspect different guided search algorithms for correct conformation of a protein–ligand complex. The representative conformation of each conformational cluster from the four docking methods was used to make up a new conformational ensemble, and then the same clustering method is performed to select the strongly binding conformations. The number of conformation is the number of votes. For example, if a conformation cluster from LEDOCK was also predicted by PSOVina, Vina, and PLANTS, that has the RMSD value lower than the threshold value of 2.0 Å, such a conformation cluster is qualified as 4 votes. The higher the vote number, the higher the support rate of the conformational cluster. In the case of vote dataset, the highest quality predicted conformation cluster has 4 votes. However, if there are two or more top clusters have the same votes, the pose number obtained by each docking method will be taken into account to judge. Finally, the highest vote conformational cluster was used to perform binding affinity calculation with X-score and MM/PBSA methods [<xref ref-type="bibr" rid="CR29">29</xref>, <xref ref-type="bibr" rid="CR30">30</xref>].</p>
+          </sec>
+          <sec id="Sec10">
+            <title>Performance and comparison with existing tools</title>
+            <p id="Par30">A collection of target structures with the information of approved therapeutic drugs and potential ligand binding cavities is the prerequisite of drug repurposing. Since this database is used to search the probable binding proteins for existing drugs by using inverse docking, it only contains the proteins with 3D structures. The target proteins were selected from several online databases such as DrugBank [<xref ref-type="bibr" rid="CR36">36</xref>], Uniprot [<xref ref-type="bibr" rid="CR37">37</xref>], and PDB [<xref ref-type="bibr" rid="CR38">38</xref>]. In order to integrate with consensus inverse docking protocol, drug target structure database should be constructed to store each protein in both PDB format and mol2 format with basic information, including docking parameters and active site information. Finally, we collected a database of experimentally confirmed 831 drug targets and 2086 drug compounds. To evaluate the performance of CID protocol, the screening was performed on the 831 experimentally confirmed drug targets and 51 out of the 2086 collected commercial drugs were selected to compose a test set according to the two criterias. (1) The cocrystal structures of the drug and its targets should be available. (2) The drugs in the test set should have a wide representation of the whole commercial drug dataset. The ligand flexibility, which can be assessed by the number of rotatable bond, can have a major impact on the performance of docking method. According to number of rotatable bonds, the distribution of whole commercial drug dataset and 51 sampled drugs were quite similar (shown in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Figure S3), which demonstrated that our testing samples have a wide representation.</p>
+            <p id="Par31">To analyze of the performance of the prediction, we performed the receiver operating curve (ROC) analysis [<xref ref-type="bibr" rid="CR39">39</xref>], which is a graphical plot to illustrate the diagnostic ability of a binary classifier system. According to its discrimination threshold, the area under the ROC (AUC) values can be used to evaluate the ability to distinguish between target and non-target. The known targets of each drug were considered as positive samples, the other proteins in our screening dataset were considered as negative set. Although it does not eliminate the possibility that some of them may interact with these drugs, the number of this kinds of protein is less. In our performance test, ROC analysis was used to compare the performance of the prediction between MM/PBSA and Xscore. The AUC was computed based on the following: If the true targets are ranked in the top 10%, it was considered as true positive. If the true targets are ranked out side of the top 10%, it was considered as false negative. If the non-targets are ranked in the top 10%, it was considered as false positive. If the non-targets are ranked out side of the top 10%, it was considered as true negative. Figure <xref rid="Fig2" ref-type="fig">2</xref> shows the ROC curves and the AUC, which is used to assess the discriminative performance of MM/PBSA (AUC = 0.842) and XScore (AUC = 0.713). It shows that MM/PBSA outperforms XScore in our performance test, which could be due to the nature of the general applicability and the universal physical scale of the energy calculation methods [<xref ref-type="bibr" rid="CR40">40</xref>]. In addition, we also retain a higher false positive rate for MM/PBSA (21.4%) and Xscore (40.9%). It may probably due to that the number of negative sample is much larger, hence even a low error rate of negative samples may cause many false positive predictions.<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>The specificity and sensitivity of ACID performance on distinguishing target and non-target of drugs based on MM/PBSA and X-Score</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_394_Fig2_HTML.png" /></fig></p>
+            <p id="Par32">The binding free energies calculated by MM/PBSA method were further analyzed to examine the binding of a variety of proteins to drug (listed in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S2). The “TRUE” value under “2%, 5%, and 10%” column means that the known targets of the testing drug are identified in the top 2%, 5%, and 10% of the corresponding results. While “FALSE” means the known targets are identified out of the top 10%. As shown in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S3, 35 assessed drugs showed significant enrichment of their known targets in the top 10%. In addition, 18 assessed drugs were identified in the top 2%. Therefore, the top 2%, top 5% and top 10% prediction success rate were 35.29%, 52.94% and 68.63% respectively. Taking the tricyclic antidepressants Amitriptyline as an example, 9 known targets out of 11 extracted from literatures and other databases was identified in top 10%. 5J03 appeared among top 11% ranked proteins. 4PMP is a false negative as it did not appear among the 100 best ranked structures.</p>
+            <p id="Par33">In order to evaluate if there is an improvement, the conformation prediction performance of CID protocol was compared with individual docking method. According to the criterion of top 10%, CID protocol showed significant higher pose prediction performance (74.4%), which is around 10% improvement in comparison with the best result obtained from LEDOCK (64%). The prediction performance of other individual docking method is 64% (PSOVina), 63% (Vina), 42% (PLANTS), which are statistically analyzed according to the successfully predicted drugs of 30 in LEDOCK, 30 in PSOVina、29 in Vina, 20 in PLANTS. In addition, it is important to evaluate that if the docking accuracy can be improved on ligands with more rotatable bonds. The novel CID protocol showed a higher successful rate in a wider range of rotatable bonds compared with any individual docking method. The distribution of the docking results according to the number of rotatable bonds are shown in Fig. <xref rid="Fig3" ref-type="fig">3</xref>. Therefore, it was proved that CID protocol may have relatively higher prediction performance than these single docking methods.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>Pose prediction performance of consensus inverse docking and individual methods</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_394_Fig3_HTML.png" /></fig></p>
+            <p id="Par34">Meanwhile, we also compared the prediction performance of ACID with other drug repurposing prediction tools. Due to the different requirement in drug repurposing study, there was not a uniform standard or a same dataset to evaluate drug repurposing prediction performance. Hence, we use several criterion like AUC and TOP as indicators to evaluate the predictive performance of these studies. Compared with other drug repurposing prediction tools, the AUC indicator of ACID is 0.84, which is a little lower than idTarget. But the sample set of ACID is 51 drugs and 91 known targets, which much larger than idTarget and TarFisDock. In addition, ACID can find 62 known targets in Top 2%, 76 known targets in Top 5%, and 91 known targets in Top 10%, which is better than TarFisDock. Compared with similarity comparison based approaches, the prediction accuracy of ACID are still dominant. However, due to the nature of structural comparison between small molecules, the similarity comparison based approaches may offer advantages such as faster computations and a larger tested sample number. While, docking based approaches includes three dimentional structures, structural optimization, conformational search, and binding energy calculation, which would obviously increase the computational cost. Thus the test sample set is much smaller than similarity approach. However, they can potentially identify novel targets for the drug which may be relevant for its mechanism of action or side effect profile. Based on the above analysis, we can infer that ACID keeps better or comparative predictive ability compared with similar tools. The detailed methods, sample sets, and accuracy of comparison were summarized in Table <xref rid="Tab1" ref-type="table">1</xref> [<xref ref-type="bibr" rid="CR10">10</xref>, <xref ref-type="bibr" rid="CR11">11</xref>, <xref ref-type="bibr" rid="CR13">13</xref>, <xref ref-type="bibr" rid="CR41">41</xref>–<xref ref-type="bibr" rid="CR44">44</xref>].<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Several drug repurposing tools compared with ACID</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" rowspan="2"><p>Name</p></th><th align="left" rowspan="2"><p>Method</p></th><th align="left" rowspan="2"><p>Sample set<sup>a</sup></p></th><th align="left" colspan="2"><p>Prediction performance</p></th><th align="left" rowspan="2"><p>Date of last update</p></th><th align="left" rowspan="2"><p>Refs.</p></th></tr><tr><th align="left"><p>AUC<sup>b</sup></p></th><th align="left"><p>TOP(2%/5%/10%)<sup>c</sup></p></th></tr></thead><tbody><tr><td align="left" colspan="7"><p>Similarity comparison based approaches</p></td></tr><tr><td align="left"><p> ChemMapper</p></td><td align="left"><p>3D similarity approach</p></td><td align="left"><p>216/7069</p></td><td align="left"><p>0.7</p></td><td align="left"><p>–</p></td><td align="left"><p>Dec 2016</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p> ChemProt 3.0</p></td><td align="left"><p>2D similarity approach</p></td><td align="left"><p>248/1700</p></td><td align="left"><p>0.827</p></td><td align="left"><p>–</p></td><td align="left"><p>Jan 2015</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR26">26</xref>]</p></td></tr><tr><td align="left"><p> HitPick</p></td><td align="left"><p>1NN similarity search approach</p></td><td align="left"><p>3430/3116926</p></td><td align="left"><p>0.61<sup>d</sup></p></td><td align="left"><p>–</p></td><td align="left"><p>May 2013</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR27">27</xref>]</p></td></tr><tr><td align="left"><p> SwissTarget-prediction</p></td><td align="left"><p>Combination of 2D and 3D similarity approach</p></td><td align="left"><p>346/1730</p></td><td align="left"><p>0.87</p></td><td align="left"><p>–</p></td><td align="left"><p>Apr 2014</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR28">28</xref>]</p></td></tr><tr><td align="left" colspan="7"><p>Docking algorithm based approaches</p></td></tr><tr><td align="left"><p> idTarget</p></td><td align="left"><p>Divide and conquer based docking approach</p></td><td align="left"><p>1/3/1161, 1/4/1161</p></td><td align="left"><p>0.89, 0.91</p></td><td align="left"><p>–</p></td><td align="left"><p>Aug 2015</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR13">13</xref>]</p></td></tr><tr><td align="left"><p> INVDOCK</p></td><td align="left"><p>Inverse docking approach</p></td><td align="left"><p>2/23/2700</p></td><td align="left"><p>–</p></td><td align="left"><p>50%<sup>e</sup></p></td><td align="left"><p>May 2001</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR10">10</xref>]</p></td></tr><tr><td align="left"><p> TarFisDock</p></td><td align="left"><p>Reverse docking approach</p></td><td align="left"><p>1/10/37, ··· 1/12/371</p></td><td align="left"><p>–</p></td><td align="left"><p>33%/33%/58%, 30%/20%/50%</p></td><td align="left"><p>Aug 2014</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR11">11</xref>]</p></td></tr><tr><td align="left"><p> ACID</p></td><td align="left"><p>Consensus inverse docking approach</p></td><td align="left"><p>51/133/831</p></td><td align="left"><p>0.84</p></td><td align="left"><p>47%/57%/68%</p></td><td align="left"><p>Dec 2018</p></td><td align="left" /></tr></tbody></table><table-wrap-foot><p><sup>a</sup>The sample set is number of positive/negative interactions for the similarity comparison based approaches, and is number of drugs/known targets/decoys for docking algorithm based approaches</p><p><sup>b</sup>The AUC (Area Under Curve) is used to represent the prediction performance in the references cited, the closer the AUC value is to 1, the better the prediction performance is</p><p><sup>c</sup>The TOP is the percentage of the top 2%/5%/10% candidates identified by the tools (except INVDOCK) to represent the prediction performance in the references cited, the higher the value of the TOP, the better the performance</p><p><sup>d</sup>For HitPick, a sensitivity of 60.94%, a specificity of 99.99% and a precision of 92.11% is indicated in the references cited, normally, we can infer that the AUC of this tool is smaller than 0.61</p><p><sup>e</sup>For INVDOCK, the TOP is the percentage of candidates identified by the tool, but the top percentage isn’t indicated in the references cited, the maximum value 50 is indicated</p></table-wrap-foot></table-wrap></p>
+          </sec>
+          <sec id="Sec11">
+            <title>Server usage and case study</title>
+            <p id="Par35">In order to make online consensus inverse docking available, we build a public web server ACID. The bench-scientists can take advantage of the consensus inverse docking method. Data collection, integration, web interface, and applications of ACID were shown in Fig. <xref rid="Fig4" ref-type="fig">4</xref>. One can search a commercial drug automatically by entering keywords in the keyword search box, such as drug name, CAS no or InChI key. As shown in Fig. <xref rid="Fig5" ref-type="fig">5</xref>, the drug repurposing tasks can be submitted either by uploading or drawing molecule in the JSME plugin. Then, each ligand was converted into the Simplified Molecular Input Line Entry Specification (SMILES) representation by OpenBabel [<xref ref-type="bibr" rid="CR45">45</xref>] tools (<ext-link xlink:href="http://openbabel.sourceforge.net/" ext-link-type="uri">http://openbabel.sourceforge.net/</ext-link>). The 3D input of each ligand was produced from its SMILES using Corina (<ext-link xlink:href="http://www.mol-net.de" ext-link-type="uri">http://www.mol-net.de</ext-link>) [<xref ref-type="bibr" rid="CR46">46</xref>]. In addition, the user need to customize target list from target database. An ID number is generated for the submitted job. The user can use the ID to check the status of the job on this web server. The binding models (in PDB format) of the molecule bound with the candidate targets can be downloaded through the “Download” hyperlink or browsed after clicking the “Show” hyperlink.<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>Schematic diagram describing data collection, integration, web interface, and applications of ACID web server</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_394_Fig4_HTML.png" /></fig><fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p>A screenshot montage of some usages of ACID. The screenshot of browse, submit, and jobs modules of ACID, including basic target-drug information, target classification, job submitting, and task management</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_394_Fig5_HTML.png" /></fig></p>
+            <p id="Par36">To evaluate the usage of the ACID web server, two examples are presented here. First, we show a test case using Citalopram as the query structure to find its potential target proteins via ACID server. Table S3 gives the results of predicted binding affinities. The protein target of Citalopram, namely sodium-dependent serotonin transporter (Rank 1, top 2%) as validated in the scientific report [<xref ref-type="bibr" rid="CR47">47</xref>] are identified by ACID. Interestingly, the binding pose of Citalopram against sodium-dependent serotonin transporter with the rmsd of 0.98 Å compared to the crystal pose, indicating the reliability of this server. Another example shows that not only the intended targets could be identified by ACID, but also other proteins, leading to ‘off-target’ effects, which may have pharmacological consequences for drug repurposing. Amitriptyline is a classic medicine with multiple targets. The primary use is to treat a number of mental illnesses. It is particularly noteworthy that a very novel Amitriptyline repurposing is for treatment of triple-negative breast cancer by targeting on Poly (ADP-ribose) polymerase-1 (PARP1) [<xref ref-type="bibr" rid="CR48">48</xref>], which is also predicted in the top 10% (rank 59) by ACID server. In addition, other uses include prevention of migraines, treatment of neuropathic pain such as fibromyalgia and postherpetic neuralgia.</p>
+          </sec>
+        </sec>
+        <sec id="Sec12" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p id="Par37">At the end of block-buster era for drug discovery, drug repurposing is a promising approach to address the ‘productivity gap’ that the global pharmaceutical giants are currently facing, which will improve the drug-discovery productivity. Inverse docking is proving to be a powerful tool for drug repurposing, which involves docking a drug in the potential binding cavities of a set of clinically relevant macromolecular targets. The critical issues related to inverse docking part are the prediction of correct binding pose and the estimation of some measure of the binding affinity. We have evaluated of several docking methods for inverse docking applications since the effectiveness of these methods in multiple target identification is unclear. A consensus inverse docking protocol was developed, which has a ~ 10% enhancement in success rate compared with the best single docking algorithm. Finally, an comprehensive web platform with a user-friendly interface was designed based on this protocol for drug repurposing to significantly reduce user time for data gathering and multi-step analysis without human intervention, which consists of the following three tools: (i) an automated consensus inverse docking workflow program, (ii) a compound database containing 2086 approved drugs with original therapeutic information, (iii) a known target database containing 831 protein structures from PDB covering 30 therapeutic areas. Differentiated with other tools, ACID outperforms other standalone algorithm in a better accuracy and more efficient way in summary.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>The authors thank Prof. C. Y. Hu from University of Hawaii for advice during the writing.</p>
+        </ack>
+        <sec sec-type="author-contribution">
+          <title>Authors’ contributions</title>
+          <p>G-FH and G-FY initiated the consensus inverse docking study. FW, C-ZL, and S-WS developed the protocol of consensus inverse docking. FW and F-XW tested the performance described in the paper. FW and C-ZL developed the server and performed the analyses. FW, F-XW, and C-YJ set up the server. G-FH, G-FY, and FW wrote the manuscript. All authors read and approved the final manuscript.</p>
+        </sec>
+        <sec>
+          <title>Funding</title>
+          <p>This research was supported in part by the National Key R&amp;D Program (2017YFD0200501), the National Natural Science Foundation of China (Nos. 21772059, 91853127, and 31960548).</p>
+        </sec>
+        <sec sec-type="data-availability">
+          <title>Availability of data and materials</title>
+          <p>All source code is available under open licenses on GitHub repository: <ext-link xlink:href="https://github.com/fwangccnu/ACID" ext-link-type="uri">https://github.com/fwangccnu/ACID</ext-link>. All datasets of this study can be downloaded under open licenses from the download page of the free web server <ext-link xlink:href="http://chemyang.ccnu.edu.cn/ccb/server/ACID" ext-link-type="uri">http://chemyang.ccnu.edu.cn/ccb/server/ACID</ext-link>.</p>
+        </sec>
+        <sec sec-type="ethics-statement">
+          <sec id="FPar1" sec-type="COI-statement">
+            <title>Competing interests</title>
+            <p id="Par38">The authors declare that they have no competing interests.</p>
+          </sec>
+        </sec>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Shih</surname>
+                    <given-names>HP</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>XD</given-names>
+                  </name>
+                  <name>
+                    <surname>Aronov</surname>
+                    <given-names>AM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Drug discovery effectiveness from the standpoint of therapeutic mechanisms and indications</article-title>
+                <source>Nat Rev Drug Discov</source>
+                <year>2018</year>
+                <volume>17</volume>
+                <fpage>19</fpage>
+                <lpage>33</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhslansbzL</pub-id>
+                <pub-id pub-id-type="pmid">29075002</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nrd.2017.194</pub-id>
+                <pub-id pub-id-type="pmcid">29075002</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Scannell</surname>
+                    <given-names>JW</given-names>
+                  </name>
+                  <name>
+                    <surname>Blanckley</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Boldon</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Warrington</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Diagnosing the decline in pharmaceutical R&amp;D efficiency</article-title>
+                <source>Nat Rev Drug Discov</source>
+                <year>2012</year>
+                <volume>11</volume>
+                <fpage>191</fpage>
+                <lpage>200</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XivFyhtrY%3D</pub-id>
+                <pub-id pub-id-type="pmid">22378269</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nrd3681</pub-id>
+                <pub-id pub-id-type="pmcid">22378269</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Anighoro</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bajorath</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Rastelli</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Polypharmacology: challenges and opportunities in drug discovery</article-title>
+                <source>J Med Chem</source>
+                <year>2014</year>
+                <volume>57</volume>
+                <fpage>7874</fpage>
+                <lpage>7887</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXhtVShsL3I</pub-id>
+                <pub-id pub-id-type="pmid">24946140</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm5006463</pub-id>
+                <pub-id pub-id-type="pmcid">24946140</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Santos</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Ursu</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Gaulton</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bento</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Donadi</surname>
+                    <given-names>RS</given-names>
+                  </name>
+                  <name>
+                    <surname>Bologa</surname>
+                    <given-names>CG</given-names>
+                  </name>
+                  <name>
+                    <surname>Karlsson</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Al-Lazikani</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Hersey</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Oprea</surname>
+                    <given-names>TI</given-names>
+                  </name>
+                  <name>
+                    <surname>Overington</surname>
+                    <given-names>JP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A comprehensive map of molecular drug targets</article-title>
+                <source>Nat Rev Drug Discov</source>
+                <year>2017</year>
+                <volume>16</volume>
+                <fpage>19</fpage>
+                <lpage>34</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XitVSms7rK</pub-id>
+                <pub-id pub-id-type="pmid">27910877</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nrd.2016.230</pub-id>
+                <pub-id pub-id-type="pmcid">27910877</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Dudley</surname>
+                    <given-names>JT</given-names>
+                  </name>
+                  <name>
+                    <surname>Deshpande</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Butte</surname>
+                    <given-names>AJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Exploiting drug-disease relationships for computational drug repositioning</article-title>
+                <source>Brief Bioinform</source>
+                <year>2011</year>
+                <volume>12</volume>
+                <fpage>303</fpage>
+                <lpage>311</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXptl2js70%3D</pub-id>
+                <pub-id pub-id-type="pmid">21690101</pub-id>
+                <pub-id pub-id-type="pmcid">3137933</pub-id>
+                <pub-id pub-id-type="doi">10.1093/bib/bbr013</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Corsello</surname>
+                    <given-names>SM</given-names>
+                  </name>
+                  <name>
+                    <surname>Bittker</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Gould</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>McCarren</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Hirschman</surname>
+                    <given-names>JE</given-names>
+                  </name>
+                  <name>
+                    <surname>Johnston</surname>
+                    <given-names>SE</given-names>
+                  </name>
+                  <name>
+                    <surname>Vrcic</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Wong</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Khan</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">The drug repurposing hub: a next-generation drug library and information resource</article-title>
+                <source>Nat Med</source>
+                <year>2017</year>
+                <volume>23</volume>
+                <fpage>405</fpage>
+                <lpage>408</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXotVKhsbs%3D</pub-id>
+                <pub-id pub-id-type="pmid">28388612</pub-id>
+                <pub-id pub-id-type="pmcid">5568558</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nm.4306</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pushpakom</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Iorio</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Eyers</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                  <name>
+                    <surname>Escott</surname>
+                    <given-names>KJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Hopper</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Wells</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Doig</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Guilliams</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Latimer</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>McNamee</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Drug repurposing: progress, challenges and recommendations</article-title>
+                <source>Nat Rev Drug Discov</source>
+                <year>2018</year>
+                <volume>18</volume>
+                <fpage>41</fpage>
+                <lpage>58</lpage>
+                <pub-id pub-id-type="pmid">30310233</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nrd.2018.168</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXhvV2gtr7I</pub-id>
+                <pub-id pub-id-type="pmcid">30310233</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kharkar</surname>
+                    <given-names>PS</given-names>
+                  </name>
+                  <name>
+                    <surname>Warrier</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Gaud</surname>
+                    <given-names>RS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Reverse docking: a powerful tool for drug repositioning and drug rescue</article-title>
+                <source>Futur Med Chem</source>
+                <year>2014</year>
+                <volume>6</volume>
+                <fpage>333</fpage>
+                <lpage>342</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXjtlCqsr8%3D</pub-id>
+                <pub-id pub-id-type="doi">10.4155/fmc.13.207</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lee</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Lee</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Using reverse docking for target identification and its applications for drug discovery</article-title>
+                <source>Expert Opin Drug Dis</source>
+                <year>2016</year>
+                <volume>11</volume>
+                <fpage>707</fpage>
+                <lpage>715</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XptFyitr4%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1080/17460441.2016.1190706</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>YZ</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhi</surname>
+                    <given-names>DG</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Ligand-protein inverse docking and its potential use in the computer search of protein targets of a small molecule</article-title>
+                <source>Proteins</source>
+                <year>2001</year>
+                <volume>43</volume>
+                <fpage>217</fpage>
+                <lpage>226</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3MXitlelsLY%3D</pub-id>
+                <pub-id pub-id-type="pmid">11276090</pub-id>
+                <pub-id pub-id-type="doi">10.1002/1097-0134(20010501)43:2&lt;217::AID-PROT1032>3.0.CO;2-G</pub-id>
+                <pub-id pub-id-type="pmcid">11276090</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Jiang</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Shen</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Yu</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Kang</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhu</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Luo</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">TarFisDock: a web server for identifying drug targets with docking approach</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2006</year>
+                <volume>34</volume>
+                <fpage>W219</fpage>
+                <lpage>W224</lpage>
+                <pub-id pub-id-type="pmid">16844997</pub-id>
+                <pub-id pub-id-type="pmcid">1538869</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkl114</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28Xps1yit7s%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gao</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Kang</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Luo</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhu</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Jiang</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">PDTD: a web-accessible protein database for drug target identification</article-title>
+                <source>BMC Bioinf</source>
+                <year>2008</year>
+                <volume>9</volume>
+                <fpage>104</fpage>
+                <lpage>111</lpage>
+                <pub-id pub-id-type="doi">10.1186/1471-2105-9-104</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXksVClurw%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>JC</given-names>
+                  </name>
+                  <name>
+                    <surname>Chu</surname>
+                    <given-names>PY</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>CM</given-names>
+                  </name>
+                  <name>
+                    <surname>Lin</surname>
+                    <given-names>JH</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">idTarget: a web server for identifying protein targets of small chemical molecules with robust scoring functions and a divide-and-conquer docking approach</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2012</year>
+                <volume>40</volume>
+                <fpage>W393</fpage>
+                <lpage>W399</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXjtVCqurY%3D</pub-id>
+                <pub-id pub-id-type="pmid">22649057</pub-id>
+                <pub-id pub-id-type="pmcid">3394295</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gks496</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Fang</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Reagan</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Mendrick</surname>
+                    <given-names>DL</given-names>
+                  </name>
+                  <name>
+                    <surname>Slikker</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Tong</surname>
+                    <given-names>W</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">In silico drug repositioning—what we need to know</article-title>
+                <source>Drug Discov Today</source>
+                <year>2013</year>
+                <volume>18</volume>
+                <fpage>110</fpage>
+                <lpage>115</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XhtlGnsL3J</pub-id>
+                <pub-id pub-id-type="pmid">22935104</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.drudis.2012.08.005</pub-id>
+                <pub-id pub-id-type="pmcid">22935104</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Plewczynski</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Łażniewski</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Grotthuss</surname>
+                    <given-names>MV</given-names>
+                  </name>
+                  <name>
+                    <surname>Rychlewski</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Ginalski</surname>
+                    <given-names>K</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">VoteDock: consensus docking method for prediction of protein–ligand interactions</article-title>
+                <source>J Comput Chem</source>
+                <year>2011</year>
+                <volume>32</volume>
+                <fpage>568</fpage>
+                <lpage>581</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXosVelug%3D%3D</pub-id>
+                <pub-id pub-id-type="pmid">20812324</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.21642</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Fang</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The PDBbind database: collection of binding affinities for protein–ligand complexes with known three-dimensional structures</article-title>
+                <source>J Med Chem</source>
+                <year>2004</year>
+                <volume>47</volume>
+                <fpage>2977</fpage>
+                <lpage>2980</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXjs1Sjs74%3D</pub-id>
+                <pub-id pub-id-type="pmid">15163179</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm030580l</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jones</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Glen</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                  <name>
+                    <surname>Leach</surname>
+                    <given-names>AR</given-names>
+                  </name>
+                  <name>
+                    <surname>Taylor</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Development and validation of a genetic algorithm for flexible docking</article-title>
+                <source>J Mol Biol</source>
+                <year>1997</year>
+                <volume>267</volume>
+                <fpage>727</fpage>
+                <lpage>748</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2sXis1KntLo%3D</pub-id>
+                <pub-id pub-id-type="pmid">9126849</pub-id>
+                <pub-id pub-id-type="pmcid">9126849</pub-id>
+                <pub-id pub-id-type="doi">10.1006/jmbi.1996.0897</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Han</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhao</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comparative assessment of scoring functions on an updated benchmark: 1. Compilation of the test set</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2014</year>
+                <volume>54</volume>
+                <fpage>1700</fpage>
+                <lpage>1716</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXlvFensbk%3D</pub-id>
+                <pub-id pub-id-type="pmid">24716849</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci500080q</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Maier</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Martinez</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Kasavajhala</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Wickstrom</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Hauser</surname>
+                    <given-names>KE</given-names>
+                  </name>
+                  <name>
+                    <surname>Simmerling</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ff14SB: improving the accuracy of protein side chain and backbone parameters from ff99SB</article-title>
+                <source>J Chem Theory Comput</source>
+                <year>2015</year>
+                <volume>11</volume>
+                <fpage>3696</fpage>
+                <lpage>3713</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXhtFequ7rN</pub-id>
+                <pub-id pub-id-type="pmid">26574453</pub-id>
+                <pub-id pub-id-type="pmcid">4821407</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jctc.5b00255</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Garrett</surname>
+                    <given-names>MM</given-names>
+                  </name>
+                  <name>
+                    <surname>Ruth</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Software news and updates AutoDock4 and AutoDockTools4: automated docking with selective receptor flexibility</article-title>
+                <source>J Comput Chem</source>
+                <year>2009</year>
+                <volume>30</volume>
+                <fpage>2785</fpage>
+                <lpage>2791</lpage>
+                <pub-id pub-id-type="doi">10.1002/jcc.21256</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXht1GitrnK</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Trott</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Olson</surname>
+                    <given-names>AJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Software news and UPDATE AutoDock Vina: improving the speed and accuracy of docking with a new scoring function, efficient optimization, and multithreading</article-title>
+                <source>J Comput Chem</source>
+                <year>2010</year>
+                <volume>31</volume>
+                <fpage>455</fpage>
+                <lpage>461</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXhsFGnur3O</pub-id>
+                <pub-id pub-id-type="pmid">19499576</pub-id>
+                <pub-id pub-id-type="pmcid">19499576</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Allen</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Balius</surname>
+                    <given-names>TE</given-names>
+                  </name>
+                  <name>
+                    <surname>Mukherjee</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Brozell</surname>
+                    <given-names>SR</given-names>
+                  </name>
+                  <name>
+                    <surname>Moustakas</surname>
+                    <given-names>DT</given-names>
+                  </name>
+                  <name>
+                    <surname>Lang</surname>
+                    <given-names>PT</given-names>
+                  </name>
+                  <name>
+                    <surname>Case</surname>
+                    <given-names>DA</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuntz</surname>
+                    <given-names>ID</given-names>
+                  </name>
+                  <name>
+                    <surname>Rizzo</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">DOCK 6: impact of new features and current docking performance</article-title>
+                <source>J Comput Chem</source>
+                <year>2015</year>
+                <volume>36</volume>
+                <fpage>1132</fpage>
+                <lpage>1156</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXnt1Smtbs%3D</pub-id>
+                <pub-id pub-id-type="pmid">25914306</pub-id>
+                <pub-id pub-id-type="pmcid">4469538</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.23905</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Korb</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Stutzle</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Exner</surname>
+                    <given-names>TE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Empirical scoring functions for advanced protein-ligand docking with plants</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2009</year>
+                <volume>49</volume>
+                <fpage>84</fpage>
+                <lpage>96</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXisVSquw%3D%3D</pub-id>
+                <pub-id pub-id-type="pmid">19125657</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci800298z</pub-id>
+                <pub-id pub-id-type="pmcid">19125657</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ng</surname>
+                    <given-names>MCK</given-names>
+                  </name>
+                  <name>
+                    <surname>Fong</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Siu</surname>
+                    <given-names>SWI</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">PSOVina: the hybrid particle swarm optimization algorithm for protein-ligand docking</article-title>
+                <source>J Bioinf Comput Biol</source>
+                <year>2015</year>
+                <volume>13</volume>
+                <fpage>1</fpage>
+                <lpage>18</lpage>
+                <pub-id pub-id-type="doi">10.1142/S0219720015410073</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXotl2gsLY%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Verdonk</surname>
+                    <given-names>ML</given-names>
+                  </name>
+                  <name>
+                    <surname>Cole</surname>
+                    <given-names>JC</given-names>
+                  </name>
+                  <name>
+                    <surname>Hartshorn</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Murray</surname>
+                    <given-names>CW</given-names>
+                  </name>
+                  <name>
+                    <surname>Taylor</surname>
+                    <given-names>RD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Improved protein-ligand docking using GOLD</article-title>
+                <source>Proteins</source>
+                <year>2003</year>
+                <volume>52</volume>
+                <fpage>609</fpage>
+                <lpage>623</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3sXmvFGrsLg%3D</pub-id>
+                <pub-id pub-id-type="pmid">12910460</pub-id>
+                <pub-id pub-id-type="doi">10.1002/prot.10465</pub-id>
+                <pub-id pub-id-type="pmcid">12910460</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Case</surname>
+                    <given-names>DA</given-names>
+                  </name>
+                </person-group>
+                <source>Kollman PA Amber 2016</source>
+                <year>2016</year>
+                <publisher-loc>San Francisco</publisher-loc>
+                <publisher-name>University of California</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sun</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Tian</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Hou</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Assessing the performance of MM/PBSA and MM/GBSA methods. 4. Accuracies of MM/PBSA and MM/GBSA methodologies evaluated by various simulation protocols using PDBbind data set</article-title>
+                <source>Phys Chem Chem Phys</source>
+                <year>2014</year>
+                <volume>16</volume>
+                <fpage>16719</fpage>
+                <lpage>16729</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXhtFSltrzI</pub-id>
+                <pub-id pub-id-type="pmid">24999761</pub-id>
+                <pub-id pub-id-type="pmcid">24999761</pub-id>
+                <pub-id pub-id-type="doi">10.1039/C4CP01388C</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Sun</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Pan</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Hou</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Assessing the performance of the MM/PBSA and MM/GBSA methods. 6. Capability to predict protein-protein binding free energies and re-rank binding poses generated by protein–protein docking</article-title>
+                <source>Phys Chem Chem Phys</source>
+                <year>2016</year>
+                <volume>18</volume>
+                <fpage>22129</fpage>
+                <lpage>22139</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XhtFKktbvP</pub-id>
+                <pub-id pub-id-type="pmid">27444142</pub-id>
+                <pub-id pub-id-type="doi">10.1039/C6CP03670H</pub-id>
+                <pub-id pub-id-type="pmcid">27444142</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Lai</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Further development and validation of empirical scoring functions for structure-based binding affinity prediction</article-title>
+                <source>J Comput Aided Mol Des</source>
+                <year>2002</year>
+                <volume>16</volume>
+                <fpage>11</fpage>
+                <lpage>26</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XltlSqs7k%3D</pub-id>
+                <pub-id pub-id-type="pmid">12197663</pub-id>
+                <pub-id pub-id-type="doi">10.1023/A:1016357811882</pub-id>
+                <pub-id pub-id-type="pmcid">12197663</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cristian</surname>
+                    <given-names>OP</given-names>
+                  </name>
+                  <name>
+                    <surname>Jaime</surname>
+                    <given-names>RM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comparative evaluation of MMPBSA and XSCORE to compute binding free energy in XIAP-peptide complexes</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <fpage>134</fpage>
+                <lpage>142</lpage>
+                <pub-id pub-id-type="doi">10.1021/ci600412z</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XhtlCqtr%2FF</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comparative evaluation of 11 scoring functions for molecular docking</article-title>
+                <source>J Med Chem</source>
+                <year>2003</year>
+                <volume>46</volume>
+                <fpage>2287</fpage>
+                <lpage>2303</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3sXjsVOgtr0%3D</pub-id>
+                <pub-id pub-id-type="pmid">12773034</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm0203783</pub-id>
+                <pub-id pub-id-type="pmcid">12773034</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hou</surname>
+                    <given-names>TJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>YY</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>W</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Assessing the performance of the molecular mechanics/poisson boltzmann surface area and molecular mechanics/generalized born surface area methods. II. The accuracy of ranking poses generated from docking</article-title>
+                <source>J Comput Chem</source>
+                <year>2011</year>
+                <volume>32</volume>
+                <fpage>866</fpage>
+                <lpage>877</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXitleisrw%3D</pub-id>
+                <pub-id pub-id-type="pmid">20949517</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.21666</pub-id>
+                <pub-id pub-id-type="pmcid">20949517</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hao</surname>
+                    <given-names>GF</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhu</surname>
+                    <given-names>XL</given-names>
+                  </name>
+                  <name>
+                    <surname>Ji</surname>
+                    <given-names>FQ</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>GF</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhan</surname>
+                    <given-names>CG</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Understanding the mechanism of drug resistance due to a codon deletion in protoporphyrinogen oxidase through computational modeling</article-title>
+                <source>J Phys Chem B</source>
+                <year>2009</year>
+                <volume>113</volume>
+                <fpage>4865</fpage>
+                <lpage>4875</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXjt1ahsb4%3D</pub-id>
+                <pub-id pub-id-type="pmid">19284797</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jp807442n</pub-id>
+                <pub-id pub-id-type="pmcid">19284797</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Paul</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Rognan</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ConsDock: a new program for the consensus analysis of protein–ligand interactions</article-title>
+                <source>Proteins</source>
+                <year>2002</year>
+                <volume>47</volume>
+                <fpage>521</fpage>
+                <lpage>533</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XksVyqu7c%3D</pub-id>
+                <pub-id pub-id-type="pmid">12001231</pub-id>
+                <pub-id pub-id-type="doi">10.1002/prot.10119</pub-id>
+                <pub-id pub-id-type="pmcid">12001231</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Merck molecular force field. I. Basis, form, scope, parameterization, and performance of MMFF94</article-title>
+                <source>J Comput Chem</source>
+                <year>1996</year>
+                <volume>17</volume>
+                <fpage>490</fpage>
+                <lpage>519</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28XhvVGmsbk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/(SICI)1096-987X(199604)17:5/6&lt;490::AID-JCC1>3.0.CO;2-P</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wishart</surname>
+                    <given-names>DS</given-names>
+                  </name>
+                  <name>
+                    <surname>Feunang</surname>
+                    <given-names>YD</given-names>
+                  </name>
+                  <name>
+                    <surname>Guo</surname>
+                    <given-names>AC</given-names>
+                  </name>
+                  <name>
+                    <surname>Lo</surname>
+                    <given-names>EJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Marcu</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Grant</surname>
+                    <given-names>JR</given-names>
+                  </name>
+                  <name>
+                    <surname>Sajed</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Johnson</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Sayeeda</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">DrugBank 5.0: a major update to the DrugBank database for 2018</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2018</year>
+                <volume>46</volume>
+                <fpage>D1074</fpage>
+                <lpage>D1082</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXitlGisbvI</pub-id>
+                <pub-id pub-id-type="pmid">29126136</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkx1037</pub-id>
+                <pub-id pub-id-type="pmcid">29126136</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wu</surname>
+                    <given-names>CH</given-names>
+                  </name>
+                  <name>
+                    <surname>Apweiler</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Bairoch</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Natale</surname>
+                    <given-names>DA</given-names>
+                  </name>
+                  <name>
+                    <surname>Barker</surname>
+                    <given-names>WC</given-names>
+                  </name>
+                  <name>
+                    <surname>Boeckmann</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Ferro</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Gasteiger</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>HZ</given-names>
+                  </name>
+                  <name>
+                    <surname>Lopez</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">The universal protein resource (UniProt): an expanding universe of protein information</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2006</year>
+                <volume>34</volume>
+                <fpage>D187</fpage>
+                <lpage>D191</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XisFyktg%3D%3D</pub-id>
+                <pub-id pub-id-type="pmid">16381842</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkj161</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Berman</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Henrick</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Nakamura</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Markley</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The worldwide protein data bank (wwPDB): ensuring a single, uniform archive of PDB data</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2007</year>
+                <volume>35</volume>
+                <fpage>D301</fpage>
+                <lpage>D303</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXivFKmtQ%3D%3D</pub-id>
+                <pub-id pub-id-type="pmid">17142228</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkl971</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sing</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Sander</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Beerenwinkel</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Lengauer</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ROCR: visualizing classifier performance in R</article-title>
+                <source>Bioinformatics</source>
+                <year>2005</year>
+                <volume>21</volume>
+                <fpage>3940</fpage>
+                <lpage>3941</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXhtFWltr7P</pub-id>
+                <pub-id pub-id-type="pmid">16096348</pub-id>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/bti623</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>JC</given-names>
+                  </name>
+                  <name>
+                    <surname>Lin</surname>
+                    <given-names>JH</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>CM</given-names>
+                  </name>
+                  <name>
+                    <surname>Perryman</surname>
+                    <given-names>AL</given-names>
+                  </name>
+                  <name>
+                    <surname>Olson</surname>
+                    <given-names>AJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Robust scoring functions for protein–ligand interactions with quantum chemical charge models</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2011</year>
+                <volume>51</volume>
+                <fpage>2528</fpage>
+                <lpage>2537</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXht1Ortr7O</pub-id>
+                <pub-id pub-id-type="pmid">21932857</pub-id>
+                <pub-id pub-id-type="pmcid">4639406</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci200220v</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>XF</given-names>
+                  </name>
+                  <name>
+                    <surname>Ouyang</surname>
+                    <given-names>SS</given-names>
+                  </name>
+                  <name>
+                    <surname>Yu</surname>
+                    <given-names>BA</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>YB</given-names>
+                  </name>
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Gong</surname>
+                    <given-names>JY</given-names>
+                  </name>
+                  <name>
+                    <surname>Zheng</surname>
+                    <given-names>SY</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>ZH</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>HL</given-names>
+                  </name>
+                  <name>
+                    <surname>Jiang</surname>
+                    <given-names>HL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">PharmMapper server: a web server for potential drug target identification using pharmacophore mapping approach</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2010</year>
+                <volume>38</volume>
+                <fpage>W609</fpage>
+                <lpage>W614</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXotVWjsL4%3D</pub-id>
+                <pub-id pub-id-type="pmid">20430828</pub-id>
+                <pub-id pub-id-type="pmcid">2896160</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkq300</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kringelum</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Kjaerulff</surname>
+                    <given-names>SK</given-names>
+                  </name>
+                  <name>
+                    <surname>Brunak</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Lund</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Oprea</surname>
+                    <given-names>TI</given-names>
+                  </name>
+                  <name>
+                    <surname>Taboureau</surname>
+                    <given-names>O</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ChemProt-3.0: a global chemical biology diseases mapping</article-title>
+                <source>Datab J Biol Datab Curation</source>
+                <year>2016</year>
+                <volume>2016</volume>
+                <fpage>1</fpage>
+                <lpage>7</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>XP</given-names>
+                  </name>
+                  <name>
+                    <surname>Vogt</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Haque</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Campillos</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">HitPick: a web server for hit identification and target prediction of chemical screenings</article-title>
+                <source>Bioinformatics</source>
+                <year>2013</year>
+                <volume>29</volume>
+                <fpage>1910</fpage>
+                <lpage>1912</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXhtFClu7vJ</pub-id>
+                <pub-id pub-id-type="pmid">23716196</pub-id>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/btt303</pub-id>
+                <pub-id pub-id-type="pmcid">23716196</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gfeller</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Grosdidier</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Wirth</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Daina</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Michielin</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Zoete</surname>
+                    <given-names>V</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SwissTargetPrediction: a web server for target prediction of bioactive small molecules</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2014</year>
+                <volume>42</volume>
+                <fpage>W32</fpage>
+                <lpage>W38</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXhtFCqs73E</pub-id>
+                <pub-id pub-id-type="pmid">24792161</pub-id>
+                <pub-id pub-id-type="pmcid">4086140</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gku293</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>O’Boyle</surname>
+                    <given-names>NM</given-names>
+                  </name>
+                  <name>
+                    <surname>Banck</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>James</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <name>
+                    <surname>Morley</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Vandermeersch</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Open babel: an open chemical toolbox</article-title>
+                <source>J Cheminformatics</source>
+                <year>2011</year>
+                <volume>3</volume>
+                <fpage>33</fpage>
+                <lpage>47</lpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-3-33</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhsVWjurbF</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR46">
+              <label>46.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sadowski</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Schwab</surname>
+                    <given-names>CH</given-names>
+                  </name>
+                  <name>
+                    <surname>Gasteiger</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <source>3D structure generation and conformational searching</source>
+                <year>2003</year>
+                <publisher-loc>New York</publisher-loc>
+                <publisher-name>Dekker Inc</publisher-name>
+                <fpage>2151</fpage>
+                <lpage>2212</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR47">
+              <label>47.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Plenge</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Wiborg</surname>
+                    <given-names>O</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">High- and low-affinity binding of <italic>S</italic>-citalopram to the human serotonin transporter mutated at 20 putatively important amino acid positions</article-title>
+                <source>Neurosci Lett</source>
+                <year>2005</year>
+                <volume>383</volume>
+                <fpage>203</fpage>
+                <lpage>208</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXlt1KisLs%3D</pub-id>
+                <pub-id pub-id-type="pmid">15955412</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.neulet.2005.04.028</pub-id>
+                <pub-id pub-id-type="pmcid">15955412</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR48">
+              <label>48.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Fu</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Zheng</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Yao</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Guo</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Ouyang</surname>
+                    <given-names>L</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Crystal structure-based discovery of a novel synthesized PARP1 inhibitor (OL-1) with apoptosis-inducing mechanisms in triple-negative breast cancer</article-title>
+                <source>Sci Rep</source>
+                <year>2016</year>
+                <volume>6</volume>
+                <fpage>3</fpage>
+                <lpage>18</lpage>
+                <pub-id pub-id-type="pmid">28442756</pub-id>
+                <pub-id pub-id-type="pmcid">5431371</pub-id>
+                <pub-id pub-id-type="doi">10.1038/s41598-016-0007-2</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhslGmurjF</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec13">
+              <title>Supplementary information</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Supplementary information">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2019_394_MOESM1_ESM.doc" position="anchor">
+                    <caption xml:lang="en">
+                      <p><bold>Additional file 1.</bold> Additional tables and figures.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+          </app>
+        </app-group>
+        <glossary>
+          <title>Abbreviations</title>
+          <def-list>
+            <def-item>
+              <term>ADP-ribose</term>
+              <def>
+                <p id="Par2">adenosine diphosphate ribose</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>AUC</term>
+              <def>
+                <p id="Par3">area under the ROC curve</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CAS</term>
+              <def>
+                <p id="Par4">chemical abstracts service</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CID</term>
+              <def>
+                <p id="Par5">consensus inverse docking</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>JSME</term>
+              <def>
+                <p id="Par6">JavaScript Molecule Editor</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>InChI</term>
+              <def>
+                <p id="Par7">international chemical identifier</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>MM/PBSA</term>
+              <def>
+                <p id="Par8">molecular mechanics/Poisson–Boltzmann surface are</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>NIH</term>
+              <def>
+                <p id="Par9">The National Institutes of Health</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PDB</term>
+              <def>
+                <p id="Par10">protein data bank</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>NMR</term>
+              <def>
+                <p id="Par11">nuclear magnetic resonance</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PDTD</term>
+              <def>
+                <p id="Par12">potential drug target database</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RMSD</term>
+              <def>
+                <p id="Par13">root-mean-square deviation</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>ROC</term>
+              <def>
+                <p id="Par14">receiver operating characteristic curve</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>SMILES</term>
+              <def>
+                <p id="Par15">simplified molecular input line entry specification</p>
+              </def>
+            </def-item>
+          </def-list>
+        </glossary>
+        <notes notes-type="ESMHint">
+          <title>Supplementary information</title>
+          <p><bold>Supplementary information</bold> accompanies this paper at <ext-link xlink:href="10.1186/s13321-019-0394-z" ext-link-type="doi">https://doi.org/10.1186/s13321-019-0394-z</ext-link>.</p>
+        </notes>
+        <notes notes-type="Misc">
+          <title>Publisher's Note</title>
+          <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+        </notes>
+      </back>
+    </article>

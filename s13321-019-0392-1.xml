@@ -1,0 +1,2132 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0392-1</article-id>
+          <article-id pub-id-type="manuscript">392</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0392-1</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Multi-task learning with a natural metric for quantitative structure activity relationship learning</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" id="Au1">
+              <name>
+                <surname>Sadawi</surname>
+                <given-names>Noureddin</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff7">7</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au2">
+              <name>
+                <surname>Olier</surname>
+                <given-names>Ivan</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au3">
+              <name>
+                <surname>Vanschoren</surname>
+                <given-names>Joaquin</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff3">3</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au4">
+              <name>
+                <surname>van Rijn</surname>
+                <given-names>Jan N.</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff4">4</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au5">
+              <name>
+                <surname>Besnard</surname>
+                <given-names>Jeremy</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff5">5</xref>
+              <xref ref-type="aff" rid="Aff6">6</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au6">
+              <name>
+                <surname>Bickerton</surname>
+                <given-names>Richard</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff5">5</xref>
+              <xref ref-type="aff" rid="Aff6">6</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au7">
+              <name>
+                <surname>Grosan</surname>
+                <given-names>Crina</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff7">7</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au8">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-6489-3029</contrib-id>
+              <name>
+                <surname>Soldatova</surname>
+                <given-names>Larisa</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff7">7</xref>
+              <xref ref-type="aff" rid="Aff8">8</xref>
+              <xref ref-type="corresp" rid="IDs1332101903921_cor8">h</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au9">
+              <name>
+                <surname>King</surname>
+                <given-names>Ross D.</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff9">9</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 2113 8111</institution-id>
+                <institution-id institution-id-type="GRID">grid.7445.2</institution-id>
+                <institution content-type="org-division">Department of Medicine</institution>
+                <institution content-type="org-name">Imperial College London</institution>
+              </institution-wrap>
+              <addr-line content-type="city">London</addr-line>
+              <country country="GB">UK</country>
+            </aff>
+            <aff id="Aff2">
+              <label>2</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 0368 0654</institution-id>
+                <institution-id institution-id-type="GRID">grid.4425.7</institution-id>
+                <institution content-type="org-division">Department of Applied Mathematics</institution>
+                <institution content-type="org-name">Liverpool John Moores University</institution>
+              </institution-wrap>
+              <addr-line content-type="city">Liverpool</addr-line>
+              <country country="GB">UK</country>
+            </aff>
+            <aff id="Aff3">
+              <label>3</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 0398 8763</institution-id>
+                <institution-id institution-id-type="GRID">grid.6852.9</institution-id>
+                <institution content-type="org-name">Eindhoven University of Technology</institution>
+              </institution-wrap>
+              <addr-line content-type="city">Eindhoven</addr-line>
+              <country country="NL">The Netherlands</country>
+            </aff>
+            <aff id="Aff4">
+              <label>4</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 2312 1970</institution-id>
+                <institution-id institution-id-type="GRID">grid.5132.5</institution-id>
+                <institution content-type="org-name">Leiden University</institution>
+              </institution-wrap>
+              <addr-line content-type="city">Leiden</addr-line>
+              <country country="NL">The Netherlands</country>
+            </aff>
+            <aff id="Aff5">
+              <label>5</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 0397 2876</institution-id>
+                <institution-id institution-id-type="GRID">grid.8241.f</institution-id>
+                <institution content-type="org-name">University of Dundee, Dundee</institution>
+              </institution-wrap>
+              <addr-line content-type="city">Dundee</addr-line>
+              <country country="GB">UK</country>
+            </aff>
+            <aff id="Aff6">
+              <label>6</label>
+              <institution-wrap>
+                <institution content-type="org-name">Ex Scientia Ltd</institution>
+              </institution-wrap>
+              <addr-line content-type="city">Dundee</addr-line>
+              <country country="GB">UK</country>
+            </aff>
+            <aff id="Aff7">
+              <label>7</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 0724 6933</institution-id>
+                <institution-id institution-id-type="GRID">grid.7728.a</institution-id>
+                <institution content-type="org-name">Brunel University London</institution>
+              </institution-wrap>
+              <addr-line content-type="city">London</addr-line>
+              <country country="GB">UK</country>
+            </aff>
+            <aff id="Aff8">
+              <label>8</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 2191 6040</institution-id>
+                <institution-id institution-id-type="GRID">grid.15874.3f</institution-id>
+                <institution content-type="org-name">Goldsmiths, University of London</institution>
+              </institution-wrap>
+              <addr-line content-type="city">London</addr-line>
+              <country country="GB">UK</country>
+            </aff>
+            <aff id="Aff9">
+              <label>9</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000000121662407</institution-id>
+                <institution-id institution-id-type="GRID">grid.5379.8</institution-id>
+                <institution content-type="org-name">University of Manchester</institution>
+              </institution-wrap>
+              <addr-line content-type="city">Manchester</addr-line>
+              <country country="GB">UK</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs1332101903921_cor8">
+              <label>h</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>12</day>
+            <month>11</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="68">1</issue>
+          <elocation-id>68</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>4</day>
+              <month>11</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>5</day>
+              <month>8</month>
+              <year>2019</year>
+            </date>
+            <date date-type="accepted">
+              <day>4</day>
+              <month>11</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>12</day>
+              <month>11</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">The goal of quantitative structure activity relationship (QSAR) learning is to learn a function that, given the structure of a small molecule (a potential drug), outputs the predicted activity of the compound. We employed multi-task learning (MTL) to exploit commonalities in drug targets and assays. We used datasets containing curated records about the activity of specific compounds on drug targets provided by ChEMBL. Totally, 1091 assays have been analysed. As a baseline, a single task learning approach that trains random forest to predict drug activity for each drug target individually was considered. We then carried out feature-based and instance-based MTL to predict drug activities. We introduced a natural metric of evolutionary distance between drug targets as a measure of tasks relatedness. Instance-based MTL significantly outperformed both, feature-based MTL and the base learner, on 741 drug targets out of 1091. Feature-based MTL won on 179 occasions and the base learner performed best on 171 drug targets. We conclude that MTL QSAR is improved by incorporating the evolutionary distance between targets. These results indicate that QSAR learning can be performed effectively, even if little data is available for specific drug targets, by leveraging what is known about similar drug targets.</p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Multi-task learning</kwd>
+            <kwd>Quantitative structure activity relationship</kwd>
+            <kwd>Sequence-based similarity</kwd>
+            <kwd>Random forest</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Engineering and Physical Sciences Research Council</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/501100000266</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">EP/K030469/1</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Soldatova</surname>
+                  <given-names>Larisa</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Horizon 2020</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/501100007601</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">654241</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Sadawi</surname>
+                  <given-names>Noureddin</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>No</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>11</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>4</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_392.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction and problem specification</title>
+          <sec>
+            <p id="Par23">Rich Caruana in his widely cited paper defined multi-task learning (MTL) (see the list of Abbreviations below) as <italic>“an approach to inductive transfer that improves generalization by using the domain information contained in the training signals of related tasks as an inductive bias. It does this by learning tasks in parallel while using a shared representation; what is learned for each task can help other tasks be learned better”</italic> [<xref ref-type="bibr" rid="CR1">1</xref>]. A more formal definition of MTL is given in  [<xref ref-type="bibr" rid="CR2">2</xref>]:</p>
+          </sec>
+          <sec id="FPar1">
+            <title>
+              <bold>Definition</bold>
+            </title>
+            <p id="Par24"><italic>(MTL)</italic>: Given <italic>m</italic> learning tasks<disp-formula id="Equ1"><alternatives><mml:math display="block" id="Equ1_Math"><mml:mrow><mml:mtable><mml:mtr><mml:mtd columnalign="right"><mml:msubsup><mml:mfenced close="}" open="{" separators=""><mml:msub><mml:mi>T</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mfenced><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mi>m</mml:mi></mml:mrow></mml:msubsup></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math><tex-math id="Equ1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \left\{ T_i \right\} _{i=1}^{i=m} \end{aligned}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_392_Article_Equ1.gif" /></alternatives></disp-formula>where all the tasks or a subset of them are related but not identical, MTL aims to help improve the learning of a model for <inline-formula id="IEq2"><alternatives><mml:math id="IEq2_Math"><mml:msub><mml:mi>T</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$T_i$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_392_Article_IEq2.gif" /></alternatives></inline-formula> by using the knowledge contained in the <italic>m</italic> tasks.</p>
+          </sec>
+          <sec>
+            <p id="Par25">There are three aspects of the task relatedness: feature, parameter, and instance; and correspondingly---three types of MTL [<xref ref-type="bibr" rid="CR2">2</xref>]:<list list-type="order"><list-item><p id="Par26"><italic>Feature-based MTL models</italic> assume that different tasks share identical or similar feature representations, which can be a subset or a transformation of the original features.</p></list-item><list-item><p id="Par27"><italic>Parameter-based MTL models</italic> aim to encode the task relatedness into the learning model via the regularization or prior on model parameters.</p></list-item><list-item><p id="Par28"><italic>Instance-based MTL models</italic> propose to use data instances from all the tasks to construct a learner for each task via instance weighting.</p></list-item></list>In recent years, MTL has been an active research area within the machine learning community and beyond. Instance-based MTL is among the most popular approaches because it often yields improved predictive performance  [<xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR4">4</xref>]. The intuition is that by combining training data across multiple related tasks, each task benefits from the related information in other tasks, resulting in higher accuracy learning [<xref ref-type="bibr" rid="CR5">5</xref>]. In other words, model generalization for individual tasks can be enhanced by sharing representations among tasks that are related.</p>
+          </sec>
+          <sec>
+            <p id="Par29">MTL is considered as a sub-area of transfer learning [<xref ref-type="bibr" rid="CR6">6</xref>]. The idea of transfer learning is to extract knowledge from one or more <italic>source</italic> domains, and reuse this knowledge in a <italic>target</italic> domain where data is scarce, with the aim of building better performing learning models in the target domain [<xref ref-type="bibr" rid="CR7">7</xref>].</p>
+          </sec>
+          <sec>
+            <p id="Par30">In this work we apply instance-based and feature-based MTL for the problem of predicting quantitative structure activity relationship (QSAR). The goal of QSAR learning is to learn a function that, given the structure of a small molecule (a potential drug), outputs the predicted activity of the compound against an assay (a test that predicts the potential of the compound being a drug) [<xref ref-type="bibr" rid="CR8">8</xref>].</p>
+          </sec>
+          <sec>
+            <p id="Par31">QSAR modelling has come a long way since its establishment in the early 1960s [<xref ref-type="bibr" rid="CR9">9</xref>]. Although many drug targets are well studied and analyzed, a considerable number of them is still not, meaning that the quantity of labelled data for such targets is scarce (i.e. the number of chemical compounds with known bioactivity against these targets is small). Therefore, this leads to poor quality QSAR models which hampers understanding of these drug targets. Accurate predictive QSAR models are key for the discovery of new bioactive chemical compounds [<xref ref-type="bibr" rid="CR10">10</xref>].</p>
+          </sec>
+          <sec>
+            <p id="Par32">A single task <inline-formula id="IEq3"><alternatives><mml:math id="IEq3_Math"><mml:msub><mml:mi>T</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$T_i$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_392_Article_IEq3.gif" /></alternatives></inline-formula> is a task of predicting an activity <inline-formula id="IEq4"><alternatives><mml:math id="IEq4_Math"><mml:msub><mml:mi>A</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math><tex-math id="IEq4_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$A_i$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_392_Article_IEq4.gif" /></alternatives></inline-formula> given a QSAR dataset of molecular structures (see Table <xref rid="Tab1" ref-type="table">1</xref> for a typical example of QSAR dataset and “<xref rid="Sec8" ref-type="sec">Data</xref>” section for further explanations). MTL is a suitable approach for the considered problem because:<list list-type="bullet"><list-item><p id="Par33">Different QSAR learning tasks share identical feature representations. For example, one of the most widely-used representations is fingerprints (see “<xref rid="Sec8" ref-type="sec">Data</xref>” section for further detail).</p></list-item><list-item><p id="Par34">There are publicly available datasets for many QSAR tasks, and these data instances can be used to construct a learner for each task via instance weighting (see “<xref rid="Sec12" ref-type="sec">Methods</xref>” section for further detail).</p></list-item><list-item><p id="Par35">It is also possible to apply parameter-based MTL, because there are available parametric QSAR models, although this is outside of the scope of this paper.</p></list-item></list>The application of MTL for QSAR learning in particular is beneficial because a considerable number of drug targets remains poorly studied and the quantity of labelled data for such targets is scarce. It is costly to obtain labeled data and this limits opportunities for constructing high-quality QSAR models and advancing understanding of these drug targets. In this paper we report the results of the use of existing data from related drug targets, where labeled data is aplenty, to predict activities for the drug targets where data is scarce. Our method is to use MTL where we exploit the drug target relatedness through the incorporation of the natural evolutionary metric. Specifically, in this paper we test the following two hypotheses:<list list-type="order"><list-item><p id="Par36">MTL can improve on standard QSAR learning through the use of related targets.</p></list-item><list-item><p id="Par37">MTL QSAR can be improved by incorporating the evolutionary distance of targets.</p></list-item></list><table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>A typical QSAR dataset</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>MOL_ID</p></th><th align="left"><p>FP_1</p></th><th align="left"><p>FP_2</p></th><th align="left"><p>...</p></th><th align="left"><p>FP_n</p></th><th align="left"><p>Activity</p></th></tr></thead><tbody><tr><td align="left"><p>ID_1</p></td><td align="left"><p>1</p></td><td align="left"><p>0</p></td><td align="left"><p>...</p></td><td align="left"><p>1</p></td><td align="left"><p>6.351</p></td></tr><tr><td align="left"><p>ID_2</p></td><td align="left"><p>0</p></td><td align="left"><p>1</p></td><td align="left"><p>...</p></td><td align="left"><p>0</p></td><td align="left"><p>7.534</p></td></tr><tr><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td></tr><tr><td align="left"><p>ID_22</p></td><td align="left"><p>1</p></td><td align="left"><p>1</p></td><td align="left"><p>...</p></td><td align="left"><p>1</p></td><td align="left"><p>8.001</p></td></tr><tr><td align="left"><p>ID_23</p></td><td align="left"><p>0</p></td><td align="left"><p>1</p></td><td align="left"><p>...</p></td><td align="left"><p>0</p></td><td align="left"><p>6.239</p></td></tr></tbody></table></table-wrap></p>
+          </sec>
+        </sec>
+        <sec id="Sec2">
+          <title>Related work</title>
+          <sec id="Sec3">
+            <title>Multi-task learning</title>
+            <p id="Par38">MTL has been used in many areas. For example, Chen et al. employed MTL to learn a common feature space from multiple related tasks and applied it for web page categorization [<xref ref-type="bibr" rid="CR11">11</xref>]. Bickel et al. applied MTL for HIV therapy screening data with the focus on assigning weights to instances from multiple tasks so that tasks can be learned jointly even if data for different tasks have arbitrary different distributions [<xref ref-type="bibr" rid="CR12">12</xref>]. Bickel et al. introduced a new MTL method for weighting groups in tree guided group-lasso regression and applied it for the analysis of genotype and gene expression data [<xref ref-type="bibr" rid="CR13">13</xref>].</p>
+            <p id="Par39">Zhang et al. reported on a multi-modal multi-task (M3T) method for simultaneously predicting multiple outcomes for multi-modal data [<xref ref-type="bibr" rid="CR2">2</xref>]. The method is based on selecting common relevant features, applying kernel based data fusion and then applying multi-outcome support vector regression. Experiments were performed to jointly predict clinical scores in Alzheimer’s disease.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Deep learning</title>
+            <p id="Par40">Deep learning has gained significant attention over the last years and there are attempts to employ it for MTL. For example, deep relationship networks (DRN) were proposed to estimate the relationships between tasks in the area of computer vision [<xref ref-type="bibr" rid="CR14">14</xref>]. In natural language processing (NLP), MTL was used with deep learning for identifying better hierarchies for tasks to improve performance [<xref ref-type="bibr" rid="CR15">15</xref>].</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Task relatedness</title>
+            <p id="Par41">A number of approaches have been reported in the literature for the specification of task similarity, an important element of MTL. One common approach is to build models on the individual tasks, and then to learn a common prior over the trained model parameters. For instance, this prior can be inferred using Dirichlet processes [<xref ref-type="bibr" rid="CR16">16</xref>], matrix-variate normal distributions [<xref ref-type="bibr" rid="CR17">17</xref>], or a maximum likelihood procedure [<xref ref-type="bibr" rid="CR18">18</xref>]. Clustered multi-task learning (CMTL) preforms clustering of tasks into groups prior to applying MTL. This clustering can be done both on the task level [<xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR19">19</xref>, <xref ref-type="bibr" rid="CR20">20</xref>] and on the level of shared feature representations among tasks [<xref ref-type="bibr" rid="CR21">21</xref>–<xref ref-type="bibr" rid="CR24">24</xref>].</p>
+            <p id="Par42">Discovering highly important marker genes was the main focus of the work reported in [<xref ref-type="bibr" rid="CR25">25</xref>] where the aim was to identify a shared gene subspace across different gene expression datasets using MTL. Zhou et al. modeled disease progression by considering predictions at different time points as different tasks and transform the problem into MTL  [<xref ref-type="bibr" rid="CR26">26</xref>]. The relatedness between tasks was obtained by using a temporal group Lasso regularizer.</p>
+            <p id="Par43">Taxonomy-based MTL was used to conduct biological sequence classification for the purpose of predicting the splice sites in various drug targets [<xref ref-type="bibr" rid="CR27">27</xref>]. In this approach, the relatedness of tasks was defined by a phylogenic tree based structure and learning was performed at different levels of the tree. Furthermore, taxonomy- and graph-based transfer learning and MTL were used to predict the binding of the major histocompatibility complex (MHC)-I [<xref ref-type="bibr" rid="CR28">28</xref>]. Although task relatedness can be derived from the hierarchy, the authors report an interesting approach to quantify this relatedness using multi-kernel SVMs. Also, a two step MTL approach was employed for the prediction of small interfering RNA (siRNA) efficacy [<xref ref-type="bibr" rid="CR29">29</xref>]. In the first step, shared-task representations are learned, and in the second step, these representations are fed into a regressor to model each task.</p>
+            <p id="Par44">A methodology that employs sequence based distance is described in [<xref ref-type="bibr" rid="CR30">30</xref>]. In this approach an attempt was made to predict the similarity in binding profile between any pair of kinases from the human kinome. A binding profile was built for each kinase and it was used to compute pairwise similarity between kinases. This similarity was compared with the sequence based distance in order to check whether there is any correlation between the two. The difference between our approach and this approach is that we use the pairwise sequence based similarity between drug targets as input features to the classifier. Also, unlike our work, this method does not allow predicting the activity of individual molecules on drug targets.</p>
+          </sec>
+          <sec id="Sec6">
+            <title>Multi-task learning for QSAR learning</title>
+            <p id="Par45">MTL employing neural networks is reported in [<xref ref-type="bibr" rid="CR31">31</xref>]. Multi-target predictions were made for a total of 19 assays at the same time. Although training is conducted by combining data from multiple assays, this method does not take advantage of the task relatedness. The QSAR problem is considered as a classification problem (i.e. whether a compound is active or inactive in a certain assay). This is different from our approach where we treat QSAR as a regression problem, and we work with a considerably larger number of assays (1091 assays).</p>
+            <p id="Par46">Work applying MTL in QSAR learning includes applications in sequence biology [<xref ref-type="bibr" rid="CR28">28</xref>] using a graph-based regularization method [<xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR32">32</xref>] based on SVM [<xref ref-type="bibr" rid="CR33">33</xref>]. Experiments were performed on data from the human kinome, and the relatedness between tasks was extracted from the taxonomy of kinase targets. A distance matrix was derived from the taxonomy by considering the distance between two taxa as the weight of the shortest path between them in the taxonomy [<xref ref-type="bibr" rid="CR34">34</xref>]. This matrix was then transformed into a similarity matrix and the values were used to perform MTL. This measure of similarity is different from the homology used in our work, and it is less biologically meaningful. Ning et al. used SVM-based MTL approach to learn a classification model for a drug target together with other related drug targets, where compound- and target-specific kernel functions were used to capture intrinsic commonalities [<xref ref-type="bibr" rid="CR35">35</xref>].</p>
+            <p id="Par47">One of the key QSAR studies that employed MTL as well as transfer learning was reported in [<xref ref-type="bibr" rid="CR36">36</xref>]. In addition to MTL, the approach uses feature nets (FN) to construct neural network and partial least squares (PLS) models for the modeling of 11 types of tissue-air partition coefficients. A total of 56 and 50 models for H/tissue and R/tissue respectively were obtained in the experiments which demonstrated the usefulness of MTL and transfer learning in general. The reported approaches showed that these techniques are specially useful when data is scarce. Our approache is different in multiple ways. We performed experiments on a much larger scale. Also, the authors did not evaluate traditional machine learning methods to select the best performing ones for STL. In particular, random forest (RF) was not considered [<xref ref-type="bibr" rid="CR36">36</xref>]. This could be due to the used descriptors: we worked with fingerprints whereas they worked with some physicochemical properties as well as ISIDA descriptors [<xref ref-type="bibr" rid="CR37">37</xref>]. In addition, our results are more statistically significant.</p>
+            <p id="Par48">A recent approach, that reports significant improvements over traditional baseline machine learning approaches, applied massively multi-task neural networks for drug discovery [<xref ref-type="bibr" rid="CR38">38</xref>]. In this work, an attempt was made to use deep learning to provide a framework for sharing information across a large number of datasets. The end goal was to classify compounds as either active or inactive.</p>
+            <p id="Par49">Another approach that employs deep neural networks (DNN) is the work presented in [<xref ref-type="bibr" rid="CR39">39</xref>] which tried to not only demonstrate that multi-task DNNs work in QSAR but also to explain why this is the case. The authors report that some form of signal transfer takes place between structurally similar molecules during the training process, and this can lead to better performance when molecule activities are correlated. A recent review of applications and challenges of MTL and transfer learning in QSAR can be found in [<xref ref-type="bibr" rid="CR40">40</xref>].</p>
+          </sec>
+          <sec id="Sec7">
+            <title>Advantages of the proposed approach</title>
+            <p id="Par50">The proposed approach has the following advantages compared with the previous MTL work:<list list-type="order"><list-item><p id="Par51">The QSAR learning problem is considered as a regression problem. This is more natural as finding the best threshold value to determine whether a specific compound is <italic>active</italic> or <italic>inactive</italic> is problematic and often results in loss of information.</p></list-item><list-item><p id="Par52">We employ RF as the base learner. We showed in a previous study that RF outperforms other learners on QSAR data in the majority of scenarios [<xref ref-type="bibr" rid="CR41">41</xref>].</p></list-item><list-item><p id="Par53">We employ the functional-class fingerprints (FCFP) method to represent molecular structures. We have empirically found them to generally be the most successful QSAR prediction representation. We have done this by performing tests and comparisons using thousands of datasets and several learners [<xref ref-type="bibr" rid="CR41">41</xref>].</p></list-item><list-item><p id="Par54">One of the contributions of our work is the use of the drug target similarities in an MTL setting. The majority of existing MTL approaches focus on learning the task similarities, whereas in our case, we exploit the sequence based similarities and incorporate them in our experiments. There are often commonalities in QSAR assays as the target proteins may be evolutionary related. We took advantage of this and used protein sequence similarity values as our task similarities. This enables the inference of a natural metric of evolutionary distance between the drug targets.</p></list-item></list>In this paper we introduce an intuitive, simple and effective method of learning QSARs jointly. We test whether our MTL method can improve on standard QSAR learning through the use of related targets, and evaluate whether QSAR MTL can be improved by incorporating the evolutionary distance between targets. Our method is based on the classification of drug targets into families and the use of sequence similarity values between those drug targets [<xref ref-type="bibr" rid="CR42">42</xref>].</p>
+          </sec>
+        </sec>
+        <sec id="Sec8">
+          <title>Data</title>
+          <p id="Par55">We obtained drug activity data from the publicly available database ChEMBL containing curated records about the activity of specific compounds (drugs, small molecules) on drug targets (proteins) [<xref ref-type="bibr" rid="CR43">43</xref>]. Activities in ChEMBL, e.g. potency and affinity endpoints, are recorded as real values (i.e. IC50, EC50, Ki, Kd and their equivalents).</p>
+          <p id="Par56">In this study we used IC50 values, inhibitory drug concentrations at 50%. IC50 value states the concentration of the drug compound that is required to block or inhibit 50% of the proteins. This response data has been normalised by taking the negative log of the drug concentrations that inhibited 50% of a target (pXC50):<disp-formula id="Equ2"><alternatives><mml:math display="block" id="Equ2_Math"><mml:mrow><mml:mtable><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mi>p</mml:mi><mml:mi>X</mml:mi><mml:mi>C</mml:mi><mml:mn>50</mml:mn><mml:mo>=</mml:mo><mml:mo>-</mml:mo><mml:mi>l</mml:mi><mml:mi>o</mml:mi><mml:msub><mml:mi>g</mml:mi><mml:mn>10</mml:mn></mml:msub><mml:mi>I</mml:mi><mml:mi>C</mml:mi><mml:mn>50</mml:mn></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math><tex-math id="Equ2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} pXC50=-log_{10}IC50 \end{aligned}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_392_Article_Equ2.gif" /></alternatives></disp-formula>The pXC50 provides a continuous scale of 1–12 where a compound of the value 1 is the least potent inhibitor and requires a large concentration of the drug to achieve 50% inhibition and 12 is the most potent inhibitor requiring a very low concentration to achieve 50% inhibition. In a small proportion of cases, where multiple activities have been reported for a particular compound-target pair, a consensus value was selected as the median of those activities falling in the modal log unit. Therefore, the unit of activity we are referring to is the <italic>pseudo-pIC50</italic>. This is a similar procedure to what was used in the AEROPATH target database project [<xref ref-type="bibr" rid="CR44">44</xref>].</p>
+          <p id="Par57">ChEMBL provides two ways of categorizing drug targets: a 6-level hierarchical <italic>classification</italic> of protein families, and a <italic>grouping</italic> of drug targets by their <italic>preferred names</italic>. In this paper, we perform MTL on the level of both groups and classes.</p>
+          <sec id="Sec9">
+            <title>Drug target classes</title>
+            <p id="Par58">In the 6-level hierarchy, the ChEMBL database curators have classified protein targets into a manually curated family hierarchy according to nomenclature commonly used by drug discovery scientists, e.g. a ligand-based classification of G-protein-coupled receptors, and a division of enzymes into proteases/kinases/phosphatases. The version of the hierarchy used in this study is ChEMBL20, and it comprises of 6 levels, with Level 1 (L1) being the broadest class and Level 6 (L6)—the most specific. For example, the protein “tyrosine-protein kinase Srms” is classified as follows: enzyme (L1), kinase (L2), protein kinase (L3), TK protein kinase group (L4), tyrosine protein kinase Src family (L5), tyrosine protein kinase Srm (L6). Different classes in L1 are not evolutionary related to one another, whereas members of classes in L3 and below share common evolutionary origins for the most part. The picture is mixed for L2. The hierarchy is not fully populated, with the greatest emphasis being placed on the target families of highest pharmaceutical interest, and the different levels of the hierarchy are not defined by rigorous criteria. However, the hierarchical classification provides a useful means of grouping related targets at different levels of granularity.</p>
+          </sec>
+          <sec id="Sec10">
+            <title>Drug target groupings</title>
+            <p id="Par59">The method using preferred names is based on the practice that individual proteins can be described by a range of different identifiers and textual descriptions across the various data resources. The ChEMBL curators have assigned each protein target a preferred name in a robust and consistent manner, independent of the various adopted names and synonyms used elsewhere. The detailed manual annotation of canonical target names means that, for the most part, orthologous proteins from related species are described consistently, allowing the most related proteins to be grouped together. In the preferred name groupings, we obtained 468 drug target groups. The minimum number of drug targets in a group is two, and the maximum number of drug targets is 21 for the dihydrofolate reductase group (DHFR).</p>
+          </sec>
+          <sec id="Sec11">
+            <title>Drug targets similarity</title>
+            <p id="Par60">In our approach we employ evolutionary relatedness of drug targets as a similarity metric between drug targets within each drug target group or class. Drug targets similarity is based on the similarity of their amino-acid sequences. Sequence alignment is a method to detect regions of similarity among sequences [<xref ref-type="bibr" rid="CR45">45</xref>]. There are two types of alignment: global and local. In global alignment the full lengths of sequences are aligned, whereas in local alignment, only parts of the sequences are aligned. Often, the Needleman–Wunsch algorithm [<xref ref-type="bibr" rid="CR46">46</xref>] is used for performing global sequence alignment and the Smith–Waterman algorithm [<xref ref-type="bibr" rid="CR47">47</xref>] is used to carry out local sequence alignment.</p>
+            <p id="Par61">To obtain a metric for the similarity of protein targets we pairwise aligned their sequences using the Smith–Waterman algorithm and measured amino-acid residue similarity. We used the full sequence as the active sites are not easily labeled. Using active sites might further improve the results, but in this study we opted for the simplest option.</p>
+            <p id="Par62">In more detail, given a pairwise sequence alignment of related protein sequences, it is common practice to quote the value of percentage sequence identity (PID) as a simple measure of evolutionary relatedness. This gives us a metric of evolutionary distance that ranges between zero and one; with numbers closer to one indicating more related drug targets. There is no universally accepted standard method to calculate PID [<xref ref-type="bibr" rid="CR48">48</xref>]. In this work <italic>PID</italic>1 method (the default setting in BioStrings [<xref ref-type="bibr" rid="CR49">49</xref>]) was used:<disp-formula id="Equ3"><alternatives><mml:math display="block" id="Equ3_Math"><mml:mrow><mml:mtable><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mi>P</mml:mi><mml:mi>I</mml:mi><mml:mi>D</mml:mi><mml:mn>1</mml:mn><mml:mo>=</mml:mo><mml:mn>100</mml:mn><mml:mrow /><mml:mo>∗</mml:mo><mml:mfrac><mml:mrow><mml:mi>i</mml:mi><mml:mi>d</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>c</mml:mi><mml:mi>a</mml:mi><mml:mi>l</mml:mi><mml:mspace width="4pt" /><mml:mi>p</mml:mi><mml:mi>o</mml:mi><mml:mi>s</mml:mi><mml:mi>i</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>o</mml:mi><mml:mi>n</mml:mi><mml:mi>s</mml:mi></mml:mrow><mml:mrow><mml:mi>a</mml:mi><mml:mi>l</mml:mi><mml:mi>i</mml:mi><mml:mi>g</mml:mi><mml:mi>n</mml:mi><mml:mi>e</mml:mi><mml:mi>d</mml:mi><mml:mspace width="4pt" /><mml:mi>p</mml:mi><mml:mi>o</mml:mi><mml:mi>s</mml:mi><mml:mi>i</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>o</mml:mi><mml:mi>n</mml:mi><mml:mi>s</mml:mi><mml:mspace width="4pt" /><mml:mo>+</mml:mo><mml:mspace width="4pt" /><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:mi>t</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>n</mml:mi><mml:mi>a</mml:mi><mml:mi>l</mml:mi><mml:mspace width="4pt" /><mml:mi>g</mml:mi><mml:mi>a</mml:mi><mml:mi>p</mml:mi><mml:mspace width="4pt" /><mml:mi>p</mml:mi><mml:mi>o</mml:mi><mml:mi>s</mml:mi><mml:mi>i</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>o</mml:mi><mml:mi>n</mml:mi><mml:mi>s</mml:mi></mml:mrow></mml:mfrac></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math><tex-math id="Equ3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} PID1 = 100 * \frac{identical\ positions}{aligned\ positions\ +\ internal\ gap\ positions} \end{aligned}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_392_Article_Equ3.gif" /></alternatives></disp-formula></p>
+          </sec>
+        </sec>
+        <sec id="Sec12" sec-type="methods">
+          <title>Methods</title>
+          <p id="Par63">Based on our previous extensive comparative study of conventional learners [<xref ref-type="bibr" rid="CR41">41</xref>] showing that RF [<xref ref-type="bibr" rid="CR50">50</xref>] outperforms other learners for the majority of QSAR problems, we decided to employ RF with 100 trees as our base learner, and evaluate its performance with tenfold cross-validation. We have chosen to use the Root Mean Squared Error (RMSE) [<xref ref-type="bibr" rid="CR51">51</xref>] as the evaluation measure because we are predicting a real value number (the pseudo-pIC50).</p>
+          <p id="Par64">We used the FCFP 1024-bit molecular fingerprints to represent molecules. Molecular fingerprints encode the structure of a chemical compound as a series of binary digits that indicate the presence or absence of particular substructures in the molecule [<xref ref-type="bibr" rid="CR52">52</xref>]. For example, if a molecule contains a benzyl ring, the corresponding bit in the fingerprint will be 1, and if not—0. This molecule representation was selected because it is highly reliable for QSAR problems. More details can be found in our previous work [<xref ref-type="bibr" rid="CR41">41</xref>] where we carried out an extensive comparison between several representations such as different kinds of fingerprints and descriptors.</p>
+          <p id="Par65">In this work we performed all experiments using WEKA 3.7.11 machine learning library [<xref ref-type="bibr" rid="CR53">53</xref>]. The implementation was done in Java utilising WEKA API as the basis for building our algorithms and running experiments.</p>
+          <sec id="Sec13">
+            <title>Single task learning</title>
+            <p id="Par66">As a baseline, we include a single task learning (STL) approach that trains RF to predict drug activity for each drug target individually. Table <xref rid="Tab1" ref-type="table">1</xref> shows an example QSAR dataset, consisting of chemical compounds, their fingerprints and activity values. We will refer to this setting as STL.</p>
+          </sec>
+          <sec id="Sec14">
+            <title>Feature-based MTL</title>
+            <p id="Par67">In the feature-based MTL approach we aim to learn all drug targets for a particular protein target group (e.g. DHFR) or class (e.g. AMPA receptor) simultaneously. This was done by concatenating all the datasets of the same group or class, and adding an extra <italic>indicator attribute</italic>. As shown in Table <xref rid="Tab2" ref-type="table">2</xref>, the <italic>Target ID</italic> attribute, <italic>TID</italic> for short, indicates which drug target, or species, the example came from (e.g. <italic>P. falciparum</italic>). As dataset entries (i.e. examples) are molecules, we give each molecule a unique identifier (<italic>MOL_ID</italic>). This helps to keep track of molecules even if the same molecule appears in more than one dataset.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>An input dataset for feature-based MTL</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>MOL_ID</p></th><th align="left"><p>TID</p></th><th align="left"><p>FP_1</p></th><th align="left"><p>FP_2</p></th><th align="left"><p>...</p></th><th align="left"><p>Activity</p></th></tr></thead><tbody><tr><td align="left"><p>ID_1</p></td><td align="left"><p>7</p></td><td align="left"><p>1</p></td><td align="left"><p>0</p></td><td align="left"><p>...</p></td><td align="left"><p>6.351</p></td></tr><tr><td align="left"><p>ID_2</p></td><td align="left"><p>7</p></td><td align="left"><p>0</p></td><td align="left"><p>1</p></td><td align="left"><p>...</p></td><td align="left"><p>7.534</p></td></tr><tr><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td></tr><tr><td align="left"><p>ID_111</p></td><td align="left"><p>95</p></td><td align="left"><p>1</p></td><td align="left"><p>1</p></td><td align="left"><p>...</p></td><td align="left"><p>8.001</p></td></tr><tr><td align="left"><p>ID_112</p></td><td align="left"><p>95</p></td><td align="left"><p>0</p></td><td align="left"><p>1</p></td><td align="left"><p>...</p></td><td align="left"><p>6.239</p></td></tr></tbody></table></table-wrap></p>
+            <p id="Par68">Algorithm 1 shows the pseudocode of feature-based MTL. We ran RF (with 100 trees) on the concatenated dataset and performed tenfold cross-validation to obtain an estimate of the performance. We used stratified sampling based on the TID attribute for cross-validation [<xref ref-type="bibr" rid="CR54">54</xref>]. Such sampling procedure ensures that, when randomly selecting a sample from the population, the proportion of each group in the sample is the same as in the original population. Although this is usually done in the context of classification problems with imbalanced classes, we employ it here to ensure that our per-fold performance estimates are based on the actual distribution of drug targets in the original data. We evaluate the performance (RMSE) of our MTL approach for each TID separately by filtering out the predictions for that specific TID in each test set.</p>
+            <fig id="Figa" position="anchor">
+              <graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_392_Figa_HTML.png" position="anchor" />
+            </fig>
+            <p id="Par69">By the end of the cross-validation, we obtained a list of all molecules and their respective TIDs, and their actual and predicted activity values (see Table <xref rid="Tab3" ref-type="table">3</xref>). In order to examine the performance of RF on any particular drug target, we select instances that are from that particular target’s dataset by filtering TIDs. This gives the actual and predicted activity values for that particular dataset, and it is straightforward to compute RMSEs (see “<xref rid="Sec16" ref-type="sec">Results and discussion</xref>” section). The same procedure is used for the evaluation of the performance of instance-based MTL.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>An output table for feature-based MTL</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>FOLD</p></th><th align="left"><p>MOL_ID</p></th><th align="left"><p>TID</p></th><th align="left"><p>Activity</p></th><th align="left"><p>Prediction</p></th></tr></thead><tbody><tr><td align="left"><p>1</p></td><td align="left"><p>ID_1</p></td><td align="left"><p>7</p></td><td align="left"><p>6.351</p></td><td align="left"><p>6.011</p></td></tr><tr><td align="left"><p>1</p></td><td align="left"><p>ID_2</p></td><td align="left"><p>7</p></td><td align="left"><p>7.534</p></td><td align="left"><p>7.681</p></td></tr><tr><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td></tr><tr><td align="left"><p>10</p></td><td align="left"><p>ID_111</p></td><td align="left"><p>95</p></td><td align="left"><p>8.001</p></td><td align="left"><p>7.764</p></td></tr><tr><td align="left"><p>10</p></td><td align="left"><p>ID_112</p></td><td align="left"><p>95</p></td><td align="left"><p>6.239</p></td><td align="left"><p>6.401</p></td></tr></tbody></table></table-wrap></p>
+          </sec>
+          <sec id="Sec15">
+            <title>Instance-based MTL</title>
+            <p id="Par70">In the instance-based MTL we made use of the quantitative similarity between drug targets described in “<xref rid="Sec11" ref-type="sec">Drug targets similarity</xref>” section. To represent this information, we added <italic>n</italic> extra attributes that consist of the similarity values to the other species (<italic>n</italic> is the number of drug targets in each drug target group or class). As Table <xref rid="Tab4" ref-type="table">4</xref> shows, the attribute <inline-formula id="IEq5"><alternatives><mml:math id="IEq5_Math"><mml:mrow><mml:mi>S</mml:mi><mml:mi>i</mml:mi><mml:mi>m</mml:mi><mml:mi>T</mml:mi><mml:mi>o</mml:mi><mml:mi>T</mml:mi><mml:mi>I</mml:mi><mml:mi>D</mml:mi><mml:mi>_</mml:mi><mml:mn>7</mml:mn></mml:mrow></mml:math><tex-math id="IEq5_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$SimToTID\_7$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_392_Article_IEq5.gif" /></alternatives></inline-formula> gives the similarity value between drug target with TID 7 and all other drug targets in this concatenated dataset. For examples which belong to TID 7, this value will be 1.<table-wrap id="Tab4"><label>Table 4</label><caption xml:lang="en"><p>A dataset for instance-based MTL</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>MOL_ID</p></th><th align="left"><p>TID</p></th><th align="left"><p>SimToTID_7</p></th><th align="left"><p>...</p></th><th align="left"><p>SimToTID_95</p></th><th align="left"><p>FP_1</p></th><th align="left"><p>FP_2</p></th><th align="left"><p>...</p></th><th align="left"><p>Activity</p></th></tr></thead><tbody><tr><td align="left"><p>ID_1</p></td><td align="left"><p>7</p></td><td align="left"><p>1</p></td><td align="left"><p>...</p></td><td align="left"><p>0.584</p></td><td align="left"><p>1</p></td><td align="left"><p>0</p></td><td align="left"><p>...</p></td><td align="left"><p>6.351</p></td></tr><tr><td align="left"><p>ID_2</p></td><td align="left"><p>7</p></td><td align="left"><p>1</p></td><td align="left"><p>...</p></td><td align="left"><p>0.584</p></td><td align="left"><p>0</p></td><td align="left"><p>1</p></td><td align="left"><p>...</p></td><td align="left"><p>7.534</p></td></tr><tr><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td><td align="left"><p>...</p></td></tr><tr><td align="left"><p>ID_111</p></td><td align="left"><p>95</p></td><td align="left"><p>0.584</p></td><td align="left"><p>...</p></td><td align="left"><p>1</p></td><td align="left"><p>1</p></td><td align="left"><p>1</p></td><td align="left"><p>...</p></td><td align="left"><p>8.001</p></td></tr><tr><td align="left"><p>ID_112</p></td><td align="left"><p>95</p></td><td align="left"><p>0.584</p></td><td align="left"><p>...</p></td><td align="left"><p>1</p></td><td align="left"><p>1</p></td><td align="left"><p>1</p></td><td align="left"><p>...</p></td><td align="left"><p>6.239</p></td></tr></tbody></table></table-wrap></p>
+            <p id="Par71">Algorithm 2 shows the pseudocode of instance-based MTL. We again used RF with 100 trees on the concatenated dataset, which now contains the similarity values. As in feature-based MTL, we used stratified tenfold cross-validation training based on the TID to evaluate the performance of instance-based MTL approach, and compute the RMSE for each TID individually.</p>
+            <fig id="Figb" position="anchor">
+              <graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_392_Figb_HTML.png" position="anchor" />
+            </fig>
+          </sec>
+        </sec>
+        <sec id="Sec16">
+          <title>Results and discussion</title>
+          <p id="Par72">To evaluate the performance of our MTL approach, we performed MTL on the level of all groups and classes of drug targets, building a model simultaneously for all drug targets within that group or class. We only considered groups or classes that have more than one drug target, because otherwise there would be no difference with STL, and only included drug targets for which the minimum size of their dataset was 10, because we employ tenfold cross-validation. In other words, each dataset must contain at least 10 compounds with their corresponding activity against that drug target.</p>
+          <p id="Par73">We compared the three settings discussed in “<xref rid="Sec12" ref-type="sec">Methods</xref>” section by running MTL on all drug classes and groups, obtaining a list of drug targets with their corresponding RMSE values for STL, feature-based and instance-based MTLs. Finally, we counted the number of cases where each setting had lowest RMSE.</p>
+          <p id="Par74">To examine the distribution of RMSE values for each setting we drew histograms, ran Shapiro–Wilk tests [<xref ref-type="bibr" rid="CR55">55</xref>], generated Q–Q plots, and concluded that these values do not follow a normal distribution. Hence, we applied the non-parametric Wilcoxon Signed-ranks test to examine whether or not the difference between these values is statistically significant. For each experiment, we show the results of three different Wilcoxon Signed-ranks tests to pairwise compare the RMSE performance of the three settings. The following subsections show the details of our experiments using ChEMBL’s 6-level hierarchical classification and its grouping by preferred names.</p>
+          <sec id="Sec17">
+            <title>Using ChEMBL’s class levels</title>
+            <p id="Par75">We previously described ChEMBL’s 6-level hierarchical protein family classification which starts with L1 (most generic class) to L6 (most specific class). Table <xref rid="Tab5" ref-type="table">5</xref> displays the number of classes we obtained at each level. Note that Table <xref rid="Tab5" ref-type="table">5</xref> shows the number of classes at each level in the hierarchy explained in “<xref rid="Sec9" ref-type="sec">Drug target classes</xref>” section, and this is different from the number of groups in the preferred named grouping explained in “<xref rid="Sec10" ref-type="sec">Drug target groupings</xref>” section.<table-wrap id="Tab5"><label>Table 5</label><caption xml:lang="en"><p>ChEMBL’s 6-level protein family classification</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Level</p></th><th align="left"><p>No of classes</p></th></tr></thead><tbody><tr><td align="left"><p>L1</p></td><td char="." align="char"><p>13</p></td></tr><tr><td align="left"><p>L2</p></td><td char="." align="char"><p>24</p></td></tr><tr><td align="left"><p>L3</p></td><td char="." align="char"><p>46</p></td></tr><tr><td align="left"><p>L4</p></td><td char="." align="char"><p>111</p></td></tr><tr><td align="left"><p>L5</p></td><td char="." align="char"><p>180</p></td></tr><tr><td align="left"><p>L6</p></td><td char="." align="char"><p>50</p></td></tr></tbody></table></table-wrap></p>
+            <p id="Par76">Broad classes such as enzyme and membrane receptors can be found at L1, whereas as we traverse down the hierarchy, we can find more specific classes such as antiporter and protein kinase at L3 and amine and motilin receptor at L5. It is reasonable to assume that more specific classes are more evolutionarily related. L5 has more classes than any level, i.e. 180, as shown in Table <xref rid="Tab5" ref-type="table">5</xref>. Over the total of 1091 drug targets (corresponding to 1091 assays we run experiments for), we expect that a grouping at L5 would yield sets of targets which are closely related. Therefore, we present our experimental results using this level.</p>
+            <p id="Par77">Table <xref rid="Tab6" ref-type="table">6</xref> shows a simple sign test where we count how many times the RMSE value for each algorithm is less than the other. The +ve column indicates how many times the RMSE for the first setting is less than the second setting while the −ve column indicates how many times the RMSE for the second setting is less than the first setting. This shows that, for instance, feature-based MTL outperforms STL in 686 of the cases. Counting the number of overall wins, shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref>, yields that instance-based MTL outperforms both feature-based MTL and STL on 741 drug targets. Feature-based MTL won on 179 occasions and STL performed best on 171 occasions. The statistical significance of these results is shown in Table <xref rid="Tab7" ref-type="table">7</xref>. Finally, Fig. <xref rid="Fig2" ref-type="fig">2</xref> shows a point ranking where we award the best setting three points, the second best two points and the third best one point.<table-wrap id="Tab6"><label>Table 6</label><caption xml:lang="en"><p>Pair-wise sign test for the L5 results</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Setting</p></th><th align="left"><p># +ve</p></th><th align="left"><p># −ve</p></th><th align="left"><p># ties</p></th></tr></thead><tbody><tr><td align="left"><p>Feature-based MTL vs STL</p></td><td char="." align="char"><p>686</p></td><td char="." align="char"><p>405</p></td><td char="." align="char"><p>0</p></td></tr><tr><td align="left"><p>Instance-based MTL vs STL</p></td><td char="." align="char"><p>911</p></td><td char="." align="char"><p>180</p></td><td char="." align="char"><p>0</p></td></tr><tr><td align="left"><p>Instance-based MTL vs feature-based MTL</p></td><td char="." align="char"><p>891</p></td><td char="." align="char"><p>200</p></td><td char="." align="char"><p>0</p></td></tr></tbody></table></table-wrap><fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>The number of drug targets each method scores the lowest RMSE value</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_392_Fig1_HTML.png" /></fig><table-wrap id="Tab7"><label>Table 7</label><caption xml:lang="en"><p>Pair-wise Wilcoxon signed-ranks test for L5 results (W is the test statistic)</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Setting</p></th><th align="left"><p>W</p></th><th align="left"><p>p-value</p></th></tr></thead><tbody><tr><td align="left"><p>STL vs feature-based MTL medians: 0.744 and 0.701</p></td><td char="." align="char"><p>374646</p></td><td align="left"><p>1.609e−13</p></td></tr><tr><td align="left"><p>STL vs instance-based MTL medians: 0.744 and 0.633</p></td><td char="." align="char"><p>535197</p></td><td align="left"><p>2.2e−16</p></td></tr><tr><td align="left"><p>Feature-based MTL vs instance-based MTL medians: 0.701 and 0.633</p></td><td char="." align="char"><p>535673</p></td><td align="left"><p>2.2e−16</p></td></tr></tbody></table></table-wrap><fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>Feature-based and instance-based MTL compared with STL (ranked from 3 to 1) using L5 classes</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_392_Fig2_HTML.png" /></fig></p>
+            <p id="Par78">ChEMBL datasets are known to be imbalanced toward <italic>active</italic> compounds [<xref ref-type="bibr" rid="CR56">56</xref>]; hence we have compared our methods using the coefficient of determination (also known as R-squared) [<xref ref-type="bibr" rid="CR57">57</xref>]. Unlike RMSE where we are interested in the minimum value, when using R-squared we are interested in the highest value. This is because R-squared explains how good a model is. The value of R-squared normally ranges between 0 and 1, where 0 indicates a useless model and 1 indicates a perfect model. Our results are illustrated in Fig. <xref rid="Fig3" ref-type="fig">3</xref>. The figure shows how many drug targets each setting scores the highest R-squared on. Instance-based MTL outperforms both feature-based MTL and STL on 639 drug targets, feature-based MTL performs better than instance-based MTL and STL on 360 drug targets whereas STL performed best on 92 drug targets.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>The number of drug targets each method scored the highest R-squared value</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_392_Fig3_HTML.png" /></fig></p>
+            <p id="Par79">Table <xref rid="Tab7" ref-type="table">7</xref> shows the results of the pairwise Wilcoxon signed-rank tests. The null hypothesis is that the median change in RMSE values when we use our MTL methods is zero. As can be seen, feature-based MTL (median RMSE = 0.701) and instance-based MTL (Median RMSE = 0.633) both significantly outperformed STL (Median RMSE = 0.744). Moreover, instance-based MTL also significantly outperforms feature-based MTL. The difference in medians is further evident in the boxplot provided in Fig. <xref rid="Fig4" ref-type="fig">4</xref>.
+<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>Boxplot of RMSE values for the three settings when applied to all L5 drug target classes</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_392_Fig4_HTML.png" /></fig></p>
+            <p id="Par81">For validation, we carried out a Y-randomisation procedure [<xref ref-type="bibr" rid="CR58">58</xref>] on the feature-based MTL method. We repeated the same feature-based MTL procedure 1000 times using L5 target classes, and permuted the activity values each time. We then performed a sign test similar to that reported in Table <xref rid="Tab6" ref-type="table">6</xref>, and the results demonstrate that RF (i.e. STL) performed significantly better than feature-based MTL in all runs. We have made all our source code and results available on the Github.</p>
+            <p id="Par82">We also performed a randomisation procedure by shuffling the similarity values in the instance-based MTL approach. We have randomly selected 24 level 5 classes (the total number of selected drug targets is 120) and randomised their similarity values 1000 times. Each time we randomised, we run instance-based MTL and compute RSME for each drug target. Our results show that in 104 out of the 120 drug targets, the standard instance-based MTL approach performs better than when the similarity values are randomised (i.e. the RSME value for most drug targets when using the standard instance-based MTL approach is less than when randomising the similarity values). That is 86.67% of the randomly selected drug targets. This shows that the evolutionary data indeed significantly improves QSAR learners.</p>
+            <p id="Par83">We have analysed the results of our work further by identifying what drug target classes benefited from the proposed MTL QSAR. We define a <italic>fully benefited</italic> class as an L5 class in which all drug targets have better results when using feature-based MTL as compared with STL or instance-based MTL as compared with feature-based MTL. On the other hand, we define a <italic>no benefit</italic> class as an L5 class in which none of the drug targets have better results when using feature-based MTL as compared with STL or instance-based MTL as compared with feature-based MTL. Our results show that there are 12 no benefit drug target classes, for examples Neurotensin receptor class with 4 drug targets and Cholecystokinin receptor class with 2 targets. We have also found that 40 drug target classes fully benefited from feature-based MTL. Examples are CMGC protein kinase RCK family with 2 drug targets and tyrosine protein kinase Trk family with 3 drug targets. On the other hand, only 9 drug target classes fall under the instance-based MTL no benefit class. Example classes are cytochrome P450 51A1 with 2 drug targets and aspartic protease A2A subfamily with 3 drug targets. Also, as many as 78 drug target classes fully benefited from instance-based MTL. Examples are tyrosine protein kinase EGFR family with 6 drug target and MCH receptor with 4 drug target. A list of all these drug target classes is provided on our Github repository.</p>
+            <p id="Par84">Our results indicate that the size of no benefit classes are generally small with the highest number of drug targets in each class as 3. In addition, we have studied the similarity values amongst drug targets of fully benefited classes, and our analysis shows that instance-based MTL works better if there is a range of evolutionary distances in the class. In other words, if not all drug targets are very close or distant from each other.</p>
+          </sec>
+          <sec id="Sec18">
+            <title>Using ChEMBL’s preferred name groups</title>
+            <p id="Par85">Finally, we repeated our experiments using 468 drug target groups based on ChEMBL’s preferred name grouping (see “<xref rid="Sec8" ref-type="sec">Data</xref>” section). For a more detailed analysis, we investigated the performance of the three settings on the largest drug target group we have, which is DHFR with 21 drug targets.</p>
+            <p id="Par86">Figure <xref rid="Fig5" ref-type="fig">5</xref> shows a barplot of the RMSE values for the three settings on each of the 21 drug targets in the DHFR group. Instance-based MTL outperformed both feature-based MTL and STL in 18 drug targets and was never the third best. The STL was the best performer for only two drug targets whereas feature-based MTL won on only one drug target.<fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p>Barplot of RMSE values for 21 DHFR drug targets</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_392_Fig5_HTML.png" /></fig></p>
+            <p id="Par87">Table <xref rid="Tab8" ref-type="table">8</xref> shows the results of the pairwise Wilcoxon signed-rank test. The null hypothesis is that the median change in RMSE values when we use our MTL methods is zero. As can be seen, for the specific DHFR group, there was no significant difference in the RMSE values for STL (Median RMSE = 0.821) and feature-based MTL (Median RMSE = 0.808). However, instance-based MTL (Median RMSE = 0.668) is significantly better than both STL and feature-based MTL. The difference in medians is evident in the boxplot provided in Fig. <xref rid="Fig6" ref-type="fig">6</xref>.<table-wrap id="Tab8"><label>Table 8</label><caption xml:lang="en"><p>Pair-wise Wilcoxon signed-ranks test for the 21 DHFR group results (W is the test statistic)</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Setting</p></th><th align="left"><p>W</p></th><th align="left"><p>p-value</p></th></tr></thead><tbody><tr><td align="left"><p>STL vs feature-based MTL medians: 0.821 and 0.808</p></td><td char="." align="char"><p>108</p></td><td align="left"><p>0.8117</p></td></tr><tr><td align="left"><p>STL vs instance-based MTL medians: 0.821 and 0.668</p></td><td char="." align="char"><p>222</p></td><td align="left"><p>3.147e−05</p></td></tr><tr><td align="left"><p>Feature-based MTL vs instance-based MTL medians: 0.808 and 0.668</p></td><td char="." align="char"><p>220</p></td><td align="left"><p>5.245e−05</p></td></tr></tbody></table></table-wrap><fig id="Fig6"><label>Fig. 6</label><caption xml:lang="en"><p>Boxplot of RMSE values for the three settings when applied to 21 DHFR drug targets</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_392_Fig6_HTML.png" /></fig></p>
+          </sec>
+        </sec>
+        <sec id="Sec19">
+          <title>Conclusions and future work</title>
+          <p id="Par88">We have shown that MTL can significantly improve the performance of QSAR learning models, and thus can help to better predict the activity of drugs against specific drug targets. We predicted the activities of potential drugs against 1091 assays (i.e. 1091 drug targets) by grouping similar drug targets and training models on all targets within the same group simultaneously. Drug targets were grouped based on ChEMBL’s 6-level classification, as well as based on their preferred names.</p>
+          <p id="Par89">The results show that MTL significantly outperformed learning QSAR models individually. Moreover, when incorporating a novel, natural similarity measure between drug targets based on their sequence alignment, and hence their evolutionary kinship, we can further significantly improve QSAR learning. These results indicate that QSAR learning can be performed effectively, even if little data is available for specific drug targets, by leveraging what is known about similar drug targets.</p>
+          <p id="Par90">The QSAR datasets and experimental results are available on OpenML [<xref ref-type="bibr" rid="CR59">59</xref>]. OpenML is an open source platform that facilitates discovering, sharing and reusing data, machine learning models and experiments. OpenML ensures that the submitted experiments are compliant with the W3C MLSchema [<xref ref-type="bibr" rid="CR60">60</xref>], and therefore can be reproduced and reused in future work [<xref ref-type="bibr" rid="CR61">61</xref>]. The Java source code for all reported experiments is freely available on Github [<xref ref-type="bibr" rid="CR62">62</xref>]. The link also provides detailed information and a video demonstrating how the code can be run and how to analyse the results.</p>
+          <p id="Par91">In future work, we plan to evaluate the performance of our methods without TID-based stratification. we intend to use the distance between drug targets instead of similarity values (distance = 1 − similarity) and use similarity, or distance, between datasets instead of drug targets and compare performance.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>This research was funded by the Engineering and Physical Sciences Research Council (EPSRC) grant EP/K030469/1. NS would like to thank the EU PhenoMeNal project (Horizon 2020, 654241).</p>
+        </ack>
+        <sec sec-type="author-contribution">
+          <title>Authors’ contributions</title>
+          <p>NS developed the MTL methods and ran all the experiments with input from RDK and LS. He also wrote most of the manuscript. IO, JB and RB assisted with preparing the data and choosing the sequence similarity method as well as providing insight into ChEMBL’s hierarchy of drug targets. CG and JV contributed to result evaluation and making data available on OpenML. JV and JNV analysed the methods from a machine learning perspective. The entire project was supervised by LS and RDK. All authors read and approved the final manuscript.</p>
+        </sec>
+        <sec sec-type="data-availability">
+          <title>Availability of data and materials</title>
+          <p>All datasets and code are freely available at: <ext-link xlink:href="https://github.com/nsadawi/MTL-QSAR" ext-link-type="uri">https://github.com/nsadawi/MTL-QSAR</ext-link>.</p>
+        </sec>
+        <sec sec-type="ethics-statement">
+          <sec id="FPar4">
+            <title>Ethics approval and consent to participate</title>
+            <p id="Par96">The research reported in this manuscript has been approved by respective organisations.</p>
+          </sec>
+          <sec id="FPar2" sec-type="COI-statement">
+            <title>Competing interests</title>
+            <p id="Par94">The authors declare that they have no competing interests.</p>
+          </sec>
+        </sec>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Caruana</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Multitask learning</article-title>
+                <source>Mach Learn</source>
+                <year>1997</year>
+                <volume>28</volume>
+                <issue>1</issue>
+                <fpage>41</fpage>
+                <lpage>75</lpage>
+                <pub-id pub-id-type="doi">10.1023/A:1007379606734</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Shen</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Multi-modal multi-task learning for joint prediction of multiple regression and classification variables in Alzheimer’s disease</article-title>
+                <source>NeuroImage</source>
+                <year>2012</year>
+                <volume>59</volume>
+                <issue>2</issue>
+                <fpage>895</fpage>
+                <lpage>907</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.neuroimage.2011.09.069</pub-id>
+                <pub-id pub-id-type="pmid">21992749</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Evgeniou</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Micchelli</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <name>
+                    <surname>Pontil</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Learning multiple tasks with kernel methods</article-title>
+                <source>J Mach Learn Res</source>
+                <year>2005</year>
+                <volume>6</volume>
+                <fpage>615</fpage>
+                <lpage>637</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ando</surname>
+                    <given-names>RK</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A framework for learning predictive structures from multiple tasks and unlabeled data</article-title>
+                <source>J Mach Learn Res</source>
+                <year>2005</year>
+                <volume>6</volume>
+                <fpage>1817</fpage>
+                <lpage>1853</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An overview of multi-task learning</article-title>
+                <source>Natl Sci Rev</source>
+                <year>2017</year>
+                <pub-id pub-id-type="doi">10.1093/nsr/nwx105</pub-id>
+                <pub-id pub-id-type="pmid">30034911</pub-id>
+                <pub-id pub-id-type="pmcid">6051411</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pan</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A survey on transfer learning</article-title>
+                <source>IEEE Trans Knowl Data Eng</source>
+                <year>2010</year>
+                <volume>22</volume>
+                <issue>10</issue>
+                <fpage>1345</fpage>
+                <lpage>1359</lpage>
+                <pub-id pub-id-type="doi">10.1109/TKDE.2009.191</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="other">Dai W, Yang Q, Xue G-R, Yu Y (2007) Boosting for transfer learning. In: Proceedings of the 24th international conference on machine learning. ICML ’07. ACM, New York, pp 193–200. <ext-link xlink:href="10.1145/1273496.1273521" ext-link-type="doi">https://doi.org/10.1145/1273496.1273521</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Roy</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Kar</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Das</surname>
+                    <given-names>RN</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Roy</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Kar</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Das</surname>
+                    <given-names>RN</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chapter 1–Background of qsar and historical developments</article-title>
+                <source>Understanding the basics of QSAR for applications in pharmaceutical sciences and risk assessment</source>
+                <year>2015</year>
+                <publisher-loc>Boston</publisher-loc>
+                <publisher-name>Academic Press</publisher-name>
+                <fpage>1</fpage>
+                <lpage>46</lpage>
+                <pub-id pub-id-type="doi">10.1016/B978-0-12-801505-6.00001-6</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hansch</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Maloney</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Fujita</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Muir</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Correlation of biological activity of phenoxyacetic acids with Hammett substituent constants and partition coefficients</article-title>
+                <source>Nature</source>
+                <year>1962</year>
+                <pub-id pub-id-type="doi">10.1038/194178b0</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cherkasov</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Muratov</surname>
+                    <given-names>EN</given-names>
+                  </name>
+                  <name>
+                    <surname>Fourches</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Varnek</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Baskin</surname>
+                    <given-names>II</given-names>
+                  </name>
+                  <name>
+                    <surname>Cronin</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Dearden</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Gramatica</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Martin</surname>
+                    <given-names>YC</given-names>
+                  </name>
+                  <name>
+                    <surname>Todeschini</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Consonni</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuz’min</surname>
+                    <given-names>VE</given-names>
+                  </name>
+                  <name>
+                    <surname>Cramer</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Benigni</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Rathman</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Terfloth</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Gasteiger</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Richard</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Tropsha</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Qsar modeling: where have you been? where are you going to?</article-title>
+                <source>J Med Chem</source>
+                <year>2014</year>
+                <volume>57</volume>
+                <issue>12</issue>
+                <fpage>4977</fpage>
+                <lpage>5010</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXhvFCrsLnE</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm4004285</pub-id>
+                <pub-id pub-id-type="pmid">24351051</pub-id>
+                <pub-id pub-id-type="pmcid">4074254</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="other">Chen J, Tang L, Liu J, Ye J (2009) A convex formulation for learning shared structures from multiple tasks. In: Proceedings of the 26th annual international conference on machine learning. ICML ’09. ACM, New York, pp 137–144. <ext-link xlink:href="10.1145/1553374.1553392" ext-link-type="doi">https://doi.org/10.1145/1553374.1553392</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="other">Bickel S, Bogojeska J, Lengauer T, Scheffer T (2008) Multi-task learning for hiv therapy screening. In: Proceedings of the 25th international conference on machine learning. ICML ’08. ACM, New York, pp 56–63. <ext-link xlink:href="10.1145/1390156.1390164" ext-link-type="doi">https://doi.org/10.1145/1390156.1390164</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="other">Kim S, Xing EP (2010) Tree-guided group lasso for multi-task regression with structured sparsity. In: Proceedings of the 27th international conference on machine learning (ICML-10). Omnipress, Madison, pp 543–550. <ext-link xlink:href="http://www.icml2010.org/papers/352.pdf" ext-link-type="uri">http://www.icml2010.org/papers/352.pdf</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="other">Long M, Wang J (2015) Learning multiple tasks with deep relationship networks. CoRR <ext-link xlink:href="http://arxiv.org/abs/1506.02117" ext-link-type="uri">arXiv:1506.02117</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="other">Sogaard A, Goldberg Y (2016) Deep multi-task learning with low level tasks supervised at lower layers. In: Proceedings of the 54th annual meeting of the association for computational linguistics, pp 231–235</mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Xue</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Liao</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Carin</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Krishnapuram</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Multi-task learning for classification with dirichlet process priors</article-title>
+                <source>J Mach Learn Res</source>
+                <year>2007</year>
+                <volume>8</volume>
+                <fpage>35</fpage>
+                <lpage>63</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Yeung</surname>
+                    <given-names>D-Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A regularization approach to learning task relationships in multitask learning</article-title>
+                <source>ACM Trans Knowl Discov Data</source>
+                <year>2014</year>
+                <volume>8</volume>
+                <issue>3</issue>
+                <fpage>12</fpage>
+                <lpage>11231</lpage>
+                <pub-id pub-id-type="doi">10.1145/2538028</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bakker</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Heskes</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Task clustering and gating for bayesian multitask learning</article-title>
+                <source>J Mach Learn Res</source>
+                <year>2003</year>
+                <volume>4</volume>
+                <fpage>83</fpage>
+                <lpage>99</lpage>
+                <pub-id pub-id-type="doi">10.1162/153244304322765658</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="other">Jacob L, Vert J-P, Bach FR (2009) Clustered multi-task learning: a convex formulation. In: Koller D, Schuurmans D, Bengio Y, Bottou L (eds) Advances in neural information processing systems, vol 21. Curran Associates, Inc., Red Hook, pp 745–752. <ext-link xlink:href="http://papers.nips.cc/paper/3499-clustered-multi-task-learning-a-convex-formulation.pdf" ext-link-type="uri">http://papers.nips.cc/paper/3499-clustered-multi-task-learning-a-convex-formulation.pdf</ext-link>. Accessed 11 Mar 2018</mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Argyriou</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Evgeniou</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Pontil</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Convex multi-task feature learning</article-title>
+                <source>Mach Learn</source>
+                <year>2008</year>
+                <volume>73</volume>
+                <issue>3</issue>
+                <fpage>243</fpage>
+                <lpage>272</lpage>
+                <pub-id pub-id-type="doi">10.1007/s10994-007-5040-8</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="other">Kang Z, Grauman K, Sha F (2011) Learning with whom to share in multi-task feature learning. In: Getoor L, Scheffer T (eds) Proceedings of the 28th international conference on machine learning (ICML-11). ACM, New York, pp 521–528. <ext-link xlink:href="http://www.icml-2011.org/papers/344_icmlpaper.pdf" ext-link-type="uri">http://www.icml-2011.org/papers/344_icmlpaper.pdf</ext-link>. Accessed 26 Mar 2019</mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="other">Xu L, Huang A, Chen J, Chen E (2015) Exploiting task-feature co-clusters in multi-task learning</mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="other">Zhong W, Kwok JT (2012) Convex multitask learning with flexible task clusters. CoRR <ext-link xlink:href="http://arxiv.org/abs/1206.4601" ext-link-type="uri">arXiv:1206.4601</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="other">Yousefi N, Georgiopoulos M, Anagnostopoulos GC (2015) Multi-task learning with group-specific feature space sharing. CoRR <ext-link xlink:href="http://arxiv.org/abs/1508.03329" ext-link-type="uri">arXiv:1508.03329</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                  <name>
+                    <surname>Xue</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Multi-platform gene-expression mining and marker gene analysis</article-title>
+                <source>Int J Data Min Bioinform</source>
+                <year>2011</year>
+                <volume>5</volume>
+                <issue>5</issue>
+                <fpage>485</fpage>
+                <lpage>503</lpage>
+                <pub-id pub-id-type="doi">10.1504/IJDMB.2011.043030</pub-id>
+                <pub-id pub-id-type="pmid">22145530</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="other">Zhou J, Yuan L, Liu J, Ye J (2011) A multi-task learning formulation for predicting disease progression. In: Proceedings of the 17th ACM SIGKDD international conference on knowledge discovery and data mining. KDD ’11. ACM, New York, pp 814–822. <ext-link xlink:href="10.1145/2020408.2020549" ext-link-type="doi">https://doi.org/10.1145/2020408.2020549</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Widmer</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Leiva</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Altun</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Rätsch</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <source>Leveraging sequence classification by taxonomy-based multitask learning. Research in computational molecular biology</source>
+                <year>2010</year>
+                <publisher-loc>Berlin</publisher-loc>
+                <publisher-name>LNCS, Springer</publisher-name>
+                <fpage>522</fpage>
+                <lpage>534</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="other">Widmer C, Rätsch G (2012) Multitask learning in computational biology. In: Guyon I, Dror G, Lemaire V, Taylor GW, Silver DL (eds) ICML unsupervised and transfer learning. JMLR proceedings, vol 27. JMLR.org, pp 207–216</mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                  <name>
+                    <surname>Zheng</surname>
+                    <given-names>VW</given-names>
+                  </name>
+                  <name>
+                    <surname>Xue</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Cao</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Multi-task learning for cross-platform sirna efficacy prediction: an in-silico study</article-title>
+                <source>BMC Bioinform</source>
+                <year>2010</year>
+                <volume>11</volume>
+                <issue>1</issue>
+                <fpage>181</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXltVKhsbs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/1471-2105-11-181</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sheridan</surname>
+                    <given-names>RP</given-names>
+                  </name>
+                  <name>
+                    <surname>Nam</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Maiorov</surname>
+                    <given-names>VN</given-names>
+                  </name>
+                  <name>
+                    <surname>McMasters</surname>
+                    <given-names>DR</given-names>
+                  </name>
+                  <name>
+                    <surname>Cornell</surname>
+                    <given-names>WD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Qsar models for predicting the similarity in binding profiles for pairs of protein kinases and the variation of models between experimental data sets</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2009</year>
+                <volume>49</volume>
+                <issue>8</issue>
+                <fpage>1974</fpage>
+                <lpage>1985</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXptFChs7c%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci900176y</pub-id>
+                <pub-id pub-id-type="pmid">19639957</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="other">Dahl GE, Jaitly N, Salakhutdinov R (2014) Multi-task Neural Networks for QSAR Predictions. ArXiv e-prints . 1406.1231</mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="other">Evgeniou T, Pontil M (2004) Regularized multi-task learning. In: Proceedings of the tenth ACM SIGKDD international conference on knowledge discovery and data mining. ACM, New York, pp 109–117</mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rosenbaum</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Dörr</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bauer</surname>
+                    <given-names>MR</given-names>
+                  </name>
+                  <name>
+                    <surname>Boeckler</surname>
+                    <given-names>FM</given-names>
+                  </name>
+                  <name>
+                    <surname>Zell</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Inferring multi-target QSAR models with taxonomy-based multi-task learning</article-title>
+                <source>J Cheminform</source>
+                <year>2013</year>
+                <volume>5</volume>
+                <fpage>33</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXht12jsr3J</pub-id>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-5-33</pub-id>
+                <pub-id pub-id-type="pmid">23842210</pub-id>
+                <pub-id pub-id-type="pmcid">4104930</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Manning</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Whyte</surname>
+                    <given-names>DB</given-names>
+                  </name>
+                  <name>
+                    <surname>Martinez</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Hunter</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Sudarsanam</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The protein kinase complement of the human genome</article-title>
+                <source>Science</source>
+                <year>2002</year>
+                <volume>298</volume>
+                <issue>5600</issue>
+                <fpage>1912</fpage>
+                <lpage>1934</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38Xpt1Wisb0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1126/science.1075762</pub-id>
+                <pub-id pub-id-type="pmid">12471243</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ning</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Rangwala</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Karypis</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Multi-assay-based structure–activity relationship models: improving structure–activity relationship models by incorporating activity information from related targets</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2009</year>
+                <volume>49</volume>
+                <issue>11</issue>
+                <fpage>2444</fpage>
+                <lpage>2456</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXht1ynt7fM</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci900182q</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Varnek</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Gaudin</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Marcou</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Baskin</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Pandey</surname>
+                    <given-names>AK</given-names>
+                  </name>
+                  <name>
+                    <surname>Tetko</surname>
+                    <given-names>IV</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Inductive transfer of knowledge: application of multi-task learning and feature net approaches to model tissue-air partition coefficients</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2009</year>
+                <volume>49</volume>
+                <issue>1</issue>
+                <fpage>133</fpage>
+                <lpage>144</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXisVWntQ%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci8002914</pub-id>
+                <pub-id pub-id-type="pmid">19125628</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ruggiu</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Marcou</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Varnek</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Horvath</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Isida property-labelled fragment descriptors</article-title>
+                <source>Mol Inform</source>
+                <year>2010</year>
+                <volume>29</volume>
+                <fpage>855</fpage>
+                <lpage>68</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXhsF2rtrrP</pub-id>
+                <pub-id pub-id-type="doi">10.1002/minf.201000099</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="other">Ramsundar B, Kearnes SM, Riley P, Webster D, Konerding DE, Pande VS (2015) Massively multitask networks for drug discovery. CoRR <ext-link xlink:href="http://arxiv.org/abs/1502.02072" ext-link-type="uri">arXiv:1502.02072</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Ma</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Liaw</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Sheridan</surname>
+                    <given-names>RP</given-names>
+                  </name>
+                  <name>
+                    <surname>Svetnik</surname>
+                    <given-names>V</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Demystifying multitask deep neural networks for quantitative structure–activity relationships</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2017</year>
+                <volume>57</volume>
+                <issue>10</issue>
+                <fpage>2490</fpage>
+                <lpage>2504</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhsVejs7jJ</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.7b00087</pub-id>
+                <pub-id pub-id-type="pmid">28872869</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Simões</surname>
+                    <given-names>RS</given-names>
+                  </name>
+                  <name>
+                    <surname>Maltarollo</surname>
+                    <given-names>VG</given-names>
+                  </name>
+                  <name>
+                    <surname>Oliveira</surname>
+                    <given-names>PR</given-names>
+                  </name>
+                  <name>
+                    <surname>Honorio</surname>
+                    <given-names>KM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Transfer and multi-task learning in qsar modeling: advances and challenges</article-title>
+                <source>Front Pharmacol</source>
+                <year>2018</year>
+                <volume>9</volume>
+                <fpage>74</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXit1Skt7fM</pub-id>
+                <pub-id pub-id-type="doi">10.3389/fphar.2018.00074</pub-id>
+                <pub-id pub-id-type="pmid">29467659</pub-id>
+                <pub-id pub-id-type="pmcid">5807924</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Olier</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Sadawi</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Bickerton</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                  <name>
+                    <surname>Vanschoren</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Grosan</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Soldatova</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>King</surname>
+                    <given-names>RD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Meta-qsar: a large-scale application of meta-learning to drug design and discovery</article-title>
+                <source>Mach Learn</source>
+                <year>2017</year>
+                <pub-id pub-id-type="doi">10.1007/s10994-017-5685-x</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Imming</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Sinning</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Meyer</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Drugs, their targets and the nature and number of drug targets</article-title>
+                <source>Nat Rev Drug Discov</source>
+                <year>2006</year>
+                <volume>5</volume>
+                <issue>10</issue>
+                <fpage>821</fpage>
+                <lpage>834</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XhtVajsbbN</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nrd2132</pub-id>
+                <pub-id pub-id-type="pmid">17016423</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gaulton</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bellis</surname>
+                    <given-names>LJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Bento</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Chambers</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Davies</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Hersey</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Light</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>McGlinchey</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Michalovich</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Al-Lazikani</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Overington</surname>
+                    <given-names>JP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ChEMBL: a large-scale bioactivity database for drug discovery</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2011</year>
+                <volume>40</volume>
+                <issue>D1</issue>
+                <fpage>777</fpage>
+                <lpage>1107</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhs12htbjN</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkr777</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="other">AEROPATH Team: AEROPATH target database. <ext-link xlink:href="http://aeropath.lifesci.dundee.ac.uk/" ext-link-type="uri">http://aeropath.lifesci.dundee.ac.uk/</ext-link>. Accessed 26 Mar 2019</mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="other">Mount DW (2004) Bioinformatics: sequence and genome analysis. Cold Spring Harbor Laboratory Press, Cold Spring Harbor. <ext-link xlink:href="https://books.google.co.uk/books?id=M8pqAAAAMAAJ" ext-link-type="uri">https://books.google.co.uk/books?id=M8pqAAAAMAAJ</ext-link>. Accessed 7 Feb 2019</mixed-citation>
+            </ref>
+            <ref id="CR46">
+              <label>46.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Needleman</surname>
+                    <given-names>SB</given-names>
+                  </name>
+                  <name>
+                    <surname>Wunsch</surname>
+                    <given-names>CD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A general method applicable to the search for similarities in the amino acid sequence of two proteins</article-title>
+                <source>J Mol Biol</source>
+                <year>1970</year>
+                <volume>48</volume>
+                <issue>3</issue>
+                <fpage>443</fpage>
+                <lpage>453</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaE3cXktVShu74%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/0022-2836(70)90057-4</pub-id>
+                <pub-id pub-id-type="pmid">5420325</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR47">
+              <label>47.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Smith</surname>
+                    <given-names>TF</given-names>
+                  </name>
+                  <name>
+                    <surname>Waterman</surname>
+                    <given-names>MS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Identification of common molecular subsequences</article-title>
+                <source>J Mol Biol</source>
+                <year>1981</year>
+                <volume>147</volume>
+                <issue>1</issue>
+                <fpage>195</fpage>
+                <lpage>197</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXitlCnsLw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/0022-2836(81)90087-5</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR48">
+              <label>48.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Raghava</surname>
+                    <given-names>GP</given-names>
+                  </name>
+                  <name>
+                    <surname>Barton</surname>
+                    <given-names>GJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Quantification of the variation in percentage identity for protein sequence alignments</article-title>
+                <source>BMC Bioinform</source>
+                <year>2006</year>
+                <volume>7</volume>
+                <issue>1</issue>
+                <fpage>415</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XhtV2itLbL</pub-id>
+                <pub-id pub-id-type="doi">10.1186/1471-2105-7-415</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR49">
+              <label>49.</label>
+              <mixed-citation publication-type="other">Pages H, Aboyoun P, Gentleman R, DebRoy S. Biostrings: string objects representing biological sequences, and matching algorithms. Online</mixed-citation>
+            </ref>
+            <ref id="CR50">
+              <label>50.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Breiman</surname>
+                    <given-names>L</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Random forests</article-title>
+                <source>Mach Learn</source>
+                <year>2001</year>
+                <volume>45</volume>
+                <issue>1</issue>
+                <fpage>5</fpage>
+                <lpage>32</lpage>
+                <pub-id pub-id-type="doi">10.1023/A:1010933404324</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR51">
+              <label>51.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Witten</surname>
+                    <given-names>IH</given-names>
+                  </name>
+                  <name>
+                    <surname>Frank</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <source>Data mining: practical machine learning tools and techniques (Morgan Kaufmann series in data management systems)</source>
+                <year>2005</year>
+                <edition>2</edition>
+                <publisher-loc>San Francisco</publisher-loc>
+                <publisher-name>Morgan Kaufmann Publishers Inc.</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR52">
+              <label>52.</label>
+              <mixed-citation publication-type="other">Todeschini R, Consonni V, Mannhold R, Kubinyi H, Timmerman H (2008) Handbook of molecular descriptors. Methods and principles in medicinal chemistry. Wiley, Hoboken. <ext-link xlink:href="https://books.google.co.uk/books?id=TCuHqbvgMbEC" ext-link-type="uri">https://books.google.co.uk/books?id=TCuHqbvgMbEC</ext-link>. Accessed 13 Apr 2018</mixed-citation>
+            </ref>
+            <ref id="CR53">
+              <label>53.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hall</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Frank</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Holmes</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Pfahringer</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Reutemann</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Witten</surname>
+                    <given-names>IH</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The weka data mining software: an update</article-title>
+                <source>SIGKDD Explor Newsl</source>
+                <year>2009</year>
+                <volume>11</volume>
+                <issue>1</issue>
+                <fpage>10</fpage>
+                <lpage>18</lpage>
+                <pub-id pub-id-type="doi">10.1145/1656274.1656278</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR54">
+              <label>54.</label>
+              <mixed-citation publication-type="other">Foreman EK (1991) Survey sampling principles. Statistics: a series of textbooks and monographs. Taylor &amp; Francis, New York. <ext-link xlink:href="https://books.google.co.uk/books?id=NaB38L1pcpwC" ext-link-type="uri">https://books.google.co.uk/books?id=NaB38L1pcpwC</ext-link>. Accessed 22 Jan 2019</mixed-citation>
+            </ref>
+            <ref id="CR55">
+              <label>55.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>SHAPIRO</surname>
+                    <given-names>S. S.</given-names>
+                  </name>
+                  <name>
+                    <surname>WILK</surname>
+                    <given-names>M. B.</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An analysis of variance test for normality (complete samples)</article-title>
+                <source>Biometrika</source>
+                <year>1965</year>
+                <volume>52</volume>
+                <issue>3-4</issue>
+                <fpage>591</fpage>
+                <lpage>611</lpage>
+                <pub-id pub-id-type="doi">10.1093/biomet/52.3-4.591</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR56">
+              <label>56.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zakharov</surname>
+                    <given-names>AV</given-names>
+                  </name>
+                  <name>
+                    <surname>Peach</surname>
+                    <given-names>ML</given-names>
+                  </name>
+                  <name>
+                    <surname>Sitzmann</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Nicklaus</surname>
+                    <given-names>MC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Qsar modeling of imbalanced high-throughput screening data in pubchem</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2014</year>
+                <volume>54</volume>
+                <issue>3</issue>
+                <fpage>705</fpage>
+                <lpage>712</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXitlartb0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci400737s</pub-id>
+                <pub-id pub-id-type="pmid">24524735</pub-id>
+                <pub-id pub-id-type="pmcid">3985743</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR57">
+              <label>57.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Alexander</surname>
+                    <given-names>DLJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Tropsha</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Winkler</surname>
+                    <given-names>DA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Beware of r2: simple, unambiguous assessment of the prediction accuracy of qsar and qspr models</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2015</year>
+                <volume>55</volume>
+                <issue>7</issue>
+                <fpage>1316</fpage>
+                <lpage>1322</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXhtVCmtL%2FO</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.5b00206</pub-id>
+                <pub-id pub-id-type="pmid">26099013</pub-id>
+                <pub-id pub-id-type="pmcid">4530125</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR58">
+              <label>58.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rücker</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Rücker</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Meringer</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">y-randomization and its variants in qspr/qsar</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <issue>6</issue>
+                <fpage>2345</fpage>
+                <lpage>2357</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXhtVGqtL%2FI</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci700157b</pub-id>
+                <pub-id pub-id-type="pmid">17880194</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR59">
+              <label>59.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Vanschoren</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>van Rijn</surname>
+                    <given-names>JN</given-names>
+                  </name>
+                  <name>
+                    <surname>Bischl</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Torgo</surname>
+                    <given-names>L</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">OpenML: networked science in machine learning</article-title>
+                <source>SIGKDD Explor</source>
+                <year>2013</year>
+                <volume>15</volume>
+                <issue>2</issue>
+                <fpage>49</fpage>
+                <lpage>60</lpage>
+                <pub-id pub-id-type="doi">10.1145/2641190.2641198</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR60">
+              <label>60.</label>
+              <mixed-citation publication-type="other">MLS Team (2019) W3C MLSchema. Online. <ext-link xlink:href="https://www.w3.org/community/ml-schema" ext-link-type="uri">https://www.w3.org/community/ml-schema</ext-link>. Accessed 25 Mar 2019</mixed-citation>
+            </ref>
+            <ref id="CR61">
+              <label>61.</label>
+              <mixed-citation publication-type="other">MTL-QSAR Team (2019) MTL-QSAR on OpenML. Online. <ext-link xlink:href="https://www.openml.org/s/3" ext-link-type="uri">https://www.openml.org/s/3</ext-link>. Accessed 25 Mar 2019</mixed-citation>
+            </ref>
+            <ref id="CR62">
+              <label>62.</label>
+              <mixed-citation publication-type="other">MTL-QSAR Team (2019) MTL-QSAR on Github. Online. <ext-link xlink:href="https://github.com/nsadawi/MTL-QSAR" ext-link-type="uri">https://github.com/nsadawi/MTL-QSAR</ext-link>. Accessed 25 Mar 2019</mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <glossary>
+          <title>Abbreviations</title>
+          <def-list>
+            <def-item>
+              <term>QSAR</term>
+              <def>
+                <p id="Par2">quantitative structure activity relationship</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>MTL</term>
+              <def>
+                <p id="Par3">multi-task learning</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>DHFR</term>
+              <def>
+                <p id="Par4">dihydrofolate reductase</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>MHC</term>
+              <def>
+                <p id="Par5">histocompatibility complex</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RNA</term>
+              <def>
+                <p id="Par6">ribonucleic acid</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>DRN</term>
+              <def>
+                <p id="Par7">deep relationship networks</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>FN</term>
+              <def>
+                <p id="Par8">feature nets</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PLS</term>
+              <def>
+                <p id="Par9">partial least squares</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>NLP</term>
+              <def>
+                <p id="Par10">natural language processing</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CMTL</term>
+              <def>
+                <p id="Par11">clustered multi-task learning</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>DNNs</term>
+              <def>
+                <p id="Par12">deep neural networks</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>SVM</term>
+              <def>
+                <p id="Par13">support vector machines</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RF</term>
+              <def>
+                <p id="Par14">random forest</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>FCFP</term>
+              <def>
+                <p id="Par15">functional-class fingerprints</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>ChEMBL</term>
+              <def>
+                <p id="Par16">Chemical Database at the European Molecular Biology Laboratory</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PID</term>
+              <def>
+                <p id="Par17">percentage sequence identity</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>TID</term>
+              <def>
+                <p id="Par18">target identifier</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>MOL_ID</term>
+              <def>
+                <p id="Par19">molecule identifier</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RMSE</term>
+              <def>
+                <p id="Par20">Root Mean Squared Error</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>STL</term>
+              <def>
+                <p id="Par21">single task learning</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>AMPA receptor</term>
+              <def>
+                <p id="Par22"><inline-formula id="IEq1"><alternatives><mml:math id="IEq1_Math"><mml:mi>α</mml:mi></mml:math><tex-math id="IEq1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\alpha$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_392_Article_IEq1.gif" /></alternatives></inline-formula>-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid receptor</p>
+              </def>
+            </def-item>
+          </def-list>
+        </glossary>
+        <notes notes-type="Misc">
+          <title>Publisher's Note</title>
+          <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+        </notes>
+      </back>
+    </article>

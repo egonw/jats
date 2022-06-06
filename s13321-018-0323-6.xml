@@ -1,0 +1,869 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-018-0323-6</article-id>
+          <article-id pub-id-type="manuscript">323</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-018-0323-6</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Software</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">A retrosynthetic analysis algorithm implementation</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" id="Au1">
+              <name>
+                <surname>Watson</surname>
+                <given-names>Ian A.</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au2">
+              <name>
+                <surname>Wang</surname>
+                <given-names>Jibo</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au3">
+              <name>
+                <surname>Nicolaou</surname>
+                <given-names>Christos A.</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDs1332101803236_cor3">c</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0000 2220 2544</institution-id>
+                <institution-id institution-id-type="GRID">grid.417540.3</institution-id>
+                <institution content-type="org-division">Discovery Chemistry, Lilly Research Laboratories</institution>
+                <institution content-type="org-name">Eli Lilly and Company</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">46285</addr-line>
+              <addr-line content-type="city">Indianapolis</addr-line>
+              <addr-line content-type="state">IN</addr-line>
+              <country country="US">USA</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs1332101803236_cor3">
+              <label>c</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>3</day>
+            <month>1</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="1">1</issue>
+          <elocation-id>1</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>20</day>
+              <month>12</month>
+              <year>2018</year>
+            </date>
+            <date date-type="received">
+              <day>15</day>
+              <month>9</month>
+              <year>2018</year>
+            </date>
+            <date date-type="accepted">
+              <day>20</day>
+              <month>12</month>
+              <year>2018</year>
+            </date>
+            <date date-type="online">
+              <day>3</day>
+              <month>1</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">The need for synthetic route design arises frequently in discovery-oriented chemistry organizations. While traditionally finding solutions to this problem has been the domain of human experts, several computational approaches, aided by the algorithmic advances and the availability of large reaction collections, have recently been reported. Herein we present our own implementation of a retrosynthetic analysis method and demonstrate its capabilities in an attempt to identify synthetic routes for a collection of approved drugs. Our results indicate that the method, leveraging on reaction transformation rules learned from a large patent reaction dataset, can identify multiple theoretically feasible synthetic routes and, thus, support research chemist everyday efforts.</p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Retrosynthetic analysis</kwd>
+            <kwd>Chemical synthesis</kwd>
+            <kwd>Synthetic route design</kwd>
+            <kwd>Reaction informatics</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2018</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>12</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>20</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2018_Article_323.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (<ext-link xlink:href="10.1186/s13321-018-0323-6" ext-link-type="doi">https://doi.org/10.1186/s13321-018-0323-6</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p id="Par6">Research needs for chemical synthesis predictability, synthetic route planning and reaction optimization has motivated the development of several computational tools in recent years [<xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR15">15</xref>, <xref ref-type="bibr" rid="CR19">19</xref>]. Traditionally, these tools implement methods based on precedent reaction look-up or retrosynthetic analysis solutions [<xref ref-type="bibr" rid="CR8">8</xref>]. The former relies on the presence of a collection of reactions and attempts to match the query structure to a known reaction product (Reaxys; Scifinder). When a match is identified the original reaction is retrieved and, often, a search in available structural databases is performed to define availability of reactants. Retrosynthetic analysis (RA) approaches, first introduced through the pioneering work of Corey [<xref ref-type="bibr" rid="CR5">5</xref>], use chemical reaction rules to deconstruct query structures into reactants followed by a search for availability in structure collections [<xref ref-type="bibr" rid="CR18">18</xref>]. The preparation of the deconstruction rules may either be assigned to human experts or take place via computational, data-driven processes [<xref ref-type="bibr" rid="CR14">14</xref>]. Both reaction look-up and retrosynthetic analysis approaches may iterate by using each reactant as a new query structure.</p>
+          <p id="Par7">In a typical RA scenario, given a target chemical structure, the process initiates a recursive decomposition loop using available synthetic knowledge. In each step, the input chemical structure is broken into fragments which are complemented with functional groups necessary for the reaction to take place. The virtual reactants, referred to as synthons in the remainder of this manuscript, can then be matched against a database of available building blocks. The process ends when synthons match available building blocks, when the structure under investigation cannot be broken down further or when a predefined search depth has been reached.</p>
+          <p id="Par8">Key components of the above process include a database of synthetic reactions to serve as the source of synthetic knowledge, and, a collection of available building blocks which serves as a look up for synthons. The proliferation of chemical structure databases renders the latter component easy to address. For example, researchers can nowadays freely access building block collections advertised as “readily available” from numerous chemical structure vendors [<xref ref-type="bibr" rid="CR7">7</xref>]. In addition, researchers associated with the pharmaceutical industry or sizeable academic institutions often have access to inhouse chemical sample management databases of significant size. Access to a comprehensive, free, reliable source of chemical reactions has been more challenging since such data has been typically described in textual form in laboratory notebooks, journal publications and patents. Collections prepared by large publishing houses and professional organizations are only provided on a fee-for-service basis while laboratory notebooks are often difficult to search since their primary design purpose has been recording experiments while they are executed, not comprehensively searching a posteriori. Of immediate practical use is work reported by Lowe et al. [<xref ref-type="bibr" rid="CR9">9</xref>] to extract reactions from patent applications to the United States Patent and Trade Office (USPTO) and make these reactions available in the public domain [<xref ref-type="bibr" rid="CR10">10</xref>].</p>
+          <p id="Par9">In this paper we describe our efforts to develop a data-driven retrosynthetic analysis engine aiming to provide synthetic routes for input chemical structures. We thoroughly discuss all implementation aspects including design decisions and algorithmic details and present results from the training of this engine and the application to a collection of approved small molecule drugs. This tool, originally developed to serve inhouse needs and currently in operation, is provided to the community in an effort to facilitate research in synthetic route design and reaction informatics in general. Emphasis has been placed on developing a tool agnostic to reaction and reactant data specifics so that interested parties can train and apply the method to any reaction source and building block collection appropriately formatted.</p>
+        </sec>
+        <sec id="Sec2">
+          <title>Conceptual design</title>
+          <p id="Par10">The Retrosynthetic Analysis (RTSA) method is a computational, data-driven approach designed to identify potential synthetic routes for a structure of interest, referred to in this manuscript as the hypothesis structure. The method uses as input a dataset of reaction examples to prepare retrosynthetic analysis rules used to decompose hypothesis structures into virtual building blocks. Similar to all data-driven methods, the performance of RTSA depends heavily on the supplied input data quality. For the purposes of the work described in this paper we use the publicly available USPTO reaction set which can be readily accessed and used [<xref ref-type="bibr" rid="CR10">10</xref>].</p>
+          <p id="Par11">The operation of RTSA has two distinct phases. The training phase, RTSA-Train, consumes all available reaction data and produces a collection of chemical structure decomposition rules and information required for synthetic route design. RTSA-Design, receives the hypothesis structure(s) and designs possible synthetic routes using the collection of decomposition rules obtained during training. In the following sections the two phases of RTSA are described in detail.</p>
+          <sec id="Sec3">
+            <title>RTSA-train</title>
+            <p id="Par12">The main aim of the training process is to produce Reverse Reaction Templates (RRT) for use during retrosynthetic analysis. As the name suggests, RRT’s are synthetic transformation rules which work conversely to decompose, i.e. transform, products into building blocks. Each RRT is derived from a class of highly similar reactions from which annotation data pertinent to the template, e.g. number of reactions, can be calculated. The process takes as input a set of reactions with atom mapping in place and, sequentially, reverses and standardizes the reactions followed by the extraction of an extended reaction core. During reversal, the two sides of the reaction, left-hand (reactants) and right hand (products) are exchanged. Agents, i.e. structures above and below the reaction line (e.g. catalysts, solvents), remain in their original place (Fig. <xref rid="Fig1" ref-type="fig">1</xref>). <fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p><bold>a</bold> A reaction example from US Patent 04703036 and <bold>b</bold> the reversed version of the same reaction. The reaction core is highlighted in red on the product side</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_323_Fig1_HTML.png" /></fig></p>
+            <p id="Par13">Standardization of the reaction includes, among others, removal of duplicate fragments, removal of fragments that do not participate in the reaction and handling reactions where there has been an obvious failure of the atom mapping process. The extraction of the extended reaction core requires that the main reaction core is first defined by identifying atoms whose properties (e.g. atomic symbol, connectivity, ring membership, etc) change during the reaction. If any of these atomic properties change from one side of a reaction that atom is considered a changing atom, part of the reaction core [<xref ref-type="bibr" rid="CR8">8</xref>]. A reaction example illustrating the changing atoms forming the reaction core is shown in Fig. <xref rid="Fig2" ref-type="fig">2</xref>. <fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>A heterocycle forming reaction from US patent number US20030149264A1. The reaction core consists of all numbered atoms 1, 2, 3, 4, 5</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_323_Fig2_HTML.png" /></fig><fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>Reaction clusters defined using smiles-like signatures highlighted in red (radius 0), red and green (radius 1) and red, green and purple (radius 2). Note the effect of the atom properties used to the classification produced</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_323_Fig3_HTML.png" /></fig></p>
+            <p id="Par14">In this case, all numbered atoms are considered changing atoms. Atoms 2 and 3 retain the same connectivity and neighbors during the reaction, but their ring membership changes, and given that ring membership is one of the atom properties perceived, those atoms are classified as changing, and part of the reaction core. If ring information were omitted from the atom typing used, they would not be perceived as part of the core. In order to accommodate varying user preferences the software has been implemented to allow flexible atom type definition. A full listing of the properties implemented can be found in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: (SI 1).</p>
+            <p id="Par15">A reaction is however not completely defined by just the changing atoms, or reaction core. Across a given reaction type, there will be a great diversity of different behaviors of such reactions such as varying yields, different catalysts needed, different solvents, temperatures, etc. These differences can be attributed to the larger context of the reaction core as embedded within the molecule. To capture more of this context, we apply a recursive Morgan-like expansion [<xref ref-type="bibr" rid="CR11">11</xref>] around the reaction core, and capture reaction contexts of varying radii which, in essence, represent circular neighborhoods of different size. The radius zero context will be the reaction core itself, while a radius 3 context will include both the core atoms, and all atoms that are within 3 bonds of any atom in the core. The use of such shell-based reaction cores is common in retrosynthetic analysis applications as for example in [<xref ref-type="bibr" rid="CR2">2</xref>] where they are referred to as reactive centers. In RTSA the extended reaction cores are represented using a unique smiles-like format referred to as signatures in this paper.</p>
+            <p id="Par16">Reaction clusters are defined through grouping reactions sharing identical extended reaction cores at specific path lengths. Since extended reaction cores are represented as canonicalized smiles-like signature strings simple string matching suffices for the grouping operation. Clearly what gets grouped together will be a function of the radius selected. The larger the radius, the more “unique” reaction clusters there will be. Note that the use of a unique, canonicalized signature as the extended reaction core provides for a concise, easy to compare and comprehend representation that is flexible enough to accommodate any atom property needed. Figure <xref rid="Fig3" ref-type="fig">3</xref> presents an example of reaction clusters defined using RTSA signatures.</p>
+            <p id="Par17">Upon completion of this stage all input reactions have been reversed, standardized and their extended reaction cores have been extracted, represented as signatures and used to group reactions into homogeneous clusters. Each cluster, containing reactions sharing identical extended core is used to define retrosynthetic analysis transformation rules. Note that the choice of atom properties used to characterize each atom is crucial to the overall RTSA process since they influence the outcome of key steps such as the comparison of reaction extended cores and the definition of clusters (see “<xref rid="Sec9" ref-type="sec">Results</xref>” section).</p>
+            <p id="Par18">Each reaction cluster is profiled using data from the reactions it contains. The resulting profile, typically summarization statistics on frequency and other available reaction properties, is stored for subsequent use as annotations to the corresponding reaction cluster. Finally, a single RRT template is selected from each cluster for use during retrosynthetic analysis. The choice of RRT from each cluster is insignificant as it is only used for retrieving the reaction signature that will serve as part of the retrosynthetic analysis transformation rule. The results of the training process are stored in an RRT-Repository for later use. Figure <xref rid="Fig4" ref-type="fig">4</xref> outlines the steps of the RTSA-Train process. It is important to note that while the process may begin with very large numbers of reactions, this grouping procedure will typically result in far fewer representative reactions (see “<xref rid="Sec9" ref-type="sec">Results</xref>” section).<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>The RTSA-train process</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_323_Fig4_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec4">
+            <title>RTSA-design</title>
+            <p id="Par19">During run time, the method takes an input hypothesis chemical structure and traverses the RRT-Repository attempting to run each reverse reaction template to decompose the structure. Attempts that result in failure due to no substructure match to the template, typically the overwhelming majority, are discarded. Successful RRT run attempts produce the structures of building blocks needed for the forward reaction to take place. In essence, each successful RRT run decomposes an input chemical structure into constituent reactants and provides information on the forward reaction type needed. Moreover, examples of past successful reactions of the same type are readily available through a lookup in the cluster of reactions of the matching RRT. In a subsequent step, the necessary building blocks derived from the application of an RRT may be searched for availability in accessible inventory databases. When available building blocks are found a synthetic route can be completed since necessary information required for attempting synthesis, including building blocks source and IDs, is available. Theoretical synthetic routes may be scored and ranked using annotation information (e.g. number of reaction examples, average yield) from the reaction cluster of the corresponding RRT. The RTSA-Design process is detailed in Fig. <xref rid="Fig5" ref-type="fig">5</xref>.<fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p>Pseudocode describing the high level RTSA-Design process. Note that step 2 is optional and could be omitted. Alternatively, the process may be supplemented with a recursive RTSA search for each of the synthons not found to be available leading to a multi-step synthesis route</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_323_Fig5_HTML.png" /></fig></p>
+            <p id="Par20">As described above the RTSA-Design process only searches for one-step synthetic routes since it requires that synthons resulting from successful RRT matching be present in accessible building block structure databases such as ZINC [<xref ref-type="bibr" rid="CR7">7</xref>]. Alternatively, instead of aborting when building blocks are not available, the process may recursively treat such structures as new hypotheses to retrosynthetically analyze, thus enabling the process to identify multi-step synthesis routes. RTSA-Design could iterate until all synthons are found in a building block database, no successful RRT matching is found or some predefined depth is reached. As multi-step synthetic routes are more complex and thus more likely to fail in the lab they would typically be scored lower than single-step routes. However, such routes may serve as an idea generator to chemists searching for routes to novel chemical structures.</p>
+          </sec>
+        </sec>
+        <sec id="Sec5">
+          <title>Implementation</title>
+          <p id="Par21">In this section we provide implementation details for key components of RTSA, namely <italic>rxn_standardize</italic> which cleans and standardizes reactions, <italic>rxn_signature</italic> which calculates reaction cores and <italic>retrosynthesis</italic> which retrosynthetically analyzes hypothesis structures using reverse reaction templates. The source code for these tools, as well as the procedure which reverses the reactions is provided through the LillyMol GitHub project at [<xref ref-type="bibr" rid="CR4">4</xref>].</p>
+          <sec id="Sec6">
+            <title>rxn_standardize</title>
+            <p id="Par22">Experience tells us that many sources of reactions contain significant amounts of unusable data, due to some combination of poor data entry, and/or errors in previous processing. The purpose of this tool is to ingest a stream of reactions, apply fixes where possible, or discard erroneous input. Since we are interested in retrosynthetic reactions, any forward reaction that produces multiple fragments as products will not be suitable and can be typically discarded. Also discarded are reactions where no structural change is observed between reactants and products, e.g. purifications. Where problems with the atom mapping are detected, for example duplicate atom map numbers, rxn_standardize provides an option to discard the existing atom mapping and, attempt to re-map the reaction. Although the built-in atom mapping was never intended to be comprehensive and is therefore not generally robust, this fix can “save” many reactions that would otherwise be discarded. Fragments not participating in the reaction, i.e. fragments with no atoms mapped or with no atoms whose type changes due to the reaction, can be removed. Similarly, atoms which either appear or disappear from the product side of the reaction can be handled so that subsequent RTSA tools can generate a correct and complete retrosynthetic path. Since the underlying LillyMol toolkit relies on Kekule representations of molecules, reactions can be switched to consistent Kekule forms in reagents and products. Duplicate fragments can also be discarded and other cleaning steps can be performed including removal of reactions with too large products or ensuring that the reaction name is a continuous alphanumeric string.</p>
+          </sec>
+          <sec id="Sec7">
+            <title>rxn_signature</title>
+            <p id="Par23">Extracting reaction signatures, the extended reaction cores, is a crucial step of the RTSA process. To achieve this the algorithm first assigns atom types to each atom. Atom type choice is user selectable, and the components of that type will determine whether or not an atom is considered a changing atom—part of the reaction core. The current implementation enables consideration of a large number of atomic properties to determine whether or not an atom has changed during a reaction including the atomic number, aromaticity, unsaturation, ring membership, formal charge, connectivity, smallest ring size, pi electron count and implicit hydrogen count (see Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref> for a full listing of available atom properties). Once the reaction core atoms have been identified, the tool will record that set of atoms as the zero-radius reaction core. This is written as a form of unique smiles which contains the atomic symbol and a numeric label set by combining integer values corresponding to each of the contributing atomic properties (see “<xref rid="Sec9" ref-type="sec">Results</xref>” section, Fig. <xref rid="Fig7" ref-type="fig">7</xref>). Subsequent layers are added to the core and those layers are also written, up to the maximum radius specified by the user. Since the tool writes a unique, text representation of the core, and variants, it is then straightforward to group reactions based on these representations via string matching methods.</p>
+            <p id="Par24">After members of the same family of reaction are identified, a representative (template) at each radius can be selected. While the choice of template reaction is arbitrary, it will usually be desirable to select a reaction containing a relatively small number of atoms, just for clarity.</p>
+          </sec>
+          <sec id="Sec8">
+            <title>retrosynthesis</title>
+            <p id="Par25">Once a set of RRT reactions has been identified, based on the atom types and radius that has been selected, those template reactions can be used for deconstruction experiments. Template reactions are read in, changing atoms identified, and the signature, based on the specified radius, is converted to a substructure query representation. The defined substructure queries are subsequently used to process target molecules. Upon the presentation of a target molecule each reaction substructure query attempts a match. For those reactions which match, the corresponding retrosynthetic reaction is performed resulting in the deconstruction of the target molecule into one or more products. Those products, in essence the virtual reactant structures required to perform a reaction to generate the target molecule, can then be looked up in any available structure database.</p>
+            <p id="Par26">Note that a number of the steps in the process can be run using parallel processing techniques to reduce required run time. For example, each reaction template can be matched independent of the other reactions.</p>
+          </sec>
+        </sec>
+        <sec id="Sec9" sec-type="results">
+          <title>Results</title>
+          <p id="Par27">In order to present the capabilities of RTSA we have selected to train the method on a set of publicly available reactions and provide application examples illustrating the results it can produce. The current source code implementation of RTSA is available [<xref ref-type="bibr" rid="CR4">4</xref>] including useful wrappers for the analysis presented below. All times reported below were obtained on runs performed on a Linux workstation with an Intel Xeon 12-core processor and 64 GB RAM.</p>
+          <sec id="Sec10">
+            <title>Data</title>
+            <p id="Par28">Dataset 1, a set of 1,808,938 publicly available reactions, has been used for training RTSA. The set consists of reactions in patent grants from 1976–2016 available at [<xref ref-type="bibr" rid="CR10">10</xref>]. Dataset 1 was prepared through text mining reactions from patents of the United States Patent and Trade Office followed by structure processing and atom mapping as described by Lowe [<xref ref-type="bibr" rid="CR10">10</xref>]. Dataset 2 consists of 919 approved drugs from DrugBank 4.3 Wishart et al. [<xref ref-type="bibr" rid="CR20">20</xref>] satisfying the Lilly medicinal chemistry rules [<xref ref-type="bibr" rid="CR1">1</xref>], stripped of salts and filtered to structures with a range of heavy atoms between 20 and 40. Dataset 2 was used to test the retrosynthetic analysis calculation of RTSA as trained using Dataset 1. Note that 492 of the 919 (53.5%) structures in Dataset 2 are also present as products in Dataset 1 reactions.</p>
+          </sec>
+          <sec id="Sec11">
+            <title>RTSA-train on patent reactions</title>
+            <p id="Par29">In a first step, Dataset 1 was processed to generate a file containing reaction smiles followed by a unique ID. The patent reactions, already atom-mapped as described in [<xref ref-type="bibr" rid="CR10">10</xref>], were then standardized using rxn_standardize. The reactions were then reversed, transformed to contain “+” instead of “.” symbols as required by the RTSA code and subjected to a second standardization process, also with rxn_standardize. A total of 293,008 reactions were rejected during standardization for reasons mostly related to the presence of multiple products or for having a too large product (our standardization only allowed products with a maximum size of 40 heavy atoms). Reaction signatures were calculated for the remaining 1,515,930 successfully reversed and standardized reactions using the rxn_signature tool for radii 0, 1 and 2. The atom types chosen captured information for atomic number (Z), aromaticity (A), number of connections (C), formal charge (O), ring bond count (R), smallest ring size (S) and unsaturation (U) which is the current default setting of this tool. Reaction signatures were successfully generated for all of the attempted reactions. In order to obtain reverse reaction templates simple string matching was used to compare reaction signatures at each radius and define unique instances and their frequency count. Through this process a total of 83,942 unique signatures were defined for radius 0, 180,862 for radius 1 and 325,873 for radius 2. Each unique reaction signature represented a group of reactions with size 1 or greater.</p>
+            <p id="Par30">The coverage of each RRT set, i.e. the number of reactions whose signature is represented in the RRT set, elsewhere referred to as condensation numbers [<xref ref-type="bibr" rid="CR2">2</xref>], provide insights for the diversity of the reaction types in Dataset 1. Figure <xref rid="Fig6" ref-type="fig">6</xref> plots the fraction of reaction examples covered by reaction signatures of different size. As shown a small number of reaction signatures cover a large number of reaction examples with less specific signature types such as those at radius 0 exhibiting a higher coverage as expected. This finding is in agreement with results reported previously by Law et al. [<xref ref-type="bibr" rid="CR8">8</xref>] and Christ et al. [<xref ref-type="bibr" rid="CR2">2</xref>] among others.<fig id="Fig6"><label>Fig. 6</label><caption xml:lang="en"><p>Fraction of reaction examples covered as a function of number of reaction signatures for different radii sizes. Note the steep curves indicating that a large fraction of the reactions examined is covered by relatively few reaction signatures</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_323_Fig6_HTML.png" /></fig></p>
+            <p id="Par31">In order to increase our confidence in the reaction transformation rules represented by the various signatures we post-processed the results to select subsets which have varying numbers of supporting examples. Table <xref rid="Tab1" ref-type="table">1</xref> displays the number of reaction signatures (and RRT) for Dataset 1 reactions for radii 0, 1 and 2 with support of 10, 100, 1000 and 10,000 examples. The subset of reaction signatures of radius 0 supported by at least 10 examples is just 7945 out of 83,942 (9.4%). The corresponding numbers for radii 1 and 2 are 14,567 (8%) and 20,499 (6.3%). This very large compression from the initial starting set goes a long way towards improving run time performance during RTSA-Design and addressing the scalability issue faced by direct search methods. Moreover, high support of a template indicates popularity of the corresponding reaction among practicing chemists and, thus, increased confidence in the synthetic routes proposed by the subsequent RTSA-Design step. The python script used for preparation of RRT repositories from patent grants reactions can be found in SI 2  (see Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>).<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>RRT sets extracted used for RTSA validation</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Template set</p></th><th align="left"><p>Radius</p></th><th align="left"><p>Support (minimum number of reaction examples per template)</p></th><th align="left"><p>Size</p></th></tr></thead><tbody><tr><td align="left"><p>RRT-0-1</p></td><td char="." align="char"><p>0</p></td><td char="." align="char"><p>1</p></td><td char="." align="char"><p>83,942</p></td></tr><tr><td align="left"><p>RRT-0-10</p></td><td char="." align="char"><p>0</p></td><td char="." align="char"><p>10</p></td><td char="." align="char"><p>7945</p></td></tr><tr><td align="left"><p>RRT-0-100</p></td><td char="." align="char"><p>0</p></td><td char="." align="char"><p>100</p></td><td char="." align="char"><p>960</p></td></tr><tr><td align="left"><p>RRT-0-1000</p></td><td char="." align="char"><p>0</p></td><td char="." align="char"><p>1000</p></td><td char="." align="char"><p>165</p></td></tr><tr><td align="left"><p>RRT-0-10000</p></td><td char="." align="char"><p>0</p></td><td char="." align="char"><p>10,000</p></td><td char="." align="char"><p>21</p></td></tr><tr><td align="left"><p>RRT-1-1</p></td><td char="." align="char"><p>1</p></td><td char="." align="char"><p>1</p></td><td char="." align="char"><p>180,862</p></td></tr><tr><td align="left"><p>RRT-1-10</p></td><td char="." align="char"><p>1</p></td><td char="." align="char"><p>10</p></td><td char="." align="char"><p>14,567</p></td></tr><tr><td align="left"><p>RRT-1-100</p></td><td char="." align="char"><p>1</p></td><td char="." align="char"><p>100</p></td><td char="." align="char"><p>1614</p></td></tr><tr><td align="left"><p>RRT-1-1000</p></td><td char="." align="char"><p>1</p></td><td char="." align="char"><p>1000</p></td><td char="." align="char"><p>144</p></td></tr><tr><td align="left"><p>RRT-1-10,000</p></td><td char="." align="char"><p>1</p></td><td char="." align="char"><p>10,000</p></td><td char="." align="char"><p>4</p></td></tr><tr><td align="left"><p>RRT-2-1</p></td><td char="." align="char"><p>2</p></td><td char="." align="char"><p>1</p></td><td char="." align="char"><p>325,873</p></td></tr><tr><td align="left"><p>RRT-2-10</p></td><td char="." align="char"><p>2</p></td><td char="." align="char"><p>10</p></td><td char="." align="char"><p>20,499</p></td></tr><tr><td align="left"><p>RRT-2-100</p></td><td char="." align="char"><p>2</p></td><td char="." align="char"><p>100</p></td><td char="." align="char"><p>1264</p></td></tr><tr><td align="left"><p>RRT-2-1000</p></td><td char="." align="char"><p>2</p></td><td char="." align="char"><p>1000</p></td><td char="." align="char"><p>57</p></td></tr><tr><td align="left"><p>RRT-2-10,000</p></td><td char="." align="char"><p>2</p></td><td char="." align="char"><p>10,000</p></td><td char="." align="char"><p>3</p></td></tr></tbody></table></table-wrap></p>
+            <p id="Par32">Visual inspection of the reaction templates reveals that common reaction types are captured by the RRT’s extracted. Figure <xref rid="Fig7" ref-type="fig">7</xref> presents the reaction signatures corresponding to the RRT of radius 0 with the highest support, i.e. frequency of reaction examples. Examples of reverse reaction templates sharing the 4 signatures with the highest support are shown in Fig. <xref rid="Fig8" ref-type="fig">8</xref>. As shown, the most supported reaction type involves a transformation rule with a single changing Oxygen atom, in this case an ester hydrolysis (Fig. <xref rid="Fig8" ref-type="fig">8</xref>a). Next is the amide coupling signature exemplified by a Schotten–Baumann reaction for the synthesis of an amide from amine and acid chloride (Fig. <xref rid="Fig8" ref-type="fig">8</xref>b), a reaction with a single changing nitrogen shown by a nitro reduction (Fig. <xref rid="Fig8" ref-type="fig">8</xref>c) and a nucleophilic aromatic substitution widely known as SnAR (Fig. <xref rid="Fig8" ref-type="fig">8</xref>d).<fig id="Fig7"><label>Fig. 7</label><caption xml:lang="en"><p>Example RRT’s extracted using signatures of radius 0 and support 10,000</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_323_Fig7_HTML.png" /></fig><fig id="Fig8"><label>Fig. 8</label><caption xml:lang="en"><p>Examples of reverse reaction templates exemplifying the 4 signatures of radius 0 with the highest support in Dataset 1. Note that the templates are reversed, i.e. the original products are to the left-hand side of the figure</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_323_Fig8_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec12">
+            <title>RTSA-design application on approved drugs</title>
+            <p id="Par33">In order to assess the RTSA methodology capabilities Dataset 2 containing 919 FDA approved drugs has been subjected to retrosynthetic analysis using the RRT-Repositories prepared by training on Dataset 1 reactions and the tool RTSA (see Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>: SI 3). The purpose of RTSA is to support synthetic chemists in identifying realistic routes to prepare a compound of interest. With this purpose in mind, we chose Dataset 1, a typical set of compounds, as targets and assess the success of RTSA both quantitatively, i.e. number of routes found per target and qualitatively, via reviewing the specific routes of a compound of interest.</p>
+            <p id="Par34">Overall, RTSA-Design successfully identified theoretical synthesis routes for the majority of the query structures. This comes as no surprise since the reaction collection used for RRT extraction is both diverse and substantially extensive as shown in the training section above. Note that for the purposes of this RTSA-Design demonstration no synthon look-up in building block databases was undertaken so all theoretical routes identified are reported. In a realistic scenario, where actual synthesis might have been considered, a search for the identification of synthons in available structure collections would have indicated which of the theoretical routes could potentially be executed. Detailed results of the retrosynthetic analysis runs are displayed in Table <xref rid="Tab2" ref-type="table">2</xref> below.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Synthetic route identification for 919 known drug structures using RTSA-Design and a range of RRT-Repositories</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>RRT set</p></th><th align="left"><p>RTSA results (structures with at least one route)</p></th><th align="left"><p>Coverage</p></th><th align="left"><p>Average number of routes</p></th></tr></thead><tbody><tr><td align="left"><p>RRT-0-10</p></td><td char="." align="char"><p>917</p></td><td align="left"><p>917/919</p></td><td align="left"><p>922,449/917</p></td></tr><tr><td align="left"><p>RRT-0-100</p></td><td char="." align="char"><p>917</p></td><td align="left"><p>917/919</p></td><td align="left"><p>101,309/917</p></td></tr><tr><td align="left"><p>RRT-0-1000</p></td><td char="." align="char"><p>917</p></td><td align="left"><p>917/919</p></td><td align="left"><p>21,255/917</p></td></tr><tr><td align="left"><p>RRT-0-10000</p></td><td char="." align="char"><p>831</p></td><td align="left"><p>831/919</p></td><td align="left"><p>3319/831</p></td></tr><tr><td align="left"><p>RRT-1-10</p></td><td char="." align="char"><p>916</p></td><td align="left"><p>916/919</p></td><td align="left"><p>24,209/916</p></td></tr><tr><td align="left"><p>RRT-1-100</p></td><td char="." align="char"><p>905</p></td><td align="left"><p>905/919</p></td><td align="left"><p>9497/905</p></td></tr><tr><td align="left"><p>RRT-1-1000</p></td><td char="." align="char"><p>835</p></td><td align="left"><p>835/919</p></td><td align="left"><p>4076/835</p></td></tr><tr><td align="left"><p>RRT-1-10000</p></td><td char="." align="char"><p>327</p></td><td align="left"><p>327/919</p></td><td align="left"><p>423/327</p></td></tr><tr><td align="left"><p>RRT-2-10</p></td><td char="." align="char"><p>841</p></td><td align="left"><p>841/919</p></td><td align="left"><p>6620/841</p></td></tr><tr><td align="left"><p>RRT-2-100</p></td><td char="." align="char"><p>756</p></td><td align="left"><p>756/919</p></td><td align="left"><p>2344/756</p></td></tr><tr><td align="left"><p>RRT-2-1000</p></td><td char="." align="char"><p>284</p></td><td align="left"><p>284/919</p></td><td align="left"><p>455/284</p></td></tr><tr><td align="left"><p>RRT-2-10000</p></td><td char="." align="char"><p>52</p></td><td align="left"><p>52/919</p></td><td align="left"><p>53/52</p></td></tr></tbody></table></table-wrap></p>
+            <p id="Par35">As expected the tool successfully decomposes more structures from Dataset 2 using templates extracted with radius 0 which are more abstract than the more specific templates of radius 1 and 2. Similarly, the subsets of templates with higher support have a smaller coverage when compared to template subsets with less support since the former are fewer in absolute numbers. However, the level of confidence in the proposed routes is higher for those proposed by the most specific RRT, in this case those of radius 2 with higher support. In the case of the RRT set with support of at least 1000 reactions RRT’s of radius 0 have a near 100% coverage (917/919) while RRT’s of radii 1 and 2 identified routes for 835 and 284 of the drug structures which corresponds to 90% and 31% respectively. A similar trend of decreasing coverage when using templates of increasing support is observed for all radii. Overall, compromising with a minimum support of 100 reaction examples exhibited adequate coverage even for radius 2 (756/919; 82%). Time requirements for RTSA-Design of Dataset 2 varied depending on the RRT set used. As expected the least time, less than 2 s, was required for running the RRT-2-10,000 set with only 3 templates that resulted in 53 route definitions. The use of RRT-0-10 with 7945 templates that resulted in 922,449 routes took approximately 6 min while set RRT-2-10 with 20,499 templates producing 6620 routes required only 75 s. It can thus be concluded that the time needed for RTSA-Design runs is proportional to the number of routes identified and that higher numbers of RRT do not necessarily translate to longer run times especially if those templates are highly specific as in the case of using signatures of radius 2 or higher. In general, templates representing smaller, more abstract signatures will match more frequently to hypothesis chemical structures, trigger the generation of more theoretical routes and require more time. This observation can also be seen in Table <xref rid="Tab2" ref-type="table">2</xref> listing the average number of routes theoretically possible per input target structure which corresponds to the template matches to each target structure in the test set. As noted previously the training set contains reactions for little over 50% of the compounds in the test set. Analysis of the RTSA-Design results showed that the method was able to identify the original routes for those compounds (subject to signature frequency restrictions) and, additionally, provide alternative synthetic paths.</p>
+            <p id="Par36">Figure <xref rid="Fig9" ref-type="fig">9</xref> below presents multiple theoretical synthetic routes using radius 2 and support 100 for Gleevec (DrugBankID:DB00619), one of the 919 drugs in the test set used in this exercise. The four routes shown, a selection of those proposed, present the variety of synthetic routes possible. <fig id="Fig9"><label>Fig. 9</label><caption xml:lang="en"><p>DrugBankID:DB00619 and four potential synthesis routes identified by RTSA using reverse reaction templates of signature radius 2 and frequency 100 extracted from Dataset 1. Note that the origin of the reverse reaction template used to define the route is shown below each pair of synthons</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_323_Fig9_HTML.png" /></fig></p>
+            <p id="Par37">The four routes shown in Fig. <xref rid="Fig9" ref-type="fig">9</xref> represent common reaction types employed by medicinal chemists. Each of the routes is displayed as a pair of synthons which, when processed with appropriate conditions will react to form the target compound shown to the left. The first of the routes, top-left, corresponds to an amide Schotten–Baumann synthesis combining an acid chloride and a primary amine. The second route shown at top-right, is another common amide bond formation via the combination a primary amine with a carboxylic acid. Route 3, bottom-left, uses an amine and an alkyl halide in a reaction widely known as N-alkylation. The final route shown, bottom-right, is a nucleophilic aromatic substitution (SnAR) combining a primary amine with a NAS-electrophile. A look-up of the synthons into the popular ZINC database indicated that all of the reactants are available for purchase (see Additional file <xref ref-type="supplementary-material" rid="MOESM4">4</xref>: SI 4).</p>
+            <p id="Par38">The source of the reaction transformation rule, i.e. the original reaction example that was used to define the corresponding RRT, is shown in the description accompanying each of the synthon pairs. For example, the source for the top-left route is US03931153_nan_64 (USPTO patent number US03931153, paragraph number not reported—‘nan’, row number in input reaction examples file 64).</p>
+          </sec>
+        </sec>
+        <sec id="Sec13" sec-type="conclusions">
+          <title>Conclusions</title>
+          <p id="Par39">The need for synthetic route identification arises frequently in drug discovery and development as well as other chemical processes involving new chemical structure design or identification of optimal synthetic paths. For inspiration, chemists traditionally have resorted to product or reaction-based search in collections of past reaction examples. Recently, several computational methods capable of designing synthetic routes have been reported in the literature [<xref ref-type="bibr" rid="CR2">2</xref>, <xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR18">18</xref>, <xref ref-type="bibr" rid="CR19">19</xref>]. In this paper we have presented RTSA, a data-driven RA technique developed to address the needs of a fast-paced discovery chemistry organization. RTSA learns RRT’s from collections of reaction examples and applies them for the deconstruction of target structures into synthons. Post-processing of the identified routes, for example searching for the presence of synthons in available building block databases or using any of the synthons as input to a new RTSA search can optionally be applied depending on the specific use case.</p>
+          <p id="Par40">The implementation of RTSA as well as a fully functional example of its application to learn from a public patent reaction collection and to identify possible routes for a set of known drugs is provided as part of this paper. As demonstrated in this example RTSA can quickly derive RRT’s of varying length and complexity from millions of reaction examples and identify routes for large numbers of target compounds in minutes. The speed, flexibility and reaction rule interpretation simplicity of RTSA enable its regular use during structure design so as to inform research chemists of the feasibility of their designs and, thereby, the ease of experimental testing of their hypotheses.</p>
+          <p id="Par41">It is the opinion of the authors that the impact of data-driven computational approaches in synthetic route design and drug discovery research at large will only increase in the coming years. Software tools that can learn from prior synthetic attempts and apply these learnings to identify feasible synthetic paths, such as RTSA, will routinely support researchers in efforts to synthesize novel chemical structures or identify alternative viable routes to a compound of interest. Combined with advances in automated synthesis systems [<xref ref-type="bibr" rid="CR6">6</xref>] and algorithmic methods for in silico drug design [<xref ref-type="bibr" rid="CR12">12</xref>] RTSA-like methods have the potential of revolutionizing everyday discovery and development practices in the not so distant future [<xref ref-type="bibr" rid="CR13">13</xref>].</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Authors’ contributions</title>
+          <sec>
+            <p>All authors have contributed equally to the design of the RTSA method and the preparation of this manuscript. IW has implemented the RTSA core code in C++. JW has investigated the application of RTSA on several reaction datasets and defined the application workflow. CAN has implemented the python script provided for performing the experimental investigation described in the results and performed the needed software runs. All authors read and approved the final manuscript.</p>
+          </sec>
+          <sec id="FPar1">
+            <title>Acknowledgements</title>
+            <p id="Par42">The authors would like to acknowledge the contributions of Drs. Thierry Masquelin and Alexander Godfrey whose insightful comments and suggestions helped shape RTSA requirements and Drs. Christine Humblet and Scott Sheehan for their strong encouragement during the implementation of the project. JW and CN would like to thank Dr. Tad Hurst for refinements to the C++ source and Drs. Ingvar Lagerstedt and Gordon (Zhen) Huang for their contributions that enabled the opensourcing of this code as part of the LillyMol project. CN would also like to dedicate this work to his prematurely lost mentor Terence K. Brunk (1950-2017) who had been one of his main initiators to the world of chemoinformatics during their tenure at Bioreason, Inc.</p>
+          </sec>
+          <sec id="FPar2">
+            <title>Competing interests</title>
+            <p id="Par43">The authors declare that they have no competing interests.</p>
+          </sec>
+          <sec id="FPar3">
+            <title>Availability of data and materials</title>
+            <p id="Par44">Dataset 1 is available from <ext-link xlink:href="https://figshare.com/articles/Chemical_reactions_from_US_patents_1976-Sep2016_/5104873" ext-link-type="uri">https://figshare.com/articles/Chemical_reactions_from_US_patents_1976-Sep2016_/5104873</ext-link>.</p>
+          </sec>
+          <sec id="FPar4">
+            <title>Availability and requirements</title>
+            <p id="Par45">Project name: RTSA is distributed as a part of the LillyMol chemoinformatics toolkit; Project home page: <ext-link xlink:href="https://github.com/EliLillyCo/LillyMol" ext-link-type="uri">https://github.com/EliLillyCo/LillyMol</ext-link>; Operating system(s): The software has been developed and tested on Linux Red Hat 6.9 and 7.4; Programming language: C++; Other requirements: GCC 6.2.0 or higher, zlib 1.2.11 or higher. License: Apache License, Version 2.0. Restrictions: The software is distributed as is for use freely by academics and non-academics alike.</p>
+          </sec>
+          <sec id="FPar5">
+            <title>Funding</title>
+            <p id="Par46">All authors were employed by Eli Lilly and Company at the time of the preparation of this manuscript.</p>
+          </sec>
+          <sec id="FPar6">
+            <title>Publisher’s Note</title>
+            <p id="Par47">Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+          </sec>
+        </ack>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bruns</surname>
+                    <given-names>RF</given-names>
+                  </name>
+                  <name>
+                    <surname>Watson</surname>
+                    <given-names>IA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Rules for identifying potentially reactive or promiscuous compounds</article-title>
+                <source>J Med Chem</source>
+                <year>2012</year>
+                <volume>55</volume>
+                <fpage>9763</fpage>
+                <lpage>9772</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XhsFSgs7bP</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm301008n</pub-id>
+                <pub-id pub-id-type="pmid">23061697</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Christ</surname>
+                    <given-names>CD</given-names>
+                  </name>
+                  <name>
+                    <surname>Zentgraf</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Kriegl</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Mining electronic laboratory notebooks: analysis, retrosynthesis, and reaction based enumeration</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2012</year>
+                <volume>52</volume>
+                <fpage>1745</fpage>
+                <lpage>1756</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XnvFehurk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci300116p</pub-id>
+                <pub-id pub-id-type="pmid">22657734</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Coley</surname>
+                    <given-names>CW</given-names>
+                  </name>
+                  <name>
+                    <surname>Rogers</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Green</surname>
+                    <given-names>WH</given-names>
+                  </name>
+                  <name>
+                    <surname>Jensen</surname>
+                    <given-names>KF</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Computer-assisted retrosynthesis based on molecular similarity</article-title>
+                <source>ACS Cent Sci</source>
+                <year>2017</year>
+                <volume>3</volume>
+                <fpage>1237</fpage>
+                <lpage>1245</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhvVSmurfN</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acscentsci.7b00355</pub-id>
+                <pub-id pub-id-type="pmid">29296663</pub-id>
+                <pub-id pub-id-type="pmcid">5746854</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="other">Computational Chemistry and Chemoinformatics Group ELaC (2018) LillyMol Public Code. <ext-link xlink:href="https://github.com/EliLillyCo/LillyMol" ext-link-type="uri">https://github.com/EliLillyCo/LillyMol</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Corey</surname>
+                    <given-names>EJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The logic of chemical synthesis: multistep synthesis of complex carbogenic molecules (Nobel Lecture)</article-title>
+                <source>Angew Chem Int Ed Engl</source>
+                <year>1991</year>
+                <volume>30</volume>
+                <fpage>455</fpage>
+                <lpage>465</lpage>
+                <pub-id pub-id-type="doi">10.1002/anie.199104553</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Godfrey</surname>
+                    <given-names>AG</given-names>
+                  </name>
+                  <name>
+                    <surname>Masquelin</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hemmerle</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A remote-controlled adaptive medchem lab: an innovative approach to enable drug discovery in the 21st Century</article-title>
+                <source>Drug Discov Today</source>
+                <year>2013</year>
+                <volume>18</volume>
+                <fpage>795</fpage>
+                <lpage>802</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXlsVKitrk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.drudis.2013.03.001</pub-id>
+                <pub-id pub-id-type="pmid">23523957</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Irwin</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Sterling</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Mysinger</surname>
+                    <given-names>MM</given-names>
+                  </name>
+                  <name>
+                    <surname>Bolstad</surname>
+                    <given-names>ES</given-names>
+                  </name>
+                  <name>
+                    <surname>Coleman</surname>
+                    <given-names>RG</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ZINC: a free tool to discover chemistry for biology</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2012</year>
+                <volume>52</volume>
+                <fpage>1757</fpage>
+                <lpage>1768</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XmvFGnsrg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci3001277</pub-id>
+                <pub-id pub-id-type="pmid">22587354</pub-id>
+                <pub-id pub-id-type="pmcid">3402020</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Law</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Route Designer: a retrosynthetic analysis tool utilizing automated retrosynthetic rule generation</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2009</year>
+                <volume>49</volume>
+                <fpage>593</fpage>
+                <lpage>602</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXhsFegtL8%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci800228y</pub-id>
+                <pub-id pub-id-type="pmid">19434897</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lowe</surname>
+                    <given-names>DM</given-names>
+                  </name>
+                </person-group>
+                <source>Extraction of chemical structures and reactions from the literature</source>
+                <year>2012</year>
+                <publisher-loc>Cambridge</publisher-loc>
+                <publisher-name>University of Cambridge</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="other">Lowe DM (2017) Chemical reactions from US patents (1976-Sep2016). <ext-link xlink:href="https://figshare.com/articles/Chemical_reactions_from_US_patents_1976-Sep2016_/5104873." ext-link-type="uri">https://figshare.com/articles/Chemical_reactions_from_US_patents_1976-Sep2016_/5104873.</ext-link>. Accessed 3 Sep 2018</mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Morgan</surname>
+                    <given-names>HL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The generation of a unique machine description for chemical structures–a technique developed at chemical abstracts service</article-title>
+                <source>J Chem Doc</source>
+                <year>1965</year>
+                <volume>5</volume>
+                <fpage>107</fpage>
+                <lpage>112</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaF2MXkt1Omtr0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/c160017a018</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Nicolaou</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <name>
+                    <surname>Brown</surname>
+                    <given-names>N</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Multi-objective optimization methods in drug design</article-title>
+                <source>Drug discov Today Technol</source>
+                <year>2013</year>
+                <volume>10</volume>
+                <fpage>e427</fpage>
+                <lpage>435</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.ddtec.2013.02.001</pub-id>
+                <pub-id pub-id-type="pmid">24050140</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Peplow</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Organic synthesis: the robo-chemist</article-title>
+                <source>Nature</source>
+                <year>2014</year>
+                <volume>512</volume>
+                <fpage>20</fpage>
+                <lpage>22</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXht12ms7rO</pub-id>
+                <pub-id pub-id-type="doi">10.1038/512020a</pub-id>
+                <pub-id pub-id-type="pmid">25100466</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Plehiers</surname>
+                    <given-names>PP</given-names>
+                  </name>
+                  <name>
+                    <surname>Marin</surname>
+                    <given-names>GB</given-names>
+                  </name>
+                  <name>
+                    <surname>Stevens</surname>
+                    <given-names>CV</given-names>
+                  </name>
+                  <name>
+                    <surname>Van Geem</surname>
+                    <given-names>KM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Automated reaction database and reaction network analysis: extraction of reaction templates using cheminformatics</article-title>
+                <source>J Cheminform</source>
+                <year>2018</year>
+                <volume>10</volume>
+                <fpage>11</fpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-018-0269-8</pub-id>
+                <pub-id pub-id-type="pmid">29524042</pub-id>
+                <pub-id pub-id-type="pmcid">5845084</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ravitz</surname>
+                    <given-names>O</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Data-driven computer aided synthesis design</article-title>
+                <source>Drug Discov Today Technol</source>
+                <year>2013</year>
+                <volume>10</volume>
+                <fpage>e443</fpage>
+                <lpage>449</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.ddtec.2013.01.005</pub-id>
+                <pub-id pub-id-type="pmid">24050141</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="other">Reaxys. <ext-link xlink:href="https://www.elsevier.com/solutions/reaxys" ext-link-type="uri">https://www.elsevier.com/solutions/reaxys</ext-link>. Accessed October 28, 2018</mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="other">Scifinder. <ext-link xlink:href="http://www.cas.org/products/scifinder" ext-link-type="uri">http://www.cas.org/products/scifinder</ext-link> Accessed June 16, 2018</mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Segler</surname>
+                    <given-names>MHS</given-names>
+                  </name>
+                  <name>
+                    <surname>Preuss</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Waller</surname>
+                    <given-names>MP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Planning chemical syntheses with deep neural networks and symbolic AI</article-title>
+                <source>Nature</source>
+                <year>2018</year>
+                <volume>555</volume>
+                <fpage>604</fpage>
+                <lpage>610</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXmsVGqt7c%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nature25978</pub-id>
+                <pub-id pub-id-type="pmid">29595767</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Szymkuc</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Computer-assisted synthetic planning: the end of the beginning</article-title>
+                <source>Angew Chem Int Ed Engl</source>
+                <year>2016</year>
+                <volume>55</volume>
+                <fpage>5904</fpage>
+                <lpage>5937</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XlvVagsbs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/anie.201506101</pub-id>
+                <pub-id pub-id-type="pmid">27062365</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wishart</surname>
+                    <given-names>DS</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">DrugBank: a knowledgebase for drugs, drug actions and drug targets</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2008</year>
+                <volume>36</volume>
+                <fpage>D901</fpage>
+                <lpage>906</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXhtVSrs7Y%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkm958</pub-id>
+                <pub-id pub-id-type="pmid">18048412</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec14">
+              <title>Additional files</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Additional files">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2018_323_MOESM1_ESM.docx" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-018-0323-6" ext-link-type="uri">Additional file 1.</ext-link> Supporting information 1 (SI1) contains a list of all the atomic properties supported by RTSA to determine changing atoms during a reaction; used for reverse reaction template definition and application.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM2" xlink:title="Additional files">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2018_323_MOESM2_ESM.docx" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-018-0323-6" ext-link-type="uri">Additional file 2.</ext-link> SI2 contains the python script rtsa_train.py which was used for the preparation of RRT repositories as described in the Results section of this paper.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM3" xlink:title="Additional files">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2018_323_MOESM3_ESM.docx" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-018-0323-6" ext-link-type="uri">Additional file 3.</ext-link> SI3 lists the commands used to retrosynthetically analyze the test set of approved drugs as described in the Results section of this paper.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM4" xlink:title="Additional files">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2018_323_MOESM4_ESM.docx" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-018-0323-6" ext-link-type="uri">Additional file 4.</ext-link> SI4 includes the structure and ZINC numbers for all building blocks shown in Fig. <xref rid="Fig9" ref-type="fig">9</xref>.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+          </app>
+        </app-group>
+        <glossary>
+          <title>Abbreviations</title>
+          <def-list>
+            <def-item>
+              <term>RA</term>
+              <def>
+                <p id="Par2">Retrosynthetic analysis</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>eLN</term>
+              <def>
+                <p id="Par3">electronic laboratory notebook</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RTSA</term>
+              <def>
+                <p id="Par4">ReTroSynthetic analysis method</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RRT</term>
+              <def>
+                <p id="Par5">Reverse reaction template</p>
+              </def>
+            </def-item>
+          </def-list>
+        </glossary>
+      </back>
+    </article>

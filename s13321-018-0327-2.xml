@@ -1,0 +1,1878 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-018-0327-2</article-id>
+          <article-id pub-id-type="manuscript">327</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-018-0327-2</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+            <subj-group subj-group-type="article-collection" specific-use="Regular">
+              <subject>BioCreative V.5</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">LSTMVoter: chemical named entity recognition using a conglomerate of sequence labeling tools</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" corresp="yes" id="Au1">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-5477-2538</contrib-id>
+              <name>
+                <surname>Hemati</surname>
+                <given-names>Wahed</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDs1332101803272_cor1">a</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au2">
+              <name>
+                <surname>Mehler</surname>
+                <given-names>Alexander</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 1936 9721</institution-id>
+                <institution-id institution-id-type="GRID">grid.7839.5</institution-id>
+                <institution content-type="org-division">Text Technology Lab</institution>
+                <institution content-type="org-name">Goethe-University Frankfurt</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Robert-Mayer-Straße 10</addr-line>
+              <addr-line content-type="postcode">60325</addr-line>
+              <addr-line content-type="city">Frankfurt am Main</addr-line>
+              <country country="DE">Germany</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs1332101803272_cor1">
+              <label>a</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>10</day>
+            <month>1</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="3">1</issue>
+          <elocation-id>3</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>27</day>
+              <month>12</month>
+              <year>2018</year>
+            </date>
+            <date date-type="received">
+              <day>27</day>
+              <month>7</month>
+              <year>2018</year>
+            </date>
+            <date date-type="accepted">
+              <day>27</day>
+              <month>12</month>
+              <year>2018</year>
+            </date>
+            <date date-type="online">
+              <day>10</day>
+              <month>1</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <sec id="ASec1">
+              <title>Background</title>
+              <p id="Par1">Chemical and biomedical <italic>named entity recognition</italic> (NER) is an essential preprocessing task in <italic>natural language processing</italic>. The identification and extraction of named entities from scientific articles is also attracting increasing interest in many scientific disciplines. Locating chemical named entities in the literature is an essential step in chemical text mining pipelines for identifying chemical mentions, their properties, and relations as discussed in the literature. In this work, we describe an approach to the BioCreative V.5 challenge regarding the recognition and classification of chemical named entities. For this purpose, we transform the task of NER into a sequence labeling problem. We present a series of sequence labeling systems that we used, adapted and optimized in our experiments for solving this task. To this end, we experiment with hyperparameter optimization. Finally, we present LSTMVoter, a two-stage application of <italic>recurrent neural network</italic>s that integrates the optimized sequence labelers from our study into a single ensemble classifier.</p>
+            </sec>
+            <sec id="ASec2">
+              <title>Results</title>
+              <p id="Par2">We introduce LSTMVoter, a bidirectional <italic>long short-term memory</italic> (LSTM) tagger that utilizes a conditional random field layer in conjunction with attention-based feature modeling. Our approach explores information about features that is modeled by means of an attention mechanism. LSTMVoter outperforms each extractor integrated by it in a series of experiments. On the BioCreative IV chemical compound and drug name recognition (CHEMDNER) corpus, LSTMVoter achieves an F1-score of 90.04%; on the BioCreative V.5 chemical entity mention in patents corpus, it achieves an F1-score of 89.01%.</p>
+            </sec>
+            <sec id="ASec3">
+              <title>Availability and implementation</title>
+              <p id="Par3">Data and code are available at <ext-link xlink:href="https://github.com/texttechnologylab/LSTMVoter" ext-link-type="uri">https://github.com/texttechnologylab/LSTMVoter</ext-link>.</p>
+            </sec>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>BioCreative V.5</kwd>
+            <kwd>CEMP</kwd>
+            <kwd>CHEMDNER</kwd>
+            <kwd>BioNLP</kwd>
+            <kwd>Named entity recognition</kwd>
+            <kwd>Deep learning</kwd>
+            <kwd>LSTM</kwd>
+            <kwd>Attention mechanism</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>No</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2018</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>12</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>27</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-collection-editor</meta-name>
+              <meta-value>Martin Krallinger, Obdulia Rabal, Anália Lourenço, Alfonso Valencia</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2018_Article_327.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p id="Par20">In order to advance the fields of biological, chemical and biomedical research, it is important to stay on the cutting edge of research. However, given the rapid development of the disciplines involved, this is difficult, as numerous new publications appear daily in biomedical journals. In order to avoid repetition and to contribute at least at the level of current research, researchers rely on published information to inform themselves about the latest research developments. There is therefore a growing interest in improved access to information on biological, chemical and biomedical data described in scientific articles, patents or health agency reports. In this context, improved access to chemical and drug name mentions in document repositories is of particular interest: it is these entity types that are most often searched for in the PubMed [<xref ref-type="bibr" rid="CR1">1</xref>] database. To achieve this goal, a fundamental preprocessing step is to automatically identify biological and chemical mentions in the underlying documents. Based on this identification, downstream NLP tasks such as the recognition of interactions between drugs and proteins, of side effects of chemical compounds and their associations with toxicological endpoints or the investigation of information on metabolic reactions can be carried out.</p>
+          <p id="Par21">For these reasons, NLP initiatives have been launched in recent years to address the challenges of identifying biological, chemical and biomedical entities. One of these initiatives is the BioCreative series, which focuses on biomedical text mining. BioCreative is a “Challenge Evaluation”, in which the participants are given defined text mining or information extraction tasks in the biomedical and chemical field. These tasks include <italic>GeneMention detection (GM)</italic> [<xref ref-type="bibr" rid="CR2">2</xref>, <xref ref-type="bibr" rid="CR3">3</xref>], <italic>Gene Normalization (GN)</italic> [<xref ref-type="bibr" rid="CR3">3</xref>–<xref ref-type="bibr" rid="CR5">5</xref>], <italic>Protein–Protein Interaction (PPI)</italic> [<xref ref-type="bibr" rid="CR6">6</xref>], <italic>Chemical Compound and Drug Name Recognition (CHEMDNER)</italic> [<xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR8">8</xref>] and <italic>Chemical Disease Relation Extraction</italic> [<xref ref-type="bibr" rid="CR9">9</xref>, <xref ref-type="bibr" rid="CR10">10</xref>] tasks.</p>
+          <p id="Par22">The current <italic>BioCreative V.5</italic> task consists of two off-line tasks, namely <italic>Chemical Entity Mention in Patents (CEMP)</italic> and <italic>Gene and Protein Related Object Recognition (GPRO)</italic>. CEMP requires the detection of chemical named entity mentions. The task requires detecting the start and end indices corresponding to chemical entities. The GPRO task requires identifying mentions of gene and protein related objects in patent titles and abstracts [<xref ref-type="bibr" rid="CR11">11</xref>]. In this work, we focus on the CEMP task. The CEMP task is an abstraction of the common named entity recognition (NER) tasks, which can be reduced to a sequence labeling problem, where the sentences are represented as sequences of tokens. The task is then to tag chemical entity mentions in these sequences. The settings of the CEMP task are similar to the chemical entity mention recognition (CEM) subtask of CHEMDNER challenge in BioCreative IV [<xref ref-type="bibr" rid="CR7">7</xref>]. Therefore, we addressed both tasks and their underlying corpora in our experiments. Note that the current article describes an extension of previous work [<xref ref-type="bibr" rid="CR12">12</xref>].</p>
+          <p id="Par23">The article is organized as follows: First we describe our methodical apparatus and resources. This includes the data and corpora used in our experiments. Then, we introduce state-of-the-art tools for NER and explain how we adapted them to perform the CEMP task. Next, we present a novel tool for combining NER tools, that is, the so-called LSTMVoter. Finally, we present our results, conclude and discuss further work.</p>
+        </sec>
+        <sec id="Sec2" sec-type="materials|methods">
+          <title>Materials and methods</title>
+          <p id="Par24">In this section, we first describe the datasets used in our experiments. Then, the two-stage application of LSTMVoter is introduced.</p>
+          <sec id="Sec3">
+            <title>Datasets</title>
+            <p id="Par25">In our experiments, two corpora of the BioCreative Challenge were used: the CHEMDNER Corpus [<xref ref-type="bibr" rid="CR13">13</xref>] and the CEMP Corpus [<xref ref-type="bibr" rid="CR14">14</xref>].</p>
+            <p id="Par26">The CHEMDNER corpus consists of 10,000 abstracts of chemistry-related journals published in 2013. Each abstract was human annotated for chemical mentions. The mentions were assigned to one of seven different subtypes (ABBREVIATION, FAMILY, FORMULA, IDENTIFIER, MULTIPLE, SYSTEMATIC, and TRIVIAL). The BioCreative organizer divided the corpus into training (3500 abstracts), development (3500 abstracts) and test (3000 abstracts) sets.</p>
+            <p id="Par27">For CEMP task, the organizers of <italic>BioCreative V.5</italic> provided a corpus of 30,000 patent abstracts from patents published between 2005 and 2014. These abstracts are divided into training (21,000 abstracts) and test (9000 abstracts) sets. The corpus is manually annotated with chemical mentions. For the construction of the CEMP corpus the annotation guidelines of CHEMDNER were used. Therefore, CEMP contains the same seven chemical mention subtypes as CHEMDNER. Table <xref rid="Tab1" ref-type="table">1</xref> shows the number of instances for both corpora for each of these subtypes.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Number of instances for each subtype of CEMP and CHEMDNER corpus</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Annotation</p></th><th align="left"><p>CEMP</p></th><th align="left"><p>CHEMDNER</p></th></tr></thead><tbody><tr><td align="left"><p>Abbreviation</p></td><td align="left"><p>1373</p></td><td align="left"><p>9059</p></td></tr><tr><td align="left"><p>Family</p></td><td align="left"><p>36,238</p></td><td align="left"><p>8313</p></td></tr><tr><td align="left"><p>Formula</p></td><td align="left"><p>6818</p></td><td align="left"><p>8585</p></td></tr><tr><td align="left"><p>Identifier</p></td><td align="left"><p>278</p></td><td align="left"><p>1311</p></td></tr><tr><td align="left"><p>Multiple</p></td><td align="left"><p>418</p></td><td align="left"><p>390</p></td></tr><tr><td align="left"><p>Systematic</p></td><td align="left"><p>28,580</p></td><td align="left"><p>13,472</p></td></tr><tr><td align="left"><p>Trivial</p></td><td align="left"><p>25,927</p></td><td align="left"><p>17,802</p></td></tr><tr><td align="left"><p>No class</p></td><td align="left"><p>0</p></td><td align="left"><p>72</p></td></tr><tr><td align="left"><p>Total count</p></td><td align="left"><p>99,632</p></td><td align="left"><p>59,004</p></td></tr></tbody></table></table-wrap></p>
+            <p id="Par28">Both corpora were enriched with additional linguistic features. For this, multiple preprocessing steps were applied on each set including sentence splitting, tokenization, lemmatization and fine-grained morphological tagging by means of Stanford CoreNLP [<xref ref-type="bibr" rid="CR15">15</xref>] and TextImager [<xref ref-type="bibr" rid="CR16">16</xref>]. In addition, tokens were split on non-alphanumeric characters, as this variant brought a performance increase. Since the chemical mention detection task can be reduced to a sequence labeling problem, the corpora were converted into a sequence structure. To this end, a sequence of documents with sequences of sentences each containing a sequence of tokens was constructed and transformed according to a TSV format. Each word and its associated features are in one line separated by tabs. Sentences are separated by an empty line. For the labeling of the mentions, the IOB tagging scheme [<xref ref-type="bibr" rid="CR17">17</xref>] was used (I = <italic>inside of an entity</italic>, O = <italic>outside of an entity</italic>, B = <italic>beginning of an entity</italic>). IOB allows the annotation of entities that span multiple tokens, where the beginning and the end of the entity is marked. This enables models to learn transition probability. LSTMVoter needs four datasets for the training process. Two pairs of training and development sets are required. Each pair is needed in one of the two stages of LSTMVoter (see section “System description”). Therefore, we divided the training set of CEMP into two series of training, development and test sets (each half of the original training set was split according to the pattern 60%/20%/20%), where the first series is used for stage one, and the second for stage two. For the CHEMDNER corpus the available training and development sets were joined and split into training and development sets according to the schema 80%/20%—as before, we distinguish two such series. For evaluating our classifiers with respect to CHEMDNER, the test set provided by the organizers of the challenge was used. For the following experiments we used the corpora described as so far.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>System description</title>
+            <p id="Par29">In this section we describe our system. Our approach implements a two-stage application of long short-term memory (LSTM) using a conglomerate of sequence labelers for the detection of chemical mentions.</p>
+            <p id="Par30">In the first stage, we trained and optimized five tools for NER for tackling this task, namely <italic>Stanford Named Entity Recognizer</italic> [<xref ref-type="bibr" rid="CR18">18</xref>], <italic>MarMoT</italic> [<xref ref-type="bibr" rid="CR19">19</xref>], <italic>CRF++</italic> [<xref ref-type="bibr" rid="CR20">20</xref>], <italic>MITIE</italic> [<xref ref-type="bibr" rid="CR21">21</xref>] and <italic>Glample</italic> [<xref ref-type="bibr" rid="CR22">22</xref>]. For each of them, we optimized the corresponding hyperparameter settings. Generally speaking, hyperparameter tuning is a challenging task in machine learning. The optimal set of hyperparameters depends on the model, the dataset and the domain [<xref ref-type="bibr" rid="CR23">23</xref>]. Our experiments focused on optimizing the hyperparameters of each NER system independently, which led to a noticeable increase in F-score compared to the default settings. For each NER, we performed the Tree-structured Parzen Estimator (TPE) [<xref ref-type="bibr" rid="CR24">24</xref>] with 200 iterations. The results of the best performing model for each of these NER is listed in Table <xref rid="Tab2" ref-type="table">2</xref>.</p>
+            <p id="Par31">The NER tools are more or less independent of each other in the sense that one can find a subset of test cases that are correctly processed by one of them, but not by another. Therefore, combining these NERs is a promising candidate for increasing performance. We started with computing combinations of these NERs by means of a simple majority vote [<xref ref-type="bibr" rid="CR25">25</xref>], where the target label is selected, that is assigned by the majority of classifiers. Our experiments show that a simple majority vote brings no gain in performance compared to the best performing reference systems being examined in our study (see Table <xref rid="Tab2" ref-type="table">2</xref>). Thus, we developed a two-stage model, the so-called LSTMVoter, which trains a recurrent neural network (RNN) with attention mechanism to learn the best combination of the underlying sequence labeling tools from stage one.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Architecture of LSTMVoter</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_327_Fig1_HTML.png" /></fig></p>
+            <p id="Par32">In the second stage, we combine the sequence labelers of stage one with two bidirectional <italic>long short-term memory</italic> (LSTM) networks with attention mechanism and a conditional random field (CRF) network to form LSTMVoter. The architecture of LSTMVoter is illustrated in Fig. <xref rid="Fig1" ref-type="fig">1</xref>. The core of LSTMVoter is based on [<xref ref-type="bibr" rid="CR22">22</xref>].<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>A long short-term memory cell</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_327_Fig2_HTML.png" /></fig><fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>A bidirectional LSTM network</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_327_Fig3_HTML.png" /></fig></p>
+            <p id="Par33">LSTM networks are a type of RNN [<xref ref-type="bibr" rid="CR26">26</xref>]. RNN allow the computation of fixed-size vector representations for sequences of arbitrary length. An RNN is, so to speak, a function that reads an input sequence <inline-formula id="IEq1"><alternatives><mml:math id="IEq1_Math"><mml:mrow><mml:msub><mml:mi>x</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mi>n</mml:mi></mml:msub></mml:mrow></mml:math><tex-math id="IEq1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$x_1, \ldots , x_n$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq1.gif" /></alternatives></inline-formula> of length <italic>n</italic> and produces an output vector <inline-formula id="IEq2"><alternatives><mml:math id="IEq2_Math"><mml:msub><mml:mi>h</mml:mi><mml:mi>n</mml:mi></mml:msub></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$h_n$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq2.gif" /></alternatives></inline-formula>, which depends on the entire input sequence. Though, in theory, an RNN is capable of capturing long-distance dependencies in the input sequence, in practice, they may fail due to the problem of vanishing gradients [<xref ref-type="bibr" rid="CR27">27</xref>, <xref ref-type="bibr" rid="CR28">28</xref>]. On the other hand, LSTMs include a memory cell, which can maintain information in memory for long periods of time [<xref ref-type="bibr" rid="CR29">29</xref>, <xref ref-type="bibr" rid="CR30">30</xref>]. This enables finding and exploiting long range dependencies in the input sequences to cope with the problem of vanishing gradients. Figure <xref rid="Fig2" ref-type="fig">2</xref> illustrates an LSTM memory cell, which is implemented as follows:<disp-formula id="Equ1"><alternatives><mml:math display="block" id="Equ1_Math"><mml:mrow><mml:mtable><mml:mtr><mml:mtd columnalign="right"><mml:msub><mml:mi>i</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:mi>σ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xi</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hi</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>h</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">ci</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>c</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mrow /><mml:msub><mml:mi>f</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mrow></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:mi>σ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xf</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hf</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>h</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">cf</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>c</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mi>f</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mrow /><mml:msub><mml:mi>c</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mrow></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:msub><mml:mi>f</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:msub><mml:mi>c</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>i</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>tanh</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xc</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hc</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>h</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mi>c</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mrow /><mml:msub><mml:mi>o</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mrow></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:mi>σ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xo</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">ho</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>h</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">co</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>c</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mi>o</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mrow /><mml:msub><mml:mi>h</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mrow></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:msub><mml:mi>o</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>tanh</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>c</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math><tex-math id="Equ1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} i_t&amp;= \sigma (W_{xi}x_t + W_{hi}h_{t-1} + W_{ci}c_{t-1} + b_i)\\ f_t&amp;= \sigma (W_{xf}x_t + W_{hf}h_{t-1} + W_{cf}c_{t-1} + b_f )\\ c_t&amp;= f_tc_{t-1} + i_t \tanh (W_{xc}x_t + W_{hc}h_{t-1} + b_c)\\ o_t&amp;= \sigma (W_{xo}x_t + W_{ho}h_{t-1} + W_{co}c_t + b_o)\\ h_t&amp;= o_t \tanh (c_t) \end{aligned}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2018_327_Article_Equ1.gif" /></alternatives></disp-formula>where <inline-formula id="IEq3"><alternatives><mml:math id="IEq3_Math"><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$x_t$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq3.gif" /></alternatives></inline-formula> is the input vector (e.g. word embedding) at time <italic>t</italic>. <inline-formula id="IEq4"><alternatives><mml:math id="IEq4_Math"><mml:msub><mml:mi>h</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq4_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$h_t$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq4.gif" /></alternatives></inline-formula> is the hidden state vector, also called output vector, that contains information at time <italic>t</italic> and all time steps before <italic>t</italic>. <inline-formula id="IEq5"><alternatives><mml:math id="IEq5_Math"><mml:mi>σ</mml:mi></mml:math><tex-math id="IEq5_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sigma$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq5.gif" /></alternatives></inline-formula> is the logistic sigmoid function [<xref ref-type="bibr" rid="CR31">31</xref>]. Input gate <italic>i</italic>, forget gate <italic>f</italic>, output gate <italic>o</italic> and cell vector <italic>c</italic> are of the same size as the hidden state vector <italic>h</italic>. <inline-formula id="IEq6"><alternatives><mml:math id="IEq6_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hi</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq6_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$W_{hi}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq6.gif" /></alternatives></inline-formula>, <inline-formula id="IEq7"><alternatives><mml:math id="IEq7_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hf</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq7_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$W_{hf}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq7.gif" /></alternatives></inline-formula>, <inline-formula id="IEq8"><alternatives><mml:math id="IEq8_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hc</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq8_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$W_{hc}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq8.gif" /></alternatives></inline-formula> and <inline-formula id="IEq9"><alternatives><mml:math id="IEq9_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">ho</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq9_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$W_{ho}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq9.gif" /></alternatives></inline-formula> are the weight matrices for the hidden state <inline-formula id="IEq10"><alternatives><mml:math id="IEq10_Math"><mml:msub><mml:mi>h</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq10_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$h_t$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq10.gif" /></alternatives></inline-formula>. <inline-formula id="IEq11"><alternatives><mml:math id="IEq11_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xi</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq11_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$W_{xi}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq11.gif" /></alternatives></inline-formula>, <inline-formula id="IEq12"><alternatives><mml:math id="IEq12_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xf</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq12_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$W_{xf}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq12.gif" /></alternatives></inline-formula>, <inline-formula id="IEq13"><alternatives><mml:math id="IEq13_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xc</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq13_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$W_{xc}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq13.gif" /></alternatives></inline-formula> and <inline-formula id="IEq14"><alternatives><mml:math id="IEq14_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xo</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq14_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$W_{xo}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq14.gif" /></alternatives></inline-formula> denote the weight matrices of different gates for input <inline-formula id="IEq15"><alternatives><mml:math id="IEq15_Math"><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq15_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$x_t$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq15.gif" /></alternatives></inline-formula>.</p>
+            <p id="Par34">For LSTMVoter, we apply an LSTM to sequence tagging. Additionally, as proposed by [<xref ref-type="bibr" rid="CR32">32</xref>], we utilize bidirectional LSTM networks. Figure <xref rid="Fig3" ref-type="fig">3</xref> illustrates a bidirectionalLong short-term memory (Bi-LSTM) network, where the input sequence (<italic>Treatment with haloperidol or reserpine ...</italic>) and the output sequence (<italic>O, O, B-Trivial, O, B-Trivial, ...</italic>) are fed as a training instance to a Bi-LSTM. In Bi-LSTMs, the input sequence is presented forward and backward to two separate hidden states to capture past and future information. To efficiently make use of past features (via forward states) and future features (via backward states) for a specific time frame, the two hidden states are concatenated to form the final output. In the final output of a Bi-LSTM, all information of the complete sequence is compressed into a fixed-length hidden state vector, which may result in information loss. To overcome this information loss, an attention mechanism is introduced, which partially fixes the problem.</p>
+            <p id="Par35">The method of attention mechanism has recently gained popularity in image caption generation [<xref ref-type="bibr" rid="CR33">33</xref>], visual question answering [<xref ref-type="bibr" rid="CR34">34</xref>] and language modeling tasks [<xref ref-type="bibr" rid="CR35">35</xref>–<xref ref-type="bibr" rid="CR38">38</xref>]. The attention mechanism plugs a context vector on top of a layer, which enables to take all cells’ outputs as input to compute a probability distribution. This enables to capture global information rather then to infer based on one output vector.</p>
+            <p id="Par36">For LSTMVoter, we utilized Bi-LSTM with attention mechanism to model character-level features (see Fig. <xref rid="Fig1" ref-type="fig">1</xref>, <italic>Char-Bi-LSTM</italic>). Character-level features in chemical named entities contain rich structure information, such as prefix, suffix and n-grams. Unlike previous methods [<xref ref-type="bibr" rid="CR39">39</xref>–<xref ref-type="bibr" rid="CR41">41</xref>], character-level features do not have to be defined manually, rather they can be learned during training. Unlike [<xref ref-type="bibr" rid="CR22">22</xref>], who encodes the entire character sequence into a fixed-size vector for each word, we utilize the character-level attention mechanism introduced by [<xref ref-type="bibr" rid="CR36">36</xref>]. This has the advantage, that by using the attention mechanism, the model is able to dynamically decide how much information and which part of a token to use.</p>
+            <p id="Par37">In addition to the character-level features, we implemented word embeddings into our model to capture dependencies between words (see Fig. <xref rid="Fig1" ref-type="fig">1</xref>, <italic>Word-Embeddings</italic>). For this, we evaluated various methods, namely GloVe [<xref ref-type="bibr" rid="CR42">42</xref>], Dependency-Based embeddings [<xref ref-type="bibr" rid="CR43">43</xref>, <xref ref-type="bibr" rid="CR44">44</xref>] trained on the English Wikipedia, and word2vec [<xref ref-type="bibr" rid="CR45">45</xref>] trained on the English Wikipedia and a biomedical scientific literature corpus containing PubMed abstracts and full texts. In our experiments, the word2vec model trained on biomedical scientific literature gave the best results.</p>
+            <p id="Par38">To utilize the results of the NERs from stage one, we encode the respective results of the NERs into one-hot vectors concatenated to a feature vector (see Fig. <xref rid="Fig1" ref-type="fig">1</xref>, <italic>Stage-One-Features</italic>). An attention mechanism is placed on the feature vector. By creating a probability distribution through the attention mechanism, LSTMVoter learns how to weight each result of the NERs from stage one. With the attention vector it is even possible to determine for each element of a sequence how important the individual partial results from stage one were. This has the advantage that the model is no longer a black box, but can be interpreted as to how important the individual results from stage one were.</p>
+            <p id="Par39">All previous elements of LSTMVoter encode word-based information. Another Bi-LSTM is used to learn relationships between these word-based information (see Fig. <xref rid="Fig1" ref-type="fig">1</xref>, <italic>Bi-LSTM</italic>).</p>
+            <p id="Par40">To deal with the independent label output problem, we utilize the output vector as elements. For this we combine the Bi-LSTM layer with a linear-chain CRF (see Fig. <xref rid="Fig1" ref-type="fig">1</xref>, <italic>CRF</italic>). Linear-chain CRFs define the conditional probability of a state sequence to be:<disp-formula id="Equ2"><alternatives><mml:math display="block" id="Equ2_Math"><mml:mrow><mml:mtable><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mi>P</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>y</mml:mi><mml:mo stretchy="false">|</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:msub><mml:mi>Z</mml:mi><mml:mi>x</mml:mi></mml:msub></mml:mfrac><mml:mi>e</mml:mi><mml:mi>x</mml:mi><mml:mi>p</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>j</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>l</mml:mi></mml:munderover><mml:msub><mml:mi>λ</mml:mi><mml:mi>m</mml:mi></mml:msub><mml:msub><mml:mi>f</mml:mi><mml:mi>m</mml:mi></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mfenced></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math><tex-math id="Equ2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} P(y|x) = \frac{1}{Z_x}exp\left( \sum \limits _{j=1}^n \sum \limits _{m=1}^l \lambda _m f_m(y_{j-1},y_j,x,j)\right) \end{aligned}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2018_327_Article_Equ2.gif" /></alternatives></disp-formula>where <inline-formula id="IEq16"><alternatives><mml:math id="IEq16_Math"><mml:msub><mml:mi>Z</mml:mi><mml:mi>x</mml:mi></mml:msub></mml:math><tex-math id="IEq16_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$Z_x$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq16.gif" /></alternatives></inline-formula> is the normalization factor that makes the probability of all state sequences sum to one; <inline-formula id="IEq17"><alternatives><mml:math id="IEq17_Math"><mml:mrow><mml:msub><mml:mi>f</mml:mi><mml:mi>m</mml:mi></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:math><tex-math id="IEq17_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$f_m(y_{j-1},y_j,x,j)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq17.gif" /></alternatives></inline-formula> is a feature function, and <inline-formula id="IEq18"><alternatives><mml:math id="IEq18_Math"><mml:msub><mml:mi>λ</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq18_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\lambda _m$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq18.gif" /></alternatives></inline-formula> is a learned weight associated with feature <inline-formula id="IEq19"><alternatives><mml:math id="IEq19_Math"><mml:msub><mml:mi>f</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq19_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$f_m$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq19.gif" /></alternatives></inline-formula>. Feature functions measure the aspect of a state transition, <inline-formula id="IEq20"><alternatives><mml:math id="IEq20_Math"><mml:mrow><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo stretchy="false">→</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mrow></mml:math><tex-math id="IEq20_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$y_{j-1},y_j \rightarrow y_t$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq20.gif" /></alternatives></inline-formula>, and the entire observation sequence, <italic>x</italic>, centered at the current time step, <italic>j</italic>. Large positive values for <inline-formula id="IEq21"><alternatives><mml:math id="IEq21_Math"><mml:msub><mml:mi>λ</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq21_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\lambda _m$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq21.gif" /></alternatives></inline-formula> indicate a preference for such an event, whereas large negative values make the event unlikely.</p>
+            <p id="Par41">Finally, to optimize the hyperparameters, the Tree Structure Parzen estimator was used.</p>
+          </sec>
+        </sec>
+        <sec id="Sec5" sec-type="results">
+          <title>Results</title>
+          <p id="Par42">This section presents the results of our experiments for the chemical named entity recognition on CEMP and CHEMDNER corpus. For evaluation the BioCreative Team has specified standard evaluation statistics, namely precision (P), recall (R) and F1-score (F) [<xref ref-type="bibr" rid="CR14">14</xref>]. For each sequence labeling tool, the hyperparameters were optimized using Tree Structure Parzen Estimators, which led to a noticeable increase of performance. For example, in the optimization process of CRF++, the difference between the worst to the best performer is 65%. The results show the need for machine learning algorithms to perform hyperparameter optimization.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Comparison of annotators trained and tested on CEMP and CHEMDNER corpora measured by precision (P), recall (R), f1-score (F1)</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>System</p></th><th align="left" colspan="3"><p>CEMP</p></th><th align="left" colspan="3"><p>CHEMDNER</p></th></tr><tr><th align="left" /><th align="left"><p>P</p></th><th align="left"><p>R</p></th><th align="left"><p>F</p></th><th align="left"><p>P</p></th><th align="left"><p>R</p></th><th align="left"><p>F</p></th></tr></thead><tbody><tr><td align="left"><p>Stanford NER</p></td><td align="left"><p>0.85</p></td><td align="left"><p>0.80</p></td><td align="left"><p>0.82</p></td><td align="left"><p>0.82</p></td><td align="left"><p>0.83</p></td><td align="left"><p>0.82</p></td></tr><tr><td align="left"><p>MarMoT</p></td><td align="left"><p>0.87</p></td><td align="left"><p>0.86</p></td><td align="left"><p>0.86</p></td><td align="left"><p>0.85</p></td><td align="left"><p>0.85</p></td><td align="left"><p>0.85</p></td></tr><tr><td align="left"><p>CRF++</p></td><td align="left"><p>0.77</p></td><td align="left"><p>0.73</p></td><td align="left"><p>0.73</p></td><td align="left"><p>0.74</p></td><td align="left"><p>0.71</p></td><td align="left"><p>0.73</p></td></tr><tr><td align="left"><p>MITIE</p></td><td align="left"><p>0.65</p></td><td align="left"><p>0.65</p></td><td align="left"><p>0.65</p></td><td align="left"><p>0.62</p></td><td align="left"><p>0.61</p></td><td align="left"><p>0.62</p></td></tr><tr><td align="left"><p>Glample</p></td><td align="left"><p>0.76</p></td><td align="left"><p>0.79</p></td><td align="left"><p>0.77</p></td><td align="left"><p>0.82</p></td><td align="left"><p>0.84</p></td><td align="left"><p>0.83</p></td></tr><tr><td align="left"><p>Majority vote</p></td><td align="left"><p>0.78</p></td><td align="left"><p>0.79</p></td><td align="left"><p>0.78</p></td><td align="left"><p>0.70</p></td><td align="left"><p>0.76</p></td><td align="left"><p>0.73</p></td></tr><tr><td align="left"><p>LSTMVoter</p></td><td align="left"><p>0.90</p></td><td align="left"><p>0.88</p></td><td align="left"><p><bold>0.89</bold></p></td><td align="left"><p>0.91</p></td><td align="left"><p>0.90</p></td><td align="left"><p><bold>0.90</bold></p></td></tr></tbody></table><table-wrap-foot><p>Bold was intended to compare LSTMVoter to the best reference tool. Bold now shows the system with the highest F-Score, which is LSTMVoter</p></table-wrap-foot></table-wrap></p>
+          <p id="Par43">Table <xref rid="Tab2" ref-type="table">2</xref> shows the comparison of annotators trained on CEMP and CHEMDNER corpus. The results listed are those obtained after the hyperparameter optimization described in the methods section, which were trained, optimized and tested on the corpora described in this section. Each sequence labeling system classifies a different subset correctly. The combination of sequence labelling systems in a majority vote did not improve performance and is even below the best sequence labelling systems. In contrast, LSTMVoter increases the performance and performs best in our experiments.</p>
+        </sec>
+        <sec id="Sec6" sec-type="conclusions">
+          <title>Conclusions</title>
+          <p id="Par44">In this work, we compared a set of sequence labeling systems. We trained and optimized every sequence labeling system to detect chemical entity mention by means the TPE. We showed that optimizing hyperparameter can be crucial. One sequence labeling system in our experiments gained an improvement of more than 65 %. We showed that a naive majority vote does not bring any improvement. For this reason, we introduced and evaluated LSTMVoter, a two-stage tool for combining underlying sequence modeling tools (as given by the NER of our comparative study). LSTMVoter achieved an improvement of up to 5 % compared to the best reference systems examined in our study. This two-level classifier appears to be capable of being further developed and improved by feeding it with the output of additional sequence labelling systems. In any event, our results and those of the other participants of BioCreative V.5 Task show that the task of NER of chemical entities has not been sufficiently solved yet. For a better recognition, a larger corpus should be generated so that today’s popular deep learning algorithms can work on this data. A kind of human-in-the-loop architecture for automatic annotation and intellectual rework would also be helpful at this point in order to successively increase and improve the amount of data.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Author's contributions</title>
+          <sec>
+            <p>WH, and AM conceived the study, WH carried out the implementation. WH and AM wrote the manuscript. All contributed to the intellectual evolution of this project. Both authors have read and approved the final manuscript.</p>
+          </sec>
+          <sec id="FPar3">
+            <title>Acknowledgements</title>
+            <p id="Par48">Not applicable.</p>
+          </sec>
+          <sec id="FPar2">
+            <title>Competing interests</title>
+            <p id="Par47">The authors declare that they have no competing interests.</p>
+          </sec>
+          <sec id="FPar1">
+            <title>Availability of data and materials</title>
+            <p id="Par46">Data and code are available at <ext-link xlink:href="https://github.com/texttechnologylab/LSTMVoter" ext-link-type="uri">https://github.com/texttechnologylab/LSTMVoter</ext-link></p>
+          </sec>
+          <sec id="FPar4">
+            <title>Authors’ information</title>
+            <p id="Par49">Not applicable.</p>
+          </sec>
+          <sec id="FPar5">
+            <title>Funding</title>
+            <p id="Par50"> This work was funded by the Federal Ministry of Education and Research (BMBF) via the research project CEDIFOR (<ext-link xlink:href="https://www.cedifor.de/" ext-link-type="uri">https://www.cedifor.de/</ext-link>) and by the German Research Foundations (DFG) as part of the BIOfid project (DFG-326061700) (<ext-link xlink:href="https://www.biofid.de/de/" ext-link-type="uri">https://www.biofid.de/de/</ext-link>)</p>
+          </sec>
+          <sec id="FPar50">
+            <title>Publisher’s Note</title>
+            <p id="Par980">Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+          </sec>
+        </ack>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="other">PubMed - NCBI. <ext-link xlink:href="https://www.ncbi.nlm.nih.gov/pubmed/" ext-link-type="uri">https://www.ncbi.nlm.nih.gov/pubmed/</ext-link>. Accessed 19 July (2018)</mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Smith</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Tanabe</surname>
+                    <given-names>LK</given-names>
+                  </name>
+                  <name>
+                    <surname>nee Ando</surname>
+                    <given-names>RJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuo</surname>
+                    <given-names>C-J</given-names>
+                  </name>
+                  <name>
+                    <surname>Chung</surname>
+                    <given-names>I-F</given-names>
+                  </name>
+                  <name>
+                    <surname>Hsu</surname>
+                    <given-names>C-N</given-names>
+                  </name>
+                  <name>
+                    <surname>Lin</surname>
+                    <given-names>Y-S</given-names>
+                  </name>
+                  <name>
+                    <surname>Klinger</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Friedrich</surname>
+                    <given-names>CM</given-names>
+                  </name>
+                  <name>
+                    <surname>Ganchev</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Torii</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Haddow</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Struble</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <name>
+                    <surname>Povinelli</surname>
+                    <given-names>RJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Vlachos</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Baumgartner</surname>
+                    <given-names>WA</given-names>
+                  </name>
+                  <name>
+                    <surname>Hunter</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Carpenter</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Tsai</surname>
+                    <given-names>RT-H</given-names>
+                  </name>
+                  <name>
+                    <surname>Dai</surname>
+                    <given-names>H-J</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Sun</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Katrenko</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Adriaans</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Blaschke</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Torres</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Neves</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Nakov</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Divoli</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Maña-López</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Mata</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilbur</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Overview of biocreative II gene mention recognition</article-title>
+                <source>Genome Biol</source>
+                <year>2008</year>
+                <volume>9</volume>
+                <issue>2</issue>
+                <fpage>2</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXnslGgsg%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/gb-2008-9-s2-s2</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hirschman</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Yeh</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Blaschke</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Valencia</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Overview of biocreative: critical assessment of information extraction for biology</article-title>
+                <source>BMC Bioinform</source>
+                <year>2005</year>
+                <volume>6</volume>
+                <issue>1</issue>
+                <fpage>1</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXpsFKisr8%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/1471-2105-6-S1-S1</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Morgan</surname>
+                    <given-names>AA</given-names>
+                  </name>
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Cohen</surname>
+                    <given-names>AM</given-names>
+                  </name>
+                  <name>
+                    <surname>Fluck</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Ruch</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Divoli</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Fundel</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Leaman</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Hakenberg</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Sun</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>H-H</given-names>
+                  </name>
+                  <name>
+                    <surname>Torres</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Krauthammer</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Lau</surname>
+                    <given-names>WW</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Hsu</surname>
+                    <given-names>C-N</given-names>
+                  </name>
+                  <name>
+                    <surname>Schuemie</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Cohen</surname>
+                    <given-names>KB</given-names>
+                  </name>
+                  <name>
+                    <surname>Hirschman</surname>
+                    <given-names>L</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Overview of biocreative II gene normalization</article-title>
+                <source>Genome Biol</source>
+                <year>2008</year>
+                <volume>9</volume>
+                <issue>2</issue>
+                <fpage>3</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXnslGgsw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/gb-2008-9-s2-s3</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Kao</surname>
+                    <given-names>H-Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Wei</surname>
+                    <given-names>C-H</given-names>
+                  </name>
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuo</surname>
+                    <given-names>C-J</given-names>
+                  </name>
+                  <name>
+                    <surname>Hsu</surname>
+                    <given-names>C-N</given-names>
+                  </name>
+                  <name>
+                    <surname>Tsai</surname>
+                    <given-names>RT-H</given-names>
+                  </name>
+                  <name>
+                    <surname>Dai</surname>
+                    <given-names>H-J</given-names>
+                  </name>
+                  <name>
+                    <surname>Okazaki</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Cho</surname>
+                    <given-names>H-C</given-names>
+                  </name>
+                  <name>
+                    <surname>Gerner</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Solt</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Agarwal</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Vishnyakova</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Ruch</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Romacker</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Rinaldi</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Bhattacharya</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Srinivasan</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Torii</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Matos</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Campos</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Verspoor</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Livingston</surname>
+                    <given-names>KM</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilbur</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The gene normalization task in biocreative III</article-title>
+                <source>BMC Bioinform</source>
+                <year>2011</year>
+                <volume>12</volume>
+                <issue>8</issue>
+                <fpage>2</fpage>
+                <pub-id pub-id-type="doi">10.1186/1471-2105-12-S8-S2</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Krallinger</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Vazquez</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Leitner</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Salgado</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Chatr-aryamontri</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Winter</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Perfetto</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Briganti</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Licata</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Iannuccelli</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Castagnoli</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Cesareni</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Tyers</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Rinaldi</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Leaman</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Gonzalez</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Matos</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilbur</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Rocha</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Shatkay</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Tendulkar</surname>
+                    <given-names>AV</given-names>
+                  </name>
+                  <name>
+                    <surname>Agarwal</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Rak</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Noto</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Elkan</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Dogan</surname>
+                    <given-names>RI</given-names>
+                  </name>
+                  <name>
+                    <surname>Fontaine</surname>
+                    <given-names>J-F</given-names>
+                  </name>
+                  <name>
+                    <surname>Andrade-Navarro</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <name>
+                    <surname>Valencia</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The protein–protein interaction tasks of biocreative III: classification/ranking of articles and linking bio-ontology concepts to full text</article-title>
+                <source>BMC Bioinform</source>
+                <year>2011</year>
+                <volume>12</volume>
+                <issue>8</issue>
+                <fpage>3</fpage>
+                <pub-id pub-id-type="doi">10.1186/1471-2105-12-S8-S3</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Krallinger</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Leitner</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Rabal</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Vazquez</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Oyarzabal</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Valencia</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">CHEMDNER: the drugs and chemical names extraction challenge</article-title>
+                <source>J Cheminform</source>
+                <year>2015</year>
+                <volume>7</volume>
+                <issue>1</issue>
+                <fpage>1</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-7-S1-S1</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="other">Krallinger M, Rabal O, Lourenço A, Perez M, Rodríguez GP, Vázquez M, Leitner F, Oyarzabal J, Valencia A (2015) Overview of the chemdner patents task. In: Proceedings of the 5th BioCreative challenge evaluation workshop</mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Sun</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Johnson</surname>
+                    <given-names>RJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Sciaky</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Wei</surname>
+                    <given-names>C-H</given-names>
+                  </name>
+                  <name>
+                    <surname>Leaman</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Davis</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Mattingly</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Wiegers</surname>
+                    <given-names>TC</given-names>
+                  </name>
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Biocreative V CDR task corpus: a resource for chemical disease relation extraction</article-title>
+                <source>J Biol Databases Curation</source>
+                <year>2016</year>
+                <volume>2016</volume>
+                <fpage>068</fpage>
+                <pub-id pub-id-type="doi">10.1093/database/baw068</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wei</surname>
+                    <given-names>C-H</given-names>
+                  </name>
+                  <name>
+                    <surname>Peng</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Leaman</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Davis</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Mattingly</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Wiegers</surname>
+                    <given-names>TC</given-names>
+                  </name>
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Assessing the state of the art in biomedical relation extraction: overview of the biocreative V chemical-disease relation (CDR) task</article-title>
+                <source>Database</source>
+                <year>2016</year>
+                <volume>2016</volume>
+                <fpage>032</fpage>
+                <pub-id pub-id-type="doi">10.1093/database/baw032</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="other">Krallinger M, Pérez-Pérez M, Pérez-Rodríguez G, Blanco-Míguez A, Fdez-Riverola F, CapellaGutierrez S, Lourenço A, Valencia A (2017) The biocreative v.5 evaluation workshop: tasks, organization, sessions and topics. In: Proceedings of the BioCreative V.5 challenge evaluation workshop, 8–10</mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="other">Hemati W, Mehler A, Uslu T (2017) CRFVoter: chemical entity mention, gene and protein related object recognition using a conglomerate of CRF based tools. In: BioCreative V.5. Proceedings</mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Krallinger</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Rabal</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Leitner</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Vazquez</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Salgado</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Leaman</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Ji</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Lowe</surname>
+                    <given-names>DM</given-names>
+                  </name>
+                  <name>
+                    <surname>Sayle</surname>
+                    <given-names>RA</given-names>
+                  </name>
+                  <name>
+                    <surname>Batista-Navarro</surname>
+                    <given-names>RT</given-names>
+                  </name>
+                  <name>
+                    <surname>Rak</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Huber</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Rocktäschel</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Matos</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Campos</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Tang</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Munkhdalai</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Ryu</surname>
+                    <given-names>KH</given-names>
+                  </name>
+                  <name>
+                    <surname>Ramanan</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Nathan</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Žitnik</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Bajec</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Weber</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Irmer</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Akhondi</surname>
+                    <given-names>SA</given-names>
+                  </name>
+                  <name>
+                    <surname>Kors</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>An</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Sikdar</surname>
+                    <given-names>UK</given-names>
+                  </name>
+                  <name>
+                    <surname>Ekbal</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Yoshioka</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Dieb</surname>
+                    <given-names>TM</given-names>
+                  </name>
+                  <name>
+                    <surname>Choi</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Verspoor</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Khabsa</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Giles</surname>
+                    <given-names>CL</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Ravikumar</surname>
+                    <given-names>KE</given-names>
+                  </name>
+                  <name>
+                    <surname>Lamurias</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Couto</surname>
+                    <given-names>FM</given-names>
+                  </name>
+                  <name>
+                    <surname>Dai</surname>
+                    <given-names>HJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Tsai</surname>
+                    <given-names>RTH</given-names>
+                  </name>
+                  <name>
+                    <surname>Ata</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Can</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Usié</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Alves</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Segura-Bedmar</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Martínez</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Oyarzabal</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Valencia</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The CHEMDNER corpus of chemicals and drugs and its annotation principles</article-title>
+                <source>J Cheminform</source>
+                <year>2015</year>
+                <volume>7</volume>
+                <issue>1</issue>
+                <fpage>2</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-7-S1-S2</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="other">Pérez-Pérez M, Rabal O, Pérez-Rodríguez G, Vazquez M, Fdez-Riverola F, Oyarzabal J, Valencia A, Lourenço A, Krallinger M (2017) Evaluation of chemical and gene/protein entity recognition systems at biocreative v.5: the cemp and gpro patents tracks. In: Proceedings of the BioCreative V.5 challenge evaluation workshop, 11–18</mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="other">Manning CD, Surdeanu M, Bauer J, Finkel J, Bethard SJ, McClosky D (2014) The Stanford CoreNLP natural language processing toolkit. In: Association for computational linguistics (ACL) system demonstrations, pp 55–60</mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="other">Hemati W, Uslu T, Mehler A (2016) TextImager: a distributed UIMA-based system for NLP. In: Proceedings of the COLING 2016 system demonstrations</mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="other">Lance AR, Mitchell PM (1995) Text chunking using transformation-based learning. CoRR cmp-lg/9505040</mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="other">Finkel JR, Grenager T, Manning C (2005) Incorporating non-local information into information extraction systems by gibbs sampling. In: Proceedings of the 43rd annual meeting on association for computational linguistics. ACL ’05. Association for computational linguistics, Stroudsburg, PA, USA, pp 363–370. <ext-link xlink:href="10.3115/1219840.1219885" ext-link-type="doi">https://doi.org/10.3115/1219840.1219885</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="other">Mueller T, Schmid H, Schütze H (2013) Efficient higher-order CRFs for morphological tagging. In: Proceedings of the 2013 conference on empirical methods in natural language processing. EMNLP 2013, pp 322–332. Association for Computational Linguistics, Seattle, Washington, USA</mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="other">Kudo T (2005) CRF++: yet another CRF toolkit. Software available at <ext-link xlink:href="https://taku910.github.io/crfpp/" ext-link-type="uri">https://taku910.github.io/crfpp/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="other">Geyer K, Greenfield K, Mensch A, Simek O (2016) Named entity recognition in 140 characters or less. In: Microposts</mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="other">Lample G, Ballesteros M, Subramanian S, Kawakami K, Dyer C (2016) Neural architectures for named entity recognition. Computing Research Repository</mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="other">Marc C, Bart DM (2015) Hyperparameter search in machine learning. Computing research repository abs/1502.02127</mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="other">Bergstra J, Bardenet R, Bengio Y, Kégl B (2011) Algorithms for hyper-parameter optimization. In: Proceedings of the 24th international conference on neural information processing systems. NIPS’11, pp 2546–2554. Curran Associates Inc., USA</mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="other">Dietterich TG (2000) Ensemble methods in machine learning. In: Proceedings of the first international workshop on multiple classifier systems. MCS ’00, pp 1–15. Springer, London</mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jeffrey</surname>
+                    <given-names>LE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Finding structure in time</article-title>
+                <source>Cognit Sci</source>
+                <year>1990</year>
+                <volume>14</volume>
+                <issue>2</issue>
+                <fpage>179</fpage>
+                <lpage>211</lpage>
+                <pub-id pub-id-type="doi">10.1207/s15516709cog1402_1</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hochreiter</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The vanishing gradient problem during learning recurrent neural nets and problem solutions</article-title>
+                <source>Int J Uncertain Fuzziness Knowl-Based Syst</source>
+                <year>1998</year>
+                <volume>6</volume>
+                <issue>2</issue>
+                <fpage>107</fpage>
+                <lpage>116</lpage>
+                <pub-id pub-id-type="doi">10.1142/S0218488598000094</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="other">Pascanu R, Mikolov T, Bengio Y (2012) Understanding the exploding gradient problem. CoRR abs/1211.5063</mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hochreiter</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Schmidhuber</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Long short-term memory</article-title>
+                <source>Neural Comput</source>
+                <year>1997</year>
+                <volume>9</volume>
+                <issue>8</issue>
+                <fpage>1735</fpage>
+                <lpage>1780</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:STN:280:DyaK1c%2FhvVahsQ%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1162/neco.1997.9.8.1735</pub-id>
+                <pub-id pub-id-type="pmid">9377276</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="other">Hammerton J (2003) Named entity recognition with long short-term memory. In: Proceedings of the seventh conference on natural language learning at HLT-NAACL 2003—vol 4. CONLL ’03, pp 172–175. Association for Computational Linguistics, Stroudsburg. <ext-link xlink:href="10.3115/1119176.1119202" ext-link-type="doi">https://doi.org/10.3115/1119176.1119202</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="other">Weisstein EW (2002) Sigmoid function</mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="other">Graves A, Mohamed AR, Hinton GE (2013) Speech recognition with deep recurrent neural networks. CoRR abs/1303.5778</mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="other">Xu K, Ba J, Kiros R, Cho K, Courville AC, Salakhutdinov R, Zemel RS, Bengio Y (2015) Show, attend and tell: neural image caption generation with visual attention. CoRR abs/1502.03044</mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="other">Yang Z, He X, Gao J, Deng L, Smola AJ (2015) Stacked attention networks for image question answering. CoRR abs/1511.02274</mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="other">Golub D, He X (2016) Character-level question answering with attention. CoRR abs/1604.00727</mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="other">Rei M, Crichton GKO, Pyysalo S (2016) Attending to characters in neural sequence labeling models. CoRR abs/1611.04361</mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="other">Luong MT, Pham H, Manning CD (2015) Effective approaches to attention-based neural machine translation. CoRR abs/1508.04025</mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="other">Bahdanau D, Cho K, Bengio Y (2014) Neural machine translation by jointly learning to align and translate. CoRR abs/1409.0473</mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Ji</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Yao</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Wei</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Liang</surname>
+                    <given-names>X</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chemdner system with mixed conditional random fields and multi-scale word clustering</article-title>
+                <source>J Cheminform</source>
+                <year>2015</year>
+                <volume>7</volume>
+                <issue>1</issue>
+                <fpage>4</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-7-S1-S4</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Khabsa</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Giles</surname>
+                    <given-names>CL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chemical entity extraction using CRF and an ensemble of extractors</article-title>
+                <source>J Cheminform</source>
+                <year>2015</year>
+                <volume>7</volume>
+                <issue>1</issue>
+                <fpage>12</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-7-S1-S12</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>An</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhu</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A CRF-based system for recognizing chemical entity mentions (CEMs) in biomedical literature</article-title>
+                <source>J Cheminform</source>
+                <year>2015</year>
+                <volume>7</volume>
+                <issue>1</issue>
+                <fpage>11</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-7-S1-S11</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="other">Pennington J, Socher R, Manning CD (2014) Glove: global vectors for word representation. In: EMNLP</mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="other">Levy O, Goldberg, Y (2014) Dependency-based word embeddings. In: Proceedings of the 52nd annual meeting of the association for computational linguistics (vol 2: short papers), vol 2, pp 302–308</mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="other">Komninos A, Manandhar S (2016) Dependency based embeddings for sentence classification tasks. In: Proceedings of the 2016 conference of the North American chapter of the association for computational linguistics: human language technologies, pp 1490–1500</mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="other">Mikolov T, Sutskever I, Chen K, Corrado G, Dean J (2013) Distributed representations of words and phrases and their compositionality. CoRR abs/1310.4546</mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <glossary>
+          <title>Abbreviations</title>
+          <def-list>
+            <def-item>
+              <term>Bi-LSTM</term>
+              <def>
+                <p id="Par4">bidirectional long short-term memory</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CEM</term>
+              <def>
+                <p id="Par5">chemical entity mention recognition</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CEMP</term>
+              <def>
+                <p id="Par6">chemical entity mention in patents</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CHEMDNER</term>
+              <def>
+                <p id="Par7">chemical compound and drug name recognition</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CRF</term>
+              <def>
+                <p id="Par8">conditional random field</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>F</term>
+              <def>
+                <p id="Par9">F1-score</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>GM</term>
+              <def>
+                <p id="Par10">gene mention detection</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>GN</term>
+              <def>
+                <p id="Par11">gene normalization</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>GPRO</term>
+              <def>
+                <p id="Par12">gene and protein related object recognition</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>LSTM</term>
+              <def>
+                <p id="Par13">long short-term memory</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>NER</term>
+              <def>
+                <p id="Par14">named entity recognition</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>P</term>
+              <def>
+                <p id="Par15">precision</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PPI</term>
+              <def>
+                <p id="Par16">protein–protein interaction</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>R</term>
+              <def>
+                <p id="Par17">recall</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RNN</term>
+              <def>
+                <p id="Par18">recurrent neural network</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>TPE</term>
+              <def>
+                <p id="Par19">tree-structured Parzen estimator</p>
+              </def>
+            </def-item>
+          </def-list>
+        </glossary>
+      </back>
+    </article>

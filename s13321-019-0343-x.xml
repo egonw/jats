@@ -1,0 +1,2319 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0343-x</article-id>
+          <article-id pub-id-type="manuscript">343</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0343-x</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+            <subj-group subj-group-type="article-collection" specific-use="Regular">
+              <subject>BioCreative V.5</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">CRFVoter: gene and protein related object recognition using a conglomerate of CRF-based tools</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" corresp="yes" id="Au1">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-5477-2538</contrib-id>
+              <name>
+                <surname>Hemati</surname>
+                <given-names>Wahed</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDs133210190343x_cor1">a</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au2">
+              <name>
+                <surname>Mehler</surname>
+                <given-names>Alexander</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 1936 9721</institution-id>
+                <institution-id institution-id-type="GRID">grid.7839.5</institution-id>
+                <institution content-type="org-division">Text Technology Lab</institution>
+                <institution content-type="org-name">Goethe-University Frankfurt</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Robert-Mayer-Straße 10</addr-line>
+              <addr-line content-type="postcode">60325</addr-line>
+              <addr-line content-type="city">Frankfurt am Main</addr-line>
+              <country country="DE">Germany</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs133210190343x_cor1">
+              <label>a</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>14</day>
+            <month>3</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="21">1</issue>
+          <elocation-id>21</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>1</day>
+              <month>3</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>8</day>
+              <month>10</month>
+              <year>2018</year>
+            </date>
+            <date date-type="accepted">
+              <day>1</day>
+              <month>3</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>14</day>
+              <month>3</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <sec id="ASec1">
+              <title>Background</title>
+              <p id="Par1">Gene and protein related objects are an important class of entities in biomedical research, whose identification and extraction from scientific articles is attracting increasing interest. In this work, we describe an approach to the BioCreative V.5 challenge regarding the recognition and classification of gene and protein related objects. For this purpose, we transform the task as posed by BioCreative V.5 into a sequence labeling problem. We present a series of sequence labeling systems that we used and adapted in our experiments for solving this task. Our experiments show how to optimize the hyperparameters of the classifiers involved. To this end, we utilize various algorithms for hyperparameter optimization. Finally, we present CRFVoter, a two-stage application of Conditional Random Field (CRF) that integrates the optimized sequence labelers from our study into one ensemble classifier.</p>
+            </sec>
+            <sec id="ASec2">
+              <title>Results</title>
+              <p id="Par2">We analyze the impact of hyperparameter optimization regarding named entity recognition in biomedical research and show that this optimization results in a performance increase of up to 60%. In our evaluation, our ensemble classifier based on multiple sequence labelers, called CRFVoter, outperforms each individual extractor’s performance. For the blinded test set provided by the BioCreative organizers, CRFVoter achieves an F-score of 75%, a recall of 71% and a precision of 80%. For the GPRO type 1 evaluation, CRFVoter achieves an F-Score of 73%, a recall of 70% and achieved the best precision (77%) among all task participants.</p>
+            </sec>
+            <sec id="ASec3">
+              <title>Conclusion</title>
+              <p id="Par3">CRFVoter is effective when multiple sequence labeling systems are to be used and performs better then the individual systems collected by it.</p>
+            </sec>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>BioCreative V.5</kwd>
+            <kwd>Biomedical named entity recognition</kwd>
+            <kwd>GPRO</kwd>
+            <kwd>BioNLP</kwd>
+            <kwd>Named entity recognition</kwd>
+            <kwd>CRF</kwd>
+            <kwd>Machine learning</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>No</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>3</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-collection-editor</meta-name>
+              <meta-value>Martin Krallinger, Obdulia Rabal, Anália Lourenço, Alfonso Valencia</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_343.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p id="Par22">The research fields of biology, chemistry and biomedicine have attracted increasing interest due to their social and scientific importance and also because of the challenges arising from the intrinsic complexity of these domains. Like many other research areas, they are currently changing due to the rapid development of machine learning (ML) and artificial intelligence (AI). ML is used in many of these research areas. For instance, in the biomedical area it is used for biomedical signal processing (BSP) [<xref ref-type="bibr" rid="CR1">1</xref>, <xref ref-type="bibr" rid="CR2">2</xref>], biomedical imaging (BI) [<xref ref-type="bibr" rid="CR3">3</xref>–<xref ref-type="bibr" rid="CR5">5</xref>] and disease prediction through patient profiling [<xref ref-type="bibr" rid="CR6">6</xref>]. The former approaches work with structured data such as EEG data in the case of BSP. The last two approaches work with unstructured data such as MRI for BI and doctor-patient conversations in the case of disease classification and differential diagnosis [<xref ref-type="bibr" rid="CR7">7</xref>–<xref ref-type="bibr" rid="CR10">10</xref>]. The growth in the amount of publicly available data has led to enormous efforts to develop, analyze and apply new learning methods in the field of chemistry and biology. This concerns, for example, virtual screening [<xref ref-type="bibr" rid="CR11">11</xref>] for drug design and drug discovery [<xref ref-type="bibr" rid="CR12">12</xref>, <xref ref-type="bibr" rid="CR13">13</xref>]. In order to advance areas of biological, chemical and biomedical research, it is important to perform state-of-the-art algorithms of data analysis. In carrying out scientific work, most researchers rely on published information to keep abreast of the latest developments in these fields, to avoid repetition and determine the direction of current studies. Numerous new publications appear daily in biomedical journals, in the form of scientific articles, patent applications, reports from health authorities and other text collections on the Internet, making it difficult to keep pace with the development of this discipline. Thus, there is an increasing interest in improving access to information on biological, chemical and biomedical data described in such texts and text repositories. To achieve this goal, a fundamental step is to automatically identify biological and chemical entities in these repositories. Based on this identification, interactions between drugs and proteins, for example, can be detected, side effects of chemical compounds and their associations to toxicological endpoints can be identified or information about metabolic reactions can be extracted [<xref ref-type="bibr" rid="CR14">14</xref>].</p>
+          <p id="Par23">For these reasons, initiatives and call for participation in corresponding competitions have been launched in recent years by professional communities that describe challenges in the identification of biochemical units. One of these initiatives is the BioCreative series which focuses on biomedical text mining. BioCreative is a “Challenge Evaluation”, in which the participants are given defined text mining or information extraction tasks in the field of biology. These tasks include Gene Mention detection (GM) [<xref ref-type="bibr" rid="CR15">15</xref>, <xref ref-type="bibr" rid="CR16">16</xref>], Gene Normalization (GN) [<xref ref-type="bibr" rid="CR15">15</xref>, <xref ref-type="bibr" rid="CR17">17</xref>, <xref ref-type="bibr" rid="CR18">18</xref>], Protein–Protein Interaction (PPI) [<xref ref-type="bibr" rid="CR19">19</xref>], Chemical Compound and Drug Name Recognition (CHEMDNER) [<xref ref-type="bibr" rid="CR20">20</xref>] and Chemical Disease Relation Extraction (CDRE) [<xref ref-type="bibr" rid="CR21">21</xref>, <xref ref-type="bibr" rid="CR22">22</xref>] tasks.</p>
+          <p id="Par24">The current <italic>BioCreative V.5</italic> task consists of two off-line tasks, namely <italic>Chemical Entity Mention in Patents (CEMP)</italic> and <italic>Gene and Protein Related Object Recognition (GPRO)</italic>. CEMP requires the detection of chemical named entity mentions. The task requires detecting the start and end indices corresponding to chemical entities. The GPRO task requires identifying mentions of gene and protein related objects mentioned in patent titles and abstracts [<xref ref-type="bibr" rid="CR23">23</xref>]. In this work, we focus on the second task, that is, the GPRO task. The GPRO task is an abstraction of the well-known Named Entity Recognition (NER) tasks, which can be reduced to a sequence labeling problem, where input sentences are represented as sequences of tokens. The task is then to tag genes and protein-related mentions in these sequences of sentences. The present paper addresses this task and is an extension of previous work [<xref ref-type="bibr" rid="CR24">24</xref>].</p>
+          <p id="Par25">The paper is organized as follows: In "<xref rid="Sec2" ref-type="sec">Methods</xref>" section we describe our methodical apparatus and resources. First, we describe the data used for this work. We then present state-of-the-art tools for NER and how we adapted them for applying them in the biological domain. We examine the impact of hyperparameter optimization and show that it brings a considerable boost in performance. Next, we present a novel tool, called CRFVoter, for combining sequence labeling tools as used in our hyperparameter optimization. In "<xref rid="Sec7" ref-type="sec">Results</xref>" section, we present and discuss our results and in "<xref rid="Sec8" ref-type="sec">Conclusion</xref> " section we conclude and shed light on further work.</p>
+        </sec>
+        <sec id="Sec2" sec-type="methods">
+          <title>Methods</title>
+          <sec id="Sec3">
+            <title>Dataset</title>
+            <p id="Par26">The organizers of <italic>BioCreative V.5</italic> provided a corpus of 30 000 patent abstracts (titles and abstracts in English) from patents published between 2005 and 2014, where 21 000 of them are used as a training set and the remaining 9 000 as a test set. The corpus is manually annotated for the GPRO tasks. Gene and protein related object annotations were divided into type 1 and type 2. Type 1 are those GPRO mentions that can be normalized to database entries, like UniProt<xref ref-type="fn" rid="Fn1">1</xref>, NCBI<xref ref-type="fn" rid="Fn2">2</xref>, OMIM<xref ref-type="fn" rid="Fn3">3</xref>, GeneCards<xref ref-type="fn" rid="Fn4">4</xref>, FlyBase<xref ref-type="fn" rid="Fn5">5</xref>, etc. Type 2 are those mentions that cannot be normalized. Table <xref rid="Tab1" ref-type="table">1</xref> shows the number of instances of type 1 and type 2 annotations in the GPRO Task. 5795 documents from the 21,000 documents of the training set contained GPRO mentions. To reduce noise during training, only the annotated subset of 5795 documents were considered; from now on, the collection of the documents will be called <italic>filtered corpus</italic>. Then, by means of random sampling, the filtered corpus was divided into three sets: 60 % of the document were sampled into the training set, 20 % into the development set and 20 % into the test set. The filtered corpus had been enriched with additional linguistic features. To this end, multiple preprocessing steps were applied on each of the three sets including sentence splitting, tokenization, lemmatization, part-of-speech tagging and fine-grained morphological tagging by means of the Stanford CoreNLP [<xref ref-type="bibr" rid="CR25">25</xref>] and TextImager [<xref ref-type="bibr" rid="CR26">26</xref>]. In addition, tokens were split on non-alphanumeric characters, as this variant brought a performance increase. Table <xref rid="Tab2" ref-type="table">2</xref> lists the number of documents, sentences and tokens of the filtered corpus. Since the GPRO task can be reduced to a sequence labeling problem, the filtered corpus was converted into a sequence structure. To this end, a sequence of documents each containing a sequence of sentences each containing a sequence of tokens was constructed. This results in a file in TSV format, where each word and its associated features are in one line separated by tabs. Sentences are separated by an empty line. For the labeling of the GPRO mentions, the IOB tagging scheme [<xref ref-type="bibr" rid="CR27">27</xref>] was used (<italic>I</italic> = inside of a entity, <italic>O</italic> = outside of a entity, <italic>B</italic> = beginning of a entity). This approach allows for the annotation of entities that span multiple tokens. Note that the beginning and end of each entity mention is marked. This allows models to not only learn tags themselves, but also the corresponding transition probability. Between all beginning and end tags, the inside parts, for example, should also be part of the manifestation of the entity. It is worth noticing that using the IOB scheme has also disadvantages. The smallest unit that can be annotated is a token. Consider, for example, the token “<bold>B-Raf</bold>V600E”. Only “<bold>B-Raf</bold>” is annotated in the gold standard. This cannot be represented using the IOB format. To solve this problem, a tokenizer has to be developed that covers exactly these special cases. The filtered corpus contains 0,85% of these special cases. Since their recognition cannot be trained, they have been removed from the training set. However, during evaluation, these cases were considered as errors. In all experiments described in the following sections, we used the corpus as described so far.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Number of instances of type 1 and type 2 in GPRO task</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Type 1</p></th><th align="left"><p>Number</p></th><th align="left"><p> Type 2</p></th><th align="left"><p>Number</p></th></tr></thead><tbody><tr><td align="left"><p>ABBREVIATION</p></td><td align="left"><p>7516</p></td><td align="left"><p>ABBREVIATION</p></td><td align="left"><p>27</p></td></tr><tr><td align="left"><p>FAMILY</p></td><td align="left"><p>1</p></td><td align="left"><p>FAMILY</p></td><td align="left"><p>5029</p></td></tr><tr><td align="left"><p>FULL NAME</p></td><td align="left"><p>4815</p></td><td align="left"><p>FULL NAME</p></td><td align="left"><p>27</p></td></tr><tr><td align="left"><p>IDENTIFIER</p></td><td align="left"><p>1</p></td><td align="left"><p>MULTIPLE</p></td><td align="left"><p>178</p></td></tr><tr><td align="left"><p>NESTED</p></td><td align="left"><p>89</p></td><td align="left"><p>NO CLASS</p></td><td align="left"><p>45</p></td></tr><tr><td align="left" /><td align="left" /><td align="left"><p>SEQUENCE</p></td><td align="left"><p>23</p></td></tr><tr><td align="left"><p>Total count:</p></td><td align="left"><p>12,422</p></td><td align="left"><p>Total count</p></td><td align="left"><p>5329</p></td></tr></tbody></table></table-wrap><table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>The number of documents, sentences and tokens of the filtered corpus</p></caption><table frame="hsides" rules="groups"><tbody><tr><td align="left"><p># Documents</p></td><td align="left"><p>5795</p></td></tr><tr><td align="left"><p># Sentences</p></td><td align="left"><p>19,673</p></td></tr><tr><td align="left"><p># Tokens</p></td><td align="left"><p>633,928</p></td></tr></tbody></table></table-wrap></p>
+          </sec>
+          <sec id="Sec4">
+            <title>System description</title>
+            <p id="Par32">In this section we describe CRFVoter. Our approach implements a two-stage application of Conditional Random Fields (CRF) [<xref ref-type="bibr" rid="CR28">28</xref>] using a conglomerate of sequence labelers for the detection of mentions of gene and protein related objects in biomedical patent abstracts. We trained and optimized five NER for tackling the GPRO task. We also optimized the hyperparameter settings of each of these NERs. Hyperparameter tuning is a challenging task in ML in the sense that the optimal set of hyperparameters depends on the model, the dataset and the domain [<xref ref-type="bibr" rid="CR29">29</xref>] forming a huge interactive parameter space. In this context, our experiments focused on optimizing the hyperparameters of each NER system independently. This led to a noticeable increase of F-score compared to the default settings. For each NER, we performed a hyperparameter optimization by means of the <italic>Tree-structured Parzen Estimator (TPE)</italic> [<xref ref-type="bibr" rid="CR30">30</xref>]. The NERs are more or less independent of each other in the sense that one can always find a subset of test cases being processed correctly by one NER but not by any other one. Therefore, combining these NERs is a promising candidate for increasing precision and recall. We started with computing combinations of these NERs by means of a simple majority vote [<xref ref-type="bibr" rid="CR31">31</xref>]. Majority voting means to select the target label that is assigned by the majority of classifiers. Our experiments show that a simple majority vote brings no gain in precision and recall compared to the best performing reference systems being examined in our study. Thus, we alternatively experimented with a two-stage model, called CRFVoter, which trains a CRF to learn the best combination of the underlying sequence labeling tools (i.e. our case these are the NERs). We show, that CRFVoter outperforms every reference systems being examined in our study. In the rest of this section, we present a survey of hyperparameter optimization algorithms and discuss why TPE is the best optimization algorithm for our studies. We present a survey of NERs trained for the GPRO tasks and the parameter settings optimized by means of the TPE hyperparameter optimization algorithm. This includes the NER systems described in the following subsections. Finally we describe the ensemble classifiers based on majority voting and on our CRFVoter.</p>
+            <sec id="Sec5">
+              <title>Hyperparameter optimization</title>
+              <p id="Par33">In this section, we describe the concepts of hyperparameter tuning. A ML model consists of various parameters that must be learned using the underlying training data. The main task of ML is to adapt a model to the given data. This process of fitting the model parameters to existing data is called <italic>model training</italic>. Hyperparameters are a class of parameters that cannot be learned directly from the training process. The hyperparameters are the variables that govern the training process itself. These parameters must be predefined; they define higher-level concepts about the model, such as complexity, convergence rate, penalty, and so on [<xref ref-type="bibr" rid="CR30">30</xref>]. Hyperparameters are configuration variables of the training process that are normally kept constant. Hyperparameter optimization, also called hyperparameter tuning, is used to find optimal hyperparameter configurations for a ML algorithm on a given dataset. The goal is, to find optimized values for hyperparameters, which maximize the prediction accuracy of a model. Hyperparameter tuning works by performing several trials of the same training job. Each trial is a complete execution of the training process with values for pre-selected hyperparameters that are within predefined limits. Hyperparameter tuning optimizes one or more target variable where this variable is also called performance metric or hyperparameter metric [32]. In our case we have considered a single target variable, that is, the F-score, because this is usually or at least predominantly done in NER. The hyperparameters are adjusted by running the entire training job, so that overall hyperparameter metric is improved. Since parameter spaces tend to include more and more dimensions, it is usually not possible to search the entire space to find the optimal configuration. Therefore, approximation algorithms must be used to maximize the hyperparameter metric (locally or globally). In the next sections we introduce a general notation and describe some hyperparameter optimization algorithms.</p>
+              <p><italic>General notation</italic> Following the notation of [<xref ref-type="bibr" rid="CR32">32</xref>, <xref ref-type="bibr" rid="CR33">33</xref>], a ML algorithm <inline-formula id="IEq1"><alternatives><mml:math id="IEq1_Math"><mml:mi mathvariant="script">A</mml:mi></mml:math><tex-math id="IEq1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mathcal {A}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq1.gif" /></alternatives></inline-formula> is a mapping <inline-formula id="IEq2"><alternatives><mml:math id="IEq2_Math"><mml:mrow><mml:mi mathvariant="script">A</mml:mi><mml:mo>:</mml:mo><mml:mi mathvariant="script">D</mml:mi><mml:mo stretchy="false">→</mml:mo><mml:mi mathvariant="script">M</mml:mi></mml:mrow></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mathcal {A}: \mathcal {D} \rightarrow \mathcal {M}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq2.gif" /></alternatives></inline-formula> where <inline-formula id="IEq3"><alternatives><mml:math id="IEq3_Math"><mml:mi mathvariant="script">D</mml:mi></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mathcal {D}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq3.gif" /></alternatives></inline-formula> is the dataset and <inline-formula id="IEq4"><alternatives><mml:math id="IEq4_Math"><mml:mi mathvariant="script">M</mml:mi></mml:math><tex-math id="IEq4_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mathcal {M}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq4.gif" /></alternatives></inline-formula> is the space of all models. <inline-formula id="IEq5"><alternatives><mml:math id="IEq5_Math"><mml:mi mathvariant="script">A</mml:mi></mml:math><tex-math id="IEq5_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mathcal {A}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq5.gif" /></alternatives></inline-formula> has <italic>n</italic> hyperparameters, denoted as <inline-formula id="IEq6"><alternatives><mml:math id="IEq6_Math"><mml:mrow><mml:msub><mml:mi>θ</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>θ</mml:mi><mml:mi>n</mml:mi></mml:msub></mml:mrow></mml:math><tex-math id="IEq6_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\theta _1,\ldots ,\theta _n$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq6.gif" /></alternatives></inline-formula> and a configuration space <inline-formula id="IEq7"><alternatives><mml:math id="IEq7_Math"><mml:mrow><mml:mi mathvariant="normal">Θ</mml:mi><mml:mo>=</mml:mo><mml:msub><mml:mi mathvariant="normal">Θ</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>×</mml:mo><mml:mo>…</mml:mo><mml:mo>×</mml:mo><mml:msub><mml:mi mathvariant="normal">Θ</mml:mi><mml:mi>n</mml:mi></mml:msub></mml:mrow></mml:math><tex-math id="IEq7_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Theta = \Theta _1 \times \ldots \times \Theta _n$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq7.gif" /></alternatives></inline-formula> with <inline-formula id="IEq8"><alternatives><mml:math id="IEq8_Math"><mml:mrow><mml:msub><mml:mi>θ</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>∈</mml:mo><mml:msub><mml:mi mathvariant="normal">Θ</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:mi>n</mml:mi></mml:mrow></mml:math><tex-math id="IEq8_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\theta _i \in \Theta _i, i = 1,\ldots ,n$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq8.gif" /></alternatives></inline-formula>. The learning algorithm estimates a model <inline-formula id="IEq9"><alternatives><mml:math id="IEq9_Math"><mml:mrow><mml:mi>M</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mrow><mml:mi mathvariant="bold-italic">θ</mml:mi></mml:mrow><mml:mo stretchy="false">)</mml:mo><mml:mo>∈</mml:mo><mml:mi mathvariant="script">M</mml:mi></mml:mrow></mml:math><tex-math id="IEq9_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$M(\varvec{\theta }) \in \mathcal {M}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq9.gif" /></alternatives></inline-formula> that minimizes a loss function <inline-formula id="IEq10"><alternatives><mml:math id="IEq10_Math"><mml:mi mathvariant="script">L</mml:mi></mml:math><tex-math id="IEq10_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mathcal {L}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq10.gif" /></alternatives></inline-formula>, given a hyperparameter configuration <inline-formula id="IEq11"><alternatives><mml:math id="IEq11_Math"><mml:mrow><mml:mrow><mml:mi mathvariant="bold-italic">θ</mml:mi></mml:mrow><mml:mo>=</mml:mo><mml:mo stretchy="false">⟨</mml:mo><mml:msub><mml:mi>θ</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>θ</mml:mi><mml:mi>n</mml:mi></mml:msub><mml:mo stretchy="false">⟩</mml:mo></mml:mrow></mml:math><tex-math id="IEq11_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\varvec{\theta }=\langle \theta _1,\ldots ,\theta _n \rangle$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq11.gif" /></alternatives></inline-formula> on the training data <inline-formula id="IEq12"><alternatives><mml:math id="IEq12_Math"><mml:msup><mml:mrow><mml:mi mathvariant="script">D</mml:mi></mml:mrow><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>t</mml:mi><mml:mi>r</mml:mi><mml:mi>a</mml:mi><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup></mml:math><tex-math id="IEq12_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mathcal {D}^{(train)}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq12.gif" /></alternatives></inline-formula>:<disp-formula id="Equ1"><label>1</label><alternatives><mml:math display="block" id="Equ1_Math"><mml:mrow><mml:msub><mml:mi mathvariant="script">A</mml:mi><mml:mrow><mml:mi mathvariant="bold-italic">θ</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="script">D</mml:mi></mml:mrow><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>t</mml:mi><mml:mi>r</mml:mi><mml:mi>a</mml:mi><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>:</mml:mo><mml:mo>=</mml:mo><mml:munder><mml:mrow><mml:mo>arg</mml:mo><mml:mo movablelimits="true">min</mml:mo></mml:mrow><mml:mrow><mml:mi>M</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mrow><mml:mi mathvariant="bold-italic">θ</mml:mi></mml:mrow><mml:mo stretchy="false">)</mml:mo><mml:mo>∈</mml:mo><mml:mi mathvariant="script">M</mml:mi></mml:mrow></mml:munder><mml:mi mathvariant="script">L</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>M</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mrow><mml:mi mathvariant="bold-italic">θ</mml:mi></mml:mrow><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="script">D</mml:mi></mml:mrow><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>t</mml:mi><mml:mi>r</mml:mi><mml:mi>a</mml:mi><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:math><tex-math id="Equ1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mathcal {A}_{\varvec{\theta }}(\mathcal {D}^{(train)}) := \underset{M(\varvec{\theta }) \in \mathcal {M}}{\arg \min } \mathcal {L}(M(\varvec{\theta }),\mathcal {D}^{(train)})$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_343_Article_Equ1.gif" /></alternatives></disp-formula>The goal of hyperparameter optimization is then to find the optimal configuration <inline-formula id="IEq13"><alternatives><mml:math id="IEq13_Math"><mml:msup><mml:mrow><mml:mi mathvariant="bold-italic">θ</mml:mi></mml:mrow><mml:mo>∗</mml:mo></mml:msup></mml:math><tex-math id="IEq13_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\varvec{\theta }^*$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq13.gif" /></alternatives></inline-formula> using a validation set:<disp-formula id="Equ2"><label>2</label><alternatives><mml:math display="block" id="Equ2_Math"><mml:mrow><mml:msup><mml:mrow><mml:mi mathvariant="bold-italic">θ</mml:mi></mml:mrow><mml:mo>∗</mml:mo></mml:msup><mml:mo>:</mml:mo><mml:mo>=</mml:mo><mml:munder><mml:mrow><mml:mo>arg</mml:mo><mml:mo movablelimits="true">min</mml:mo></mml:mrow><mml:mrow><mml:mrow><mml:mi mathvariant="bold-italic">θ</mml:mi></mml:mrow><mml:mo>∈</mml:mo><mml:mi mathvariant="normal">Θ</mml:mi></mml:mrow></mml:munder><mml:mi mathvariant="script">L</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi mathvariant="script">A</mml:mi><mml:mrow><mml:mi mathvariant="bold-italic">θ</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="script">D</mml:mi></mml:mrow><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>t</mml:mi><mml:mi>r</mml:mi><mml:mi>a</mml:mi><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="script">D</mml:mi></mml:mrow><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>v</mml:mi><mml:mi>a</mml:mi><mml:mi>l</mml:mi><mml:mi>i</mml:mi><mml:mi>d</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:math><tex-math id="Equ2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\varvec{\theta }^*:=\underset{\varvec{\theta }\in \Theta }{\arg \min } \mathcal {L}(\mathcal {\mathcal {A}_{\varvec{\theta }}}(\mathcal {D}^{(train)}),\mathcal {D}^{(valid)})$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_343_Article_Equ2.gif" /></alternatives></disp-formula><italic>Grid Search</italic> Grid Search is a widely used hyperparameter optimization algorithm. It searches through a manually specified subset <inline-formula id="IEq14"><alternatives><mml:math id="IEq14_Math"><mml:mrow><mml:msub><mml:mi mathvariant="normal">Θ</mml:mi><mml:mi>U</mml:mi></mml:msub><mml:mo>⊂</mml:mo><mml:mi mathvariant="normal">Θ</mml:mi></mml:mrow></mml:math><tex-math id="IEq14_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Theta _U \subset \Theta$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq14.gif" /></alternatives></inline-formula> of the hyperparameter space. In a grid search, the set of trials is formed by assembling every possible configuration <inline-formula id="IEq15"><alternatives><mml:math id="IEq15_Math"><mml:mrow><mml:mi mathvariant="bold-italic">θ</mml:mi></mml:mrow></mml:math><tex-math id="IEq15_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\varvec{\theta }$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq15.gif" /></alternatives></inline-formula> of values in <inline-formula id="IEq16"><alternatives><mml:math id="IEq16_Math"><mml:msub><mml:mi mathvariant="normal">Θ</mml:mi><mml:mi>U</mml:mi></mml:msub></mml:math><tex-math id="IEq16_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Theta _U$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq16.gif" /></alternatives></inline-formula>, so the number of trials in a Grid Search is <inline-formula id="IEq17"><alternatives><mml:math id="IEq17_Math"><mml:mrow><mml:mrow><mml:mo stretchy="false">|</mml:mo></mml:mrow><mml:msub><mml:mi mathvariant="normal">Θ</mml:mi><mml:mi>U</mml:mi></mml:msub><mml:mrow><mml:mo stretchy="false">|</mml:mo></mml:mrow></mml:mrow></mml:math><tex-math id="IEq17_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$|\Theta _U|$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq17.gif" /></alternatives></inline-formula> elements [<xref ref-type="bibr" rid="CR34">34</xref>]. For each hyperparameter configuration <inline-formula id="IEq18"><alternatives><mml:math id="IEq18_Math"><mml:mrow><mml:mrow><mml:mi mathvariant="bold-italic">θ</mml:mi></mml:mrow><mml:mo>∈</mml:mo><mml:msub><mml:mi mathvariant="normal">Θ</mml:mi><mml:mi>U</mml:mi></mml:msub></mml:mrow></mml:math><tex-math id="IEq18_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\varvec{\theta }\in \Theta _U$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq18.gif" /></alternatives></inline-formula> a model <inline-formula id="IEq19"><alternatives><mml:math id="IEq19_Math"><mml:mrow><mml:mi>M</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mrow><mml:mi mathvariant="bold-italic">θ</mml:mi></mml:mrow><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><tex-math id="IEq19_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$M(\varvec{\theta })$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq19.gif" /></alternatives></inline-formula> is estimated and tested against the validation set <inline-formula id="IEq20"><alternatives><mml:math id="IEq20_Math"><mml:msup><mml:mrow><mml:mi mathvariant="script">D</mml:mi></mml:mrow><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>v</mml:mi><mml:mi>a</mml:mi><mml:mi>l</mml:mi><mml:mi>i</mml:mi><mml:mi>d</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup></mml:math><tex-math id="IEq20_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mathcal {D}^{(valid)}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq20.gif" /></alternatives></inline-formula>. This makes Grid Search suffering from the <italic>curse of dimensionality</italic> [<xref ref-type="bibr" rid="CR35">35</xref>] because the number of joint values in <inline-formula id="IEq21"><alternatives><mml:math id="IEq21_Math"><mml:msub><mml:mi mathvariant="normal">Θ</mml:mi><mml:mi>U</mml:mi></mml:msub></mml:math><tex-math id="IEq21_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Theta _U$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq21.gif" /></alternatives></inline-formula> grows exponentially with the number of hyperparameters. Since Grid Search works on a grid, continuous parameters must be discretized. In our experiments we used Grid Search in cases in which <inline-formula id="IEq22"><alternatives><mml:math id="IEq22_Math"><mml:mrow><mml:mo stretchy="false">|</mml:mo><mml:mi mathvariant="normal">Θ</mml:mi><mml:mo stretchy="false">|</mml:mo><mml:mo>&lt;</mml:mo><mml:mn>200</mml:mn></mml:mrow></mml:math><tex-math id="IEq22_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$|\Theta |&lt;200$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq22.gif" /></alternatives></inline-formula> and where the parameter space did not contain continuous parameters—under these conditions, Grid Search will find the optimal configuration in foreseeable time.</p>
+              <p id="Par34"><italic>Random Search</italic> Random Search is an optimization algorithm that searches a hyperparameter space <inline-formula id="IEq23"><alternatives><mml:math id="IEq23_Math"><mml:mi mathvariant="normal">Θ</mml:mi></mml:math><tex-math id="IEq23_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Theta$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq23.gif" /></alternatives></inline-formula> by selecting random hyperparameter configurations. Unlike Grid Search, no subset <inline-formula id="IEq24"><alternatives><mml:math id="IEq24_Math"><mml:mrow><mml:msub><mml:mi mathvariant="normal">Θ</mml:mi><mml:mi>U</mml:mi></mml:msub><mml:mo>⊂</mml:mo><mml:mi mathvariant="normal">Θ</mml:mi></mml:mrow></mml:math><tex-math id="IEq24_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Theta _U \subset \Theta$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq24.gif" /></alternatives></inline-formula> of the hyperparameter space must be defined. Instead, the parameters of a setting <inline-formula id="IEq25"><alternatives><mml:math id="IEq25_Math"><mml:mrow><mml:mrow><mml:mi mathvariant="bold-italic">θ</mml:mi></mml:mrow><mml:mo>∈</mml:mo><mml:mi mathvariant="normal">Θ</mml:mi></mml:mrow></mml:math><tex-math id="IEq25_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\varvec{\theta }\in \Theta$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq25.gif" /></alternatives></inline-formula> are randomly selected. The advantage of this approach is that not only discrete parameters can be selected, but also continuous and mixed parameter spaces. Bergstra et al. [<xref ref-type="bibr" rid="CR34">34</xref>] found, that randomly chosen trials are more efficient for hyperparameter optimization then trials on a grid. They show empirically and theoretically that random searches are more effective for parameter optimization than grid searches when considering the same number of trials.</p>
+              <p id="Par35"><italic>Bayesian Optimization</italic> Bayesian Optimization is a model-based optimization process for black box functions. The Bayesian optimization searches for the maximum of an unknown target function. It employs the Bayesian technique of setting a prior over the objective function and combining it with evidence to get a posterior function. Bayesian Optimization uses a Gaussian process [<xref ref-type="bibr" rid="CR36">36</xref>] to model the surrogate. It optimizes the expected probability that new trials will improve compared to the best current observation. The Gaussian process is a distribution over functions, which involves adapting this distribution to the given data, so that functions are generated that come close to the observed data. This distribution is further optimized by iteratively selecting the next point, which must take into account both exploration (sampling from areas of high uncertainty) and exploitation (sampling areas likely to offer improvement over the current best observation) [<xref ref-type="bibr" rid="CR37">37</xref>]. Applied to hyperparameter optimization, Bayesian optimization builds a probabilistic model that assigns the hyperparameter values to the hyperparameter metric evaluated on the validation set. It has been shown that Bayesian optimization achieves better results in fewer trials than Grid Search and Random Search [<xref ref-type="bibr" rid="CR38">38</xref>].</p>
+              <p id="Par36"><italic>Tree-structured Parzen Estimator</italic> The Tree-structured Parzen Estimator [<xref ref-type="bibr" rid="CR30">30</xref>] is a sequential model-based optimization (SMBO) [<xref ref-type="bibr" rid="CR39">39</xref>] approach. SMBO methods sequentially construct models to approximate the performance of hyperparameters based on “historical” (that is, preceding) measurements. For each iteration, TPE collects new observation, where at the end the algorithm decides which set of parameters it should try next. The main idea is similar to Bayesian Optimization (see "<xref rid="Sec5" ref-type="sec">Hyperparameter optimization</xref>" section). However, it fixes disadvantages of the Gaussian Process used by Bayesian Optimization. The TPE approach models <italic>P</italic>(<italic>x</italic>|<italic>y</italic>) and <italic>P</italic>(<italic>y</italic>) where <italic>x</italic> represents hyperparameters and <italic>y</italic> the associated hyperparameter metric. <italic>P</italic>(<italic>x</italic>|<italic>y</italic>) is modeled by transforming the generative process of hyperparameters, replacing the distributions of the configuration prior with non-parametric densities. For the first few iterations TPE performs a Random Search. The next step is to divide the collected observations into two groups. The first group contains observations that yielded the best results after the evaluation and the second group contains the remaining observations. The goal is to find a set of parameters that are more likely to be in the first group and less likely to be in the second group. In contrast to Bayesian Optimization, TPE no longer relies on the best observation. Instead, a distribution over the best observations is used. The next step of the TPE is to model the likelihood probabilities for each of the two groups. This is the next big difference to the Gaussian Process. Gaussian Process models posterior probability instead of likelihood probability. Candidates are sampled using the likelihood probability from the group containing best observations. From the sampled candidates TPE tries to find a candidate that is more likely in the first group <italic>l</italic>(<italic>x</italic>) and less likely in the second group <italic>g</italic>(<italic>x</italic>); this is done by means of the <italic>Expected Improvement</italic> (EI):<disp-formula id="Equ3"><label>3</label><alternatives><mml:math display="block" id="Equ3_Math"><mml:mrow><mml:mi>E</mml:mi><mml:mi>I</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mi>l</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mrow><mml:mi>g</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mfrac></mml:mrow></mml:math><tex-math id="Equ3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$EI(x)=\frac{l(x)}{g(x)}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_343_Article_Equ3.gif" /></alternatives></disp-formula>From the sampled candidates, the parameter setting that has the highest Expected Improvement is selected for the next iteration. The optimization process ends after a predefined number of iterations.</p>
+            </sec>
+            <sec id="Sec6">
+              <title>Sequence labeling systems</title>
+              <p id="Par37">In this section we describe the sequence labeling systems used in our experiments. These are state-of-the-art systems based on different architectures, namely CRF and Neural Networks. We show that hyperoptimization brings a considerable increase in performance. Finally, we present two variants for ensemble classifiers, namely Majority Voter and the CRFVoter.</p>
+              <p id="Par38"><italic>Stanford Named Entity Recognizer</italic> Stanford Named Entity Recognizer<xref ref-type="fn" rid="Fn6">6</xref> (StanfordNER) is a Java implementation of CRF based Named Entity Recognizer [<xref ref-type="bibr" rid="CR40">40</xref>]. Finkel et al. [<xref ref-type="bibr" rid="CR41">41</xref>] has participated in BioCreative to explore StanfordNER’s limitations in the biological domain. They participated in BioCreative I Task 1A [<xref ref-type="bibr" rid="CR42">42</xref>] and achieved the best performance in the open task and the second best performance in the closed task. For StanfordNER our experiments are based on their results. The StanfordNER has since been further developed. New parameters have been added, which we have taken into account in our experiments. Table <xref rid="Tab3" ref-type="table">3</xref> shows the corresponding hyperparameter space used in our experiments. Since the parameter space is so large that one cannot search it with a grid search, a hyperparameter optimization algorithm must be used. For our experiments we optimized the hyperparameters by means of TPE (see "<xref rid="Sec5" ref-type="sec">Hyperparameter optimization</xref>" section). During the optimization process we ran 200 trials to approximate the optimal parameter setting. The results of the trials are plotted in Fig.  <xref rid="Fig1" ref-type="fig">1</xref> in the scatter plot. The scatter plot shows that the F-score converges towards 73%. On the right side of Table <xref rid="Fig1" ref-type="fig">1</xref> one sees the graphical representation of the F-Score distribution using a boxplot. The significance of a parameter study becomes immediately clear in this example. Depending on the parameter setting, the results vary by 23%. The best performing set of features forGPRO, marked with italic font, leads to an F-score of 0,73. The worst setting results in an F-score of 0,50.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>Parameter space of stanford named entity recognizer used in our experiments. The column <italic>Possible values</italic> describe the range of the parameters. The parameter setting with the best value is highlighted in italic</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Parameter</p></th><th align="left"><p>Possible values</p></th></tr></thead><tbody><tr><td align="left"><p>useClassFeature</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>useWord</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>useNGrams</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>noMidNGrams</p></td><td align="left"><p>[true,<italic>false</italic>]</p></td></tr><tr><td align="left"><p>normalizeTerms</p></td><td align="left"><p>[true,<italic>false</italic>]</p></td></tr><tr><td align="left"><p>usePosition</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>useNeighborNGrams</p></td><td align="left"><p>[true,<italic>false</italic>]</p></td></tr><tr><td align="left"><p>useMoreNeighborNGrams</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>usePrev</p></td><td align="left"><p>[true,<italic>false</italic>]</p></td></tr><tr><td align="left"><p>useNext</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>useTags</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>useWordPairs</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>useDisjunctive</p></td><td align="left"><p>[true,<italic>false</italic>]</p></td></tr><tr><td align="left"><p>useSequences</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>usePrevSequences</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>useNextSequences</p></td><td align="left"><p>[true,<italic>false</italic>]</p></td></tr><tr><td align="left"><p>useLongSequences</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>useTaggySequences</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>useSymWordPairs</p></td><td align="left"><p>[true,<italic>false</italic>]</p></td></tr><tr><td align="left"><p>useSymTags</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>useTypeSeqs</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>useTypeSeqs2</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>useTypeySequences</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>wordShape</p></td><td align="left"><p><italic>chris2useLC</italic></p></td></tr><tr><td align="left"><p>maxLeft</p></td><td align="left"><p>[1,<italic>2</italic>,3,4,5,6]</p></td></tr><tr><td align="left"><p>maxRight</p></td><td align="left"><p>[1,<italic>2</italic>,3,4,5,6]</p></td></tr><tr><td align="left"><p>maxNGramLeng</p></td><td align="left"><p>[1,2,3,<italic>4</italic>,5,6]</p></td></tr><tr><td align="left"><p>sloppyGazette</p></td><td align="left"><p>[true,<italic>false</italic>]</p></td></tr><tr><td align="left"><p>useGazFeatures</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>useWordTag</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>useWideDisjunctive</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>useLemmas</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr><tr><td align="left"><p>usePrevNextLemmas</p></td><td align="left"><p>[<italic>true</italic>,false]</p></td></tr></tbody></table></table-wrap></p>
+              <p id="Par40">
+                <fig id="Fig1">
+                  <label>Fig. 1</label>
+                  <caption xml:lang="en">
+                    <p>The figure shows the results of optimizing StanfordNER by means of TPE. The scatter plot on the left side shows the results of each trial. The boxplot shows in which area the results are located and how they are distributed over this area. The difference between the best and the worst performing setting is 23%</p>
+                  </caption>
+                  <graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_343_Fig1_HTML.png" />
+                </fig>
+              </p>
+              <p id="Par41"><italic>MarMoT</italic> MarMoT<xref ref-type="fn" rid="Fn7">7</xref> is a generic CRF framework [<xref ref-type="bibr" rid="CR43">43</xref>]. It implements a higher order CRF with approximations such that it can deal with large output spaces. Additionally it can be trained to fire on the predictions of lexical resources (so-called gazette files) and on word embeddings [<xref ref-type="bibr" rid="CR43">43</xref>–<xref ref-type="bibr" rid="CR47">47</xref>]. Table <xref rid="Tab4" ref-type="table">4</xref> shows the hyperparameter space used in our experiments for MarMoT. We ran 200 trials. The results of the iterations are shown in Fig. <xref rid="Fig2" ref-type="fig">2</xref> using a scatterplot. One can see that the F-score converges towards 0,72. The right side of Fig. <xref rid="Fig2" ref-type="fig">2</xref> shows the boxplot of the corresponding F-Score distribution. The best performing set of features for GPRO produces an F-score of 0,72. The worst set results in an F-score of 0,59. Once more, this difference hints at the importance of hyperparameter optimization.<table-wrap id="Tab4"><label>Table 4</label><caption xml:lang="en"><p>Parameter Space of MarMoT Tagger used in our experiments. The column <italic>Possible values</italic> describe the range of the parameters. The parameter setting with the best value is highlighted in italic</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Parameter</p></th><th align="left"><p>Possible values</p></th></tr></thead><tbody><tr><td align="left"><p>Num iterations</p></td><td align="left"><p>[10,<italic>20</italic>]</p></td></tr><tr><td align="left"><p>Penalty</p></td><td align="left"><p>[<italic>0</italic>,1,2]</p></td></tr><tr><td align="left"><p>Beam size</p></td><td align="left"><p>[<italic>1</italic>,2,5]</p></td></tr><tr><td align="left"><p>Quadratic penalty</p></td><td align="left"><p>[<italic>0</italic>,1,2]</p></td></tr><tr><td align="left"><p>Order</p></td><td align="left"><p>[<italic>1</italic>,2,3,4]</p></td></tr><tr><td align="left"><p>Prob threshold</p></td><td align="left"><p>[0.01,<italic>0.001</italic>]</p></td></tr><tr><td align="left"><p>Effective order</p></td><td align="left"><p>[<italic>1</italic>,2,3]</p></td></tr><tr><td align="left"><p>Num chunks</p></td><td align="left"><p>[<italic>2</italic>,5,10]</p></td></tr></tbody></table></table-wrap><fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>The scatter plot on the left side of the figure shows the results of the optimization process of MarMoT. The boxplot shows in which area the results are located and how they are distributed over this area. Between the best and the worst setting are 11%</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_343_Fig2_HTML.png" /></fig></p>
+              <p id="Par43"><italic>CRF++</italic> CRF++<xref ref-type="fn" rid="Fn8">8</xref> is a customizable open source implementation of CRF [<xref ref-type="bibr" rid="CR48">48</xref>]. In our experiments with CRF++ we used unigram and bigram features including the current, the previous and the next word. Table <xref rid="Tab5" ref-type="table">5</xref> shows the hyperparameter space used in our experiments for CRF++. The combination of parameters results in 20 model files, which is small enough to search the entire parameter space with Grid Search. The results are shown in Fig. <xref rid="Fig3" ref-type="fig">3</xref>. The best performing set of parameters for GPRO generates an F-score of 0,69. The worst one results in an F-score of 0,04.<table-wrap id="Tab5"><label>Table 5</label><caption xml:lang="en"><p>Parameter Space of CRF++ used in our experiments. The column <italic>Possible Values</italic> describe the range of the parameters. The parameter setting with the best value is highlighted in italic</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Parameter</p></th><th align="left"><p>Possible values</p></th></tr></thead><tbody><tr><td align="left"><p>c</p></td><td align="left"><p>[0.6, 1, 1.6, 3, 5, 7, <italic>15</italic>, 50, 100, 1000]</p></td></tr><tr><td align="left"><p>a</p></td><td align="left"><p>[CRF-L1, <italic>CRF-L2</italic>]</p></td></tr></tbody></table></table-wrap></p>
+              <p id="Par45"><italic>MITIE</italic> MITIE is an open source information extraction tool. MITIE can be trained using techniques like distributional word embeddings [<xref ref-type="bibr" rid="CR44">44</xref>–<xref ref-type="bibr" rid="CR47">47</xref>] and <italic>Structural Support Vector Machines</italic> [<xref ref-type="bibr" rid="CR49">49</xref>]. Due to the lack of documentation, we did not optimize MITIE. The default configuration for named entity recognition produces an F-score of 0,65 for GPRO.</p>
+              <p id="Par46"><italic>Glample NER Tagger</italic> Glample NER Tagger is a neural-network-based named entity recognizer. It is based on Bidirectional LSTMs and CRFs [<xref ref-type="bibr" rid="CR50">50</xref>]. Due to the long-lasting training time, only the default parameter settings were considered. This resulted in an F-score of 0,74 for GPRO.</p>
+              <p id="Par47"><italic>Majority Vote</italic> By means of majority voting, we combined the best performing outputs of each of the NER systems considered so far. We selected the label that was most frequently output by the different NER systems. Majority voting reaches an F-score of 0,68 for GPRO, which is below the best performing system considered so far. Facing these results we can state that a simple majority vote brings no gain in precision and recall. Therefore, we need an alternative considered next.</p>
+              <p id="Par48"><italic>CRFVoter</italic>CRFVoter is a two-stage application of CRF using a conglomerate of sequence labelers. In the first step, each NER <inline-formula id="IEq26"><alternatives><mml:math id="IEq26_Math"><mml:mrow><mml:msub><mml:mi>c</mml:mi><mml:mi>m</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>.</mml:mo><mml:mo>.</mml:mo><mml:mi>l</mml:mi><mml:mo>,</mml:mo></mml:mrow></mml:math><tex-math id="IEq26_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c_m, m = 1..l,$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq26.gif" /></alternatives></inline-formula> is optimized independently on the training set, where the <italic>i</italic>th sequence <inline-formula id="IEq27"><alternatives><mml:math id="IEq27_Math"><mml:msub><mml:mi>t</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math><tex-math id="IEq27_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$t_i$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq27.gif" /></alternatives></inline-formula> of length <italic>n</italic> of the set of training examples is of the form<disp-formula id="Equ4"><label>4</label><alternatives><mml:math display="block" id="Equ4_Math"><mml:mrow><mml:msub><mml:mi>t</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:mrow><mml:mo stretchy="false">⟨</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo stretchy="false">→</mml:mo></mml:mover><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo stretchy="false">→</mml:mo></mml:mover><mml:mi>n</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>n</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo stretchy="false">⟩</mml:mo></mml:mrow></mml:mrow></mml:math><tex-math id="Equ4_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$t_i = \langle (\vec {x}_1, y_1), \ldots , (\vec {x}_n, y_n)\rangle$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_343_Article_Equ4.gif" /></alternatives></disp-formula><inline-formula id="IEq28"><alternatives><mml:math id="IEq28_Math"><mml:mrow><mml:msub><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo stretchy="false">→</mml:mo></mml:mover><mml:mi>j</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>…</mml:mo><mml:mi>n</mml:mi><mml:mo>,</mml:mo></mml:mrow></mml:math><tex-math id="IEq28_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\vec {x}_j, j = 1\ldots n,$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq28.gif" /></alternatives></inline-formula> is a feature vector corresponding to an element in the input sequence at position <italic>j</italic>—in our case this corresponds to a token. <inline-formula id="IEq29"><alternatives><mml:math id="IEq29_Math"><mml:msub><mml:mi>y</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:math><tex-math id="IEq29_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$y_j$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq29.gif" /></alternatives></inline-formula> is the corresponding discrete label of the element at position <italic>j</italic>—in our case this is the IOB2 formatted GPRO annotation label. The goal of a sequence labeling classifier <italic>c</italic> is to approximate the function <inline-formula id="IEq30"><alternatives><mml:math id="IEq30_Math"><mml:mrow><mml:mi>f</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>j</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:mrow></mml:math><tex-math id="IEq30_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$f(j)=y_j$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq30.gif" /></alternatives></inline-formula> where <inline-formula id="IEq31"><alternatives><mml:math id="IEq31_Math"><mml:msub><mml:mi>y</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:math><tex-math id="IEq31_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$y_j$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq31.gif" /></alternatives></inline-formula> is the true label to be assigned to the input stream at position <italic>j</italic>. Approximations of <italic>f</italic> are computed by hyperoptimizing each classifier <italic>c</italic> as described above. After the training phase, a development set, which is independent of the training and the test set, is tagged by means of each NER <inline-formula id="IEq32"><alternatives><mml:math id="IEq32_Math"><mml:msub><mml:mi>c</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq32_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c_m$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq32.gif" /></alternatives></inline-formula>. The output label assigned by <inline-formula id="IEq33"><alternatives><mml:math id="IEq33_Math"><mml:msub><mml:mi>c</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq33_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c_m$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq33.gif" /></alternatives></inline-formula> is then taken by CRFVoter as an individual feature input. In the second step, CRFVoter combines each NER <inline-formula id="IEq34"><alternatives><mml:math id="IEq34_Math"><mml:msub><mml:mi>c</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq34_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c_m$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq34.gif" /></alternatives></inline-formula> into an ensemble classifier <inline-formula id="IEq35"><alternatives><mml:math id="IEq35_Math"><mml:mrow><mml:mi>c</mml:mi><mml:mo>=</mml:mo><mml:mi mathvariant="monospace">CRFVoter</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mrow><mml:mo stretchy="false">{</mml:mo><mml:msub><mml:mi>c</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>c</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>c</mml:mi><mml:mi>l</mml:mi></mml:msub><mml:mo stretchy="false">}</mml:mo></mml:mrow><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><tex-math id="IEq35_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c = \texttt {CRFVoter}(\{c_1, c_2, \ldots , c_l\})$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq35.gif" /></alternatives></inline-formula>. The sequence of training examples used to train CRFVoter is of the form<disp-formula id="Equ5"><label>5</label><alternatives><mml:math display="block" id="Equ5_Math"><mml:mrow><mml:msub><mml:mi>t</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:mrow><mml:mo stretchy="false">⟨</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>f</mml:mi><mml:msub><mml:mi>c</mml:mi><mml:mn>1</mml:mn></mml:msub></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo stretchy="false">→</mml:mo></mml:mover><mml:mn>1</mml:mn></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:msub><mml:mi>f</mml:mi><mml:msub><mml:mi>c</mml:mi><mml:mn>2</mml:mn></mml:msub></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo stretchy="false">→</mml:mo></mml:mover><mml:mn>1</mml:mn></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>f</mml:mi><mml:msub><mml:mi>c</mml:mi><mml:mi>l</mml:mi></mml:msub></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo stretchy="false">→</mml:mo></mml:mover><mml:mn>1</mml:mn></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>f</mml:mi><mml:msub><mml:mi>c</mml:mi><mml:mn>1</mml:mn></mml:msub></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo stretchy="false">→</mml:mo></mml:mover><mml:mi>n</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:msub><mml:mi>f</mml:mi><mml:msub><mml:mi>c</mml:mi><mml:mn>2</mml:mn></mml:msub></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo stretchy="false">→</mml:mo></mml:mover><mml:mi>n</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>f</mml:mi><mml:msub><mml:mi>c</mml:mi><mml:mi>l</mml:mi></mml:msub></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mi>n</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>n</mml:mi></mml:msub><mml:mo stretchy="false">⟩</mml:mo></mml:mrow></mml:mrow></mml:math><tex-math id="Equ5_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$t_i = \langle (f_{c_1}(\vec {x}_1), f_{c_2}(\vec {x}_1), \ldots , f_{c_l}(\vec {x}_1)), y_1), \ldots , ((f_{c_1}(\vec {x}_n), f_{c_2}(\vec {x}_n), \ldots , f_{c_l}(x_n)), y_n\rangle$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_343_Article_Equ5.gif" /></alternatives></disp-formula>where <inline-formula id="IEq36"><alternatives><mml:math id="IEq36_Math"><mml:mrow><mml:msub><mml:mi>f</mml:mi><mml:msub><mml:mi>c</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo stretchy="false">→</mml:mo></mml:mover><mml:mi>j</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>…</mml:mo><mml:mi>l</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>…</mml:mo><mml:mi>n</mml:mi><mml:mo>,</mml:mo></mml:mrow></mml:math><tex-math id="IEq36_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$f_{c_m}(\vec {x}_j), m=1\ldots l, j = 1\ldots n,$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq36.gif" /></alternatives></inline-formula> is the output label of classifier <inline-formula id="IEq37"><alternatives><mml:math id="IEq37_Math"><mml:msub><mml:mi>c</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq37_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c_m$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq37.gif" /></alternatives></inline-formula> computed for the input vector <inline-formula id="IEq38"><alternatives><mml:math id="IEq38_Math"><mml:msub><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo stretchy="false">→</mml:mo></mml:mover><mml:mi>j</mml:mi></mml:msub></mml:math><tex-math id="IEq38_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\vec {x}_j$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq38.gif" /></alternatives></inline-formula> at the <italic>j</italic>th position of the input sequence. That is, in stage one of CRFVoter, we calculate for each NER <inline-formula id="IEq39"><alternatives><mml:math id="IEq39_Math"><mml:msub><mml:mi>c</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq39_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$c_m$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq39.gif" /></alternatives></inline-formula> and each token at position <italic>j</italic> of the input stream a corresponding output label <inline-formula id="IEq40"><alternatives><mml:math id="IEq40_Math"><mml:mrow><mml:msub><mml:mi>f</mml:mi><mml:msub><mml:mi>c</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mover accent="true"><mml:mi>x</mml:mi><mml:mo stretchy="false">→</mml:mo></mml:mover><mml:mi>j</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:math><tex-math id="IEq40_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$f_{c_m}(\vec {x}_j)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq40.gif" /></alternatives></inline-formula>. In the second stage, these output labels are taken as features to feed our CRF operating on the same position <italic>j</italic>. In this way, we train CRFVoter based on a sequence of the latter feature sets, which is exemplified in Fig. <xref rid="Fig4" ref-type="fig">4</xref>. Let <italic>x</italic> be the sequence of observed words in <inline-formula id="IEq41"><alternatives><mml:math id="IEq41_Math"><mml:msub><mml:mi>t</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math><tex-math id="IEq41_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$t_i$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq41.gif" /></alternatives></inline-formula> and <italic>y</italic> be the sequence of states that correspond to the labels assigned in <inline-formula id="IEq42"><alternatives><mml:math id="IEq42_Math"><mml:msub><mml:mi>t</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math><tex-math id="IEq42_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$t_i$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq42.gif" /></alternatives></inline-formula>. Linear-chain CRFs define the conditional probability of a state sequence to be [<xref ref-type="bibr" rid="CR28">28</xref>]:<disp-formula id="Equ6"><label>6</label><alternatives><mml:math display="block" id="Equ6_Math"><mml:mrow><mml:mi>P</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>y</mml:mi><mml:mo stretchy="false">|</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:msub><mml:mi>Z</mml:mi><mml:mi>x</mml:mi></mml:msub></mml:mfrac><mml:mi>e</mml:mi><mml:mi>x</mml:mi><mml:mi>p</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>j</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>l</mml:mi></mml:munderover><mml:msub><mml:mi>λ</mml:mi><mml:mi>m</mml:mi></mml:msub><mml:msub><mml:mi>f</mml:mi><mml:mi>m</mml:mi></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="Equ6_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$P(y|x) = \frac{1}{Z_x}exp\left( \sum \limits _{j=1}^n \sum \limits _{m=1}^l \lambda _m f_m(y_{j-1},y_j,x,j)\right)$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_343_Article_Equ6.gif" /></alternatives></disp-formula><inline-formula id="IEq43"><alternatives><mml:math id="IEq43_Math"><mml:msub><mml:mi>Z</mml:mi><mml:mi>x</mml:mi></mml:msub></mml:math><tex-math id="IEq43_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$Z_x$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq43.gif" /></alternatives></inline-formula> is the normalization factor that makes the probability of all state sequences sum to one; <inline-formula id="IEq44"><alternatives><mml:math id="IEq44_Math"><mml:mrow><mml:msub><mml:mi>f</mml:mi><mml:mi>m</mml:mi></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:math><tex-math id="IEq44_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$f_m(y_{j-1},y_j,x,j)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq44.gif" /></alternatives></inline-formula> is a feature function, and <inline-formula id="IEq45"><alternatives><mml:math id="IEq45_Math"><mml:msub><mml:mi>λ</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq45_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\lambda _m$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq45.gif" /></alternatives></inline-formula> is a learned weight associated with feature <inline-formula id="IEq46"><alternatives><mml:math id="IEq46_Math"><mml:msub><mml:mi>f</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq46_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$f_m$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq46.gif" /></alternatives></inline-formula>. Feature functions measure the aspect of a state transition, <inline-formula id="IEq47"><alternatives><mml:math id="IEq47_Math"><mml:mrow><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo stretchy="false">→</mml:mo><mml:mi>y</mml:mi><mml:mi>t</mml:mi></mml:mrow></mml:math><tex-math id="IEq47_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$y_{j-1},y_j \rightarrow yt$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq47.gif" /></alternatives></inline-formula>, and the entire observation sequence, <italic>x</italic>, centered at the current time step, <italic>j</italic>. Consider, for example, Fig. <xref rid="Fig4" ref-type="fig">4</xref>. One feature function might have value 1 in cases where <inline-formula id="IEq48"><alternatives><mml:math id="IEq48_Math"><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub></mml:math><tex-math id="IEq48_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$y_{j-1}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq48.gif" /></alternatives></inline-formula> denotes the state B-FULLNAME, <inline-formula id="IEq49"><alternatives><mml:math id="IEq49_Math"><mml:msub><mml:mi>y</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:math><tex-math id="IEq49_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$y_j$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq49.gif" /></alternatives></inline-formula> the state I-FULLNAME, and <inline-formula id="IEq50"><alternatives><mml:math id="IEq50_Math"><mml:msub><mml:mi>X</mml:mi><mml:mn>4</mml:mn></mml:msub></mml:math><tex-math id="IEq50_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$X_4$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq50.gif" /></alternatives></inline-formula> being the feature vector at position <italic>j</italic>. Large positive values for <inline-formula id="IEq51"><alternatives><mml:math id="IEq51_Math"><mml:msub><mml:mi>λ</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq51_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\lambda _m$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq51.gif" /></alternatives></inline-formula> indicate a preference for such an event, whereas large negative values make the event unlikely. During tagging, CRFVoter takes again the output of each NER as input features and labels the sequence by means of the 2nd level CRF.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>This figure shows the results of using CRF++ in conjunction with Grid Search. Due to the low dimensionality of the underlying parameter space, a Grid Search was used. The scatterplot on the left side shows the results of the optimization process for each trial. On the right side, one sees in which area the results are located and how they are distributed</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_343_Fig3_HTML.png" /></fig><fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>Architecture of CRFVoter exemplified by means of a single sentence</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_343_Fig4_HTML.png" /></fig></p>
+              <p id="Par49">Our experiments show that CRFVoter brings 2% gain in F1-measure compared to the best performing reference systems being examined in our study. When operating on the blinded test set for GPRO provided by the BioCreative team, CRFVoter reaches an F-score of <bold>0,75</bold> for the evaluation of type 1 and of type 2.</p>
+            </sec>
+          </sec>
+        </sec>
+        <sec id="Sec7" sec-type="results">
+          <title>Results</title>
+          <p id="Par50">This section presents the results of our experiments for the GPRO task. For the evaluation of the GPRO Task the BioCreative Team has specified standard evaluation statistics, namely precision (P), recall (R) and F1-score (F) [<xref ref-type="bibr" rid="CR51">51</xref>]. Three main result types were examined. <italic>False Negative</italic>s (FN), that is, results corresponding to incorrect negative predictions. FN are cases that were part of the gold standard but overlooked by our systems. <italic>False Positive</italic>s (FP) are results of false positive predictions, that is, cases predicted by our system but not so marked in the gold standard. The third type of result is <italic>True Positive</italic>s (TP), i.e. results consisting of annotations predicted by our system and belonging to the gold standard as such. Recall is the fraction of correctly labeled positive results and all positive cases:<disp-formula id="Equ7"><label>7</label><alternatives><mml:math display="block" id="Equ7_Math"><mml:mrow><mml:mi>R</mml:mi><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mi mathvariant="italic">TP</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi><mml:mi>P</mml:mi><mml:mo>+</mml:mo><mml:mi>F</mml:mi><mml:mi>N</mml:mi></mml:mrow></mml:mfrac></mml:mrow></mml:math><tex-math id="Equ7_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$R = \frac{TP}{TP + FN}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_343_Article_Equ7.gif" /></alternatives></disp-formula>Precision is the fraction of all correctly labeled positive results and all labeled results:<disp-formula id="Equ8"><label>8</label><alternatives><mml:math display="block" id="Equ8_Math"><mml:mrow><mml:mi>P</mml:mi><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mi mathvariant="italic">TP</mml:mi></mml:mrow><mml:mrow><mml:mi>T</mml:mi><mml:mi>P</mml:mi><mml:mo>+</mml:mo><mml:mi>F</mml:mi><mml:mi>P</mml:mi></mml:mrow></mml:mfrac></mml:mrow></mml:math><tex-math id="Equ8_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$P = \frac{TP}{TP + FP}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_343_Article_Equ8.gif" /></alternatives></disp-formula>F1-score is the harmonic mean of precision and recall:<disp-formula id="Equ9"><label>9</label><alternatives><mml:math display="block" id="Equ9_Math"><mml:mrow><mml:mi>F</mml:mi><mml:mn>1</mml:mn><mml:mo>=</mml:mo><mml:mn>2</mml:mn><mml:mrow /><mml:mo>∗</mml:mo><mml:mfrac><mml:mrow><mml:mi>P</mml:mi><mml:mrow /><mml:mo>∗</mml:mo><mml:mi>R</mml:mi></mml:mrow><mml:mrow><mml:mi>P</mml:mi><mml:mo>+</mml:mo><mml:mi>R</mml:mi></mml:mrow></mml:mfrac></mml:mrow></mml:math><tex-math id="Equ9_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$F1 = 2*\frac{P*R}{P+R}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_343_Article_Equ9.gif" /></alternatives></disp-formula>In "<xref rid="Sec4" ref-type="sec">System description</xref>" section, the results of the hyperparameter optimization are visualized. For each sequence labeling tool, the hyperparameters were optimized using TPE or, if possible, using Grid Search. The results of the trials are plotted in scatterplots and the distribution of the results are visualized in the respective boxplots. The boxplots show the big spread of the outcomes of the trials during the respective optimization processes. For example, in the optimization process of CRF++, the difference between the worst to the best performer is 60%. The results show the need for ML algorithms to perform hyperparameter optimization.</p>
+          <p id="Par51">Table <xref rid="Tab6" ref-type="table">6</xref> shows the comparison of annotators trained for the GPRO task. The results listed are those obtained after the hyperparameter optimization described in "<xref rid="Sec5" ref-type="sec">Hyperparameter optimization</xref>" section, which were trained, optimized and tested on the corpus described in "<xref rid="Sec3" ref-type="sec">Dataset</xref>" section. Each sequence labeling system classifies a different subset correctly. Table <xref rid="Tab7" ref-type="table">7</xref> shows the pairwise differences between the sequence labeling systems. The combination of the sequence labeling systems to a Majority Voter did not bring any performance increase and is even 5% below the best performer among the sequence labeling systems. In contrast, the CRFVoter increases the performance and is the best performer in our experiments. The performance values for the official BioCreative test set were created by training each model on the entire filtered corpus (see Section "<xref rid="Sec3" ref-type="sec">Dataset</xref>" section) and then evaluated on the official test set provided by BioCreative. For the blinded test set provided by the BioCreative organizers for GPRO, CRFVoter achieves an F-score of 75%, Recall of 71% and Precision of 80%. For the GPRO type 1 evaluation, CRFVoter achieves an F-Score of 73%, Recall of 70% and obtained the best precision (77%) achieved among all task participants.<table-wrap id="Tab6"><label>Table 6</label><caption xml:lang="en"><p>Comparison of annotators trained an tested on the filtered corpus described in "<xref rid="Sec3" ref-type="sec">Dataset</xref>" section</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>System</p></th><th align="left"><p>P</p></th><th align="left"><p>R</p></th><th align="left"><p>F</p></th></tr></thead><tbody><tr><td align="left"><p>Stanford NER</p></td><td align="left"><p>0,77</p></td><td align="left"><p>0,69</p></td><td align="left"><p>0,73</p></td></tr><tr><td align="left"><p>MarMoT</p></td><td align="left"><p>0,76</p></td><td align="left"><p>0,69</p></td><td align="left"><p>0,72</p></td></tr><tr><td align="left"><p>CRF++</p></td><td align="left"><p>0,75</p></td><td align="left"><p>0,64</p></td><td align="left"><p>0,69</p></td></tr><tr><td align="left"><p>MITIE</p></td><td align="left"><p>0,74</p></td><td align="left"><p>0,58</p></td><td align="left"><p>0,65</p></td></tr><tr><td align="left"><p>Glample</p></td><td align="left"><p>0,78</p></td><td align="left"><p>0,72</p></td><td align="left"><p>0,74</p></td></tr><tr><td align="left"><p>Majority vote</p></td><td align="left"><p>0,64</p></td><td align="left"><p>0,72</p></td><td align="left"><p>0,68</p></td></tr><tr><td align="left"><p>CRFVoter</p></td><td align="left"><p>0,75</p></td><td align="left"><p>0,77</p></td><td align="left"><p>0,76</p></td></tr></tbody></table></table-wrap><table-wrap id="Tab7"><label>Table 7</label><caption xml:lang="en"><p>Differences of labeled output between each pair of NER system</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" /><th align="left"><p>Stanford</p></th><th align="left"><p>MarMoT</p></th><th align="left"><p>CRF++</p></th><th align="left"><p>MITIE</p></th><th align="left"><p>Glample</p></th></tr></thead><tbody><tr><td align="left"><p>Stanford</p></td><td align="left"><p>0</p></td><td align="left"><p>2.29 %</p></td><td align="left"><p>2.12 %</p></td><td align="left"><p>2.44 %</p></td><td align="left"><p>2.50 %</p></td></tr><tr><td align="left"><p>MarMoT</p></td><td align="left" /><td align="left"><p>0</p></td><td align="left"><p>2.56 %</p></td><td align="left"><p>2.61 %</p></td><td align="left"><p>2.43 %</p></td></tr><tr><td align="left"><p>CRF++</p></td><td align="left" /><td align="left" /><td align="left"><p>0</p></td><td align="left"><p>2.91 %</p></td><td align="left"><p>2.47 %</p></td></tr><tr><td align="left"><p>MITIE</p></td><td align="left" /><td align="left" /><td align="left" /><td align="left"><p>0</p></td><td align="left"><p>2.51 %</p></td></tr><tr><td align="left"><p>Glample</p></td><td align="left" /><td align="left" /><td align="left" /><td align="left" /><td align="left"><p>0</p></td></tr></tbody></table></table-wrap></p>
+          <p id="Par52">Table <xref rid="Tab6" ref-type="table">6</xref> indicates that Glample and CRFVoter might be statistically tied. To investigate the significance of the improvements we used McNemars chi-square test [<xref ref-type="bibr" rid="CR52">52</xref>] for <italic>labeling disagreements</italic> between Glample and CRFVoter with <inline-formula id="IEq52"><alternatives><mml:math id="IEq52_Math"><mml:mrow><mml:mi>α</mml:mi><mml:mo>=</mml:mo><mml:mn>0.05</mml:mn></mml:mrow></mml:math><tex-math id="IEq52_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\alpha =0.05$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq52.gif" /></alternatives></inline-formula>. For both methods, we treated the predicted IOB-Tags for the test set that agreed with the gold annotations as positive, otherwise negative. For the McNemar test we only count the spans corresponding to biomedical named entities. We found that the comparison between Glample and CRFVoter is <italic>significant</italic> (<inline-formula id="IEq53"><alternatives><mml:math id="IEq53_Math"><mml:mrow><mml:mi>ρ</mml:mi><mml:mo>&lt;</mml:mo><mml:mn>0.05</mml:mn></mml:mrow></mml:math><tex-math id="IEq53_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\rho &lt; 0.05$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_343_Article_IEq53.gif" /></alternatives></inline-formula>) in terms of the test of [<xref ref-type="bibr" rid="CR52">52</xref>].</p>
+        </sec>
+        <sec id="Sec8" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p id="Par53">In this work, we compared a set of sequence labeling systems. We trained and optimized every sequence labeling system for the GPRO task by means of several hyperparameter optimization algorithms and especially using the TPE. We showed that optimizing hyperparameter can be crucial. One sequence labeling system in our experiments gained an improvement of more then 60%. We showed that a naive majority vote does not bring any improvement. For this reason, we introduced and evaluated the so-called CRFVoter, a two-stage CRF tool for combining underlying sequence modeling tools (as given by the NER of our comparative study). CRFVoter gained 2% improvement compared to the best performing reference systems being examined in our study. Thus, CRFVoter may be further-developed by feeding it with the output of additional sequence labeling systems. A central theoretical outlook at this stage is to think about recursively organizing voters of the sort of CRFVoter beyond the first level by allowing different classifiers to contribute at different of these levels. In the past, such a procedure of recursive learning had been implemented by example of so-called semantic spaces [<xref ref-type="bibr" rid="CR53">53</xref>]—see [<xref ref-type="bibr" rid="CR54">54</xref>] for such an approach. The theoretical background is to let the system systematically abstract the results of elementary learners: As with convolutional neuronal networks, this can help to find more and more abstract, but also increasingly characteristic representations of the input data. In any event, our results and those of the other participants of BioCreative V.5 Task show that the task of recognition of genes and protein-related objects has not yet been sufficiently solved. For better recognition, a larger corpus should be generated so that the nowadays popular Deep Learning algorithms can work on this data. A kind of human-in-the-loop architecture for automatic annotation and intellectual rework would also be helpful at this point in order to successively increase and improve the amount of data.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Authors' contributions</title>
+          <sec>
+            <p>WH and AM conceived the study, WH carried out the implementation. WH and AM wrote the manuscript. All contributed to the intellectual evolution of this project. Both authors have read and approved the final manuscript.</p>
+          </sec>
+          <sec id="FPar3">
+            <title>Competing interests</title>
+            <p id="Par57">The authors declare that they have no competing interests.</p>
+          </sec>
+          <sec id="FPar2">
+            <title>Availability of data and materials</title>
+            <p id="Par56">Data and code are available at <ext-link xlink:href="https://github.com/texttechnologylab/CRFVoter" ext-link-type="uri">https://github.com/texttechnologylab/CRFVoter</ext-link>.</p>
+          </sec>
+          <sec id="FPar5">
+            <title>Funding</title>
+            <p id="Par59">Not applicable.</p>
+          </sec>
+          <sec id="FPar6">
+            <title>Publisher’s Note</title>
+            <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+          </sec>
+        </ack>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="other">Turner JT, Page A, Mohsenin T, Oates T (2017) Deep belief networks used on high resolution multichannel electroencephalography data for seizure detection. Computing Research Repository <ext-link xlink:href="http://arxiv.org/abs/1708.08430" ext-link-type="uri">arXiv:1708.08430</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhao</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>He</surname>
+                    <given-names>L</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Jawahar</surname>
+                    <given-names>CV</given-names>
+                  </name>
+                  <name>
+                    <surname>Shan</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Deep learning in the eeg diagnosis of alzheimer’s disease</article-title>
+                <source>Computer vision—ACCV 2014 workshops</source>
+                <year>2015</year>
+                <publisher-loc>Cham</publisher-loc>
+                <publisher-name>Springer</publisher-name>
+                <fpage>340</fpage>
+                <lpage>353</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="other">Plis SM, Hjelm DR, Salakhutdinov R, Calhoun VD (2013) Deep learning for neuroimaging: a validation study. Computing Research Repository <ext-link xlink:href="http://arxiv.org/abs/1312.5847" ext-link-type="uri">arXiv:1312.5847</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Suk</surname>
+                    <given-names>H-I</given-names>
+                  </name>
+                  <name>
+                    <surname>Shen</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Mori</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Sakuma</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Sato</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Barillot</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Navab</surname>
+                    <given-names>N</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Deep learning-based feature representation for ad/mci classification</article-title>
+                <source>Medical image computing and computer-assisted intervention (MICCAI 2013)</source>
+                <year>2013</year>
+                <publisher-loc>Berlin, Heidelberg</publisher-loc>
+                <publisher-name>Springer</publisher-name>
+                <fpage>583</fpage>
+                <lpage>590</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="other">Qayyum A, Anwar SM, Majid M, Awais M, Alnowami MR (2017) Medical image analysis using convolutional neural networks: a review. Computing Research Repository <ext-link xlink:href="http://arxiv.org/abs/1709.02250" ext-link-type="uri">arXiv:1709.02250</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="other">Shickel B, Tighe P, Bihorac A, Rashidi P Deep (2017) EHR: A survey of recent advances on deep learning techniques for electronic health record (EHR) analysis. CoRR <ext-link xlink:href="http://arxiv.org/abs/1706.03446" ext-link-type="uri">arXiv:1706.03446</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="other">Mehler A, Uslu T, Hemati W (2016) Text2voronoi: An image-driven approach to differential diagnosis. In: Proceedings of the 5th workshop on vision and language hosted by the 54th annual meeting of the association for computational linguistics (VL’16)</mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="other">Uslu T, Miebach L, Wolfsgruber S, Wagner M, Fließbach K, Gleim R, Hemati W, Henlein A, Mehler A (2018) Automatic classification in memory clinic patients and in depressive patients. In: Proceedings of resources and ProcessIng of linguistic, para-linguistic and extra-linguistic data from people with various forms of cognitive/psychiatric impairments. RaPID</mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Reuber</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Monzoni</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Sharrack</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Plug</surname>
+                    <given-names>L</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Using interactional and linguistic analysis to distinguish between epileptic and psychogenic nonepileptic seizures: a prospective, blinded multirater study</article-title>
+                <source>Epilepsy Behav</source>
+                <year>2009</year>
+                <volume>16</volume>
+                <issue>1</issue>
+                <fpage>139</fpage>
+                <lpage>144</lpage>
+                <pub-id pub-id-type="pmid">19674940</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Reuber</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Blackburn</surname>
+                    <given-names>DJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Elsey</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Wakefield</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Ardern</surname>
+                    <given-names>KA</given-names>
+                  </name>
+                  <name>
+                    <surname>Harkness</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Venneri</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Jones</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Shaw</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Drew</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An interactional profile to assist the differential diagnosis of neurodegenerative and functional memory disorders</article-title>
+                <source>Alzheimer Dis Assoc Disord</source>
+                <year>2018</year>
+                <volume>32</volume>
+                <issue>3</issue>
+                <fpage>197</fpage>
+                <lpage>206</lpage>
+                <pub-id pub-id-type="pmid">29319602</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="other">Unterthiner T, Mayr A, Klambauer G, Steijaert M, Wegner JK, Ceulemans H, Hochreiter S (2014) Deep learning as an opportunity in virtual screening. In: Proceedings of the deep learning workshop at NIPS, vol 27, pp 1–9</mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gawehn</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Hiss</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Deep learning in drug discovery</article-title>
+                <source>Mol Inform</source>
+                <year>2016</year>
+                <volume>35</volume>
+                <issue>1</issue>
+                <fpage>3</fpage>
+                <lpage>14</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXitV2rs7bE</pub-id>
+                <pub-id pub-id-type="pmid">27491648</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Tan</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Han</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">From machine learning to deep learning: progress in machine intelligence for rational drug discovery</article-title>
+                <source>Drug Discov Today</source>
+                <year>2017</year>
+                <volume>22</volume>
+                <issue>11</issue>
+                <fpage>1680</fpage>
+                <lpage>1685</lpage>
+                <pub-id pub-id-type="pmid">28881183</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Emmert-Streib</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Dehmer</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Haibe-Kains</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Gene regulatory networks and their applications: understanding biological and medical problems in terms of networks</article-title>
+                <source>Front Cell Dev Biol</source>
+                <year>2014</year>
+                <volume>2</volume>
+                <fpage>38</fpage>
+                <pub-id pub-id-type="pmid">25364745</pub-id>
+                <pub-id pub-id-type="pmcid">4207011</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hirschman</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Yeh</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Blaschke</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Valencia</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Overview of biocreative: critical assessment of information extraction for biology</article-title>
+                <source>BMC Bioinform</source>
+                <year>2005</year>
+                <volume>6</volume>
+                <issue>1</issue>
+                <fpage>1</fpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Smith</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Tanabe</surname>
+                    <given-names>LK</given-names>
+                  </name>
+                  <name>
+                    <surname>Ando</surname>
+                    <given-names>RJn</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuo</surname>
+                    <given-names>C-J</given-names>
+                  </name>
+                  <name>
+                    <surname>Chung</surname>
+                    <given-names>I-F</given-names>
+                  </name>
+                  <name>
+                    <surname>Hsu</surname>
+                    <given-names>C-N</given-names>
+                  </name>
+                  <name>
+                    <surname>Lin</surname>
+                    <given-names>Y-S</given-names>
+                  </name>
+                  <name>
+                    <surname>Klinger</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Friedrich</surname>
+                    <given-names>CM</given-names>
+                  </name>
+                  <name>
+                    <surname>Ganchev</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Torii</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Haddow</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Struble</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <name>
+                    <surname>Povinelli</surname>
+                    <given-names>RJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Vlachos</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Baumgartner</surname>
+                    <given-names>WA</given-names>
+                  </name>
+                  <name>
+                    <surname>Hunter</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Carpenter</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Tsai</surname>
+                    <given-names>RT-H</given-names>
+                  </name>
+                  <name>
+                    <surname>Dai</surname>
+                    <given-names>H-J</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Sun</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Katrenko</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Adriaans</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Blaschke</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Torres</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Neves</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Nakov</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Divoli</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Maña-López</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Mata</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilbur</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Overview of biocreative ii gene mention recognition</article-title>
+                <source>Genome Biol</source>
+                <year>2008</year>
+                <volume>9</volume>
+                <issue>2</issue>
+                <fpage>2</fpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Morgan</surname>
+                    <given-names>AA</given-names>
+                  </name>
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Cohen</surname>
+                    <given-names>AM</given-names>
+                  </name>
+                  <name>
+                    <surname>Fluck</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>P</surname>
+                    <given-names>Ruch</given-names>
+                  </name>
+                  <name>
+                    <surname>A</surname>
+                    <given-names>Divoli</given-names>
+                  </name>
+                  <name>
+                    <surname>Fundel</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Leaman</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Hakenberg</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Sun</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>H-h</given-names>
+                  </name>
+                  <name>
+                    <surname>Torres</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Krauthammer</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Lau</surname>
+                    <given-names>WW</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Hsu</surname>
+                    <given-names>C-N</given-names>
+                  </name>
+                  <name>
+                    <surname>Schuemie</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Cohen</surname>
+                    <given-names>KB</given-names>
+                  </name>
+                  <name>
+                    <surname>Hirschman</surname>
+                    <given-names>L</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Overview of biocreative ii gene normalization</article-title>
+                <source>Genome Biol</source>
+                <year>2008</year>
+                <volume>9</volume>
+                <issue>2</issue>
+                <fpage>3</fpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Kao</surname>
+                    <given-names>H-Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Wei</surname>
+                    <given-names>C-H</given-names>
+                  </name>
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuo</surname>
+                    <given-names>C-J</given-names>
+                  </name>
+                  <name>
+                    <surname>Hsu</surname>
+                    <given-names>C-N</given-names>
+                  </name>
+                  <name>
+                    <surname>Tsai</surname>
+                    <given-names>RT-H</given-names>
+                  </name>
+                  <name>
+                    <surname>Dai</surname>
+                    <given-names>H-J</given-names>
+                  </name>
+                  <name>
+                    <surname>Okazaki</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Cho</surname>
+                    <given-names>H-C</given-names>
+                  </name>
+                  <name>
+                    <surname>Gerner</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Solt</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Agarwal</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Vishnyakova</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Ruch</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Romacker</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Rinaldi</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Bhattacharya</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Srinivasan</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Torii</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Matos</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Campos</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Verspoor</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Livingston</surname>
+                    <given-names>KM</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilbur</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The gene normalization task in biocreative iii</article-title>
+                <source>BMC Bioinform</source>
+                <year>2011</year>
+                <volume>12</volume>
+                <issue>8</issue>
+                <fpage>2</fpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Krallinger</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Vazquez</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Leitner</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Salgado</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Chatr-aryamontri</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Winter</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Perfetto</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Briganti</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Licata</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Iannuccelli</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Castagnoli</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Cesareni</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Tyers</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Schneider</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Rinaldi</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Leaman</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Gonzalez</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Matos</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilbur</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Rocha</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Shatkay</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Tendulkar</surname>
+                    <given-names>AV</given-names>
+                  </name>
+                  <name>
+                    <surname>Agarwal</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Rak</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Noto</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Elkan</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Dogan</surname>
+                    <given-names>RI</given-names>
+                  </name>
+                  <name>
+                    <surname>Fontaine</surname>
+                    <given-names>J-F</given-names>
+                  </name>
+                  <name>
+                    <surname>Andrade-Navarro</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <name>
+                    <surname>Valencia</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The protein-protein interaction tasks of biocreative iii: classification/ranking of articles and linking bio-ontology concepts to full text</article-title>
+                <source>BMC Bioinform</source>
+                <year>2011</year>
+                <volume>12</volume>
+                <issue>8</issue>
+                <fpage>3</fpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="other">Krallinger M, Rabal O, Lourenço A, Perez M, Rodríguez GP, Vázquez M, Leitner F, Oyarzabal J, Valencia A (2015) Overview of the chemdner patents task. In: Proceedings of the 5th BioCreative challenge evaluation workshop</mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Sun</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Johnson</surname>
+                    <given-names>RJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Sciaky</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Wei</surname>
+                    <given-names>C-H</given-names>
+                  </name>
+                  <name>
+                    <surname>Leaman</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Davis</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Mattingly</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Wiegers</surname>
+                    <given-names>TC</given-names>
+                  </name>
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Biocreative v cdr task corpus: a resource for chemical disease relation extraction</article-title>
+                <source>J Biol Databases Curation</source>
+                <year>2016</year>
+                <volume>2016</volume>
+                <fpage>068</fpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wei</surname>
+                    <given-names>C-H</given-names>
+                  </name>
+                  <name>
+                    <surname>Peng</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Leaman</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Davis</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Mattingly</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Wiegers</surname>
+                    <given-names>TC</given-names>
+                  </name>
+                  <name>
+                    <surname>Lu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Assessing the state of the art in biomedical relation extraction: overview of the biocreative v chemical-disease relation (cdr) task</article-title>
+                <source>Database</source>
+                <year>2016</year>
+                <volume>2016</volume>
+                <fpage>032</fpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="other">Krallinger M, Pérez-Pérez M, Pérez-Rodríguez G, Blanco-Míguez A, Fdez-Riverola F, CapellaGutierrez S, Lourenço A, Valencia A (2017) The biocreative v.5 evaluation workshop: tasks, organization, sessions and topics. In: Proceedings of the BioCreative V.5 challenge evaluation workshop, pp 8–10</mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="other">Hemati W, Mehler A, Uslu T (2017) CRFVoter: Chemical entity mention, gene and protein related object recognition using a conglomerate of crf based tools. In: BioCreative V.5 proceedings</mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="other">Manning CD, Surdeanu M, Bauer J, Finkel J, Bethard SJ, McClosky D (2014) The Stanford CoreNLP natural language processing toolkit. In: Association for computational linguistics (ACL) system demonstrations, pp 55–60</mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="other">Hemati W, Uslu T, Mehler A (2016) Textimager: a distributed uima-based system for nlp. In: Proceedings of the COLING 2016 system demonstrations. In: Federated conference on computer science and information systems</mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="other">Ramshaw LA, Marcus MP (1995) Text chunking using transformation-based learning. Computing Research Repository <ext-link xlink:href="http://arxiv.org/abs/9505040" ext-link-type="uri">arXiv:9505040</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="other">Lafferty J.D, McCallum A, Pereira FCN (2001) Conditional random fields: probabilistic models for segmenting and labeling sequence data. In: Proceedings of the eighteenth international conference on machine learning (ICML ’01), Morgan Kaufmann Publishers Inc, San Francisco, CA, USA, pp 282–289</mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="other">Claesen M, Moor BD (2015) Hyperparameter search in machine learning. Computing Research Repository <ext-link xlink:href="http://arxiv.org/abs/1502.02127" ext-link-type="uri">arXiv:1502.02127</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="other">Bergstra J, Bardenet R, Bengio Y, Kégl B (2011) Algorithms for hyper-parameter optimization. In: Proceedings of the 24th international conference on neural information processing systems (NIPS’11). Curran Associates Inc, USA, pp 2546–2554</mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="other">Dietterich TG (2000) Ensemble methods in machine learning. In: Proceedings of the First International Workshop on Multiple Classifier Systems. MCS ’00, pp. 1–15. Springer, London, UK, UK</mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="other">Hutter F, Hoos H, Leyton-Brown K (2014) An efficient approach for assessing hyperparameter importance. In: Proceedings of the 31st international conference on international conference on machine learning (ICML’14), vol 32, pp 754–762</mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="other">Wistuba M, Schilling N, Schmidt-Thieme L (2015) Learning hyperparameter optimization initializations. In: 2015 IEEE international conference on data science and advanced analytics (DSAA), pp 1–10</mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bergstra</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Bengio</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Random search for hyper-parameter optimization</article-title>
+                <source>J Mach Learn Res</source>
+                <year>2012</year>
+                <volume>13</volume>
+                <fpage>281</fpage>
+                <lpage>305</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bellman</surname>
+                    <given-names>RE</given-names>
+                  </name>
+                </person-group>
+                <source>Adaptive control processes: a guided tour</source>
+                <year>2015</year>
+                <publisher-loc>Princeton</publisher-loc>
+                <publisher-name>Princeton University Press</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="other">Rasmussen CE (2004) Gaussian processes in machine learning. In: Advanced lectures on machine learning, pp 63–71</mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="other">Brochu E, Cora VM, de Freitas, N (2010) A tutorial on bayesian optimization of expensive cost functions, with application to active user modeling and hierarchical reinforcement learning. Computing Research Repository <ext-link xlink:href="http://arxiv.org/abs/1012.2599" ext-link-type="uri">arXiv:1012.2599</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="other">Snoek J, Larochelle H, Adams RP (2012) Practical bayesian optimization of machine learning algorithms. Computing Research Repository <ext-link xlink:href="http://arxiv.org/abs/1206.2944" ext-link-type="uri">arXiv:1206.2944</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="other">Hutter F, Hoos HH, Leyton-Brown K (2011) Sequential model-based optimization for general algorithm configuration. In: Proceedings of the 5th international conference on learning and intelligent optimization (LION’05). Springer, Berlin, Heidelberg,pp 507–523</mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="other">Finkel JR, Grenager T, Manning C (2005) Incorporating non-local information into information extraction systems by gibbs sampling. In: Proceedings of the 43rd annual meeting on association for computational linguistics (ACL ’05). Association for Computational Linguistics, Stroudsburg, PA, USA, pp 363–370</mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Finkel</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Dingare</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Manning</surname>
+                    <given-names>CD</given-names>
+                  </name>
+                  <name>
+                    <surname>Nissim</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Alex</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Grover</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Exploring the boundaries: gene and protein identification in biomedical text</article-title>
+                <source>BMC Bioinform</source>
+                <year>2005</year>
+                <volume>6</volume>
+                <issue>1</issue>
+                <fpage>5</fpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Yeh</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Morgan</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Colosimo</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Hirschman</surname>
+                    <given-names>L</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Biocreative task 1a: gene mention finding evaluation</article-title>
+                <source>BMC Bioinform</source>
+                <year>2005</year>
+                <volume>6</volume>
+                <issue>1</issue>
+                <fpage>2</fpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="other">Mueller T, Schmid H, Schütze H (2013) Efficient higher-order CRFs for morphological tagging. In: Proceedings of the 2013 conference on empirical methods in natural language processing (EMNLP 2013). Association for Computational Linguistics, Seattle, Washington, USA, pp 322–332</mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="other">Mikolov T, Sutskever I, Chen K, Corrado GS, Dean J (2013) Distributed representations of words and phrases and their compositionality. In: Advances in neural information processing systems, pp 3111–3119</mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="other">Levy O, Goldberg Y (2014) Dependency-based word embeddings. In: Proceedings of the 52nd annual meeting of the association for computational linguistics (Volume 2: short papers), vol. 2, pp 302–308</mixed-citation>
+            </ref>
+            <ref id="CR46">
+              <label>46.</label>
+              <mixed-citation publication-type="other">Ling W, Dyer C, Black AW, Trancoso I (2015) Two/too simple adaptations of word2vec for syntax problems. In: Proceedings of the 2015 conference of the North American chapter of the association for computational linguistics: human language technologies . Association for Computational Linguistics, Denver, Colorado, pp 1299–1304</mixed-citation>
+            </ref>
+            <ref id="CR47">
+              <label>47.</label>
+              <mixed-citation publication-type="other">Komninos A, Manandhar S (2016) Dependency based embeddings for sentence classification tasks. In: Proceedings of the 2016 conference of the North American chapter of the association for computational linguistics: human language technologies, pp 1490–1500</mixed-citation>
+            </ref>
+            <ref id="CR48">
+              <label>48.</label>
+              <mixed-citation publication-type="other">Kudo T (2005) CRF++: Yet another CRF toolkit. Software available at <ext-link xlink:href="https://taku910.github.io/crfpp/" ext-link-type="uri">https://taku910.github.io/crfpp/</ext-link>.  Accessed 16 May 2018</mixed-citation>
+            </ref>
+            <ref id="CR49">
+              <label>49.</label>
+              <mixed-citation publication-type="other">Geyer K, Greenfield K, Mensch A, Simek O (2016) Named entity recognition in 140 characters or less. In: Microposts</mixed-citation>
+            </ref>
+            <ref id="CR50">
+              <label>50.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lample</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Ballesteros</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Subramanian</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Kawakami</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Dyer</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <source>Neural architectures for named entity recognition</source>
+                <year>2016</year>
+                <publisher-loc>San Diego, California</publisher-loc>
+                <publisher-name>Association for Computational Linguistics</publisher-name>
+                <fpage>260</fpage>
+                <lpage>270</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR51">
+              <label>51.</label>
+              <mixed-citation publication-type="other">Pérez-Pérez M, Rabal O, Pérez-Rodríguez G, Vazquez M, Fdez-Riverola F, Oyarzabal J, Valencia A, Lourenço A, Krallinger M (2017) Evaluation of chemical and gene/protein entity recognition systems at biocreative v.5: the cemp and gpro patents tracks. In: Proceedings of the BioCreative V.5 challenge evaluation workshop, pp 11–18</mixed-citation>
+            </ref>
+            <ref id="CR52">
+              <label>52.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>McNemar</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Note on the sampling error of the difference between correlated proportions or percentages</article-title>
+                <source>Psychometrika</source>
+                <year>1947</year>
+                <volume>12</volume>
+                <issue>2</issue>
+                <fpage>153</fpage>
+                <lpage>157</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:STN:280:DyaH2s%2Fhs1aksA%3D%3D</pub-id>
+                <pub-id pub-id-type="pmid">20254758</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR53">
+              <label>53.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rieger</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Kornwachs</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Jacoby</surname>
+                    <given-names>K</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Situation semantics and computational linguistics: towards informational ecology</article-title>
+                <source>Information: new questions to a multidisciplinary concept</source>
+                <year>1995</year>
+                <publisher-loc>Berlin</publisher-loc>
+                <publisher-name>Akademie-Verlag</publisher-name>
+                <fpage>285</fpage>
+                <lpage>315</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR54">
+              <label>54.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gritzmann</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Mehler</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Köhler</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">On the mathematics of semantic spaces</article-title>
+                <source>Aspects of automatic text analysis. Studies in fuzziness and soft computing</source>
+                <year>2007</year>
+                <publisher-loc>Berlin/Heidelberg</publisher-loc>
+                <publisher-name>Springer</publisher-name>
+                <fpage>95</fpage>
+                <lpage>115</lpage>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <glossary>
+          <title>Abbreviations</title>
+          <def-list>
+            <def-item>
+              <term>AI</term>
+              <def>
+                <p id="Par4">artificial intelligence</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>BI</term>
+              <def>
+                <p id="Par5">biomedical imaging</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>BSP</term>
+              <def>
+                <p id="Par6">biomedical signal processing</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CEMP</term>
+              <def>
+                <p id="Par7">chemical entity mention in patents</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CHEMDNER</term>
+              <def>
+                <p id="Par8">chemical compound and drug name recognition</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CRF</term>
+              <def>
+                <p id="Par9">conditional random field</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>F</term>
+              <def>
+                <p id="Par10">F1-score</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>GM</term>
+              <def>
+                <p id="Par11">gene mention detection</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>GN</term>
+              <def>
+                <p id="Par12">gene normalization</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>GPRO</term>
+              <def>
+                <p id="Par13">gene and protein related object recognition</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>LSTM</term>
+              <def>
+                <p id="Par14">long short-term memory</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>ML</term>
+              <def>
+                <p id="Par15">machine learning</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>NER</term>
+              <def>
+                <p id="Par16">named entity recognition</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>P</term>
+              <def>
+                <p id="Par17">precision</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PPI</term>
+              <def>
+                <p id="Par18">protein–protein interaction</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>R</term>
+              <def>
+                <p id="Par19">recall</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>SMBO</term>
+              <def>
+                <p id="Par20">sequential model-based optimization</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>TPE</term>
+              <def>
+                <p id="Par21">tree-structured Parzen estimator</p>
+              </def>
+            </def-item>
+          </def-list>
+        </glossary>
+        <fn-group>
+          <fn id="Fn1">
+            <label>1</label>
+            <p id="Par27"><ext-link xlink:href="http://www.uniprot.org/" ext-link-type="uri">http://www.uniprot.org/</ext-link>.</p>
+          </fn>
+          <fn id="Fn2">
+            <label>2</label>
+            <p id="Par28"><ext-link xlink:href="https://www.ncbi.nlm.nih.gov/" ext-link-type="uri">https://www.ncbi.nlm.nih.gov/</ext-link>.</p>
+          </fn>
+          <fn id="Fn3">
+            <label>3</label>
+            <p id="Par29"><ext-link xlink:href="https://www.omim.org/" ext-link-type="uri">https://www.omim.org/</ext-link>.</p>
+          </fn>
+          <fn id="Fn4">
+            <label>4</label>
+            <p id="Par30"><ext-link xlink:href="https://www.genecards.org/" ext-link-type="uri">https://www.genecards.org/</ext-link>.</p>
+          </fn>
+          <fn id="Fn5">
+            <label>5</label>
+            <p id="Par31"><ext-link xlink:href="http://flybase.org/" ext-link-type="uri">http://flybase.org/</ext-link>.</p>
+          </fn>
+          <fn id="Fn6">
+            <label>6</label>
+            <p id="Par39"><ext-link xlink:href="http://nlp.stanford.edu/software/CRF-NER.shtml" ext-link-type="uri">http://nlp.stanford.edu/software/CRF-NER.shtml</ext-link>.</p>
+          </fn>
+          <fn id="Fn7">
+            <label>7</label>
+            <p id="Par42"><ext-link xlink:href="http://cistern.cis.lmu.de/marmot/" ext-link-type="uri">http://cistern.cis.lmu.de/marmot/</ext-link>.</p>
+          </fn>
+          <fn id="Fn8">
+            <label>8</label>
+            <p id="Par44"><ext-link xlink:href="http://taku910.github.io/crfpp/" ext-link-type="uri">http://taku910.github.io/crfpp/</ext-link>.</p>
+          </fn>
+        </fn-group>
+      </back>
+    </article>

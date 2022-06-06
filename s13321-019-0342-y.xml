@@ -1,0 +1,1770 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0342-y</article-id>
+          <article-id pub-id-type="manuscript">342</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0342-y</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">KMR: knowledge-oriented medicine representation learning for drug–drug interaction and similarity computation</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" id="Au1">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-3220-904X</contrib-id>
+              <name>
+                <surname>Shen</surname>
+                <given-names>Ying</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au2">
+              <name>
+                <surname>Yuan</surname>
+                <given-names>Kaiqi</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au3">
+              <name>
+                <surname>Yang</surname>
+                <given-names>Min</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au4">
+              <name>
+                <surname>Tang</surname>
+                <given-names>Buzhou</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff3">3</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au5">
+              <name>
+                <surname>Li</surname>
+                <given-names>Yaliang</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff4">4</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au6">
+              <name>
+                <surname>Du</surname>
+                <given-names>Nan</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff4">4</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au7">
+              <name>
+                <surname>Lei</surname>
+                <given-names>Kai</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff5">5</xref>
+              <xref ref-type="corresp" rid="IDs133210190342y_cor7">g</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 2256 9319</institution-id>
+                <institution-id institution-id-type="GRID">grid.11135.37</institution-id>
+                <institution content-type="org-division">The Shenzhen Key Lab for Information Centric Networking and Blockchain Techologies(ICNLab), School of Electronics and Computer Engineering</institution>
+                <institution content-type="org-name">Peking University Shenzhen Graduate School</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">518055</addr-line>
+              <addr-line content-type="city">Shenzhen</addr-line>
+              <country country="CN">People’s Republic of China</country>
+            </aff>
+            <aff id="Aff2">
+              <label>2</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000000119573309</institution-id>
+                <institution-id institution-id-type="GRID">grid.9227.e</institution-id>
+                <institution content-type="org-division">SIAT</institution>
+                <institution content-type="org-name">Chinese Academy of Sciences</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">518055</addr-line>
+              <addr-line content-type="city">Shenzhen</addr-line>
+              <country country="CN">People’s Republic of China</country>
+            </aff>
+            <aff id="Aff3">
+              <label>3</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.452527.3</institution-id>
+                <institution content-type="org-division">School of Computer Science and Technology</institution>
+                <institution content-type="org-name">Harbin Institute of Technology (Shenzhen)</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">518055</addr-line>
+              <addr-line content-type="city">Shenzhen</addr-line>
+              <country country="CN">People’s Republic of China</country>
+            </aff>
+            <aff id="Aff4">
+              <label>4</label>
+              <institution-wrap>
+                <institution content-type="org-name">Tencent Medical AI Lab</institution>
+              </institution-wrap>
+              <addr-line content-type="city">Palo Alto</addr-line>
+              <country country="US">USA</country>
+            </aff>
+            <aff id="Aff5">
+              <label>5</label>
+              <institution-wrap>
+                <institution content-type="org-name">PCL Research Center of Networks and Communications, Peng Cheng Laboratory</institution>
+              </institution-wrap>
+              <addr-line content-type="city">Shenzhen</addr-line>
+              <country country="CN">China</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs133210190342y_cor7">
+              <label>g</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>14</day>
+            <month>3</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="22">1</issue>
+          <elocation-id>22</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>1</day>
+              <month>3</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>17</day>
+              <month>8</month>
+              <year>2018</year>
+            </date>
+            <date date-type="accepted">
+              <day>1</day>
+              <month>3</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>14</day>
+              <month>3</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">Efficient representations of drugs provide important support for healthcare analytics, such as drug–drug interaction (DDI) prediction and drug–drug similarity (DDS) computation. However, incomplete annotated data and drug feature sparseness create substantial barriers for drug representation learning, making it difficult to accurately identify new drug properties prior to public release. To alleviate these deficiencies, we propose KMR, a knowledge-oriented feature-driven method which can learn drug related knowledge with an accurate representation. We conduct series of experiments on real-world medical datasets to demonstrate that KMR is capable of drug representation learning. KMR can support to discover meaningful DDI with an accuracy rate of 92.19%, demonstrating that techniques developed in KMR significantly improve the prediction quality for new drugs not seen at training. Experimental results also indicate that KMR can identify DDS with an accuracy rate of 88.7% by facilitating drug knowledge, outperforming existing state-of-the-art drug similarity measures.</p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Drug embeddings</kwd>
+            <kwd>Knowledge representation</kwd>
+            <kwd>Drug–drug interaction</kwd>
+            <kwd>Drug–drug similarity</kwd>
+            <kwd>Feature processing</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>National Natural Science Foundation of China</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/501100001809</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">61602013</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Shen</surname>
+                  <given-names>Ying</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Shenzhen Key Fundamental Research Projects</institution>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">JCYJ20170818091546869</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Shen</surname>
+                  <given-names>Ying</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>No</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>3</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_342.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p id="Par21">Discovering proper representations of high dimensional concepts has received much attention lately due to its impressive performance in numerous natural language processing (NLP) tasks across multi-task learning [<xref ref-type="bibr" rid="CR1">1</xref>], question answering [<xref ref-type="bibr" rid="CR2">2</xref>], semantic textual similarity [<xref ref-type="bibr" rid="CR3">3</xref>], sentiment analysis [<xref ref-type="bibr" rid="CR4">4</xref>], and knowledge generative discovery [<xref ref-type="bibr" rid="CR5">5</xref>]. Using various types of neural networks, high-dimensional data can be converted into continuous real-valued concept vectors that effectively capture their latent semantics from the data [<xref ref-type="bibr" rid="CR6">6</xref>]. Despite the success of current studies, efficient drug representations are an important but challenging task for four reasons:<list list-type="order"><list-item><p id="Par22">Impressive drug representation learning was achieved in domains where a complete dictionary or a knowledge base is available [<xref ref-type="bibr" rid="CR7">7</xref>]. However, the number of drug is constantly growing but the medical dictionary or knowledge base updating procedure is slow. For new drugs, the lack of clinical data and application data is almost inevitable. To overcome this limitation, it is common for us to rely on carefully designed feature representations. Nevertheless, the feature selection and processing remains a challenge in real-world applications.</p></list-item><list-item><p id="Par23">Drug-specific information, which plays a crucial role in learning drug representation and similarity or interaction metric, is yet to be well-researched. Drug concepts contain rich latent information that cannot be represented solely through pharmacology and drug catalog knowledge. For example, <italic>clopidogrel</italic> is an alternative medicine of <italic>aspirin</italic>, they are obviously more related than the pair of <italic>clopidogrel</italic> and <italic>crestor</italic> which are in the same cardiovascular drug category. However, without the drug description information, it is difficult to correctly identify the drug relation between them. Despite its usefulness, the application of drug description information in drug presentation is still under-explored [<xref ref-type="bibr" rid="CR8">8</xref>].</p></list-item><list-item><p id="Par24">The issues of complex and diverse terminology, relations, hierarchies and attributes in the medical field remain yet to be resolved. The existing computation measures of semantic similarity based on Knowledge base (KB) can be classified into path/depth-based similarity measures and corpus-based methods. However, path-based and depth-based similarity measures cannot adequately handle the computation between two concepts with the same path but different semantic similarity in the KG taxonomy [<xref ref-type="bibr" rid="CR9">9</xref>], while Corpus-based methods are substantially dependent on the training corpus and susceptible to data sparseness and data noise [<xref ref-type="bibr" rid="CR10">10</xref>].</p></list-item><list-item><p id="Par25">The interactions between different drug features derived from various text and knowledge bases have received little attention in existing drug representation learning methods [<xref ref-type="bibr" rid="CR11">11</xref>], which regard each feature as an independent item without any correlation to other features. This attribute independence assumption does not always work in medical scenarios because drug features usually have strong correlations with each other. For example, cannabis has various <italic>physiological effects</italic> on the human body. When exceeding the psychotropic threshold, users may experience <italic>adverse side effects</italic> such as anxiety and panic attacks. Therefore, the assumption of feature independence may affect its representation learning.</p></list-item></list></p>
+          <p id="Par26">To alleviate these limitations, we propose a knowledge-oriented medicine representation learning method named KMR for drug–drug interaction prediction and similarity computation. In specific, we first learn the initial drug representation by processing the features with respect to pharmacology, drug class, and drug description information. Then, we develop an interactive learning schema within deep neural network to discover the interaction information among features. After learning the drug embeddings, we conduct experiments on a real-world dataset on the drug–drug interaction prediction and similarity computation. Experimental results demonstrate that, our method can effectively perform joint representation learning and obtain more informative knowledge representation, which significantly outperforms other baseline methods.</p>
+          <p id="Par27">The main contributions of this paper can be summarized as follows:<list list-type="bullet"><list-item><p id="Par28">We propose a novel knowledge-oriented medicine representation learning model, which leverages the pharmacological features, drug class features and drug textual description features within neural network architecture to alleviate the limitation of incomplete or inaccurate public data sources;</p></list-item><list-item><p id="Par29">We develop an interactive learning scheme to emphasize respectively those features with rich information and exploit the interrelations among features based on the relevancy of various drug features;</p></list-item><list-item><p id="Par30">Experiments on real-world drug datasets demonstrate that compared with existing methods, KMR can effectively learn the drug representation, discover accurate drug–drug interaction with less training data, and identify drug–drug similarity for the drug substitution.</p></list-item></list></p>
+        </sec>
+        <sec id="Sec2">
+          <title>Related work</title>
+          <p id="Par31">Technically, the work in this paper relates to the representation learning of words, knowledge bases and textual information. Practically, our work is mainly related to the representation learning of drug. Related works are reviewed as follows.</p>
+          <p id="Par32"><italic>Representation learning of words</italic> Learning pre-trained word embedding is a fundamental step in various NLP tasks. Word embedding is a distributed word representation which is typically induced using neural language models [<xref ref-type="bibr" rid="CR12">12</xref>]. Several methods, e.g., Continuous bag-of-words (CBOW) and Skip-Gram [<xref ref-type="bibr" rid="CR13">13</xref>], have been proposed for word embedding training, and have shown their power in NLP tasks.</p>
+          <p id="Par33">There are many methods for learning word representations based on term-document, word-context, and pair-pattern matrices. For example, Turney et al. [<xref ref-type="bibr" rid="CR14">14</xref>] presented a frequency-based method that follows the distribution hypothesis to conduct word representation via context learning. Mikolov et al. [<xref ref-type="bibr" rid="CR15">15</xref>] learned high-quality distributed vector representations by predicting the word occurrences in a given context.</p>
+          <p id="Par34"><italic>Representation learning of knowledge bases</italic> Representation learning of knowledge bases aims to embed both entities and relations into a low-dimensional space. Translation-based methods, including TransE [<xref ref-type="bibr" rid="CR16">16</xref>], TransH [<xref ref-type="bibr" rid="CR17">17</xref>], and TransR [<xref ref-type="bibr" rid="CR18">18</xref>], have achieved the state-of-the-art performance by converting entities and relation into vectors and regarding each relation as one translation from head entity to tail entity. On the other hand, many studies have tried to use network embedding methods, e.g., Path Ranking Algorithm (PRA) [<xref ref-type="bibr" rid="CR19">19</xref>], DeepWalk [<xref ref-type="bibr" rid="CR20">20</xref>], node2vec [<xref ref-type="bibr" rid="CR21">21</xref>], to reason over entities and relationships in knowledge base. The network embedding methods achieve the state-of-the-art performance of representation learning for knowledge bases, especially for those large-scale and sparse knowledge bases.</p>
+          <p id="Par35"><italic>Representation learning of textual information</italic> Many studies have tried to automatically learn information from text using neural network models. For example, Socher et al. [<xref ref-type="bibr" rid="CR22">22</xref>] introduced a recursive neural network (RNN) model to learn compositional vector representations for phrases and sentences of arbitrary syntactic type and length. Wang et al. [<xref ref-type="bibr" rid="CR23">23</xref>] combined the convolutional neural networks (CNN) together with unsupervised feature learning to train highly-accurate text detector and character recognizer modules. Here attention mechanism can show its power. Many researchers have been interested in attention mechanism in neural networks and apply it to many areas such as machine translation [<xref ref-type="bibr" rid="CR24">24</xref>], memory addressing [<xref ref-type="bibr" rid="CR25">25</xref>] and image captioning [<xref ref-type="bibr" rid="CR26">26</xref>].</p>
+          <p id="Par36">Instead of learning the representations of different information separately, we develop a knowledge-oriented interactive learning architecture, which exploits the interactive information from input texts and knowledge bases to supervise the representation learning of words, structural and textual knowledge.</p>
+          <p id="Par37"><italic>Representation learning of drugs</italic> Recently, some notable efforts have been made to design databases for drug representation learning and discovery. One well known example is DrugBank [<xref ref-type="bibr" rid="CR27">27</xref>], a comprehensive resource that combines detailed drug (i.e. chemical) data with comprehensive drug target (i.e. protein) information. In addition to the DrugBank, a number of databases have also released including Therapeutic Target Database (TTD),<xref ref-type="fn" rid="Fn1">1</xref> Pharmacogenomics Knowledgebase (PharmGKB),<xref ref-type="fn" rid="Fn2">2</xref> and Kyoto Encyclopedia of Genes and Genomes (KEGG),<xref ref-type="fn" rid="Fn3">3</xref> Chemical Entities of Biological Interest (ChEBI)<xref ref-type="fn" rid="Fn4">4</xref> and PubChem.<xref ref-type="fn" rid="Fn5">5</xref> The on-line pharmaceutical encyclopedias such as RxList<xref ref-type="fn" rid="Fn6">6</xref> tend to offer detailed clinical information about many drugs but they were not designed to contain structural, chemical or physico-chemical information.</p>
+          <p id="Par44">Many studies have demonstrated that it is possible to learn efficient representations of medical concept by improving the performance of medical predictive or classification models [<xref ref-type="bibr" rid="CR28">28</xref>]. For example, Minarro et al. [<xref ref-type="bibr" rid="CR29">29</xref>] learned the representations of medical terms by applying the word2vec deep learning toolkit to medical corpora to test its potential for improving the accessibility of medical knowledge. De Vine et al. [<xref ref-type="bibr" rid="CR30">30</xref>] explored a variation of neural language models that can learn on concepts taken from structured ontologies and extracted from free text, for the task of measuring semantic similarity between medical concepts. Despite this progress, learning efficient representations of drug concepts, however, is still a relatively new territory and under-explored.</p>
+        </sec>
+        <sec id="Sec3" sec-type="methods">
+          <title>Methodology</title>
+          <p id="Par45">We describe KMR in this section. Figure <xref rid="Fig1" ref-type="fig">1</xref> illustrates the architecture of KMR.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>KMR for drug representation learning and drug-drug interaction prediction. Red, green, blue and yellow matrices denote pharmacological feature representations, drug textual description feature representations, drug class feature representations, and final knowledge-oriented drug representations, separately</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_342_Fig1_HTML.png" /></fig></p>
+          <p id="Par46">Given a drug,<list list-type="order"><list-item><p id="Par47">we employ neural network to learn the initial drug representation by simultaneously considering the features of the pharmacology, drug catalog, and drug description information.</p></list-item><list-item><p id="Par48">Then an interactive learning scheme using attention mechanism is adopted to learn the interrelations among features.</p></list-item><list-item><p id="Par49">Finally, there is a fully connected hidden layer to join all the features for the DDI binary classification or DDS computation.</p></list-item></list></p>
+          <p id="Par50">Algorithm flowchart of the entire KMR model is shown in Fig. <xref rid="Fig2" ref-type="fig">2</xref>:<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>Algorithm flowchart of the entire KMR model</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_342_Fig2_HTML.png" /></fig></p>
+          <sec id="Sec4">
+            <title>Datasets for medicine representation learning</title>
+            <p id="Par51"><italic>Knowledge bases</italic> Drug side effect is collected from Side effect resource (SIDER)<xref ref-type="fn" rid="Fn7">7</xref> which contains 62,269 drug–side effect pairs and covers a total of 888 drugs and 1450 distinct side effects. Drug action is learned from and National Drug File-Reference Terminology (NDF-RT),<xref ref-type="fn" rid="Fn8">8</xref> which organizes the drug list into a formal representation for modeling drug characteristics including ingredients, mechanism of action, pharmacokinetics, and related diseases. The knowledge about the pharmaceutical formulation, physiological effects, drug targets and drug chemical structure are learned from DrugBank,<xref ref-type="fn" rid="Fn9">9</xref> which contains 11,680 drug entries including 2625 approved small molecule drugs, 1115 approved biotech (protein/peptide) drugs, 128 nutraceuticals and over 5504 experimental drugs. Drug class features can be extracted from ChemOnt<xref ref-type="fn" rid="Fn10">10</xref> which is a comprehensive and computable chemical taxonomy along with a fully annotated chemical ontology, allowing chemists and cheminformaticians to perform rapid and automated chemical classification.</p>
+            <p id="Par56"><italic>Text corpus</italic> Given a drug, its textual description can be obtained from the “title” and “abstract”section of Pubmed,<xref ref-type="fn" rid="Fn11">11</xref> the “drug label information” section of DailyMed,<xref ref-type="fn" rid="Fn12">12</xref> and the “description”, “indication”, “pharmacodynamics”, “metabolism”, and “toxicity” section of DrugBank.<xref ref-type="fn" rid="Fn13">13</xref></p>
+            <p id="Par60"><italic>Synthetic dataset</italic> The drug similarity is labelled by doctors ranging in [0, 1] from the perspective of clinical application. 0 indicates that there is no similarity between two antibiotics, while 1 implies that the two antibiotics are extremely similar. The adverse reactions, the patient’s past history and other factors are left out in this stage. To make drug pairs labeling more accurate, each pair is labeled by at least 3 doctors and the average is taken as the final result. The Pearson coefficient [<xref ref-type="bibr" rid="CR36">36</xref>] between the scores issued by each doctor and the average score ranges from 82.7 to 86.4% while Spearman coefficient [<xref ref-type="bibr" rid="CR37">37</xref>] ranges from 79.2 to 88.8%, both proving the reliability of doctors’ assessment.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Representation learning of pharmacological feature</title>
+            <p id="Par61">The representation learning of pharmacological feature aims to learn low-dimensional vector embeddings from various databases using deep learning models. Considering the application of a single dataset may cause the incompleteness of drug attribute, we employ multiple datasets to provide sufficient informative knowledge for the drug representation learning. The adopted datasets, features and their dimensions are summarized in Table <xref rid="Tab1" ref-type="table">1</xref>. <table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Datasets and features for the representation learning of pharmacological feature</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Dataset</p></th><th align="left"><p>Pharmacological feature</p></th><th align="left"><p>Feature dimension</p></th></tr></thead><tbody><tr><td align="left"><p>Sider</p></td><td align="left"><p>Side effect</p></td><td char="." align="char"><p>4876</p></td></tr><tr><td align="left" rowspan="2"><p>NDF-RT (National Drug File-Reference Terminology)</p></td><td align="left"><p>Drug action</p></td><td char="." align="char"><p>626</p></td></tr><tr><td align="left"><p>Physiological effects</p></td><td char="." align="char"><p>1866</p></td></tr><tr><td align="left" rowspan="3"><p>DrugBank</p></td><td align="left"><p>Pharmaceutical formulation</p></td><td char="." align="char"><p>867</p></td></tr><tr><td align="left"><p>Drug targets</p></td><td char="." align="char"><p>3880</p></td></tr><tr><td align="left"><p>Drug chemical structure</p></td><td char="." align="char"><p>166</p></td></tr></tbody></table></table-wrap></p>
+            <p id="Par62">Accordingly, we consider the following features simultaneously:</p>
+            <p id="Par63"><italic>Side effect</italic> Side effects indicates the secondary and usually adverse effect that occur when treatment goes beyond the desired effect. For example, the occurrence of <italic>vomiting</italic> and <italic>hair loss</italic> is an example of side effects that occur in addition to the therapeutic effects required to cancer treating.</p>
+            <p id="Par64">Given a drug <inline-formula id="IEq1"><alternatives><mml:math id="IEq1_Math"><mml:mi>d</mml:mi></mml:math><tex-math id="IEq1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$d$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq1.gif" /></alternatives></inline-formula>, its side effect embedding <inline-formula id="IEq2"><alternatives><mml:math id="IEq2_Math"><mml:mrow><mml:mi>S</mml:mi><mml:mi>i</mml:mi><mml:mi>d</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mfenced close=")" open="("><mml:mi>d</mml:mi></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$Sider\left( d \right)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq2.gif" /></alternatives></inline-formula> can be obtained by learning the side effect resource SIDER [<xref ref-type="bibr" rid="CR31">31</xref>] using the IDF weighting method. The value of element <inline-formula id="IEq3"><alternatives><mml:math id="IEq3_Math"><mml:mtext>s</mml:mtext></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{s}}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq3.gif" /></alternatives></inline-formula> of <inline-formula id="IEq4"><alternatives><mml:math id="IEq4_Math"><mml:mrow><mml:mtext>Sider</mml:mtext><mml:mfenced close=")" open="("><mml:mtext>d</mml:mtext></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq4_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{Sider}}\left( {\text{d}} \right)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq4.gif" /></alternatives></inline-formula>, denoted <inline-formula id="IEq5"><alternatives><mml:math id="IEq5_Math"><mml:mrow><mml:mtext>Sider</mml:mtext><mml:mfenced close=")" open="("><mml:mtext>d</mml:mtext></mml:mfenced><mml:mfenced close="]" open="["><mml:mtext>s</mml:mtext></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq5_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{Sider}}\left( {\text{d}} \right)\left[ {\text{s}} \right]$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq5.gif" /></alternatives></inline-formula>, is <inline-formula id="IEq6"><alternatives><mml:math id="IEq6_Math"><mml:mrow><mml:mtext>IDF</mml:mtext><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mtext>s</mml:mtext><mml:mo>,</mml:mo><mml:mtext>Drugs</mml:mtext></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq6_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{IDF}}\left( {{\text{s}}, {\text{Drugs}}} \right)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq6.gif" /></alternatives></inline-formula> if it is one of the side effects of drug <inline-formula id="IEq7"><alternatives><mml:math id="IEq7_Math"><mml:mtext>d</mml:mtext></mml:math><tex-math id="IEq7_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{d}}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq7.gif" /></alternatives></inline-formula>, otherwise it is 0. <inline-formula id="IEq8"><alternatives><mml:math id="IEq8_Math"><mml:mrow><mml:mi>I</mml:mi><mml:mi>D</mml:mi><mml:mi>F</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>s</mml:mi><mml:mo>,</mml:mo><mml:mi>D</mml:mi><mml:mi>r</mml:mi><mml:mi>u</mml:mi><mml:mi>g</mml:mi><mml:mi>s</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq8_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$IDF\left( {s, Drugs} \right)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq8.gif" /></alternatives></inline-formula> can be calculated as:<disp-formula id="Equ1"><label>1</label><alternatives><mml:math display="block" id="Equ1_Math"><mml:mrow><mml:mi>I</mml:mi><mml:mi>D</mml:mi><mml:mi>F</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>s</mml:mi><mml:mo>,</mml:mo><mml:mi>D</mml:mi><mml:mi>r</mml:mi><mml:mi>u</mml:mi><mml:mi>g</mml:mi><mml:mi>s</mml:mi></mml:mrow></mml:mfenced><mml:mo>=</mml:mo><mml:mi>l</mml:mi><mml:mi>o</mml:mi><mml:mi>g</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mfenced close="|" open="|" separators=""><mml:mrow><mml:mi mathvariant="italic">Drugs</mml:mi></mml:mrow></mml:mfenced><mml:mo>+</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:mfenced><mml:mo stretchy="false">/</mml:mo><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>D</mml:mi><mml:mi>F</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>s</mml:mi><mml:mo>,</mml:mo><mml:mi>D</mml:mi><mml:mi>r</mml:mi><mml:mi>u</mml:mi><mml:mi>g</mml:mi><mml:mi>s</mml:mi></mml:mrow></mml:mfenced><mml:mo>+</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:mfenced></mml:mrow></mml:mfenced><mml:mo>,</mml:mo></mml:mrow></mml:math><tex-math id="Equ1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$IDF\left( {s, Drugs} \right) = log\left( {\left( {\left| {Drugs} \right| + 1} \right)/\left( {DF\left( {s, Drugs} \right) + 1} \right) } \right) ,$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_342_Article_Equ1.gif" /></alternatives></disp-formula>where <inline-formula id="IEq9"><alternatives><mml:math id="IEq9_Math"><mml:mrow><mml:mi mathvariant="italic">Drugs</mml:mi></mml:mrow></mml:math><tex-math id="IEq9_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$Drugs$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq9.gif" /></alternatives></inline-formula> is the set of drugs, <inline-formula id="IEq10"><alternatives><mml:math id="IEq10_Math"><mml:mi>s</mml:mi></mml:math><tex-math id="IEq10_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$s$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq10.gif" /></alternatives></inline-formula> stands for a side effect, <inline-formula id="IEq11"><alternatives><mml:math id="IEq11_Math"><mml:mrow><mml:mi>D</mml:mi><mml:mi>F</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>s</mml:mi><mml:mo>,</mml:mo><mml:mi>D</mml:mi><mml:mi>r</mml:mi><mml:mi>u</mml:mi><mml:mi>g</mml:mi><mml:mi>s</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq11_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$DF\left( {s, Drugs} \right)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq11.gif" /></alternatives></inline-formula> is the number of drugs with side effect <inline-formula id="IEq12"><alternatives><mml:math id="IEq12_Math"><mml:mi>s</mml:mi></mml:math><tex-math id="IEq12_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$s$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq12.gif" /></alternatives></inline-formula>.</p>
+            <p id="Par65"><italic>Drug action, pharmaceutical formulation, physiological effects and drug targets</italic> Drugs are usually classified by their <italic>drug actions</italic>. For example, a <italic>vasodilator</italic>, prescribed to decrease the blood pressure, acts by dilating the blood vessels. <italic>Pharmaceutical formulation</italic> is the process in which different chemical substances, including the active drug, are combined to produce a final medicinal product. <italic>Physiological effects</italic> are those reactions resulting from some imbalance caused by taking a drug to the overall human system, or some specific part of it. A <italic>drug target</italic> is anything within a living organism to which some other entity (like an endogenous ligand or a drug) is directed and/or binds, resulting in a change in its behavior or function. Drug targets are most commonly proteins such as enzymes, ion channels, and receptors. The vectors of the aforementioned drug features are learned via the same IDF-weighted mechanism as mentioned in the previous paragraph.</p>
+            <p id="Par66">Take “neostigmine” as an example (see Fig. <xref rid="Fig3" ref-type="fig">3</xref>). The drug target can be represented as a vector matrix of 584 × 326 dimensions, wherein the value of the 54th column is 5.2161745, and the other columns are all 0. For drug action, it can be represented as a vector matrix of the same dimensions, in which the values of column 152, column 157, column 187, column 222, column 251 and column 261 are 5.800606659291741, 5.395141551183577, 4.884315927417586, 5.800606659291741, 4.701994370623631, and 5.577463107977531 respectively. The other columns are all 0.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>A snapshot of multi-dimensional weighted feature vector of an antibiotic: nitrofurantoin</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_342_Fig3_HTML.png" /></fig></p>
+            <p id="Par67"><italic>Drug chemical structure</italic> The chemical structure of a drug determines its physicochemical properties, further determines its ADME/Tox properties, and ultimately affects its pharmacological activity. We adopt PubChem Substructure Fingerprint<xref ref-type="fn" rid="Fn14">14</xref> that can generate a fingerprint, i.e., an ordered list of binary (1/0) bits, to learn the embeddings of drug chemical structure. Each bit represents a Boolean determination of the presence of PubChem features. For example, the bits (3, > = 32 H) and (11, > = 8 C) concerns the Hierarchic Element Counts, where “3” and “11” indicates the bit position, and “ > = 32 H” and “ > = 8 C” stands for the bit substructure. These bits test for the presence or count of individual chemical atoms represented by their atomic symbol. The presence of, for example, a type of ring system, atom pairing, atom environment (nearest neighbors), etc., in a chemical structure is determined by the same format (binary data).</p>
+            <p id="Par69">The initial embeddings of all aforementioned features are concatenated to form the feature embeddings of drug <inline-formula id="IEq13"><alternatives><mml:math id="IEq13_Math"><mml:msub><mml:mi>d</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math><tex-math id="IEq13_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$d_{i}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq13.gif" /></alternatives></inline-formula>. To reduce the vector dimension, we input the feature representation <inline-formula id="IEq14"><alternatives><mml:math id="IEq14_Math"><mml:msub><mml:mi>d</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math><tex-math id="IEq14_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$d_{i}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq14.gif" /></alternatives></inline-formula> to a Convolutional Neural Network (CNN). The fully connected layer of CNN model reduces the dimension of feature vectors from over 6000 dimensions to 500 dimensions, thereby improving the computation of embeddings.</p>
+          </sec>
+          <sec id="Sec6">
+            <title>Representation learning of drug class feature</title>
+            <p id="Par70">A drug class is a set of medications that have similar chemical structures, the same mechanism of action (i.e., bind to the same biological target), a related mode of action, and/or are used to treat the same disease [<xref ref-type="bibr" rid="CR32">32</xref>]. To date, most attempts aimed at classifying and describing chemical compounds have been structure-based. This is largely because the bioactivity of a compound is influenced by its structure.</p>
+            <p id="Par71">Given the drug class taxonomy (see Fig. <xref rid="Fig4" ref-type="fig">4</xref>) referred from dictionary ChemOnt [<xref ref-type="bibr" rid="CR33">33</xref>], a CNN is designed to learn the drug class representation from drug taxonomy.<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>Part of an illustration of the drug taxonomy as a tree</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_342_Fig4_HTML.png" /></fig></p>
+            <p id="Par72"><italic>Input representation</italic> Different network embedding approaches, i.e., DeepWalk, node2vec, and LINE, are adopted to learn drug chemical taxonomy. Generally, a convolution layer can have multiple input channels. The drug class embeddings <inline-formula id="IEq15"><alternatives><mml:math id="IEq15_Math"><mml:mrow><mml:mi mathvariant="bold">D</mml:mi><mml:mo>=</mml:mo><mml:mfenced close="}" open="{" separators=""><mml:mrow><mml:msub><mml:mi mathvariant="bold">d</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi mathvariant="bold">d</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:msub><mml:mi mathvariant="bold">d</mml:mi><mml:mi mathvariant="bold">n</mml:mi></mml:msub></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq15_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathbf{D}} = \left\{ {{\mathbf{d}}_{1} ,{\mathbf{d}}_{2} , \ldots {\mathbf{d}}_{{\mathbf{n}}} } \right\}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq15.gif" /></alternatives></inline-formula>, where <inline-formula id="IEq16"><alternatives><mml:math id="IEq16_Math"><mml:mrow><mml:msub><mml:mi mathvariant="bold">d</mml:mi><mml:mi mathvariant="bold">i</mml:mi></mml:msub><mml:mo>∈</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="double-struck">R</mml:mi></mml:mrow><mml:mi>k</mml:mi></mml:msup></mml:mrow></mml:math><tex-math id="IEq16_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathbf{d}}_{{\mathbf{i}}} \in {\mathbb{R}}^{k}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq16.gif" /></alternatives></inline-formula>, <inline-formula id="IEq17"><alternatives><mml:math id="IEq17_Math"><mml:mi>k</mml:mi></mml:math><tex-math id="IEq17_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq17.gif" /></alternatives></inline-formula> is dimension of embeddings, learned by different network embedding approaches are input to different channels of the CNN, so as to make full use of all learned taxonomy information (see Fig. <xref rid="Fig5" ref-type="fig">5</xref>).<fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p>Processing of representation learning of drug class feature</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_342_Fig5_HTML.png" /></fig></p>
+            <p id="Par73"><italic>Convolution layer</italic> In the convolutional layer, the matrix of the drug class embeddings is convolved with filters of different sizes, generating a group of feature vectors. We first perform convolution operation over a sliding window then max-pooling to learn the stack vector of drug class embeddings <inline-formula id="IEq18"><alternatives><mml:math id="IEq18_Math"><mml:msub><mml:mi mathvariant="bold">D</mml:mi><mml:mrow><mml:mi mathvariant="bold-italic">n</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq18_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathbf{D}}_{\varvec{n}}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq18.gif" /></alternatives></inline-formula>, where <inline-formula id="IEq19"><alternatives><mml:math id="IEq19_Math"><mml:mrow><mml:msub><mml:mi mathvariant="bold">D</mml:mi><mml:mrow><mml:mi mathvariant="bold-italic">n</mml:mi></mml:mrow></mml:msub><mml:mo>∈</mml:mo><mml:msup><mml:mrow><mml:mi mathvariant="double-struck">R</mml:mi></mml:mrow><mml:mi>n</mml:mi></mml:msup></mml:mrow></mml:math><tex-math id="IEq19_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathbf{D}}_{\varvec{n}} \in {\mathbb{R}}^{n}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq19.gif" /></alternatives></inline-formula>.</p>
+            <p id="Par74"><italic>Fully connected layer</italic> Finally, the vector obtained in the max pooling layer is fed to the fully connected softmax layer. Neurons in a fully connected layer have connections to all activations in the previous layer. In this study, the outputs of the fully connected layer is the embeddings of drug class feature.</p>
+          </sec>
+          <sec id="Sec7">
+            <title>Representation learning of drug textual description feature</title>
+            <p id="Par75">In this study, we incorporate dependency information into deep neural networks to extract entities and the relations between entities from drug textual description for the representation learning. For two medical entities (<bold>en1</bold> and <bold>en2</bold>) and a set of sentences (noted as <italic>Sent</italic>) containing both of them, the probability of the relation <bold>r</bold> between them is measured. For example, the sentence “<bold>ALFENTA</bold> can be administered in combination with other <bold>CNS depressants</bold>” indicates that ALFENTA and CNS depressants are positive correlation. Conversely, the sentence “Patients should be closely monitored for such adverse effects especially when <bold>olanzapine</bold> is added to <bold>haloperidol</bold> therapy” points out that the “olanzapine” and “haloperidol” are negative correlation. In this section, two parts about our model will be introduced.</p>
+            <sec id="Sec8">
+              <title>Input representation</title>
+              <p id="Par76"><italic>Word embeddings</italic> To feed training data to the neural network, the sentences we use are transformed into matrices. For a given sentence, it is represented by the embeddings of the words it consists of. The words are represented by real-valued vectors by looking up the pre-trained word embeddings.</p>
+              <p id="Par77"><italic>Dependency embeddings</italic> The dependency feature used in the model are represented as vectors by looking up the corresponding embeddings. We choose the Stanford dependency parser<xref ref-type="fn" rid="Fn15">15</xref> to extract the dependency features. Dependency information can shorten the semantic distance between entities by organizing the whole sentence into a dependency tree [<xref ref-type="bibr" rid="CR34">34</xref>]. Meanwhile, dependency features provide syntatic and semantic-level information, which can help the deep neural networks to learn with less training data [<xref ref-type="bibr" rid="CR35">35</xref>].</p>
+              <p id="Par79">Dependency information is obtained from the hierarchical structure of the dependency tree, including relative dependency features and dependency tags: <italic>Relative dependency features</italic> show the relation between the current word to the root of the tree or to the considered entities, and <italic>dependency tags</italic> imply the relationship between the current word and its parent node in the dependency tree.</p>
+              <p id="Par80"><italic>Relative dependency features</italic>: Relative root feature implies the relation between current node and the root node. There are three types of relations here: the child node of the root, the root node itself, and others. Relative entity feature implies the relation between current node and entity1 and entity2. There are four types of relations: the child node of entity1/entity2, the parent node of entity1/entity2, entity node itself, and others.</p>
+              <p id="Par81"><italic>Dependency tags</italic>: the tag of the current word to its parent node on the dependency tree.</p>
+              <p id="Par82">Figure <xref rid="Fig6" ref-type="fig">6</xref> gives an example of a dependency tree structure. Due to the scale of the complete tree, only a part is shown here. Given a sentence “<bold>Amikacin</bold> works by binding to the bacterial 30S-subunit proteins and 16S rRNA,…<italic>(30 words omitted here)</italic>…, which is similar to other antibiotic <bold>derived</bold> from kanamycin. Kanamycin is a typical type of <bold>aminoglycosides</bold>…<italic>(15 words omitted here)</italic>…”, from the tree we can see that the word “derived” is the descendant node of entity1 (“amikacin”), and it is the ancestor node of entity2 (“aminoglycosides”). The distance between “amikacin” and “aminoglycosides” is thus shortened by a large margin compared to the original plain text.<fig id="Fig6"><label>Fig. 6</label><caption xml:lang="en"><p>Dependency tree of the sentence containing “amikacin” (en1) and “aminoglycosides” (en2). The sentence is organized into a dependency tree. The linear sentence structure is transformed into a dense tree structure and the long-distance relationship between two entities in a sentence can be better captured</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_342_Fig6_HTML.png" /></fig></p>
+              <p id="Par83">Dependency features also need to be transformed into vectors to jointly use with word embeddings. Then the word embeddings <inline-formula id="IEq20"><alternatives><mml:math id="IEq20_Math"><mml:msubsup><mml:mi>v</mml:mi><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mi>w</mml:mi></mml:msubsup></mml:math><tex-math id="IEq20_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$v_{i}^{w}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq20.gif" /></alternatives></inline-formula> and feature embeddings <inline-formula id="IEq21"><alternatives><mml:math id="IEq21_Math"><mml:msubsup><mml:mi>v</mml:mi><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mi>d</mml:mi></mml:msubsup></mml:math><tex-math id="IEq21_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$v_{i}^{d}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq21.gif" /></alternatives></inline-formula> are concatenated to represent each word:<disp-formula id="Equ2"><label>2</label><alternatives><mml:math display="block" id="Equ2_Math"><mml:mrow><mml:mi>w</mml:mi><mml:mi>o</mml:mi><mml:mi>r</mml:mi><mml:msub><mml:mi>d</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:mfenced close="]" open="[" separators=""><mml:mrow><mml:msubsup><mml:mi>v</mml:mi><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mi>w</mml:mi></mml:msubsup><mml:mo>,</mml:mo><mml:msubsup><mml:mi>v</mml:mi><mml:mrow><mml:mi>i</mml:mi></mml:mrow><mml:mi>d</mml:mi></mml:msubsup></mml:mrow></mml:mfenced><mml:mo>.</mml:mo></mml:mrow></mml:math><tex-math id="Equ2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$word_{i} = \left[ {v_{i}^{w} ,v_{i}^{d} } \right] .$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_342_Article_Equ2.gif" /></alternatives></disp-formula></p>
+            </sec>
+            <sec id="Sec9">
+              <title>Bi-LSTM and attention mechanisms</title>
+              <p id="Par84">In this paper, we implement a Bi-directional LSTM network (Bi-LSTM) with combined word-level and sentence-level attention models. We employ Bi-LSTM model to capture the sequence information from both past and future contexts. We input the word vector sequence <inline-formula id="IEq22"><alternatives><mml:math id="IEq22_Math"><mml:mrow><mml:msub><mml:mtext>W</mml:mtext><mml:mtext>l</mml:mtext></mml:msub><mml:mo>=</mml:mo><mml:mfenced close="]" open="[" separators=""><mml:mrow><mml:msub><mml:mtext>word</mml:mtext><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mtext>word</mml:mtext><mml:mn>2</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:msub><mml:mtext>word</mml:mtext><mml:mtext>j</mml:mtext></mml:msub></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq22_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{W}}_{\text{l}} = \left[ {{\text{word}}_{1} ,{\text{word}}_{2} , \ldots {\text{word}}_{\text{j}} } \right]$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq22.gif" /></alternatives></inline-formula> and the inverse word vector sequence <inline-formula id="IEq23"><alternatives><mml:math id="IEq23_Math"><mml:mrow><mml:msub><mml:mtext>W</mml:mtext><mml:msub><mml:mtext>l</mml:mtext><mml:mtext>reverse</mml:mtext></mml:msub></mml:msub><mml:mo>=</mml:mo><mml:mfenced close="]" open="[" separators=""><mml:mrow><mml:msub><mml:mtext>word</mml:mtext><mml:mtext>j</mml:mtext></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mtext>word</mml:mtext><mml:mrow><mml:mtext>j</mml:mtext><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:msub><mml:mtext>word</mml:mtext><mml:mn>1</mml:mn></mml:msub></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq23_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{W}}_{{{\text{l}}_{\text{reverse}} }} = \left[ {{\text{word}}_{\text{j}} ,{\text{word}}_{{{\text{j}} - 1}} , \ldots {\text{word}}_{1} } \right]$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq23.gif" /></alternatives></inline-formula> into the forward layer and backward layer of Bi-LSTM respectively. The output <inline-formula id="IEq24"><alternatives><mml:math id="IEq24_Math"><mml:msub><mml:mtext>hw</mml:mtext><mml:mtext>t</mml:mtext></mml:msub></mml:math><tex-math id="IEq24_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{hw}}_{\text{t}}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq24.gif" /></alternatives></inline-formula> at time step <inline-formula id="IEq25"><alternatives><mml:math id="IEq25_Math"><mml:mtext>t</mml:mtext></mml:math><tex-math id="IEq25_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{t}}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq25.gif" /></alternatives></inline-formula>, which combines the output of forward layer <inline-formula id="IEq26"><alternatives><mml:math id="IEq26_Math"><mml:msub><mml:mtext>hf</mml:mtext><mml:mtext>t</mml:mtext></mml:msub></mml:math><tex-math id="IEq26_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{hf}}_{\text{t}}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq26.gif" /></alternatives></inline-formula> and backward layer <inline-formula id="IEq27"><alternatives><mml:math id="IEq27_Math"><mml:msub><mml:mtext>hb</mml:mtext><mml:mtext>t</mml:mtext></mml:msub></mml:math><tex-math id="IEq27_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{hb}}_{\text{t}}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq27.gif" /></alternatives></inline-formula>, can be calculated as:<disp-formula id="Equ3"><label>3</label><alternatives><mml:math display="block" id="Equ3_Math"><mml:mrow><mml:mi>h</mml:mi><mml:msub><mml:mi>w</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:mi>h</mml:mi><mml:msub><mml:mi>f</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:mi>h</mml:mi><mml:msub><mml:mi>b</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>.</mml:mo></mml:mrow></mml:math><tex-math id="Equ3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$hw_{t} = hf_{t} + hb_{t} .$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_342_Article_Equ3.gif" /></alternatives></disp-formula></p>
+              <p id="Par85">In our model, sentence-level and word-level attention are complemented to de-emphasize the noisy samples and pay more attention to the useful information. Take sentence-level attention as an example. <inline-formula id="IEq28"><alternatives><mml:math id="IEq28_Math"><mml:msub><mml:mtext>a</mml:mtext><mml:mtext>i</mml:mtext></mml:msub></mml:math><tex-math id="IEq28_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{a}}_{\text{i}}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq28.gif" /></alternatives></inline-formula> is the weight of a set of sentences containing a pair of entities, and it can be expressed as:<disp-formula id="Equ4"><label>4</label><alternatives><mml:math display="block" id="Equ4_Math"><mml:mrow><mml:msub><mml:mi>a</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mo>exp</mml:mo><mml:mfenced close=")" open="(" separators=""><mml:msub><mml:mi>e</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mfenced></mml:mrow><mml:mrow><mml:msub><mml:mo>∑</mml:mo><mml:mi>i</mml:mi></mml:msub><mml:mo>exp</mml:mo><mml:mfenced close=")" open="(" separators=""><mml:msub><mml:mi>e</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:mfenced></mml:mrow></mml:mfrac><mml:mo>,</mml:mo></mml:mrow></mml:math><tex-math id="Equ4_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$a_{i} = \frac{{{ \exp }\left( {e_{i} } \right)}}{{\mathop \sum \nolimits_{i} { \exp }\left( {e_{j} } \right)}} ,$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_342_Article_Equ4.gif" /></alternatives></disp-formula>where <inline-formula id="IEq29"><alternatives><mml:math id="IEq29_Math"><mml:msub><mml:mtext>e</mml:mtext><mml:mtext>i</mml:mtext></mml:msub></mml:math><tex-math id="IEq29_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{e}}_{\text{i}}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq29.gif" /></alternatives></inline-formula> scores the relativity between the sentence and the predicted relation. Given a drug and its description, the outputs of the Bi-LSTM is the embeddings of drug textual description.</p>
+            </sec>
+          </sec>
+          <sec id="Sec10">
+            <title>Joint learning method</title>
+            <p id="Par86">Given a drug and its corresponding features, i.e., pharmacological features, drug class features and drug textual description features, we apply attention mechanism to assign different weights according to the specific role each feature plays when interacting with other features. The representation of drug class feature <inline-formula id="IEq30"><alternatives><mml:math id="IEq30_Math"><mml:msub><mml:mi>v</mml:mi><mml:mi>c</mml:mi></mml:msub></mml:math><tex-math id="IEq30_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$v_{c}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq30.gif" /></alternatives></inline-formula> are calculated as:<disp-formula id="Equ5"><label>5</label><alternatives><mml:math display="block" id="Equ5_Math"><mml:mrow><mml:msub><mml:mi>M</mml:mi><mml:mi>w</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:mo>tanh</mml:mo><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">sw</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>H</mml:mi><mml:mi>w</mml:mi></mml:msub></mml:mrow></mml:mfenced><mml:mo>,</mml:mo></mml:mrow></mml:math><tex-math id="Equ5_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$M_{w} = \tanh \left( {W_{sw} H_{w} } \right) ,$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_342_Article_Equ5.gif" /></alternatives></disp-formula><disp-formula id="Equ6"><label>6</label><alternatives><mml:math display="block" id="Equ6_Math"><mml:mrow><mml:msub><mml:mi>α</mml:mi><mml:mi>w</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:mtext>softmax</mml:mtext><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:msubsup><mml:mi>w</mml:mi><mml:mrow><mml:mi>w</mml:mi></mml:mrow><mml:mi>T</mml:mi></mml:msubsup><mml:msub><mml:mi>M</mml:mi><mml:mi>w</mml:mi></mml:msub></mml:mrow></mml:mfenced><mml:mo>,</mml:mo></mml:mrow></mml:math><tex-math id="Equ6_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\alpha_{w} = {\text{softmax}}\left( {w_{w}^{T} M_{w} } \right) ,$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_342_Article_Equ6.gif" /></alternatives></disp-formula><disp-formula id="Equ7"><label>7</label><alternatives><mml:math display="block" id="Equ7_Math"><mml:mrow><mml:msub><mml:mi>v</mml:mi><mml:mi>c</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>H</mml:mi><mml:mi>w</mml:mi></mml:msub><mml:msubsup><mml:mi>α</mml:mi><mml:mrow><mml:mi>w</mml:mi></mml:mrow><mml:mi>T</mml:mi></mml:msubsup><mml:mo>,</mml:mo></mml:mrow></mml:math><tex-math id="Equ7_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$v_{c} = H_{w} \alpha_{w}^{T} ,$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_342_Article_Equ7.gif" /></alternatives></disp-formula>where <inline-formula id="IEq31"><alternatives><mml:math id="IEq31_Math"><mml:mrow><mml:msub><mml:mi>M</mml:mi><mml:mi>w</mml:mi></mml:msub><mml:mo>∈</mml:mo><mml:msup><mml:mi>R</mml:mi><mml:mrow><mml:mi mathvariant="italic">dlxm</mml:mi></mml:mrow></mml:msup></mml:mrow></mml:math><tex-math id="IEq31_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$M_{w} \in R^{dlxm}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq31.gif" /></alternatives></inline-formula> is a nonlinear mapping function, <inline-formula id="IEq32"><alternatives><mml:math id="IEq32_Math"><mml:mrow><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">sw</mml:mi></mml:mrow></mml:msub><mml:mo>∈</mml:mo><mml:msup><mml:mi>R</mml:mi><mml:mrow><mml:mi mathvariant="italic">dlxdl</mml:mi></mml:mrow></mml:msup></mml:mrow></mml:math><tex-math id="IEq32_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$W_{sw} \in R^{dlxdl}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq32.gif" /></alternatives></inline-formula> and <inline-formula id="IEq33"><alternatives><mml:math id="IEq33_Math"><mml:mrow><mml:msub><mml:mi>w</mml:mi><mml:mi>w</mml:mi></mml:msub><mml:mo>∈</mml:mo><mml:msup><mml:mi>R</mml:mi><mml:mrow><mml:mi mathvariant="italic">dl</mml:mi></mml:mrow></mml:msup></mml:mrow></mml:math><tex-math id="IEq33_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$w_{w} \in R^{dl}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq33.gif" /></alternatives></inline-formula> are projection parameters, <inline-formula id="IEq34"><alternatives><mml:math id="IEq34_Math"><mml:mrow><mml:msub><mml:mi>α</mml:mi><mml:mi>w</mml:mi></mml:msub><mml:mo>∈</mml:mo><mml:msup><mml:mi>R</mml:mi><mml:mi>m</mml:mi></mml:msup></mml:mrow></mml:math><tex-math id="IEq34_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\alpha_{w} \in R^{m}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq34.gif" /></alternatives></inline-formula> is the normalized attention. Other two types of features are processed by the same attention mechanism. Then these three type of feature embeddings are concatenated for the final knowledge-oriented drug representations.</p>
+            <p id="Par87">For the DDI prediction task, there is a joint layer to join the final drug representations of drug 1 and drug 2. The outputs of the convolutional layer and fully connected layer then go through a softmax layer for binary classification:<disp-formula id="Equ8"><label>8</label><alternatives><mml:math display="block" id="Equ8_Math"><mml:mrow><mml:mi>y</mml:mi><mml:mo>=</mml:mo><mml:mi>s</mml:mi><mml:mi>o</mml:mi><mml:mi>f</mml:mi><mml:mi>t</mml:mi><mml:mi>m</mml:mi><mml:mi>a</mml:mi><mml:mi>x</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:msub><mml:mi>W</mml:mi><mml:mi>o</mml:mi></mml:msub><mml:mi>p</mml:mi><mml:mi>r</mml:mi><mml:mo>+</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mi>o</mml:mi></mml:msub></mml:mrow></mml:mfenced><mml:mo>,</mml:mo></mml:mrow></mml:math><tex-math id="Equ8_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$y = softmax\left( {W_{o} pr + b_{o} } \right) ,$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_342_Article_Equ8.gif" /></alternatives></disp-formula>where each dimension of <inline-formula id="IEq35"><alternatives><mml:math id="IEq35_Math"><mml:mi>y</mml:mi></mml:math><tex-math id="IEq35_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$y$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq35.gif" /></alternatives></inline-formula> denotes the normalized probability of a certain relation, i.e., positive correlation or negative correlation, in accordance with the fully connected layer, <inline-formula id="IEq36"><alternatives><mml:math id="IEq36_Math"><mml:mrow><mml:msub><mml:mtext>W</mml:mtext><mml:mtext>o</mml:mtext></mml:msub><mml:mo>∈</mml:mo><mml:msup><mml:mrow><mml:mtext>R</mml:mtext></mml:mrow><mml:mrow><mml:mn>2</mml:mn><mml:mtext>xdl</mml:mtext></mml:mrow></mml:msup></mml:mrow></mml:math><tex-math id="IEq36_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{W}}_{\text{o}} \in {\text{R}}^{{2{\text{xdl}}}}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq36.gif" /></alternatives></inline-formula> is the projection matrix, and <inline-formula id="IEq37"><alternatives><mml:math id="IEq37_Math"><mml:mrow><mml:msub><mml:mtext>b</mml:mtext><mml:mtext>o</mml:mtext></mml:msub><mml:mo>∈</mml:mo><mml:msup><mml:mrow><mml:mtext>R</mml:mtext></mml:mrow><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:math><tex-math id="IEq37_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{b}}_{\text{o}} \in {\text{R}}^{2}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_342_Article_IEq37.gif" /></alternatives></inline-formula> is the offset vector.</p>
+            <p id="Par88">For the DDS computation task, after joining the final drug representations of drug 1 and drug 2 through joint layer, we adopt a random forest regression model, which is an effective ensemble learning algorithm for regression task, to predict the similarity of a drug pair. Compared to other regression models, e.g., linear regression, logistic regression, etc., random forest is not very sensitive to missing data, which alleviates the impact from the incompleteness of drug attributes. Moreover, randomized sampling before bagging and the application of averaging can avoid overfitting and further improve the generalization ability.</p>
+          </sec>
+          <sec id="Sec11">
+            <title>Experiment settings</title>
+            <p id="Par89">For the CNN model, the kernel and the depth are set to 5 and 20 respectively. A Fully connected layer whose size is 500 is added after the CNN layer.</p>
+            <p id="Par90">In the bidirectional long short-term memory (Bi-LSTM) implementation, we employ dropout on the output layer to prevent overfitting. We use ReLU activation function, take cross-entropy as loss function, and adopt AdaGrad as optimizer.</p>
+            <p id="Par91">For both CNN and Bi-LSTM model, the learning rate and the dropout rate are set to 0.003 and 0.5 respectively. We train our models in batches with a size of 40. All other parameters are randomly initialized from [− 0.1,0.1]. The maximum length of sentence is set to 100.</p>
+            <p id="Par92">For the base models, we follow exactly the same parameter settings as those in their original papers.</p>
+          </sec>
+        </sec>
+        <sec id="Sec12">
+          <title>Results and discussion</title>
+          <sec id="Sec13">
+            <title>Evaluation tasks: drug–drug interaction (DDI)</title>
+            <sec id="Sec14">
+              <title>Drug–drug interaction (DDI) classification for different labeled prevalence</title>
+              <p id="Par93">DDIs occur when two or more drugs are taken in combination and act on each other. To evaluate the proposed KMR method, we perform a retrospective evaluation using as the set of known DDIs pairs of interacting drugs presented in the 2017 version of DrugBank (V5.0.9). We adopt two baseline models for the experimental comparison:<list list-type="bullet"><list-item><p id="Par94"><italic>Variational autoencoder (VAE)</italic> An autoencoder is a type of artificial neural network used to learn efficient data coding in an unsupervised manner. VAE has become more widely used to learn a representation for a set of data, typically for the purpose of dimensionality reduction [<xref ref-type="bibr" rid="CR38">38</xref>].</p></list-item><list-item><p id="Par95"><italic>CNN model</italic> the difference between KMR and its base CNN model is that the latter does not perform dimensionality reduction when learning the representation of pharmacological features.</p></list-item></list></p>
+              <p id="Par96">These baselines are a version of our system that uses the same input drug data and utilize the same set of aforementioned features. We randomly selected a fixed percentage (5%, 15%, 25%, 50%, 75%, 85%, and 100%) of training dataset for training, and compute the accuracy of the trained model in the testing dataset correspondingly. Regardless of the DDI prevalence used at training and validation, our approach significantly outperforms the baselines with respect to accuracy, recall, F1 score, and area under the precision-recall curve (AUPR) (see Fig. <xref rid="Fig7" ref-type="fig">7</xref>). For example, for a given 5% prevalence, our model achieves best accuracy (0.72 + 0.13) while CNN model cannot perform as well as our model (0.69 + 0.17).<fig id="Fig7"><label>Fig. 7</label><caption xml:lang="en"><p>Comparison of different metrics for drug–drug interaction (DDI) prediction: accuracy, precision, recall, f1, aupr and auroc respectively. Using the same features with unbalanced training/validation data, KMR significantly outperforms the baselines</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_342_Fig7_HTML.png" /></fig></p>
+              <p id="Par97">In addition, as one may expect, training with higher prevalence actually improves the overall performance. For an assumed DDI prevalence at training ranging from 25 to 50%, the KMR accuracy rises from 0.85 to 0.90 when all features are used, while the accuracy improvements of the baseline models are very limited, demonstrating the ability of KMR to discover valid, but yet unknown drug–drug interactions in dataset even with limited labeled target data.</p>
+            </sec>
+            <sec id="Sec15">
+              <title>Drug–drug interaction (DDI) classification for newly developed drugs</title>
+              <p id="Par98">We conduct a retrospective evaluation using the known DDIs and drug features in an earlier version of DrugBank (2016, V4.5) to predict the drug–drug interaction among newly developed drugs that presented in a more updated version of DrugBank (2017, V5.0.7). The performances of DDI prediction are measured by precision, recall, and F-score, receiver operating characteristic curve (ROC) and area under the precision-recall curve (AUPR), respectively.</p>
+              <p id="Par99">For a given assumed DDI prevalence at training/validation and a DDI prevalence at testing, to get robust results and show the effectiveness of KMR model, six state-of-the-art baselines are adopted for comparison:<list list-type="bullet"><list-item><p id="Par100"><italic>SVM</italic> many state-of-the-art DDI extraction systems are based on support vector machines (SVM) with a large number of manually defined features [<xref ref-type="bibr" rid="CR39">39</xref>].</p></list-item><list-item><p id="Par101"><italic>FBK-irst</italic> a multi-phase kernel based approach for drug–drug interaction detection and classification that exploits linguistic information [<xref ref-type="bibr" rid="CR40">40</xref>].</p></list-item><list-item><p id="Par102"><italic>CNN</italic> a CNN model for DDI task consists of four layers: a look-up table layer, a convolutional layer, a max pooling layer, and a Softmax layer [<xref ref-type="bibr" rid="CR41">41</xref>].</p></list-item><list-item><p id="Par103"><italic>Att-BLSTM</italic> an attention-based neural network model that uses RNN with LSTM units [<xref ref-type="bibr" rid="CR42">42</xref>].</p></list-item><list-item><p id="Par104"><italic>Tiresias</italic> a large-scale similarity-based framework that uses utilizes two classes of features in a knowledge graph, i.e., local and global features, to predicts DDIs through link prediction [<xref ref-type="bibr" rid="CR43">43</xref>].</p></list-item><list-item><p id="Par105"><italic>LP-AllSim</italic> an integrative label propagation framework to predict DDIs based on clinical side effects [<xref ref-type="bibr" rid="CR44">44</xref>].</p></list-item></list></p>
+              <p id="Par106">To analyze the effectiveness of our model, we also report the ablation test in terms of discarding the pharmacological feature (w/o pharmacology), drug class feature (w/o drug class) and drug textual description feature (w/o textual description), respectively.</p>
+              <p id="Par107">With the same input (pharmacological feature, drug class feature, and drug textual description feature), different models with different representation learning and classification approaches yield different F-score and AUROC scores. There are multiple interesting observations from Table <xref rid="Tab2" ref-type="table">2</xref> as followings: (1) Compared with other state-of-the-art systems, our proposed KMR boosts the DDI prediction performance. It outperforms the current best system (CNN [<xref ref-type="bibr" rid="CR41">41</xref>]) by 10% in F-score (see Table <xref rid="Tab2" ref-type="table">2</xref>), mainly due to much higher precision. (2) Top performing systems in Table <xref rid="Tab2" ref-type="table">2</xref> (e.g., SVM [<xref ref-type="bibr" rid="CR39">39</xref>], Tiresias [<xref ref-type="bibr" rid="CR43">43</xref>],) are all performed based on various features such as features derived from medical resources. (3) Compared with the state-of-the-art SVM-based system, the advantage of our KMR lies in that it does not use any manually defined features generated by existing NLP toolkits. The features used in the KMR are automatically learned during training and may contain useful information beyond the manually defined features. Moreover, they effectively avoid errors caused by existing NLP toolkits. (4) Generally, all adopted features (i.e., pharmacological feature, drug class feature and textual description feature) contribute, and it makes larger performance boosting to DDI prediction. KMR substantially and consistently outperforms the ablation tests, demonstrating the necessity of simultaneous consideration of the proposed features.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>DDI Retrospective evaluation: training in an earlier version of DrugBank and testing in a more updated version of DrugBank. KMR correctly predicts up to 92.19% of the DDIs found after 2016</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" /><th align="left"><p>Accuracy</p></th><th align="left"><p>Precision</p></th><th align="left"><p>Recall</p></th><th align="left"><p>F-score</p></th><th align="left"><p>AUROC</p></th><th align="left"><p>AUPR</p></th></tr></thead><tbody><tr><td align="left"><p>FBK-irst</p></td><td char="." align="char"><p>0.6533</p></td><td char="." align="char"><p>0.6437</p></td><td char="." align="char"><p>0.6867</p></td><td char="." align="char"><p>0.6645</p></td><td char="." align="char"><p>0.6807</p></td><td char="." align="char"><p>0.7479</p></td></tr><tr><td align="left"><p>SVM</p></td><td char="." align="char"><p>0.7867</p></td><td char="." align="char"><p>0.7622</p></td><td char="." align="char"><p>0.8333</p></td><td char="." align="char"><p>0.7962</p></td><td char="." align="char"><p>0.8844</p></td><td char="." align="char"><p>0.8694</p></td></tr><tr><td align="left"><p>CNN</p></td><td char="." align="char"><p>0.81</p></td><td char="." align="char"><p>0.8039</p></td><td char="." align="char"><p>0.82</p></td><td char="." align="char"><p>0.8118</p></td><td char="." align="char"><p>0.8892</p></td><td char="." align="char"><p>0.8897</p></td></tr><tr><td align="left"><p>Att-BLSTM</p></td><td char="." align="char"><p>0.7750</p></td><td char="." align="char"><p>0.7749</p></td><td char="." align="char"><p>0.7750</p></td><td char="." align="char"><p>0.7750</p></td><td char="." align="char"><p>0.8455</p></td><td char="." align="char"><p>0.8486</p></td></tr><tr><td align="left"><p>Tiresias</p></td><td char="." align="char"><p>0.80</p></td><td char="." align="char"><p>0.7885</p></td><td char="." align="char"><p>0.82</p></td><td char="." align="char"><p>0.8039</p></td><td char="." align="char"><p>0.8869</p></td><td char="." align="char"><p>0.8861</p></td></tr><tr><td align="left"><p>LP-AllSim</p></td><td char="." align="char"><p>0.77</p></td><td char="." align="char"><p>0.7547</p></td><td char="." align="char"><p>0.8</p></td><td char="." align="char"><p>0.7767</p></td><td char="." align="char"><p>0.8544</p></td><td char="." align="char"><p>0.8600</p></td></tr><tr><td align="left"><p>KMR (our model)</p></td><td char="." align="char"><p><italic>0.9219</italic></p></td><td char="." align="char"><p><italic>0.9191</italic></p></td><td char="." align="char"><p><italic>0.9191</italic></p></td><td char="." align="char"><p><italic>0.9191</italic></p></td><td char="." align="char"><p><italic>0.9512</italic></p></td><td char="." align="char"><p><italic>0.9568</italic></p></td></tr><tr><td align="left"><p>w/o pharmacology</p></td><td char="." align="char"><p>0.8571</p></td><td char="." align="char"><p>0.8570</p></td><td char="." align="char"><p>0.8571</p></td><td char="." align="char"><p>0.8571</p></td><td char="." align="char"><p>0.8571</p></td><td char="." align="char"><p>0.8571</p></td></tr><tr><td align="left"><p>w/o drug class</p></td><td char="." align="char"><p>0.8854</p></td><td char="." align="char"><p>0.8854</p></td><td char="." align="char"><p>0.8855</p></td><td char="." align="char"><p>0.8854</p></td><td char="." align="char"><p>0.8854</p></td><td char="." align="char"><p>0.9391</p></td></tr><tr><td align="left"><p>w/o textual description</p></td><td char="." align="char"><p>0.9033</p></td><td char="." align="char"><p>0.9032</p></td><td char="." align="char"><p>0.9033</p></td><td char="." align="char"><p>0.9033</p></td><td char="." align="char"><p>0.9373</p></td><td char="." align="char"><p>0.9432</p></td></tr></tbody></table><table-wrap-foot><p>Results in italics identify the best values for the testing</p></table-wrap-foot></table-wrap></p>
+            </sec>
+            <sec id="Sec16">
+              <title>Model analysis</title>
+              <p id="Par108">For the three types of features proposed, when performing experiments on one type of feature separately, we will assume that the representation learning of the other two features are unchanged. Through the joint learning method described above, we obtain the feature vectors and apply them to the DDI prediction task, so as to verify the performance of feature embeddings.<list list-type="order"><list-item><p id="Par109">Dimensionality reduction in representation learning of pharmacological feature</p></list-item></list>We conducted an experiment to verify whether the drug dimensionality reduction method used in pharmacological feature representation learning can improve the accuracy of DDI prediction. We choose several common dimensionality reduction methods as baselines:<list list-type="bullet"><list-item><p id="Par111"><italic>concatenation</italic> is to concatenate all pharmacological feature vectors, whose dimension is 5852.</p></list-item><list-item><p id="Par112"><italic>trans_mat</italic> is to multiply the pharmacological feature vectors by the mapping matrix, the resulting dimension is 100*6.</p></list-item><list-item><p id="Par113"><italic>fully_conn</italic> refers to the dimensionality reduction performed by a fully connected neural network. The vector dimension is reduced to 500.</p></list-item><list-item><p id="Par114"><italic>our model</italic> The pharmacological feature is processed by the convolutional neural network to obtain a vector with a dimension of 500.</p></list-item></list></p>
+              <p id="Par115">We verify the effectiveness of different dimensionality reduction methods by using their generated vectors in DDI prediction task. The accuracy is adopted as the evaluation metric. Figure <xref rid="Fig8" ref-type="fig">8</xref> shows the performance evaluation for DDI prediction, whose input vectors are generated by different dimensionality reduction methods. Our model significantly outperforms all the baselines. We can also observe that concatenation is an easy and effective operation, which is robust and achieves a good performance on the DDI prediction task. Due to the poor classification effect (accuracy fluctuates around 0.50), the curve of trans_mat does not appear in the figure.<fig id="Fig8"><label>Fig. 8</label><caption xml:lang="en"><p>DDI prediction with different input (i.e., pharmacological feature vectors generated by different dimensionality reduction methods)</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_342_Fig8_HTML.png" /></fig><list list-type="order"><list-item><p id="Par116">Performance of the representation learning of drug class feature</p></list-item></list>Table <xref rid="Tab3" ref-type="table">3</xref> reports the experimental results of DDI prediction with different drug class feature input generated by different network embedding methods. There are multiple interesting observations as follows: (1) The current translation-based methods, including TransE and PTransE, are the translation from head entity to tail entity. These methods are thus difficult to reasoning over paths between two entities. (2) Neural network models that performs multi-step relation inference in an embedding neural space, such as deepwalk, LINE, and node2vec, can well learn and present the drug taxonomy. (4) Our model inputs the drug class embeddings learned by deepwalk, LINE, and node2vec, respectively, to different channels of the CNN. We can observe that our method outperforms other methods. This improvement is benefit from the full use of all learned taxonomy information.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>Drug class feature embeddings learned by different network embedding methods</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Model</p></th><th align="left"><p>Accuracy</p></th></tr></thead><tbody><tr><td align="left"><p>TransE</p></td><td char="." align="char"><p>78.5</p></td></tr><tr><td align="left"><p>PTransE</p></td><td char="." align="char"><p>78.9</p></td></tr><tr><td align="left"><p>DeepWalk</p></td><td char="." align="char"><p>80.8</p></td></tr><tr><td align="left"><p>LINE</p></td><td char="." align="char"><p>80.7</p></td></tr><tr><td align="left"><p>Node2vec</p></td><td char="." align="char"><p>80.7</p></td></tr><tr><td align="left"><p>Our model</p></td><td char="." align="char"><p><italic>92.1</italic></p></td></tr></tbody></table><table-wrap-foot><p>Results in italics identify the best values for the testing</p></table-wrap-foot></table-wrap><list list-type="order"><list-item><p id="Par118">Performance of the representation learning of drug textual description feature</p></list-item></list></p>
+              <p id="Par119">To demonstrate the effectiveness of textual description feature embeddings, we compare different textual embedding methods. The selected base models include:<list list-type="order"><list-item><p id="Par120"><italic>CNN</italic> a convolutional neural network to extract lexical and sentence level features [<xref ref-type="bibr" rid="CR45">45</xref>].</p></list-item><list-item><p id="Par121"><italic>PCNN</italic> reducing the impact of noise and wrong label problems by employing Piecewise Max Pooling in convolutional neural network [<xref ref-type="bibr" rid="CR46">46</xref>].</p></list-item><list-item><p id="Par122"><italic>BGRU</italic> a Bidirectional GRU network with attention mechanism (BGRU-Att).<xref ref-type="fn" rid="Fn16">16</xref> Both (1)(2) are implemented with the sentence-level attention (-Att) to interpret the performance of our model.</p></list-item></list></p>
+              <p id="Par124">Held-out evaluation is conducted and the results are shown in Fig. <xref rid="Fig9" ref-type="fig">9</xref>. In general, our model achieves the best performance. Dependency embedding improves the performance of our model. This is within our expectation since dependency information shortens the abstract distance (hops) in the dependency tree between source and target entities, as well as introduces structural and syntactic information to enrich overall sentence representation. The dependency embedding can reduce the semantic ambiguity thus alleviate the difficulty of relation extraction from cross-sentence long-text.<fig id="Fig9"><label>Fig. 9</label><caption xml:lang="en"><p>Accuracy of CNN, PCNN and our model in the DDI prediction task</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_342_Fig9_HTML.png" /></fig></p>
+            </sec>
+          </sec>
+          <sec id="Sec17">
+            <title>Evaluation tasks: drug–drug similarity (DDS)</title>
+            <sec id="Sec18">
+              <title>Drug–drug similarity (DDS) performance</title>
+              <p id="Par125">Semantic similarity metrics in medicine has attracted substantial attention in recent years and its most promising application scenario is therapeutic substitution, also known as therapeutic interchange and drug substitution. Therapeutic substitution is the practice of replacing a patient’s prescription with chemically different drugs that are expected to have the same clinical effect [<xref ref-type="bibr" rid="CR47">47</xref>].</p>
+              <p id="Par126">To study drug substitution, we employ KMR to predict the similarity scores between cefoperazone and other antibiotics. Referring to [<xref ref-type="bibr" rid="CR48">48</xref>], two antibiotics whose similarity scores over 0.85 can be replaced with each other under normal circumstances.</p>
+              <p id="Par127">For the antibiotic cefoperazone, Fig. <xref rid="Fig10" ref-type="fig">10</xref> presents antibiotics that are similar to it whose similarity score is over 0.85 and indicates the cases where they can replace each other. Take cefoperazone and ceftriaxone as an example. Ceftriaxone can replace cefoperazone in most cases except disease caused by a few bacteria such as Pseudomonas aeruginosa etc. In the absence of susceptibility testing, our method can help doctors to find the most appropriate drug substitution to treat most of Gram-negative bacteria infections, such as respiratory infection, pneumonia, and biliary infection.<fig id="Fig10"><label>Fig. 10</label><caption xml:lang="en"><p>An example of drug similarity result provided by KMR</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_342_Fig10_HTML.png" /></fig></p>
+            </sec>
+            <sec id="Sec19">
+              <title>Comparison with State-of-the-art similarity metrics</title>
+              <p id="Par128">The experimental results on Drugbank are summarized in Table <xref rid="Tab4" ref-type="table">4</xref>. Four state-of-the-art baselines are adopted for comparison: (1) The structure based measure GADES [<xref ref-type="bibr" rid="CR10">10</xref>]; (2) The information content based measure Res [<xref ref-type="bibr" rid="CR49">49</xref>]; (3) The Wpath method [<xref ref-type="bibr" rid="CR50">50</xref>] considers both path information and information content; (4) The Hybrids method [<xref ref-type="bibr" rid="CR51">51</xref>] which is based on Wpath takes medical properties into account to calculate the drug similarity. Pearson correlation coefficient and Spearman rank correlation coefficient are adopted to evaluate the correlation between doctors’ assessment and experiment results.<table-wrap id="Tab4"><label>Table 4</label><caption xml:lang="en"><p>DDS result on Drugbank (with ablation study)</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" /><th align="left"><p>Pearson</p></th><th align="left"><p>Spearman</p></th></tr></thead><tbody><tr><td align="left"><p>Res: Resnik et al. 2005</p></td><td char="." align="char"><p>0.511</p></td><td char="." align="char"><p>0.523</p></td></tr><tr><td align="left"><p>Hybrids: Hliaoutakis 2005</p></td><td char="." align="char"><p>0.557</p></td><td char="." align="char"><p>0.578</p></td></tr><tr><td align="left"><p>GADES: Traverso et al. 2016</p></td><td char="." align="char"><p>0.652</p></td><td char="." align="char"><p>0.602</p></td></tr><tr><td align="left"><p>Wpath: Zhu et al. 2017</p></td><td char="." align="char"><p>0.750</p></td><td char="." align="char"><p>0.703</p></td></tr><tr><td align="left"><p>KMR (our model)</p></td><td char="." align="char"><p><italic>0.887</italic></p></td><td char="." align="char"><p><italic>0.829</italic></p></td></tr><tr><td align="left"><p>W/o pharmacology</p></td><td char="." align="char"><p>0.759</p></td><td char="." align="char"><p>0.750</p></td></tr><tr><td align="left"><p>W/o drug class</p></td><td char="." align="char"><p>0.778</p></td><td char="." align="char"><p>0.711</p></td></tr><tr><td align="left"><p>W/o textual description</p></td><td char="." align="char"><p>0.751</p></td><td char="." align="char"><p>0.789</p></td></tr></tbody></table><table-wrap-foot><p>Results in italics identify the best values for the testing</p></table-wrap-foot></table-wrap></p>
+              <p id="Par129">We observe that KMR substantially and consistently outperforms the existing methods by a noticeable margin with respect to different correlations. For instance, on Drugbank, KMR improves by 13% on Spearman over these baselines. Experiment results reveal that on the analytics and assessments of KB semantic/structure information, domain specific features are important and need to be considered simultaneously.</p>
+              <p id="Par130">In order to analyze the effectiveness of the different features of KMR, we also report the ablation test in terms of discarding the pharmacological feature (w/o pharmacology), drug class feature (w/o drug class) and drug textual description feature (w/o textual description), respectively. Generally, all factors contribute in similarity measure, and it makes larger performance boosting to measure medical semantic similarity. Even the basic system with pharmacological feature achieves competitive results with these strong baselines, which demonstrates the effectiveness of incorporating medical knowledge into measuring semantic similarity. It is proven that KB can introduce structural (drug class feature) and textual knowledge (drug textual description feature) to enrich overall knowledge representations, while medical knowledge can further enhance the knowledge representational learning of a specific domain.</p>
+            </sec>
+          </sec>
+        </sec>
+        <sec id="Sec20" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p id="Par131">In this paper, we propose a knowledge-oriented method to capture the medical information, taxonomy information and semantic information of drugs, so as to explore the interaction and similarity between two drugs of interest.</p>
+          <p id="Par132">In summary, our method is able to (1) learn medicine representation learning by capturing the medical information, taxonomy information and semantic information of drugs. (2) evaluate drug–drug interaction and drug–drug similarity. The KMR takes in various sources of drug-related data and knowledge as inputs, and provides DDI predictions as outputs. KMR is proved to be capable of dealing with drugs without any known interacting drugs. Experimental results on public dataset demonstrate that techniques developed in KMR significantly improve the prediction quality for new drugs not seen at training. The proposed method is reproducible and applicable to the drug representation learning and DDI computation. (3) process incomplete or inaccurate public data sources. We conduct experiments to show that a dataset with incomplete knowledge and structure sparseness can benefit from not only the application of various features but also the interactions between different features.</p>
+          <p id="Par133">In the future, we will further utilize the attention scheme to effectively assemble the attentive information from different representational perspectives, so as to improve overall representational learning. In addition, we will perform an additional statistical significance analysis to rigorously demonstrate whether KMR’s improvement over other methods is statistically significant or not.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Authors’ contributions</title>
+          <sec>
+            <p>Ying Shen carried out the application of mathematical techniques. Kaiqi Yuan and Min Yang realized the development methodology and the creation of models. Buzhou Tang and Yaliang Li conducted an investigation process, and implemented algorithms and programming. Nan Du analyzed the experimental results. Kai Lei was responsible for the management and coordination responsibility for the research activity planning and execution. All authors read and approved the final manuscript.</p>
+          </sec>
+          <sec id="FPar1">
+            <title>Competing interests</title>
+            <p id="Par134">The authors declare that they have no competing interests.</p>
+          </sec>
+          <sec id="FPar2">
+            <title>Availability of data and materials</title>
+            <p id="Par135">The online version of our proposed system can be accessed via: <ext-link xlink:href="http://www.iasokg.com" ext-link-type="uri">http://www.iasokg.com</ext-link>. Our results are reproducible and we will release the source code and the synthetic dataset of this work after publication: <ext-link xlink:href="https://github.com/shenying/KDR.git" ext-link-type="uri">https://github.com/shenying/KDR.git</ext-link>. Datasets generated and/or analyzed during the current study are available in: SIDER repository (<ext-link xlink:href="http://sideeffects.embl.de" ext-link-type="uri">http://sideeffects.embl.de</ext-link>) [<xref ref-type="bibr" rid="CR31">31</xref>], NDF-RT (<ext-link xlink:href="https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/NDFRT/" ext-link-type="uri">https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/NDFRT/</ext-link>), DrugBank repository (<ext-link xlink:href="https://www.drugbank.ca/" ext-link-type="uri">https://www.drugbank.ca/</ext-link>) [<xref ref-type="bibr" rid="CR27">27</xref>], ChemOnt repository (<ext-link xlink:href="http://classyfire.wishartlab.com/" ext-link-type="uri">http://classyfire.wishartlab.com/</ext-link>) [<xref ref-type="bibr" rid="CR33">33</xref>], Pubmed repository (<ext-link xlink:href="https://www.ncbi.nlm.nih.gov/pubmed/" ext-link-type="uri">https://www.ncbi.nlm.nih.gov/pubmed/</ext-link>), and DailyMed repository (<ext-link xlink:href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm%3fsetid%3d7d1950b4-3237-4512-bab3-4c7364bdd618" ext-link-type="uri">https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7d1950b4-3237-4512-bab3-4c7364bdd618</ext-link>).</p>
+          </sec>
+          <sec id="FPar3">
+            <title>Consent for publication</title>
+            <p id="Par136">Not applicable.</p>
+          </sec>
+          <sec id="FPar4">
+            <title>Ethics approval and consent to participate</title>
+            <p id="Par137">Not applicable.</p>
+          </sec>
+          <sec id="FPar5">
+            <title>Funding</title>
+            <p id="Par138">This work was financially supported by the National Natural Science Foundation of China (No. 61602013), Natural Science Foundation of Guangdong (No.2018A030313017), the Shenzhen Fundamental Research Project (No. JCYJ20170818091546869, JCYJ20160330095313861 and JCYJ20170412151008290), and the Natural Science Foundation of Guangdong (No. 2018A030313017). Min Yang was sponsored by CCF-Tencent Open Research Fund.</p>
+          </sec>
+          <sec id="FPar6">
+            <title>Publisher’s Note</title>
+            <p id="Par139">Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+          </sec>
+        </ack>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="other">Zhou J, Yuan L, Liu J, Ye J (2011) A multi-task learning formulation for predicting disease progression. In: the 17th ACM SIGKDD international conference on knowledge discovery and data mining, San Diego, CA, USA, 21–24 Aug 2011, pp 814-822</mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="other">Shen Y, Deng Y, Yang M, Li Y, Du N, Fan W, Lei K. (2018) Knowledge-aware attentive neural network for ranking question answer pairs. In: the 41st international ACM SIGIR conference on research &amp; development in information retrieval, Ann Arbor, MI, USA, 08–12 July 2018, pp 901–904</mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="other">Severyn A, Nicosia M, Moschitti A (2013) Learning semantic textual similarity with structural representations. In: the 51st annual meeting of the Association for Computational Linguistics, Sofia, Bulgaria, 4–9 Aug 2013, vol 2, pp 714–718</mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="other">Yang M, Qu Q, Shen Y, Liu Q, Zhao W, Zhu J (2018) Aspect and sentiment aware abstractive review summarization. COLING 2018. COLING: Santa Fe, New Mexico, USA, 20–26 Aug 2018</mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="other">Zhang C, Li Y, Du N, Fan W, Yu P (2018) On the generative discovery of structured medical knowledge. In: the 24th ACM SIGKDD international conference on knowledge discovery &amp; data mining. London, UK, 19–23 Aug 2018, pp 2720–2728</mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="other">Choi E, Bahadori M T, Searles E, Coffey C, Thompson M (2016) Multi-layer representation learning for medical concept. In: the 22nd ACM SIGKDD international conference on knowledge discovery and data mining, San Francisco, 13–17 Aug 2016, pp 1495-1504</mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Korkmaz</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Zararsiz</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Goksuluk</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Drug/nondrug classification using support vector machines with various feature selection strategies</article-title>
+                <source>Comput Methods Programs Biomed</source>
+                <year>2014</year>
+                <volume>117</volume>
+                <issue>2</issue>
+                <fpage>51</fpage>
+                <lpage>60</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.cmpb.2014.08.009</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="other">Che Z, Cheng Y, Sun Z, Liu Y (2016) Exploiting convolutional neural network for risk prediction with medical feature embedding. In: NIPS workshop on machine learning for health (NIPS-ML4HC), Barcelona, Spain, 05–10, Dec 2016</mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Bandar</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>McLean</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An approach for measuring semantic similarity between words using multiple information sources</article-title>
+                <source>IEEE Trans Knowl Data Eng</source>
+                <year>2003</year>
+                <volume>15</volume>
+                <issue>4</issue>
+                <fpage>871</fpage>
+                <lpage>882</lpage>
+                <pub-id pub-id-type="doi">10.1109/TKDE.2003.1209005</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="other">Resnik P (2005) Using information content to evaluate semantic similarity in a taxonomy. In: IJCAI, Edinburgh, Scotland, UK, 30 July–5 Aug, pp 448–453</mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="other">Choi E, Bahadori M T, Song L, Stewart W, Sun J (2017) GRAM: graph-based attention model for healthcare representation learning. In: the 23rd ACM SIGKDD international conference on knowledge discovery and data mining, Halifax, NS, Canada, 13–17 Aug 2017, pp 787–795</mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="other">Turian J, Ratinov L, Bengio Y (2010) Word representations: a simple and general method for semi-supervised learning. In: the 48th annual meeting of the association for computational linguistics. Association for Computational Linguistics. Uppsala, Sweden, 11–16 July 2010, pp 384–394</mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="other">Mikolov T, Chen K, Corrado G, Dean J (2013) Efficient estimation of word representations in vector space. arXiv preprint <ext-link xlink:href="http://arxiv.org/abs/1301.3781" ext-link-type="uri">arXiv:1301.3781</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Turney</surname>
+                    <given-names>PD</given-names>
+                  </name>
+                  <name>
+                    <surname>Pantel</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">From frequency to meaning: vector space models of semantics</article-title>
+                <source>J Artif Intell Res</source>
+                <year>2010</year>
+                <volume>37</volume>
+                <fpage>141</fpage>
+                <lpage>188</lpage>
+                <pub-id pub-id-type="doi">10.1613/jair.2934</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="other">Mikolov T, Sutskever I, Chen K, Corrado G, Dean J (2013) Distributed representations of words and phrases and their compositionality. In: Advances in neural information processing systems. Lake Tahoe, 05–10 Dec 2013, pp 3111–3119</mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="other">Bordes A, Usunier N, Garcia-Duran A, Weston J, Yakhnenko O. Translating embeddings for modeling multi-relational data. In: Advances in neural information processing systems, Lake Tahoe, 05–10 Dec 2013, pp 2787–2795</mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="other">Ji G, He S, Xu L, Zhao J (2015) Knowledge graph embedding via dynamic mapping matrix. In: the 53rd annual meeting of the association for computational linguistics and the 7th international joint conference on natural language processing, Beijing, China, 16–21 Aug 2015, pp 687–696</mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="other">Ji G, Liu K, He S, Zhao J (2016) Knowledge graph completion with adaptive sparse transfer matrix. In: AAAI 2016, Phoenix, AZ, USA, 12–17 Feb 2016, pp 985–991</mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lao</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Cohen</surname>
+                    <given-names>WW</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Relational retrieval using a combination of path-constrained random walks</article-title>
+                <source>Mach Learn</source>
+                <year>2010</year>
+                <volume>81</volume>
+                <issue>1</issue>
+                <fpage>53</fpage>
+                <lpage>67</lpage>
+                <pub-id pub-id-type="doi">10.1007/s10994-010-5205-8</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="other">Perozzi B, Al-Rfou R, Skiena S (2014) Deepwalk: online learning of social representations. In: the 20th ACM SIGKDD international conference on Knowledge discovery and data mining, New York, USA, 24–27 Aug 2014, pp 701–710</mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="other">Grover A, Leskovec J (2016) node2vec: Scalable feature learning for networks. In: the 22nd ACM SIGKDD international conference on knowledge discovery and data mining, San Francisco, California, 13–17 Aug 2016, pp 855–864</mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="other">Socher R, Huval B, Manning C D, Ng A (2012) Semantic compositionality through recursive matrix-vector spaces. In: the 2012 joint conference on empirical methods in natural language processing and computational natural language learning, Jeju Island, Korea, 12–14 July 2012, pp 1201–1211</mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="other">Wang T, Wu D J, Coates A, Ng A (2012) End-to-end text recognition with convolutional neural networks. In: the 21st international conference on pattern recognition (ICPR), Tsukuba, Japan, 11–15 Nov 2012, pp 3304–3308</mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="other">Bahdanau D, Cho K, Bengio Y (2015) Neural machine translation by jointly learning to align and translate. In: ICLR 2015, San Diego, CA, 7–9 May 2015</mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="other">Sukhbaatar S, Weston J, Fergus R (2015) End-to-end memory networks. In: Advances in neural information processing systems, Montreal, Canada, 07–12 Dec 2015, pp 2440-2448</mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="other">Vinyals O, Toshev A, Bengio S, Erhan, D (2015) Show and tell: a neural image caption generator. In: the IEEE conference on computer vision and pattern recognition (CVPR 2015), Boston, USA, 7–12 June 2015, pp 3156–3164</mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wishart</surname>
+                    <given-names>DS</given-names>
+                  </name>
+                  <name>
+                    <surname>Knox</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Guo</surname>
+                    <given-names>AC</given-names>
+                  </name>
+                  <name>
+                    <surname>Shrivastava</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Hassanali</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Stothard</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Woolsey</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">DrugBank: a comprehensive resource for in silico drug discovery and exploration</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2006</year>
+                <volume>34</volume>
+                <fpage>D668</fpage>
+                <lpage>D672</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XisFOrsw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkj067</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sang</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Lin</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SemaTyP: a knowledge graph based literature mining method for drug discovery</article-title>
+                <source>BMC Bioinform</source>
+                <year>2018</year>
+                <volume>19</volume>
+                <issue>1</issue>
+                <fpage>193</fpage>
+                <pub-id pub-id-type="doi">10.1186/s12859-018-2167-5</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Minarro-Giménez</surname>
+                    <given-names>JA</given-names>
+                  </name>
+                  <name>
+                    <surname>Marin-Alonso</surname>
+                    <given-names>O</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Samwald M. Exploring the application of deep learning techniques on medical text corpora</article-title>
+                <source>Stud Health Technol Inform</source>
+                <year>2014</year>
+                <volume>205</volume>
+                <fpage>584</fpage>
+                <lpage>588</lpage>
+                <pub-id pub-id-type="pmid">25160253</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="other">De Vine L, Zuccon G, Koopman B, Sitbon L, Bruza P (2014) Medical semantic similarity with a neural language model. In: the 23rd ACM international conference on information and knowledge management (CIKM), Lingotto, Italy, 22–26 Oct 2018, pp 1819–1822</mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kuhn</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Letunic</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Jensen</surname>
+                    <given-names>LJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Bork</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The SIDER database of drugs and side effects</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2015</year>
+                <volume>44</volume>
+                <issue>D1</issue>
+                <fpage>D1075</fpage>
+                <lpage>D1079</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gkv1075</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="other">Mahoney A, Evans J (2008) Comparing drug classification systems. In: AMIA annual symposium proceedings, Washington, DC, 8–12 Nov 2008, pp 1039–1039</mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Feunang</surname>
+                    <given-names>YD</given-names>
+                  </name>
+                  <name>
+                    <surname>Eisner</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Knox</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Chepelev</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Hastings</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Owen</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Greiner</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ClassyFire: automated chemical classification with a comprehensive, computable taxonomy</article-title>
+                <source>J Cheminform</source>
+                <year>2016</year>
+                <volume>8</volume>
+                <issue>1</issue>
+                <fpage>61</fpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-016-0174-y</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="other">Tai K S, Socher R, Manning C D (2015) Improved semantic representations from tree-structured long short-term memory networks. In: ACL 2015, Beijing, China, 26–31 July 2015</mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="other">Dyer C, Ballesteros M, Ling W, Matthews A, Smith NA (2015) Transition-based dependency parsing with stack long short-term memory. In: ACL 2015, Beijing, China, 26–31 July 2015</mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mukaka</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A guide to appropriate use of correlation coefficient in medical research</article-title>
+                <source>Malawi Med J</source>
+                <year>2012</year>
+                <volume>24</volume>
+                <issue>3</issue>
+                <fpage>69</fpage>
+                <lpage>71</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:STN:280:DC%2BC3sngt12kug%3D%3D</pub-id>
+                <pub-id pub-id-type="pmid">3576830</pub-id>
+                <pub-id pub-id-type="pmcid">3576830</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hauke</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Kossowski</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comparison of values of Pearson’s and Spearman’s correlation coefficients on the same sets of data</article-title>
+                <source>Quaest Geogr</source>
+                <year>2011</year>
+                <volume>30</volume>
+                <issue>2</issue>
+                <fpage>87</fpage>
+                <lpage>93</lpage>
+                <pub-id pub-id-type="doi">10.2478/v10117-011-0021-1</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="other">Pu Y, Gan Z, Henao R, Yuan X, Li C, Stevens A (2016) Variational autoencoder for deep learning of images, labels and caption. In: Advances in neural information processing systems, Barcelona, Spain, 4–9 Dec 2016, pp 2352–2360</mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="other">Björne J, Kaewphan S, Salakoski T (2013) UTurku: drug named entity recognition and drug-drug interaction extraction using SVM classification and domain knowledge. In: Second joint conference on lexical and computational semantics and the seventh international workshop on semantic evaluation (SemEval 2013). Atlanta, GA, 14–15 June 2013, vol 2, pp 651–659</mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="other">Chowdhury MFM, Lavelli A (2013) FBK-irst: a multi-phase kernel based approach for drug-drug interaction detection and classification that exploits linguistic information. In: Second joint conference on lexical and computational semantics and the seventh international workshop on semantic evaluation (SemEval 2013), Atlanta, GA, 14–15 June 2013, vol 2, pp 351–355</mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="other">Liu S, Tang B, Chen Q, Wang X (2016) Drug-drug interaction extraction via convolutional neural networks. Comput Math Methods Med 2016</mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zheng</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Lin</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Luo</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhao</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An attention-based effective neural model for drug-drug interactions extraction</article-title>
+                <source>BMC Bioinform</source>
+                <year>2017</year>
+                <volume>18</volume>
+                <issue>1</issue>
+                <fpage>445</fpage>
+                <pub-id pub-id-type="doi">10.1186/s12859-017-1855-x</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="other">Abdelaziz I, Fokoue A, Hassanzadeh O, Zhang P, Sadoghi M (2017) Large-scale structural and textual similarity-based mining of knowledge graph to predict drug–drug interactions. In: Web semantics: science, services and agents on the world wide web, Perth, Australia, 3–7 Apr 2017, vol 44, pp 104–117</mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Hu</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Sorrentino</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Label propagation prediction of drug-drug interactions based on clinical side effects</article-title>
+                <source>Sci Rep</source>
+                <year>2015</year>
+                <volume>5</volume>
+                <fpage>12339</fpage>
+                <pub-id pub-id-type="doi">10.1038/srep12339</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="other">Zeng D, Liu K, Lai S, Zhou G, Zhao J (2014) Relation classification via convolutional deep neural network. In: COLING 2014, the 25th international conference on computational linguistics: technical papers, Dublin, Ireland, 23rd Aug 2014, pp 2335–2344</mixed-citation>
+            </ref>
+            <ref id="CR46">
+              <label>46.</label>
+              <mixed-citation publication-type="other">Zeng D, Liu K, Chen Y, Zhao J (2015) Distant supervision for relation extraction via piecewise convolutional neural networks. In: the 2015 conference on empirical methods in natural language processing. Lisbon, Portugal, 17–21 Sept 2015, pp 1753–1762</mixed-citation>
+            </ref>
+            <ref id="CR47">
+              <label>47.</label>
+              <mixed-citation publication-type="other">Ho P L, Wong S S Y (2012) Reducing bacterial resistance with IMPACT-Interhospital multi-disciplinary programme on antimicrobial chemo therapy, 4th edn. Centre for Health Protection</mixed-citation>
+            </ref>
+            <ref id="CR48">
+              <label>48.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pedersen</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Pakhomov</surname>
+                    <given-names>SV</given-names>
+                  </name>
+                  <name>
+                    <surname>Patwardhan</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Chute</surname>
+                    <given-names>CG</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Measures of semantic similarity and relatedness in the biomedical domain</article-title>
+                <source>J Biomed Inform</source>
+                <year>2007</year>
+                <volume>40</volume>
+                <issue>3</issue>
+                <fpage>288</fpage>
+                <lpage>299</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.jbi.2006.06.004</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR49">
+              <label>49.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hliaoutakis</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Varelas</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Voutsakis</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Petrakis</surname>
+                    <given-names>EG</given-names>
+                  </name>
+                  <name>
+                    <surname>Milios</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Information retrieval by semantic similarity</article-title>
+                <source>Int J Semant Web and Inf Syst (IJSWIS)</source>
+                <year>2006</year>
+                <volume>2</volume>
+                <issue>3</issue>
+                <fpage>55</fpage>
+                <lpage>73</lpage>
+                <pub-id pub-id-type="doi">10.4018/jswis.2006070104</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR50">
+              <label>50.</label>
+              <mixed-citation publication-type="other">Traverso I, Vidal M E, Kämpgen B, Sure-Vetter Y (2016) GADES: a graph-based semantic similarity measure. In: the 12th international conference on semantic systems. ACM, pp 101–104</mixed-citation>
+            </ref>
+            <ref id="CR51">
+              <label>51.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhu</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Iglesias</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Computing semantic similarity of concepts in knowledge graphs</article-title>
+                <source>IEEE Trans Knowl Data Eng</source>
+                <year>2017</year>
+                <volume>29</volume>
+                <issue>1</issue>
+                <fpage>72</fpage>
+                <lpage>85</lpage>
+                <pub-id pub-id-type="doi">10.1109/TKDE.2016.2610428</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <glossary>
+          <title>Abbreviations</title>
+          <def-list>
+            <def-item>
+              <term>KMR</term>
+              <def>
+                <p id="Par2">knowledge-oriented medicine representation learning</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>DDI</term>
+              <def>
+                <p id="Par3">drug–drug interaction</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>DDS</term>
+              <def>
+                <p id="Par4">drug–drug similarity</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>NLP</term>
+              <def>
+                <p id="Par5">natural language processing</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CBOW</term>
+              <def>
+                <p id="Par6">continuous bag-of-words</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PRA</term>
+              <def>
+                <p id="Par7">path ranking algorithm</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RNN</term>
+              <def>
+                <p id="Par8">recursive neural network</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>CNN</term>
+              <def>
+                <p id="Par9">convolutional neural networks</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>TTD</term>
+              <def>
+                <p id="Par10">therapeutic target database</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PharmGKB</term>
+              <def>
+                <p id="Par11">pharmacogenomics knowledgebase</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>KEGG</term>
+              <def>
+                <p id="Par12">Kyoto encyclopedia of genes and genomes</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>ChEBI</term>
+              <def>
+                <p id="Par13">czhemical entities of biological interest</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>SIDER</term>
+              <def>
+                <p id="Par14">side effect resource</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>NDF-RT</term>
+              <def>
+                <p id="Par15">national drug file-reference terminology</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>Bi-LSTM</term>
+              <def>
+                <p id="Par16">bidirectional long short-term memory</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>VAE</term>
+              <def>
+                <p id="Par17">variational autoencoder</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>AUPR</term>
+              <def>
+                <p id="Par18">area under the precision-recall curve</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>ROC</term>
+              <def>
+                <p id="Par19">receiver operating characteristic curve</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>SVM</term>
+              <def>
+                <p id="Par20">support vector machines</p>
+              </def>
+            </def-item>
+          </def-list>
+        </glossary>
+        <fn-group>
+          <fn id="Fn1">
+            <label>1</label>
+            <p id="Par38"><ext-link xlink:href="http://bidd.nus.edu.sg/group/cjttd/" ext-link-type="uri">bidd.nus.edu.sg/group/cjttd/</ext-link>.</p>
+          </fn>
+          <fn id="Fn2">
+            <label>2</label>
+            <p id="Par39"><ext-link xlink:href="https://www.pharmgkb.org/" ext-link-type="uri">https://www.pharmgkb.org/</ext-link>.</p>
+          </fn>
+          <fn id="Fn3">
+            <label>3</label>
+            <p id="Par40"><ext-link xlink:href="https://www.genome.jp/kegg/" ext-link-type="uri">https://www.genome.jp/kegg/</ext-link>.</p>
+          </fn>
+          <fn id="Fn4">
+            <label>4</label>
+            <p id="Par41"><ext-link xlink:href="https://www.ebi.ac.uk/chebi/" ext-link-type="uri">https://www.ebi.ac.uk/chebi/</ext-link>.</p>
+          </fn>
+          <fn id="Fn5">
+            <label>5</label>
+            <p id="Par42"><ext-link xlink:href="http://pubchem.ncbi.nlm.nih.gov/" ext-link-type="uri">http://pubchem.ncbi.nlm.nih.gov/</ext-link>.</p>
+          </fn>
+          <fn id="Fn6">
+            <label>6</label>
+            <p id="Par43"><ext-link xlink:href="https://www.rxlist.com/" ext-link-type="uri">https://www.rxlist.com/</ext-link>.</p>
+          </fn>
+          <fn id="Fn7">
+            <label>7</label>
+            <p id="Par52"><ext-link xlink:href="http://sideeffects.embl.de" ext-link-type="uri">http://sideeffects.embl.de</ext-link>.</p>
+          </fn>
+          <fn id="Fn8">
+            <label>8</label>
+            <p id="Par53"><ext-link xlink:href="https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/NDFRT/" ext-link-type="uri">https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/NDFRT/</ext-link>.</p>
+          </fn>
+          <fn id="Fn9">
+            <label>9</label>
+            <p id="Par54"><ext-link xlink:href="https://www.drugbank.ca/" ext-link-type="uri">https://www.drugbank.ca/</ext-link>.</p>
+          </fn>
+          <fn id="Fn10">
+            <label>10</label>
+            <p id="Par55"><ext-link xlink:href="http://classyfire.wishartlab.com/" ext-link-type="uri">http://classyfire.wishartlab.com/</ext-link>.</p>
+          </fn>
+          <fn id="Fn11">
+            <label>11</label>
+            <p id="Par57"><ext-link xlink:href="https://www.ncbi.nlm.nih.gov/pubmed/" ext-link-type="uri">https://www.ncbi.nlm.nih.gov/pubmed/</ext-link>.</p>
+          </fn>
+          <fn id="Fn12">
+            <label>12</label>
+            <p id="Par58"><ext-link xlink:href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm%3fsetid%3d7d1950b4-3237-4512-bab3-4c7364bdd618" ext-link-type="uri">https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7d1950b4-3237-4512-bab3-4c7364bdd618</ext-link>.</p>
+          </fn>
+          <fn id="Fn13">
+            <label>13</label>
+            <p id="Par59"><ext-link xlink:href="https://www.drugbank.ca/drugs/DB00316" ext-link-type="uri">https://www.drugbank.ca/drugs/DB00316</ext-link>.</p>
+          </fn>
+          <fn id="Fn14">
+            <label>14</label>
+            <p id="Par68"><ext-link xlink:href="https://pubchem.ncbi.nlm.nih.gov/" ext-link-type="uri">https://pubchem.ncbi.nlm.nih.gov/</ext-link>.</p>
+          </fn>
+          <fn id="Fn15">
+            <label>15</label>
+            <p id="Par78"><ext-link xlink:href="https://nlp.stanford.edu/software/lex-parser.shtml" ext-link-type="uri">https://nlp.stanford.edu/software/lex-parser.shtml</ext-link>.</p>
+          </fn>
+          <fn id="Fn16">
+            <label>16</label>
+            <p id="Par123"><ext-link xlink:href="https://github.com/thunlp/TensorFlow-NRE" ext-link-type="uri">https://github.com/thunlp/TensorFlow-NRE</ext-link>.</p>
+          </fn>
+        </fn-group>
+      </back>
+    </article>

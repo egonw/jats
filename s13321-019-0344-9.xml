@@ -1,0 +1,803 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0344-9</article-id>
+          <article-id pub-id-type="manuscript">344</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0344-9</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Software</subject>
+            </subj-group>
+            <subj-group subj-group-type="article-collection" specific-use="Regular">
+              <subject>BioCreative V.5</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Design, implementation, and operation of a rapid, robust named entity recognition web service</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" id="Au1">
+              <name>
+                <surname>Pletscher-Frankild</surname>
+                <given-names>Sune</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au2">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-7885-715X</contrib-id>
+              <name>
+                <surname>Jensen</surname>
+                <given-names>Lars Juhl</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDs1332101903449_cor2">b</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 0674 042X</institution-id>
+                <institution-id institution-id-type="GRID">grid.5254.6</institution-id>
+                <institution content-type="org-division">Disease Systems Biology Program, Novo Nordisk Foundation Center for Protein Research, Faculty of Health and Medical Sciences</institution>
+                <institution content-type="org-name">University of Copenhagen</institution>
+              </institution-wrap>
+              <addr-line content-type="city">Copenhagen</addr-line>
+              <country country="DK">Denmark</country>
+            </aff>
+            <aff id="Aff2">
+              <label>2</label>
+              <institution-wrap>
+                <institution content-type="org-name">Intomics A/S</institution>
+              </institution-wrap>
+              <addr-line content-type="city">Lyngby</addr-line>
+              <country country="DK">Denmark</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs1332101903449_cor2">
+              <label>b</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>8</day>
+            <month>3</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="19">1</issue>
+          <elocation-id>19</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>4</day>
+              <month>3</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>30</day>
+              <month>7</month>
+              <year>2018</year>
+            </date>
+            <date date-type="accepted">
+              <day>4</day>
+              <month>3</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>8</day>
+              <month>3</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="url">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="url">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract id="Abs1" xml:lang="en">
+            <title>Abstract</title>
+            <p id="Par1">Most BioCreative tasks to date have focused on assessing the quality of text-mining annotations in terms of precision and recall. Interoperability, speed, and stability are, however, other important factors to consider for practical applications of text mining. For about a decade, we have run named entity recognition (NER) web services, which are designed to be efficient, implemented using a multi-threaded queueing system to robustly handle many simultaneous requests, and hosted at a supercomputer facility. To participate in this new task, we extended the existing NER tagging service with support for the BeCalm API. The tagger suffered no downtime during the challenge and, as in earlier tests, proved to be highly efficient, consistently processing requests of 5000 abstracts in less than half a minute. In fact, the majority of this time was spent not on the NER task but rather on retrieving the document texts from the challenge servers. The latter was found to be the main bottleneck even when hosting a copy of the tagging service on a Raspberry Pi 3, showing that local document storage or caching would be desirable features to include in future revisions of the API standard.</p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Text mining</kwd>
+            <kwd>Named entity recognition</kwd>
+            <kwd>Web services</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Novo Nordisk Fonden</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/501100009708</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">NNF14CC0001</award-id>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>3</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>4</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-collection-editor</meta-name>
+              <meta-value>Martin Krallinger, Obdulia Rabal, Anália Lourenço, Alfonso Valencia</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_344.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (<ext-link xlink:href="https://doi.org/10.1186/s13321-019-0344-9" ext-link-type="doi">https://doi.org/10.1186/s13321-019-0344-9</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p id="Par2">BioCreative and other shared tasks in the biomedical text-mining community have over the years played a key role in progressively improving text mining methods, in particular for named entity recognition (NER). Most BioCreative tasks have focused purely on evaluating the precision and recall [<xref ref-type="bibr" rid="CR1">1</xref>, <xref ref-type="bibr" rid="CR2">2</xref>], with the BioC interoperability task [<xref ref-type="bibr" rid="CR3">3</xref>] and the interactive annotation task (IAT) [<xref ref-type="bibr" rid="CR4">4</xref>] being notable exceptions. However, as illustrated by the latter two tasks, whereas precision and recall are obviously important factors, they are far from the only factors that matter when using text mining in practice. Interoperability, speed, and stability are other very important factors; the new Technical Interoperability and Performance of annotation Servers (TIPS) task set out to evaluate just that.</p>
+          <p id="Par3">Running fast and robust web services is not trivial. Many academic online tools will become unresponsive or even crash if subjected to many simultaneous requests, e.g. when using them on a practical course. Also, it is impossible to ensure near perfect uptime unless the services are hosted professionally with reliable power and internet connection. Handling these issues requires a focus on the engineering aspects rather than only on the scientific quality of the tools.</p>
+          <p id="Par4">We participated in the BioCreative V IAT [<xref ref-type="bibr" rid="CR4">4</xref>] with the interactive annotation tool, EXTRACT, which helps curators find and extract standard-compliant terms for annotation of metagenomic records and other samples [<xref ref-type="bibr" rid="CR5">5</xref>]. Behind its web-based user interface, the system makes use of the same real-time tagger for NER as the augmented browsing tool Reflect [<xref ref-type="bibr" rid="CR6">6</xref>]. The core NER engine was designed from the ground up with speed in mind and is capable of tagging thousands of PubMed abstracts per second per CPU core [<xref ref-type="bibr" rid="CR7">7</xref>]. This makes it ideally suited for large-scale and real-time applications, such as the TIPS task.</p>
+          <p id="Par5">Here, we present the entire system for the NER web service that underlies the EXTRACT [<xref ref-type="bibr" rid="CR5">5</xref>] and Reflect tools [<xref ref-type="bibr" rid="CR6">6</xref>] as well as our entry in the TIPS challenge. This includes not only the tagger software itself, which has been described in several earlier publications, but also the Mamba web server software that enables us to host multi-threaded web services with preloaded data (e.g. the tagger dictionary) and priority queues to efficiently handle even high request rates. The system delivered a total turn-around time of about 1 s for small requests, and was able to process approximately 5000–10,000 abstracts per minutes for larger batch requests. Notably, the vast majority of this time was spent on retrieving the document text rather than actual processing of it; to make the server faster, it would thus be necessary to locally store or cache the documents, which was explicitly not permitted in the TIPS task.</p>
+        </sec>
+        <sec id="Sec2" sec-type="methods">
+          <title>Methods</title>
+          <sec id="Sec3">
+            <title>Dictionaries used for NER and normalization</title>
+            <p id="Par6">The server uses a combination of previously published dictionaries to recognize six of the types of entities accepted by the BeCalm server and normalize them to identifiers from databases and ontologies. These are a subset of the entity types used in EXTRACT v2 [<xref ref-type="bibr" rid="CR5">5</xref>].</p>
+            <p id="Par7">For annotation of gene/protein names, the tagger uses a dictionary covering the 9.6 million protein-coding genes from 2031 organisms included in STRING v10.5 [<xref ref-type="bibr" rid="CR8">8</xref>] as well as ncRNAs from the RAIN database [<xref ref-type="bibr" rid="CR9">9</xref>]. Unlike many NER systems, the BeCalm API makes a distinction between genes and their protein products. Because the STRING database is locus-based, i.e. it does not distinguish between splice isoforms, and because ncRNAs are also included, we chose to use the type <italic>GENE</italic> for these annotations and to not support the <italic>PROTEIN</italic> annotation type. All recognized names are disambiguated to their respective STRING or RAIN identifiers, which are derived from the Ensembl [<xref ref-type="bibr" rid="CR10">10</xref>], RefSeq [<xref ref-type="bibr" rid="CR11">11</xref>], and miRBase [<xref ref-type="bibr" rid="CR12">12</xref>] databases.</p>
+            <p id="Par8">Annotations of the type <italic>CHEMICAL</italic> are made using a dictionary comprised of small-molecule compounds from the PubChem database [<xref ref-type="bibr" rid="CR13">13</xref>], which was developed and used for recognition of chemical names in STITCH v5 [<xref ref-type="bibr" rid="CR14">14</xref>]. All annotations of chemicals are normalized to PubChem compound identifiers.</p>
+            <p id="Par9">The tagger makes annotations of the type <italic>ORGANISM</italic> using an updated version of the dictionary of the SPECIES/ORGANISMS tagger [<xref ref-type="bibr" rid="CR7">7</xref>]. The dictionary was constructed based on NCBI Taxonomy [<xref ref-type="bibr" rid="CR10">10</xref>], and all annotations are thus normalized to NCBI taxon identifiers.</p>
+            <p id="Par10">To perform annotations of the types <italic>SUBCELLULAR_STRUCTURE</italic>, <italic>TISSUE_AND_ORGAN</italic>, and <italic>DISEASE</italic> the tagger uses the dictionaries created as part of the COMPARTMENTS [<xref ref-type="bibr" rid="CR15">15</xref>], TISSUES [<xref ref-type="bibr" rid="CR16">16</xref>, <xref ref-type="bibr" rid="CR17">17</xref>], and DISEASES [<xref ref-type="bibr" rid="CR18">18</xref>] database, respectively. These were constructed from Gene Ontology [<xref ref-type="bibr" rid="CR19">19</xref>], Brenda Tissue Ontology [<xref ref-type="bibr" rid="CR20">20</xref>], and Disease Ontology [<xref ref-type="bibr" rid="CR21">21</xref>], identifiers from which are used for normalization of the annotations.</p>
+            <p id="Par11">The version of the complete dictionary used by Tagger for the TIPS task has been deposited on FigShare (<ext-link xlink:href="https://doi.org/10.6084/m9.figshare.4578292" ext-link-type="doi">https://doi.org/10.6084/m9.figshare.4578292</ext-link>). The reduced dictionary used by PiTagger has also been deposited on Figshare (<ext-link xlink:href="https://doi.org/10.6084/m9.figshare.4635175" ext-link-type="doi">https://doi.org/10.6084/m9.figshare.4635175</ext-link>). The latest version of the dictionary, which is used by the production server, is available at <ext-link xlink:href="http://download.jensenlab.org/tagger_dictionary.tar.gz" ext-link-type="url">http://download.jensenlab.org/tagger_dictionary.tar.gz</ext-link>.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Named entity recognition software</title>
+            <p id="Par12">The core of the NER system is a highly optimized dictionary-based tagger engine, implemented in C++. It is able to perform flexible matching of a dictionary with millions of names against thousands of abstracts per second per CPU core [<xref ref-type="bibr" rid="CR7">7</xref>]. The tagger is furthermore inherently thread safe, for which reason a single instance of the tagger can easily handle many parallel requests. These properties make it an excellent starting point for building a real-time service that can handle large requests as required for TIPS task.</p>
+            <p id="Par13">Although the TIPS task does not assess the quality of the annotations, it is worth noting that the speed of the tagger was not achieved by sacrificing quality. The quality of the tagging results for organism names was previously evaluated on gold-standard corpora and found to be comparable to the best methods with precision and recall of ~ 83% and ~ 73%, respectively [<xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR22">22</xref>]. The NER quality has not been benchmarked directly for chemicals, genes, tissues, and diseases; however, these NER components have shown to give good results when used as the basis for association extraction [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR9">9</xref>, <xref ref-type="bibr" rid="CR13">13</xref>, <xref ref-type="bibr" rid="CR15">15</xref>–<xref ref-type="bibr" rid="CR18">18</xref>].</p>
+            <p id="Par14">The tagger software is open source and available at <ext-link xlink:href="https://bitbucket.org/larsjuhljensen/tagger/" ext-link-type="url">https://bitbucket.org/larsjuhljensen/tagger/</ext-link>. It can be used either as a command-line tool or as a Python module. It is also distributed as a Docker container at <ext-link xlink:href="https://hub.docker.com/r/larsjuhljensen/tagger/" ext-link-type="url">https://hub.docker.com/r/larsjuhljensen/tagger/</ext-link>.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Mamba web service framework</title>
+            <p id="Par15">To be able to robustly host web services, we developed an in-house Python framework, Mamba, which can simultaneously run several compute-intensive requests in parallel while remaining highly responsive to small requests. The framework has a modular structure that enables us to use it both for the tagger, which is the focus of this paper, and for serving precomputed results from relational database through REST APIs and interactive web interfaces. The REST API code accesses a single instance of the tagger engine through its Python module, which preloads the complete dictionary into RAM when the Mamba server is started.</p>
+            <p id="Par16">Mamba is a stand-alone multithreaded Python webserver created specifically to expose computationally heavy and/or heavily requested services as web services. Mamba was designed to solve two main objectives native to websites exposing a computational pipeline. Firstly, Mamba protects against clients overloading the backend system by controlling computational resources in terms number of simultaneous requests and memory usage, which is all specified in a standard configuration file format. Secondly, Mamba is designed to be as simple as possible to set up and run while allowing fine-grained resource control and providing a plugin-framework for project-specific code, such as the tagger. Plugins implement their specialized functionality as a Python API class per request type.</p>
+            <p id="Par17">Mamba uses task queues combined with a configurable number of worker-threads handling the queued tasks. The length of the queue combined with the number of worker threads provide the first level of resource control, which prevents that too many tasks are executed at the same time, which could cause the service to crash, or that the queue becomes excessively long, which could make the service unavailable for extended periods of time. In addition to that, Mamba comes with configurable per user and overall resource restrictions, which limit the maximum number of simultaneous requests and the memory usage used per IP address. When these limits are reached, requests will be rejected using the appropriate HTTP status code.</p>
+            <p id="Par18">Each Mamba server will require task specific parsing and processing of input data, and Mamba provides a task-based API for this that is centered around a single virtual Mamba request class. The configuration file specifies where Mamba should look for project-specific Request classes, which will be loaded as Python code files when starting the server, also allowing data such as the dictionary to be preloaded. The API allows tasks to jump between task queues, which represents different stages of the task. For example, we use separate queues for the tagger to do the initial parsing of the request, to download the document text from the document server, and to perform the actual named entity recognition. This enables us to specify that many document download tasks can take place in parallel (which is not a CPU intensive), but that only a few actual NER tagging tasks can run in parallel (the CPU intensive part of a request). When configured appropriately, this makes the Mamba server very responsive to all users as it is constantly aware of preventing system from overloading.</p>
+            <p id="Par19">To further improve the response time, stability, and handling of multiple requests, even in the thousands, the main input mechanism is controlled by a single POSIX select statement. Mamba listens to a single port through a select statement that runs as single main thread; this sets it apart from most other Python-based web-service frameworks, which handle each input as new thread. The select statement collects data for all incoming requests as they are received over the network and adds a new task to the parse queue only once a full request has been received. From thereon the processing is handled by the thread pools described above, until all processing has been done and the result is ready to be sent back to the client. Mamba then uses the same efficient select statement that receives the incoming data to send the result back as an HTTP response to the client. Mamba automatically cleans up incomplete requests caused by communication errors, restarts worker threads if they crash, and catches any exceptions produced by Mamba or its plugins, returning the appropriate HTTP status code.</p>
+            <p id="Par20">Implementing the BeCalm API itself simply involved adding a request class the Mamba tagger module. Different parts of the BeCalm API run in different queues to ensure that e.g. <italic>getStatus</italic> requests and the initial parsing of <italic>getAnnotations</italic> requests are executed immediately, that many document downloads can run in parallel, and that not too many of the actual CPU-intensive NER tasks are running at the same time. The queues used for this are not exclusive to BeCalm API, but are shared with the other tagger APIs and the EXTRACT tool [<xref ref-type="bibr" rid="CR4">4</xref>].</p>
+          </sec>
+          <sec id="Sec6">
+            <title>Hardware and hosting</title>
+            <p id="Par21">The main tagger runs on a single server with one Intel Xeon E5-2620 2.4 GHz CPU and 256 GB of RAM. This server also runs many other resources and databases related to text mining, including EXTRACT [<xref ref-type="bibr" rid="CR5">5</xref>], SPECIES/ORGANISMS [<xref ref-type="bibr" rid="CR7">7</xref>], COMPARTMENTS [<xref ref-type="bibr" rid="CR15">15</xref>], TISSUES [<xref ref-type="bibr" rid="CR16">16</xref>, <xref ref-type="bibr" rid="CR17">17</xref>], and DISEASES [<xref ref-type="bibr" rid="CR18">18</xref>]. This server—from hereon referred to as Tagger—is hosted at the high-performance computing facility Computerome (<ext-link xlink:href="https://computerome.dtu.dk" ext-link-type="url">https://computerome.dtu.dk</ext-link>) that provides it with a highly reliable gigabit internet connection.</p>
+            <p id="Par22">To test the influence of the performance of actual document tagging vs. overhead associated with fetching of document texts, we ran a second instance of the tagger software on a Raspberry Pi 3 with a 1.2 GHz quad-core ARM Cortex-A53 and 1 GB of RAM. Due to the limited memory, this instance runs with a reduced dictionary; however, it should be noted that tagging speed is largely independent of dictionary size because the tagging algorithm is based on hash lookups [<xref ref-type="bibr" rid="CR7">7</xref>]. This instance was hosted over my home internet connection (60 Mbit/s download, 25 Mbit/s upload) and is in the following referred to as PiTagger.</p>
+          </sec>
+        </sec>
+        <sec id="Sec7">
+          <title>Results and discussion</title>
+          <sec id="Sec8">
+            <title>Rapid annotation of biomedical entities</title>
+            <p id="Par23">To test the speed of Tagger and PiTagger when accessed through the BeCalm API, we submitted private requests for tagging of 1, 10, 100, 1000, and 5000 abstracts from the abstract and patent servers via the BeCalm web interface. All settings except from the number of documents to tag were left at their default values. Each of the five sizes of tagging requests was repeated five times at four different timepoints, giving a total of 20 observations of the total time required for tagging for each size of request from each document source on each of the two tagger servers. These results are summarized as means and standard deviations in Table <xref rid="Tab1" ref-type="table">1</xref>; the detailed data with each individual observation are available in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Tables S1 and S2.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Performance of the taggers</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" rowspan="2"><p># Documents</p></th><th align="left" colspan="2"><p>Tagger: total time (s)</p></th><th align="left" colspan="2"><p>PiTagger: total time (s)</p></th></tr><tr><th align="left"><p>Abstract server</p></th><th align="left"><p>Patent server</p></th><th align="left"><p>Abstract server</p></th><th align="left"><p>Patent server</p></th></tr></thead><tbody><tr><td align="left"><p>1</p></td><td char="±" align="char"><p>0.87 ± 0.32</p></td><td char="±" align="char"><p>0.84 ± 0.32</p></td><td char="±" align="char"><p>0.75 ± 0.34</p></td><td char="±" align="char"><p>0.84 ± 0.24</p></td></tr><tr><td align="left"><p>10</p></td><td char="±" align="char"><p>0.98 ± 0.30</p></td><td char="±" align="char"><p>0.83 ± 0.26</p></td><td char="±" align="char"><p>1.10 ± 0.28</p></td><td char="±" align="char"><p>0.87 ± 0.37</p></td></tr><tr><td align="left"><p>100</p></td><td char="±" align="char"><p>1.89 ± 0.29</p></td><td char="±" align="char"><p>1.48 ± 0.27</p></td><td char="±" align="char"><p>2.34 ± 0.33</p></td><td char="±" align="char"><p>1.52 ± 0.34</p></td></tr><tr><td align="left"><p>1000</p></td><td char="±" align="char"><p>11.31 ± 0.68</p></td><td char="±" align="char"><p>6.02 ± 0.37</p></td><td char="±" align="char"><p>15.23 ± 0.48</p></td><td char="±" align="char"><p>8.89 ± 0.48</p></td></tr><tr><td align="left"><p>5000</p></td><td char="±" align="char"><p>52.18 ± 2.76</p></td><td char="±" align="char"><p>26.67 ± 1.16</p></td><td char="±" align="char"><p>72.73 ± 1.81</p></td><td char="±" align="char"><p>40.83 ± 1.01</p></td></tr></tbody></table><table-wrap-foot><p>For small requests the total turnaround time is ~ 1 s. Larger requests take an extra 5–10 s per 1000 abstracts to be processed on Tagger. Notably, most of this time is spent on retrieving the document texts from document identifiers, whereas the actual NER step takes only about 20% of the total time. This is reflected in the fact that the PiTagger, which runs on a Raspberry Pi 3, takes only about 50% longer to process large requests</p></table-wrap-foot></table-wrap></p>
+            <p id="Par24">Neither Tagger nor PiTagger suffered any errors or slowdowns during these tests, despite the Tagger server hosting multiple other resources and the PiTagger running on minimal hardware. This shows that the software is not only fast but also stable. This is unsurprising since all parts except the BeCalm API-specific code have been used in a production setting for several years.</p>
+            <p id="Par25">In summary, the Tagger speed tests showed that there is a constant overhead of about 1 s on all tagging requests, which dominates the picture up to tagging of about 100 patent abstracts. For larger requests, the service takes ~ 5 and ~ 10 s more per 1000 patent abstracts and PubMed abstracts, respectively. This difference is presumably explained by PubMed abstracts being, on average, about twice as long as patent abstracts. Notably, the vast majority of the time is spent on fetching the document texts, with only about ~ 20% of time being spent on actual processing. Although explicitly not permitted in the TIPS task, local storage or caching of documents on the annotation server would thus be an attractive future feature.</p>
+            <p id="Par26">To further test and illustrate that retrieval of document texts is the main bottleneck, we set up a second copy of the tagger code, PiTagger, to run on a Raspberry Pi 3 with a reduced dictionary. However, as the tagging speed is largely independent of dictionary size, the performance numbers can nonetheless be directly compared. For small requests, the total time is indistinguishable between Tagger and PiTagger, and even for large requests PiTagger takes only about 50% longer than Tagger (Table <xref rid="Tab1" ref-type="table">1</xref>). This is the case despite the service running only one thread per request, thus utilizes only a quarter of the compute power of a Raspberry Pi 3 in these tests. The PiTagger did not participate in the full official TIPS evaluation.</p>
+            <p id="Par27">The total tagging time for the official TIPS requests was in the beginning consistently longer than for the private requests reported in Table <xref rid="Tab1" ref-type="table">1</xref>, which were submitted during the same weeks. Monitoring the tagging services during TIPS requests revealed that actual document processing was as fast as always. In light of the results above, we assume that this slowdown was due to the fetching of documents taking longer in the official tests, when all participants simultaneously sent requests to the central document servers, thus making them even more of a bottleneck. It is thus also no surprise that the fast servers all performed equally well, since they all spent far more time on downloading the text documents and uploading the annotations than on processing them.</p>
+          </sec>
+          <sec id="Sec9">
+            <title>Extending the BeCalm API</title>
+            <p id="Par28">The BeCalm API in its current form has certain design constraints that limit the flexibility and thereby usefulness of the annotation servers. Firstly, document text is not submitted as part of the request, but must instead be fetched from designated sources based on the submitted document identifiers. Secondly, the results cannot be returned directly to the end user, but must be returned to the central BeCalm server. Through creative use of the <italic>custom_parameters</italic> part of the request, our implementation circumvents both of these constraints.</p>
+            <p id="Par29">Instead of hardwiring the annotation server to use only the abstract and patent servers provided by BeCalm, the relationships between <italic>source</italic> and server URL are specified within a <italic>servers</italic> subsection of <italic>custom_parameters</italic>. This enables end users to obtain the tagging results for any desired documents, provided they make the documents available through an API compatible with the one used by the BeCalm document servers.</p>
+            <p id="Par30">Similarly, the annotation server is not hardwired to return the annotation results to the BeCalm server. Instead, the <italic>saveAnnotations</italic> request will be made to the URL specified in as <italic>apiurl</italic> in the <italic>custom_parameters</italic> section. This allows end users to set up their own server to receive the results directly, if they so wish.</p>
+          </sec>
+        </sec>
+        <sec id="Sec10" sec-type="conclusions">
+          <title>Conclusions</title>
+          <p id="Par31">Turning scientific software into a stable and fast web service can be a challenging engineering task. First, the software has to be sufficiently fast, which will often require optimization of the implementation. Second, it has to be made robust enough to handle many simultaneous requests without overloading the server. Third, it has to be hosted in a manner that ensures the server is available at all times.</p>
+          <p id="Par32">In case of the Tagger NER software, the implementation itself was already highly optimized, since it was designed to be used on very large text corpora. The issues related to robustness of the web service were dealt with by the Mamba web service framework, which uses queues with associated thread pools to efficiently process multiple requests in parallel, while protecting the server against being overloaded if a user floods it with requests. Finally, we hosted the web service at a supercomputing facility to ensure high availability. The result was a server which indeed was among the fastest and suffered no downtime during the challenge.</p>
+          <p id="Par33">However, even if a web service is both stable and fast, processing large amounts of text through web services can be inefficient. This is because transferring the input text and the output data to and from the web service can easily take much longer than the actual computations. When processing large text corpora, a better solution is thus usually to run the software locally. To make this as easy as possible, we make the Tagger software available as as a Docker container (<ext-link xlink:href="https://hub.docker.com/r/larsjuhljensen/tagger/" ext-link-type="url">https://hub.docker.com/r/larsjuhljensen/tagger/</ext-link>) and provide a download file with the dictionary used by the web service (<ext-link xlink:href="http://download.jensenlab.org/tagger_dictionary.tar.gz" ext-link-type="url">http://download.jensenlab.org/tagger_dictionary.tar.gz</ext-link>).</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Authors’ contributions</title>
+          <sec>
+            <p>SPF developed the Mamba framework and the Python integration of the Tagger. LJJ developed the C++ Tagger software, implemented the BeCalm API support, and performed the performance tests. Both authors contributed to writing the manuscript. Both authors read and approved the final manuscript.</p>
+          </sec>
+          <sec id="FPar1">
+            <title>Acknowledgements</title>
+            <p id="Par34">Thanks to Helen V. Cook for improvements to the source code and documentation of the tagger and the organizers of the 3rd Biomedical Linked Annotation Hackathon (BLAH3), where the BeCalm API was developed.</p>
+          </sec>
+          <sec id="FPar2">
+            <title>Competing interests</title>
+            <p id="Par35">The authors declare that they have no competing interests.</p>
+          </sec>
+          <sec id="FPar3">
+            <title>Availability and requirements</title>
+            <p id="Par36">The Mamba and Tagger source code is available under the BSD 2-clause license from <ext-link xlink:href="https://bitbucket.org/larsjuhljensen/mamba/" ext-link-type="url">https://bitbucket.org/larsjuhljensen/mamba/</ext-link> and <ext-link xlink:href="https://bitbucket.org/larsjuhljensen/tagger/" ext-link-type="url">https://bitbucket.org/larsjuhljensen/tagger/</ext-link>. The software is designed to run under Linux or BSD and is implemented in Python and C++. The dictionary used by Tagger is available under the Creative Commons Attribution license (CC BY 4.0) at <ext-link xlink:href="https://doi.org/10.6084/m9.figshare.4578292" ext-link-type="doi">https://doi.org/10.6084/m9.figshare.4578292</ext-link> and the reduced dictionary used by PiTagger at <ext-link xlink:href="https://doi.org/10.6084/m9.figshare.4635175" ext-link-type="doi">https://doi.org/10.6084/m9.figshare.4635175</ext-link>).</p>
+          </sec>
+          <sec id="FPar4">
+            <title>Funding</title>
+            <p id="Par37">This work was supported by the Novo Nordisk Foundation [NNF14CC0001]. The funding body had no role in the study design, analysis, interpretation, or writing of the manuscript.</p>
+          </sec>
+          <sec id="FPar5">
+            <title>Publisher’s Note</title>
+            <p id="Par38">Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+          </sec>
+        </ack>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="other">Wu CH, Arighi CN, Cohen KB et al (2012) BioCreative—2012 virtual issue. Database, 2012, bas049</mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="other">Arighi CN, Wu CH, Cohen KB et al (2014) BioCreative-IV virtual issue. Database, 2014, bau039</mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="other">Comeau DC, Batista-Navarro RT, Dai H-J et al (2014) BioC interoperability track overview. Database, 2014, bau053</mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="other">Wang Q, Abdul S, Almeida L et al (2016) Overview of the interactive task in BioCreative V. Database, 2016, baw119</mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="other">Pafilis E, Buttigieg PL, Ferrell B et al (2016) EXTRACT: interactive extraction of environment metadata and term suggestion for metagenomic sample annotation. Database, 2016, baw005.3. The NBCI Taxonomy Database: <ext-link xlink:href="http://www.ncbi.nlm.nih.gov/taxonomy" ext-link-type="url">http://www.ncbi.nlm.nih.gov/taxonomy</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pafilis</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>O’Donoghue</surname>
+                    <given-names>SI</given-names>
+                  </name>
+                  <name>
+                    <surname>Jensen</surname>
+                    <given-names>LJ</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Reflect: augmented browsing for the life scientist</article-title>
+                <source>Nat Biotechnol</source>
+                <year>2009</year>
+                <volume>27</volume>
+                <fpage>508</fpage>
+                <lpage>510</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXntVWjuro%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nbt0609-508</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pafilis</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Pletscher-Frankild</surname>
+                    <given-names>SP</given-names>
+                  </name>
+                  <name>
+                    <surname>Fanini</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">The SPECIES and ORGANISMS resources for fast and accurate identification of taxonomic names in text</article-title>
+                <source>PLoS ONE</source>
+                <year>2013</year>
+                <volume>8</volume>
+                <fpage>e65390</fpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3sXhtVOhs7%2FL</pub-id>
+                <pub-id pub-id-type="doi">10.1371/journal.pone.0065390</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Szklarczyk</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Morris</surname>
+                    <given-names>JH</given-names>
+                  </name>
+                  <name>
+                    <surname>Cook</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">The STRING database in 2017: quality-controlled protein–protein association networks, made broadly accessible</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2017</year>
+                <volume>45</volume>
+                <fpage>D362</fpage>
+                <lpage>D368</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1cXhslWhs70%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkw937</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="other">Junge A, Refsgaard JC, Garde C et al (2017) RAIN: RNA–protein Association and Interaction Networks. Database, 2017, baw167</mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Aken</surname>
+                    <given-names>BL</given-names>
+                  </name>
+                  <name>
+                    <surname>Achuthan</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Akanni</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Ensembl 2017</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2017</year>
+                <volume>45</volume>
+                <fpage>D635</fpage>
+                <lpage>D642</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1cXhslWhs74%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkw1104</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <collab>NCBI Resource Coordinators</collab>
+                </person-group>
+                <article-title xml:lang="en">Database resources of the National Center for biotechnology information</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2016</year>
+                <volume>44</volume>
+                <fpage>D7</fpage>
+                <lpage>D19</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gkv1290</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kozomara</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Griffiths-Jones</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">miRBase: annotating high confidence microRNAs using deep sequencing data</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2014</year>
+                <volume>42</volume>
+                <fpage>D68</fpage>
+                <lpage>D73</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2cXos1Wk</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkt1181</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Thiessen</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                  <name>
+                    <surname>Bolton</surname>
+                    <given-names>EE</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">PubChem substance and compound databases</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2016</year>
+                <volume>44</volume>
+                <fpage>D1202</fpage>
+                <lpage>D1213</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2sXhtV2gu7bE</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkv951</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Szklarczyk</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Santos</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>von Mering</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">STITCH 5: augmenting protein–chemical interaction networks with tissue and affinity data</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2016</year>
+                <volume>44</volume>
+                <fpage>D380</fpage>
+                <lpage>D384</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2sXhtV2nsrnE</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkv1277</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="other">Binder JX, Pletscher-Frankild S, Tsafou K et al (2014) COMPARTMENTS: unification and visualization of protein subcellular localization evidence. Database, 2014, bau012</mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Santos</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Tsafou</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Stolte</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Comprehensive comparison of large-scale tissue expression datasets</article-title>
+                <source>PeerJ</source>
+                <year>2015</year>
+                <volume>3</volume>
+                <fpage>e1054</fpage>
+                <pub-id pub-id-type="doi">10.7717/peerj.1054</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="other">Palasca O, Santos A, Stolte C et al (2018). TISSUES 2.0: an integrative web resource on mammalian tissue expression. Database, 2018:bay003</mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pletscher-Frankild</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Pallejà</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Tsafou</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">DISEASES: text mining and data integration of disease–gene associations</article-title>
+                <source>Methods</source>
+                <year>2015</year>
+                <volume>74</volume>
+                <fpage>83</fpage>
+                <lpage>89</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2cXitVygtL%2FF</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.ymeth.2014.11.020</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <collab>The Gene Ontology Consortium</collab>
+                </person-group>
+                <article-title xml:lang="en">Expansion of the gene ontology knowledgebase and resources</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2017</year>
+                <volume>45</volume>
+                <fpage>D331</fpage>
+                <lpage>D338</lpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gkw1108</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Placzek</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Schomburg</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Chang</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">BRENDA in 2017: new perspectives and new tools in BRENDA</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2017</year>
+                <volume>45</volume>
+                <fpage>D380</fpage>
+                <lpage>D388</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1cXhslWhtrs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkw952</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kibbe</surname>
+                    <given-names>WA</given-names>
+                  </name>
+                  <name>
+                    <surname>Arze</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Felix</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Disease Ontology 2015 update: an expanded and updated database of human diseases for linking biomedical knowledge through disease data</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2015</year>
+                <volume>43</volume>
+                <fpage>D1071</fpage>
+                <lpage>D1078</lpage>
+                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2sXhtVymtb7L</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gku1011</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cook</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Pafilis</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Jensen</surname>
+                    <given-names>LJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A dictionary- and rule-based system for identification of bacteria and habitats in text</article-title>
+                <source>Proc BioNLP Shar Task Workshop</source>
+                <year>2016</year>
+                <volume>4</volume>
+                <fpage>50</fpage>
+                <lpage>55</lpage>
+                <pub-id pub-id-type="doi">10.18653/v1/W16-3006</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec11">
+              <title>Additional file</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Additional file">
+                  <media xlink:href="MediaObjects/13321_2019_344_MOESM1_ESM.xlsx" mimetype="application" mime-subtype="vnd.ms-excel">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0344-9" ext-link-type="url">Additional file 1.</ext-link> Supplementary tables with detailed performance evaluation data.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+          </app>
+        </app-group>
+      </back>
+    </article>

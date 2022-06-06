@@ -1,0 +1,2449 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0373-4</article-id>
+          <article-id pub-id-type="manuscript">373</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0373-4</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">DLIGAND2: an improved knowledge-based energy function for protein–ligand interactions using the distance-scaled, finite, ideal-gas reference state</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" id="Au1">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-8746-9917</contrib-id>
+              <name>
+                <surname>Chen</surname>
+                <given-names>Pin</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au2">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-9575-5745</contrib-id>
+              <name>
+                <surname>Ke</surname>
+                <given-names>Yaobin</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au3">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-5315-3375</contrib-id>
+              <name>
+                <surname>Lu</surname>
+                <given-names>Yutong</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au4">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-6832-0519</contrib-id>
+              <name>
+                <surname>Du</surname>
+                <given-names>Yunfei</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au5">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-5455-9374</contrib-id>
+              <name>
+                <surname>Li</surname>
+                <given-names>Jiahui</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au6">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-6653-1451</contrib-id>
+              <name>
+                <surname>Yan</surname>
+                <given-names>Hui</given-names>
+              </name>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au7">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-9134-536X</contrib-id>
+              <name>
+                <surname>Zhao</surname>
+                <given-names>Huiying</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+              <xref ref-type="corresp" rid="IDs1332101903734_cor7">g</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au8">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-9958-5699</contrib-id>
+              <name>
+                <surname>Zhou</surname>
+                <given-names>Yaoqi</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff3">3</xref>
+              <xref ref-type="corresp" rid="IDs1332101903734_cor8">h</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au9">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-6782-2813</contrib-id>
+              <name>
+                <surname>Yang</surname>
+                <given-names>Yuedong</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDs1332101903734_cor9">j</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 2360 039X</institution-id>
+                <institution-id institution-id-type="GRID">grid.12981.33</institution-id>
+                <institution content-type="org-division">National Supercomputer Center in Guangzhou, School of Data and Computer Science</institution>
+                <institution content-type="org-name">Sun Yat-sen University</institution>
+              </institution-wrap>
+              <addr-line content-type="street">132 East Circle at University City</addr-line>
+              <addr-line content-type="postcode">510006</addr-line>
+              <addr-line content-type="city">Guangzhou</addr-line>
+              <country country="CN">China</country>
+            </aff>
+            <aff id="Aff2">
+              <label>2</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 1791 7851</institution-id>
+                <institution-id institution-id-type="GRID">grid.412536.7</institution-id>
+                <institution content-type="org-name">Sun Yat-sen Memorial Hospital, Sun Yat-sen University</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">510000</addr-line>
+              <addr-line content-type="city">Guangzhou</addr-line>
+              <country country="CN">China</country>
+            </aff>
+            <aff id="Aff3">
+              <label>3</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 0437 5432</institution-id>
+                <institution-id institution-id-type="GRID">grid.1022.1</institution-id>
+                <institution content-type="org-division">Institute for Glycomics and School of Information and Communication Technology</institution>
+                <institution content-type="org-name">Griffith University</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">4215</addr-line>
+              <addr-line content-type="city">Southport</addr-line>
+              <addr-line content-type="state">QLD</addr-line>
+              <country country="AU">Australia</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs1332101903734_cor7">
+              <label>g</label>
+              <email>HIDDEN</email>
+            </corresp>
+            <corresp id="IDs1332101903734_cor8">
+              <label>h</label>
+              <email>HIDDEN</email>
+            </corresp>
+            <corresp id="IDs1332101903734_cor9">
+              <label>j</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>7</day>
+            <month>8</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="52">1</issue>
+          <elocation-id>52</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>27</day>
+              <month>7</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>2</day>
+              <month>4</month>
+              <year>2019</year>
+            </date>
+            <date date-type="accepted">
+              <day>27</day>
+              <month>7</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>7</day>
+              <month>8</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">Performance of structure-based molecular docking largely depends on the accuracy of scoring functions. One important type of scoring functions are knowledge-based potentials derived from known three-dimensional structures of proteins and/or protein–ligand complex structures. This study seeks to improve a knowledge-based protein–ligand potential based on a distance-scale finite ideal-gas reference (DFIRE) state (DLIGAND) by expanding the representation of protein atoms from 13 mol2 atom types to 167 residue-specific atom types, and employing a recently updated dataset containing 12,450 monomer protein chains for training. We found that the updated version DLIGAND2 has a consistent improvement over DLIGAND in predicting binding affinities for either native complex structures or docking-generated poses. More importantly, DLIGAND2 has a 52% increase over DLIGAND in enrichment factors in top 1% predictions based on the DUD-E decoy set, and consistently improves over Autodock Vina and other statistical energy functions in all three benchmark tests. We further found that DLIGAND2 outperforms empirical and machine-learning methods compared for virtual screening on new targets that are not homologous to the DUD-E training set. Given the best performance as a parameter-free statistical potential and among the best in all performance measures, DLIGAND2 should be useful for re-assessing the poses generated by docking software, or acting as one term in other scoring functions. The program is available at <ext-link xlink:href="https://github.com/sysu-yanglab/DLIGAND2" ext-link-type="uri">https://github.com/sysu-yanglab/DLIGAND2</ext-link>.<fig id="Figa" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_373_Figa_HTML.png" position="anchor" /></fig></p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Docking</kwd>
+            <kwd>Protein–ligand interaction</kwd>
+            <kwd>Knowledge-based energy function</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>GD Frontier &amp; Key Techn, Innovation Program</institution>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">2015B010109004</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Li</surname>
+                  <given-names>Jiahui</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>National Natural Science Foundation of China</institution>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">U1611261</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Lu</surname>
+                  <given-names>Yutong</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Australian Research Council</institution>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">DP180102060</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Zhou</surname>
+                  <given-names>Yaoqi</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>National Health and Medical Research Council</institution>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">1121629</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Zhou</surname>
+                  <given-names>Yaoqi</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>National Natural Science Foundation of China</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/501100001809</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">61772566</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Yang</surname>
+                  <given-names>Yuedong</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>7</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>27</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_373.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (<ext-link xlink:href="10.1186/s13321-019-0373-4" ext-link-type="doi">https://doi.org/10.1186/s13321-019-0373-4</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p id="Par2">Structure-based molecular docking is one of the key components in computer-aided drug design [<xref ref-type="bibr" rid="CR1">1</xref>–<xref ref-type="bibr" rid="CR3">3</xref>]. Docking is a two-step process: conformational sampling of ligands bound to their receptors, followed by assessment of binding free energy between them. Due to advances in computing power and numerical algorithms, the success of docking is no longer restricted by inadequacy of conformational sampling but limited instead by the lack of a precise and reliable scoring function to evaluate the free energy of interactions between proteins and ligands [<xref ref-type="bibr" rid="CR4">4</xref>]. Developing an accurate scoring function is challenging because molecular interaction is contributed by a delicate balance between several different types of interactions including van der Waals and columbic interactions in between, and interactions with solvent environment in addition to the difficulty in capturing entropic contributions [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR6">6</xref>].</p>
+          <p id="Par3">A wide variety of scoring functions has been developed to approximate energy functions. Based on the derivation ways, scoring functions are usually classified into physics-based methods, empirical scoring functions, knowledge-based potentials, and descriptor-based scoring functions [<xref ref-type="bibr" rid="CR7">7</xref>]. Physics-based methods, widely employed in molecular dynamics simulation studies, are obtained by combing quantum mechanical calculations of small molecular fragments and empirical fitting to known experimental data. Some examples are linear interaction energy (LIE) [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR9">9</xref>], linear response approximation (LRA) [<xref ref-type="bibr" rid="CR10">10</xref>] and MM-PBSA/GBSA [<xref ref-type="bibr" rid="CR11">11</xref>–<xref ref-type="bibr" rid="CR13">13</xref>]. Since this type of methods require intensive computing time to perform kinetic integration for entropic effects, they are limited to assess a small number of compounds. Differently, virtual screening usually docked millions of molecules into a protein receptor to locate active compounds. Thus, the requirement of fast computation leads to the dominance of computationally efficient empirical scoring functions in docking as shown in the score-function assessment [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR6">6</xref>]. Empirical scoring functions are based on a linear combination of various energetic terms to approximate binding free energy. Notable examples are ChemScore [<xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR15">15</xref>], X-Score [<xref ref-type="bibr" rid="CR16">16</xref>], Glide-Score [<xref ref-type="bibr" rid="CR17">17</xref>, <xref ref-type="bibr" rid="CR18">18</xref>], and etc. Typically, the weight factors for individual energetic terms in an empirical scoring function are obtained by regression to achieve the highest correlation to experimental binding affinities (scoring power). More recently, machine learning methods have been used to combine energetic terms and/or employ protein–ligand distances for training. Examples are RF-Score [<xref ref-type="bibr" rid="CR19">19</xref>], ID-Score [<xref ref-type="bibr" rid="CR20">20</xref>], SVM-SP [<xref ref-type="bibr" rid="CR21">21</xref>], and DrugVQA [<xref ref-type="bibr" rid="CR22">22</xref>]. However, these scoring functions are often sensitive to docking poses and don’t perform well to separate decoys from true binding ligands in actual docking experiments [<xref ref-type="bibr" rid="CR23">23</xref>]. Knowledge-based potentials (or statistical potentials) are derived from statistical analysis of known protein structures. A typical knowledge-based potential considers only the distances between atom pairs that allow efficient calculations. Different knowledge-based functions differ in how protein–ligand atom pair potentials and their reference states are defined. Examples are SmoG [<xref ref-type="bibr" rid="CR24">24</xref>, <xref ref-type="bibr" rid="CR25">25</xref>], DrugScore [<xref ref-type="bibr" rid="CR26">26</xref>], IT-Score [<xref ref-type="bibr" rid="CR27">27</xref>, <xref ref-type="bibr" rid="CR28">28</xref>], and ASP [<xref ref-type="bibr" rid="CR29">29</xref>]. Knowledge-based scoring functions are also used in combination with solvation and entropic terms to improve performance. Examples are DSX [<xref ref-type="bibr" rid="CR30">30</xref>], SmoG2016 [<xref ref-type="bibr" rid="CR31">31</xref>] and ITScore/SE [<xref ref-type="bibr" rid="CR32">32</xref>].</p>
+          <p id="Par4">Previously, a knowledge-based scoring function called DLIGAND [<xref ref-type="bibr" rid="CR9">9</xref>] was developed based on the distance-scaled finite ideal-gas reference (DFIRE) state [<xref ref-type="bibr" rid="CR33">33</xref>, <xref ref-type="bibr" rid="CR34">34</xref>], which has successfully been used for protein interactions with DNA [<xref ref-type="bibr" rid="CR35">35</xref>], RNA [<xref ref-type="bibr" rid="CR36">36</xref>], and carbohydrate [<xref ref-type="bibr" rid="CR37">37</xref>] molecules. DLIGAND was developed by representing both protein and ligand atoms by a few mol2 atom types, and trained on a small set of 200 protein complex structures. Here, we developed DLIGAND2 by substituting 13 mol2 atom types by 167 residue-specific atom types for protein atoms and using a large protein structural dataset for training. We showed that DLIGAND2 not only significantly improves over DLIGAND but also has superior performance in separating true ligands from decoys in Database of Useful Decoys-Enhanced (DUD-E).</p>
+        </sec>
+        <sec id="Sec2" sec-type="methods">
+          <title>Methods</title>
+          <sec id="Sec3">
+            <title>Scoring function</title>
+            <sec id="Sec4">
+              <title>DLIGAND2 potential</title>
+              <p id="Par5">We have used the same approach as the DLIGAND [<xref ref-type="bibr" rid="CR38">38</xref>] to derive the distance-dependent interaction energy function between atomic pairs based on the distance-scale finite ideal-gas reference (DFIRE) state [<xref ref-type="bibr" rid="CR33">33</xref>] as<disp-formula id="Equ1"><label>1</label><alternatives><mml:math display="block" id="Equ1_Math"><mml:mrow><mml:mover accent="true"><mml:mrow><mml:mi>μ</mml:mi></mml:mrow><mml:mrow><mml:mo stretchy="false">¯</mml:mo></mml:mrow></mml:mover><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo>,</mml:mo><mml:mi>r</mml:mi></mml:mrow></mml:mfenced><mml:mo>=</mml:mo><mml:mfenced close="" open="{" separators=""><mml:mrow><mml:mtable><mml:mtr><mml:mtd><mml:mrow><mml:mo>-</mml:mo><mml:mi>η</mml:mi><mml:mi>R</mml:mi><mml:mi>T</mml:mi><mml:mi>l</mml:mi><mml:mi>n</mml:mi><mml:mfrac><mml:mrow><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">obs</mml:mi></mml:mrow></mml:msub><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo>,</mml:mo><mml:mi>r</mml:mi></mml:mrow></mml:mfenced><mml:mspace width="3.33333pt" /><mml:mspace width="3.33333pt" /><mml:mspace width="3.33333pt" /></mml:mrow><mml:mrow><mml:msup><mml:mfenced close=")" open="(" separators=""><mml:mfrac><mml:mi>r</mml:mi><mml:msub><mml:mi>r</mml:mi><mml:mrow><mml:mi mathvariant="italic">cut</mml:mi></mml:mrow></mml:msub></mml:mfrac></mml:mfenced><mml:mi>α</mml:mi></mml:msup><mml:mfenced close=")" open="(" separators=""><mml:mfrac><mml:mrow><mml:mi mathvariant="normal">Δ</mml:mi><mml:mi>r</mml:mi></mml:mrow><mml:mrow><mml:mi mathvariant="normal">Δ</mml:mi><mml:msub><mml:mi>r</mml:mi><mml:mrow><mml:mi mathvariant="italic">cut</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfrac></mml:mfenced><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">obs</mml:mi></mml:mrow></mml:msub><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo>,</mml:mo><mml:msub><mml:mi>r</mml:mi><mml:mrow><mml:mi mathvariant="italic">cut</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfenced></mml:mrow></mml:mfrac><mml:mo>,</mml:mo></mml:mrow></mml:mtd><mml:mtd><mml:mrow><mml:mi>r</mml:mi><mml:mo>&lt;</mml:mo><mml:msub><mml:mi>r</mml:mi><mml:mrow><mml:mi mathvariant="italic">cut</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd><mml:mrow><mml:mrow /><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mspace width="2em" /><mml:mspace width="1em" /><mml:mspace width="1em" /><mml:mspace width="1em" /><mml:mspace width="1em" /><mml:mspace width="1em" /><mml:mspace width="1em" /><mml:mspace width="1em" /><mml:mspace width="1em" /><mml:mspace width="1em" /></mml:mrow></mml:mtd><mml:mtd><mml:mrow><mml:mi>r</mml:mi><mml:mo>≥</mml:mo><mml:msub><mml:mi>r</mml:mi><mml:mrow><mml:mi mathvariant="italic">cut</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="Equ1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ \bar{\mu } \left( {i,j,r} \right) = \left\{ {\begin{array}{*{20}c}    { - \eta RTln\frac{{N_{{obs}} \left( {i,j,r} \right)~~~}}{{\left( {\frac{r}{{r_{{cut}} }}} \right)^{\alpha } \left( {\frac{{\Delta r}}{{\Delta r_{{cut}} }}} \right)N_{{obs}} \left( {i,j,r_{{cut}} } \right)}},} &amp; {r &lt; r_{{cut}} }  \\    0,   \qquad      \quad\quad\quad\quad          \quad\quad\quad\quad     \quad &amp; {r \ge r_{{cut}} }  \\   \end{array} } \right. $$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_373_Article_Equ1.gif" /></alternatives></disp-formula>where R is the gas constant, T = 300 K, <inline-formula id="IEq1"><alternatives><mml:math id="IEq1_Math"><mml:mi>α</mml:mi></mml:math><tex-math id="IEq1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ \alpha $$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_373_Article_IEq1.gif" /></alternatives></inline-formula> = 1.61, <italic>r</italic><sub><italic>cut</italic></sub> = 15 Å, <inline-formula id="IEq2"><alternatives><mml:math id="IEq2_Math"><mml:mi>η</mml:mi></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ \eta $$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_373_Article_IEq2.gif" /></alternatives></inline-formula> is a scaling factor simply set as 0.01/RT. N<sub>obs</sub>(i,j,r) is the number of atomic pair (i,j) within the spherical shell of distance r observed in a given structure database, and ∆r(∆r<sub>cut</sub>) is the bin width at r(r<sub>cut</sub>). A constant value of 0.5 Å was used for ∆r at all bins and ∆r<sub>cut</sub> = ∆r. Here, we employed residue-specific atomic types for protein atoms that leads to 167 atomic types for protein atoms. This is different from DLIGAND, where both protein and ligand atoms were represented by mol2 atom types, and thus only 13 atom types were utilized for protein atoms.</p>
+              <p id="Par6">We derived the protein–ligand interactions from protein structures because there is only a small number of non-redundant protein–ligand complex structures. From protein structures, we obtained the N<sub>obs</sub> for the number of observed pairs between protein atoms, which are converted to protein–ligand interactions by mapping indices for protein atoms to 11 mol2 atom types (see Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S1) and summing over all pairs that are mapped to the same mol2 atom type as<disp-formula id="Equ2"><label>2</label><alternatives><mml:math display="block" id="Equ2_Math"><mml:mrow><mml:msubsup><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">obs</mml:mi></mml:mrow><mml:mo>′</mml:mo></mml:msubsup><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>r</mml:mi></mml:mrow></mml:mfenced><mml:mo>=</mml:mo><mml:munder><mml:mo movablelimits="false">∑</mml:mo><mml:mi>j</mml:mi></mml:munder><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">obs</mml:mi></mml:mrow></mml:msub><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo>,</mml:mo><mml:mi>r</mml:mi></mml:mrow></mml:mfenced><mml:mi>δ</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>m</mml:mi><mml:mi>a</mml:mi><mml:mi>p</mml:mi><mml:mfenced close=")" open="("><mml:mi>j</mml:mi></mml:mfenced><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:mfenced><mml:mo>,</mml:mo></mml:mrow></mml:math><tex-math id="Equ2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ N_{obs}^{{\prime }} \left( {i,k,r} \right) = \mathop \sum \limits_{j} N_{obs} \left( {i,j,r} \right)\delta \left( {map\left( j \right),k} \right) , $$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_373_Article_Equ2.gif" /></alternatives></disp-formula>where <italic>i</italic> is protein atom type, <inline-formula id="IEq3"><alternatives><mml:math id="IEq3_Math"><mml:mrow><mml:mi>δ</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>m</mml:mi><mml:mi>a</mml:mi><mml:mi>p</mml:mi><mml:mfenced close=")" open="("><mml:mi>j</mml:mi></mml:mfenced><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ \delta \left( {map\left( j \right),k} \right) $$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_373_Article_IEq3.gif" /></alternatives></inline-formula> is 1 only when the protein atom type <italic>j</italic> is mapped to mol2 atom type <italic>k</italic>, otherwise 0. Based on the <inline-formula id="IEq4"><alternatives><mml:math id="IEq4_Math"><mml:mrow><mml:msubsup><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">obs</mml:mi></mml:mrow><mml:mo>′</mml:mo></mml:msubsup><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mi>r</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq4_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ N_{obs}^{{\prime }} \left( {i,k,r} \right) $$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_373_Article_IEq4.gif" /></alternatives></inline-formula>, we can derive the potential function in the same manner as DFIRE. This design enables us to obtain the scoring function purely from protein atoms without requiring their binding partners, so we employed our recently collected 12,450 non-redundant protein monomer chains [<xref ref-type="bibr" rid="CR39">39</xref>] to obtain a sufficient number of observations. This training set represents more than 60 times bigger than the dataset (195 complex structures) used for deriving DLIGAND. For ligand mol2 atom types not existed in proteins, they were mapped to the closest atom type, as detailed in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S1. We also adopted the low-count correction according to Bayesian statistics as the previous study [<xref ref-type="bibr" rid="CR40">40</xref>].</p>
+            </sec>
+          </sec>
+          <sec id="Sec5">
+            <title>Benchmark datasets</title>
+            <p id="Par7">Four benchmark datasets were employed to evaluate DLIGAND2. The first dataset is CASF-2013 [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR6">6</xref>], a widely used benchmark containing 195 representative protein–ligand complexes. This benchmark has been used to test the accuracy of binding affinity prediction by using experimentally determined protein–ligand complex structures. The second dataset is the PDBbind refined set (version 2016) [<xref ref-type="bibr" rid="CR41">41</xref>] of 4057 protein–ligand interaction pairs with experimentally measured binding affinity data. We generated protein–ligand complex structures by docking ligands onto their corresponding receptors respectively with eight docking packages, including AudoDock (version 4.2.6) [<xref ref-type="bibr" rid="CR42">42</xref>], AutoDock Vina (version 1.1.2) [<xref ref-type="bibr" rid="CR43">43</xref>], rDock (version 2013.1) [<xref ref-type="bibr" rid="CR44">44</xref>], LeDock (version 1.0) [<xref ref-type="bibr" rid="CR45">45</xref>], UCSF DOCK (version 6.8) [<xref ref-type="bibr" rid="CR46">46</xref>], iDock (version 2013.1) [<xref ref-type="bibr" rid="CR47">47</xref>], GalaxyDock (with BP2 Score) [<xref ref-type="bibr" rid="CR48">48</xref>, <xref ref-type="bibr" rid="CR49">49</xref>], and iGEMDOCK (version 2.1) [<xref ref-type="bibr" rid="CR50">50</xref>]. Docking ligands are confined to a 10 Å box enclosing the centroid of co-crystalized ligand. The maximum number of docking poses for each ligand was set to 10. After removing complexes failing to yield any complex structures in our selected docking programs, a collection of 4044 complexes remained for evaluation. The full list of 4044 complexes can be found in Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>: Table S2. The scoring ability of functions were evaluated by the Pearson correlation coefficient (PCC) between the predicted and experimental values, as well as the root mean squared error (RMSE) after linear regression.</p>
+            <p id="Par8">The ability of DLIGAND2 to perform virtual screening was also evalued on the DUD-E dataset [<xref ref-type="bibr" rid="CR51">51</xref>]. There are 22, 886 active ligands binding with 102 targets, with an average of 224 ligands per target. For each target, the DUD-E database provides an abundant number of decoys (50 decoys for each active) that have similar physical–chemical properties but dissimilar two-dimensional (2D) topology. We employed the 3D structure of a target protein with the highest resolution in the protein data bank for docking. This is different from original DUD-E test where the 3D structure of the best performance was selected for each target [<xref ref-type="bibr" rid="CR51">51</xref>]. For each pair of protein target and ligand compound, we employed Autodock Vina with default options to generate one pose, which are re-scored by 5 scoring functions (ΔvinaRF<sub>20</sub>, ID-Score, X-Score, DLIGAND, and DLIGAND2).</p>
+            <p id="Par9">The accuracy of each scoring function was evaluated by the LogAUC and enrichment factor (EF).</p>
+            <p id="Par10">As described in DUD-E Ref. [<xref ref-type="bibr" rid="CR51">51</xref>] and our previous studies [<xref ref-type="bibr" rid="CR52">52</xref>, <xref ref-type="bibr" rid="CR53">53</xref>], LogAUC takes the logarithm of x-axis in area under curve (AUC) to show more information on enrichment at a low false positive rate. We chose three regions of EF in top <italic>x</italic>% of the DUD-E dataset, where <italic>x</italic> equals to 1, 5 and 10 respectively.<disp-formula id="Equ3"><label>3</label><alternatives><mml:math display="block" id="Equ3_Math"><mml:mrow><mml:mi>E</mml:mi><mml:msup><mml:mi>F</mml:mi><mml:mrow><mml:mi>x</mml:mi><mml:mo>%</mml:mo></mml:mrow></mml:msup><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mpadded><mml:msubsup><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">True</mml:mi></mml:mrow><mml:mrow><mml:mi>x</mml:mi><mml:mo>%</mml:mo></mml:mrow></mml:msubsup></mml:mpadded><mml:mspace width="-0.166667em" /><mml:mrow><mml:mo stretchy="true">/</mml:mo></mml:mrow><mml:mspace width="-0.166667em" /><mml:mpadded><mml:msubsup><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">Selected</mml:mi></mml:mrow><mml:mrow><mml:mi>x</mml:mi><mml:mo>%</mml:mo></mml:mrow></mml:msubsup></mml:mpadded></mml:mrow><mml:mrow><mml:mpadded><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">Active</mml:mi></mml:mrow></mml:msub></mml:mpadded><mml:mspace width="-0.166667em" /><mml:mrow><mml:mo stretchy="true">/</mml:mo></mml:mrow><mml:mspace width="-0.166667em" /><mml:mpadded><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">Total</mml:mi></mml:mrow></mml:msub></mml:mpadded></mml:mrow></mml:mfrac></mml:mrow></mml:math><tex-math id="Equ3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ EF^{x\% } = \frac{{{\raise0.7ex\hbox{${N_{True}^{x\% } }$} \!\mathord{\left/ {\vphantom {{N_{True}^{x\% } } {N_{Selected}^{x\% } }}}\right.\kern-0pt} \!\lower0.7ex\hbox{${N_{Selected}^{x\% } }$}}}}{{{\raise0.7ex\hbox{${N_{Active} }$} \!\mathord{\left/ {\vphantom {{N_{Active} } {N_{Total} }}}\right.\kern-0pt} \!\lower0.7ex\hbox{${N_{Total} }$}}}} $$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_373_Article_Equ3.gif" /></alternatives></disp-formula>where <inline-formula id="IEq5"><alternatives><mml:math id="IEq5_Math"><mml:msubsup><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">True</mml:mi></mml:mrow><mml:mrow><mml:mi>x</mml:mi><mml:mo>%</mml:mo></mml:mrow></mml:msubsup></mml:math><tex-math id="IEq5_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ N_{True}^{x\% } $$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_373_Article_IEq5.gif" /></alternatives></inline-formula>, <inline-formula id="IEq6"><alternatives><mml:math id="IEq6_Math"><mml:msubsup><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">Selected</mml:mi></mml:mrow><mml:mrow><mml:mi>x</mml:mi><mml:mo>%</mml:mo></mml:mrow></mml:msubsup></mml:math><tex-math id="IEq6_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ N_{Selected}^{x\% } $$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_373_Article_IEq6.gif" /></alternatives></inline-formula>, <inline-formula id="IEq7"><alternatives><mml:math id="IEq7_Math"><mml:msubsup><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">Selected</mml:mi></mml:mrow><mml:mrow><mml:mi>x</mml:mi><mml:mo>%</mml:mo></mml:mrow></mml:msubsup></mml:math><tex-math id="IEq7_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ N_{Selected}^{x\% } $$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_373_Article_IEq7.gif" /></alternatives></inline-formula> and <inline-formula id="IEq8"><alternatives><mml:math id="IEq8_Math"><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi mathvariant="italic">Total</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq8_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$ N_{Total} $$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_373_Article_IEq8.gif" /></alternatives></inline-formula> are the number of true positives, the number of selected candidates at top <italic>x</italic>% screened candidates, the number of active compounds, and the total number of compounds in the screened library, respectively.</p>
+            <p id="Par11">For a fair comparison with the machine-learning-based scoring function (RF-Score-VS [<xref ref-type="bibr" rid="CR54">54</xref>]) trained on the DUD-E dataset, we selected protein targets from the DEKOIS 2.0 benchmark [<xref ref-type="bibr" rid="CR55">55</xref>] if it has sequence identity less than 95% to any protein in the DUD-E according to the BLAST [<xref ref-type="bibr" rid="CR56">56</xref>]. Finally, 55 targets were kept and sorted by their sequence identity, as detailed in Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>: Table S3.</p>
+          </sec>
+        </sec>
+        <sec id="Sec6">
+          <title>Results and discussion</title>
+          <sec id="Sec7">
+            <title>The DLIGAND2 potential</title>
+            <p id="Par12">Different from the united mol2 atom type used by DLIGAND, the improved version DLIGAND2 has employed residue-specific types for protein atoms, which expanded atom types from 12 types to 169 atom types. Sufficient statistics for this larger number of atom types is ensured by using 12,450 protein chains for training. Residue-specific atom types enable the discrimination of the properties (e.g. partial charge) and surrounding environments of atoms. As shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref>a, the potential energy between ligand atom S.3 and the main-chain O atom of ASP is significantly lower than between the atom and the main-chain O atom of ARG likely because S.3 atom has a weak but negative partial charge, which is repulsive to the negative charged ASP but attractive to the positive charged ARG residue. By comparison, DLIGAND provides an average potential over 20 amino acids. Significant differences also exist for interactions involving non-polar atoms. As shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref>b, the CB atom of GLU and the CE atom of LYS belong to C.3 as defined in mol2, despite their very different electrostatic and steric environment. Their interactions with the ligand type N.am are very different when derived independently (DLIGAND2), and enclose the average energy function from DLIGAND.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>The atomic interaction potentials <bold>a</bold> between ligand type S.3 and main-chain O atom of ASP, or ARG in DLIGAND2, or their common mol2 atom type (O.2) by the DLIGAND, and <bold>b</bold> between ligand type N.am and atom CB of GLU, or CE of LYS, or their common mol2 type “C.3” by DLIGAND, as a function of distance</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_373_Fig1_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec8">
+            <title>Evaluation results on CASF-2013 benchmark</title>
+            <sec id="Sec9">
+              <title>Score power</title>
+              <p id="Par13">Figure <xref rid="Fig2" ref-type="fig">2</xref> compares DLIGAND and DLIGAND2 in term of their ability for predicting protein–ligand binding affinity using the CASF-2013 dataset. DLIGAND2 achieves a higher Pearson correlation coefficient (PCC) (0.572) than DLIGAND (0.526). Table <xref rid="Tab1" ref-type="table">1</xref> further compares PCC values given by 29 other scoring functions. DLIGAND2 ranks the 9th among 30 scoring functions. The improvement of DLIGAND2 over DLIGAND was made without additional training. Interestingly, the top five scores (RF-Score-v2, ID-Score, ΔvinaRF<sub>20</sub>, AutoDock-hybrid and X-Score<sup>HM</sup>) were all trained directly for binding affinity prediction. The scoring function of Autodock Vina achieves a PCC of 0.56, which is lower than DLIGAND2 but higher than DLIGAND. According to the root mean square error (RMSE), DLIGAND2 (RMSE of 1.85) ranks the 10th after ChemPLP@GOLD (RMSE of 1.84), which is the best in all knowledge-based potential functions. The improvement in correlation coefficients is encouraging as DLIGAND2 was trained on protein structures only.<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>Comparison between theoretically predicted and experimentally measured protein–ligand binding free energies for 195 complexes on the CASF-2013 testing set for <bold>a</bold> DLIGAND with a correlation coefficient of 0.526 and <bold>b</bold> DLIGAND2 with a correlation coefficient of 0.572. The solid line is from the regression fit</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_373_Fig2_HTML.png" /></fig><table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Comparisons of 30 scoring functions on the CASF-2013 dataset</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Function</p></th><th align="left"><p>PCC</p></th><th align="left"><p>RMSE</p></th><th align="left"><p>Description</p></th><th align="left"><p>Year</p></th></tr></thead><tbody><tr><td align="left"><p>RF-Score-v2</p></td><td char="." align="char"><p>0.803<sup>a</sup></p></td><td align="left"><p>1.54</p></td><td align="left"><p>Machine learning</p></td><td align="left"><p>2014</p></td></tr><tr><td align="left"><p>ID-Score</p></td><td char="." align="char"><p>0.753<sup>b</sup></p></td><td align="left"><p>1.63</p></td><td align="left"><p>Descriptor-based and empirical</p></td><td align="left"><p>2013</p></td></tr><tr><td align="left"><p>ΔvinaRF<sub>20</sub></p></td><td char="." align="char"><p>0.686<sup>c</sup></p></td><td align="left"><p>1.64</p></td><td align="left"><p>Machine learning</p></td><td align="left"><p>2016</p></td></tr><tr><td align="left"><p>AutoDockHybrid</p></td><td char="." align="char"><p>0.64</p></td><td align="left"><p>n.a.</p></td><td align="left"><p>Force fields and machine learning</p></td><td align="left"><p>2016</p></td></tr><tr><td align="left"><p>X-Score<sup>HM</sup></p></td><td char="." align="char"><p>0.614</p></td><td align="left"><p>1.78</p></td><td align="left"><p>Empirical</p></td><td align="left"><p>2002</p></td></tr><tr><td align="left"><p>ΔSASA</p></td><td char="." align="char"><p>0.606</p></td><td align="left"><p>1.79</p></td><td align="left"><p>Empirical</p></td><td align="left"><p>2014</p></td></tr><tr><td align="left"><p>ChemScore@SYBYL</p></td><td char="." align="char"><p>0.592</p></td><td align="left"><p>1.82</p></td><td align="left"><p>Empirical</p></td><td align="left"><p>1998</p></td></tr><tr><td align="left"><p>ChemPLP@GOLD</p></td><td char="." align="char"><p>0.579</p></td><td align="left"><p>1.84</p></td><td align="left"><p>Empirical</p></td><td align="left"><p>2009</p></td></tr><tr><td align="left"><p><italic>DLIGAND2</italic></p></td><td char="." align="char"><p><italic>0.572</italic></p></td><td align="left"><p><italic>1.85</italic></p></td><td align="left"><p><italic>Knowledge-based</italic></p></td><td align="left"><p><italic>This paper</italic></p></td></tr><tr><td align="left"><p>SMoG2016</p></td><td char="." align="char"><p>0.57<sup>d</sup></p></td><td align="left"><p>1.68</p></td><td align="left"><p>Knowledge-based and empirical</p></td><td align="left"><p>2016</p></td></tr><tr><td align="left"><p>PLP1@DS</p></td><td char="." align="char"><p>0.568</p></td><td align="left"><p>1.86</p></td><td align="left"><p>Empirical</p></td><td align="left"><p>2000</p></td></tr><tr><td align="left"><p>AutoDock Vina</p></td><td char="." align="char"><p>0.563<sup>e</sup></p></td><td align="left"><p>1.87</p></td><td align="left"><p>Knowledge-based and empirical</p></td><td align="left"><p>2010</p></td></tr><tr><td align="left"><p>G-Score@SYBYL</p></td><td char="." align="char"><p>0.558</p></td><td align="left"><p>1.87</p></td><td align="left"><p>Energy-based</p></td><td align="left"><p>1997</p></td></tr><tr><td align="left"><p>ASP@GOLD</p></td><td char="." align="char"><p>0.556</p></td><td align="left"><p>1.88</p></td><td align="left"><p>Statistical potential</p></td><td align="left"><p>2005</p></td></tr><tr><td align="left"><p>ASE@MOE</p></td><td char="." align="char"><p>0.544</p></td><td align="left"><p>1.89</p></td><td align="left"><p>Empirical</p></td><td align="left"><p>n.a.</p></td></tr><tr><td align="left"><p>ChemScore@GOLD</p></td><td char="." align="char"><p>0.536</p></td><td align="left"><p>1.90</p></td><td align="left"><p>Empirical</p></td><td align="left"><p>2003</p></td></tr><tr><td align="left"><p><italic>DLIGAND</italic></p></td><td char="." align="char"><p><italic>0.526</italic></p></td><td align="left"><p><italic>1.92</italic></p></td><td align="left"><p><italic>Knowledge-based</italic></p></td><td align="left"><p><italic>2005</italic></p></td></tr><tr><td align="left"><p>D-Score@SYBYL</p></td><td char="." align="char"><p>0.526</p></td><td align="left"><p>1.92</p></td><td align="left"><p>Energy-based</p></td><td align="left"><p>2001</p></td></tr><tr><td align="left"><p>Alpha-HB@MOE</p></td><td char="." align="char"><p>0.511</p></td><td align="left"><p>1.94</p></td><td align="left"><p>Empirical</p></td><td align="left"><p>n.a.</p></td></tr><tr><td align="left"><p>LUDI3@DS</p></td><td char="." align="char"><p>0.487</p></td><td align="left"><p>1.97</p></td><td align="left"><p>Empirical</p></td><td align="left"><p>1998</p></td></tr><tr><td align="left"><p>GoldScore@GOLD</p></td><td char="." align="char"><p>0.483</p></td><td align="left"><p>1.97</p></td><td align="left"><p>Energy-based</p></td><td align="left"><p>1997</p></td></tr><tr><td align="left"><p>Affinity-dG@MOE</p></td><td char="." align="char"><p>0.482</p></td><td align="left"><p>1.98</p></td><td align="left"><p>Empirical</p></td><td align="left"><p>n.a.</p></td></tr><tr><td align="left"><p>LigScore2@DS</p></td><td char="." align="char"><p>0.456</p></td><td align="left"><p>2.02</p></td><td align="left"><p>Empirical</p></td><td align="left"><p>2005</p></td></tr><tr><td align="left"><p>GlideScore-SP</p></td><td char="." align="char"><p>0.452</p></td><td align="left"><p>2.03</p></td><td align="left"><p>Energy-based</p></td><td align="left"><p>2006</p></td></tr><tr><td align="left"><p>SMoG2001</p></td><td char="." align="char"><p>0.418</p></td><td align="left"><p>3.39</p></td><td align="left"><p>Knowledge-based</p></td><td align="left"><p>2001</p></td></tr><tr><td align="left"><p>Jain@DS</p></td><td char="." align="char"><p>0.408</p></td><td align="left"><p>2.05</p></td><td align="left"><p>Empirical</p></td><td align="left"><p>2006</p></td></tr><tr><td align="left"><p>PMF@DS</p></td><td char="." align="char"><p>0.364</p></td><td align="left"><p>2.11</p></td><td align="left"><p>Statistical potential</p></td><td align="left"><p>2006</p></td></tr><tr><td align="left"><p>GlideScore-XP</p></td><td char="." align="char"><p>0.277</p></td><td align="left"><p>2.18</p></td><td align="left"><p>Energy-based</p></td><td align="left"><p>2004</p></td></tr><tr><td align="left"><p>London-dG@MOE</p></td><td char="." align="char"><p>0.242</p></td><td align="left"><p>2.19</p></td><td align="left"><p>Empirical</p></td><td align="left"><p>n.a.</p></td></tr><tr><td align="left"><p>PMF@SYBYL</p></td><td char="." align="char"><p>0.221</p></td><td align="left"><p>2.20</p></td><td align="left"><p>Statistical potential</p></td><td align="left"><p>1999</p></td></tr></tbody></table><table-wrap-foot><p>The results for 23 scoring functions were collected from Li [<xref ref-type="bibr" rid="CR5">5</xref>], the results for RF-score-v2, ID-score, ΔvinaRF<sub>20</sub> and SMoG2016 (labeled as <sup>a, b, c, d</sup>) were collected from Ballester [<xref ref-type="bibr" rid="CR57">57</xref>], Li [<xref ref-type="bibr" rid="CR20">20</xref>], Wang [<xref ref-type="bibr" rid="CR58">58</xref>] and Theau [<xref ref-type="bibr" rid="CR31">31</xref>], separately, and the results for DLIGAND2, Autodock Vina, and DLIGAND were calculated with default options by ourselves</p><p><italic>n.a.</italic> not available</p></table-wrap-foot></table-wrap></p>
+            </sec>
+            <sec id="Sec10">
+              <title>Docking power</title>
+              <p id="Par14">The docking power refers to whether a scoring function can correctly identify the native ligand poses from the predicted poses. Table <xref rid="Tab2" ref-type="table">2</xref> shows the evaluation results of docking power compared to the results by Li et al. [<xref ref-type="bibr" rid="CR5">5</xref>] using the same docking sets in the CASF-2013 benchmark. DLIGAND2 achieves 14% improvement in success rate over DLIGAND in detecting native poses as the first ranked pose. Among all methods compared, DLIGAND2 has a moderate performance in term of success rates in ranking the native pose within top 1, 2, and 3 (at 45.1%, 61% and 75.4%, respectively). Nevertheless, DLIGAND2 ranks the second best in all knowledge-based/statistical potential scoring functions, behind ASP@GOLD, but better than PMF@SYBYL, PMF04@DS and PMF@DS. However, ASP@GOLD is not a pure statistical energy function but an empirical mix of a statistical potential with physical-based energetic terms in ChemScore@GOLD. Thus, DLIGAND2 has the best performance for parameter-free statistical potentials.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Success rates for the evaluation of docking power ranked by top three poses</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" rowspan="2"><p>Scoring function</p></th><th align="left" colspan="3"><p>Success rates (%)</p></th></tr><tr><th align="left"><p>The top pose</p></th><th align="left"><p>Top two poses</p></th><th align="left"><p>Top three poses</p></th></tr></thead><tbody><tr><td align="left"><p>ChemPLP@GOLD</p></td><td align="left"><p>81</p></td><td align="left"><p>86.7</p></td><td align="left"><p>89.7</p></td></tr><tr><td align="left"><p>ChemScore@GOLD</p></td><td align="left"><p>77.9</p></td><td align="left"><p>83.1</p></td><td align="left"><p>88.2</p></td></tr><tr><td align="left"><p>GlideScore-SP</p></td><td align="left"><p>78.5</p></td><td align="left"><p>85.6</p></td><td align="left"><p>87.7</p></td></tr><tr><td align="left"><p>ASP@GOLD</p></td><td align="left"><p>71.8</p></td><td align="left"><p>81.5</p></td><td align="left"><p>87.2</p></td></tr><tr><td align="left"><p>LigScore2@DS</p></td><td align="left"><p>76.9</p></td><td align="left"><p>84.1</p></td><td align="left"><p>86.7</p></td></tr><tr><td align="left"><p>PLP1@DS</p></td><td align="left"><p>77.4</p></td><td align="left"><p>84.1</p></td><td align="left"><p>86.2</p></td></tr><tr><td align="left"><p>PLP2@DS</p></td><td align="left"><p>74.4</p></td><td align="left"><p>81.5</p></td><td align="left"><p>86.2</p></td></tr><tr><td align="left"><p>Alpha-HB@MOE</p></td><td align="left"><p>75.4</p></td><td align="left"><p>82.6</p></td><td align="left"><p>86.2</p></td></tr><tr><td align="left"><p>GoldScore@GOLD</p></td><td align="left"><p>71.3</p></td><td align="left"><p>81</p></td><td align="left"><p>85.6</p></td></tr><tr><td align="left"><p>GlideScore-XP</p></td><td align="left"><p>74.4</p></td><td align="left"><p>82.6</p></td><td align="left"><p>85.6</p></td></tr><tr><td align="left"><p>LUDI1@DS</p></td><td align="left"><p>59</p></td><td align="left"><p>75.4</p></td><td align="left"><p>83.1</p></td></tr><tr><td align="left"><p>LUDI2@DS</p></td><td align="left"><p>65.6</p></td><td align="left"><p>75.4</p></td><td align="left"><p>81.5</p></td></tr><tr><td align="left"><p>LigScore1@DS</p></td><td align="left"><p>65.1</p></td><td align="left"><p>74.9</p></td><td align="left"><p>81</p></td></tr><tr><td align="left"><p>Affinity-dG@MOE</p></td><td align="left"><p>63.1</p></td><td align="left"><p>74.9</p></td><td align="left"><p>81</p></td></tr><tr><td align="left"><p>London-dG@MOE</p></td><td align="left"><p>59.5</p></td><td align="left"><p>73.8</p></td><td align="left"><p>78.5</p></td></tr><tr><td align="left"><p>X-Score<sup>HM</sup></p></td><td align="left"><p>61</p></td><td align="left"><p>73.3</p></td><td align="left"><p>77.9</p></td></tr><tr><td align="left"><p>ChemScore@SYBYL</p></td><td align="left"><p>59.5</p></td><td align="left"><p>69.2</p></td><td align="left"><p>75.4</p></td></tr><tr><td align="left"><p>X-Score</p></td><td align="left"><p>59.5</p></td><td align="left"><p>69.2</p></td><td align="left"><p>75.4</p></td></tr><tr><td align="left"><p><italic>DLIGAND2</italic></p></td><td align="left"><p><italic>45.1</italic></p></td><td align="left"><p><italic>61</italic></p></td><td align="left"><p><italic>75.4</italic></p></td></tr><tr><td align="left"><p>X-Score<sup>HP</sup></p></td><td align="left"><p>54.4</p></td><td align="left"><p>67.7</p></td><td align="left"><p>73.8</p></td></tr><tr><td align="left"><p>LUDI3@DS</p></td><td align="left"><p>48.7</p></td><td align="left"><p>65.1</p></td><td align="left"><p>72.8</p></td></tr><tr><td align="left"><p>GScore@SYBYL</p></td><td align="left"><p>45.1</p></td><td align="left"><p>61.5</p></td><td align="left"><p>72.3</p></td></tr><tr><td align="left"><p>X-Score<sup>HS</sup></p></td><td align="left"><p>54.4</p></td><td align="left"><p>66.7</p></td><td align="left"><p>72.3</p></td></tr><tr><td align="left"><p>Jain@DS</p></td><td align="left"><p>48.2</p></td><td align="left"><p>62.1</p></td><td align="left"><p>70.8</p></td></tr><tr><td align="left"><p>PMF@SYBYL</p></td><td align="left"><p>51.8</p></td><td align="left"><p>60</p></td><td align="left"><p>66.7</p></td></tr><tr><td align="left"><p>PMF04@DS</p></td><td align="left"><p>51.8</p></td><td align="left"><p>62.6</p></td><td align="left"><p>66.2</p></td></tr><tr><td align="left"><p>ASE@MOE</p></td><td align="left"><p>51.3</p></td><td align="left"><p>60</p></td><td align="left"><p>63.6</p></td></tr><tr><td align="left"><p>PMF@DS</p></td><td align="left"><p>44.1</p></td><td align="left"><p>52.3</p></td><td align="left"><p>60</p></td></tr><tr><td align="left"><p><italic>DLIGAND</italic></p></td><td align="left"><p><italic>31.3</italic></p></td><td align="left"><p><italic>50.3</italic></p></td><td align="left"><p><italic>60.5</italic></p></td></tr><tr><td align="left"><p>dSAS</p></td><td align="left"><p>21.5</p></td><td align="left"><p>33.3</p></td><td align="left"><p>45.1</p></td></tr><tr><td align="left"><p>DScore@SYBYL</p></td><td align="left"><p>18.5</p></td><td align="left"><p>29.7</p></td><td align="left"><p>42.6</p></td></tr></tbody></table><table-wrap-foot><p>Results (excluding DLIGAND2 and DIGAND) cited from Li [<xref ref-type="bibr" rid="CR5">5</xref>]. The RMSD value between one best-scored binding pose and the native binding pose is less than 2.0 Å</p></table-wrap-foot></table-wrap></p>
+            </sec>
+            <sec id="Sec11">
+              <title>Ranking power</title>
+              <p id="Par15">The ranking power of a scoring function refers to its ability to correctly rank binders of a given target protein by their predicted binding affinities based on the poses from the crystal structures and optimized structures. Table <xref rid="Tab3" ref-type="table">3</xref> compares DLIGAND and DLIGAND2 to the evaluation results of other scoring functions of ranking power collected by Li et al. [<xref ref-type="bibr" rid="CR5">5</xref>]. A high-level success rate indicates a completely correct ranking of all members within each ligand cluster whereas a low-level success rate denotes ranking of the best as top 1 within a cluster. Again, DLIGAND2 has a small improvement over DLIGAND in high level success rates (1.6% on crystal structures and 3% on optimized structures) but identical in low-level success rates. Compared to other statistical potentials (PMF@DF, ASP@GOLD, PMF@SYBYL), DLIGAND2 has the highest high-level success rate in crystal and optimized structures and the highest low-level success rate in optimized structures but not in crystal structures. This suggests that DLIGAND2 is less sensitive to structural changes, compared to ASP@GOLD that has the large drop in low-level success rate from crystal to optimized structures. Empirical scoring functions such as X-Score and ChemScore@SYBYL have the best performance in this test.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>Success rates (%) for the evaluation of ranking power ranked by high-level results on optimized structures</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" rowspan="2"><p>Score function</p></th><th align="left" colspan="2"><p>Success rates (%) on crystal structures</p></th><th align="left" colspan="2"><p>Success rates (%) on optimized structures</p></th></tr><tr><th align="left"><p>High-level</p></th><th align="left"><p>Low-level</p></th><th align="left"><p>High-level</p></th><th align="left"><p>Low-level</p></th></tr></thead><tbody><tr><td align="left"><p>X-Score<sup>HM</sup></p></td><td align="left"><p>58.5</p></td><td align="left"><p>72.3</p></td><td align="left"><p>56.9</p></td><td align="left"><p>73.8</p></td></tr><tr><td align="left"><p>ChemScore@SYBYL</p></td><td align="left"><p>53.8</p></td><td align="left"><p>67.7</p></td><td align="left"><p>52.3</p></td><td align="left"><p>69.2</p></td></tr><tr><td align="left"><p>D-Score@SYBYL</p></td><td align="left"><p>49.2</p></td><td align="left"><p>63.1</p></td><td align="left"><p>52.3</p></td><td align="left"><p>63.1</p></td></tr><tr><td align="left"><p>LigScore1@DS</p></td><td align="left"><p>52.3</p></td><td align="left"><p>61.5</p></td><td align="left"><p>50.8</p></td><td align="left"><p>63.1</p></td></tr><tr><td align="left"><p>ΔSAS</p></td><td align="left"><p>49.2</p></td><td align="left"><p>67.7</p></td><td align="left"><p>50.8</p></td><td align="left"><p>69.2</p></td></tr><tr><td align="left"><p><italic>DLIGAND2</italic></p></td><td align="left"><p><italic>50.8</italic></p></td><td align="left"><p><italic>63.1</italic></p></td><td align="left"><p><italic>49.2</italic></p></td><td align="left"><p><italic>64.6</italic></p></td></tr><tr><td align="left"><p>PLP2@DS</p></td><td align="left"><p>55.4</p></td><td align="left"><p>72.3</p></td><td align="left"><p>47.7</p></td><td align="left"><p>67.7</p></td></tr><tr><td align="left"><p>Alpha-HB@MOE</p></td><td align="left"><p>52.3</p></td><td align="left"><p>66.2</p></td><td align="left"><p>47.7</p></td><td align="left"><p>64.6</p></td></tr><tr><td align="left"><p>ChemPLP@GOLD</p></td><td align="left"><p>58.5</p></td><td align="left"><p>72.3</p></td><td align="left"><p>46.2</p></td><td align="left"><p>61.5</p></td></tr><tr><td align="left"><p>G-Score@SYBYL</p></td><td align="left"><p>52.3</p></td><td align="left"><p>72.3</p></td><td align="left"><p>46.2</p></td><td align="left"><p>61.5</p></td></tr><tr><td align="left"><p><italic>DLIGAND</italic></p></td><td align="left"><p><italic>49.2</italic></p></td><td align="left"><p><italic>63.1</italic></p></td><td align="left"><p><italic>46.2</italic></p></td><td align="left"><p><italic>64.6</italic></p></td></tr><tr><td align="left"><p>PMF@DS</p></td><td align="left"><p>49.2</p></td><td align="left"><p>66.2</p></td><td align="left"><p>46.2</p></td><td align="left"><p>63.1</p></td></tr><tr><td align="left"><p>LUDI1@DS</p></td><td align="left"><p>52.3</p></td><td align="left"><p>69.2</p></td><td align="left"><p>44.6</p></td><td align="left"><p>66.2</p></td></tr><tr><td align="left"><p>Jain@DS</p></td><td align="left"><p>41.5</p></td><td align="left"><p>58.5</p></td><td align="left"><p>44.6</p></td><td align="left"><p>63.1</p></td></tr><tr><td align="left"><p>GoldScore@GOLD</p></td><td align="left"><p>55.4</p></td><td align="left"><p>76.9</p></td><td align="left"><p>43.1</p></td><td align="left"><p>66.2</p></td></tr><tr><td align="left"><p>ASE@MOE</p></td><td align="left"><p>40</p></td><td align="left"><p>64.6</p></td><td align="left"><p>43.1</p></td><td align="left"><p>63.1</p></td></tr><tr><td align="left"><p>London-dG@MOE</p></td><td align="left"><p>43.1</p></td><td align="left"><p>60</p></td><td align="left"><p>40</p></td><td align="left"><p>60</p></td></tr><tr><td align="left"><p>ASP@GOLD</p></td><td align="left"><p>47.7</p></td><td align="left"><p>72.3</p></td><td align="left"><p>38.5</p></td><td align="left"><p>60</p></td></tr><tr><td align="left"><p>Affinity-dG@MOE</p></td><td align="left"><p>53.8</p></td><td align="left"><p>66.2</p></td><td align="left"><p>36.9</p></td><td align="left"><p>50.8</p></td></tr><tr><td align="left"><p>ChemScore@GOLD</p></td><td align="left"><p>46.2</p></td><td align="left"><p>63.1</p></td><td align="left"><p>33.8</p></td><td align="left"><p>53.8</p></td></tr><tr><td align="left"><p>GlideScore-XP</p></td><td align="left"><p>35.4</p></td><td align="left"><p>47.7</p></td><td align="left"><p>32.3</p></td><td align="left"><p>46.2</p></td></tr><tr><td align="left"><p>PMF@SYBYL</p></td><td align="left"><p>43.1</p></td><td align="left"><p>61.5</p></td><td align="left"><p>30.8</p></td><td align="left"><p>53.8</p></td></tr><tr><td align="left"><p>GlideScore-SP</p></td><td align="left"><p>43.1</p></td><td align="left"><p>56.9</p></td><td align="left"><p>21.5</p></td><td align="left"><p>38.5</p></td></tr></tbody></table><table-wrap-foot><p>Results (excluding DLIGAND2 and DIGAND) cited from Li [<xref ref-type="bibr" rid="CR5">5</xref>]</p></table-wrap-foot></table-wrap></p>
+            </sec>
+          </sec>
+          <sec id="Sec12">
+            <title>Evaluation results on PDBbind data set</title>
+            <p id="Par16">The above benchmark study is based on experimentally determined, protein–ligand complex structures. We further tested DLIGAND2’s ability to predict protein–ligand binding affinities by using predicted complex structures from docking. To remove random fluctuations, we generated 10 poses for each pair of protein and ligand by each docking method, and the highest score among 10 poses by each scoring function was used to represent the predicted binding affinity, respectively. As shown in Table <xref rid="Tab4" ref-type="table">4</xref>, when scored by docking methods’ own scoring functions, AutoDock Vina yields the best correlation and lowest error with experimental values (PCC of 0.501 and RMSE of 1.75), followed by GalaxyDock (PCC of 0.487 and RMSE of 1.75) and iDock (PCC of 0.485 and RMSE of 1.75). rDock and UCSF dock have PCC &lt; 0.2 and RMSE > 1.95. Low performance by rDOCK and UCSF was consistent with a previous study [<xref ref-type="bibr" rid="CR4">4</xref>].<table-wrap id="Tab4"><label>Table 4</label><caption xml:lang="en"><p>Pearson correlation coefficients and root mean squared error between experimental binding affinity and binding affinity predicted by DLIGAND, DLIGAND2, and X-Score using docking poses generated by eight docking programs along with the results from the docking programs</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" rowspan="2"><p>Docking program</p></th><th align="left" colspan="4"><p>Pearson correlation coefficient</p></th><th align="left" colspan="4"><p>Root mean squared error</p></th></tr><tr><th align="left"><p>Self</p></th><th align="left"><p>DLIGAND</p></th><th align="left"><p>DLIGAND2</p></th><th align="left"><p>X-Score</p></th><th align="left"><p>Self</p></th><th align="left"><p>DLIGAND</p></th><th align="left"><p>DLIGAND2</p></th><th align="left"><p>X-Score</p></th></tr></thead><tbody><tr><td align="left"><p>AutoDock</p></td><td char="." align="char"><p>0.404</p></td><td char="." align="char"><p>0.465</p></td><td char="." align="char"><p>0.537</p></td><td char="." align="char"><p>0.547</p></td><td char="." align="char"><p>1.91</p></td><td char="." align="char"><p>1.77</p></td><td char="." align="char"><p>1.69</p></td><td char="." align="char"><p>1.68</p></td></tr><tr><td align="left"><p>AutoDock Vina</p></td><td char="." align="char"><p>0.501</p></td><td char="." align="char"><p>0.459</p></td><td char="." align="char"><p>0.519</p></td><td char="." align="char"><p>0.536</p></td><td char="." align="char"><p>1.74</p></td><td char="." align="char"><p>1.78</p></td><td char="." align="char"><p>1.72</p></td><td char="." align="char"><p>1.69</p></td></tr><tr><td align="left"><p>rDock</p></td><td char="." align="char"><p>0.102</p></td><td char="." align="char"><p>0.463</p></td><td char="." align="char"><p>0.535</p></td><td char="." align="char"><p>0.507</p></td><td char="." align="char"><p>2.01</p></td><td char="." align="char"><p>1.78</p></td><td char="." align="char"><p>1.70</p></td><td char="." align="char"><p>1.76</p></td></tr><tr><td align="left"><p>LeDock</p></td><td char="." align="char"><p>0.426</p></td><td char="." align="char"><p>0.457</p></td><td char="." align="char"><p>0.532</p></td><td char="." align="char"><p>0.54</p></td><td char="." align="char"><p>1.82</p></td><td char="." align="char"><p>1.78</p></td><td char="." align="char"><p>1.69</p></td><td char="." align="char"><p>1.69</p></td></tr><tr><td align="left"><p>UCSF DOCK</p></td><td char="." align="char"><p>0.195</p></td><td char="." align="char"><p>0.427</p></td><td char="." align="char"><p>0.498</p></td><td char="." align="char"><p>0.488</p></td><td char="." align="char"><p>1.97</p></td><td char="." align="char"><p>1.81</p></td><td char="." align="char"><p>1.74</p></td><td char="." align="char"><p>1.76</p></td></tr><tr><td align="left"><p>iDock</p></td><td char="." align="char"><p>0.485</p></td><td char="." align="char"><p>0.461</p></td><td char="." align="char"><p>0.522</p></td><td char="." align="char"><p>0.54</p></td><td char="." align="char"><p>1.75</p></td><td char="." align="char"><p>1.78</p></td><td char="." align="char"><p>1.71</p></td><td char="." align="char"><p>1.69</p></td></tr><tr><td align="left"><p>GalaxyDock</p></td><td char="." align="char"><p>0.487</p></td><td char="." align="char"><p>0.464</p></td><td char="." align="char"><p>0.537</p></td><td char="." align="char"><p>0.532</p></td><td char="." align="char"><p>1.75</p></td><td char="." align="char"><p>1.78</p></td><td char="." align="char"><p>1.69</p></td><td char="." align="char"><p>1.71</p></td></tr><tr><td align="left"><p>iGEMDOCK</p></td><td char="." align="char"><p>0.384</p></td><td char="." align="char"><p>0.444</p></td><td char="." align="char"><p>0.501</p></td><td char="." align="char"><p>0.502</p></td><td char="." align="char"><p>1.85</p></td><td char="." align="char"><p>1.80</p></td><td char="." align="char"><p>1.76</p></td><td char="." align="char"><p>1.82</p></td></tr><tr><td align="left"><p>Average</p></td><td char="." align="char"><p>0.373</p></td><td char="." align="char"><p>0.455</p></td><td char="." align="char"><p>0.523</p></td><td char="." align="char"><p>0.524</p></td><td char="." align="char"><p>1.85</p></td><td char="." align="char"><p>1.79</p></td><td char="." align="char"><p>1.71</p></td><td char="." align="char"><p>1.73</p></td></tr></tbody></table></table-wrap></p>
+            <p id="Par17">When re-assessed by DLIGAND2, the PCCs of predicted binding affinity consistently improve over all eight docking methods to the levels from 0.498 to 0.537 with an average of 0.523, and the RMSE from 1.69 to 1.76 with an average of 1.71. This indicates the main bottleneck of current docking method is the scoring function, as also disclosed in the previous study [<xref ref-type="bibr" rid="CR4">4</xref>]. By comparison, DLIGAND can improve PCC values for five docking programs but decrease PCC values for 3 others with an average PCC of 0.455 and RMSE of 1.79, which are 13% lower and 4.7% higher than DLIGAND2, respectively. On the basis of average value, X-Score has a performance comparable to DLIGAND2 in PCC but a slightly higher error in RMSE. It should be noted that X-Score was trained on the complex structures homologous to the CASF-2013 benchmark dataset used here, whereas DLIGNAD2 was trained only by independent monomer structures. We also noted that DLIGAND2 is about 5 times faster than X-Score, which takes 2.7 and 13.3 h, respectively to complete this dataset (a total of 40,440 docking poses) by one CPU core of the Intel E5-2692V2 (2.2 GHz). Here, we did not compare to RF-Score (including RF-Score-v4 [<xref ref-type="bibr" rid="CR59">59</xref>]), ΔvinaRF<sub>20</sub> and ID-Score because they were trained on the PBDbind refined set.</p>
+          </sec>
+          <sec id="Sec13">
+            <title>Evaluation results on DUD-E data set</title>
+            <p id="Par18">The DUD-E dataset is used to examine the ability to separate true ligands from decoys, a practically important problem in virtual screening. Here, we employed the DUD-E dataset to evaluate the screening power of scoring functions. The performance of DLIGAND and DLIGAND2 is compared to those of three top ranked scoring functions in the CASF-2013 benchmark (ID-Score, ΔvinaRF<sub>20</sub>, and X-Score) using the poses generated by AutoDock Vina.</p>
+            <p id="Par19">As shown in the Table <xref rid="Tab5" ref-type="table">5</xref> (The detailed data can be found in Additional file <xref ref-type="supplementary-material" rid="MOESM4">4</xref>: Table S4), DLIGAND2 achieved the best performance with an average logAUC of 10.14% and enrichment factors of 6.67 for EF<sub>1%</sub>. DLIGAND2 achieved an average EF<sub>1%</sub> of 30% higher than Autodock Vina, 52% and 64% higher than DLIGAND and X-Score, separately, and above 3 times higher than ID-score. The logAUC and enrichment factors of all targets are detailed in Additional file <xref ref-type="supplementary-material" rid="MOESM4">4</xref>: Table S4. Notably, Autodock Vina ranks the 2nd by LogAUC and the first on EF<sub>5%</sub> and EF<sub>10%</sub>, with EF<sub>1%</sub> of 26% and 86% higher than those by X-Score, and ID-Score despite the fact that they can provide higher correlation coefficients than Autodock Vina to experimental binding affinities in the CASF-2013 dataset. This is likely because ID-Score and X-Score were all trained by the PDBbind dataset that are homologous to CASF-2013 dataset. The over-training issues in empirical or machining learning based scoring functions have also been observed in several previous studies [<xref ref-type="bibr" rid="CR23">23</xref>]. The improvement of DLIGAND2 relative to Autodock Vina is more consistent in this independent test. As for RF-Score, the general version (RF-Score v3) for predicting binding affinity doesn’t achieve a good performance with 5.42 for EF<sub>1%</sub> [<xref ref-type="bibr" rid="CR53">53</xref>], ranking even behind DLIGAND. Although RF-Score-VS version specifically trained based on DUD-E was reported to achieve EF<sub>1%</sub> values up to 38.96 [<xref ref-type="bibr" rid="CR53">53</xref>], the per-target cross validation tends to have an over-estimate due to protein homologs between training and test sets [<xref ref-type="bibr" rid="CR60">60</xref>]. We will employ an external DEKOIS 2.0 dataset to evaluate DLIGAND2 and RF-Score-VS separately below.<table-wrap id="Tab5"><label>Table 5</label><caption xml:lang="en"><p>The performance of six scoring functions on the DUD-E dataset</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Scoring functions</p></th><th align="left"><p>LogAUC(%)</p></th><th align="left"><p>EF<sub>1%</sub></p></th><th align="left"><p>EF<sub>5%</sub></p></th><th align="left"><p>EF<sub>10%</sub></p></th></tr></thead><tbody><tr><td align="left"><p>DLIGAND2</p></td><td char="." align="char"><p><italic>10.14</italic></p></td><td char="." align="char"><p><italic>6.67</italic></p></td><td char="." align="char"><p>3.31</p></td><td char="." align="char"><p>2.55</p></td></tr><tr><td align="left"><p>AutoDock Vina</p></td><td char="." align="char"><p>9.96</p></td><td char="." align="char"><p>5.12</p></td><td char="." align="char"><p><italic>3.41</italic></p></td><td char="." align="char"><p><italic>2.60</italic></p></td></tr><tr><td align="left"><p>ΔvinaRF20</p></td><td char="." align="char"><p>9.00</p></td><td char="." align="char"><p>6.38</p></td><td char="." align="char"><p><italic>3.41</italic></p></td><td char="." align="char"><p>2.58</p></td></tr><tr><td align="left"><p>DLIGAND</p></td><td char="." align="char"><p>7.61</p></td><td char="." align="char"><p>4.40</p></td><td char="." align="char"><p>2.74</p></td><td char="." align="char"><p>2.23</p></td></tr><tr><td align="left"><p>X-Score<sup>HM</sup></p></td><td char="." align="char"><p>7.25</p></td><td char="." align="char"><p>4.06</p></td><td char="." align="char"><p>2.68</p></td><td char="." align="char"><p>2.19</p></td></tr><tr><td align="left"><p>ID-Score</p></td><td char="." align="char"><p>2.47</p></td><td char="." align="char"><p>1.61</p></td><td char="." align="char"><p>1.42</p></td><td char="." align="char"><p>1.36</p></td></tr></tbody></table><table-wrap-foot><p>The highest values in each column are labeled italics</p></table-wrap-foot></table-wrap></p>
+            <p id="Par20">To further compare the performance of each scoring function for different protein categories, 102 targets of DUD-E dataset are separated into eight categories and evaluated by the average EF<sub>1%</sub> as shown in Table <xref rid="Tab6" ref-type="table">6</xref>. DLIGAND2 has the highest values of EF<sub>1%</sub> in Cytochrome P450, GPCR, Kinase, and Protease. Especially in the category of GPCR and Kinase, DLIGAND2 has obvious advantages compared with other scoring functions by 2.03 times and 1.42 times better than the second ranked methods (ΔvinaRF<sub>20</sub> and DLIGAND), respectively. By comparison, AutoDock Vina performs the best in the ion channel, and is far superior to DLIGAND. The scoring function ΔvinaRF<sub>20</sub> performs the best in miscellaneous, nuclear receptors and other enzymes. DLIGAND2 doesn’t perform well in targets of kinesin-like protein 1 (KIFF11, miscellaneous) and poly (ADP-ribose) polymerase-1 (PARP1, other enzymes), likely because their binding ligand contains halogen and phosphate elements that don’t appear in training protein chains. Currently, DLIGAND2 simply treats phosphate elements equivalent to the sulfate atom type. This issue may be solved in future study by including additional ligand atoms from protein–ligand complex structures.<table-wrap id="Tab6"><label>Table 6</label><caption xml:lang="en"><p>Enrichment factor values (EF<sub>1%</sub>) by DLIGAND2, AutoDock Vina, ΔvinaRF<sub>20</sub>, DLIGAND, X-Score<sup>HM</sup>, ID-Score on eight protein categories</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" /><th align="left"><p>DLIGAND2</p></th><th align="left"><p>Vina</p></th><th align="left"><p>ΔvinaRF<sub>20</sub></p></th><th align="left"><p>DLIGAND</p></th><th align="left"><p>X-Score<sup>HM</sup></p></th><th align="left"><p>ID-Score</p></th></tr></thead><tbody><tr><td align="left"><p>Cytochrome P450</p></td><td char="." align="char"><p><italic>6.48</italic></p></td><td char="." align="char"><p>1.93</p></td><td char="." align="char"><p>3.77</p></td><td char="." align="char"><p>5.10</p></td><td char="." align="char"><p>3.59</p></td><td char="." align="char"><p>0.56</p></td></tr><tr><td align="left"><p>GPCR</p></td><td char="." align="char"><p><italic>8.46</italic></p></td><td char="." align="char"><p>2.48</p></td><td char="." align="char"><p>4.17</p></td><td char="." align="char"><p>3.79</p></td><td char="." align="char"><p>1.56</p></td><td char="." align="char"><p>1.49</p></td></tr><tr><td align="left"><p>Ion channel</p></td><td char="." align="char"><p>0.84</p></td><td char="." align="char"><p><italic>4.47</italic></p></td><td char="." align="char"><p>3.48</p></td><td char="." align="char"><p>0.51</p></td><td char="." align="char"><p>0.00</p></td><td char="." align="char"><p>0.83</p></td></tr><tr><td align="left"><p>Kinase</p></td><td char="." align="char"><p><italic>10.01</italic></p></td><td char="." align="char"><p>6.10</p></td><td char="." align="char"><p>7.50</p></td><td char="." align="char"><p>4.41</p></td><td char="." align="char"><p>5.93</p></td><td char="." align="char"><p>1.04</p></td></tr><tr><td align="left"><p>Miscellaneous</p></td><td char="." align="char"><p>6.89</p></td><td char="." align="char"><p>5.65</p></td><td char="." align="char"><p><italic>7.82</italic></p></td><td char="." align="char"><p>6.63</p></td><td char="." align="char"><p>4.46</p></td><td char="." align="char"><p>5.36</p></td></tr><tr><td align="left"><p>Nuclear receptors</p></td><td char="." align="char"><p>5.42</p></td><td char="." align="char"><p>9.14</p></td><td char="." align="char"><p><italic>9.57</italic></p></td><td char="." align="char"><p>4.57</p></td><td char="." align="char"><p>4.01</p></td><td char="." align="char"><p>1.69</p></td></tr><tr><td align="left"><p>Other enzymes</p></td><td char="." align="char"><p>3.23</p></td><td char="." align="char"><p>3.88</p></td><td char="." align="char"><p><italic>4.76</italic></p></td><td char="." align="char"><p>2.52</p></td><td char="." align="char"><p>2.64</p></td><td char="." align="char"><p>1.21</p></td></tr><tr><td align="left"><p>Protease</p></td><td char="." align="char"><p><italic>10.16</italic></p></td><td char="." align="char"><p>4.63</p></td><td char="." align="char"><p>6.99</p></td><td char="." align="char"><p>8.65</p></td><td char="." align="char"><p>5.58</p></td><td char="." align="char"><p>2.57</p></td></tr><tr><td align="left"><p>Average</p></td><td char="." align="char"><p><italic>6.43</italic></p></td><td char="." align="char"><p>4.79</p></td><td char="." align="char"><p>6.01</p></td><td char="." align="char"><p>4.52</p></td><td char="." align="char"><p>3.47</p></td><td char="." align="char"><p>1.84</p></td></tr></tbody></table><table-wrap-foot><p>Italic fonts highlight the highest value in each category</p></table-wrap-foot></table-wrap></p>
+            <p id="Par21">Among the best examples of DLIGAND2 performance, we plotted the receiver operating characteristic (ROC) for the case of PTN1 protein (protein-tyrosine phosphatase 1B). As shown in Fig. <xref rid="Fig3" ref-type="fig">3</xref>, DLIGAND2 has the highest area under the curve (AUC) of 0.769, followed by AutoDock Vina (0.75), X-Score (0.729) and DLIGAND (0.639). The differences are more significant at lower false positive rate, the most important region for virtual screening. Indeed, the EF<sub>1%</sub> are 28.89, 9.12, 18.32, 9.33 and 9.33 for DLIGAND2, Autodock Vina, ΔvinaRF20, DLIGAND and X-Score, respectively. The AUC of ID-Score is 0.553, close to 0.5 by the random selection.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>Receiver operating characteristic (ROC) curves for the target PTN1 protein by different scoring methods</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_373_Fig3_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec14">
+            <title>Evaluation results on DEKOIS 2.0 data set</title>
+            <p id="Par22">To compare with the latest RF-Score-VS v2 (<ext-link xlink:href="https://github.com/oddt/oddt" ext-link-type="uri">https://github.com/oddt/oddt</ext-link>) scoring function that was trained on the DUD-E, we have compiled a new dataset from the DEKOIS 2.0 benchmark, with all targets sorted according to their sequence identity to the DUD-E targets according to the blastpgp. Figure <xref rid="Fig4" ref-type="fig">4</xref> plots the average enrichment factor (EF<sub>1%</sub>) as a function of the number of targets sorted according to sequence identity. The average EF<sub>1%</sub> for RF-Score-vs increases as the sequence identity increases, suggesting the performance of RF-Score-VS v2 is strongly depending on similarity to its training set. AutoDock Vina also has some dependence on similarity to DUD-E targets. By comparison, DLIGAND and DLIGAND2 have the least dependence except when the number of targets is low (&lt; 10) likely due to natural fluctuations. DLIGAND2 has the highest performance when homologous targets are excluded for sequence identity less then 30% with an average EF<sub>1%</sub> at 5.72, compared to 2.34 by AutoDock Vina, 2.73 by RF-Score-VS and 3.25 by DLIGAND.<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>The average EF<sub>1%</sub> in the DEKOIS 2.0 benchmark over the number of targets sorted according to their increasing sequence identity (seqid) by blastpgp from the DUD-E targets</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_373_Fig4_HTML.png" /></fig></p>
+          </sec>
+        </sec>
+        <sec id="Sec15" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p id="Par23">We have developed a new knowledge-based scoring function DLIGAND2 by extending to 167 atom types for protein atoms from 13 types in the original DLIGAND. Residue-specific atom types for proteins allow a more accurate description of the interaction of a ligand atom with different residues. To ensure sufficient statistics, DLIGAND2 is based on an updated non-redundant dataset of 12,450 protein chains, 62 times bigger than the dataset (195 structures) used in the original DLIGAND.</p>
+          <p id="Par24">DLIGAND2 consistently improves over DLIGAND in binding affinity prediction using either native or docking-predicted complex structures. The improvement in Pearson correlation coefficient is 8.7% for the CASF-2013 dataset by using native complex structures and 15% for the PDBbind dataset by using predicted complex structures. In addition, DLIGAND2 has significantly higher enrichment than DLIGAND in discriminating true ligands from decoys using the DUD-E dataset according to re-ranking of docked structures. These results suggest the usefulness of expanding protein atomic types in generating the DLIGAND 2 statistical potential.</p>
+          <p id="Par25">DLIGAND2 is the best knowledge-based energy score but not as accurate as a few empirical (X-Score) or machine-learning based (RF-Score-v2 and ID-Score) scores trained by CASF-2013 or PDBbind. The X-Score and ID-Score methods outperform Autodock vina in the CASF-2013 and PDBbind, but they all have lower performance in decoy discrimination, a practically more important problem. We have also shown that the performance of RF-score-vs strongly depends on the sequence identity of the target protein to the dataset for training the method. Though RF-score-vs was reported to perform well in the DUD-E that includes many homologous proteins to its training set, it doesn’t perform well on protein targets that are not homologous to its training set. By comparison, DLIGAND2 was derived from only protein monomer structures, ensuring a balanced performance for all targets. Considering the simplicity and fast computation, DLIGAND2 will be useful for re-scoring after docking, or being included as a term for other scoring functions.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>This project was supported in part by the National Key R&amp;D Program of China (2018YFC0910500, 2017YFB0202600), GD Frontier &amp; Key Tech, Innovation Program (2015B010109004, 2018B010109006, 2019B020228001), the National Natural Science Foundation of China (U1611261, 61772566, 81801132), Guangdong Province Key Area R&amp;D Program (2019B010940001) and the program for Guangdong Introducing Innovative and Entrepreneurial Teams (2016ZT06D211), as well as by Australian Research Council DP180102060 and National Health and Medical Research Council (1121629) of Australia to Y.Z.</p>
+        </ack>
+        <sec sec-type="author-contribution">
+          <title>Authors’ contributions</title>
+          <p>YDY, HYZ, and YQZ coordinated and managed this project. PC implemented the scoring function and conducted the experiments with assistance from YBK, YTL, YFD, JHL, HY. All authors read and approved the final manuscript.</p>
+        </sec>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Manglik</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Lin</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Aryal</surname>
+                    <given-names>DK</given-names>
+                  </name>
+                  <name>
+                    <surname>Mccorvy</surname>
+                    <given-names>JD</given-names>
+                  </name>
+                  <name>
+                    <surname>Dengler</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Corder</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Levit</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Kling</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                  <name>
+                    <surname>Bernat</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>HuBner</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Structure-based discovery of opioid analgesics with reduced side effects</article-title>
+                <source>Nature</source>
+                <year>2016</year>
+                <volume>537</volume>
+                <fpage>185</fpage>
+                <lpage>190</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XhtlKmsbvI</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nature19112</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Valasani</surname>
+                    <given-names>KR</given-names>
+                  </name>
+                  <name>
+                    <surname>Vangavaragu</surname>
+                    <given-names>JR</given-names>
+                  </name>
+                  <name>
+                    <surname>Day</surname>
+                    <given-names>VW</given-names>
+                  </name>
+                  <name>
+                    <surname>Yan</surname>
+                    <given-names>SS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Structure based design, synthesis, pharmacophore modeling, virtual screening, and molecular docking studies for identification of novel cyclophilin D inhibitors</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2014</year>
+                <volume>54</volume>
+                <fpage>902</fpage>
+                <lpage>912</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXivFWgtLs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci5000196</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Singh</surname>
+                    <given-names>AN</given-names>
+                  </name>
+                  <name>
+                    <surname>Baruah</surname>
+                    <given-names>MM</given-names>
+                  </name>
+                  <name>
+                    <surname>Sharma</surname>
+                    <given-names>N</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Structure based docking studies towards exploring potential anti-androgen activity of selected phytochemicals against Prostate Cancer</article-title>
+                <source>Sci Rep</source>
+                <year>2017</year>
+                <volume>7</volume>
+                <fpage>1955</fpage>
+                <pub-id pub-id-type="doi">10.1038/s41598-017-02023-5</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Sun</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Yao</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Tian</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Hou</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comprehensive evaluation of ten docking programs on a diverse set of protein–ligand complexes: the prediction accuracy of sampling power and scoring power</article-title>
+                <source>Phys Chem Chem Phys</source>
+                <year>2016</year>
+                <volume>18</volume>
+                <fpage>12964</fpage>
+                <lpage>12975</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XmvFOns7g%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1039/C6CP01555G</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Han</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comparative assessment of scoring functions on an updated benchmark: 2. Evaluation methods and general results</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2014</year>
+                <volume>54</volume>
+                <fpage>1717</fpage>
+                <lpage>1736</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXls1CrsL0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci500081m</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Han</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhao</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Comparative assessment of scoring functions on an updated benchmark: 1. Compilation of the test set</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2014</year>
+                <volume>54</volume>
+                <fpage>1700</fpage>
+                <lpage>1716</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXlvFensbk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci500080q</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">On classification of current scoring functions</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2015</year>
+                <volume>55</volume>
+                <fpage>475</fpage>
+                <lpage>482</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXhvFGms70%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci500731a</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Aqvist</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Medina</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Samuelsson</surname>
+                    <given-names>JE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A new method for predicting binding affinity in computer-aided drug design</article-title>
+                <source>Protein Eng</source>
+                <year>1994</year>
+                <volume>7</volume>
+                <fpage>385</fpage>
+                <lpage>391</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:STN:280:DyaK2c3jtlSnsw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/protein/7.3.385</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Martin</surname>
+                    <given-names>AF</given-names>
+                  </name>
+                  <name>
+                    <surname>Brandsdal</surname>
+                    <given-names>BRO</given-names>
+                  </name>
+                  <name>
+                    <surname>Johan</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Binding affinity prediction with different force fields: examination of the linear interaction energy method</article-title>
+                <source>J Comput Chem</source>
+                <year>2010</year>
+                <volume>25</volume>
+                <fpage>1242</fpage>
+                <lpage>1254</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Carlson</surname>
+                    <given-names>HA</given-names>
+                  </name>
+                  <name>
+                    <surname>Jorgensen</surname>
+                    <given-names>WL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An extended linear response method for determining free energies of hydration</article-title>
+                <source>J Phys Chem</source>
+                <year>1995</year>
+                <volume>99</volume>
+                <fpage>10667</fpage>
+                <lpage>10673</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2MXmtVyiu7Y%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/j100026a034</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hou</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>W</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Assessing the performance of the MM/PBSA and MM/GBSA methods. 1. The accuracy of binding free energy calculations based on molecular dynamics simulations</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2011</year>
+                <volume>51</volume>
+                <fpage>69</fpage>
+                <lpage>82</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXhsVyrsrrK</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci100275a</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hou</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Wei</surname>
+                    <given-names>W</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Assessing the performance of the MM/PBSA and MM/GBSA methods: II. The accuracy of ranking poses generated from docking</article-title>
+                <source>J Comput Chem</source>
+                <year>2011</year>
+                <volume>32</volume>
+                <fpage>866</fpage>
+                <lpage>877</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXitleisrw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.21666</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sun</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Tian</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Hou</surname>
+                    <given-names>T</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Assessing the performance of MM/PBSA and MM/GBSA methods. 4. Accuracies of MM/PBSA and MM/GBSA methodologies evaluated by various simulation protocols using PDBbind data set</article-title>
+                <source>Phys Chem Chem Phys</source>
+                <year>2014</year>
+                <volume>16</volume>
+                <fpage>16719</fpage>
+                <lpage>16729</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXhtFSltrzI</pub-id>
+                <pub-id pub-id-type="doi">10.1039/C4CP01388C</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Eldridge</surname>
+                    <given-names>MD</given-names>
+                  </name>
+                  <name>
+                    <surname>Murray</surname>
+                    <given-names>CW</given-names>
+                  </name>
+                  <name>
+                    <surname>Auton</surname>
+                    <given-names>TR</given-names>
+                  </name>
+                  <name>
+                    <surname>Paolini</surname>
+                    <given-names>GV</given-names>
+                  </name>
+                  <name>
+                    <surname>Mee</surname>
+                    <given-names>RP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Empirical scoring functions: I. The development of a fast empirical scoring function to estimate the binding affinity of ligands in receptor complexes</article-title>
+                <source>J Comput Aided Mol Des</source>
+                <year>1997</year>
+                <volume>11</volume>
+                <fpage>425</fpage>
+                <lpage>445</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2sXnsV2it7o%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1023/A:1007996124545</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Murray</surname>
+                    <given-names>CW</given-names>
+                  </name>
+                  <name>
+                    <surname>Auton</surname>
+                    <given-names>TR</given-names>
+                  </name>
+                  <name>
+                    <surname>Eldridge</surname>
+                    <given-names>MD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Empirical scoring functions. II. The testing of an empirical scoring function for the prediction of ligand–receptor binding affinities and the use of Bayesian regression to improve the quality of the model</article-title>
+                <source>J Comput Aided Mol Des</source>
+                <year>1998</year>
+                <volume>12</volume>
+                <fpage>503</fpage>
+                <lpage>519</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK1cXnvVCmtr8%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1023/A:1008040323669</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Lai</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Further development and validation of empirical scoring functions for structure-based binding affinity prediction</article-title>
+                <source>J Comput Aided Mol Des</source>
+                <year>2002</year>
+                <volume>16</volume>
+                <fpage>11</fpage>
+                <lpage>26</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XltlSqs7k%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1023/A:1016357811882</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Friesner</surname>
+                    <given-names>RA</given-names>
+                  </name>
+                  <name>
+                    <surname>Banks</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                  <name>
+                    <surname>Murphy</surname>
+                    <given-names>RB</given-names>
+                  </name>
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                  <name>
+                    <surname>Klicic</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Mainz</surname>
+                    <given-names>DT</given-names>
+                  </name>
+                  <name>
+                    <surname>Repasky</surname>
+                    <given-names>MP</given-names>
+                  </name>
+                  <name>
+                    <surname>Knoll</surname>
+                    <given-names>EH</given-names>
+                  </name>
+                  <name>
+                    <surname>Shelley</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Perry</surname>
+                    <given-names>JK</given-names>
+                  </name>
+                  <name>
+                    <surname>Shaw</surname>
+                    <given-names>DE</given-names>
+                  </name>
+                  <name>
+                    <surname>Francis</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Shenkin</surname>
+                    <given-names>PS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Glide: a new approach for rapid, accurate docking and scoring. 1. Method and assessment of docking accuracy</article-title>
+                <source>J Med Chem</source>
+                <year>2004</year>
+                <volume>47</volume>
+                <fpage>1739</fpage>
+                <lpage>1749</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhsFyit74%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm0306430</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Halgren</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                  <name>
+                    <surname>Murphy</surname>
+                    <given-names>RB</given-names>
+                  </name>
+                  <name>
+                    <surname>Friesner</surname>
+                    <given-names>RA</given-names>
+                  </name>
+                  <name>
+                    <surname>Beard</surname>
+                    <given-names>HS</given-names>
+                  </name>
+                  <name>
+                    <surname>Frye</surname>
+                    <given-names>LL</given-names>
+                  </name>
+                  <name>
+                    <surname>Pollard</surname>
+                    <given-names>WT</given-names>
+                  </name>
+                  <name>
+                    <surname>Banks</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Glide: a new approach for rapid, accurate docking and scoring. 2. Enrichment factors in database screening</article-title>
+                <source>J Med Chem</source>
+                <year>2004</year>
+                <volume>47</volume>
+                <fpage>1750</fpage>
+                <lpage>1759</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhsFyit78%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm030644s</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ballester</surname>
+                    <given-names>PJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Mitchell</surname>
+                    <given-names>JBO</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A machine learning approach to predicting protein–ligand binding affinity with applications to molecular docking</article-title>
+                <source>Bioinformatics</source>
+                <year>2010</year>
+                <volume>26</volume>
+                <fpage>1169</fpage>
+                <lpage>1175</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXlt1Cjs78%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/btq112</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>GB</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>LL</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>LL</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>SY</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ID-Score: a new empirical scoring function based on a comprehensive set of descriptors related to protein–ligand interactions</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2013</year>
+                <volume>53</volume>
+                <fpage>592</fpage>
+                <lpage>600</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXit1Sqsbg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci300493w</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Khanna</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Jo</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Ashpole</surname>
+                    <given-names>NM</given-names>
+                  </name>
+                  <name>
+                    <surname>Hudmon</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Meroueh</surname>
+                    <given-names>SO</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Target-specific support vector machine scoring in structure-based virtual screening: computational validation, in vitro testing in kinases, and effects on lung cancer cell proliferation</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2011</year>
+                <volume>51</volume>
+                <fpage>755</fpage>
+                <lpage>759</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXjvVSisbY%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci100490w</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="other">Zheng S, Li Y, Chen S, Xu J, Yang Y (2019) Predicting drug protein interaction using quasi-visual question answering system. <ext-link xlink:href="http://bioRxiv.org/abs/588178" ext-link-type="uri">http://bioRxiv.org/abs/588178</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gabel</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Desaphy</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Rognan</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Beware of machine learning-based scoring functions-on the danger of developing black boxes</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2014</year>
+                <volume>54</volume>
+                <fpage>2807</fpage>
+                <lpage>2815</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXhsFWjsrfK</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci500406k</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>DeWitte</surname>
+                    <given-names>RS</given-names>
+                  </name>
+                  <name>
+                    <surname>Shakhnovich</surname>
+                    <given-names>EI</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SMoG: de novo design method based on simple, fast, and accurate free energy estimates. 1. Methodology and supporting evidence</article-title>
+                <source>J Am Chem Soc</source>
+                <year>1996</year>
+                <volume>118</volume>
+                <fpage>11733</fpage>
+                <lpage>11744</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28Xms1OjtLc%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ja960751u</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Grzybowski</surname>
+                    <given-names>BA</given-names>
+                  </name>
+                  <name>
+                    <surname>Ishchenko</surname>
+                    <given-names>AV</given-names>
+                  </name>
+                  <name>
+                    <surname>Shimada</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Shakhnovich</surname>
+                    <given-names>EI</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">From knowledge-based potentials to combinatorial lead design in silico</article-title>
+                <source>Acc Chem Res</source>
+                <year>2002</year>
+                <volume>35</volume>
+                <fpage>261</fpage>
+                <lpage>269</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XjtFahtrg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ar970146b</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Velec</surname>
+                    <given-names>HFG</given-names>
+                  </name>
+                  <name>
+                    <surname>Gohlke</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Klebe</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">DrugScore<sup>CSD</sup>Knowledge-Based Scoring Function derived from small molecule crystal data with superior recognition rate of near-native ligand poses and better affinity prediction</article-title>
+                <source>J Med Chem</source>
+                <year>2005</year>
+                <volume>48</volume>
+                <fpage>6296</fpage>
+                <lpage>6303</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXpslWrsbo%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm050436v</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Zou</surname>
+                    <given-names>X</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An iterative knowledge-based scoring function to predict protein–ligand interactions: I. Derivation of interaction potentials</article-title>
+                <source>J Comput Chem</source>
+                <year>2006</year>
+                <volume>27</volume>
+                <fpage>1866</fpage>
+                <lpage>1875</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XhtFenu7fI</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.20504</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Zou</surname>
+                    <given-names>X</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An iterative knowledge-based scoring function to predict protein–ligand interactions: II. Validation of the scoring function</article-title>
+                <source>J Comput Chem</source>
+                <year>2006</year>
+                <volume>27</volume>
+                <fpage>1876</fpage>
+                <lpage>1882</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XhtFenu7fJ</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.20505</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mooij</surname>
+                    <given-names>WTM</given-names>
+                  </name>
+                  <name>
+                    <surname>Verdonk</surname>
+                    <given-names>ML</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">General and targeted statistical potentials for protein–ligand interactions</article-title>
+                <source>Proteins</source>
+                <year>2005</year>
+                <volume>61</volume>
+                <fpage>272</fpage>
+                <lpage>287</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXhtFSrsbfJ</pub-id>
+                <pub-id pub-id-type="doi">10.1002/prot.20588</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Neudert</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Klebe</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">DSX: a knowledge-based scoring function for the assessment of protein–ligand complexes</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2011</year>
+                <volume>51</volume>
+                <fpage>2731</fpage>
+                <lpage>2745</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXht1Ggtb3K</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci200274q</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Debroise</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Shakhnovich</surname>
+                    <given-names>EI</given-names>
+                  </name>
+                  <name>
+                    <surname>Chéron</surname>
+                    <given-names>N</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A hybrid knowledge-based and empirical scoring function for protein–ligand interaction: SMoG2016</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2017</year>
+                <volume>57</volume>
+                <fpage>584</fpage>
+                <lpage>593</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXisVOqsrs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.6b00610</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Zou</surname>
+                    <given-names>X</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Inclusion of solvation and entropy in the knowledge-based scoring function for protein–ligand interactions</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2010</year>
+                <volume>50</volume>
+                <fpage>262</fpage>
+                <lpage>273</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXnvFWluw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci9002987</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhou</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhou</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Distance-scaled, finite ideal-gas reference state improves structure-derived potentials of mean force for structure selection and stability prediction</article-title>
+                <source>Protein Sci</source>
+                <year>2002</year>
+                <volume>11</volume>
+                <fpage>2714</fpage>
+                <lpage>2726</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XotFelurw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1110/ps.0217002</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhou</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Ab initio folding of terminal segments with secondary structures reveals the fine difference between two closely related all-atom statistical energy functions</article-title>
+                <source>Protein Sci</source>
+                <year>2008</year>
+                <volume>17</volume>
+                <fpage>1212</fpage>
+                <lpage>1219</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXot1ehs7k%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1110/ps.033480.107</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhao</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhou</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Structure-based prediction of DNA-binding proteins by structural alignment and a volume-fraction corrected DFIRE-based energy function</article-title>
+                <source>Bioinformatics</source>
+                <year>2010</year>
+                <volume>26</volume>
+                <fpage>1857</fpage>
+                <lpage>1863</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXptV2iu7o%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/btq295</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhao</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhou</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Structure-based prediction of RNA-binding domains and RNA-binding sites and application to structural genomics targets</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2011</year>
+                <volume>39</volume>
+                <fpage>3017</fpage>
+                <lpage>3025</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXlsFKhtLY%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkq1266</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhao</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>von Itzstein</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhou</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Carbohydrate-binding protein identification by coupling structural similarity searching with binding affinity prediction</article-title>
+                <source>J Comput Chem</source>
+                <year>2014</year>
+                <volume>35</volume>
+                <fpage>2177</fpage>
+                <lpage>2183</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXhsFCis77O</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.23730</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Liu</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhu</surname>
+                    <given-names>QQ</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhou</surname>
+                    <given-names>YQ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A knowledge-based energy function for protein–ligand, protein–protein, and protein–DNA complexes</article-title>
+                <source>J Med Chem</source>
+                <year>2005</year>
+                <volume>48</volume>
+                <fpage>2325</fpage>
+                <lpage>2335</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXhtlSqtbc%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm049314d</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hanson</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Paliwal</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Litfin</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhou</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Accurate prediction of protein contact maps by coupling residual two-dimensional bidirectional long short-term memory with convolutional neural networks</article-title>
+                <source>Bioinformatics</source>
+                <year>2018</year>
+                <volume>34</volume>
+                <fpage>4039</fpage>
+                <lpage>4045</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1MXhtFWrs7rJ</pub-id>
+                <pub-id pub-id-type="pmid">29931279</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Liang</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhou</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An all-atom knowledge-based energy function for protein–DNA threading, docking decoy discrimination, and prediction of transcription-factor binding profiles</article-title>
+                <source>Proteins Struct Funct Bioinform</source>
+                <year>2010</year>
+                <volume>76</volume>
+                <fpage>718</fpage>
+                <lpage>730</lpage>
+                <pub-id pub-id-type="doi">10.1002/prot.22384</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Fang</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Yipin</surname>
+                    <given-names>LuA</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The PDBbind database: collection of binding affinities for protein–ligand complexes with known three-dimensional structures</article-title>
+                <source>J Med Chem</source>
+                <year>2004</year>
+                <volume>47</volume>
+                <fpage>2977</fpage>
+                <lpage>2980</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXjs1Sjs74%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm030580l</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Morris</surname>
+                    <given-names>GM</given-names>
+                  </name>
+                  <name>
+                    <surname>Huey</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Lindstrom</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Sanner</surname>
+                    <given-names>MF</given-names>
+                  </name>
+                  <name>
+                    <surname>Belew</surname>
+                    <given-names>RK</given-names>
+                  </name>
+                  <name>
+                    <surname>Goodsell</surname>
+                    <given-names>DS</given-names>
+                  </name>
+                  <name>
+                    <surname>Olson</surname>
+                    <given-names>AJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">AutoDock4 and AutoDockTools4: automated docking with selective receptor flexibility</article-title>
+                <source>J Comput Chem</source>
+                <year>2009</year>
+                <volume>30</volume>
+                <fpage>2785</fpage>
+                <lpage>2791</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXht1GitrnK</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.21256</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Trott</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Olson</surname>
+                    <given-names>AJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">AutoDock Vina: improving the speed and accuracy of docking with a new scoring function, efficient optimization, and multithreading</article-title>
+                <source>J Comput Chem</source>
+                <year>2010</year>
+                <volume>31</volume>
+                <fpage>455</fpage>
+                <lpage>461</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXhsFGnur3O</pub-id>
+                <pub-id pub-id-type="pmid">19499576</pub-id>
+                <pub-id pub-id-type="pmcid">3041641</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ruizcarmona</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Alvarezgarcia</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Foloppe</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Garmendiadoval</surname>
+                    <given-names>AB</given-names>
+                  </name>
+                  <name>
+                    <surname>Juhos</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Schmidtke</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Barril</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Hubbard</surname>
+                    <given-names>RE</given-names>
+                  </name>
+                  <name>
+                    <surname>Morley</surname>
+                    <given-names>SD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">rDock: a fast, versatile and open source program for docking ligands to proteins and nucleic acids</article-title>
+                <source>PLoS Comput Biol</source>
+                <year>2014</year>
+                <volume>10</volume>
+                <issue>4</issue>
+                <fpage>e1003571</fpage>
+                <pub-id pub-id-type="doi">10.1371/journal.pcbi.1003571</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhao</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Caflisch</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Discovery of ZAP70 inhibitors by high-throughput docking into a conformation of its kinase domain generated by molecular dynamics</article-title>
+                <source>Bioorg Med Chem Lett</source>
+                <year>2013</year>
+                <volume>23</volume>
+                <fpage>5721</fpage>
+                <lpage>5726</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXhtlOrsbvK</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.bmcl.2013.08.009</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR46">
+              <label>46.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jiang</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Rizzo</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Pharmacophore-based similarity scoring for DOCK</article-title>
+                <source>J Phys Chem B</source>
+                <year>2015</year>
+                <volume>119</volume>
+                <fpage>1083</fpage>
+                <lpage>1102</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXhsFKns7nJ</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jp506555w</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR47">
+              <label>47.</label>
+              <mixed-citation publication-type="other">Li H, Leung KS, Wong MH (2012) idock: a multithreaded virtual screening tool for flexible ligand docking. In: IEEE symposium on computational intelligence in bioinformatics &amp; computational biology. pp 77–84</mixed-citation>
+            </ref>
+            <ref id="CR48">
+              <label>48.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Baek</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Shin</surname>
+                    <given-names>WH</given-names>
+                  </name>
+                  <name>
+                    <surname>Chung</surname>
+                    <given-names>HW</given-names>
+                  </name>
+                  <name>
+                    <surname>Seok</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">GalaxyDock BP2 score: a hybrid scoring function for accurate protein–ligand docking</article-title>
+                <source>J Comput Aided Mol Des</source>
+                <year>2017</year>
+                <volume>31</volume>
+                <fpage>1</fpage>
+                <lpage>14</lpage>
+                <pub-id pub-id-type="doi">10.1007/s10822-017-0030-9</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR49">
+              <label>49.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Shin</surname>
+                    <given-names>WH</given-names>
+                  </name>
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>JK</given-names>
+                  </name>
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>DS</given-names>
+                  </name>
+                  <name>
+                    <surname>Seok</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">GalaxyDock2: protein–ligand docking using beta-complex and global optimization</article-title>
+                <source>J Comput Chem</source>
+                <year>2013</year>
+                <volume>34</volume>
+                <fpage>2647</fpage>
+                <lpage>2656</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXhsF2ntrbL</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.23438</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR50">
+              <label>50.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>CC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">GEMDOCK: a generic evolutionary method for molecular docking</article-title>
+                <source>Proteins Struct Funct Bioinform</source>
+                <year>2004</year>
+                <volume>55</volume>
+                <fpage>288</fpage>
+                <lpage>304</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXjtFKhsro%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/prot.20035</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR51">
+              <label>51.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mysinger</surname>
+                    <given-names>MM</given-names>
+                  </name>
+                  <name>
+                    <surname>Carchia</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Irwin</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Shoichet</surname>
+                    <given-names>BK</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Directory of useful decoys, enhanced (DUD-E): better ligands and decoys for better benchmarking</article-title>
+                <source>J Med Chem</source>
+                <year>2012</year>
+                <volume>55</volume>
+                <fpage>6582</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XovFaku7c%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm300687e</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR52">
+              <label>52.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Litfin</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhou</surname>
+                    <given-names>YQ</given-names>
+                  </name>
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>YD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SPOT-ligand 2: improving structure-based virtual screening by binding-homology search on an expanded structural template library</article-title>
+                <source>Bioinformatics</source>
+                <year>2017</year>
+                <volume>2017</volume>
+                <fpage>1238</fpage>
+                <lpage>1240</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR53">
+              <label>53.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Yang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhan</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhou</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SPOT-ligand: fast and effective structure-based virtual screening by binding homology search according to ligand and receptor similarity</article-title>
+                <source>J Comput Chem</source>
+                <year>2016</year>
+                <volume>37</volume>
+                <fpage>1734</fpage>
+                <lpage>1739</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XmtFakt7Y%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.24380</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR54">
+              <label>54.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wójcikowski</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Ballester</surname>
+                    <given-names>PJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Siedlecki</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Performance of machine-learning scoring functions in structure-based virtual screening</article-title>
+                <source>Sci Rep</source>
+                <year>2017</year>
+                <volume>7</volume>
+                <fpage>46710</fpage>
+                <pub-id pub-id-type="doi">10.1038/srep46710</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR55">
+              <label>55.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bauer</surname>
+                    <given-names>MR</given-names>
+                  </name>
+                  <name>
+                    <surname>Ibrahim</surname>
+                    <given-names>TM</given-names>
+                  </name>
+                  <name>
+                    <surname>Vogel</surname>
+                    <given-names>SM</given-names>
+                  </name>
+                  <name>
+                    <surname>Boeckler</surname>
+                    <given-names>FM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Evaluation and optimization of virtual screening workflows with DEKOIS 2.0—a public library of challenging docking benchmark sets</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2013</year>
+                <volume>53</volume>
+                <fpage>1447</fpage>
+                <lpage>1462</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXot1SqsrY%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci400115b</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR56">
+              <label>56.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Altschul</surname>
+                    <given-names>SF</given-names>
+                  </name>
+                  <name>
+                    <surname>Madden</surname>
+                    <given-names>TL</given-names>
+                  </name>
+                  <name>
+                    <surname>Schäffer</surname>
+                    <given-names>AA</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Miller</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Lipman</surname>
+                    <given-names>DJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Gapped BLAST and PSI-BLAST: a new generation of protein database search programs</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>1997</year>
+                <volume>25</volume>
+                <fpage>3389</fpage>
+                <lpage>3402</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2sXlvFyhu7w%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/25.17.3389</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR57">
+              <label>57.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ballester</surname>
+                    <given-names>PJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Schreyer</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Blundell</surname>
+                    <given-names>TL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Does a more precise chemical description of protein–ligand complexes lead to more accurate prediction of binding affinity?</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2014</year>
+                <volume>54</volume>
+                <fpage>944</fpage>
+                <lpage>955</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXisFahtL4%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci500091r</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR58">
+              <label>58.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Improving scoring-docking-screening powers of protein–ligand scoring functions using random forest</article-title>
+                <source>J Comput Chem</source>
+                <year>2016</year>
+                <volume>2017</volume>
+                <fpage>169</fpage>
+                <lpage>177</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR59">
+              <label>59.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Leung</surname>
+                    <given-names>KS</given-names>
+                  </name>
+                  <name>
+                    <surname>Wong</surname>
+                    <given-names>MH</given-names>
+                  </name>
+                  <name>
+                    <surname>Ballester</surname>
+                    <given-names>PJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Correcting the impact of docking pose generation error on binding affinity prediction</article-title>
+                <source>BMC Bioinform</source>
+                <year>2016</year>
+                <volume>17</volume>
+                <fpage>308</fpage>
+                <pub-id pub-id-type="doi">10.1186/s12859-016-1169-4</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR60">
+              <label>60.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Folkman</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Stantic</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Sattar</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhou</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">EASE-MM: sequence-based prediction of mutation-induced stability changes with feature-based multiple models</article-title>
+                <source>J Mol Biol</source>
+                <year>2016</year>
+                <volume>428</volume>
+                <fpage>1394</fpage>
+                <lpage>1405</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XhsFKmsrg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.jmb.2016.01.012</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec16">
+              <title>Additional files</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Additional files">
+                  <media mimetype="text" mime-subtype="plain" xlink:href="MediaObjects/13321_2019_373_MOESM1_ESM.txt" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0373-4" ext-link-type="uri">Additional file 1: Table S1.</ext-link> Showed 13 mol2 atom types mapped to 167 residue-specific atom types for protein atoms.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM2" xlink:title="Additional files">
+                  <media mimetype="text" mime-subtype="plain" xlink:href="MediaObjects/13321_2019_373_MOESM2_ESM.txt" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0373-4" ext-link-type="uri">Additional file 2: Table S2.</ext-link> It contained the list of the 4044 complexes collected from PDBind refined data set.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM3" xlink:title="Additional files">
+                  <media mimetype="text" mime-subtype="plain" xlink:href="MediaObjects/13321_2019_373_MOESM3_ESM.txt" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0373-4" ext-link-type="uri">Additional file 3: Table S3.</ext-link> The EF<sub>1%</sub> values of four scoring functions on DEKOIS 2.0 data set are shown.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM4" xlink:title="Additional files">
+                  <media mimetype="text" mime-subtype="plain" xlink:href="MediaObjects/13321_2019_373_MOESM4_ESM.txt" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0373-4" ext-link-type="uri">Additional file 4: Table S4.</ext-link> The logAUC and EF (1%, 5% and 10%) values of six scoring functions on the DUD-E dataset are listed.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+          </app>
+        </app-group>
+        <notes notes-type="Misc">
+          <title>Publisher's Note</title>
+          <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+        </notes>
+      </back>
+    </article>

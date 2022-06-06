@@ -1,0 +1,1935 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0356-5</article-id>
+          <article-id pub-id-type="manuscript">356</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0356-5</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Leveraging heterogeneous data from GHS toxicity annotations, molecular and protein target descriptors and Tox21 assay readouts to predict and rationalise acute toxicity</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" id="Au1">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-7289-6529</contrib-id>
+              <name>
+                <surname>Allen</surname>
+                <given-names>Chad H. G.</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au2">
+              <name>
+                <surname>Mervin</surname>
+                <given-names>Lewis H.</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au3">
+              <name>
+                <surname>Mahmoud</surname>
+                <given-names>Samar Y.</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au4">
+              <name>
+                <surname>Bender</surname>
+                <given-names>Andreas</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDs1332101903565_cor4">d</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution content-type="org-division">Department of Chemistry</institution>
+                <institution content-type="org-name">Centre for Molecular Informatics</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Lensfield Road</addr-line>
+              <addr-line content-type="postcode">CB2 1EW</addr-line>
+              <addr-line content-type="city">Cambridge</addr-line>
+              <country country="GB">UK</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs1332101903565_cor4">
+              <label>d</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>31</day>
+            <month>5</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="36">1</issue>
+          <elocation-id>36</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>15</day>
+              <month>5</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>3</day>
+              <month>12</month>
+              <year>2018</year>
+            </date>
+            <date date-type="accepted">
+              <day>15</day>
+              <month>5</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>31</day>
+              <month>5</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">Despite the increasing knowledge in both the chemical and biological domains the assimilation and exploration of heterogeneous datasets, encoding information about the chemical, bioactivity and phenotypic properties of compounds, remains a challenge due to requirement for overlap between chemicals assayed across the spaces. Here, we have constructed a novel dataset, larger than we have used in prior work, comprising 579 acute oral toxic compounds and 1427 non-toxic compounds derived from regulatory GHS information, along with their corresponding molecular and protein target descriptors and qHTS in vitro assay readouts from the Tox21 project. We found no clear association between the results of a FAFDrugs4 toxicophore screen and the acute oral toxicity classifications for our compound set; and a screen using a subset of the ToxAlerts toxicophores was also of limited utility, with only slight enrichment toward the toxic set (odds ratio of 1.48). We then investigated to what degree toxic and non-toxic compounds could be separated in each of the spaces, to compare their potential contribution to further analyses. Using an LDA projection, we found the largest degree of separation using chemical descriptors (Cohen’s <italic>d</italic> of 1.95) and the lowest degree of separation between toxicity classes using qHTS descriptors (Cohen’s <italic>d</italic> of 0.67). To compare the predictivity of the feature spaces for the toxicity endpoint, we next trained Random Forest (RF) acute oral toxicity classifiers on either molecular, protein target and qHTS descriptors. RFs trained on molecular and protein target descriptors were most predictive, with ROC AUC values of 0.80–0.92 and 0.70–0.85, respectively, across three test sets. RFs trained on both chemical and protein target descriptors combined exhibited similar predictive performance to the single-domain models (ROC AUC of 0.80–0.91). Model interpretability was improved by the inclusion of protein target descriptors, which allow the identification of specific targets (e.g. Retinal dehydrogenase) with literature links to toxic modes of action (e.g. oxidative stress). The dataset compiled in this study has been made available for future application.</p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Computational toxicology</kwd>
+            <kwd>Target prediction</kwd>
+            <kwd>Quantitative high-throughput screening</kwd>
+            <kwd>Heterogeneous data</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>European Chemical Industry Council (BE)</institution>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">CEFIC LRI Award 2012</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Bender</surname>
+                  <given-names>Andreas</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>5</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>15</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_356.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (<ext-link xlink:href="10.1186/s13321-019-0356-5" ext-link-type="doi">https://doi.org/10.1186/s13321-019-0356-5</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1" sec-type="introduction">
+          <title>Introduction</title>
+          <p id="Par10">There are two competing pressures in contemporary chemical risk-assessment. On the one hand, there is increased demand for safety data, for example under the EU’s REACH regulations firms are obliged to submit detailed risk and hazard notifications to the EU for any substance they introduce in significant quantity [<xref ref-type="bibr" rid="CR1">1</xref>]. On the other hand, there is decreased regulatory and societal acceptance of large-scale traditional in vivo toxicity studies on animals; moreover, on a practical level, covering the vast regions of chemical space requiring toxicity data using the traditional in vivo toxicological techniques would be too time- and resource-intensive to be feasible [<xref ref-type="bibr" rid="CR2">2</xref>]. The consequence of these pressures is an increased demand for novel methodologies to complement and in some cases replace in vivo studies, including in silico computational toxicology techniques.</p>
+          <p id="Par11">Conventional in silico approaches for toxicity prediction include quantitative structure–toxicity relationship modelling, analogous to quantitative structure–activity relationship (QSAR) modelling, whereby machine learning technologies are applied to derive a regression or classification function that maps from chemical structures to their in vivo effect [<xref ref-type="bibr" rid="CR3">3</xref>]. These approaches have been extensively applied in the domain of toxicity prediction, with some success in cytotoxicity [<xref ref-type="bibr" rid="CR4">4</xref>, <xref ref-type="bibr" rid="CR5">5</xref>], hepatotoxicity [<xref ref-type="bibr" rid="CR6">6</xref>] and off-target effect prediction [<xref ref-type="bibr" rid="CR7">7</xref>].</p>
+          <p id="Par12">An extension of this approach is the integration of high-throughput in vitro screening data and/or protein target annotations into predictive toxicity modelling. In comparison to toxicity prediction methods that only utilise toxicity structure/structural alerts data alone to provide a prediction [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR8">8</xref>] these heterogenous approach operate under the hypothesis that chemical, protein target, and phenotypic data domains each contribute partially independent and therefore complementary information about the potential toxic effects of a compound in vivo, and that utilising them in combination may therefore improve the performance of predictive models. Sedykh et al. [<xref ref-type="bibr" rid="CR9">9</xref>] showed that enhancing a QSAR-style toxicity model with in vitro qHTS data improved its performance. This technique was recently reviewed by Low et al. [<xref ref-type="bibr" rid="CR10">10</xref>], who, while noting mixed success in its application thus far, expressed optimism that the approach would play a greater role in future of toxicology and drug discovery as the data and expertise required to implement such techniques become more available.</p>
+          <p id="Par13">In a previous study [<xref ref-type="bibr" rid="CR11">11</xref>], we extended this approach by augmenting the dataset of Sedykh et al. with protein target descriptors corresponding to the likelihood of a ligand-target interaction derived from a Bayesian prediction model, representing protein target affinity predictions, and investigated the performance of Random Forest classification models trained to predict binary toxicity classes using successive integration of data domains. We found that, for this data set, inclusion of heterogeneous data domains did indeed generally tend to improve model performance—with a models trained using all three descriptor domains outperforming other combinations of descriptors, with an average correct classification rate (CCR), defined as the mean of sensitivity (true positive rate) and specificity (true negative rate) and also called the balanced accuracy, of 0.82 compared to 0.80 for the next-best model. Models showed the most improvement when chemical descriptors were added to a model which previously lacked them. We also found that the improvement over chemistry-only models was a consequence of more accurate extrapolation of the models’ applicability domain into wider chemical space. However, this study concerned only one small dataset (367 compounds).</p>
+          <p id="Par14">Despite the significant increase in data available in the chemical and biological domains, the development of models using several heterogenous data domains still represents a significant challenge. This is due to the collation of a suitable set, given that compounds must simultaneously possess readouts with overlap across several data types, e.g. the structural, bioactivity, phenotypic readout, and toxicological domains (or a subset thereof). In this study, we hence made use of the wealth of toxicity data made available through the Globally Harmonized System of Classification and Labelling (GHS) in order to maximise the overlap of the ToxCast and Tox21 chemical library [<xref ref-type="bibr" rid="CR12">12</xref>] with a toxicity classification for modelling.</p>
+          <p id="Par15">The Globally Harmonized System of Classification and Labelling (GHS) [<xref ref-type="bibr" rid="CR13">13</xref>] is an international framework for standardising chemical health and safety information. The GHS encompasses a broad spectrum of physical, health and environmental hazards; pertinently for the purposes of this study, this includes the collation of the outcomes of independent toxicity assessments into a set of categories corresponding to the severity of the exhibited toxicity. For three routes of exposure (dermal, inhalation and oral) five categories are defined, each corresponding to a quantitative median lethal dose (LD<sub>50</sub>) interval specified in mg/kg, ppmV or mg/l as appropriate, with the three most severe categories (1–3) necessitating a “toxic” label, category 4 necessitating a “harmful” label, and category 5 requiring no label. The European Chemicals Agency (ECHA), Japan’s National Institute of Technology and Evaluation (JP NITE), New Zealand’s Environmental Protection Authority (NZ EPA) and Safe Work Australia (SWA) provide public access via their websites to governmentally mandated or recommended acute toxicity classifications under the GHS. Further, ECHA publishes the industrial submissions it receives under the requirements of the EU legislation, which include declaring GHS classifications. This data takes the form of the number of notifications received for each GHS hazard category, along with the total number of notifications received. The common classification standards provided by the GHS system enable the collation of acute oral toxicity data from all of these resources with the confidence that the data they hold are mutually commensurate by design. Apart from the ability to look up information on individual compounds, this also represents a valuable means of annotating large compound sets with toxicity labels as performed in this work. The ECHA database has been previously identified as suitable for toxicological data analysis [<xref ref-type="bibr" rid="CR14">14</xref>], and GHS categories have been used as a framework for defining toxicity thresholds for predictive modelling [<xref ref-type="bibr" rid="CR15">15</xref>].</p>
+          <p id="Par16">In the present study, we annotated 3336 of 8540 standardized chemical structures from the ToxCast and Tox21 chemical library [<xref ref-type="bibr" rid="CR16">16</xref>] with toxicity classifications derived from regulatory GHS information. We compared the overlap of this compound set with each GHS data source, and the correlations between the sources, and investigated the degree to which GHS-derived toxicity classifications could be discriminated through substructure based screens. We then derived three sets of descriptors for our compounds: molecular descriptors from MOE [<xref ref-type="bibr" rid="CR17">17</xref>]; in silico-derived protein-target descriptors using an in-house Random Forest ligand-target prediction algorithm [<xref ref-type="bibr" rid="CR18">18</xref>]; and qHTS activity scores taken from the Tox21 assays disseminated via PubChem [<xref ref-type="bibr" rid="CR19">19</xref>]. We sought to compare how the GHS toxicity classifications related to these three descriptor sets through analysing the nearest-neighbour distance distributions and linear discrimination analysis projections using the chemical and protein-target descriptors, and the Tox21 qHTS assay data. Finally, we defined and applied three training-test set splits (one random, and two designed to be more challenging) to build and assess the performance of Random Forest classifiers on using these different descriptor sets, and analysed the effect of the inclusion of the different combinations of heterogeneous descriptors on model interpretability.</p>
+        </sec>
+        <sec id="Sec2" sec-type="materials|methods">
+          <title>Materials and methods</title>
+          <sec id="Sec3">
+            <title>Dataset collation</title>
+            <p id="Par17">For this study, we required compound data for structures, targets, in vitro results, and a toxicity endpoint, which necessitated data collation from multiple sources. To this end, we were able to collate a dataset of 3055 compounds, each of which was annotated with: (1) a chemical structure in SMILES format, from which 2D molecular descriptors were calculated using MOE; (2) qHTS assay results from the Tox21 project published via PubChem; (3) protein target descriptors, representing probabilities of bioactivity against 109 human protein targets; and (4) regulator-derived GHS acute toxicity categorisation for oral, dermal and inhalation exposure routes.</p>
+            <p id="Par18">Our starting point was the full ToxCast &amp; Tox21 chemical library [<xref ref-type="bibr" rid="CR12">12</xref>, <xref ref-type="bibr" rid="CR20">20</xref>], as made available for download on the website of the United States’ Environmental Protection Agency [<xref ref-type="bibr" rid="CR16">16</xref>]. From this, we discarded all compounds which (a) were labelled as “Mixture/Formulation”, “Polymer” or “Macromolecule” in the “Substance_Type” field, or (b) did not possess a CAS registry number (required to lookup GHS categories in regulatory databases). SMILES strings were downloaded from PubChem for any remaining compounds which did not already possess them using the PubChem substance IDs provided or else the CAS registry numbers. This process yielded a set of 8540 compounds for which GHS toxicity annotations could be sought.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>GHS category annotation</title>
+            <p id="Par19">Authoritative GHS categorisations were derived from four regulatory classification databases: the harmonized classifications present in ECHA’s Classification and Labelling Inventory [<xref ref-type="bibr" rid="CR21">21</xref>], the NZ EPA’s Classification and Information Database [<xref ref-type="bibr" rid="CR22">22</xref>], the GHS classification results published by JP NITE [<xref ref-type="bibr" rid="CR23">23</xref>], and SWA’s Hazardous Chemicals Information [<xref ref-type="bibr" rid="CR24">24</xref>]. (Note that while the classifications provided by the NZ EPA are not strictly GHS classifications, the two systems are standardized [<xref ref-type="bibr" rid="CR25">25</xref>] such that the conversion of the acute toxicity categories to GHS categories is trivial). The authoritative classifications from ECHA, JP NITE and NZ EPA were accessed through the OECD’s eChemPortal service [<xref ref-type="bibr" rid="CR26">26</xref>] via the CAS registry numbers of compounds; classifications from ECHA and JP NITE were provided directly by eChemPortal, while classifications from NZ EPA were indirectly provided via a link to the compound’s entry on the NZ EPA website. Classification data from SWA were not accessible via eChemPortal, but rather were downloaded directly from the SWA website as a flat file and once again matched to compounds via CAS registry numbers.</p>
+            <p id="Par20">There are five acute toxicity categories defined by the GHS, ranging between category 1 (most severe) to category 5 (least severe). However, there is no acute toxicity GHS category directly representing general non-toxicity, since even the least-toxic category represents a closed LD<sub>50</sub> interval [<xref ref-type="bibr" rid="CR13">13</xref>]. We have therefore employed the concept of “implied nontoxicity” to ensure sufficient nontoxic compounds were included in the dataset: as GHS classifications are intended to provide a complete and comprehensive overview of a chemical’s hazards, <italic>presence</italic> of a substance in a GHS database and <italic>absence</italic> of an acute toxicity category implies, according to our rationale, nontoxicity. Therefore, we have treated any compound which is present in an authoritative GHS classification database, but which is not categorised under acute toxicity for that administration route, as an implied nontoxic for that administration route. Overall, GHS acute toxicity classifications (including implied nontoxic classifications) from authoritative databases were found for 2770 compounds.</p>
+            <p id="Par21">For the remaining 5770 compounds, a GHS categorisation was instead sought using the industrial notifications submitted to ECHA’s Classification and Labelling inventory. Again, eChemPortal was used to connect a CAS registry number to an entry in the ECHA inventory. To minimize the impact of false positives when utilising industrial notification data, no categorisation was applied unless at least 10% of all notifications included that categorisation at either the same or a more severe level (This is the same threshold applied by ECHA to determine whether to advertise a notified hazard on their website and via their data contributions to PubChem). Using this method, 1591 of the total compounds could be associated with a notification-derived classification. Where both a notification-based classification and an authoritative classification were available for the same compound, we preferred the authoritative classification and discarded the notification-based classifications. Overall, 566 additional compound annotations were provided through notification-based classifications, bringing the total number of compounds with a GHS acute toxicity classification to 3336, or 39% of the 8540 compounds for which a classification was sought.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Structural preprocessing</title>
+            <p id="Par22">The last stage of dataset collation was compound filtering and standardization, and the removal of duplicates. The structures as represented by the SMILES strings were standardized using ChemAxon’s Standardizer [<xref ref-type="bibr" rid="CR27">27</xref>] (the protocol followed was: “remove fragment”, “neutralize”, “remove explicit hydrogens”, “clean 2D”, “mesomerize”, “tautomerize”). Following standardization, the resultant structures were filtered to retain only small organic molecules, by discarding those with no carbon atoms, those containing elements of atomic number 21–32, 36–52 and > 53, and those with molecular weight over 100 Da, leaving 8328 structures.</p>
+            <p id="Par23">Finally, a duplicate removal procedure was applied as follows: (1) duplicated structures were identified by converting standardized SMILES to InChIs [<xref ref-type="bibr" rid="CR28">28</xref>]; (2) all compounds with a duplicated structure but no GHS annotation were discarded; (3) where only one compound in a set of duplicates was also an exact duplicate of its unstandardized structure, that compound alone was retained as the closest representation of the substance for which a GHS annotation was found, and the others discarded (this only occurred for two structures); and (4) any remaining sets of duplicates were discarded. Following this, 7732 substances remained, of which 3060 (40%) possessed GHS annotations.</p>
+          </sec>
+          <sec id="Sec6">
+            <title>Descriptor generation</title>
+            <p id="Par24">For each remaining unique compound, molecular descriptors, protein target bioactivity probabilities, and qHTS-derived features were next derived as described in the following.</p>
+            <p id="Par25">Firstly, structures were transformed to the major tautomer present at pH 7.4 using ChemAxon’s Calculator [<xref ref-type="bibr" rid="CR27">27</xref>]. Secondly, a set of 201 2D molecular descriptors were calculated using the Chemical Computing Group’s Molecular Operating Environment (MOE) [<xref ref-type="bibr" rid="CR17">17</xref>].</p>
+            <p id="Par26">Next, to calculate protein target affinity probability profiles we made use of PIDGIN v2 [<xref ref-type="bibr" rid="CR18">18</xref>], a collection of 3394 target prediction algorithms, trained on over 13 million bioactivity points, with actives (cutoff 10 μM) extracted from ChEMBL [<xref ref-type="bibr" rid="CR29">29</xref>] and labelled inactives extracted from PubChem [<xref ref-type="bibr" rid="CR19">19</xref>]. PIDGIN is itself a suite of predictive structure-bioactivity models, providing for each input compound a Platt-Scaled probability of affinity for each target. As with any predictive model its accuracy depends on (in this case) the particular input structure and target class. For that reason, when including its output in further predictive modelling, we chose to only use the output of reasonably reliable models whose applicability domains extended into the dataset at hand in order to minimise the error-carried-forward. To that end, the performance of individual PIDGIN models on the dataset was estimated by measuring the models’ recall on the overlap of the input set and known activities in its training set. Using this estimate, a well-performing model was defined as one which achieved a recall (i.e. proportion of known actives assigned a probability of activity of over 50%) of at least 0.5 on the overlap of the query compounds and the model’s training data. Further, we filtered well-performing models to retain only those with a training set having a mean nearest-neighbour Tanimoto similarity to the 7732 compound set used in this study of over 0.25, calculated using the circular fingerprints utilised by PIDGIN for prediction. These requirements can be considered stringent, as only 109 human target bioactivity models (3% of the total) were retained. This process afforded a set of annotations used as descriptors subsequently. To further ensure that the protein target bioactivity probabilities were as accurate as possible, known bioactivities (i.e. those included in the training data set extracted from ChEMBL) for the compound set on the selected targets were included as probabilities of 1 (i.e. certainty).</p>
+            <p id="Par27">Lastly, we assembled qHTS data for our compound set from the Tox21 assay data made publicly available via PubChem. First, all PubChem assay data for all 192 assays listed with “Tox21” as their source were downloaded (accessed on 23 Aug 2018). Next, less relevant assays (i.e. counter-screening assays, autofluorescence assays, and those confirmatory assays for which a summary assay combining its results with counter screens was also available) were discarded, leaving 76 remaining assays (Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S1). For these assays, the PubChem activity score was used to provide a single qHTS feature summarising the behaviour of a compound against an assay record as a continuous numerical descriptor. Such scores were available for nearly all compounds (7713 out of 7732), but compounds for which no Tox21 scores were available were excluded where necessary. The activity score ranges from 0 to 100, with inactive compounds having a score of 0, active compounds having a score from 40 to 100, and inconclusive compounds having a score in between. The score is provided by the depositor, and the exact way in which the score is calculated depends on the assay, but it is commonly assigned based on potency, efficacy, curve class or a combination of these. Where multiple scores were available for the same structure-assay pairing due to repeated measurements, the median score was used (36% of compounds had at least one repeated measurement). Missing values (11% of all data points) were assumed to be inactive, and assigned a score of 0.</p>
+            <p id="Par28">The dataset collated in this study, alongside the code necessary for reproduction of the results obtained, is made publicly available via the Additional files included alongside this article (Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>).</p>
+          </sec>
+          <sec id="Sec7">
+            <title>Binary toxicity classes</title>
+            <p id="Par29">For the purposes of defining a binary acute toxicity classification for certain analyses, we considered acute oral toxicity only and took the GHS categories which require a “toxic” (skull and crossbones) pictogram—i.e. categories 1–3—as the toxic class, and those which require no pictogram—i.e. category 5 and implied nontoxicity—as the nontoxic class. Compounds in category 4 (requiring a “harmful” pictogram) were treated as marginal, and disregarded when performing binary analyses. Following this transformation, 2006 compounds were retained of which 579 were classed as toxic and 1427 as nontoxic. Of these, only three compounds lacked Tox21 assay outcomes.</p>
+          </sec>
+          <sec id="Sec8">
+            <title>Exploratory data analysis</title>
+            <p id="Par30">The sources’ contributions to the final data were compared by calculating the relative overlap of compounds between the sources, with relative overlap quantified as the intersection over the union. The degree to which the sources were commensurate with one another was considered by calculating the agreement of labels between the GHS acute toxicity categories of the compounds present in both data sources (for the purposes of this analysis, implied nontoxic compounds were allocated to a hypothetical category 6).</p>
+            <p id="Par31">The oral bioavailability of the compound set was quantified by considering the fraction of compounds which passed Lipinski’s rule, which was calculated as part of the MOE [<xref ref-type="bibr" rid="CR17">17</xref>] molecular descriptor set. The druglikeness of the compound set was quantified using DataWarrior’s [<xref ref-type="bibr" rid="CR30">30</xref>] fragment-based druglikeness score, in which positive values indicate more and negative values less druglike structures.</p>
+            <p id="Par32">Visualisation of the coverage of the dataset’s chemical space with GHS annotations was performed using DataWarrior’s Self-Organising Map function [<xref ref-type="bibr" rid="CR30">30</xref>], using SkelSpheres fingerprints, a Gaussian neighbourhood function, and 100 neurons per axis (i.e. 10,000 neurons in total).</p>
+          </sec>
+          <sec id="Sec9">
+            <title>Toxicophore screening</title>
+            <p id="Par33">The structures in the compound set were analysed for the presence of toxicophores using FAFDrugs4 [<xref ref-type="bibr" rid="CR31">31</xref>] and ToxAlerts [<xref ref-type="bibr" rid="CR32">32</xref>] in order to investigate the overlap of GHS toxicity classifications with established screens. FAFDrugs4 is an online server designed for filtering compound libraries prior to in silico screening experiments and related modelling studies, which through the “filter undesirable substructure moieties” filtration option provides for the identification of structures containing substructures involved in toxicity which were collated through a manual survey of the literature. For each compound screened by the FAFDrugs4 server, in addition to an inventory of undesirable substructures present, a qualitative screening outcome has been generated (one out of “rejected”, “intermediate” or “accepted”), which depends on the quantity and severity of toxicophores identified.</p>
+            <p id="Par34">ToxAlerts is another online platform, available via the Online Chemical Modelling Environment [<xref ref-type="bibr" rid="CR33">33</xref>], providing structural alerts for the virtual screening of chemical libraries to flag compounds containing toxicity-related substructures. In contrast to FAFDrugs4, ToxAlerts is an open platform allowing user-contributed alerts; however, all alerts must be accompanied by an endpoint and a reference and must be moderated before approval. ToxAlerts therefore contains a wide range of alerts and sources, including sets of alerts derived from literature and from industry. While ToxAlerts contains alerts are all associated with an “endpoint”, certain of these endpoints are generic in nature and do not relate to any defined toxic outcome (e.g. the endpoint “extended functional groups” represents structural features for use in chemical space analysis or as features in further modelling rather than a screening set [<xref ref-type="bibr" rid="CR34">34</xref>]), and hence the full battery of alerts contained ToxAlerts is not itself suitable for application as a toxicity screen. Rather, a relevant subset of the alerts should be employed. In this study, we used the alerts annotated with the “reactive, unstable, toxic” endpoint, which includes structural alerts defined by ChemDiv, LifeChemicals and Enamine used for their internal compound selection purposes, which was also previously explored in the publication introducing ToxAlerts [<xref ref-type="bibr" rid="CR32">32</xref>].</p>
+          </sec>
+          <sec id="Sec10">
+            <title>Class separation analyses</title>
+            <p id="Par35">We next analysed the various descriptor spaces to determine how informative each was with respect to the GHS toxicity labels. Nearest-neighbour distance analyses were performed as follows: for each compound in our set with a binarized toxicity, the distance to its nearest-neighbour (the most similar compound) in its own class (intra-class) and to its nearest-neighbour in the other class (inter-class) was calculated and the two distributions compared in each space. For the molecular descriptor and the protein target probability spaces, Euclidean distance in MOE and protein target descriptor space was employed to define the nearest-neighbour; for the Tox21 assay scores, due to the sparsity of the data matrix (i.e. a large proportion of zero values), Cosine distance was employed instead. Before calculating distances, the molecular descriptors were centred and scaled (this was unnecessary for the protein target and Tox21 assay descriptor sets, which are each already internally on the same scale). Differences in distribution were tested for significance using a paired <italic>t</italic> test (implemented by SciPy [<xref ref-type="bibr" rid="CR35">35</xref>]), and effect size measured using Cohen’s <italic>d</italic> (i.e. the difference between two means divided by their pooled standard deviation).</p>
+            <p id="Par36">The classes were next analysed to determine which predicted protein targets were more associated with toxic compounds. We used SciPy [<xref ref-type="bibr" rid="CR35">35</xref>] to perform a paired <italic>t</italic>-test and a Kolmogorov–Smirnov test to determine which target probability descriptors showed a significant difference in distribution between the two classes. We considered a distribution to show a significant difference where the larger of the two <italic>p</italic> values obtained was beneath the Bonferroni-corrected threshold equivalent to <italic>α </italic>= 0.05. Cohen’s <italic>d</italic> was used to quantify the effect size.</p>
+            <p id="Par37">We then performed linear discriminant analyses (LDA) as implemented in scikit-learn [<xref ref-type="bibr" rid="CR36">36</xref>] on the three descriptor spaces to compare their relevance towards the endpoint, by assessing the degree to which a simple linear model might be able to separate the classes in those spaces. An LDA performs feature reduction (to at most one dimension fewer than the number of classes, i.e. to a single dimension in the binary class case) by deriving the linear transformation of the feature space which achieves a maximum separation of the classes; the degree to which the classes separate in the LDA is therefore indicative of the maximal extent to which the classes can be linearly separated in the feature space. The significance of the separation observed under the LDA projection was measured using an unpaired <italic>t</italic>-test, and the effect size using Cohen’s <italic>d</italic>. We examined the weights assigned to the original protein target descriptors by the LDA projection to determine which of these features were found to be more important in linearly separating the classes, and hence which proteins might be involved in causing toxicity in man.</p>
+          </sec>
+          <sec id="Sec11">
+            <title>Predictive modelling</title>
+            <p id="Par38">In order to explore the degree to which GHS-derived toxicity labels can be predicted using machine learning models, we defined a predictive modelling set comprising the compounds for which a binary acute oral toxicity class could be defined. Such predictive models are increasingly relevant to chemical hazard assessment, but the robustness of any model is a reliant on the quantity and quality of the data available [<xref ref-type="bibr" rid="CR37">37</xref>]. For evaluation of predictive models, we defined three test sets. Firstly, we defined a <italic>random</italic> test set, comprising a simple class-stratified random 20% subsample of the modelling set. We then defined two test sets to approximate a more realistic scenario where a predictive model is applied to novel data: a <italic>rare scaffolds</italic> test set (representing novel chemistry) and a <italic>single source</italic> test set (indicating generalisability to novel datasets). The <italic>rare scaffolds</italic> test set comprised all those compounds having a Murcko scaffold [<xref ref-type="bibr" rid="CR38">38</xref>] present in the modelling set no more than twice (26% of the compounds), the scaffolds having been calculated using RDKit [<xref ref-type="bibr" rid="CR39">39</xref>]. The <italic>single source</italic> test set comprised a further class-stratified random 20% subsample of the modelling set, but was restricted to include only compounds found in exactly one authoritative GHS data source. In each case, all compounds not included in a test set were used as the corresponding training set.</p>
+            <p id="Par39">We applied Random Forest classification models [<xref ref-type="bibr" rid="CR40">40</xref>] in the predictive modelling analysis, as implemented in scikit-learn [<xref ref-type="bibr" rid="CR36">36</xref>], because they (a) are non-linear models (complementing the linear transformations performed as part of the exploratory data analysis), (b) are relatively quick to train, even on large numbers of features, (c) require little in the way of feature selection, pre-processing or parameter tuning, and (d) are well-studied algorithms with previous well-performing application in toxicity prediction [<xref ref-type="bibr" rid="CR11">11</xref>]. For each modelling run, a Random Forest classification model of 200 trees was trained on the relevant training set using scikit-learn default parameters: e.g. <italic>criterion</italic> (the metric for selecting a split) set to “gini”, <italic>max_features</italic> (the number of features considered at each split) set to the square root of the number of features, <italic>max_depth</italic> (the maximum depth of each tree) set to “None” to permit unlimited depth. A fivefold cross-validation routine was employed within the training set to determine the optimum probability threshold (corresponding to the proportion of concurring trees in the ensemble) to be used as the decision boundary, maximising CCR. Each model was then applied to the relevant test set, and its performances assessed in terms of area under the ROC curve and average precision (summarised from the precision-recall curve), along with the sensitivity, specificity and CCR achieved at the probability threshold determined to be optimal from the cross-validation performed within the training set.</p>
+            <p id="Par40">Finally, to demonstrate the robustness of the performance statistics computed for these models, and the degree to which they depend upon the random selection of test compounds, the training-test splits were repeated an additional 20 times for those splitting methods where randomness played a role (i.e. the <italic>random</italic> method and the <italic>single source</italic> method). The modelling workflow above was undertaken the performance recorded for each of these repeated splits.</p>
+          </sec>
+        </sec>
+        <sec id="Sec12">
+          <title>Results and discussion</title>
+          <sec id="Sec13">
+            <title>Exploratory data analysis</title>
+            <p id="Par41">We firstly compared the coverage of the compound set derived from the ToxCast &amp; Tox21 chemical library across the various sources of GHS classification data. Figure <xref rid="Fig1" ref-type="fig">1</xref> shows the relative pairwise overlap (quantified as the intersection over union) of the presence of the compounds’ CAS registry numbers in the GHS classification databases. We found that most pairs of GHS data sources overlapped by less than 60%, with the exception of the Safe Work Australia and the EU’s harmonized classifications, which were almost wholly overlapped. In particular, the two largest data sources contribute significant novel classifications: the industrial notifications to ECHA has a maximum overlap of 36% with another dataset, and the classifications from the NZ EPA has a maximum overlap of 41%. Hence, while the value of being able to collate commensurate data from multiple sources when assembling such a dataset can be observed, certain data sources are more useful than others in collating a larger dataset.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Overlap heatmap for common compounds across the GHS data sources. Overlap here is quantified as intersection over union. Absolute numbers of compounds present in each source are given in the <italic>x</italic> axis. With the exception of the ECHA and SWA data sources (SWA uses ECHA as one of its own sources of classification), the heatmap indicates that other data sources contribute significant quantities of unique data, illustrating the benefit of collating toxicity data from multiple commensurate sources</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_356_Fig1_HTML.png" /></fig></p>
+            <p id="Par42">In order to test our assumption that GHS data from diverse sources may be pooled, we next compared the classifications obtained for compounds present in multiple data sources. Figure <xref rid="Fig2" ref-type="fig">2</xref> shows the proportion of agreement (i.e. percentage of identical labels) between GHS acute toxicity categories between dermal, inhalation and oral exposure routes and between each data source on common compounds. Two trends are observable. Firstly, that a compound’s acute toxicity category of a given exposure route from a data source exhibits high agreement with its acute toxicity category of the same exposure route from other data sources; for example, 75%, 82% and 80% of compounds exhibited agreement between all oral, dermal and inhalation acute toxicity labels, respectively. This first result is important for the remainder of this study, as the fact that GHS classifications for overlapping compounds exhibit high agreement across regulatory inventories corroborates the notion that GHS classifications are internationally commensurate (as they were intended to be) and can therefore be pooled from disparate sources into a coherent single dataset. Secondly, it can be seen that a compound’s acute toxicity categories across the three exposure routes are poorly correlated across all data sources, with only 35% of compounds having all annotated labels across exposure routes in agreement. The second result simply illustrates that a compound’s toxicity is strongly dependent on its route of exposure, and as some compounds maybe highly toxic via one route but harmless by another the degree to which acute toxicity can be correlated across exposure routes is limited, as has been previously observed. [<xref ref-type="bibr" rid="CR41">41</xref>] Therefore, rather than attempting to consider acute toxicity independent of route of exposure, in the remainder of this study we considered acute oral toxicity only—as this was the route of exposure with the greatest number of annotations on our compound set.<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>Agreement heatmap between GHS acute toxicity categorisations of common compounds in the GHS data sources. For the purpose of this analysis, implied nontoxic compounds were treated as belonging to a hypothetical category 6. The heatmap indicates that common compounds’ acute toxicity classifications tend to exhibit higher agreement when comparing classifications for the same route of exposure; however, agreement between different routes of exposure are generally substantially lower</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_356_Fig2_HTML.png" /></fig></p>
+            <p id="Par43">We next investigated whether there was a difference in druglikeness and Lipinski’s rule failure rate [<xref ref-type="bibr" rid="CR42">42</xref>] between the GHS classes and the wider ToxCast &amp; Tox21 library, since it was plausible that a GHS classifications might be more often annotated for bioavailable or bioactive compounds. Figure <xref rid="Fig3" ref-type="fig">3</xref> compares the Lipinski’s rule failure rate (serving as a proxy for poor bioavailability) and the fragment-based druglikeness score calculated through DataWarrior [<xref ref-type="bibr" rid="CR30">30</xref>] across the compounds with and without acute oral toxicity classifications. The results show that no large systematic differences in these properties exist between compounds included or not included in our compound set, nor between the various GHS categories. Although no large differences were found, there was a small (but significant) difference between the proportion of compounds with a GHS classification (including implied nontoxics) and those without passing the Lipinski filter: those with a classification were found to be more likely to pass, at an odds ratio of 2.80 and <italic>p</italic> value of 9.2 × 10<sup>−17</sup>. It is therefore feasible that, while compounds included in this study are no more or less druglike by the DataWarrior metric than those excluded, the compounds for which a GHS-derived acute oral toxicity classification could be applied will tend to be more bioavailable.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>Lipinski’s rule failure rate (<bold>a</bold>) and DataWarrior fragment-based druglikeness score (<bold>b</bold>) for the structures in our compound set. Compounds with an available GHS-derived acute oral toxicity classification (including implied nontoxicity) more frequently pass the Lipinski filter, which may indicate higher bioavailability among those compounds. The distributions (median and inter-quartile range) of druglikeness among the classifications are very similar, though the tail length varies. Hence, we determined that the annotated compounds did not substantially differ with regard to their druglikeness</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_356_Fig3_HTML.png" /></fig></p>
+            <p id="Par44">The distribution of GHS-derived toxicity classes within the chemical space of the dataset was visualized in through a Self-Organizing Map (Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Fig. S1) in which compounds were coloured according to their GHS acute oral toxicity classification. This plot illustrates that GHS categories had been derived for diverse subset of the chemical space described by the wider chemical library, although classifications were not uniformly distributed. The visualisation also reveals a small degree of clustering among the classes.</p>
+          </sec>
+          <sec id="Sec14">
+            <title>Toxicophore analyses</title>
+            <p id="Par45">We next examined the degree to which GHS-derived toxicity classifications overlap with existing substructure-based toxicity filters, and sought to identify particular substructures which would be able to screen for these classifications. The results of this toxicophore analysis, broken down by GHS acute oral toxicity class, are given in Fig. <xref rid="Fig4" ref-type="fig">4</xref>. It can be seen that there was no clear association between the results of the FAFDrugs4 toxicophore screening test and the GHS acute oral toxicity categories (Fig. <xref rid="Fig4" ref-type="fig">4</xref>a). When the compounds are binned into binary toxicity classes (Fig. <xref rid="Fig4" ref-type="fig">4</xref>b), a larger fraction of the nontoxic compounds were both accepted and rejected by the screen compared to the toxic compounds, due to the increased number of “intermediate” screening results among the toxic compound set. As an intermediate screening result implies the presence of at least one toxicophore, a conservative approach might reject the intermediate compounds and retain only fully accepted compounds; in which case, it is observed that a significantly higher proportion of nontoxic than toxic compounds were accepted by the FAFDrugs4 screen although the effect size is very small (odds ratio 1.25, <italic>p</italic> value 0.03). However, because of the large proportion of “intermediate” results, measuring the agreement between the FAFDrugs4 screen and the toxicity endpoint is challenging to assess.<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>The results of toxicophore screens on the compound set, using the FAFDrugs4 screen (<bold>a</bold>, <bold>b</bold>), and the “reactive, unstable, toxic” endpoint alerts from ToxCast (<bold>c</bold>, <bold>d</bold>). The results of the FAFDrugs4 test are unable to usefully screen for acute oral toxicity as encoded by GHS classes: in B, both rejection (red bar) and acceptance (green bar) is more common in nontoxic compounds. However, there is a weak relationship between these classes and the presence/absence of the “reactive, unstable, toxic” ToxAlerts toxicophores, as illustrated by the higher red bar for the toxic compounds in D</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_356_Fig4_HTML.png" /></fig></p>
+            <p id="Par46">To complement FAFDrugs4 screen, we next used the ToxAlerts webserver to screen our compounds as outlined in the Methods section. We identified that ToxAlerts associated with the “reactive, unstable, toxic” endpoint were present in slightly larger proportions of compounds in the more severe acute oral toxicity categories (present in 79%, 67% and 61% of compounds in categories 1–3, 4 and 5, respectively) (Fig. <xref rid="Fig4" ref-type="fig">4</xref>c). When the compound set was divided into binary “toxic” and “nontoxic” classes (Fig. <xref rid="Fig4" ref-type="fig">4</xref>d), the enrichment of “reactive, unstable, toxic” toxicophores among the compounds annotated as toxic via GHS classifications was measured as having an Odds Ratio of 1.56 with a <italic>p</italic> value of 1.3 × 10<sup>−4</sup> (representing a significant enrichment, albeit only at a small effect size). This means that while the agreement between FAFDrugs4 alerts and GHS toxicity labels is small, the “reactive, unstable, toxic” substructures from ToxAlerts show a greater prevalence among toxic compounds and therefore may be implicated in contributing towards these compounds’ toxic behaviour.</p>
+            <p id="Par47">We next performed an enrichment analysis of the binarized toxic (GHS class 1-3) and compounds compared to nontoxic (class 5 or implied nontoxic) compounds for each toxicophore from ToxAlerts in the “reactive, unstable, toxic” set, to determine which of the individual substructures are associated with the effect. Only those enrichments with a <italic>p</italic> value below the Bonferroni-corrected critical value equivalent to 0.05 (i.e. 0.5/<italic>n</italic>) were considered and the toxicophores satisfying this significance threshold with the largest effect size are given in Table <xref rid="Tab1" ref-type="table">1</xref>. The identified substructures (e.g. double P=S and P=C bonds and thiocarbonyls) represent highly reactive functionalities, consistent with the nature of the category of “reactive, unstable, toxic” endpoints. These reactive moieties or their metabolites may afford covalent modification of biological macromolecules, as the initiating event for many toxicities is the reaction between a xenobiotic electrophile and the nucleophilic regions of important biological peptides and proteins [<xref ref-type="bibr" rid="CR32">32</xref>, <xref ref-type="bibr" rid="CR43">43</xref>]. Hence, in this section we have identified a range of previously-known functional groups associated with toxicity which are present in the GHS toxic dataset.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Top 5 enriched “reactive, unstable, toxic” endpoint ToxAlerts substructures in the binarized toxic set (GHS acute oral toxicity category of 1–3) versus nontoxic set (acute oral toxicity category of 5 or implied nontoxic)</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Toxicophore structure</p></th><th align="left"><p>Alert ID</p></th><th align="left"><p>Description</p></th><th align="left"><p>Odds ratio</p></th><th align="left"><p><italic>p</italic> value</p></th><th align="left"><p>Source</p></th></tr></thead><tbody><tr><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_356_Figa_HTML.gif" /></p></td><td align="left"><p>TA1000</p></td><td align="left"><p>Double P=S and P=C bonds</p></td><td char="." align="char"><p>35.2</p></td><td char="." align="char"><p>4.7 × 10<sup>−19</sup></p></td><td align="left"><p>Enamine</p></td></tr><tr><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_356_Figb_HTML.gif" /></p></td><td align="left"><p>TA975</p></td><td align="left"><p>Thiocarbonyls</p></td><td char="." align="char"><p>27.6</p></td><td char="." align="char"><p>9.6 × 10<sup>−6</sup></p></td><td align="left"><p>Enamine</p></td></tr><tr><td align="left"><p><inline-graphic xlink:href="MediaObjects/13321_2019_356_Figc_HTML.gif" /></p></td><td align="left"><p>TA880</p></td><td align="left"><p>Gem-Dihalo propane and cyclopropane</p></td><td char="." align="char"><p>25.1</p></td><td char="." align="char"><p>3.1 × 10<sup>−5</sup></p></td><td align="left"><p>Life chemicals</p></td></tr><tr><td align="left" rowspan="3"><p><inline-graphic xlink:href="MediaObjects/13321_2019_356_Figd_HTML.gif" /></p></td><td align="left"><p>TA567</p></td><td align="left" rowspan="3"><p>Thioureas</p></td><td char="." align="char" rowspan="3"><p>25.1</p></td><td char="." align="char" rowspan="3"><p>3.1 × 10<sup>−5</sup></p></td><td align="left"><p>ChemDiv</p></td></tr><tr><td align="left"><p>TA885</p></td><td align="left"><p>Life chemicals</p></td></tr><tr><td align="left"><p>TA1075</p></td><td align="left"><p>Ontario institute for cancer research</p></td></tr><tr><td align="left" rowspan="3"><p><inline-graphic xlink:href="MediaObjects/13321_2019_356_Fige_HTML.gif" /></p></td><td align="left"><p>TA914</p></td><td align="left" rowspan="3"><p>Nitrosos</p></td><td char="." align="char" rowspan="3"><p>16.4</p></td><td char="." align="char" rowspan="3"><p>5.0 × 10<sup>−6</sup></p></td><td align="left"><p>Life chemicals</p></td></tr><tr><td align="left"><p>TA998</p></td><td align="left"><p>Enamine</p></td></tr><tr><td align="left"><p>TA1089</p></td><td align="left"><p>Maybridge</p></td></tr></tbody></table><table-wrap-foot><p>Only enrichments with a <italic>p</italic> value below the Bonferroni-corrected cut-off equivalent to α = 0.05 were considered. The remaining significant enrichments were ranked according to their odds-ratio, or effect size. These alerts generally represent reactive functionalities that might be anticipated to afford nonspecific toxicity</p></table-wrap-foot></table-wrap></p>
+            <p id="Par48">While the substructures in the ToxAlerts server labelled with the “reactive, unstable, toxic” endpoint were enriched in compounds classed as “toxic” using GHS acute oral toxicity categories, the size of the effect was small. Indeed, we found that the majority of our toxic and nontoxic compounds contained at least one relevant ToxAlerts alert. These findings corroborate previous findings in the literature concerning the limited utility of relying upon (non-quantitative) structural alerts for accurate toxicity assessment [<xref ref-type="bibr" rid="CR44">44</xref>], not least due to the propensity for alerts to be present in large proportions of both toxic and nontoxic compounds [<xref ref-type="bibr" rid="CR45">45</xref>]. Nonetheless, as the GHS is the internationally recognised standard for categorising and communicating chemical hazard generally and acute toxicity specifically, and structural alerts are a widely accepted technique in toxicity screening, we would have anticipated toxicophore analysis to be a more useful means of forecasting its acute oral toxicity categories.</p>
+          </sec>
+          <sec id="Sec15">
+            <title>Class separation analyses</title>
+            <p id="Par49">We next analysed the relationship between the binary toxicity classes and the three descriptor domains, to discern to what extent the different toxicity classes can be distinguished in the different descriptor spaces, and thus provide a rationale for implementing and evaluating heterogenous toxicity prediction models. We hence performed nearest-neighbour distance analyses to compare the distributions for inter- and intraclass nearest-neighbours, and LDA projections maximising the interclass distance, in the molecular, protein target, and Tox 21 assay score descriptor spaces (Fig. <xref rid="Fig5" ref-type="fig">5</xref>). We shall discuss the nearest-neighbour and LDA plots together, moving from the chemical descriptor space on to the protein target space, and finally onto the Tox21 descriptor space.<fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p>Nearest-neighbour distance distributions for intra-class and inter-class pairs among compounds annotated with a binary toxicity class, and linear discriminant analysis projections on the same data. The molecular descriptor space is used in <bold>a</bold>, <bold>b</bold>, the protein target descriptor space in <bold>c</bold>, <bold>d</bold>, and the in vitro qHTS space in <bold>e</bold>, <bold>f</bold>. Larger differences in nearest-neighbour distributions and LDA projections are evident in the molecular and protein target descriptor spaces than in the in vitro qHTS space</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_356_Fig5_HTML.png" /></fig></p>
+            <p id="Par50">In <italic>molecular descriptor space</italic> the nearest-neighbour distance distributions (Fig. <xref rid="Fig5" ref-type="fig">5</xref>a) exhibit a large difference in distribution (Cohen’s <italic>d</italic> of 0.72, <italic>p</italic> value of 6.1 × 10<sup>−223</sup>) with interclass nearest-neighbour pairs being further from one another than intraclass pairs, which suggests that the binary toxicity classes exhibit a significant degree of neighbourhood behaviour [<xref ref-type="bibr" rid="CR46">46</xref>] in chemical space (i.e. small changes in descriptors are associated with no change in class). Likewise, the LDA plot (Fig. <xref rid="Fig5" ref-type="fig">5</xref>b) for molecular descriptor space illustrates that a large separation of the classes can be achieved using a linear transformation (Cohen’s <italic>d</italic> of 1.95, <italic>p</italic> value of 2.3 × 10<sup>−253</sup>). Although to a lesser extent, there is also a moderate distinction in <italic>protein target space</italic> in the nearest-neighbour distance distribution (Fig. <xref rid="Fig5" ref-type="fig">5</xref>c) (Cohen’s <italic>d</italic> of 0.70, <italic>p</italic> value of 4.4 × 10<sup>−167</sup>) and a comparatively higher degree of separation using LDA (Fig. <xref rid="Fig5" ref-type="fig">5</xref>d) (Cohen’s <italic>d</italic> of 1.42, <italic>p</italic> value of 2.8 × 10<sup>−152</sup>). Results from this analysis can be used to determine the protein targets (and hence biological mechanisms) most useful in linearly separating the toxic from non-toxic classes, which is a generally a beneficial feature of utilising interpretable input feature space. Table <xref rid="Tab2" ref-type="table">2</xref> gives the five most associated protein targets with the toxic set of compounds along with their associated literature evidence to known mechanisms of toxicity (the full list is given in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S3). All of the five most associated targets have confirmed links to toxicity, where Retinal dehydrogenase 1 and Nuclear factor erythroid 2-related factor 2 are linked to oxidative stress (ultimately leading to apoptosis) [<xref ref-type="bibr" rid="CR47">47</xref>, <xref ref-type="bibr" rid="CR48">48</xref>] while Nuclear receptor ROR gamma and DNA dC → dU-editing enzyme APOBEC-3F have more direct links to apoptosis and necrosis through their importance in cytokine mediate pathways [<xref ref-type="bibr" rid="CR49">49</xref>, <xref ref-type="bibr" rid="CR50">50</xref>]. The vitamin D3 receptor target can be considered to have a more indirect connection to toxicity, although the disruption its role in Ca<sup>2+</sup> signalling can be linked to negative regulation of cell proliferation [<xref ref-type="bibr" rid="CR51">51</xref>]. Table <xref rid="Tab3" ref-type="table">3</xref> gives the five highest-weighted target probabilities in the LDA projection, where four of those targets have known links to toxicity. For example, the histone deacetylases 5 and 6 are the highest weighted targets, and each are currently exploited in cancer therapies [<xref ref-type="bibr" rid="CR52">52</xref>, <xref ref-type="bibr" rid="CR53">53</xref>]. Additionally, normal function of the Glucagon-like peptide 1 receptor is required for cell proliferation and hence negative regulation can be linked to apoptosis [<xref ref-type="bibr" rid="CR54">54</xref>]. Kappa-type opioid receptor is also one of the top targets from this analysis but without confirmed literature links to toxicity, which is hence a putative-toxicity related target which we propose could form the basis for future biochemical experiments.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Protein target descriptors exhibiting a significant difference in distribution between binarized toxic set versus nontoxic set</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Uniprot</p></th><th align="left"><p>Protein</p></th><th align="left"><p>Class</p></th><th align="left"><p>Cohen’s <italic>d</italic></p></th><th align="left"><p><italic>p</italic> value</p></th><th align="left"><p>Relevant function [associated pathologies]</p></th><th align="left"><p>Refs.</p></th></tr></thead><tbody><tr><td align="left"><p>P00352</p></td><td align="left"><p>Retinal dehydrogenase 1</p></td><td align="left"><p>Oxidoreductase</p></td><td char="." align="char"><p>0.48</p></td><td char="." align="char"><p>2.0 × 10<sup>−17</sup></p></td><td align="left"><p>Metabolism processes and oxidation–reduction process [oxidative stress]</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR47">47</xref>]</p></td></tr><tr><td align="left"><p>P51449</p></td><td align="left"><p>Nuclear receptor ROR gamma</p></td><td align="left"><p>Nuclear hormone receptor</p></td><td char="." align="char"><p>0.37</p></td><td char="." align="char"><p>1.4 × 10<sup>−13</sup></p></td><td align="left"><p>Cytokine-mediated signaling pathways [apoptosis]</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR49">49</xref>]</p></td></tr><tr><td align="left"><p>Q16236</p></td><td align="left"><p>Nuclear factor erythroid 2-related factor 2</p></td><td align="left"><p>Transcription factor</p></td><td char="." align="char"><p>0.36</p></td><td char="." align="char"><p>5.5 × 10<sup>−13</sup></p></td><td align="left"><p>Regulation of cellular redox conditions [oxidative stress]</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR48">48</xref>]</p></td></tr><tr><td align="left"><p>Q8IUX4</p></td><td align="left"><p>DNA dC → dU-editing enzyme APOBEC-3F</p></td><td align="left"><p>Hydrolase</p></td><td char="." align="char"><p>0.33</p></td><td char="." align="char"><p>1.5 × 10<sup>−7</sup></p></td><td align="left"><p>DNA mutators participating in the innate immune system [inducing mutations > apoptosis/necrosis]</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR50">50</xref>]</p></td></tr><tr><td align="left"><p>P11473 (pidgin)</p></td><td align="left"><p>Vitamin D3 receptor</p></td><td align="left"><p>Nuclear hormone receptor</p></td><td char="." align="char"><p>0.28</p></td><td char="." align="char"><p>1.0 × 10<sup>−8</sup></p></td><td align="left"><p>Ca<sup>2+</sup> signalling [negative regulation of cell proliferation]</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR51">51</xref>]</p></td></tr></tbody></table><table-wrap-foot><p>Enrichment effect size was quantified via Cohen’s <italic>d</italic>, and the top 5 targets with the largest effect size indicating more association with the toxic set are shown. Only enrichments with a <italic>p</italic> value below the Bonferroni-corrected threshold equivalent to α = 0.05 were considered. The full table is given in Additional file 1<xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S3. The relevance of these targets to toxicity is explored in the text</p></table-wrap-foot></table-wrap><table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>Top 5 highest-weighted human target descriptors in the linear discriminant analysis projection used to discriminate between binarized toxic and nontoxic classes</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Uniprot</p></th><th align="left"><p>Protein</p></th><th align="left"><p>Class</p></th><th align="left"><p>Weight (absolute)</p></th><th align="left"><p>Relevant function [Associated pathologies]</p></th><th align="left"><p>Refs.</p></th></tr></thead><tbody><tr><td align="left"><p>Q9UQL6</p></td><td align="left"><p>Histone deacetylase 5</p></td><td align="left"><p>Hydrolase</p></td><td char="." align="char"><p>5.45</p></td><td align="left"><p>Chromatin organisation [Negative regulation of cell cycle/apoptosis]</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR52">52</xref>]</p></td></tr><tr><td align="left"><p>Q9UBN7</p></td><td align="left"><p>Histone deacetylase 6</p></td><td align="left"><p>Hydrolase</p></td><td char="." align="char"><p>5.19</p></td><td align="left"><p>Chromatin organisation [Negative regulation of cell cycle/apoptosis]</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR53">53</xref>]</p></td></tr><tr><td align="left"><p>P41145</p></td><td align="left"><p>Kappa-type opioid receptor</p></td><td align="left" /><td char="." align="char"><p>3.02</p></td><td align="left"><p>Central to nerutotranmitter activity i.e.—acetylcholine transport</p><p>GPCR not the most toxic—could link it to pain [n/a]</p></td><td align="left" /></tr><tr><td align="left"><p>P43220</p></td><td align="left"><p>Glucagon-like peptide 1 receptor</p></td><td align="left" /><td char="." align="char"><p>2.60</p></td><td align="left"><p>Activation of cell proliferation [apoptosis]</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR54">54</xref>]</p></td></tr><tr><td align="left"><p>P11473</p></td><td align="left"><p>Vitamin D3 receptor</p></td><td align="left"><p>Nuclear hormone receptor</p></td><td char="." align="char"><p>2.20</p></td><td align="left"><p>Ca<sup>2+</sup> signalling [negative regulation of cell proliferation]</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR51">51</xref>]</p></td></tr></tbody></table><table-wrap-foot><p>The relevance of these targets to toxicity is explored in the text</p></table-wrap-foot></table-wrap></p>
+            <p id="Par51">We finally performed the nearest-neighbour and LDA analysis on <italic>Tox21 assay space</italic>, which shows a lower degree of separation on the qHTS descriptors (Fig. <xref rid="Fig5" ref-type="fig">5</xref>e, f). The trend of intraclass nearest-neighbours tending to be nearer together than interclass nearest-neighbours was still apparent, but the two distributions were largely overlapping and the effect size was very small (Cohen’s <italic>d</italic> of 0.11, <italic>p</italic> value of 1.4 × 10<sup>−40</sup>). Despite LDA deriving a transformation which achieves the maximal linear separation, still the maxima of the two classes overlapped in the LDA dimension, and the effect size was much less than for the other descriptor spaces (Cohen’s <italic>d</italic> of 0.67, <italic>p</italic> value of 7.5 × 10<sup>−40</sup>). These results suggested that a linear method of class discrimination would have limited applicability using the qHTS values as descriptors. We therefore conclude that the relationship between Tox21 assays and acute oral toxicity is non-trivial, and that the biological mechanisms of toxicity represented in the GHS-derived classifications are not fully captured by the endpoints measured by Tox21; this is partially consistent with the findings of Huang et al. [<xref ref-type="bibr" rid="CR55">55</xref>], who reported that the performance of models using Tox21 assay data without chemical descriptors to model in vivo toxicity was highly end point dependent, with success only for a subset of endpoints studied.</p>
+          </sec>
+          <sec id="Sec16">
+            <title>Predictive modelling</title>
+            <p id="Par52">We next utilized Random Forest classification models in order to evaluate how well different input feature spaces can be used to predict GHS classes computationally. Briefly (for details see methods section), the models were evaluated using three test sets: a <italic>random</italic> test set, a <italic>rare scaffold</italic> test set (containing only compounds having a Murcko scaffold present no more than twice, representing novel chemistry), and a <italic>single source</italic> test set (containing compounds present in only one authoritative GHS data source, indicating generalisability to novel datasets). For each test set, models were trained on all compounds not included in the test set. For each training/test set split, models were generated using each descriptor set in turn. In addition, a fourth class of models were generated using a descriptor set comprising a combination of chemical and protein target descriptors. This resulted in 12 models in total across three test sets and four descriptor sets.</p>
+            <p id="Par53">The performances of the resulting models are given in Table <xref rid="Tab4" ref-type="table">4</xref>. Overall, we found that molecular descriptors provided the best predictive performance (best ROC-AUC of 0.92). Next best were protein target descriptors (best ROC-AUC of 0.85), but the models generated using the Tox21 assay descriptors performed poorly (best ROC-AUC of 0.57). As a consequence of these results, we elected to generate a fourth class of model, trained using a combination of molecular and protein target descriptors.<table-wrap id="Tab4"><label>Table 4</label><caption xml:lang="en"><p>Summary of Random Forest classifier performances across the three different test sets and the four different combinations of descriptors</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Test set</p></th><th align="left"><p>Descriptors</p></th><th align="left"><p>ROC AUC</p></th><th align="left"><p>Average precision</p></th><th align="left"><p>Sensitivity</p></th><th align="left"><p>Specificity</p></th><th align="left"><p>CCR</p></th></tr></thead><tbody><tr><td align="left" rowspan="4"><p>Random</p></td><td align="left"><p>Molecular</p></td><td char="." align="char"><p>0.92</p></td><td char="." align="char"><p>0.83</p></td><td char="." align="char"><p>0.92</p></td><td char="." align="char"><p>0.78</p></td><td char="." align="char"><p>0.85</p></td></tr><tr><td align="left"><p>Protein target</p></td><td char="." align="char"><p>0.85</p></td><td char="." align="char"><p>0.71</p></td><td char="." align="char"><p>0.81</p></td><td char="." align="char"><p>0.73</p></td><td char="." align="char"><p>0.77</p></td></tr><tr><td align="left"><p>Tox21 assay</p></td><td char="." align="char"><p>0.60</p></td><td char="." align="char"><p>0.40</p></td><td char="." align="char"><p>0.47</p></td><td char="." align="char"><p>0.67</p></td><td char="." align="char"><p>0.57</p></td></tr><tr><td align="left"><p>Molecular and protein target</p></td><td char="." align="char"><p>0.91</p></td><td char="." align="char"><p>0.82</p></td><td char="." align="char"><p>0.85</p></td><td char="." align="char"><p>0.79</p></td><td char="." align="char"><p>0.82</p></td></tr><tr><td align="left" rowspan="4"><p>Rare scaffolds</p></td><td align="left"><p>Molecular</p></td><td char="." align="char"><p>0.80</p></td><td char="." align="char"><p>0.68</p></td><td char="." align="char"><p>0.64</p></td><td char="." align="char"><p>0.81</p></td><td char="." align="char"><p>0.72</p></td></tr><tr><td align="left"><p>Protein target</p></td><td char="." align="char"><p>0.70</p></td><td char="." align="char"><p>0.51</p></td><td char="." align="char"><p>0.70</p></td><td char="." align="char"><p>0.59</p></td><td char="." align="char"><p>0.65</p></td></tr><tr><td align="left"><p>Tox21 assay</p></td><td char="." align="char"><p>0.57</p></td><td char="." align="char"><p>0.36</p></td><td char="." align="char"><p>0.67</p></td><td char="." align="char"><p>0.43</p></td><td char="." align="char"><p>0.55</p></td></tr><tr><td align="left"><p>Molecular and protein target</p></td><td char="." align="char"><p>0.80</p></td><td char="." align="char"><p>0.68</p></td><td char="." align="char"><p>0.83</p></td><td char="." align="char"><p>0.63</p></td><td char="." align="char"><p>0.73</p></td></tr><tr><td align="left" rowspan="4"><p>Single source</p></td><td align="left"><p>Molecular</p></td><td char="." align="char"><p>0.83</p></td><td char="." align="char"><p>0.65</p></td><td char="." align="char"><p>0.70</p></td><td char="." align="char"><p>0.81</p></td><td char="." align="char"><p>0.75</p></td></tr><tr><td align="left"><p>Protein target</p></td><td char="." align="char"><p>0.79</p></td><td char="." align="char"><p>0.63</p></td><td char="." align="char"><p>0.76</p></td><td char="." align="char"><p>0.67</p></td><td char="." align="char"><p>0.72</p></td></tr><tr><td align="left"><p>Tox21 assay</p></td><td char="." align="char"><p>0.61</p></td><td char="." align="char"><p>0.39</p></td><td char="." align="char"><p>0.43</p></td><td char="." align="char"><p>0.73</p></td><td char="." align="char"><p>0.58</p></td></tr><tr><td align="left"><p>Molecular and protein target</p></td><td char="." align="char"><p>0.85</p></td><td char="." align="char"><p>0.69</p></td><td char="." align="char"><p>0.77</p></td><td char="." align="char"><p>0.76</p></td><td char="." align="char"><p>0.76</p></td></tr></tbody></table><table-wrap-foot><p>Generally, the best performing models were those trained using either molecular descriptors alone or in combination with protein target descriptors. Classifiers found the random test set less challenging to predict than the two more challenging test sets</p></table-wrap-foot></table-wrap></p>
+            <p id="Par54">These results are visualised in Fig. <xref rid="Fig6" ref-type="fig">6</xref> (ROC and precision-recall curves for each model are provided in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Fig. S2 and S3). It can be observed that the models trained using MOE 2D molecular descriptors as features (leftmost, blue bars) exhibited the strongest predictive performance across all three test sets, with a maximum ROC AUC of 0.92 for the random test set and a minimum of 0.80 for the rare scaffolds test set. At the optimal threshold, the model exhibited a CCR of 0.85–0.72 across the three test sets. The strong performance of the model is gratifying in that it illustrates that a relationship can be found between compound chemistry and GHS-derived toxicity classification—in contrast to the relationship between these classifications and structural alerts or toxicophores, which was earlier shown to be weak. The rare scaffold test set provided the greatest challenge to the models, eliciting the weakest performance in the majority of metrics. We attribute to challenging nature of testing compounds with distinct chemistry from model training as encapsulated by their disparate scaffolds. The single source test set also achieved lower validation metrics than the random test set, with a reduction in the CCR from 0.85 to 0.75 respectively, which is only 0.03 higher than the performance obtained on the rare scaffold test set. Hence, taken together, our findings show that physico-chemical descriptors are a powerful feature set for learning the GHS toxicity classifications. This is despite their lack of molecular context, but we attribute this in part to their relevance to ADME mechanisms.<fig id="Fig6"><label>Fig. 6</label><caption xml:lang="en"><p>Performance of the four classes of Random Forest classifiers trained on the dataset, quantified by ROC AUC, average precision, and the sensitivity, selectivity and CCR achieved at the optimal prediction threshold, across the three training-test set splits. It can be observed that the best-performing class of models were those utilising molecular descriptors alone or in combination with protein target descriptors. The random test-training split afforded the best-performing models, while performance predicting the toxicity of the rare scaffolds and single source test sets was lower</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_356_Fig6_HTML.png" /></fig></p>
+            <p id="Par55">The models trained on protein target probabilities achieved good performance overall across the test sets (centre-left, green bars in Fig. <xref rid="Fig6" ref-type="fig">6</xref>), with ROC AUCs between 0.85 and 0.70, average precisions between 0.71 and 0.51, and CCRs (at the optimum thresholds) between 0.77 and 0.65 across the test sets. Despite this, ROC AUC, average precision and CCR were each always lower than the equivalent value for the model built using molecular descriptors for every test set. This result corroborates the finding of our prior work, [<xref ref-type="bibr" rid="CR11">11</xref>] in which we found an average CCR drop of 0.11 across 100 training-test splits comparing Random Forest models trained on molecular descriptors to those trained on protein target descriptors.</p>
+            <p id="Par56">The predictive performances of the models trained on molecular descriptors and the models trained on protein-target descriptors were further analysed by considering only those compounds which were classified differently by the two models in any of the training-test set splits, using their optimum thresholds. A full list of these compounds is provided in Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>, and summarised in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S4. It is observed that for such compounds, models trained using molecular descriptors are generally more likely to make the correct prediction. However, this was not the case for toxic compounds in the rare scaffolds test set (for which the protein-target descriptor-trained model made the correct prediction 61.2% of the time) and toxic compounds in the single source test set (for which the protein-target descriptor-trained model made the correct prediction 62.1% of the time). Where the two models disagreed on nontoxic compounds in these test sets, the molecular descriptor-trained models more frequently made the correct classification (78.3% of cases for the rare scaffolds set and 74.7% of cases for the single source set). For compounds within the random test set where the two classifiers disagreed, the molecular descriptor-trained model performed better on both toxic and nontoxic compounds (88.2% and 60.6% correct, respectively). However, these compounds were the only ones for which the protein-target descriptor-trained model made a larger proportion of correct predictions on nontoxic than toxic compounds—though it was out-performed by the very strong molecular descriptor-trained model (ROC AUC of 0.92) in each case.</p>
+            <p id="Par57">In contrast to the aforementioned models, the models built using data derived from in vitro data from the Tox21 project exhibited comparatively poor predictivity across the test sets (centre-right, red bars in Fig. <xref rid="Fig6" ref-type="fig">6</xref>), with ROC AUCs varying from 0.61 to 0.57, average precision scores varying from 0.40 to 0.36, and CCRs at the optimum threshold varying from 0.57 to 0.55. These results indicate that the model performed only slightly better than a random classifier, which is particularly evident in the ROC plots in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Fig. S2. Though this is a disappointing result, it reflects the smaller separations observed between classes seen in earlier exploratory analyses (Fig. <xref rid="Fig5" ref-type="fig">5</xref>). Indeed, there has been mixed success in the literature when attempting to use high-throughput screening assays to predict in vivo toxicity. In order to link our work to existing studies, we consider the review of Thomas et al. [<xref ref-type="bibr" rid="CR56">56</xref>] who found in their comprehensive review of chemicals and assays provided under ToxCast phase I (a closely related endeavour to the Tox21 project) that those assays have “limited applicability for predicting in vivo chemical hazards using standard statistical classification methods.” In contrast, the study of Huang et al. [<xref ref-type="bibr" rid="CR55">55</xref>] which reported variable success utilizing Tox21 assays alone to predict in vivo endpoints found that “combing structure and activity data resulted in better models than those built with structure or activity data alone” for most of the endpoints they studied. The difference in results may be surprising given the overlap between the compound set and the Tox21 assays, however this previous study differed from ours in that they made use of a Self-Organizing Map-based approach in contrast to our Random Forest, and different toxicity endpoints were considered. It is reasonable to conclude that the success of utilizing the Tox21 assay data depends on optimizing the analysis for that purpose, rather than comparing their performance as simply another class of descriptor in a study such as this. Moreover, the such qHTS assay data has applications beyond predictive modelling, including deriving putative mechanisms for adverse events [<xref ref-type="bibr" rid="CR57">57</xref>].</p>
+            <p id="Par58">We also generated a fourth class of models using both molecular and protein target descriptor sets. The predictive performance of this model class is also given in Table <xref rid="Tab4" ref-type="table">4</xref> and illustrated by the far right, purple bars in Fig. <xref rid="Fig6" ref-type="fig">6</xref>. Performance measured by ROC AUC, average precision and CCR for this class of model tended to be very similar to the molecular descriptors-only model class across the three test sets (differing by at most 0.03), though sensitivity and specificity showed more variation (differing by at most 0.19 and 0.18, respectively). The maximum discrepancy occurred for the rare scaffold set, for which the combination model exhibited a sensitivity 0.19 higher than the molecular descriptor only model, and a selectivity 0.18 lower. Overall, however, the CCR remained comparable.</p>
+            <p id="Par59">Finally, to examine the dependence of these results on the randomness in the division of test and training instances, the training–testing routines were performed as above for 40 further models: 20 using further class-stratified random splits, and 20 using further single-source splits (in which a class-stratified random subsample of single-source compounds are selected for the test set). Due to the design of the rare scaffold set, it was not possible to repeat this split to generate multiple test sets. The mean and sample standard deviation (SD) of the performance metrics for multiple random-split models are given in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S5, and for the multiple single-source splits in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S6. These results indicate that the performance of the models analysed in detail elsewhere in this study are broadly representative of other random splits that might have been chosen. In particular, the same relative performance trends for the models trained both on varying descriptor sets and varying training sets are observed in the models analysed in detail and in the summary statistics. One key observation is that, on average, models trained using only molecular descriptors and models trained using both molecular and protein-target descriptors perform very similarly on average for both random splits [mean ROC AUC of 0.941 and 0.913 (SD of 0.013 in each case), respectively] and single source splits [mean ROC AUC of 0.851 and 0.852 (SD of 0.013 in each case again), respectively]. The average performances of models trained using the Tox21 assay descriptors remained low, with the best average performance seen in the random test sets producing a ROC AUC of 0.619 (SD of 0.034) and a CCR of 0.619 (SD of 0.029).</p>
+            <p id="Par60">The natural question arising from these results is whether the additional complexity introduced by integrating protein target bioactivity probabilities into the molecular descriptor set is worthwhile, given that the effect on predictive performance is minimal (or marginally detrimental, for certain metrics). Table <xref rid="Tab5" ref-type="table">5</xref> compares the most important features, determined according to the expected fraction of decisions utilising that feature, in the two most predictive models studied in detail here: the model using chemical descriptors alone and the model using chemical and protein target descriptors in combination, both built using the random test set split. This table allows one potentially benefit of including protein target descriptors to be examined: the potential for an increase in model interpretability afforded by including protein target descriptors.<table-wrap id="Tab5"><label>Table 5</label><caption xml:lang="en"><p>Highest-importance features in the two Random Forest classifiers with the highest ROC AUC scores, i.e. those generated using the random test-training set split using (a) molecular descriptors only and (b) both molecular and protein target descriptors</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Classifier</p></th><th align="left"><p>Highest importance molecular descriptors</p></th><th align="left"><p>Highest importance protein target descriptors</p></th></tr></thead><tbody><tr><td align="left"><p>(a) Random test set, molecular descriptors</p></td><td align="left"><p><italic>a_nN:</italic> Number of nitrogen atoms</p><p><italic>Q_RPC</italic>-: Relative negative partial charge</p><p><italic>a_ICM</italic>: Atom information content (mean)</p><p><italic>h_pavgQ:</italic> Average total charge sum across protonation states at pH 7</p><p><italic>GCUT_PEOE_0:</italic> First GCUT descriptor calculated from the eigenvalues of a modified graph distance adjacency matrix where the diagonal takes the values of the partial charges</p></td><td align="left"><p><italic>n/a</italic></p></td></tr><tr><td align="left"><p>(b) Random test set, molecular and protein target descriptors</p></td><td align="left"><p><italic>Q_RPC</italic>-: Relative negative partial charge</p><p><italic>a_nN:</italic> Number of nitrogen atoms</p><p><italic>GCUT_SLOGP_0:</italic> First GCUT descriptor calculated using atomic contributions to logP instead of partial charge</p><p><italic>bpol:</italic> Sum of the absolute value of the difference between atomic polarizabilities of all bonded atoms in the molecule</p><p><italic>chi1v_C:</italic> Carbon valence connectivity index (order 1)</p></td><td align="left"><p><italic>P18031:</italic> Tyrosine-protein phosphatase non-receptor type 1</p><p><italic>P51449:</italic> Nuclear receptor ROR-gamma</p><p><italic>P00352:</italic> Retinal dehydrogenase 1</p><p><italic>P23219:</italic> Prostaglandin G/H synthase 1</p><p><italic>P11473:</italic> Vitamin D3 receptor</p></td></tr></tbody></table><table-wrap-foot><p>The table illustrates the difference in interpretability between the two classes of descriptors, since molecular descriptors may be either be too broad to interpret or nontrivial to understand, while protein target descriptors provide a specific biological hypothesis which can be subsequently tested to validate a mechanism of action</p></table-wrap-foot></table-wrap></p>
+            <p id="Par61">While the MOE-generated molecular descriptors are evidently highly predictive for the data set employed in the present study, and therefore of great utility where the priority is simply the accuracy of the model, it’s not immediately obvious what some of the more esoteric descriptors represent (e.g. connectivity indices), nor how they might relate to acute oral toxicity. This means that generating any further insight from these models is a challenge. In contrast, as discussed above, protein target descriptors can be more readily interpreted through literature validation. Two of the most of important protein targets were not previously identified through the exploration of descriptor spaces, namely Tyrosine-protein phosphatase non-receptor type 1, a kinase linked with cytoskeletal machinery and interferon pathways (GO:0060338) [<xref ref-type="bibr" rid="CR58">58</xref>], and Prostaglandin G/H synthase 1 which has links to cellular stress events [<xref ref-type="bibr" rid="CR59">59</xref>]. Three of the five were previously identified in the aforementioned nearest-neighbour and LDA analysis (Nuclear receptor ROR-gamma, Retinal dehydrogenase 1 and Vitamin D3 receptor), which illustrates that the RF algorithm is able to identify these target descriptors as an important feature to separated toxicity classes in addition to its predictive functionality. The targets identified in this work, via the feature importance and descriptor distribution analysis, share overlap with the cytotoxic target enrichment analysis (Fisher Test) presented in the complete list included in Mervin et al. [<xref ref-type="bibr" rid="CR5">5</xref>], namely DNA dC → dU-editing enzyme APOBEC-3F, Glucagon-like peptide 1 receptor and Tyrosine-protein phosphatase non-receptor type 1, in addition to the histone deacetylases 5 and 6, as identified in both Mervin et al. and Liggi et al. [<xref ref-type="bibr" rid="CR4">4</xref>, <xref ref-type="bibr" rid="CR5">5</xref>].</p>
+          </sec>
+        </sec>
+        <sec id="Sec17" sec-type="conclusion">
+          <title>Conclusions</title>
+          <p id="Par62">We have presented the collation of a novel dataset, not previously analysed, which comprised acute toxicity labels (derived from GHS data made available by regulatory authorities), chemical structures and qHTS results from Tox21. Molecular descriptors were derived from the chemical structures, compounds were annotated protein target descriptors using in silico target prediction, and the qHTS results were summarised into a descriptor set.</p>
+          <p id="Par63">In our exploration of the descriptor dataset, we found those compounds with a GHS-derived acute oral toxicity labels were not substantially more or less druglike than the full ToxCast &amp; Tox21 chemical library. We found that acute oral toxicity, as encoded by the GHS system, was not well aligned with the FAFDrugs4 toxicophore-based screen. In contrast, a subset of the toxicophores from the ToxAlerts server exhibited a modest relationship with GHS-encoded acute oral toxicity. We therefore conclude that toxicophore-based screens cannot alone discern the acute toxicity encoded within the GHS. We found that the acute oral toxicity classes derived from GHS data were partially linearly separable in chemical and protein-target space, as illustrated using nearest-neighbour distance distributions and linear discriminant analyses. Little separation was observed in the Tox21 descriptor space, in agreement with our previous studies.</p>
+          <p id="Par64">Predictive models could be created by training Random Forest models on the dataset using molecular descriptors and protein target bioactivity probabilities as input features, with the model trained on the molecular descriptors outperforming that trained on the bioactivities (CCRs of 0.85–0.72 compared to 0.77–0.65). However, the qHTS data from the Tox21 assays could not be successfully employed in GHS class prediction, with the Random Forest model trained using these as features exhibiting a CCR little better than a random guess. We conclude from this that the endpoints captured by the Tox21 project may not be relevant to the acute in vivo toxicity encoded by the GHS classifications, or else that the relationship between the two may not be captured by the simplistic application of the Tox21 assay results as features in a supervised machine learning algorithm as expected from the separations observed in the three spaces.</p>
+          <p id="Par65">A combined model trained on both chemical descriptors and protein target bioactivity descriptors had similar predictive performance to that trained on chemical descriptors only. This result was confirmed by measuring the average performance of 40 further models trained and tested on repeated randomised splits. We suggested that, given that the performance of the combined model was comparable with the chemistry-only model, such a combined model may be primarily useful due to the increased interpretability of the feature importance extractable from the model. The five most relevant protein target descriptors had links to toxicity in the literature. Further work on this dataset may focus on exploring the degree to which this interpretability can be harnessed toward interpretability and mode-of-action hypothesis generation on a compound-by compound basis. We have made the dataset publicly available to this end.
+</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>The authors thank the organisers of the 11th International Conference on Chemical Structures for providing an opportunity to present their work, Avid M. Afzal and Ines Smit for helpful conversations, Ben Alexander-Dann for proofreading the manuscript, and Philip Judson of Lhasa Ltd for a useful exchange of emails.</p>
+        </ack>
+        <sec sec-type="author-contribution">
+          <title>Authors’ contributions</title>
+          <p>CHGA undertook the main research and analyses presented in this study and drafted the manuscript. SM contributed to ToxAlert data collation and analysis. LHM developed the PIDGIN v2 models, provided guidance on the analysis and contributed to the drafting of the manuscript. Overall supervision of the work was provided by AB. All authors read and approved the final manuscript.</p>
+        </sec>
+        <sec>
+          <title>Funding</title>
+          <p>Funding for the work was provided by the CEFIC Long-range Research Initiative (CEFIC LRI Award 2012 to AB).</p>
+        </sec>
+        <sec sec-type="data-availability">
+          <title>Availability of data and materials</title>
+          <p>The molecular and protein target descriptors, and the regulator-derived GHS toxicity annotations used in this article are available in the Additional files. The Tox21 assay data is available on PubChem, via the assay IDs listed in Additional File <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S1.</p>
+        </sec>
+        <sec sec-type="ethics-statement">
+          <sec id="FPar2" sec-type="COI-statement">
+            <title>Competing interests</title>
+            <p id="Par67">The authors declare that they have no competing interests.</p>
+          </sec>
+        </sec>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <collab>The European Union</collab>
+                </person-group>
+                <article-title xml:lang="en">Regulation (EC) No 1907/2006 of the European Parliament and of the Council of 18 December 2006 concerning the Registration, Evaluation, Authorisation and Restriction of Chemicals (REACH), establishing a European Chemicals Agency, amending Directive 1999/45/EC and repealing Council Regulation (EEC) No 793/93 and Commission Regulation (EC) No 1488/94 as well as Council Directive 76/769/EEC and Commission Directives 91/155/EEC, 93/67/EEC, 93/105/EC and 2000/21/EC</article-title>
+                <source>Off J Eur Union</source>
+                <year>2006</year>
+                <volume>49</volume>
+                <fpage>1</fpage>
+                <lpage>849</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kavlock</surname>
+                    <given-names>RJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Bahadori</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Barton-Maclaren</surname>
+                    <given-names>TS</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Accelerating the pace of chemical risk assessment</article-title>
+                <source>Chem Res Toxicol</source>
+                <year>2018</year>
+                <volume>31</volume>
+                <fpage>287</fpage>
+                <lpage>290</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXmsVCqt74%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.chemrestox.7b00339</pub-id>
+                <pub-id pub-id-type="pmid">29600706</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Varnek</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Baskin</surname>
+                    <given-names>II</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Machine learning methods for property prediction in chemoinformatics: Quo Vadis?</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2012</year>
+                <volume>52</volume>
+                <fpage>1413</fpage>
+                <lpage>1437</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XmvV2ntL4%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci200409x</pub-id>
+                <pub-id pub-id-type="pmid">22582859</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Liggi</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Drakakis</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Koutsoukas</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Extending in silico mechanism-of-action analysis by annotating targets with pathways: application to cellular cytotoxicity readouts</article-title>
+                <source>Future Med Chem</source>
+                <year>2014</year>
+                <volume>6</volume>
+                <fpage>2029</fpage>
+                <lpage>2056</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXitFantLvJ</pub-id>
+                <pub-id pub-id-type="doi">10.4155/fmc.14.137</pub-id>
+                <pub-id pub-id-type="pmid">25531967</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mervin</surname>
+                    <given-names>LH</given-names>
+                  </name>
+                  <name>
+                    <surname>Cao</surname>
+                    <given-names>Q</given-names>
+                  </name>
+                  <name>
+                    <surname>Barrett</surname>
+                    <given-names>IP</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Understanding cytotoxicity and cytostaticity in a high-throughput screening collection</article-title>
+                <source>ACS Chem Biol</source>
+                <year>2016</year>
+                <volume>11</volume>
+                <fpage>3007</fpage>
+                <lpage>3023</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XhsVWltrzI</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acschembio.6b00538</pub-id>
+                <pub-id pub-id-type="pmid">27571164</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hong</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Thakkar</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Tong</surname>
+                    <given-names>W</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Development of decision forest models for prediction of drug-induced liver injury in humans using a large set of FDA-approved drugs</article-title>
+                <source>Sci Rep</source>
+                <year>2017</year>
+                <volume>1</volume>
+                <issue>7</issue>
+                <fpage>17311</fpage>
+                <pub-id pub-id-type="doi">10.1038/s41598-017-17701-7</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lounkine</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Keiser</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Whitebread</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Large-scale prediction and testing of drug activity on side-effect targets</article-title>
+                <source>Nature</source>
+                <year>2012</year>
+                <volume>486</volume>
+                <fpage>361</fpage>
+                <lpage>367</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XovFyrtb0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nature11159</pub-id>
+                <pub-id pub-id-type="pmid">22722194</pub-id>
+                <pub-id pub-id-type="pmcid">22722194</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mayr</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Klambauer</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Unterthiner</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hochreiter</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">DeepTox: toxicity prediction using deep learning</article-title>
+                <source>Front Environ Sci</source>
+                <year>2016</year>
+                <volume>3</volume>
+                <fpage>24</fpage>
+                <pub-id pub-id-type="doi">10.3389/fenvs.2015.00080</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sedykh</surname>
+                    <given-names>AY</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhu</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Tang</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Use of in vitro HTS-derived concentration-response data as biological descriptors improves the accuracy of QSAR models of in vivo toxicity</article-title>
+                <source>Environ Health Perspect</source>
+                <year>2011</year>
+                <volume>119</volume>
+                <fpage>364</fpage>
+                <lpage>370</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXktlentLc%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1289/ehp.1002476</pub-id>
+                <pub-id pub-id-type="pmid">20980217</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Low</surname>
+                    <given-names>YS</given-names>
+                  </name>
+                  <name>
+                    <surname>Sedykh</surname>
+                    <given-names>AY</given-names>
+                  </name>
+                  <name>
+                    <surname>Rusyn</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Tropsha</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Integrative approaches for predicting in vivo effects of chemicals from their structural descriptors and the results of short-term biological assays</article-title>
+                <source>Curr Top Med Chem</source>
+                <year>2014</year>
+                <volume>14</volume>
+                <fpage>1356</fpage>
+                <lpage>1364</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXpvVakurc%3D</pub-id>
+                <pub-id pub-id-type="doi">10.2174/1568026614666140506121116</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Allen</surname>
+                    <given-names>CHG</given-names>
+                  </name>
+                  <name>
+                    <surname>Koutsoukas</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Cortes-Ciriano</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Improving the prediction of organism-level toxicity through integration of chemical, protein target and cytotoxicity qHTS data</article-title>
+                <source>Toxicol Res</source>
+                <year>2016</year>
+                <volume>5</volume>
+                <fpage>883</fpage>
+                <lpage>894</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XjsFKrtLo%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1039/C5TX00406C</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Richard</surname>
+                    <given-names>AM</given-names>
+                  </name>
+                  <name>
+                    <surname>Judson</surname>
+                    <given-names>RS</given-names>
+                  </name>
+                  <name>
+                    <surname>Houck</surname>
+                    <given-names>KA</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">ToxCast chemical landscape: paving the road to 21st century toxicology</article-title>
+                <source>Chem Res Toxicol</source>
+                <year>2016</year>
+                <volume>29</volume>
+                <fpage>1225</fpage>
+                <lpage>1251</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XhtV2it77J</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.chemrestox.6b00135</pub-id>
+                <pub-id pub-id-type="pmid">27367298</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <collab>United Nations Economic Commission for Europe Secretariat</collab>
+                </person-group>
+                <source>Globally harmonized system of classification and labelling of chemicals (GHS)</source>
+                <year>2011</year>
+                <edition>4</edition>
+                <publisher-loc>New York</publisher-loc>
+                <publisher-name>United Nations</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Luechtefeld</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Maertens</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Russo</surname>
+                    <given-names>DP</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Global analysis of publicly available safety data for 9,801 substances registered under REACH from 2008–2014</article-title>
+                <source>Altex</source>
+                <year>2016</year>
+                <volume>1</volume>
+                <issue>33</issue>
+                <fpage>95</fpage>
+                <lpage>109</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXhtFCqs7zE</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gku401</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Drwal</surname>
+                    <given-names>MN</given-names>
+                  </name>
+                  <name>
+                    <surname>Banerjee</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Dunkel</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">ProTox: a web server for the in silico prediction of rodent oral toxicity</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2014</year>
+                <volume>42</volume>
+                <fpage>W53</fpage>
+                <lpage>W58</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXhtFCqs7zE</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gku401</pub-id>
+                <pub-id pub-id-type="pmid">24838562</pub-id>
+                <pub-id pub-id-type="pmcid">4086068</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="other">USEPA (2018) ToxCast &amp; Tox21 chemicals distributed structure-searchable toxicity database from DSSTox_20151019. <ext-link xlink:href="http://www2.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data" ext-link-type="uri">http://www2.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data</ext-link>. Data Released October 2015</mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="other">Molecular Operating Environment (MOE) 2018.01, Chemical Computing Group ULC. <ext-link xlink:href="http://www.chemcomp.com/index.htm" ext-link-type="uri">http://www.chemcomp.com/index.htm</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mervin</surname>
+                    <given-names>LH</given-names>
+                  </name>
+                  <name>
+                    <surname>Bulusu</surname>
+                    <given-names>KC</given-names>
+                  </name>
+                  <name>
+                    <surname>Kalash</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Orthologue chemical space and its influence on target prediction</article-title>
+                <source>Bioinformatics</source>
+                <year>2017</year>
+                <volume>34</volume>
+                <fpage>1</fpage>
+                <lpage>8</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXitlehtr7P</pub-id>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/btx525</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Thiessen</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                  <name>
+                    <surname>Bolton</surname>
+                    <given-names>EE</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">PubChem substance and compound databases</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2016</year>
+                <volume>44</volume>
+                <fpage>D1202</fpage>
+                <lpage>D1213</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhtV2gu7bE</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkv951</pub-id>
+                <pub-id pub-id-type="pmid">26400175</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Austin</surname>
+                    <given-names>CP</given-names>
+                  </name>
+                  <name>
+                    <surname>Tice</surname>
+                    <given-names>RR</given-names>
+                  </name>
+                  <name>
+                    <surname>Kavlock</surname>
+                    <given-names>RJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Bucher</surname>
+                    <given-names>JR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Improving the human hazard characterization of chemicals: a Tox21 update</article-title>
+                <source>Environ Health Perspect</source>
+                <year>2013</year>
+                <volume>121</volume>
+                <fpage>756</fpage>
+                <lpage>765</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXmvFOrt74%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1289/ehp.1205784</pub-id>
+                <pub-id pub-id-type="pmid">23603828</pub-id>
+                <pub-id pub-id-type="pmcid">3701992</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="other">European Chemicals Agency. <ext-link xlink:href="http://echa.europa.eu/" ext-link-type="uri">http://echa.europa.eu/</ext-link>. Accessed 26 Apr 2018</mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="other">New Zealand Environmental Protection Authority. <ext-link xlink:href="https://www.epa.govt.nz/" ext-link-type="uri">https://www.epa.govt.nz/</ext-link>. Accessed 26 Apr 2018</mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="other">Japanese National Institute of Technology and Evaluation (NITE). <ext-link xlink:href="https://www.nite.go.jp/index-e.html" ext-link-type="uri">https://www.nite.go.jp/index-e.html</ext-link>. Accessed 26 April 2018</mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="other">Safe Work Australia. <ext-link xlink:href="https://www.safeworkaustralia.gov.au/" ext-link-type="uri">https://www.safeworkaustralia.gov.au/</ext-link>. Accessed 26 April 2018</mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="other">New Zealand Environmental Protection Authority (2017) Hazardous substances (classification) notice 2017. <ext-link xlink:href="https://www.epa.govt.nz/assets/Uploads/Documents/Hazardous-Substances/EPA-Notices/Hazardous-Substances-Minimum-Degrees-of-Hazard-Notice-2017.pdf" ext-link-type="uri">https://www.epa.govt.nz/assets/Uploads/Documents/Hazardous-Substances/EPA-Notices/Hazardous-Substances-Minimum-Degrees-of-Hazard-Notice-2017.pdf</ext-link>. Accessed 20 Nov 2018</mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="other">OECD (2006). eChemPortal. <ext-link xlink:href="https://www.echemportal.org" ext-link-type="uri">https://www.echemportal.org</ext-link>. Accessed 26 Apr 2018</mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="other">JChem 17.25.0 2017. ChemAxon. <ext-link xlink:href="http://www.chemaxon.com" ext-link-type="uri">http://www.chemaxon.com</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Heller</surname>
+                    <given-names>SR</given-names>
+                  </name>
+                  <name>
+                    <surname>McNaught</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Pletnev</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">InChI, the IUPAC international chemical identifier</article-title>
+                <source>J Cheminf</source>
+                <year>2015</year>
+                <volume>7</volume>
+                <fpage>23</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXht1ehs7bK</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13321-015-0068-4</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gaulton</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Hersey</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Nowotka</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">The ChEMBL database in 2017</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2017</year>
+                <volume>45</volume>
+                <fpage>D945</fpage>
+                <lpage>D954</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXhslWhurs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkw1074</pub-id>
+                <pub-id pub-id-type="pmid">27899562</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sander</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Freyss</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>von Korff</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Rufener</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">DataWarrior: an open-source program for chemistry aware data visualization and analysis</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2015</year>
+                <volume>55</volume>
+                <fpage>460</fpage>
+                <lpage>473</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXktFWnuw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci500588j</pub-id>
+                <pub-id pub-id-type="pmid">25558886</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lagorce</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Bouslama</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Becot</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">FAF-Drugs4: free ADME-tox filtering computations for chemical biology and early stages drug discovery</article-title>
+                <source>Bioinformatics</source>
+                <year>2017</year>
+                <volume>33</volume>
+                <fpage>3658</fpage>
+                <lpage>3660</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXhvFWmtr3L</pub-id>
+                <pub-id pub-id-type="doi">10.1093/bioinformatics/btx491</pub-id>
+                <pub-id pub-id-type="pmid">28961788</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sushko</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Salmina</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Potemkin</surname>
+                    <given-names>VA</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">ToxAlerts: a web server of structural alerts for toxic chemicals and compounds with potential adverse reactions</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2012</year>
+                <volume>52</volume>
+                <fpage>2310</fpage>
+                <lpage>2316</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XhtFOntLjP</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci300245q</pub-id>
+                <pub-id pub-id-type="pmid">22876798</pub-id>
+                <pub-id pub-id-type="pmcid">3640409</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sushko</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Novotarskyi</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Körner</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Online chemical modeling environment (OCHEM): web platform for data storage, model development and publishing of chemical information</article-title>
+                <source>J Comput Aided Mol Des</source>
+                <year>2011</year>
+                <volume>25</volume>
+                <fpage>533</fpage>
+                <lpage>554</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXosFCgsrg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1007/s10822-011-9440-2</pub-id>
+                <pub-id pub-id-type="pmid">21660515</pub-id>
+                <pub-id pub-id-type="pmcid">3131510</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Salmina</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Haider</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Tetko</surname>
+                    <given-names>I</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Extended Functional groups (EFG): an efficient set for chemical characterization and structure-activity relationship studies of chemical compounds</article-title>
+                <source>Molecules</source>
+                <year>2015</year>
+                <volume>21</volume>
+                <fpage>1</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XnsFKms7w%3D</pub-id>
+                <pub-id pub-id-type="doi">10.3390/molecules21010001</pub-id>
+                <pub-id pub-id-type="pmcid">6273096</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Oliphant</surname>
+                    <given-names>TE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Python for scientific computing</article-title>
+                <source>Comput Sci Eng</source>
+                <year>2007</year>
+                <volume>9</volume>
+                <fpage>10</fpage>
+                <lpage>20</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXltVWiurw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1109/mcse.2007.58</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pedregosa</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Varoquaux</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Gramfort</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Scikit-learn: machine learning in python</article-title>
+                <source>J Mach Learn Res</source>
+                <year>2011</year>
+                <volume>12</volume>
+                <fpage>2825</fpage>
+                <lpage>2830</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cronin</surname>
+                    <given-names>MTD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Computational toxicology is now inseparable from experimental toxicology</article-title>
+                <source>Altern Lab Anim</source>
+                <year>2013</year>
+                <volume>41</volume>
+                <fpage>1</fpage>
+                <lpage>4</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXntVCmtrc%3D</pub-id>
+                <pub-id pub-id-type="pmid">23614541</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bemis</surname>
+                    <given-names>GW</given-names>
+                  </name>
+                  <name>
+                    <surname>Murcko</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The properties of known drugs. 1. Molecular frameworks</article-title>
+                <source>J Med Chem</source>
+                <year>1996</year>
+                <volume>39</volume>
+                <fpage>2887</fpage>
+                <lpage>2893</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28XjvVejtro%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm9602928</pub-id>
+                <pub-id pub-id-type="pmid">8709122</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="other">RDKit: Open-source cheminformatics. <ext-link xlink:href="http://www.rdkit.org" ext-link-type="uri">http://www.rdkit.org</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Svetnik</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Liaw</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Tong</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Random Forest: a classification and regression tool for compound classification and QSAR modeling</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <fpage>1947</fpage>
+                <lpage>1958</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3sXos1Wiu7s%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci034160g</pub-id>
+                <pub-id pub-id-type="pmid">14632445</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sharratt</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Assessing risks from data on other exposure routes: possibilities and limitations of using toxicity data derived from one exposure route in assessing risks from other exposure routes</article-title>
+                <source>Regul Toxicol Pharmacol</source>
+                <year>1988</year>
+                <volume>8</volume>
+                <fpage>399</fpage>
+                <lpage>407</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:STN:280:DyaL1M7ivFCqsQ%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/0273-2300(88)90038-4</pub-id>
+                <pub-id pub-id-type="pmid">3222481</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Waring</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Arrowsmith</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Leach</surname>
+                    <given-names>AR</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">An analysis of the attrition of drug candidates from four major pharmaceutical companies</article-title>
+                <source>Nat Rev Drug Discov</source>
+                <year>2015</year>
+                <volume>14</volume>
+                <fpage>475</fpage>
+                <lpage>486</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXhtFeju7jM</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nrd4609</pub-id>
+                <pub-id pub-id-type="pmid">26091267</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schwöbel</surname>
+                    <given-names>JAH</given-names>
+                  </name>
+                  <name>
+                    <surname>Koleva</surname>
+                    <given-names>YK</given-names>
+                  </name>
+                  <name>
+                    <surname>Enoch</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Measurement and estimation of electrophilic reactivity for predictive toxicology</article-title>
+                <source>Chem Rev</source>
+                <year>2011</year>
+                <volume>111</volume>
+                <fpage>2562</fpage>
+                <lpage>2596</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXjtFeku7c%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/cr100098n</pub-id>
+                <pub-id pub-id-type="pmid">21401043</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Alves</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Muratov</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Capuzzi</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Alarms about structural alerts</article-title>
+                <source>Green Chem Int J Green Chem Resour</source>
+                <year>2016</year>
+                <volume>18</volume>
+                <fpage>4348</fpage>
+                <lpage>4360</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XhtVOntrrE</pub-id>
+                <pub-id pub-id-type="doi">10.1039/C6GC01492E</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Stepan</surname>
+                    <given-names>AF</given-names>
+                  </name>
+                  <name>
+                    <surname>Walker</surname>
+                    <given-names>DP</given-names>
+                  </name>
+                  <name>
+                    <surname>Bauman</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Structural Alert/reactive metabolite concept as applied in medicinal chemistry to mitigate the risk of idiosyncratic drug toxicity: a perspective based on the critical examination of trends in the top 200 drugs marketed in the united states</article-title>
+                <source>Chem Res Toxicol</source>
+                <year>2011</year>
+                <volume>24</volume>
+                <fpage>1345</fpage>
+                <lpage>1410</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXos1Whtbo%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/tx200168d</pub-id>
+                <pub-id pub-id-type="pmid">21702456</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR46">
+              <label>46.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Patterson</surname>
+                    <given-names>DE</given-names>
+                  </name>
+                  <name>
+                    <surname>Cramer</surname>
+                    <given-names>RD</given-names>
+                  </name>
+                  <name>
+                    <surname>Ferguson</surname>
+                    <given-names>AM</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Neighborhood behavior: a useful concept for validation of “molecular diversity” descriptors</article-title>
+                <source>J Med Chem</source>
+                <year>1996</year>
+                <volume>39</volume>
+                <fpage>3049</fpage>
+                <lpage>3059</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28Xkt1alur8%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm960290n</pub-id>
+                <pub-id pub-id-type="pmid">8759626</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR47">
+              <label>47.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Singh</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Brocker</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Koppaka</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Aldehyde dehydrogenases in cellular responses to oxidative/electrophilicstress</article-title>
+                <source>Free Radic Biol Med</source>
+                <year>2013</year>
+                <volume>56</volume>
+                <fpage>89</fpage>
+                <lpage>101</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXis1Ons7k%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.freeradbiomed.2012.11.010</pub-id>
+                <pub-id pub-id-type="pmid">23195683</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR48">
+              <label>48.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ryoo</surname>
+                    <given-names>I-G</given-names>
+                  </name>
+                  <name>
+                    <surname>Kwak</surname>
+                    <given-names>M-K</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Regulatory crosstalk between the oxidative stress-related transcription factor Nfe2l2/Nrf2 and mitochondria</article-title>
+                <source>Toxicol Appl Pharmacol</source>
+                <year>2018</year>
+                <volume>359</volume>
+                <fpage>24</fpage>
+                <lpage>33</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXhslOgsrvM</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.taap.2018.09.014</pub-id>
+                <pub-id pub-id-type="pmid">30236989</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR49">
+              <label>49.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Luo</surname>
+                    <given-names>X-Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Wu</surname>
+                    <given-names>D-H</given-names>
+                  </name>
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ROR nuclear receptors: structures, related diseases, and drug discovery</article-title>
+                <source>Acta Pharmacol Sin</source>
+                <year>2015</year>
+                <volume>36</volume>
+                <fpage>71</fpage>
+                <lpage>87</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXitVGgtw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/aps.2014.120</pub-id>
+                <pub-id pub-id-type="pmid">25500868</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR50">
+              <label>50.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zou</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Ma</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">APOBEC3B, a molecular driver of mutagenesis in human cancers</article-title>
+                <source>Cell Biosci</source>
+                <year>2017</year>
+                <volume>7</volume>
+                <fpage>1593</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXkvVGnu7k%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/s13578-017-0156-4</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR51">
+              <label>51.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kemmis</surname>
+                    <given-names>CM</given-names>
+                  </name>
+                  <name>
+                    <surname>Salvador</surname>
+                    <given-names>SM</given-names>
+                  </name>
+                  <name>
+                    <surname>Smith</surname>
+                    <given-names>KM</given-names>
+                  </name>
+                  <name>
+                    <surname>Welsh</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Human mammary epithelial cells express CYP27B1 and are growth inhibited by 25-hydroxyvitamin D-3, the major circulating form of vitamin D-3</article-title>
+                <source>J Nutr</source>
+                <year>2006</year>
+                <volume>136</volume>
+                <fpage>887</fpage>
+                <lpage>892</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XjtVOks74%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/jn/136.4.887</pub-id>
+                <pub-id pub-id-type="pmid">16549446</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR52">
+              <label>52.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hendrick</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Peixoto</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Blomme</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Metabolic inhibitors accentuate the anti-tumoral effect of HDAC5 inhibition</article-title>
+                <source>Oncogene</source>
+                <year>2017</year>
+                <volume>36</volume>
+                <fpage>4859</fpage>
+                <lpage>4874</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXmtVyksb0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/onc.2017.103</pub-id>
+                <pub-id pub-id-type="pmid">28414307</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR53">
+              <label>53.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Namdar</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Perez</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Ngo</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Marks</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Selective inhibition of histone deacetylase 6 (HDAC6) induces DNA damage and sensitizes transformed cells to anticancer agents</article-title>
+                <source>Proc Natl Acad Sci USA</source>
+                <year>2010</year>
+                <volume>107</volume>
+                <fpage>20003</fpage>
+                <lpage>20008</lpage>
+                <pub-id pub-id-type="doi">10.1073/pnas.1013754107</pub-id>
+                <pub-id pub-id-type="pmid">21037108</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR54">
+              <label>54.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Hansotia</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Yusta</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Glucagon-like peptide-1 receptor signaling modulates beta cell apoptosis</article-title>
+                <source>J Biol Chem</source>
+                <year>2003</year>
+                <volume>278</volume>
+                <fpage>471</fpage>
+                <lpage>478</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XpvVWgu78%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1074/jbc.M209423200</pub-id>
+                <pub-id pub-id-type="pmid">12409292</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR55">
+              <label>55.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Xia</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Sakamuru</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Modelling the Tox21 10 K chemical profiles for in vivo toxicity prediction and mechanism characterization</article-title>
+                <source>Nat Commun</source>
+                <year>2016</year>
+                <volume>7</volume>
+                <fpage>10425</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28Xhtl2kurk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/ncomms10425</pub-id>
+                <pub-id pub-id-type="pmid">26811972</pub-id>
+                <pub-id pub-id-type="pmcid">4777217</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR56">
+              <label>56.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Thomas</surname>
+                    <given-names>RS</given-names>
+                  </name>
+                  <name>
+                    <surname>Black</surname>
+                    <given-names>MB</given-names>
+                  </name>
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">A comprehensive statistical analysis of predicting in vivo hazard using high-throughput in vitro Screening</article-title>
+                <source>Toxicol Sci</source>
+                <year>2012</year>
+                <volume>128</volume>
+                <fpage>398</fpage>
+                <lpage>417</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38Xht1enurbI</pub-id>
+                <pub-id pub-id-type="doi">10.1093/toxsci/kfs159</pub-id>
+                <pub-id pub-id-type="pmid">22543276</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR57">
+              <label>57.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Svensson</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Zoufir</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Mahmoud</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Information-derived mechanistic hypotheses for structural cardiotoxicity</article-title>
+                <source>Chem Res Toxicol</source>
+                <year>2018</year>
+                <volume>31</volume>
+                <fpage>1119</fpage>
+                <lpage>1127</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXhvFWrsbfM</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.chemrestox.8b00159</pub-id>
+                <pub-id pub-id-type="pmid">30350600</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR58">
+              <label>58.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Nievergall</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Janes</surname>
+                    <given-names>PW</given-names>
+                  </name>
+                  <name>
+                    <surname>Stegmayer</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">PTP1B regulates Eph receptor function and trafficking</article-title>
+                <source>J Cell Biol</source>
+                <year>2010</year>
+                <volume>191</volume>
+                <fpage>1189</fpage>
+                <lpage>1203</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXhs1Smu77M</pub-id>
+                <pub-id pub-id-type="doi">10.1083/jcb.201005035</pub-id>
+                <pub-id pub-id-type="pmid">21135139</pub-id>
+                <pub-id pub-id-type="pmcid">3002030</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR59">
+              <label>59.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Choi</surname>
+                    <given-names>S-H</given-names>
+                  </name>
+                  <name>
+                    <surname>Aid</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Bosetti</surname>
+                    <given-names>F</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The distinct roles of cyclooxygenase-1 and -2 in neuroinflammation: implications for translational research</article-title>
+                <source>Trends Pharmacol Sci</source>
+                <year>2009</year>
+                <volume>30</volume>
+                <fpage>174</fpage>
+                <lpage>181</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXjslOksbg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.tips.2009.01.002</pub-id>
+                <pub-id pub-id-type="pmid">19269697</pub-id>
+                <pub-id pub-id-type="pmcid">3379810</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec123">
+              <title>Additional files</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Additional files">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2019_356_MOESM1_ESM.docx" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0356-5" ext-link-type="uri">Additional file 1.</ext-link> Supplementary information.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM2" xlink:title="Additional files">
+                  <media mimetype="text" mime-subtype="plain" xlink:href="MediaObjects/13321_2019_356_MOESM2_ESM.bz2" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0356-5" ext-link-type="uri">Additional file 2.</ext-link> Research code and data.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM3" xlink:title="Additional files">
+                  <media mimetype="text" mime-subtype="plain" xlink:href="MediaObjects/13321_2019_356_MOESM3_ESM.csv" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0356-5" ext-link-type="uri">Additional file 3.</ext-link> List of compounds for which molecular and protein target models disagree.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+          </app>
+        </app-group>
+        <glossary>
+          <title>Abbreviations</title>
+          <def-list>
+            <def-item>
+              <term>CCR</term>
+              <def>
+                <p id="Par2">(class-balanced) correct classification rate, i.e. the mean of sensitivity and specificity</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>ECHA</term>
+              <def>
+                <p id="Par3">European Chemicals Agency</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>JP NITE</term>
+              <def>
+                <p id="Par4">Japan’s National Institution of Technology and Evaluation</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>LDA</term>
+              <def>
+                <p id="Par5">linear discriminant analysis</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>NZ EPA</term>
+              <def>
+                <p id="Par6">New Zealand’s Environmental Protection Authority</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>ROC</term>
+              <def>
+                <p id="Par7">receiver operating characteristic curve</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>ROC AUC</term>
+              <def>
+                <p id="Par8">area under the receiver operating characteristic curve</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>SWA</term>
+              <def>
+                <p id="Par9">Safe Work Australia</p>
+              </def>
+            </def-item>
+          </def-list>
+        </glossary>
+        <notes notes-type="Misc">
+          <title>Publisher's Note</title>
+          <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+        </notes>
+      </back>
+    </article>

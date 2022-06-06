@@ -1,0 +1,1261 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0403-2</article-id>
+          <article-id pub-id-type="manuscript">403</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0403-2</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Software</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">CyBy<sup>2</sup>: a strongly typed, purely functional framework for chemical data management</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" id="Au1">
+              <name>
+                <surname>Höck</surname>
+                <given-names>Stefan</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au2">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0003-2534-1963</contrib-id>
+              <name>
+                <surname>Riedl</surname>
+                <given-names>Rainer</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDs1332101904032_cor2">b</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000000122291644</institution-id>
+                <institution-id institution-id-type="GRID">grid.19739.35</institution-id>
+                <institution content-type="org-name">ZHAW Zurich University of Applied Sciences</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Einsiedlerstrasse 31</addr-line>
+              <addr-line content-type="postcode">8820</addr-line>
+              <addr-line content-type="city">Wädenswil</addr-line>
+              <country country="CH">Switzerland</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs1332101904032_cor2">
+              <label>b</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>30</day>
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="80">1</issue>
+          <elocation-id>80</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>9</day>
+              <month>12</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>20</day>
+              <month>8</month>
+              <year>2019</year>
+            </date>
+            <date date-type="accepted">
+              <day>9</day>
+              <month>12</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>30</day>
+              <month>12</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated in a credit line to the data.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">We present the development of <italic>CyBy</italic><sup><italic>2</italic></sup>, a versatile framework for chemical data management written in purely functional style in Scala, a modern multi-paradigm programming language. Together with the core libraries we provide a fully functional example implementation of a HTTP server together with a single page web client with powerful querying and visualization capabilities, providing essential functionality for people working in the field of organic and medicinal chemistry. The main focus of <italic>CyBy</italic><sup><italic>2</italic></sup> are the diverse needs of different research groups in the field and therefore the flexibility required from the underlying data model. Techniques for writing type level specifications giving strong guarantees about the correctness of the implementation are described, together with the resulting gain in confidence during refactoring. Finally we talk about the advantages of using a single code base from which the server, the client and the software’s documentation pages are being generated. We conclude with a comparison with existing open source solutions. All code described in this article is published under version 3 of the GNU General Public License and available from GitHub including an example implementation of both backend and frontend together with documentation how to download and compile the software (available at <ext-link xlink:href="https://github.com/stefan-hoeck/cyby2" ext-link-type="uri">https://github.com/stefan-hoeck/cyby2</ext-link>).</p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Chemical data management</kwd>
+            <kwd>Lab inventory</kwd>
+            <kwd>Medicinal chemistry</kwd>
+            <kwd>Functional programming</kwd>
+            <kwd>Type driven development</kwd>
+            <kwd>Scala</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>No</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>12</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>9</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_403.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p id="Par2">As researchers in the field of drug discovery we have very specific needs when it comes to electronically archiving and visualizing the results produced in our research group. For our daily synthetic work we would like to have an easily accessible lab inventory searchable by molecular (sub)structures with the ability to export selected subsets of the data for the generation of screening libraries or the exchange with external research partners. The inventory should be editable by all researchers, but superusers should be able to review these edits and get comprehensive information about what was changed in the database by whom. To help in the process of drug design, we want to be able to link compounds with activity data from biological assays, and we want to be able to use a powerful but convenient to use querying language together with visualization utilities to analyze these datasets for structure activity relations (SAR) against different targets. The entire SAR data in the database should be accessible to the participating scientists by project affiliation, so that confidentiality of the data is guaranteed, which is of great relevance from an intellectual property rights point of view, especially in industry-related cooperations. In addition, we want to link data objects in our database to files and URLs containing additional information such as spectroscopic data, synthetic procedures, or raw data from bioassays. We also expect the software to prevent us from making common mistakes like entering ill-formed data or duplicate entries into the underlying database. Eventually these requirements led us to implement our own data management tool, going through several stages of refactoring when requirements changed or new functionality was requested [<xref ref-type="bibr" rid="CR1">1</xref>].</p>
+          <p id="Par3">Other groups, however, have different needs. They might want to have a full-fledged electronic lab journal, the ability to not only link spectroscopic data as files but also to be able to query the database for spectroscopic fingerprints or synthetic procedures using certain reactants or having a yield in a certain range. If their needs differ too strongly from what our own data management tool offers, it no longer makes sense for them to use the same piece of software. The authors of the Chemotion ELN have already described the advantages of open source solutions to address these diverse needs [<xref ref-type="bibr" rid="CR2">2</xref>]. While we agree whole-heartedly, we would like to address an additional issue: Specifications for this kind of software solutions are not static and user requirements change over time. Adhering to these changed requirements poses two major risks: Invalidating the data stored on disk as it no longer matches the new data model and introducing regression errors due to changes made in the code base. Considering that many solutions in cheminformatics consist of thousands of lines of code written in dynamically typed scripting languages like Python (e.g. RDKit [<xref ref-type="bibr" rid="CR3">3</xref>]), Perl (e.g. Perl bindings in OpenBabel [<xref ref-type="bibr" rid="CR4">4</xref>]), Ruby (e.g. Chemotion ELN [<xref ref-type="bibr" rid="CR2">2</xref>]), JavaScript (e.g. ChemDoodle [<xref ref-type="bibr" rid="CR5">5</xref>]), PHP (e.g. open enventory [<xref ref-type="bibr" rid="CR6">6</xref>]), or statically but—compared to the languages described below—weakly typed languages like Java (e.g. CDK [<xref ref-type="bibr" rid="CR7">7</xref>]) or C++ (e.g. OpenBabel [<xref ref-type="bibr" rid="CR4">4</xref>]), we believe these risks to be real and quite limitating.</p>
+          <p id="Par4">One predominant technique used to address the second issue (regression errors) are unit tests: Pieces of code that can be automatically run to verify that the software still behaves correctly. While unit tests play an important role in almost all modern medium to large-scale software projects, they can typically only show the presence of errors but not prove their absence, because in order to do so, a piece of code would have to be tested against all possible values in its domain (the set of possible input values) in all possible environments. While testing a function in different environments is unnecessary if it is referentially transparent (see below), the domains of most functions are far too large to be tested exhaustively in reasonable time. Also, writing thorough unit tests can be cumbersome and time consuming, and as such is easily neglected in favor of adding new features. While enforcing good coding practices like test driven development [<xref ref-type="bibr" rid="CR8">8</xref>] can help in the writing of more reliable software, we experienced a drastic increase in productivity when turning to writing code in pure, strongly typed functional programming languages thus rendering a large set of unit tests obsolete (see also [<xref ref-type="bibr" rid="CR9">9</xref>]).</p>
+          <sec id="Sec2">
+            <title>Pure functional programming</title>
+            <p id="Par5">The advantages of pure, strongly typed functional programming languages have already been described in several articles in this journal, and we will only recap the most important points [<xref ref-type="bibr" rid="CR10">10</xref>, <xref ref-type="bibr" rid="CR11">11</xref>]. In functional programming, functions are first class, meaning that functions can be passed as arguments to other functions, can have other functions as their result, can be assigned to variables, and can be stored in data structures. They are the main form of abstraction and code reuse in these languages. Functions taking other functions as parameters or returning them as their results are typically referred to as <italic>higher order functions</italic>.</p>
+            <p id="Par6">Pure functional programming languages like Haskell [<xref ref-type="bibr" rid="CR12">12</xref>] in addition require functions to be <italic>pure</italic>, or <italic>referentially transparent</italic>. An expression is referentially transparent, if it can be replaced with its result after evaluation without changing the behavior of the program whatsoever. As such, referentially transparent functions may not access or mutate global state, make changes to the outside world like writing to or reading from files, interact with peripheral devices or communicate over networks, as all these actions would change a function’s behavior depending on its environment. Pure functions may only operate on their input parameters probably by calling other pure functions, and all values passed to such functions must be <italic>immutable</italic>. While this may seem very restrictive to programmers accustomized to typical imperative languages, pure functions are trivial and safe to compose and easy to reason about. They are per definition safe to be called in a multithreaded setup without the risk of race conditions, deadlocks or other unexpected behavior. Finally, they allow us to come up with mathematical proofs about their correct behavior through equational reasoning [<xref ref-type="bibr" rid="CR13">13</xref>]. As such they make for highly reusable code components.</p>
+            <p id="Par7">While referentially transparent functions can be written in all programming languages, in pure functional programming languages like Haskell or Idris [<xref ref-type="bibr" rid="CR14">14</xref>] referential transparency is enforced by the type system. Other languages like Scala [<xref ref-type="bibr" rid="CR15">15</xref>], while being impure by default, are equipped with type systems expressive enough to implement similar effect systems for those who like to keep track about effectful functions at the type level. (One such implementation is provided by the <italic>cats-effect</italic> library [<xref ref-type="bibr" rid="CR16">16</xref>]).</p>
+            <p id="Par8">Algorithms written in purely functional style as well as pure data structures can incur a certain performance cost compared to optimized imperative solutions. For instance, in-place mutation of a field in a complex mutable data object is typically very fast compared to accessing and updating a value in a deeply nested immutable data object. Note, however, that with immutable data the portions of the data structure that are not modified can be shared between the old and new version and therefore need not be copied. For a detailed treatment of purely functional data structures, see [<xref ref-type="bibr" rid="CR17">17</xref>]. However, even in pure languages like Haskell it is possible to make use of efficient mutable data structures and mutable references if raw performance is required. A function making use of in-place mutation internally is still referentially transparent, as long as the mutable state is securely encapsulated within the function, i.e. is not passed as an argument to the function nor returned as part of the function’s result. Ideally, the safe treatment and proper encapsulation of mutable state can be verified using the language’s type system as is for instance possible in Haskell [<xref ref-type="bibr" rid="CR18">18</xref>].</p>
+          </sec>
+          <sec id="Sec3">
+            <title>Property based testing</title>
+            <p id="Par9">An additional advantage of pure functions is their testability: Being referentially transparent guarantees that these functions always behave the same no matter the environment in which they are called. A common technique to test this kind of function is property based testing: Relations between a function’s arguments and its results are defined and verified against a large amount of randomly generated input [<xref ref-type="bibr" rid="CR19">19</xref>]. This is especially useful to make sure that type class instances adhere to certain mathematical laws. For instance, the following functions, written in Haskell, verify the laws of reflexivity, symmetry, and transitivity of equivalence relations: <fig id="Figa" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Figa_HTML.png" position="anchor" /></fig></p>
+            <p id="Par10">These properties can now be verified for each data type with an instance of type class Eq, by running the functions defined above against a large amount of randomly generated values.</p>
+            <p id="Par11">Property based testing leads to great confidence in code correctness as a greater part of a function’s domain is verified in these tests than with manually written unit tests. Typical frameworks like ScalaCheck [<xref ref-type="bibr" rid="CR20">20</xref>] or QuickCheck [<xref ref-type="bibr" rid="CR21">21</xref>] make sure to include easily neglected corner cases in the set of randomly generated input values, forcing programmers to take care about typical errors like division by zero or integer overflows, if these cannot already be ruled out at the type level.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Type driven development</title>
+            <p id="Par12">In addition to enforcing or at least encouraging a pure programming style, languages as the ones described above are equipped with powerful, versatile type systems. One technique for writing code in such languages is <italic>type driven development</italic>: Programmers write type level specifications of functions first and with the compiler’s help derive implementations of these functions [<xref ref-type="bibr" rid="CR22">22</xref>]. Dependently typed languages like Idris [<xref ref-type="bibr" rid="CR14">14</xref>] can give rise to such detailed type level specifications, that the compiler can in some cases generate code from a function’s type automatically if it can prove that there can exist only one correct, provably terminating implementation. Consider the following trivial example, written in Haskell: <fig id="Figb" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Figb_HTML.png" position="anchor" /></fig></p>
+            <p id="Par13">The first line is the function’s type declaration, the second is its actual implementation. The type reads as follows: Given a value of an arbitrary (choosable by the function’s caller) type a, the function returns a value of the same type. It can be shown that this function can have only one terminating, referentially transparent implementation: The function <italic>must</italic> return exactly the value it has been given as input, as it cannot make any assumptions about the value’s type and therefore about its associated operations [<xref ref-type="bibr" rid="CR23">23</xref>]. While this example might not seem to be very useful, the concept can be extended to more useful type declarations. Consider the following example, relevant to cheminformatics, where molecules often have to go through the right routines of initialization before using them in a given algorithm makes sense. When performing a substructure search, for instance, molecules should probably already have been aromatized and explicit hydrogen atoms should have been added. Toolkits like the CDK usually mention these prerequisites in a function’s documentation, but we consider it to be much more useful, if this information is available at the type-level. The following code snippet (again in Haskell for brevity) describes the concept of using <italic>phantom types</italic> to tag such type-level information to a data type. A phantom type is a type that is never instantiated at run time and serves merely as a type-level marker at compile time. <fig id="Figc" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Figc_HTML.png" position="anchor" /></fig></p>
+            <p id="Par14">TaggedMol is a wrapper for molecules holding additional type-level information in the form of phantom type parameters a and b. These type parameters are used in the functions described above to keep track of the exact representation used in the molecule. They prevent programmers from aromatizing molecules twice for instance, since aromatize can only be called with a Kekulized molecule, but they prevent us also from performing a sub-structure search on a molecule in the wrong state. Unlike comments in code, tagged types like the ones above are a form of documentation that can never go out of sync with the implementation as it is verified by the type checker whenever the code is being compiled. We hope that this last example shows, how powerful a tool type-driven development is in a programmer’s toolbox.</p>
+          </sec>
+        </sec>
+        <sec id="Sec5">
+          <title>Implementation</title>
+          <p id="Par15">This section describes the example implementation released together with <italic>CyBy</italic><sup><italic>2</italic></sup>’s source code. Most components can be exchanged depending on preferences as described in section <italic>Results</italic>.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Data Model. This simplified UML diagram shows an excerpt of the data model. Here we see how compounds together with linked files and containers actually form a heterogeneous data tree linked to objects from other “tables” like projects and assays. While it is possible to map these kinds of data graphs to tables in a relational database, we consider tree shaped data formats like JSON or XML to be better suited for this task</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Fig1_HTML.png" /></fig></p>
+          <p id="Par16">Figure <xref rid="Fig1" ref-type="fig">1</xref> shows a simplified UML diagram of the data types used in the example implementation. At the root of the data tree are <italic>Compounds</italic> representing chemical entities typically with a proper chemical structure, name and—if available—CAS number. A compound can be linked to an arbitrary number of physical <italic>Containers</italic> stored at the <italic>Location</italic> given, usually bought from a given <italic>Supplier</italic>. A <italic>BiodataEntry</italic> represents a result from a bioassay represented by the <italic>Method</italic> data type. An arbitrary number of such entries can be linked to a container. Compounds, containers, and biodata entries are linked to <italic>Project</italic>s to guarantee the proper concealment of confidential information. A <italic>User</italic> in <italic>CyBy</italic><sup><italic>2</italic></sup> has been granted access to a subset of all projects and can view and probably modify only data linked to these projects.</p>
+          <p id="Par17">The data model as presented here is flexible and can easily be extended with additional fields or restructured by adding, removing or relinking components. The type checker will reliably guide implementors through this process of refactoring, while a lot of functionality provided by type class instances will be updated automatically (see also the section on Automatic Type Class Derivation). In addition, many of the concepts described in this article are generic and could easily be applied to other fields of science.</p>
+          <p id="Par18">With the exception of the CSS rules used in the web frontend, <italic>CyBy</italic><sup><italic>2</italic></sup> as a whole was written in purely functional style in Scala, a multiparadigm programming language with an expressive type system and strong support for functional programming techniques [<xref ref-type="bibr" rid="CR24">24</xref>]. Scala was our language of choice since it is compiled to Java bytecode by default, comes with a plethora of useful third-party libraries, and interacting with existing Java libraries is trivial.</p>
+          <p id="Par19">We used <italic>sbt</italic> [<xref ref-type="bibr" rid="CR25">25</xref>] for building the application. The core libraries are split into several modules grouped under a single multi-module sbt project.</p>
+          <p id="Par20">The backend consists of a REST server implemented on top of <italic>Http4s</italic> [<xref ref-type="bibr" rid="CR26">26</xref>], a minimal, purely functional HTTP server based on functional streams (<italic>fs2</italic> [<xref ref-type="bibr" rid="CR27">27</xref>]). It uses <italic>cats-effect</italic> [<xref ref-type="bibr" rid="CR16">16</xref>] as its effects system, allowing programmers to wrap calls to impure code in an IO data type making effectful computations visible at the type level. For all chemistry related calculations like substructure and similarity searches the server makes use of the chemistry development kit (CDK [<xref ref-type="bibr" rid="CR7">7</xref>]). Linked files and user settings are stored in an SQLite database [<xref ref-type="bibr" rid="CR28">28</xref>], while all other data entries like compounds, containers etc. are stored in a custom JSON format tailormade to allow for the incremental reassembly of the whole dataset. We used the Typelevel Scala Compiler [<xref ref-type="bibr" rid="CR29">29</xref>] to compile the backend to Java bytecode, as it offers better support for some of the programming techniques used in the implementation.</p>
+          <p id="Par21">The frontend consists of a single page web application written also in Scala and compiled to JavaScript using the ScalaJS compiler [<xref ref-type="bibr" rid="CR30">30</xref>]. For drawing molecules we use ChemDoodleWeb [<xref ref-type="bibr" rid="CR5">5</xref>]. With the exception of <italic>scalajs-dom</italic> [<xref ref-type="bibr" rid="CR31">31</xref>], a statically-typed DOM API, the web frontend has no other dependencies on external JavaScript libraries. The interactive behavior of the user interface was implemented using an adaption of monadic streaming functions [<xref ref-type="bibr" rid="CR32">32</xref>] a generalized functional reactive programming framework originally written in Haskell. The resulting code is available as a module of <italic>CyBy</italic><sup><italic>2</italic></sup>.</p>
+          <p id="Par22">Finally, <italic>CyBy</italic><sup><italic>2</italic></sup> comes with detailed HTML documentation describing its functionality. Documentation is generated by a Scala program having access to the code base of both client and server. As such, the code generating the documentation is strongly typed and reuses the same HTML elements as the web client. This guarantees that examples in the documentation stay in sync with changes made to the core application.</p>
+        </sec>
+        <sec id="Sec6" sec-type="results">
+          <title>Results</title>
+          <p id="Par23"><italic>CyBy</italic><sup><italic>2</italic></sup> offers a highly customizable framework for writing chemical data management systems. It comes with powerful building blocks to write reactive user interfaces where users can conveniently analyze datasets in different views, define versatile combined queries including (sub)structure and similarity searches, and quickly add or modify data objects like compounds, linked files, or containers. Selected datasets can be exported to several formats, including .sdf, a standard chemical file format, and .odt readable by spreadsheet applications. In the example implementation, all data objects are linked to a project and users cannot view pieces of information, unless they have been granted access to the corresponding project. With the exception of raw file data and user settings, which are stored in a lightweight SQLite database, changes made to the data are stored incrementally in JSON format and the dataset is reassembled from these changes when the server is started. Administrators therefore have access to the complete editing history of a piece of information, allowing them to easily monitor and review changes made to the data.</p>
+          <sec id="Sec7">
+            <title>Frontend</title>
+            <p id="Par24">Users of <italic>CyBy</italic><sup><italic>2</italic></sup> interact with the server through its frontend, an interactive single page web application.</p>
+            <sec id="Sec8">
+              <title>Queries</title>
+              <p id="Par25"><italic>CyBy</italic><sup><italic>2</italic></sup> offers powerful querying capabilities. It comes with a convenient quick search text field useful for running simple searches. Depending on its format, the search string is either interpreted as a set of compound IDs, a CAS number or a regular expression. Regular expressions are matched against all textual fields in a compound’s data tree, filtering compounds, containers and linked files accordingly.<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>Combined Queries in <italic>CyBy</italic><sup><italic>2</italic></sup> Each row represents a predicate against a certain piece of information stored in the database. Rows can be grouped in parentheses and combined using logical operators. Often used queries can also be stored to and reloaded from a drop down menu</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Fig2_HTML.png" /></fig></p>
+              <p id="Par26">Advanced users can make use of <italic>CyBy</italic><sup><italic>2</italic></sup>’s capabilities to define combined queries (Fig. <xref rid="Fig2" ref-type="fig">2</xref>). Every row represents a predicate tested against one field in the heterogeneous data tree. The type of query changes dynamically with the selected field: Numeric queries allow users to enter a combination of numbers and comparators, textual fields come with a text input together with a dropdown to define how the query should be interpreted. Queries against links to other data objects like suppliers, locations or projects come with a dropdown menu containing all valid options depending on the logged in user. Rows can be combined using logical operators and lists of rows can be grouped in parentheses, leading eventually to a tree of predicates to be sent to and interpreted by the backend. An arbitrary amount of structure based queries like substructure and similarity searches can be included in a combined search. Finally, often used queries can be given names and persisted together with other user settings.</p>
+              <p id="Par27">At the backend an interpreter for combined queries consists of a function returning a parser for predicates depending on the field subjected to the query. Fields are just enumeration-like data types closely related to the actual structure of the data types used to represent compounds and containers. The compiler can be made to enforce pattern matches against fields to be exhaustive and thus not a single case to be missed. This concept of defining behavior depending on a selection of fields comes up again, for instance when exporting data or when displaying data in tabular form with a selection of visible rows.</p>
+            </sec>
+            <sec id="Sec9">
+              <title>Data visualization</title>
+              <p id="Par28">
+                <fig id="Fig3">
+                  <label>Fig. 3</label>
+                  <caption xml:lang="en">
+                    <p>Data visualization. Hit sets from queries can be visualized using different views. For a quick overview and a convenient way to select a subset of the compounds returned, the grid view can be used (<bold>a</bold>). The default view is an expandable tree closely related to the tree shape of the underlying data (<bold>b</bold>). A tabular view is used to analyze structure activity relations (SAR). Background color gradients can be defined for numeric columns to help with the visualization of data (<bold>c</bold>)</p>
+                  </caption>
+                  <graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Fig3a_HTML.png" />
+                  <graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Fig3b_HTML.png" />
+                </fig>
+              </p>
+              <p id="Par29">Hitsets from queries can be displayed in several views (Fig. <xref rid="Fig3" ref-type="fig">3</xref>). The default tabular view actually consists of expandable nodes reflecting the tree structure of the underlying data model. The selection and order of displayed columns is customizable and the settings persisted together with other user settings. For a quick overview a grid view displaying just the structures of compounds is available. Subsets of compounds can be conveniently selected for instance to export only parts of a hitset. For analyzing structure activity relations another tabular view grouping entries by batch is available. Here, additional columns with statistics of biological activities can be displayed. For numeric columns, color gradients can be defined to help with the visual interpretation of the data.</p>
+            </sec>
+            <sec id="Sec10">
+              <title>Lazy loading</title>
+              <p id="Par30">Since hitsets from queries can be quite large, consisting of thousands of compounds, in order to not slow down the UI only small packages of results are loaded at a time. In order to view additional results, users can just scroll down in the different views. Upon getting close to the bottom, new data is automatically requested from the server.</p>
+            </sec>
+            <sec id="Sec11">
+              <title>User roles and data editing</title>
+              <p id="Par31">Users in <italic>CyBy</italic><sup><italic>2</italic></sup> can be assigned different roles ranging from guest to administrator accounts. Most users are allowed to make changes to the data. Editing data is turned off by default in order to prevent users from inadvertently making changes when interacting with the user interface. It can be enabled by clicking on a master button in the explorer. All changes are persisted together with a timestamp and user ID. This allows superusers and administrators to peer review changes made to the data and get in touch with users who submitted data of insufficient quality. Several combined query options are available to facilitate this kind of administrative task.</p>
+            </sec>
+            <sec id="Sec12">
+              <title>Exporting data</title>
+              <p id="Par32">
+                <fig id="Fig4">
+                  <label>Fig. 4</label>
+                  <caption xml:lang="en">
+                    <p>Exporting data. <italic>CyBy</italic><sup><italic>2</italic></sup> gives users detailed control over what fields to export in what order. Fields can be selected from the drop down menus and new columns can be added by click the ‘plus’ icon. Several different file formats are available for exporting</p>
+                  </caption>
+                  <graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Fig4_HTML.png" />
+                </fig>
+              </p>
+              <p id="Par33">Results from the latest query can be exported to several file formats (Fig. <xref rid="Fig4" ref-type="fig">4</xref>). Users can freely add to or remove from the list of exported fields. This selection not only determines the columns in tabular file formats but also the number of rows. If only fields of compounds are selected, there will be one row per compound. However, if fields of containers are included, there will be one row per container. <italic>CyBy</italic><sup><italic>2</italic></sup> supports exploring to .sdf, .odt (to be read by spreadsheet applications) and .csv (tab delimited).</p>
+            </sec>
+          </sec>
+          <sec id="Sec13">
+            <title>Backend</title>
+            <p id="Par34">The server is responsible for providing the core functionality of <italic>CyBy</italic><sup><italic>2</italic></sup>. This includes loading, persisting, validating, and updating of data, querying and sorting of data, exporting of data to different formats as well as user management, authentication and authorization. As such, the server plays a critical role for <italic>CyBy</italic><sup><italic>2</italic></sup> to operate correctly. Resorting to a purely functional, strongly typed programming style allowed us to be confident in the correct behavior of the server even in the face of aggressive code refactorings.</p>
+          </sec>
+          <sec id="Sec14">
+            <title>Chemistry toolkit</title>
+            <p id="Par35">The server uses the CDK for all tasks related to computing properties of compounds and performing structure-based queries like substructure or similarity searches. Since strictly speaking, all code in the CDK is unsafe (referentially opaque), we provide safe wrappers for the core functionality needed by <italic>CyBy</italic><sup><italic>2</italic></sup>. In order to make CDK’s functionality available from within pure code, we do not wrap mere calculations like—for instance—the ones for getting the mass of a molecule or performing substructure searches in the IO monad, but in a wrapper type guaranteeing the confinement of mutable structures to the implementation of pure functions. This technique is also used in Haskell for instance to use mutable arrays when implementing performance critical, referentially transparent functions [<xref ref-type="bibr" rid="CR18">18</xref>]. In addition, return types of our wrapper functions always reflect the possibility of failure for these calculations. This was necessary, since in the CDK fields of data objects are often initialized to null (probably for performance reasons) and NullPointerExceptions occurred frequently when working with objects which have not gone through the necessary initialization routines. Wrapping these calls in the Either monad allows us to provide additional information about the input parameters giving rise to an exception and programmers are forced by the type system to eventually break out of Either thereby handling all exceptions that occurred during a calculation.</p>
+          </sec>
+          <sec id="Sec15">
+            <title>Persistence layer</title>
+            <p id="Par36">The persistence layer of an application in its most basic form reads and writes data from and to disk. Typically, this is done using some kind of relational database such as PostgreSQL [<xref ref-type="bibr" rid="CR33">33</xref>]. Queries are then either run directly against the data on disk, or all data is first loaded into memory and managed by the server application. The latter typically is faster but works only up to medium sized datasets fitting still in the server’s memory.</p>
+            <p id="Par37">While <italic>CyBy</italic><sup><italic>2</italic></sup> can easily be linked to any persistence framework such as doobie [<xref ref-type="bibr" rid="CR34">34</xref>] through mere function composition, we preferred the latter approach whenever possible due to the increase in type safety and possibly performance. Instead of laying out data as tables in a relational database, we stored data incrementally in JSON format. This had several advantages:<list list-type="bullet"><list-item><p id="Par38">Most importantly,our in-memory model was much more of a natural fit: In contrast to the flat tables used in relational databases, data objects in applications such as <italic>CyBy</italic><sup><italic>2</italic></sup> are better modelled as heterogeneous trees (Fig. <xref rid="Fig1" ref-type="fig">1</xref>). While assembling heterogeneous data trees from relational databases is of course possible, the necessary SQL queries can be cumbersome to write and slow in performance. This motivated the approach of NoSQL systems for storing data in non-relational formats. The JSON format offers a lightweight NoSQL solution: JSON objects are (mostly) untyped heterogeneous trees. As such they are a natural fit for storing our data. In addition, encoders and decoders from and to JSON could be conveniently derived automatically for regular algebraic data types, using the <italic>circe</italic> library [<xref ref-type="bibr" rid="CR35">35</xref>].</p></list-item><list-item><p id="Par39">A custom persistence model allowed us to store <italic>changes</italic> to the data instead of just overwriting existing rows in databases tables. Upon starting the server, the whole dataset is incrementally reconstructed from its history. As such, we always had access to the complete history of the data and could make this history available to administrators for reviewing changes made by users.</p></list-item><list-item><p id="Par40">We often had to make adjustments to the data model such as when adding new fields or supporting new data types due to evolving requirements of end users. With an in-memory model based on a JSON encoding, we found it to be trivial to allow for such changes: New fields were typically optional (wrapped in an Option[A], a functional programmer’s typesafe alternative of null). In case they were mandatory, we could provide default values probably calculated from other fields. All this could easily and safely be handled by the server. At no point did we need to touch or modify the data stored on disk. Fields missing from a JSON tree already stored on disk were automatically loaded as None forcing us at the type level to provide default values if necessary.</p></list-item></list>This approach worked very well for datasets fitting into the server’s memory as a whole. However, care had to be taken to make sure that calls to mutate the data (both in memory and on disk) are properly synchronized and occur strictly in sequential order while mere queries can be parallelized freely. The implementation uses an MVar provided by the <italic>cats-effect</italic> library [<xref ref-type="bibr" rid="CR16">16</xref>]. This is a thread-safe mutable variable, that can either contain a value or be empty and can act as a binary semaphore to make sure only one thread at a time can access and modify mutable state and write to disk.</p>
+            <p id="Par41">Groups with larger datasets might consider a hybrid approach: As chemical structures together with their fingerprints required in substructure and similarity searches typically make up the bulk of a chemical database, this information can still be stored in a relational database and these kinds of queries run using a chemical database cartridge such as RDKit [<xref ref-type="bibr" rid="CR3">3</xref>] or Sachem [<xref ref-type="bibr" rid="CR36">36</xref>], while additional structured data is still stored as a data tree. (A database cartridge is a way to enhance an existing database implementation with business logic from other domains. RDKit, for instance, provides a cartridge to enhance a PostgreSQL database with capabilities for substructure and similarity searches in molecular graphs stored within the database). While such a hybrid system has not yet been implemented in <italic>CyBy</italic><sup><italic>2</italic></sup>, it should be straight forward to do so without significant changes to the remainder of an already existing code base, once datasets get large enough.</p>
+            <p id="Par42">There is one exception to our JSON-based approach: We stored linked files and user settings in a local SQLite database without keeping track of their update history. Files can occupy large amounts of space and it makes no sense loading them into memory as a whole. User settings on the other hand change with almost every client request. As such it would take up too much space and we would gain very little if we stored these changes incrementally.</p>
+          </sec>
+          <sec id="Sec16">
+            <title>Data model</title>
+            <p id="Par43">The main advantage of writing both the backend and frontend of a web application in the same strongly typed programming language is the large amounts of code the two parts can share. This is especially useful when it comes to sharing the data model, since correct protocols for encoding and decoding data come for free this way. In this part we are going to describe some of the techniques used to write detailed type level specifications and to make use of those specifications in order to derive all kinds of behaviors generically.</p>
+            <sec id="Sec17">
+              <title>Flexible data types</title>
+              <p id="Par44">The code samples below have been considerably simplified compared to the data definitions in the actual source code and some of the classes and functions are used solely to demonstrate how our data model evolved. These are not part of the source code. However, where package names are given explicitly, class names are the same as in the source and should therefore be easy to locate for interested readers.</p>
+              <p id="Par45">While sharing the data model between frontend and backend immediately sounded reasonable, it was at first not clear how to do this properly because when client and server communicate with each other, they necessarily have to represent some data types differently, be it for reasons of performance, confidentiality or simply lack of information. For instance, consider the following stripped down example of a chemical compound: <fig id="Figd" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Figd_HTML.png" position="anchor" /></fig></p>
+              <p id="Par46">Since we used the CDK at the server (running on the Java Virtual Machine) for handling chemical structures, it was not possible nor desirable to use the same representation at the client (JavaScript running in the browser). Therefore, while the server of course had to know about molecules, the client did not and even could not. The client only required a vector graphics representation to display compounds most of the time. So we actually needed two data types for molecules: One for the data stored in memory at the server, one for the data to be sent to and displayed by the client. <fig id="Fige" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Fige_HTML.png" position="anchor" /></fig></p>
+              <p id="Par47">Note, how the two data types are not related through a common superclass. We wanted to be precise about the types and not mix them up in any way. We also wanted to use the same data type to send requests from the client to the server to create new compounds, as well as for updating existing compounds. This introduced several new problems. First of all, the structure’s type was again wrong: We could not use vector graphics to describe molecular graphs and CDK’s Molecule data type was not available at the client. In addition, we did not want the client to dictate the server what ID to use for new compounds. Also, we wanted to separate the creation of new compounds from the creation of new containers. Reflecting this in the types, we arrived at the following additional data type: <fig id="Figf" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Figf_HTML.png" position="anchor" /></fig></p>
+              <p id="Par48">Given the next available compound ID and a function to read molecules from mol files, it was now trivial to implement a utility function mkSrv for creating compounds from CompoundAdd objects. <fig id="Figg" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Figg_HTML.png" position="anchor" /></fig></p>
+              <p id="Par49">Note how we eliminated several possibilities for erroneous behavior. The types guarantee, that the structure is a well formed MolFile and that the compound’s CAS number adheres to the desired invariants. But the types also guarantee, that the server is responsible for creating new compound IDs and that no containers are added for instance by sending a forged HTTP request to the server. (Note: The types in this example have been simplified for clarity’s sake. In the actual implementation we used a wrapper type for hiding the mutable internals of Molecules and the result type of readMol had to reflect the possibility of failure when reading the molecule from a text representation.)</p>
+              <p id="Par50">But this data type was not well suited for modifying compounds, as users usually do not want to modify all fields simultaneously. Of course we could just copy the other fields and send them back to the server, but this would mean that every change made for instance to the name of a compound, would also lead to the storing of the compound’s structure, unnecessarily increasing the size of the database. We therefore wrote another data type, where all fields were optional. <fig id="Figh" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Figh_HTML.png" position="anchor" /></fig></p>
+              <p id="Par51">This lead to a collection of data types around the concept of a compound, each with clear properties documented at the type level. Interactions between these data types, for instance when creating new compounds or when sending compounds to the client, were trivial to implement correctly since most mistakes would immediately lead to type errors. While we thus had greatly improved the type level specification of our data model, we also had drastically increased the amount of code, considering that we had to provide implementations of JSON encoders and decoders together with other type class instances for each of these classes and that the real versions could consist of dozens of fields.</p>
+              <p id="Par52">Using a polymorphic data type (higher-kinded in one type parameter) together with Scala’s ability to define type aliases solved this issue quite nicely. The actual polymorphic data type was defined in the data module shared by client and server. <fig id="Figi" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Figi_HTML.png" position="anchor" /></fig></p>
+              <p id="Par53">Type aliases only used at the server were defined within a wrapper object in the server module. <fig id="Figj" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Figj_HTML.png" position="anchor" /></fig></p>
+              <p id="Par54">Data type Compound was now polymorphic in most fields (with the exception of casNr), leading to great flexibility about what types of data were actually bundled with a compound while keeping the name of fields consistent. The most interesting part is the higher kinded parameter F[_]. It describes the <italic>context</italic> in which values appear. Typically, it was set either to Pure, meaning that all values had to be present or to Option, meaning that values were optional, which reflected our needs for updating data. Fields not used by some representations were set to Unit, a type inhabited by just a single value. These type declarations lead to the same behavior and guarantees as the different class declarations described above but without the code duplication. We were able to define additional type aliases for instance for compounds after user authorization and input validation, allowing us to enforce important invariants about our code at the type level. The technique described here was used excessively in the example implementation.</p>
+            </sec>
+            <sec id="Sec18">
+              <title>Confidence at the type level</title>
+              <p id="Par55">We want to give one other example, again slightly simplified, how we made use of types to enforce certain invariants in our code. We wanted to prove, at the type level, that access to data objects like compounds had been properly verified before sending them to clients. This was critical, since we did not want to leak information to unauthorized users. For this we defined a simple polymorphic wrapper type with a private constructor: <fig id="Figk" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Figk_HTML.png" position="anchor" /></fig></p>
+              <p id="Par56">(Note: In the source of the example application, function project is available through a helper class AuthEnv, which we have omitted here for increased readability). We used projects to grant access to compounds and we tagged project IDs with HasAccess before sending data to clients. <fig id="Figl" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Figl_HTML.png" position="anchor" /></fig></p>
+              <p id="Par57">The <italic>only</italic> place from where we could get an instance of HasAccess[Project.Id] was the corresponding function in HasAccess’s companion object. This proves, at the type level, that whenever we sent a response of type Compound.Cli to the client, access had been verified. Of course we still had to check via unit tests, that the implementation of HasAccess.project was correct but this was only a small piece of code, easily testable using property based testing. Techniques like these allowed us to drastically reduce the surface area of functions that actually required testing. The rest of the application could be safely glued together with the help of the type checker.</p>
+              <p id="Par58">This last example shows the amount of confidence we could get from a minimal amount of code and descriptive, flexible types. We used similar techniques to prove that data had been properly validated before being stored, and delicate information like hashed passwords were not accidentally being sent to clients.</p>
+            </sec>
+            <sec id="Sec19">
+              <title>Automatic type class derivation</title>
+              <p id="Par59">Algebraic data types like the ones described above are typically made up of two core building blocks: Sum and product types. For these data types it is possible to automatically derive an isomorphic, canonical representation together with conversion functions to and from this canonical form [<xref ref-type="bibr" rid="CR37">37</xref>]. If for a given type class (for instance JSON encoders and decoders) we can write implementations for the canonical building blocks, we can also have implementations for the corresponding algebraic data types. This generic type class derivation is a powerful concept and helps to drastically reduce the amount of rather uninteresting code necessary to implement type classes. Unlike Java libraries like <italic>gson</italic> [<xref ref-type="bibr" rid="CR38">38</xref>], this happens at compile time without the need to resort to runtime reflection resulting in robust, type safe code. Two Scala libraries provide the necessary functionality: <italic>shapeless</italic> [<xref ref-type="bibr" rid="CR39">39</xref>, <xref ref-type="bibr" rid="CR40">40</xref>] for automatically generating generic representations of data types, and <italic>circe</italic> [<xref ref-type="bibr" rid="CR35">35</xref>] to derive JSON encoders and decoders for these generic representations.</p>
+              <p id="Par60">This approach was not only used when deriving JSON encoders and decoders. We used it also in the UI to automatically derive the generation of forms for creating new data objects and at the server to merge updates into the data tree and aggregating data objects with information from weakly linked data types before sending them to the client. Once again this enhanced the flexibility of our data model: After adding new fields to existing data types, or after changing the types of existing fields, recompiling the application would either result in compilation errors if type classes could no longer be derived automatically or type class instances were automatically adjusted to the new data representations behaving correctly without further ado. In case of compilation errors it was obvious most of the time how to satisfy the compiler by manually providing additional type class instances for every component of an algebraic data type.</p>
+            </sec>
+            <sec id="Sec20">
+              <title>Exchanging parts of <italic>CyBy</italic><sup><italic>2</italic></sup></title>
+              <p id="Par61">We think we made some reasonable choices when implementing our example application, but users of our library might want to exchange some parts, for instance to use an existing relational database. This is of course possible. The beautiful thing about strongly typed functional programming is that the main building blocks are just pure, well typed functions. Functions can easily be exchanged for other functions of the same type using the help of the type checker to glue components together. For instance, below is the type of an HTTP request to run a query against the data stored in the server’s memory: <fig id="Figm" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Figm_HTML.png" position="anchor" /></fig></p>
+              <p id="Par62">While this may look intimidating, it is actually a quite accurate specification of what we can expect from a value of this type. It is just an alias for a function of the following type, wrapped up for better composability (since types in Scala and other strongly typed functional languages can get quite verbose, type aliases are often used to make code more readable): <fig id="Fign" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_403_Fign_HTML.png" position="anchor" /></fig></p>
+              <p id="Par63">So, prog takes an immutable environment of type Env (a purely functional form of dependency injection), an immutable state of type QSt, and a list of logs, and either returns a non-empty list of DataErrs plus as list of logs or a result of type A together with an updated QSt and a list of logs. The wrapper type Pure describes the side effects this program can have when finally being executed. In this case this means no side effects whatsoever. To be a bit more precise: Env holds all information about the HTTP request together with the data tree currently stored in memory and information about the already authenticated user who made the request. We need this to filter results according to the projects the user has access to. QSt is data that can change after a query has been processed. It could for instance be used to cache the results of queries in order to reduce response times. DataErr is an algebraic data type representing all the ways, in which a request at the server can fail. If such an error occurs, it is both written to the log and sent back to the client, which translates it into human readable form and displays a message in the user interface.</p>
+              <p id="Par64">We want to emphasize once again that all values passed to prog are immutable. As such it is impossible for function prog to change the global state of the server application. Even in the case of QSt the state returned by prog is a copy of the state object passed to prog as an argument probably with some fields updated. It is the responsibility of the <italic>caller</italic> of prog what to do with the updated state. This gives us a clear separation of concerns visible at the type level. However, function types like the one of prog can be cumbersome to compose. That’s why they are usually hidden behind polymorphic wrapper types called <italic>monad transformer stacks</italic>, for which one can write instances of type class Monad, thus greatly increasing their composability without compromising type safety [<xref ref-type="bibr" rid="CR41">41</xref>].</p>
+              <p id="Par65">If we wanted to change the way queries were handled, for instance by switching to a relational data base, we would first adjust prog’s type accordingly: We would probably still be using the same mechanisms for caching (if any), but Env would no longer hold an in memory copy of the data. On the other hand it would contain information about the database connection to be used. The effect type Pure would have to change in order to reflect that we now need to access an external database. The type checker would then guide us to make sure that all types match up again once we glued this new component together with the rest of the application. This is the essence of type driven development: Specify types first and let the type checker guide you towards a correct implementation.</p>
+            </sec>
+          </sec>
+          <sec id="Sec21">
+            <title><italic>CyBy</italic><sup><italic>2</italic></sup> in the context of cheminformatics</title>
+            <p id="Par66">Having described above in detail the advantages we experienced from the design choices made in <italic>CyBy</italic><sup><italic>2</italic></sup>, this section will talk about some of the requirements necessary to get started with using <italic>CyBy</italic><sup><italic>2</italic></sup> as a framework to write custom data management applications.</p>
+            <p id="Par67">As a framework written in purely functional style in Scala, <italic>CyBy</italic><sup><italic>2</italic></sup> will require certain efforts from scientists and programmers used to write code in imperative, object oriented languages. Scala has the advantage of having access to a plethora of Java libraries such as the CDK already existing in the fields of cheminformatics and science in general, and calling Java code from within Scala is trivial. In addition, native code from libraries written in C or C++ can be called from with Scala as well as Java through the Java Native Interface. As such, adopters can go ahead and freely use a large amount of libraries available in Java and other languages together with <italic>CyBy</italic><sup><italic>2</italic></sup>’s Scala code base. However, typical design patterns used in object oriented languages such as those proclaimed by the famous <italic>Gang of Four</italic> [<xref ref-type="bibr" rid="CR42">42</xref>] have little to no meaning in the realm of pure functional programming, while abstractions from category theory like <italic>functor</italic>, <italic>monoid</italic> or <italic>monad</italic> being used in many places in <italic>CyBy</italic><sup><italic>2</italic></sup>’s source code are foreign to programmers new to strongly typed functional programming. Adopters of <italic>CyBy</italic><sup><italic>2</italic></sup> will therefore be required to get a firm grasp on these algebraic concepts and we would like to give some recommendations in terms of literature we deem to be easily accessible for people interested and new to this topic. <italic>Functional Programming in Scala</italic> [<xref ref-type="bibr" rid="CR24">24</xref>] gives a thorough introduction to writing pure, precisely typed functions and how to make good use of the abstractions mentioned above. Being written in Scala is an additional advantage for people wanting to get started with using <italic>CyBy</italic><sup><italic>2</italic></sup> as the foundation of their own data management tool. Many more resources about pure functional programming exist for the Haskell programming language (see for instance [<xref ref-type="bibr" rid="CR43">43</xref>, <xref ref-type="bibr" rid="CR44">44</xref>]), and indeed we think Haskell—being pure by default—to be a very good choice for learning functional programming from the very beginning.</p>
+          </sec>
+        </sec>
+        <sec id="Sec22" sec-type="conclusions">
+          <title>Conclusion</title>
+          <p id="Par68"><italic>CyBy</italic><sup><italic>2</italic></sup>, a flexible open source framework for writing pure, strongly typed chemical and biological data management applications was described. <italic>CyBy</italic><sup><italic>2</italic></sup> comes with a fully operational example implementation of an HTTP server and a single page web client, capable of running complex combined queries including substructure and similarity search, lazy loading of large datasets, different views for visualizing and analyzing data, and support for exporting selected pieces of information to several common file formats. Considering its capabilities, <italic>CyBy</italic><sup><italic>2</italic></sup>’s code base is very lean, consisting of only about 10’000 lines of Scala code.</p>
+          <p id="Par69">To the best of our knowledge, <italic>CyBy</italic><sup><italic>2</italic></sup> is the first example of a chemical and biological data management tool written in purely functional style. As such it can also be seen as a resource of coding practices in functional programming in a real world application. It was designed with the diverse and evolving needs of research groups, governmental organizations and industry in mind, requirements we have evaluated both in-house as well as together with collaboration partners from academia and industry. These needs include the ability to link diverse information to chemical structures allowing users to easily access this information through an intuitive to use, well documented web interface and providing powerful and flexible capabilities for querying and exporting the data. At the same time the underlying data model should be flexible enough to allow for the smooth evolution of the data handled by the application, as requirements regarding the information available change regularly. Since adjustments to the data model pose several risks as has been outlined in the introduction of this article, we found the reliability provided by a strongly typed data model to be highly valuable with regards to the constant refactorings required for evolving the software. During refactoring, the power of a modern expressive type system helped us when verifying that components interacted correctly and important invariants were being upheld, but also with the automatic derivation of type class instances to provide overloaded functionality. We use <italic>CyBy</italic><sup><italic>2</italic></sup> intensively as the central data processing tool in our research group. In recent years, it has proven its value for the design, synthesis and analysis of our drug molecules in complex medicinal chemistry projects [<xref ref-type="bibr" rid="CR45">45</xref>–<xref ref-type="bibr" rid="CR50">50</xref>].</p>
+          <p id="Par70">Since server, client, and documentation were compiled from the same code base, we could reuse a considerable amount of code between these three parts of the application, thus reducing the possibility of bugs when defining the protocol for exchanging data and making sure that the different parts of the application stayed in sync even in the face of serious refactorings.</p>
+          <p id="Par71">We plan to add additional functionality to the project found in other lab notbook and inventory applications such as Chemotion ELN [<xref ref-type="bibr" rid="CR2">2</xref>] or open enventory [<xref ref-type="bibr" rid="CR6">6</xref>], giving these features a proper description at the type level to facilitate their safe incorporation into custom instances of <italic>CyBy</italic><sup><italic>2</italic></sup>. Most importantly, we plan to include functionality to query major suppliers’ webpages by CAS number to retrieve chemical structures and safety data. Also missing are ways to view, analyze and query spectroscopic data uploaded as raw data files. We are also working on a layer of more accurately typed wrappers for functionality provided by the CDK in order to facilitate writing code that works correctly without throwing exceptions once it compiles, as we are used to as functional programmers.</p>
+          <p id="Par72">An alternative to static type systems for proving code correctness is the formal verification of software using satisfiability modulo theories (SMT) solvers. The <italic>stainless</italic> library allows programmers to define pre- and postrequisites of functions for a subset of the Scala language, which are then formally verified by an external SMT solver [<xref ref-type="bibr" rid="CR51">51</xref>, <xref ref-type="bibr" rid="CR52">52</xref>]. Since we made use of parts of the language not yet covered by <italic>stainless</italic> (for instance higher-kinded types), these techniques have not yet found their way into our code base, but we will observe with interest the progress being made in this regard.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>SH and RR are grateful to the Zurich University of Applied Sciences (ZHAW) for financial support.</p>
+        </ack>
+        <sec sec-type="author-contribution">
+          <title>Authors’ contributions</title>
+          <p>SH designed and programmed <italic>CyBy</italic><sup><italic>2</italic></sup> and wrote the manuscript. RR did the conception and supervised the project. Both authors read and approved the final manuscript.</p>
+        </sec>
+        <sec>
+          <title>Funding</title>
+          <p>No funding besides financial support from ZHAW was received.</p>
+        </sec>
+        <sec sec-type="data-availability">
+          <title>Data availability</title>
+          <p>Availability and requirements: Project name: CyBy<sup>2</sup>. Project home page: <ext-link xlink:href="https://github.com/stefan-hoeck/cyby2" ext-link-type="uri">https://github.com/stefan-hoeck/cyby2</ext-link>. Git tag of version used in this article: v0.3. Operating system: Platform independent. Programming language: Scala. Other requirements: HTTP server like Apache HTTP Server 2.4. License: GNU GPL. Any restrictions to use by non-academics: None (see GNU GPL).</p>
+        </sec>
+        <sec sec-type="ethics-statement">
+          <sec id="FPar1" sec-type="COI-statement">
+            <title>Competing interests</title>
+            <p id="Par75">The authors declare that they have no competing interests.</p>
+          </sec>
+        </sec>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Höck</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Riedl</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">CyBy2: a structure-based data management tool for chemical and biological data</article-title>
+                <source>CHIMIA Int J Chem</source>
+                <year>2012</year>
+                <volume>66</volume>
+                <issue>3</issue>
+                <fpage>132</fpage>
+                <lpage>134</lpage>
+                <pub-id pub-id-type="doi">10.2533/chimia.2012.132a</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Tremouilhac</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Nguyen</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>Y-C</given-names>
+                  </name>
+                  <name>
+                    <surname>Kotov</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Lütjohann</surname>
+                    <given-names>DS</given-names>
+                  </name>
+                  <name>
+                    <surname>Hübsch</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Jung</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Bräse</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chemotion ELN: an open source electronic lab notebook for chemists in academia</article-title>
+                <source>J Cheminform</source>
+                <year>2017</year>
+                <pub-id pub-id-type="doi">10.1186/s13321-017-0240-0</pub-id>
+                <pub-id pub-id-type="pmid">29086216</pub-id>
+                <pub-id pub-id-type="pmcid">5612905</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="other">RDKit: Open-source Cheminformatics</mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>O’Boyle</surname>
+                    <given-names>NM</given-names>
+                  </name>
+                  <name>
+                    <surname>Banck</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>James</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <name>
+                    <surname>Morley</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Vandermeersch</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Open babel: an open chemical toolbox</article-title>
+                <source>J Cheminform</source>
+                <year>2011</year>
+                <volume>3</volume>
+                <issue>1</issue>
+                <fpage>33</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhsVWjurbF</pub-id>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-3-33</pub-id>
+                <pub-id pub-id-type="pmid">21982300</pub-id>
+                <pub-id pub-id-type="pmcid">3198950</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="other">iChemLabs: ChemDoodle Web Components. <ext-link xlink:href="https://web.chemdoodle.com" ext-link-type="uri">https://web.chemdoodle.com</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rudolphi</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Goossen</surname>
+                    <given-names>LJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Electronic laboratory notebook: the academic point of view</article-title>
+                <source>J Chem Inform Model</source>
+                <year>2011</year>
+                <volume>52</volume>
+                <issue>2</issue>
+                <fpage>293</fpage>
+                <lpage>301</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhsVGru7zP</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci2003895</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Han</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuhn</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Horlacher</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Luttmann</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The chemistry development kit (CDK): an open-source java library for chemo- and bioinformatics</article-title>
+                <source>J Chem Inform Comput Sci</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <issue>2</issue>
+                <fpage>493</fpage>
+                <lpage>500</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3sXhtVaktbg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci025584y</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Beck</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <source>Test driven development: by example</source>
+                <year>2002</year>
+                <publisher-loc>Boston</publisher-loc>
+                <publisher-name>Addison-Wesley Longman Publishing Co., Inc.</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hughes</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Why functional programming matters</article-title>
+                <source>Comput J</source>
+                <year>1984</year>
+                <volume>32</volume>
+                <fpage>98</fpage>
+                <lpage>107</lpage>
+                <pub-id pub-id-type="doi">10.1093/comjnl/32.2.98</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Höck</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Riedl</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">chemf: a purely functional chemistry toolkit</article-title>
+                <source>J Cheminform</source>
+                <year>2012</year>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-4-38</pub-id>
+                <pub-id pub-id-type="pmid">23253942</pub-id>
+                <pub-id pub-id-type="pmcid">3660204</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Berenger</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>KYJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Yamanishi</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chemoinformatics and structural bioinformatics in OCaml</article-title>
+                <source>J Cheminform</source>
+                <year>2019</year>
+                <pub-id pub-id-type="doi">10.1186/s13321-019-0332-0</pub-id>
+                <pub-id pub-id-type="pmid">30719579</pub-id>
+                <pub-id pub-id-type="pmcid">6689879</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Peyton Jones</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <source>Haskell 98 Language and Libraries—the Revised Report</source>
+                <year>2003</year>
+                <publisher-loc>Cambridge</publisher-loc>
+                <publisher-name>Cambridge University Press</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="other">Gibbons J, Hinze R (2011) Just do it: Simple monadic equational reasoning. In: ICFP. <ext-link xlink:href="10.1145/2034773.2034777" ext-link-type="doi">https://doi.org/10.1145/2034773.2034777</ext-link>. <ext-link xlink:href="http://www.comlab.ox.ac.uk/jeremy.gibbons/publications/mr.pdf" ext-link-type="uri">http://www.comlab.ox.ac.uk/jeremy.gibbons/publications/mr.pdf</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Brady</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Idris, a general-purpose dependently typed programming language: design and implementation</article-title>
+                <source>J Funct Program</source>
+                <year>2013</year>
+                <volume>23</volume>
+                <fpage>552</fpage>
+                <lpage>593</lpage>
+                <pub-id pub-id-type="doi">10.1017/S095679681300018X</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="other">Odersky M, Spoon L, Venners B (2016) Programming in Scala: Updated for Scala 2.12, 3rd edn. Artima Incorporation, USA</mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="other">Typelevel.scala: Cats-effect: The IO Monad for Scala. <ext-link xlink:href="https://github.com/typelevel/cats-effect" ext-link-type="uri">https://github.com/typelevel/cats-effect</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Okasaki</surname>
+                    <given-names>C</given-names>
+                  </name>
+                </person-group>
+                <source>Purely functional data structures</source>
+                <year>1998</year>
+                <publisher-loc>Cambridge</publisher-loc>
+                <publisher-name>Cambridge University Press</publisher-name>
+                <pub-id pub-id-type="doi">10.1017/CBO9780511530104</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Launchbury</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Jones</surname>
+                    <given-names>SLP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Lazy functional state threads</article-title>
+                <source>ACM SIGPLAN Notices</source>
+                <year>1994</year>
+                <volume>29</volume>
+                <issue>6</issue>
+                <fpage>24</fpage>
+                <lpage>35</lpage>
+                <pub-id pub-id-type="doi">10.1145/773473.178246</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Claessen</surname>
+                    <given-names>Koen</given-names>
+                  </name>
+                  <name>
+                    <surname>Hughes</surname>
+                    <given-names>John</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">QuickCheck</article-title>
+                <source>ACM SIGPLAN Notices</source>
+                <year>2011</year>
+                <volume>46</volume>
+                <issue>4</issue>
+                <fpage>53</fpage>
+                <pub-id pub-id-type="doi">10.1145/1988042.1988046</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="other">Nilsson R ScalaCheck: Property-based Testing for Scala. <ext-link xlink:href="https://www.scalacheck.org/" ext-link-type="uri">https://www.scalacheck.org/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="other">Claessen K QuickCheck: Automatic Testing of Haskell Programs. <ext-link xlink:href="https://hackage.haskell.org/package/QuickCheck" ext-link-type="uri">https://hackage.haskell.org/package/QuickCheck</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Brady</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <source>Type-driven development with Idris</source>
+                <year>2017</year>
+                <publisher-loc>Shelter Island</publisher-loc>
+                <publisher-name>Manning Publications</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wadler</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Theorems for free!</article-title>
+                <source>Functional programming languages and computer architecture</source>
+                <year>1989</year>
+                <publisher-loc>New York</publisher-loc>
+                <publisher-name>ACM Press</publisher-name>
+                <fpage>347</fpage>
+                <lpage>359</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chiusano</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Bjarnason</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <source>Functional Programming in Scala</source>
+                <year>2014</year>
+                <edition>1</edition>
+                <publisher-loc>Greenwich</publisher-loc>
+                <publisher-name>Manning Publications Co.</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="other">scala-sbt: Sbt: The Interactive Build Tool. <ext-link xlink:href="https://www.scala-sbt.org/" ext-link-type="uri">https://www.scala-sbt.org/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="other">Baker R.A Http4s: Typeful, Functional, Streaming HTTP for Scala. <ext-link xlink:href="https://http4s.org/" ext-link-type="uri">https://http4s.org/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="other">Coady G, Thomas F.S, Pilquist M FS2: Functional Streams for Scala. <ext-link xlink:href="https://github.com/functional-streams-for-scala/fs2" ext-link-type="uri">https://github.com/functional-streams-for-scala/fs2</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="other">Consortium S SQLite. <ext-link xlink:href="https://sqlite.org/index.html" ext-link-type="uri">https://sqlite.org/index.html</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="other">Typelevel.scala: Typelevel Scala, a Fork of Scala. <ext-link xlink:href="https://github.com/typelevel/scala" ext-link-type="uri">https://github.com/typelevel/scala</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="other">Doeraene S Scala.js, the Scala to JavaScript Compiler. <ext-link xlink:href="http://www.scala-js.org/" ext-link-type="uri">http://www.scala-js.org/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="other">Doeraene S Statically Typed DOM API for Scala.js. <ext-link xlink:href="https://github.com/scala-js/scala-js-dom" ext-link-type="uri">https://github.com/scala-js/scala-js-dom</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="other">Perez I, Bärenz M, Nilsson H (2016) Functional reactive programming, refactored. In: Proceedings of the 9th international symposium on Haskell (Haskell ’16). <ext-link xlink:href="http://eprints.nottingham.ac.uk/36159/" ext-link-type="uri">http://eprints.nottingham.ac.uk/36159/</ext-link>. pp 33–44</mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="other">PostgreSQL: The world’s most advanced open source relational database. <ext-link xlink:href="https://www.postgresql.org/" ext-link-type="uri">https://www.postgresql.org/</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="other">Norris R Doobie: Functional JDBC Layer for Scala. <ext-link xlink:href="https://github.com/tpolecat/doobie" ext-link-type="uri">https://github.com/tpolecat/doobie</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="other">Brown T Circe: Yet Another JSON Library for Scala. <ext-link xlink:href="https://github.com/circe/circe" ext-link-type="uri">https://github.com/circe/circe</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kratochvíl</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Vondrášek</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Galgonek</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Sachem: a chemical cartridge for high-performance substructure search</article-title>
+                <source>J Cheminform</source>
+                <year>2018</year>
+                <pub-id pub-id-type="doi">10.1186/s13321-018-0282-y</pub-id>
+                <pub-id pub-id-type="pmid">29797000</pub-id>
+                <pub-id pub-id-type="pmcid">5966370</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lämmel</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Peyton Jones</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Scrap your boilerplate with class</article-title>
+                <source>ACM SIGPLAN Notices</source>
+                <year>2005</year>
+                <volume>40</volume>
+                <fpage>204</fpage>
+                <pub-id pub-id-type="doi">10.1145/1090189.1086391</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="other">Gson: A Java Serialization/deserialization Library to Convert Java Objects Into JSON and Back. <ext-link xlink:href="https://github.com/google/gson" ext-link-type="uri">https://github.com/google/gson</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="other">Sabin M Shapeless: Generic Programming for Scala. <ext-link xlink:href="https://github.com/milessabin/shapeless" ext-link-type="uri">https://github.com/milessabin/shapeless</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gurnell</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <source>The type Astronaut’s guide to shapeless</source>
+                <year>2017</year>
+                <publisher-loc>Brighton</publisher-loc>
+                <publisher-name>Underscore Consulting LLP</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="other">Wadler P (1995) Monads for functional programming. In: Advanced functional programming, first international spring school on advanced functional programming techniques-tutorial text, Springer: London. <ext-link xlink:href="http://dl.acm.org/citation.cfm?id=647698.734146" ext-link-type="uri">http://dl.acm.org/citation.cfm?id=647698.734146</ext-link>. pp 24–52</mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gamma</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Helm</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Johnson</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Vlissides</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <source>Design patters: elements of reusable object-oriented software</source>
+                <year>1995</year>
+                <publisher-loc>Boston</publisher-loc>
+                <publisher-name>Addison-Wesley</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lipovaca</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <source>Learn you a haskell for great good</source>
+                <year>2011</year>
+                <publisher-loc>San Francisco</publisher-loc>
+                <publisher-name>No Starch Press Inc</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="other">Allen C, Moronuki J Haskell Programming from First Principles. <ext-link xlink:href="https://haskellbook.com" ext-link-type="uri">https://haskellbook.com</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gall</surname>
+                    <given-names>FM</given-names>
+                  </name>
+                  <name>
+                    <surname>Hohl</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Frasson</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Wermelinger</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Mittl</surname>
+                    <given-names>PRE</given-names>
+                  </name>
+                  <name>
+                    <surname>Sievers</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Riedl</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Drug design inspired by nature: crystallographic detection of an auto-tailored protease inhibitor template</article-title>
+                <source>Angewandte Chemie International Edition</source>
+                <year>2019</year>
+                <volume>58</volume>
+                <issue>12</issue>
+                <fpage>4051</fpage>
+                <lpage>4055</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1MXisVansL0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/anie.201812348</pub-id>
+                <pub-id pub-id-type="pmid">30615822</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR46">
+              <label>46.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gall</surname>
+                    <given-names>FM</given-names>
+                  </name>
+                  <name>
+                    <surname>Hohl</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Frasson</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Wermelinger</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Mittl</surname>
+                    <given-names>PRE</given-names>
+                  </name>
+                  <name>
+                    <surname>Sievers</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Riedl</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Von der Natur inspiriertes Wirkstoffdesign: kristallographische Detektion eines selbstgenerierten Inhibitor-Grundgerüsts</article-title>
+                <source>Angewandte Chemie</source>
+                <year>2019</year>
+                <volume>131</volume>
+                <issue>12</issue>
+                <fpage>4091</fpage>
+                <lpage>4096</lpage>
+                <pub-id pub-id-type="doi">10.1002/ange.201812348</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR47">
+              <label>47.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Senn</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Ott</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Lanz</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Riedl</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Targeted polypharmacology: discovery of a highly potent non-hydroxamate dual matrix metalloproteinase (MMP)-10/-13 inhibitor</article-title>
+                <source>J Med Chem</source>
+                <year>2017</year>
+                <volume>60</volume>
+                <issue>23</issue>
+                <fpage>9585</fpage>
+                <lpage>9598</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhsFOjtL3F</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jmedchem.7b01001</pub-id>
+                <pub-id pub-id-type="pmid">28953404</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR48">
+              <label>48.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Fischer</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Riedl</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Targeted fluoro positioning for the discovery of a potent and highly selective matrix metalloproteinase inhibitor</article-title>
+                <source>ChemistryOpen</source>
+                <year>2017</year>
+                <volume>6</volume>
+                <issue>2</issue>
+                <fpage>167</fpage>
+                <lpage>167</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXktFOqsr4%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/open.201700042</pub-id>
+                <pub-id pub-id-type="pmid">28413746</pub-id>
+                <pub-id pub-id-type="pmcid">5390808</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR49">
+              <label>49.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Fischer</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Riedl</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Molecular recognition of the catalytic zinc(II) ion in MMP-13: structure-based evolution of an allosteric inhibitor to dual binding mode inhibitors with improved lipophilic ligand efficiencies</article-title>
+                <source>Int J Mol Sci</source>
+                <year>2016</year>
+                <volume>17</volume>
+                <issue>3</issue>
+                <fpage>314</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXmsleru7c%3D</pub-id>
+                <pub-id pub-id-type="doi">10.3390/ijms17030314</pub-id>
+                <pub-id pub-id-type="pmid">26938528</pub-id>
+                <pub-id pub-id-type="pmcid">4813177</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR50">
+              <label>50.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lanz</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Riedl</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Merging allosteric and active site binding motifs: de novo generation of target selectivity and potency via natural-product-derived fragments</article-title>
+                <source>ChemMedChem</source>
+                <year>2014</year>
+                <volume>10</volume>
+                <issue>3</issue>
+                <fpage>451</fpage>
+                <lpage>454</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXitVCksrbM</pub-id>
+                <pub-id pub-id-type="doi">10.1002/cmdc.201402478</pub-id>
+                <pub-id pub-id-type="pmid">25487909</pub-id>
+                <pub-id pub-id-type="pmcid">4506557</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR51">
+              <label>51.</label>
+              <mixed-citation publication-type="other">Blanc R.W (2012) Verification of imperative programs in scala</mixed-citation>
+            </ref>
+            <ref id="CR52">
+              <label>52.</label>
+              <mixed-citation publication-type="other">LARA-Lab for automated reasoning and analysis, EPFL, Switzerland: stainless: formal verification for Scala. <ext-link xlink:href="https://stainless.epfl.ch" ext-link-type="uri">https://stainless.epfl.ch</ext-link></mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <notes notes-type="Misc">
+          <title>Publisher's Note</title>
+          <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+        </notes>
+      </back>
+    </article>

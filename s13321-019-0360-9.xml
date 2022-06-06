@@ -1,0 +1,2167 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0360-9</article-id>
+          <article-id pub-id-type="manuscript">360</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0360-9</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Improved algorithms for quantifying the near symmetry of proteins: complete side chains analysis</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" corresp="yes" id="Au1">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0003-0418-9915</contrib-id>
+              <name>
+                <surname>Tuvi-Arad</surname>
+                <given-names>Inbal</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDs1332101903609_cor1">a</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="Au2">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0001-6783-4948</contrib-id>
+              <name>
+                <surname>Alon</surname>
+                <given-names>Gil</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+              <xref ref-type="corresp" rid="IDs1332101903609_cor2">b</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 0604 7424</institution-id>
+                <institution-id institution-id-type="GRID">grid.412512.1</institution-id>
+                <institution content-type="org-division">Department of Natural Sciences</institution>
+                <institution content-type="org-name">The Open University of Israel</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">4353701</addr-line>
+              <addr-line content-type="city">Raanana</addr-line>
+              <country country="IL">Israel</country>
+            </aff>
+            <aff id="Aff2">
+              <label>2</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0004 0604 7424</institution-id>
+                <institution-id institution-id-type="GRID">grid.412512.1</institution-id>
+                <institution content-type="org-division">Department of Mathematics and Computer Science</institution>
+                <institution content-type="org-name">The Open University of Israel</institution>
+              </institution-wrap>
+              <addr-line content-type="postcode">4353701</addr-line>
+              <addr-line content-type="city">Raanana</addr-line>
+              <country country="IL">Israel</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs1332101903609_cor1">
+              <label>a</label>
+              <email>HIDDEN</email>
+            </corresp>
+            <corresp id="IDs1332101903609_cor2">
+              <label>b</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>6</day>
+            <month>6</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="39">1</issue>
+          <elocation-id>39</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>28</day>
+              <month>5</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>1</day>
+              <month>10</month>
+              <year>2018</year>
+            </date>
+            <date date-type="accepted">
+              <day>28</day>
+              <month>5</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>6</day>
+              <month>6</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">Symmetry of proteins, an important source of their elegant structure and unique functions, is not as perfect as it may seem. In the framework of continuous symmetry, in which symmetry is no longer a binary yes/no property, such imperfections can be quantified and used as a global descriptor of the three-dimensional structure. We present an improved algorithm for calculating the continuous symmetry measure for proteins that takes into account their complete set of atoms including all side chains. Our method takes advantage of the protein sequence and the division into peptides in order to improve the accuracy and efficiency of the calculation over previous methods. The Hungarian algorithm is applied to solve the assignment problem and find the permutation that defines the symmetry operation. Analysis of the symmetry of several sets of protein homomers, with various degrees of rotational symmetry is presented. The new methodology lays the foundations for accurate, efficient and reliable large scale symmetry analysis of protein structure and can be used as a collective variable that describes changes of the protein geometry along various processes, both at the backbone level and for the complete protein structure.</p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Protein structure</kwd>
+            <kwd>Side chains</kwd>
+            <kwd>Symmetry</kwd>
+            <kwd>Chirality</kwd>
+            <kwd>RMSD</kwd>
+            <kwd>Hungarian algorithm</kwd>
+            <kwd>Permutations</kwd>
+            <kwd>Molecular descriptors</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>Israel Science Foundation</institution>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">411/15</award-id>
+              <principal-award-recipient>
+                <name>
+                  <surname>Tuvi-Arad</surname>
+                  <given-names>Inbal</given-names>
+                </name>
+              </principal-award-recipient>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>5</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>28</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_360.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (<ext-link xlink:href="10.1186/s13321-019-0360-9" ext-link-type="doi">https://doi.org/10.1186/s13321-019-0360-9</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Introduction</title>
+          <p id="Par4">Symmetry offers several advantages for the evolution, oligomerization and function of proteins [<xref ref-type="bibr" rid="CR1">1</xref>–<xref ref-type="bibr" rid="CR3">3</xref>]. It has been shown that symmetry leads to a reduction of errors in the process of protein synthesis, especially when long peptide chains are involved [<xref ref-type="bibr" rid="CR1">1</xref>, <xref ref-type="bibr" rid="CR4">4</xref>]. Symmetry tends to increase the effectiveness of allosteric regulation, e.g., by the Monod–Wyman–Changeux model of allostery (also referred to as the symmetry model) [<xref ref-type="bibr" rid="CR5">5</xref>]. Synthesizing a symmetric structure requires less information for coding the protein, therefore may lead to faster processes [<xref ref-type="bibr" rid="CR1">1</xref>]. Usually closed symmetric systems tend to have lower energy than asymmetric ones as the interactions between the subunits are maximized due to the symmetry. Consequently symmetry could make proteins more stable and minimize unwanted excessive aggregation [<xref ref-type="bibr" rid="CR6">6</xref>]. Indeed, symmetry is a characteristic of many protein structures [<xref ref-type="bibr" rid="CR7">7</xref>]. Searching the Research Collaboratory for Structural Bioinformatics Protein Data Bank (RCSB PDB) [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR9">9</xref>] for symmetric structures reveals that within ca. 145,000 structures, around 40% are symmetric, ~ 30% have cyclic symmetry with one rotation axis, and the other 10% have higher symmetry (e.g., dihedral, octahedral, icosahedral, etc.). Moreover, out of ~ 55,000 homooligomers in the database, 96% are symmetric.</p>
+          <p id="Par5">Nevertheless, research shows time and again that protein symmetry is far from being perfect. Such imperfections have been related to several factors, among which are the function of the protein, thermodynamic considerations, and experimental conditions [<xref ref-type="bibr" rid="CR10">10</xref>–<xref ref-type="bibr" rid="CR12">12</xref>]. Quantification of these imperfections is still in its very beginning. The pioneering work of Zabrodsky Peleg and Avnir [<xref ref-type="bibr" rid="CR13">13</xref>] introduced the Continuous Symmetry Measure (CSM)—a structural descriptor that translates the full collection of geometrical parameters that define a molecular structure into a single number that measures the distance of that structure from its nearest symmetric counterpart with respect to a given cyclic point group <italic>G</italic>. The group <italic>G</italic> can be generated either by a proper or an improper rotation. The latter case allows a calculation of the Continuous Chirality Measure (CCM) [<xref ref-type="bibr" rid="CR14">14</xref>], as an important feature of the general CSM framework. The task of computing the CSM requires the solution of an optimization problem, in which the parameters are both a permutation of the molecule’s atoms and a three dimensional direction vector [<xref ref-type="bibr" rid="CR15">15</xref>]. For macromolecules, the huge number of possible permutations makes the calculation (and even approximation) of the CSM a nontrivial algorithmic problem.</p>
+          <p id="Par6">The first step towards an efficient method for calculating the CSM was the work of Pinsky et al. [<xref ref-type="bibr" rid="CR15">15</xref>] who developed an efficient method for finding the optimal direction vector, for any given permutation. They also introduced a division of the molecule’s atom into certain equivalence classes, based on the atoms’ type and the connectivity map of the molecule [<xref ref-type="bibr" rid="CR16">16</xref>]. This division narrows down the realm of possibilities for the atom permutation, but the number of permutations remains too large to enumerate, except for very small molecules.</p>
+          <p id="Par7">A partial solution to this problem was given in the work of Dryzun et al. [<xref ref-type="bibr" rid="CR17">17</xref>] who were the first to introduce an approximate method for the calculation of the CSM. Starting with a reasonable guess of the direction vector, a sequence of iterative steps is performed where in each step a new atom permutation is calculated from the direction vector, and a new direction vector is calculated from that permutation, until convergence is reached. While the method of calculating the vector from the permutation (similar to the strategy of Pinsky et al. [<xref ref-type="bibr" rid="CR15">15</xref>]) is both efficient and exact, as we recently proved [<xref ref-type="bibr" rid="CR16">16</xref>], the method of calculating the permutation from the direction vector uses a greedy algorithm to find the permutation, which is relatively fast, yet generally provides only a crude approximation as compared with the exact algorithm. Nevertheless, the method provided the first practical tool for estimating the CSM of proteins, macromolecules and nanomaterials [<xref ref-type="bibr" rid="CR17">17</xref>].</p>
+          <p id="Par8">In a somewhat different direction, we have recently developed an algorithm for an exact calculation of the CSM [<xref ref-type="bibr" rid="CR16">16</xref>], which is feasible for small to medium sized molecules. This algorithm takes into account all the information from the connectivity map of the molecule, and enumerates only the permutations that preserve the molecule’s bonding structure.</p>
+          <p id="Par9">All of the methods described above are insufficient for estimating the symmetry of proteins. For the exact method [<xref ref-type="bibr" rid="CR15">15</xref>, <xref ref-type="bibr" rid="CR16">16</xref>], the number of atoms, and consequently the number of permissible permutations are simply too large for the algorithms to complete the calculation in a reasonable time. The approximate method of Dryzun et al. [<xref ref-type="bibr" rid="CR17">17</xref>] is also ineffective for this case, because of accumulated inaccuracies due to the approximate scheme and the use of the greedy algorithm. Furthermore, disregarding the peptide structure produces symmetric structures that mix atoms from different peptides and violate chemical rules. Nevertheless, assuming the permutation is dictated by the serial numbers, that is, each atom is permuted to an atom from another peptide with the same sequence number, provides a good estimation of the CSM of protein homomers. Recently, Bonjack-Shterengartz and Avnir applied this strategy and showed the effectiveness of using the CSM to describe the near symmetry of proteins [<xref ref-type="bibr" rid="CR10">10</xref>, <xref ref-type="bibr" rid="CR11">11</xref>]. As will be shown here, this method limits the precision of the CSM calculation, especially when the number of peptides increases.</p>
+          <p id="Par10">Other methods for the estimation of the protein symmetry are discussed in the literature [<xref ref-type="bibr" rid="CR18">18</xref>–<xref ref-type="bibr" rid="CR27">27</xref>]. These are generally based on quaternary structure alignment algorithms that involve the superposition of two peptides one over each other, while estimating their alignment by either root mean square deviation (RMSD) of matching α-carbons, or by a related scoring formula (e.g., the combinatorial extension (CE) score [<xref ref-type="bibr" rid="CR28">28</xref>] or the template modeling (TM) score [<xref ref-type="bibr" rid="CR18">18</xref>, <xref ref-type="bibr" rid="CR29">29</xref>]). However, these methods generally ignore the geometry of the side chains and therefore do not attempt to find the true permutation of the atoms.</p>
+          <p id="Par11">In this paper we describe a new method for estimating the CSM for proteins. Our method relies on the properties of the protein sequence and the division into peptides, and presents algorithmic improvements as compared with previous methods. Specifically, our strategy introduces three improvements over the method of Dryzun et al. [<xref ref-type="bibr" rid="CR17">17</xref>]: (a) We take into consideration the information of the protein sequence. This allows us to refine the division of atoms into equivalence groups, such that only atoms of the same identity, residue type and residue sequence number can be interchanged. (b) The greedy algorithm for calculating the permutation in the iterative step is replaced with the Hungarian algorithm, which is known to guarantee to yield an optimal solution of the related assignment problem [<xref ref-type="bibr" rid="CR30">30</xref>, <xref ref-type="bibr" rid="CR31">31</xref>]. (c) We take into considerations the division of the molecule into peptides. Our algorithm distinguishes between the permutation of the peptides and the permutation of the atoms in the peptides, thus making sure that the resulting permutation will not mix atoms from different peptides. The Hungarian algorithm is applied at this stage as well, to find the optimal peptide permutation. These improvements lead to a tremendous increase in the accuracy and speed of the calculation, and turn the CSM into a robust methodology to describe protein structure, that can be used both for homomers as well as internal symmetry investigation of protein domains.</p>
+        </sec>
+        <sec id="Sec2" sec-type="methods">
+          <title>Methodology</title>
+          <sec id="Sec3">
+            <title>Review of the CSM</title>
+            <p id="Par12">Let us briefly review the fundamentals of the CSM methodology [<xref ref-type="bibr" rid="CR13">13</xref>, <xref ref-type="bibr" rid="CR15">15</xref>, <xref ref-type="bibr" rid="CR16">16</xref>]. We consider a given molecule <italic>A</italic> of <italic>N</italic> atoms, and a point group symmetry <italic>G</italic> of order <italic>n</italic>, which can be of the type <italic>C</italic><sub><italic>n</italic></sub> or <italic>S</italic><sub><italic>n</italic></sub>. Let <inline-formula id="IEq1"><alternatives><mml:math id="IEq1_Math"><mml:mrow><mml:mi mathvariant="bold">Q</mml:mi><mml:mo>=</mml:mo><mml:mfenced close="}" open="{" separators=""><mml:mrow><mml:msub><mml:mi mathvariant="bold">Q</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>:</mml:mo><mml:mn>1</mml:mn><mml:mo>≤</mml:mo><mml:mi>k</mml:mi><mml:mo>≤</mml:mo><mml:mi>N</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathbf{Q}} = \left\{ {{\mathbf{Q}}_{k} :1 \le k \le N} \right\}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq1.gif" /></alternatives></inline-formula> be the set of coordinate vectors of the molecule’s atoms, and let <inline-formula id="IEq2"><alternatives><mml:math id="IEq2_Math"><mml:mrow><mml:msub><mml:mi mathvariant="bold">Q</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo>=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mi>N</mml:mi></mml:mfrac><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>N</mml:mi></mml:msubsup><mml:msub><mml:mi mathvariant="bold">Q</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:mrow></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathbf{Q}}_{0} = \frac{1}{N}\sum_{k = 1}^{N} {{\mathbf{Q}}_{k} }$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq2.gif" /></alternatives></inline-formula> be its geometric center of mass. We are looking for a symmetry operation <inline-formula id="IEq3"><alternatives><mml:math id="IEq3_Math"><mml:mi>T</mml:mi></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$T$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq3.gif" /></alternatives></inline-formula>, which generates a cyclic point group of type <italic>G</italic>. Note that <italic>T</italic> is a rotation (either proper or improper) by an angle of <inline-formula id="IEq4"><alternatives><mml:math id="IEq4_Math"><mml:mrow><mml:msup><mml:mn>360</mml:mn><mml:mo>∘</mml:mo></mml:msup><mml:mrow><mml:mo stretchy="true">/</mml:mo></mml:mrow><mml:mi>n</mml:mi></mml:mrow></mml:math><tex-math id="IEq4_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${{360^{ \circ } } \mathord{\left/ {\vphantom {{360^{ \circ } } n}} \right. \kern-0pt} n}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq4.gif" /></alternatives></inline-formula>. In both cases, <inline-formula id="IEq5"><alternatives><mml:math id="IEq5_Math"><mml:mi>T</mml:mi></mml:math><tex-math id="IEq5_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$T$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq5.gif" /></alternatives></inline-formula> is determined by a 3-dimensional direction vector, which we denote by <inline-formula id="IEq6"><alternatives><mml:math id="IEq6_Math"><mml:msub><mml:mi>v</mml:mi><mml:mrow><mml:mi mathvariant="italic">sym</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq6_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$v_{sym}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq6.gif" /></alternatives></inline-formula>. The continuous symmetry measure (CSM) is defined by <inline-formula id="IEq7"><alternatives><mml:math id="IEq7_Math"><mml:mrow><mml:mi>S</mml:mi><mml:mfenced close=")" open="("><mml:mi>G</mml:mi></mml:mfenced><mml:mo>=</mml:mo><mml:mn>100</mml:mn><mml:mo>·</mml:mo><mml:mrow><mml:mrow><mml:mi>M</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>G</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mrow><mml:mo stretchy="true">/</mml:mo></mml:mrow><mml:mrow><mml:mi>N</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>G</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math><tex-math id="IEq7_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$S\left( G \right) = 100 \cdot {{M(G)} \mathord{\left/ {\vphantom {{M(G)} {N(G)}}} \right. \kern-0pt} {N(G)}}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq7.gif" /></alternatives></inline-formula>, where<disp-formula id="Equ1"><label>1</label><alternatives><mml:math display="block" id="Equ1_Math"><mml:mrow><mml:mi>M</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>G</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mtext>min</mml:mtext><mml:mfenced close="]" open="[" separators=""><mml:mrow><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>N</mml:mi></mml:munderover><mml:msup><mml:mfenced close="|" open="|" separators=""><mml:mrow><mml:msub><mml:mi mathvariant="bold">Q</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>-</mml:mo><mml:msub><mml:mi mathvariant="bold">P</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:mrow></mml:mfenced><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:mfenced><mml:mo>;</mml:mo><mml:mspace width="1em" /><mml:mi>N</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>G</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>N</mml:mi></mml:munderover><mml:msup><mml:mfenced close="|" open="|" separators=""><mml:mrow><mml:msub><mml:mi mathvariant="bold">Q</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>-</mml:mo><mml:msub><mml:mi mathvariant="bold">Q</mml:mi><mml:mn>0</mml:mn></mml:msub></mml:mrow></mml:mfenced><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:math><tex-math id="Equ1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$M(G) = \hbox{min} \left[ {\sum\limits_{k = 1}^{N} {\left| {{\mathbf{Q}}_{k} - {\mathbf{P}}_{k} } \right|^{2} } } \right];\quad N(G) = \sum\limits_{k = 1}^{N} {\left| {{\mathbf{Q}}_{k} - {\mathbf{Q}}_{0} } \right|^{2} }$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_360_Article_Equ1.gif" /></alternatives></disp-formula>and the minimum is over all the symmetric (i.e. <inline-formula id="IEq8"><alternatives><mml:math id="IEq8_Math"><mml:mi>T</mml:mi></mml:math><tex-math id="IEq8_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$T$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq8.gif" /></alternatives></inline-formula>-invariant) structures <inline-formula id="IEq9"><alternatives><mml:math id="IEq9_Math"><mml:mfenced close="}" open="{" separators=""><mml:mrow><mml:msub><mml:mi mathvariant="bold">P</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>:</mml:mo><mml:mspace width="0.166667em" /><mml:mspace width="0.166667em" /><mml:mn>1</mml:mn><mml:mo>≤</mml:mo><mml:mi>k</mml:mi><mml:mo>≤</mml:mo><mml:mi>N</mml:mi></mml:mrow></mml:mfenced></mml:math><tex-math id="IEq9_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left\{ {{\mathbf{P}}_{k} :\,\,1 \le k \le N} \right\}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq9.gif" /></alternatives></inline-formula> and all possible direction vectors <inline-formula id="IEq10"><alternatives><mml:math id="IEq10_Math"><mml:msub><mml:mi>v</mml:mi><mml:mrow><mml:mi mathvariant="italic">sym</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq10_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$v_{sym}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq10.gif" /></alternatives></inline-formula>. Each symmetric structure <inline-formula id="IEq11"><alternatives><mml:math id="IEq11_Math"><mml:mfenced close="}" open="{" separators=""><mml:msub><mml:mi mathvariant="bold">P</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:mfenced></mml:math><tex-math id="IEq11_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left\{ {{\mathbf{P}}_{k} } \right\}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq11.gif" /></alternatives></inline-formula> induces a permutation <inline-formula id="IEq12"><alternatives><mml:math id="IEq12_Math"><mml:mi>π</mml:mi></mml:math><tex-math id="IEq12_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\pi$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq12.gif" /></alternatives></inline-formula> on the set of atoms <inline-formula id="IEq13"><alternatives><mml:math id="IEq13_Math"><mml:mfenced close="}" open="{" separators=""><mml:mrow><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mn>2</mml:mn><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:mi>N</mml:mi></mml:mrow></mml:mfenced></mml:math><tex-math id="IEq13_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left\{ {1,2,\ldots,N} \right\}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq13.gif" /></alternatives></inline-formula>, defined by the relation<disp-formula id="Equ2"><label>2</label><alternatives><mml:math display="block" id="Equ2_Math"><mml:mrow><mml:mi>T</mml:mi><mml:msub><mml:mi mathvariant="bold">P</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi mathvariant="bold">P</mml:mi><mml:mrow><mml:mi>π</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>k</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msub><mml:mspace width="0.277778em" /><mml:mtext>for</mml:mtext><mml:mspace width="0.277778em" /><mml:mn>1</mml:mn><mml:mo>≤</mml:mo><mml:mi>k</mml:mi><mml:mo>≤</mml:mo><mml:mi>N</mml:mi></mml:mrow></mml:math><tex-math id="Equ2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$T{\mathbf{P}}_{k} = {\mathbf{P}}_{\pi (k)} \;{\text{for}}\;1 \le k \le N$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_360_Article_Equ2.gif" /></alternatives></disp-formula>A symmetric structure <inline-formula id="IEq14"><alternatives><mml:math id="IEq14_Math"><mml:mfenced close="}" open="{" separators=""><mml:msub><mml:mi mathvariant="bold">P</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:mfenced></mml:math><tex-math id="IEq14_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left\{ {{\mathbf{P}}_{k} } \right\}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq14.gif" /></alternatives></inline-formula> which minimizes Eq. (<xref rid="Equ1" ref-type="disp-formula">1</xref>) is determined by <inline-formula id="IEq15"><alternatives><mml:math id="IEq15_Math"><mml:mi>T</mml:mi></mml:math><tex-math id="IEq15_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$T$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq15.gif" /></alternatives></inline-formula> and the permutation <inline-formula id="IEq16"><alternatives><mml:math id="IEq16_Math"><mml:mi>π</mml:mi></mml:math><tex-math id="IEq16_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\pi$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq16.gif" /></alternatives></inline-formula>, via the relation<disp-formula id="Equ3"><label>3</label><alternatives><mml:math display="block" id="Equ3_Math"><mml:mrow><mml:msub><mml:mi mathvariant="bold">P</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mi>n</mml:mi></mml:mfrac><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:msup><mml:mi>T</mml:mi><mml:mrow><mml:mo>-</mml:mo><mml:mi>i</mml:mi></mml:mrow></mml:msup><mml:msub><mml:mi mathvariant="bold">Q</mml:mi><mml:mrow><mml:msup><mml:mi>π</mml:mi><mml:mi>i</mml:mi></mml:msup><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>k</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:msub></mml:mrow></mml:mrow></mml:math><tex-math id="Equ3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathbf{P}}_{k} = \frac{1}{n}\sum\limits_{i = 1}^{n} {T^{ - i} {\mathbf{Q}}_{{\pi^{i} (k)}} }$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_360_Article_Equ3.gif" /></alternatives></disp-formula>Therefore, the calculation of the CSM and the nearest symmetric structure amount to finding the vector <inline-formula id="IEq17"><alternatives><mml:math id="IEq17_Math"><mml:msub><mml:mi>v</mml:mi><mml:mrow><mml:mi mathvariant="italic">sym</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq17_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$v_{sym}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq17.gif" /></alternatives></inline-formula> and the permutation <inline-formula id="IEq18"><alternatives><mml:math id="IEq18_Math"><mml:mi>π</mml:mi></mml:math><tex-math id="IEq18_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\pi$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq18.gif" /></alternatives></inline-formula> which minimize Eq. (<xref rid="Equ1" ref-type="disp-formula">1</xref>), or equivalently, attain the minimum<disp-formula id="Equ4"><label>4</label><alternatives><mml:math display="block" id="Equ4_Math"><mml:mrow><mml:mi>M</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>G</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mrow><mml:mn>2</mml:mn><mml:mi>n</mml:mi></mml:mrow></mml:mfrac><mml:mtext>min</mml:mtext><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>n</mml:mi></mml:munderover><mml:mrow><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>N</mml:mi></mml:munderover><mml:msup><mml:mfenced close="|" open="|" separators=""><mml:mrow><mml:msup><mml:mi>T</mml:mi><mml:mi>i</mml:mi></mml:msup><mml:msub><mml:mi mathvariant="bold">Q</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>-</mml:mo><mml:msub><mml:mi mathvariant="bold">Q</mml:mi><mml:mrow><mml:msup><mml:mi>π</mml:mi><mml:mi>i</mml:mi></mml:msup><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>k</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:msub></mml:mrow></mml:mfenced><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:mrow></mml:math><tex-math id="Equ4_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$M(G) = \frac{1}{2n}\hbox{min} \sum\limits_{i = 1}^{n} {\sum\limits_{k = 1}^{N} {\left| {T^{i} {\mathbf{Q}}_{k} - {\mathbf{Q}}_{{\pi^{i} (k)}} } \right|^{2} } }$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_360_Article_Equ4.gif" /></alternatives></disp-formula>The permutation <inline-formula id="IEq19"><alternatives><mml:math id="IEq19_Math"><mml:mi>π</mml:mi></mml:math><tex-math id="IEq19_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\pi$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq19.gif" /></alternatives></inline-formula> must satisfy a few requirements:<list list-type="order"><list-item><p id="Par13">Since <italic>T</italic> is a generator of the group <italic>G</italic>, and <inline-formula id="IEq20"><alternatives><mml:math id="IEq20_Math"><mml:mi>π</mml:mi></mml:math><tex-math id="IEq20_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\pi$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq20.gif" /></alternatives></inline-formula> is related to <italic>T</italic> by Eq. (<xref rid="Equ2" ref-type="disp-formula">2</xref>), the cycles of <inline-formula id="IEq21"><alternatives><mml:math id="IEq21_Math"><mml:mi>π</mml:mi></mml:math><tex-math id="IEq21_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\pi$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq21.gif" /></alternatives></inline-formula> can only be of size 1, 2, or <italic>n</italic> (2 is only allowed when <italic>G </italic>= <italic>S</italic><sub><italic>n</italic></sub> or <italic>G </italic>= <italic>C</italic><sub>2</sub>).</p></list-item><list-item><p id="Par14"><inline-formula id="IEq22"><alternatives><mml:math id="IEq22_Math"><mml:mi>π</mml:mi></mml:math><tex-math id="IEq22_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\pi$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq22.gif" /></alternatives></inline-formula> must preserve the structure of the original molecule. This means that <inline-formula id="IEq23"><alternatives><mml:math id="IEq23_Math"><mml:mi>π</mml:mi></mml:math><tex-math id="IEq23_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\pi$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq23.gif" /></alternatives></inline-formula> only permutes atoms of the same type, and that <inline-formula id="IEq24"><alternatives><mml:math id="IEq24_Math"><mml:mi>π</mml:mi></mml:math><tex-math id="IEq24_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\pi$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq24.gif" /></alternatives></inline-formula> neither breaks the bonds between atoms, nor creates new ones.</p></list-item></list>
+A method for an efficient enumeration of the permutations satisfying these conditions was described in our previous publication [<xref ref-type="bibr" rid="CR16">16</xref>]. However, for proteins, such an enumeration is impossible as there are just too many such permutations. In earlier implementations of the CSM calculation [<xref ref-type="bibr" rid="CR15">15</xref>, <xref ref-type="bibr" rid="CR17">17</xref>], the structure preserving condition was not enforced, but rather a weaker condition was used: The molecule’s atoms were divided into equivalence classes <inline-formula id="IEq25"><alternatives><mml:math id="IEq25_Math"><mml:mfenced close="}" open="{" separators=""><mml:mrow><mml:msub><mml:mi mathvariant="script">C</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi mathvariant="script">C</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo></mml:mrow></mml:mfenced></mml:math><tex-math id="IEq25_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left\{ {{\mathcal{C}}_{1} ,{\mathcal{C}}_{2} , \ldots } \right\}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq25.gif" /></alternatives></inline-formula>. The division was determined by an iterative process in which the initial division is deduced from the atom types, and further refinements were based on neighboring atoms in the connectivity map of the molecule. Finally, the permutation was required to preserve the equivalence classes.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Estimating the CSM for large structures</title>
+            <p id="Par16">The approximate algorithm of Dryzun et al. [<xref ref-type="bibr" rid="CR17">17</xref>] is based on an iterative calculation. One begins with a reasonable guess of the direction vector <inline-formula id="IEq26"><alternatives><mml:math id="IEq26_Math"><mml:msub><mml:mi>v</mml:mi><mml:mrow><mml:mi mathvariant="italic">sym</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq26_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$v_{sym}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq26.gif" /></alternatives></inline-formula>; and then, at each iterative step, a permutation is calculated from the current vector, and a new vector is calculated from that permutation. This is repeated until either the process converges (the value of <inline-formula id="IEq27"><alternatives><mml:math id="IEq27_Math"><mml:msub><mml:mi>v</mml:mi><mml:mrow><mml:mi mathvariant="italic">sym</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq27_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$v_{sym}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq27.gif" /></alternatives></inline-formula> stabilizes) or too many iterations have passed. The initial guess of the direction vector is found by performing linear regression on the set of centers of mass of the equivalence classes <inline-formula id="IEq28"><alternatives><mml:math id="IEq28_Math"><mml:mfenced close="}" open="{" separators=""><mml:mrow><mml:msub><mml:mi mathvariant="script">C</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi mathvariant="script">C</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo></mml:mrow></mml:mfenced></mml:math><tex-math id="IEq28_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left\{ {{\mathcal{C}}_{1} ,{\mathcal{C}}_{2} , \ldots } \right\}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq28.gif" /></alternatives></inline-formula>. This is reasonable because for perfectly symmetric molecules, the symmetry operation preserve these centers of mass. The permutation is calculated in each iterative step by a greedy algorithm: In each step, an atom <italic>i</italic> and a permutation value <inline-formula id="IEq29"><alternatives><mml:math id="IEq29_Math"><mml:mrow><mml:mi>π</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>i</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:math><tex-math id="IEq29_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\pi (i) = j$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq29.gif" /></alternatives></inline-formula> are chosen, such that: (a) <inline-formula id="IEq30"><alternatives><mml:math id="IEq30_Math"><mml:mi>j</mml:mi></mml:math><tex-math id="IEq30_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$j$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq30.gif" /></alternatives></inline-formula> is in the same equivalence class as <italic>i</italic>. (b) The atom <italic>i</italic> has not yet been assigned a permutation value and the atom <italic>j</italic> has not yet been assigned as a permutation value. (c) The distance <inline-formula id="IEq31"><alternatives><mml:math id="IEq31_Math"><mml:mrow><mml:mrow><mml:mo stretchy="false">|</mml:mo><mml:mi>T</mml:mi></mml:mrow><mml:msub><mml:mi mathvariant="bold">Q</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>-</mml:mo><mml:msub><mml:mi mathvariant="bold">Q</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mrow><mml:mo stretchy="false">|</mml:mo></mml:mrow></mml:mrow></mml:math><tex-math id="IEq31_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$|T{\mathbf{Q}}_{i} - {\mathbf{Q}}_{j} |$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq31.gif" /></alternatives></inline-formula> is minimal among such pairs <italic>i,j</italic>. The direction vector <inline-formula id="IEq32"><alternatives><mml:math id="IEq32_Math"><mml:msub><mml:mi>v</mml:mi><mml:mrow><mml:mi mathvariant="italic">sym</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq32_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$v_{sym}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq32.gif" /></alternatives></inline-formula> is calculated from the permutation <inline-formula id="IEq33"><alternatives><mml:math id="IEq33_Math"><mml:mi>π</mml:mi></mml:math><tex-math id="IEq33_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\pi$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq33.gif" /></alternatives></inline-formula> by observing that given <inline-formula id="IEq34"><alternatives><mml:math id="IEq34_Math"><mml:mi>π</mml:mi></mml:math><tex-math id="IEq34_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\pi$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq34.gif" /></alternatives></inline-formula>, the solution of Eq. (<xref rid="Equ4" ref-type="disp-formula">4</xref>) is a quadratic optimization problem, which can be efficiently and accurately solved using Lagrange multipliers and matrix eigenvalues [<xref ref-type="bibr" rid="CR15">15</xref>].</p>
+            <p id="Par17">The above algorithm for finding the permutation has the advantage of a reasonable running time, which makes it feasible for large molecules. However, it is not always accurate since the greedy algorithm does not take into account the interaction between the choices of permutation values for various atoms. An example of the inaccuracy created by the greedy algorithm even in the case of two atoms is given as Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>.</p>
+            <sec id="Sec5">
+              <title>Finding the permutation with the Hungarian algorithm</title>
+              <p id="Par18">Our first improvement of the approximate method, which is not specific for proteins, focuses on the calculation of the permutation in the iterative step. We are given a direction vector <inline-formula id="IEq35"><alternatives><mml:math id="IEq35_Math"><mml:msub><mml:mi>v</mml:mi><mml:mrow><mml:mi mathvariant="italic">sym</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq35_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$v_{sym}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq35.gif" /></alternatives></inline-formula> (determined in the previous step), and a symmetry operation <italic>T</italic>. For each equivalence class <inline-formula id="IEq36"><alternatives><mml:math id="IEq36_Math"><mml:msub><mml:mi mathvariant="script">C</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math><tex-math id="IEq36_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathcal{C}}_{i}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq36.gif" /></alternatives></inline-formula>, consisting of the atoms <inline-formula id="IEq37"><alternatives><mml:math id="IEq37_Math"><mml:mfenced close="}" open="{" separators=""><mml:mrow><mml:msub><mml:mi>a</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>a</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:mrow></mml:mfenced></mml:math><tex-math id="IEq37_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left\{ {a_{1} , \ldots ,a_{k} } \right\}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq37.gif" /></alternatives></inline-formula> we define a <inline-formula id="IEq38"><alternatives><mml:math id="IEq38_Math"><mml:mi>k</mml:mi></mml:math><tex-math id="IEq38_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq38.gif" /></alternatives></inline-formula> × <inline-formula id="IEq39"><alternatives><mml:math id="IEq39_Math"><mml:mi>k</mml:mi></mml:math><tex-math id="IEq39_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq39.gif" /></alternatives></inline-formula> matrix <italic>A</italic>, whose elements, <italic>A</italic><sub><italic>ij</italic></sub>, are given by:<disp-formula id="Equ5"><label>5</label><alternatives><mml:math display="block" id="Equ5_Math"><mml:mrow><mml:msub><mml:mi>A</mml:mi><mml:mrow><mml:mi mathvariant="italic">ij</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msup><mml:mfenced close="|" open="|" separators=""><mml:mrow><mml:mi>T</mml:mi><mml:msub><mml:mi mathvariant="bold">Q</mml:mi><mml:msub><mml:mi>a</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:msub><mml:mo>-</mml:mo><mml:msub><mml:mi mathvariant="bold">Q</mml:mi><mml:msub><mml:mi>a</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:msub></mml:mrow></mml:mfenced><mml:mn>2</mml:mn></mml:msup><mml:mspace width="1em" /><mml:mtext>for</mml:mtext><mml:mspace width="1em" /><mml:mn>1</mml:mn><mml:mo>≤</mml:mo><mml:mi>i</mml:mi><mml:mo>≤</mml:mo><mml:mi>k</mml:mi><mml:mo>,</mml:mo><mml:mspace width="1em" /><mml:mn>1</mml:mn><mml:mo>≤</mml:mo><mml:mi>j</mml:mi><mml:mo>≤</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:math><tex-math id="Equ5_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$A_{ij} = \left| {T{\mathbf{Q}}_{{a_{i} }} - {\mathbf{Q}}_{{a_{j} }} } \right|^{2} \quad {\text{for}}\quad 1 \le i \le k,\quad 1 \le j \le k$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_360_Article_Equ5.gif" /></alternatives></disp-formula>Our algorithm chooses the permutation <inline-formula id="IEq40"><alternatives><mml:math id="IEq40_Math"><mml:mi>π</mml:mi></mml:math><tex-math id="IEq40_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\pi$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq40.gif" /></alternatives></inline-formula> of the values <inline-formula id="IEq41"><alternatives><mml:math id="IEq41_Math"><mml:mfenced close="}" open="{" separators=""><mml:mrow><mml:msub><mml:mi>a</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>a</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:mrow></mml:mfenced></mml:math><tex-math id="IEq41_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left\{ {a_{1} , \ldots ,a_{k} } \right\}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq41.gif" /></alternatives></inline-formula>, defined by <inline-formula id="IEq42"><alternatives><mml:math id="IEq42_Math"><mml:mrow><mml:mi>π</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>a</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:msub><mml:mi>a</mml:mi><mml:mrow><mml:mi>μ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>i</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msub></mml:mrow></mml:math><tex-math id="IEq42_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\pi (a_{i} ) = a_{\mu (i)}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq42.gif" /></alternatives></inline-formula> (for <inline-formula id="IEq43"><alternatives><mml:math id="IEq43_Math"><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:math><tex-math id="IEq43_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$i = 1, \ldots ,k$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq43.gif" /></alternatives></inline-formula>), where <inline-formula id="IEq44"><alternatives><mml:math id="IEq44_Math"><mml:mi>μ</mml:mi></mml:math><tex-math id="IEq44_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mu$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq44.gif" /></alternatives></inline-formula> is the permutation of <inline-formula id="IEq45"><alternatives><mml:math id="IEq45_Math"><mml:mfenced close="}" open="{" separators=""><mml:mrow><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:mi>k</mml:mi></mml:mrow></mml:mfenced></mml:math><tex-math id="IEq45_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left\{ {1, \ldots ,k} \right\}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq45.gif" /></alternatives></inline-formula> for which the sum <inline-formula id="IEq46"><alternatives><mml:math id="IEq46_Math"><mml:mrow><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>k</mml:mi></mml:msubsup><mml:msub><mml:mi>A</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>μ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>i</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msub></mml:mrow></mml:math><tex-math id="IEq46_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sum_{i = 1}^{k} {A_{i\mu (i)} }$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq46.gif" /></alternatives></inline-formula> is minimal. Therefore, <inline-formula id="IEq47"><alternatives><mml:math id="IEq47_Math"><mml:mi>μ</mml:mi></mml:math><tex-math id="IEq47_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mu$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq47.gif" /></alternatives></inline-formula> is the solution of <italic>the assignment problem</italic> for the matrix <italic>A</italic> [<xref ref-type="bibr" rid="CR30">30</xref>]. For this problem, there is an efficient algorithm—the so-called Hungarian Algorithm, which finds the optimal solution in time <inline-formula id="IEq48"><alternatives><mml:math id="IEq48_Math"><mml:mrow><mml:mi>O</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msup><mml:mi>k</mml:mi><mml:mn>3</mml:mn></mml:msup><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><tex-math id="IEq48_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$O(k^{3} )$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq48.gif" /></alternatives></inline-formula> [<xref ref-type="bibr" rid="CR30">30</xref>]. We provide further information about the assignment problem and its well-known solution in the Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>.</p>
+              <p id="Par19">Our revised method consists of forming the matrix <italic>A</italic> for each equivalence class, and obtaining the permutation values in each equivalence class by running the Hungarian algorithm on this matrix.</p>
+              <p id="Par20">It should be noted that our algorithm does not take into account the restriction on the cycle structure of the permutation, described above. To the best of our knowledge, there is no efficient solution to the assignment problem under such cycle structure constraints. We also note that our method for finding the permutation (like the method of Pinsky et al. [<xref ref-type="bibr" rid="CR32">32</xref>]) aims to minimize the term in Eq. (<xref rid="Equ4" ref-type="disp-formula">4</xref>) corresponding to <inline-formula id="IEq49"><alternatives><mml:math id="IEq49_Math"><mml:mrow><mml:mi>i</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:math><tex-math id="IEq49_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$i = 1$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq49.gif" /></alternatives></inline-formula>. This has proved to be a good approximation of the minimizer of the entire sum in Eq. (<xref rid="Equ4" ref-type="disp-formula">4</xref>).</p>
+            </sec>
+          </sec>
+          <sec id="Sec6">
+            <title>Reducing equivalence groups: the “use sequence” algorithm</title>
+            <p id="Par21">It is intuitively clear, and practically verifiable, that a crucial factor in the accuracy and efficiency of the approximate algorithm (with the Hungarian method improvement) is the size of the atom equivalence classes: The algorithm has better performance when the classes are small. For proteins, we can greatly refine the initial division into classes by using the information of the protein sequence. We assign different classes to pairs of atoms which differ in their chemical identity, residue type or sequence number (excluding the remoteness indicator). Consequently the size of the equivalence classes is determined by either the number of peptides (for protein backbone atoms and most of the side chains atoms as well), twice this number for atoms that differ only by their remoteness indicator (e.g., the two C<sub>γ</sub> atoms of Val), or three times this number if hydrogen atoms are taken into account.</p>
+          </sec>
+          <sec id="Sec7">
+            <title>The many chains algorithm</title>
+            <p id="Par22">We now describe a further improvement of the algorithm, in which we make sure that the permutation does not break the peptides, but rather, carry each peptide in its entirety to another peptide. This is achieved by performing two levels of implementation of the Hungarian algorithm. The lower level calculates the mapping of the atoms in a peptide, and the higher level calculates the permutation of the peptides.</p>
+            <p id="Par23">Let us denote the peptides by <inline-formula id="IEq50"><alternatives><mml:math id="IEq50_Math"><mml:mfenced close="}" open="{" separators=""><mml:mrow><mml:msub><mml:mi mathvariant="sans-serif">P</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi mathvariant="sans-serif">P</mml:mi><mml:mi>ℓ</mml:mi></mml:msub></mml:mrow></mml:mfenced></mml:math><tex-math id="IEq50_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left\{ {\mathsf{P}_{1} , \ldots ,\mathsf{P}_{\ell } } \right\}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq50.gif" /></alternatives></inline-formula>. In the iterative step of the approximate algorithm, given the symmetry operation <inline-formula id="IEq51"><alternatives><mml:math id="IEq51_Math"><mml:mi>T</mml:mi></mml:math><tex-math id="IEq51_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$T$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq51.gif" /></alternatives></inline-formula>, we calculate for each pair of peptides <inline-formula id="IEq52"><alternatives><mml:math id="IEq52_Math"><mml:mrow><mml:msub><mml:mi mathvariant="sans-serif">P</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi mathvariant="sans-serif">P</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:mrow></mml:math><tex-math id="IEq52_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mathsf{P}_{i} ,\mathsf{P}_{j}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq52.gif" /></alternatives></inline-formula>, the following minimum:<disp-formula id="Equ6"><label>6</label><alternatives><mml:math display="block" id="Equ6_Math"><mml:mrow><mml:msub><mml:mi>B</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:mtext>min</mml:mtext><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>u</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>M</mml:mi></mml:munderover><mml:msup><mml:mfenced close="|" open="|" separators=""><mml:mrow><mml:mi>T</mml:mi><mml:msub><mml:mi>U</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>-</mml:mo><mml:msub><mml:mi>V</mml:mi><mml:mrow><mml:mi>ν</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>i</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msub></mml:mrow></mml:mfenced><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:math><tex-math id="Equ6_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$B_{i,j} = \hbox{min} \sum\limits_{u = 1}^{M} {\left| {TU_{i} - V_{\nu (i)} } \right|^{2} }$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_360_Article_Equ6.gif" /></alternatives></disp-formula>where <inline-formula id="IEq53"><alternatives><mml:math id="IEq53_Math"><mml:mfenced close="}" open="{" separators=""><mml:mrow><mml:msub><mml:mi>U</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>U</mml:mi><mml:mi>M</mml:mi></mml:msub></mml:mrow></mml:mfenced></mml:math><tex-math id="IEq53_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left\{ {U_{1} , \ldots ,U_{M} } \right\}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq53.gif" /></alternatives></inline-formula> are the atoms of <inline-formula id="IEq54"><alternatives><mml:math id="IEq54_Math"><mml:msub><mml:mi mathvariant="sans-serif">P</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math><tex-math id="IEq54_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mathsf{P}_{i}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq54.gif" /></alternatives></inline-formula>, <inline-formula id="IEq55"><alternatives><mml:math id="IEq55_Math"><mml:mfenced close="}" open="{" separators=""><mml:mrow><mml:msub><mml:mi>V</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>V</mml:mi><mml:mi>M</mml:mi></mml:msub></mml:mrow></mml:mfenced></mml:math><tex-math id="IEq55_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left\{ {V_{1} , \ldots ,V_{M} } \right\}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq55.gif" /></alternatives></inline-formula> are the atoms of <inline-formula id="IEq56"><alternatives><mml:math id="IEq56_Math"><mml:msub><mml:mi mathvariant="sans-serif">P</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:math><tex-math id="IEq56_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mathsf{P}_{j}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq56.gif" /></alternatives></inline-formula>, and the minimum is over all the permutations <inline-formula id="IEq57"><alternatives><mml:math id="IEq57_Math"><mml:mi>ν</mml:mi></mml:math><tex-math id="IEq57_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\nu$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq57.gif" /></alternatives></inline-formula> of <inline-formula id="IEq58"><alternatives><mml:math id="IEq58_Math"><mml:mfenced close="}" open="{" separators=""><mml:mrow><mml:mn>1</mml:mn><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:mi>M</mml:mi></mml:mrow></mml:mfenced></mml:math><tex-math id="IEq58_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left\{ {1, \ldots ,M} \right\}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq58.gif" /></alternatives></inline-formula> which preserve the equivalence classes. The value of <inline-formula id="IEq59"><alternatives><mml:math id="IEq59_Math"><mml:msub><mml:mi>B</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq59_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$B_{i,j}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq59.gif" /></alternatives></inline-formula> and the minimizing permutation <inline-formula id="IEq60"><alternatives><mml:math id="IEq60_Math"><mml:mi>ν</mml:mi></mml:math><tex-math id="IEq60_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\nu$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq60.gif" /></alternatives></inline-formula> is calculated by the Hungarian algorithm as explained above. We call this stage the lower level application of the Hungarian algorithm—see Fig. <xref rid="Fig1" ref-type="fig">1</xref>.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Atoms’ permutation for a two-residue (Leu-Phe) section of a homodimer. Black atoms form equivalence classes of two atoms each (one from each peptide). Orange, blue and magenta carbon atoms represent carbon atoms that differ only by their remoteness indicator, each couple forms an equivalence group of four atoms. Red bonds represent the protein backbone. Two choices for permuting the Leu-C<sub>δ</sub> carbon atoms (magenta) are illustrated with blue and green arrows</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_360_Fig1_HTML.png" /></fig></p>
+            <p id="Par24">Applying the Hungarian algorithm to the matrix <inline-formula id="IEq61"><alternatives><mml:math id="IEq61_Math"><mml:mrow><mml:mi>B</mml:mi><mml:mo>=</mml:mo><mml:mfenced close=")" open="(" separators=""><mml:msub><mml:mi>B</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi></mml:mrow></mml:msub></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq61_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$B = \left( {B_{i,j} } \right)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq61.gif" /></alternatives></inline-formula> (this is the higher level application of the Hungarian algorithm, see Fig. <xref rid="Fig2" ref-type="fig">2</xref>) results with the optimal permutation of the peptides. Given the permutation of the peptides, and using the permutation calculated in the lower level, we obtain the full permutation of the molecule’s atoms. This permutation has the desired property of maintaining the peptides structure as well as the protein sequence, and is the optimal one among all such permutations.<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>Peptides’ permutation in AB<sub>5</sub> toxin from <italic>E. coli</italic> (PDB ID: 3DWA) fits the peptide permutation order: A → C → D → B → E. <italic>S</italic>(<italic>C</italic><sub>5</sub>) = 0.0410. Peptides’ labels are taken from the PDB file</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_360_Fig2_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec8">
+            <title>Testing methodology</title>
+            <sec id="Sec9">
+              <title>Creating a database of the proteins: selection criteria</title>
+              <p id="Par25">To test the effectiveness of our code we applied it to several sets of protein homomers. The coordinates of the proteins of each set were extracted from the RCSB website [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR9">9</xref>]. In order to assure that only high quality proteins with minimal statistical bias will be selected [<xref ref-type="bibr" rid="CR33">33</xref>, <xref ref-type="bibr" rid="CR34">34</xref>], several criteria for filtering the proteins were applied: (a) The experimental method was X-ray crystallography with a resolution of 2.5 Å or better, equivalent to at least a “Good” grade as defined by FirstGlance in Jmol [<xref ref-type="bibr" rid="CR35">35</xref>]; (b) Only homomeric proteins were chosen in which the asymmetric unit contained all chains of the protein required to create a symmetric structure, that is, a biological assembly identical to the asymmetric unit exist, as defined by the transformation matrix in remark 350 of the PDB file. (c) DNA, RNA or hybrid chains were filtered out. (d) Based on R<sub>free</sub> values the proteins were assigned with an R<sub>free</sub> grade [<xref ref-type="bibr" rid="CR36">36</xref>], which measures the quality of fitting a simulated diffraction pattern to the analyzed experimental diffraction pattern. Only proteins with a grade of “average at this resolution” and better were included; (e) finally, to reduce redundancy, proteins were filtered to maintain up to 70% sequence identity as defined by the RCSB website. Lists of the proteins used in this work are provided in the Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>. Filtering was based on the RSCB search terms and followed by our own Python code: pdb_prep (see below). It should be noted that averaged B-factors, representing the mean square isotropic displacement of each atom [<xref ref-type="bibr" rid="CR37">37</xref>, <xref ref-type="bibr" rid="CR38">38</xref>], were not required as an additional filter since for most of the protein used, the above filters naturally reduced these values to less than or equal to 40 Å<sup>2</sup>. However, those with higher average B factor showed good R<sub>free</sub> grades and were therefore included in this study.</p>
+              <p id="Par26">The above filters were applied to all symmetric homomers found in the RCSB website with <italic>C</italic><sub>4</sub>, <italic>C</italic><sub>5</sub> and <italic>C</italic><sub>6</sub> rotational symmetry resulting with sets of 31, 51 and 16 proteins respectively. For protein homodimers with <italic>C</italic><sub>2</sub> symmetry and homotrimers with <italic>C</italic><sub>3</sub> symmetry, which are common in the RCSB database, we applied a randomization algorithm (by the Linux “shuf” command written by Paul Eggert) to choose 300 proteins of each type from the website. After applying the above filters these sets were reduced to 194 and 214 proteins respectively.</p>
+            </sec>
+            <sec id="Sec10">
+              <title>Preparing proteins for CSM calculations</title>
+              <p id="Par27">Prior to analysis, each protein in our sets was cleaned with our python code pdb_prep to delete ligands, solvents, non-coordinates lines (e.g., ANISOU data representing anisotropic temperature factors) from the ATOM section in the PDB file [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR9">9</xref>], and choose the first location in cases of alternate locations of specific residues. Hydrogen atoms, if existed, were deleted in order to unify the dataset, as most of the PDB files did not include them. In addition the code used reported data on missing residues and atoms (based on remarks 465 and 470 in the PDB file) to insure that all peptides have the same length. If a residue was missing from one or more of the peptides—it was automatically deleted from all other peptides. Similar treatment was given to missing atoms. Finally the files were checked to verify that the length of all peptides is identical.</p>
+            </sec>
+          </sec>
+        </sec>
+        <sec id="Sec11" sec-type="results">
+          <title>Results</title>
+          <sec id="Sec12">
+            <title>Symmetry levels of homomers</title>
+            <p id="Par28">Table <xref rid="Tab1" ref-type="table">1</xref> presents descriptive statistics of our set of proteins. It should be noted that while the general scale of the CSM is between 0 and 100, typical CSM values of proteins with approximate symmetry are significantly smaller than 100 [<xref ref-type="bibr" rid="CR10">10</xref>]. For our sets of proteins the distortion levels varied between 0 and 2. This does not necessarily mean that proteins are more symmetric than small molecules. Rather this results from the definition of the symmetry measure. The denominator, <inline-formula id="IEq62"><alternatives><mml:math id="IEq62_Math"><mml:mrow><mml:mspace width="0.166667em" /><mml:mi>N</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>G</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><tex-math id="IEq62_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\,N(G)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq62.gif" /></alternatives></inline-formula>, in Eq. (<xref rid="Equ1" ref-type="disp-formula">1</xref>) is the sum of distances of each atom from the center of mass of the molecule. While for small molecules this value may be at the order of the sum of deviations of each atom from its expected symmetric position (as appears in the numerator, <inline-formula id="IEq63"><alternatives><mml:math id="IEq63_Math"><mml:mrow><mml:mi>M</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:mi>G</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:math><tex-math id="IEq63_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$M(G)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_360_Article_IEq63.gif" /></alternatives></inline-formula>), for a protein, especially for an elongated structure, the sum of these distances can be much higher than the numerator leading to a small CSM value. Table <xref rid="Tab1" ref-type="table">1</xref> should thus be used as a reference table to which CSM levels of proteins with approximate symmetry can be compared. Within this range, up to 4 orders of magnitude differences exist between the minimum CSM representing highly symmetric proteins and the maximum CSM representing highly distorted ones. It should be noted that for asymmetric proteins, the CSM can be significantly higher than the values in Table <xref rid="Tab1" ref-type="table">1</xref>, and values in the range 20–30 and even higher are common. On the other hand, there are specific structures that appear to be symmetric by their CSM value, although they are classified as asymmetric in the RCSB website. We comment on this topic in the Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref> and presents statistics for asymmetric homotrimers and homotetramers in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Table S1.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Descriptive statistics of CSMs for the sets of homomers</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Set</p></th><th align="left"><p>CSM</p></th><th align="left"><p>N</p></th><th align="left"><p>Mean</p></th><th align="left"><p>Standard deviation</p></th><th align="left"><p>SE of mean</p></th><th align="left"><p>Minimum</p></th><th align="left"><p>Median</p></th><th align="left"><p>Maximum</p></th></tr></thead><tbody><tr><td align="left"><p>Dimers</p></td><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>2</sub>)</p></td><td char="." align="char"><p>194</p></td><td char="." align="char"><p>0.1350</p></td><td char="." align="char"><p>0.3132</p></td><td char="." align="char"><p>0.0225</p></td><td char="." align="char"><p>0.0001</p></td><td char="." align="char"><p>0.0471</p></td><td char="." align="char"><p>2.8786</p></td></tr><tr><td align="left"><p>Trimers</p></td><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>3</sub>)</p></td><td char="." align="char"><p>214</p></td><td char="." align="char"><p>0.0775</p></td><td char="." align="char"><p>0.1698</p></td><td char="." align="char"><p>0.0116</p></td><td char="." align="char"><p>0.0003</p></td><td char="." align="char"><p>0.0304</p></td><td char="." align="char"><p>1.9519</p></td></tr><tr><td align="left"><p>Tetramers</p></td><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>2</sub>)</p></td><td char="." align="char"><p>31</p></td><td char="." align="char"><p>0.0446</p></td><td char="." align="char"><p>0.1444</p></td><td char="." align="char"><p>0.0259</p></td><td char="." align="char"><p>0.0006</p></td><td char="." align="char"><p>0.0130</p></td><td char="." align="char"><p>0.8171</p></td></tr><tr><td align="left" /><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>4</sub>)</p></td><td char="." align="char"><p>31</p></td><td char="." align="char"><p>0.1001</p></td><td char="." align="char"><p>0.2490</p></td><td char="." align="char"><p>0.0447</p></td><td char="." align="char"><p>0.0022</p></td><td char="." align="char"><p>0.0311</p></td><td char="." align="char"><p>1.0366</p></td></tr><tr><td align="left"><p>Pentamers</p></td><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>5</sub>)</p></td><td char="." align="char"><p>51</p></td><td char="." align="char"><p>0.0974</p></td><td char="." align="char"><p>0.1872</p></td><td char="." align="char"><p>0.0262</p></td><td char="." align="char"><p>0.0028</p></td><td char="." align="char"><p>0.0345</p></td><td char="." align="char"><p>0.9505</p></td></tr><tr><td align="left"><p>Hexamers</p></td><td align="left"><p>S(C<sub>2</sub>)</p></td><td char="." align="char"><p>16</p></td><td char="." align="char"><p>0.0529</p></td><td char="." align="char"><p>0.0437</p></td><td char="." align="char"><p>0.0109</p></td><td char="." align="char"><p>0.0055</p></td><td char="." align="char"><p>0.0435</p></td><td char="." align="char"><p>0.1565</p></td></tr><tr><td align="left" /><td align="left"><p>S(C<sub>3</sub>)</p></td><td char="." align="char"><p>16</p></td><td char="." align="char"><p>0.0714</p></td><td char="." align="char"><p>0.0603</p></td><td char="." align="char"><p>0.0151</p></td><td char="." align="char"><p>0.0077</p></td><td char="." align="char"><p>0.0555</p></td><td char="." align="char"><p>0.2326</p></td></tr><tr><td align="left" /><td align="left"><p>S(C6)</p></td><td char="." align="char"><p>16</p></td><td char="." align="char"><p>0.0898</p></td><td char="." align="char"><p>0.0715</p></td><td char="." align="char"><p>0.0179</p></td><td char="." align="char"><p>0.0102</p></td><td char="." align="char"><p>0.0737</p></td><td char="." align="char"><p>0.2699</p></td></tr></tbody></table></table-wrap></p>
+            <p id="Par29">Figure <xref rid="Fig3" ref-type="fig">3</xref> exemplifies the calculation for the crystal structure of the VirB8-like protein, <italic>R</italic>. <italic>typhi</italic> RvhB8-II homodimer (PDB ID: 4O3 V) [<xref ref-type="bibr" rid="CR39">39</xref>]. The left structure is the original one, and the right structure is the nearest symmetric structure with <italic>S</italic>(<italic>C</italic><sub>2</sub>) = 1.1261. While the differences may appear minor with the ribbons view, one should bare in mind that these are more significant at the atoms level (see a ball and sticks view in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Figure S2).<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>The homodimer (<italic>R</italic>. <italic>typhi</italic> RvhB8-II) (PDB-ID: 4O3V) is characterized with <italic>S</italic>(<italic>C</italic><sub>2</sub>) = 1.1261. <bold>a</bold> Original structure and <bold>b</bold> nearest symmetric structure. The black line represents the direction of the symmetry axis for the nearest symmetric structure. See Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Figure S2 for ball and sticks models of the structures</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_360_Fig3_HTML.png" /></fig></p>
+            <p id="Par30">Returning to Table <xref rid="Tab1" ref-type="table">1</xref> we note that the standard deviation of each set is much higher than the corresponding mean value. This is resulting from the fact that the CSM is always positive and its distribution has a long tail as exemplified in Fig. <xref rid="Fig4" ref-type="fig">4</xref> for our set of 214 trimers.<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p><italic>S</italic>(<italic>C</italic><sub>3</sub>) distribution for the set of 214 protein trimers. Bin size was set to 0.01. The right tail of the distribution is not shown in order to increase the visibility</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_360_Fig4_HTML.png" /></fig></p>
+            <p id="Par31">Another interesting point apparent from Table <xref rid="Tab1" ref-type="table">1</xref> is that for even homomers, distortion increases with the order of the rotational symmetry. For tetramers—the mean deviation from <italic>C</italic><sub>2</sub> symmetry (0.0442) is smaller than the mean deviation from <italic>C</italic><sub>4</sub> symmetry (0.1001). Likewise the mean distortion of the set of hexamers increases in the order: <italic>S</italic>(<italic>C</italic><sub>2</sub>) &lt;<italic> S</italic>(<italic>C</italic><sub>3</sub>) &lt;<italic> S</italic>(<italic>C</italic><sub>6</sub>). The same trend is seen when looking at either the minimum, median or maximum CSM values. This is to be expected—for a hexamer to be perfectly <italic>C</italic><sub>6</sub>-symmetric, all peptides must be symmetrically aligned around the rotation axis. That is, all peptides must attain a symmetrically equivalent conformation. However, to obtain a <italic>C</italic><sub>2</sub>-symmetry, it is enough that three of the peptides will be symmetrically equivalent to the other three. That is, the structure has more degrees of freedom because the peptides at each triplet need not be perfectly symmetric with respect to each other.</p>
+          </sec>
+          <sec id="Sec13">
+            <title>Finding the correct permutation</title>
+            <p id="Par32">As we have described above, our algorithm guarantees that the atom’s permutation does not break the peptides: Each peptide is carried in its entirety to another peptide, and therefore we have two levels of permutations: The permutation of equivalence classes of atoms (Fig. <xref rid="Fig1" ref-type="fig">1</xref>), and the permutation of the peptides (Fig. <xref rid="Fig2" ref-type="fig">2</xref>). Let us look at these permutations more closely. For most of the atoms, their order in the sequence determines their permutation. That is, a C<sub>α</sub> of Gly can only be interchanged with a C<sub>α</sub> of Gly that has the same sequence number on the equivalent peptide. However, Val for example, has two C<sub>γ</sub> atoms (see Fig. <xref rid="Fig5" ref-type="fig">5</xref>). These give rise to two possible permutations: either C<sub>γ1</sub>(A) → C<sub>γ1</sub>(B) or C<sub>γ1</sub>(A) → C<sub>γ2</sub> (B) where A and B are the equivalent peptides. Other possibilities for such permutations are the ring carbons of Phe and Tyr, The C<sub>δ</sub>’s of Leu, the two nitrogen atoms at the tail of Arg and the two oxygen atoms at the tail of Asp and Glu. If hydrogen atoms exist in the PDB file, larger equivalence groups will result (e.g., for methyl groups at the edge of the side chains). The atoms permutation is kept as a separate list for each combination of two peptides. After the peptides permutation is found, the final total permutation is constructed by linking the peptides permutation with the relevant atoms permutations. In what follows we describe the possibilities for peptide permutations, and the differences between them.<fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p>Val has two C<sub>γ</sub> atoms. The free rotation around the C<sub>α</sub>–C<sub>β</sub> bond, give rise to two possible permutations of these carbon atoms with those of another Val on an equivalent peptide</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_360_Fig5_HTML.png" /></fig></p>
+            <p id="Par33">Finding the permutation of the peptides follows Eq. (<xref rid="Equ6" ref-type="disp-formula">6</xref>) described above. For dimers and trimers, finding the permutation of the peptides is straightforward: A → B for dimers and A → B→C for trimers (note that A → C→B is an equivalent permutation). However as the number of peptides in a protein increases, it is not clear a priori which permutation will lead to a smaller CSM. A peptide permutation that follows the order of the peptides in the PDB file was found for 45% of the tetramers, 69% of the pentamers and 81% of the hexamers. In other words, relying on the PDB file order of peptides can lead to an error of up to 55% of the tetramers, 31% of the pentamers and 19% of the hexamers. Nevertheless, larger data sets may alter these numbers. Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Tables S2–S4 present the specific permutations and their frequencies for our sets of tetramers, pentamers and hexamers</p>
+            <p id="Par34">We continue by testing the differences between the best permutation of the peptides and atoms, to the sequence-ordered permutation of the atoms, in which the atoms are interchanged according to their serial numbers in the PDB file, and to the permutation found by the greedy algorithm. In both cases all possible permutations of the peptides were taken into account. These differences, although important, do not affect the permutation of the peptides. Starting with the sequence-ordered permutation of the atoms, we found that it generally leads to higher CSM values as compared with the ones found by the Hungarian algorithm. That is, it finds the protein to be less symmetric than it really is. Table <xref rid="Tab2" ref-type="table">2</xref> presents the results of these comparisons in terms of the relative error defined by:<disp-formula id="Equ7"><label>7</label><alternatives><mml:math display="block" id="Equ7_Math"><mml:mrow><mml:mtext>Relative</mml:mtext><mml:mspace width="0.277778em" /><mml:mtext>Error</mml:mtext><mml:mo>=</mml:mo><mml:mn>100</mml:mn><mml:mo>·</mml:mo><mml:mfrac><mml:mfenced close="|" open="|" separators=""><mml:mrow><mml:mi>C</mml:mi><mml:mi>S</mml:mi><mml:msub><mml:mi>M</mml:mi><mml:mrow><mml:mi mathvariant="italic">full</mml:mi></mml:mrow></mml:msub><mml:mo>-</mml:mo><mml:mi>C</mml:mi><mml:mi>S</mml:mi><mml:msub><mml:mi>M</mml:mi><mml:mrow><mml:mi>s</mml:mi><mml:mi>e</mml:mi><mml:mi>q</mml:mi><mml:mi>u</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi><mml:mo>-</mml:mo><mml:mi>o</mml:mi><mml:mi>r</mml:mi><mml:mi>d</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>d</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfenced><mml:mrow><mml:mi>C</mml:mi><mml:mi>S</mml:mi><mml:msub><mml:mi>M</mml:mi><mml:mrow><mml:mi mathvariant="italic">full</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfrac></mml:mrow></mml:math><tex-math id="Equ7_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\text{Relative}}\;{\text{Error}} = 100 \cdot \frac{{\left| {CSM_{full} - CSM_{{sequence{ - }ordered}} } \right|}}{{CSM_{full} }}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_360_Article_Equ7.gif" /></alternatives></disp-formula>As is evident, using the sequence-ordered permutation adds a median relative error of 4–10%, but the maximum error is much higher and can be as high as 49%. Two comments are in place here. First, the higher errors are more abundant when the measure itself is low, that is, the protein is highly symmetric. This is resulting from the definition of the relative error in Eq. (<xref rid="Equ7" ref-type="disp-formula">7</xref>). As an example, Fig. <xref rid="Fig6" ref-type="fig">6</xref> presents the relative error as a function of <italic>S</italic>(<italic>C</italic><sub>3</sub>) for the set of trimers. Second, in few cases the sequence-ordered permutation does provide the same CSM value as with the Hungarian algorithm. This was obtained for 11 out of 214 trimers (5%) and 1 out of 31 tetramers (3%) in the calculation of <italic>S</italic>(<italic>C</italic><sub>4</sub>). Note that the minimum relative error of <italic>S</italic>(<italic>C</italic><sub>2</sub>) for the same set of tetramers is not zero.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Descriptive statistics of the relative deviation of the CSM resulting from the sequence-ordered permutation of the atoms as compared with the Hungarian algorithm</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Set</p></th><th align="left"><p>CSM</p></th><th align="left"><p>N</p></th><th align="left"><p>Mean (%)</p></th><th align="left"><p>Standard deviation (%)</p></th><th align="left"><p>SE of mean (%)</p></th><th align="left"><p>Minimum (%)</p></th><th align="left"><p>Median (%)</p></th><th align="left"><p>Maximum (%)</p></th></tr></thead><tbody><tr><td align="left"><p>Dimers<sup>a</sup></p></td><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>2</sub>)</p></td><td char="." align="char"><p>193</p></td><td char="." align="char"><p>6.7</p></td><td char="." align="char"><p>6.7</p></td><td char="." align="char"><p>0.5</p></td><td char="." align="char"><p>0.1</p></td><td char="." align="char"><p>4.5</p></td><td char="." align="char"><p>37.3</p></td></tr><tr><td align="left"><p>Trimers</p></td><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>3</sub>)</p></td><td char="." align="char"><p>214</p></td><td char="." align="char"><p>6.9</p></td><td char="." align="char"><p>6.6</p></td><td char="." align="char"><p>0.5</p></td><td char="." align="char"><p>0.0</p></td><td char="." align="char"><p>5.1</p></td><td char="." align="char"><p>43.5</p></td></tr><tr><td align="left"><p>Tetramers</p></td><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>2</sub>)</p></td><td char="." align="char"><p>31</p></td><td char="." align="char"><p>12.8</p></td><td char="." align="char"><p>10.6</p></td><td char="." align="char"><p>1.9</p></td><td char="." align="char"><p>0.4</p></td><td char="." align="char"><p>10.0</p></td><td char="." align="char"><p>49.3</p></td></tr><tr><td align="left" /><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>4</sub>)</p></td><td char="." align="char"><p>31</p></td><td char="." align="char"><p>9.9</p></td><td char="." align="char"><p>10.1</p></td><td char="." align="char"><p>1.8</p></td><td char="." align="char"><p>0.0</p></td><td char="." align="char"><p>6.6</p></td><td char="." align="char"><p>42.4</p></td></tr><tr><td align="left"><p>Pentamers</p></td><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>5</sub>)</p></td><td char="." align="char"><p>51</p></td><td char="." align="char"><p>5.7</p></td><td char="." align="char"><p>5.1</p></td><td char="." align="char"><p>0.7</p></td><td char="." align="char"><p>0.1</p></td><td char="." align="char"><p>4.6</p></td><td char="." align="char"><p>21.5</p></td></tr><tr><td align="left"><p>Hexamers</p></td><td align="left"><p>S(C<sub>2</sub>)</p></td><td char="." align="char"><p>16</p></td><td char="." align="char"><p>9.0</p></td><td char="." align="char"><p>6.9</p></td><td char="." align="char"><p>1.7</p></td><td char="." align="char"><p>2.4</p></td><td char="." align="char"><p>6.6</p></td><td char="." align="char"><p>25.0</p></td></tr><tr><td align="left" /><td align="left"><p>S(C<sub>3</sub>)</p></td><td char="." align="char"><p>16</p></td><td char="." align="char"><p>7.7</p></td><td char="." align="char"><p>5.2</p></td><td char="." align="char"><p>1.3</p></td><td char="." align="char"><p>2.2</p></td><td char="." align="char"><p>6.4</p></td><td char="." align="char"><p>20.8</p></td></tr><tr><td align="left" /><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>6</sub>)</p></td><td char="." align="char"><p>16</p></td><td char="." align="char"><p>7.1</p></td><td char="." align="char"><p>4.9</p></td><td char="." align="char"><p>1.2</p></td><td char="." align="char"><p>1.9</p></td><td char="." align="char"><p>6.1</p></td><td char="." align="char"><p>21.0</p></td></tr></tbody></table><table-wrap-foot><p><sup>a</sup>Statistical analysis was done on 193 out of 194 dimers. One dimer, with PDB-ID 2AJQ, is highly symmetric with <italic>S</italic>(<italic>C</italic><sub>2</sub>) = 0.0001 for the Hungarian algorithm and 0.0004 for the sequence-ordered permutation, led to an error of 300%. It was therefore considered as an outlier and excluded from this calculation</p></table-wrap-foot></table-wrap><fig id="Fig6"><label>Fig. 6</label><caption xml:lang="en"><p>Relative error of <italic>S</italic>(<italic>C</italic><sub>3</sub>) calculated for the dataset of 214 protein trimers resulting from using the sequence-ordered permutation as opposed to the permutation found by the Hungrian algorithm</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_360_Fig6_HTML.png" /></fig></p>
+            <p id="Par35">Similarly to the analysis presented above, a comparison with the greedy algorithm was conducted. In all cases but one, the greedy algorithm found a higher CSM value as compared with the Hungarian algorithm, that is a permutation that leads to a less symmetric structure. Table <xref rid="Tab3" ref-type="table">3</xref> presents the comparison of the Hungarian algorithm and the greedy algorithm. Here the relative errors are lower, with a median error of 1% and up to 3% and a maximum error of 3% and up to 10%. This makes sense as the greedy algorithm does attempt to find a better permutation than the sequence-ordered permutation, although it does not succeed in all of the cases. A zero relative error has been obtained in higher percentages as compared with the sequence-ordered permutation: 9% of the dimers, 12% of the trimers, 26% for <italic>S</italic>(<italic>C</italic><sub>2</sub>) of the tetramers and 19% for <italic>S</italic>(<italic>C</italic><sub>4</sub>), 6% of the pentamers, none for <italic>S</italic>(<italic>C</italic><sub>2</sub>) and <italic>S</italic>(<italic>C</italic><sub>3</sub>) of the hexamers and 13% for <italic>S</italic>(<italic>C</italic><sub>6</sub>) of the hexamers. Altogether, we can estimate that the greedy algorithm for finding the permutation of the atoms is equivalent to the Hungarian algorithm in up to 26% of the calculations.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>Descriptive statistics of the relative deviation of the CSM resulting from a greedy algorithm of the atoms as compared with the Hungarian algorithm</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Set</p></th><th align="left"><p>CSM</p></th><th align="left"><p>N</p></th><th align="left"><p>Mean (%)</p></th><th align="left"><p>Standard deviation (%)</p></th><th align="left"><p>SE of mean (%)</p></th><th align="left"><p>Minimum (%)</p></th><th align="left"><p>Median (%)</p></th><th align="left"><p>Maximum (%)</p></th></tr></thead><tbody><tr><td align="left"><p>Dimers</p></td><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>2</sub>)</p></td><td char="." align="char"><p>194</p></td><td char="." align="char"><p>1.5</p></td><td char="." align="char"><p>1.3</p></td><td char="." align="char"><p>0.1</p></td><td char="." align="char"><p>0.0</p></td><td char="." align="char"><p>1.2</p></td><td char="." align="char"><p>7.1</p></td></tr><tr><td align="left"><p>Trimers</p></td><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>3</sub>)</p></td><td char="." align="char"><p>214</p></td><td char="." align="char"><p>1.5</p></td><td char="." align="char"><p>1.1</p></td><td char="." align="char"><p>0.1</p></td><td char="." align="char"><p>0.0</p></td><td char="." align="char"><p>1.3</p></td><td char="." align="char"><p>5.6</p></td></tr><tr><td align="left"><p>Tetramers</p></td><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>2</sub>)</p></td><td char="." align="char"><p>31</p></td><td char="." align="char"><p>2.0</p></td><td char="." align="char"><p>1.9</p></td><td char="." align="char"><p>0.3</p></td><td char="." align="char"><p>0.0</p></td><td char="." align="char"><p>1.7</p></td><td char="." align="char"><p>6.8</p></td></tr><tr><td align="left" /><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>4</sub>)</p></td><td char="." align="char"><p>31</p></td><td char="." align="char"><p>1.1</p></td><td char="." align="char"><p>1.0</p></td><td char="." align="char"><p>0.2</p></td><td char="." align="char"><p>0.0</p></td><td char="." align="char"><p>1.0</p></td><td char="." align="char"><p>3.3</p></td></tr><tr><td align="left"><p>Pentamers</p></td><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>5</sub>)</p></td><td char="." align="char"><p>51</p></td><td char="." align="char"><p>2.1</p></td><td char="." align="char"><p>1.9</p></td><td char="." align="char"><p>0.3</p></td><td char="." align="char"><p>0.0</p></td><td char="." align="char"><p>1.6</p></td><td char="." align="char"><p>9.8</p></td></tr><tr><td align="left"><p>Hexamers</p></td><td align="left"><p>S(C<sub>2</sub>)</p></td><td char="." align="char"><p>16</p></td><td char="." align="char"><p>2.9</p></td><td char="." align="char"><p>2.1</p></td><td char="." align="char"><p>0.5</p></td><td char="." align="char"><p>0.5</p></td><td char="." align="char"><p>2.2</p></td><td char="." align="char"><p>7.9</p></td></tr><tr><td align="left" /><td align="left"><p>S(C<sub>3</sub>)</p></td><td char="." align="char"><p>16</p></td><td char="." align="char"><p>1.6</p></td><td char="." align="char"><p>1.2</p></td><td char="." align="char"><p>0.3</p></td><td char="." align="char"><p>0.3</p></td><td char="." align="char"><p>1.3</p></td><td char="." align="char"><p>3.9</p></td></tr><tr><td align="left" /><td align="left"><p><italic>S</italic>(<italic>C</italic><sub>6</sub>)</p></td><td char="." align="char"><p>16</p></td><td char="." align="char"><p>2.5</p></td><td char="." align="char"><p>1.6</p></td><td char="." align="char"><p>0.4</p></td><td char="." align="char"><p>0.0</p></td><td char="." align="char"><p>2.6</p></td><td char="." align="char"><p>5.1</p></td></tr></tbody></table></table-wrap></p>
+          </sec>
+          <sec id="Sec14">
+            <title>Calculation time</title>
+            <p id="Par36">As an estimation for the speed of the calculation we present in Fig. <xref rid="Fig7" ref-type="fig">7</xref> the real time for calculating <italic>S</italic>(<italic>C</italic><sub>4</sub>) for our set of tetramers as a function of the number of atoms in each peptide. Generally, for short proteins, time increases linearly with size. As the number of atoms increases, the time dependency deviates from linearity. The time range was 9 s for the shortest protein with 174 atoms in each peptide, and up to ca. 5 min for a protein with 3166 atoms in each peptide. We note that the number of iterations the code performs in order to find the best permutation is typically small, between 2 and 4. All calculations were performed using one core of an 8-cores Linux machine with 64 GB RAM memory.<fig id="Fig7"><label>Fig. 7</label><caption xml:lang="en"><p>Calculation time of <italic>S</italic>(<italic>C</italic><sub>4</sub>) for the tetramers dataset using the many-chains algorithm. Red circles: greedy algorithm. Black square: Hungarian algorithm</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_360_Fig7_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec15">
+            <title>CSM and RMSD</title>
+            <p id="Par37">Symmetry breaking is commonly analyzed in the literature by superposing the protein subunits and assessing the root mean square deviation (RMSD) between them [<xref ref-type="bibr" rid="CR26">26</xref>, <xref ref-type="bibr" rid="CR27">27</xref>]. The RMSD, like the CSM is zero for perfect symmetry and increases as the distortion increases. As seen in Fig. <xref rid="Fig8" ref-type="fig">8</xref>a for our set of trimers, both the RMSD (calculated with MOE [<xref ref-type="bibr" rid="CR40">40</xref>] for all atoms) and the CSM increases with the deviation from <italic>C</italic><sub>3</sub> symmetry, but are not quantitatively correlated. For highly symmetric structures the correlation improves though it remains qualitative (Fig. <xref rid="Fig8" ref-type="fig">8</xref>b). Similar results were obtained for the other sets of homomers.<fig id="Fig8"><label>Fig. 8</label><caption xml:lang="en"><p>RMSD versus <italic>S</italic>(<italic>C</italic><sub>3</sub>) for the set of trimers. <bold>a</bold> Full range and <bold>b</bold> inset</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_360_Fig8_HTML.png" /></fig></p>
+          </sec>
+        </sec>
+        <sec id="Sec16" sec-type="conclusions">
+          <title>Conclusions</title>
+          <p id="Par38">Continuous symmetry and chirality measures determine the distortion level of a structure by searching for the nearest symmetric (or achiral) structure and calculating the distance between the two structures. The approximate algorithm presented here provides significant improvements over pervious codes in terms of accuracy, speed of the calculation, and the scope of molecular structure complexity it can handle. As has been shown here it can be used as a robust and versatile molecular descriptor of protein structure. Symmetry is an important advantageous for protein structure, yet not trivial to achieve. With an accurate and efficient tool to estimate this symmetry one opens the door to understand where and why nature fails to achieve perfect symmetry and what functions do imperfection serve. Applications of the methods include characterization of the three-dimensional structure of proteins in the solid state or in solution, analysis of conformational changes during dynamical processes and exploration of quantitative structure–activity relationships. Modification of the methods for a robust analysis of non-biological large molecules as well as nanomaterials and molecular clusters is currently in progress.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>We are extremely grateful to Itay Zandbank and Devora Witty (The scientific software company, Israel) for their help in programming the new CSM code, to Sagiv Barhoom (The Open University) for his help in programming and developing the pdb_prep code, and to Yaffa Shalit (The Open University) for her help in testing the codes. Special thanks are reserved to Prof. David Avnir (The Hebrew University of Jerusalem) for numerous fruitful discussions.</p>
+        </ack>
+        <sec sec-type="author-contribution">
+          <title>Authors’ contributions</title>
+          <p>The research was conducted by mutual contributions of both authors. Both authors read and approved the final manuscript.</p>
+        </sec>
+        <sec>
+          <title>Funding</title>
+          <p>Supported by the Israel Science Foundation (Grant 411/15).</p>
+        </sec>
+        <sec sec-type="data-availability">
+          <title>Availability of data and materials</title>
+          <p>A list of PDB-IDs used in this study is given in the Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>. An online CSM calculator is available at: <ext-link xlink:href="http://csm.ouproj.org.il" ext-link-type="uri">http://csm.ouproj.org.il</ext-link>. Project name: proteincsm. Project home page: <ext-link xlink:href="https://github.com/continuous-symmetry/proteincsm" ext-link-type="uri">https://github.com/continuous-symmetry/proteincsm</ext-link>. Archived version: 1.0.1. Operating system(s): Linux, Windows. Programming language: Python, c++. Other requirements: unzipping package like bzip2, OpenBabel (requires X11 libraries), c++ compiler, conda, numpy. License: GNU-GPL version 2. Any restrictions to use by non-academics: Not applicable. Project name: pdb_prep. Project home page: <ext-link xlink:href="https://sagivba.github.io/pdb_prep/" ext-link-type="uri">https://sagivba.github.io/pdb_prep/</ext-link>. Archived version: 0.0.8.4. Operating system(s): Linux. Programming language: Python. Other requirements: click. License: BSD 2-Clause. Any restrictions to use by non-academics: Not applicable.</p>
+        </sec>
+        <sec sec-type="ethics-statement">
+          <sec id="FPar2" sec-type="COI-statement">
+            <title>Competing interests</title>
+            <p id="Par40">The authors declare no competing financial interest.</p>
+          </sec>
+        </sec>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Goodsell</surname>
+                    <given-names>DS</given-names>
+                  </name>
+                  <name>
+                    <surname>Olson</surname>
+                    <given-names>AJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Structural symmetry and protein function</article-title>
+                <source>Annu Rev Biophys Biomol Struct</source>
+                <year>2000</year>
+                <volume>29</volume>
+                <fpage>105</fpage>
+                <lpage>153</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3cXlsFOntbk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1146/annurev.biophys.29.1.105</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kojic-Prodic</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Stefanic</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Symmetry versus asymmetry in the molecules of life: homomeric protein assemblies</article-title>
+                <source>Symmetry-Basel</source>
+                <year>2010</year>
+                <volume>2</volume>
+                <issue>2</issue>
+                <fpage>884</fpage>
+                <lpage>906</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXlsVymu78%3D</pub-id>
+                <pub-id pub-id-type="doi">10.3390/sym2020884</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Blundell</surname>
+                    <given-names>TL</given-names>
+                  </name>
+                  <name>
+                    <surname>Srinivasan</surname>
+                    <given-names>N</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Symmetry, stability, and dynamics of multidomain and multicomponent protein systems</article-title>
+                <source>Proc Natl Acad Sci USA</source>
+                <year>1996</year>
+                <volume>93</volume>
+                <issue>25</issue>
+                <fpage>14243</fpage>
+                <lpage>14248</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28XnsVKltb8%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1073/pnas.93.25.14243</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Andre</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Strauss</surname>
+                    <given-names>CEM</given-names>
+                  </name>
+                  <name>
+                    <surname>Kaplan</surname>
+                    <given-names>DB</given-names>
+                  </name>
+                  <name>
+                    <surname>Bradley</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Baker</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Emergence of symmetry in homooligomeric biological assemblies</article-title>
+                <source>Proc Natl Acad Sci USA</source>
+                <year>2008</year>
+                <volume>105</volume>
+                <issue>42</issue>
+                <fpage>16148</fpage>
+                <lpage>16152</lpage>
+                <pub-id pub-id-type="doi">10.1073/pnas.0807576105</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Changeux</surname>
+                    <given-names>JP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Allostery and the Monod–Wyman–Changeux model after 50 years</article-title>
+                <source>Annu Rev Biophys</source>
+                <year>2012</year>
+                <volume>41</volume>
+                <fpage>103</fpage>
+                <lpage>133</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38Xpt1yitbc%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1146/annurev-biophys-050511-102222</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schulze</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Sljoka</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Whiteley W (2014) How does symmetry impact the flexibility of proteins?</article-title>
+                <source>Philos Trans R Soc A Math Phys Eng Sci</source>
+                <year>2008</year>
+                <volume>372</volume>
+                <fpage>20120041</fpage>
+                <pub-id pub-id-type="doi">10.1098/rsta.2012.0041</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Levy</surname>
+                    <given-names>ED</given-names>
+                  </name>
+                  <name>
+                    <surname>Pereira-Leal</surname>
+                    <given-names>JB</given-names>
+                  </name>
+                  <name>
+                    <surname>Chothia</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Teichmann</surname>
+                    <given-names>SA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">3D complex: a structural classification of protein complexes</article-title>
+                <source>PLoS Comput Biol</source>
+                <year>2006</year>
+                <volume>2</volume>
+                <issue>11</issue>
+                <fpage>1395</fpage>
+                <lpage>1406</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XhtlentbjO</pub-id>
+                <pub-id pub-id-type="doi">10.1371/journal.pcbi.0020155</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Berman</surname>
+                    <given-names>HM</given-names>
+                  </name>
+                  <name>
+                    <surname>Westbrook</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Feng</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Gilliland</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Bhat</surname>
+                    <given-names>TN</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">The protein data bank</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2000</year>
+                <volume>28</volume>
+                <issue>1</issue>
+                <fpage>235</fpage>
+                <lpage>242</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3cXhvVKjt7w%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/28.1.235</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Berman</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Henrick</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Nakamura</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Announcing the worldwide Protein Data Bank</article-title>
+                <source>Nat Struct Biol</source>
+                <year>2003</year>
+                <volume>10</volume>
+                <issue>12</issue>
+                <fpage>980</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3sXptFOmsbY%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nsb1203-980</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bonjack-Shterengartz</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Avnir</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The near-symmetry of proteins</article-title>
+                <source>Proteins Struct Funct Bioinform</source>
+                <year>2015</year>
+                <volume>83</volume>
+                <issue>4</issue>
+                <fpage>722</fpage>
+                <lpage>734</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXkvVSitr8%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/prot.24706</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bonjack-Shterengartz</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Avnir</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The enigma of the near-symmetry of proteins: domain swapping</article-title>
+                <source>PLoS ONE</source>
+                <year>2017</year>
+                <volume>12</volume>
+                <issue>7</issue>
+                <fpage>e0180030</fpage>
+                <pub-id pub-id-type="doi">10.1371/journal.pone.0180030</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Levy</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Cho</surname>
+                    <given-names>SS</given-names>
+                  </name>
+                  <name>
+                    <surname>Shen</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Onuchic</surname>
+                    <given-names>JN</given-names>
+                  </name>
+                  <name>
+                    <surname>Wolynes</surname>
+                    <given-names>PG</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Symmetry and frustration in protein energy landscapes: a near degeneracy resolves the Rop dimer-folding mystery</article-title>
+                <source>Proc Natl Acad Sci USA</source>
+                <year>2005</year>
+                <volume>102</volume>
+                <issue>7</issue>
+                <fpage>2373</fpage>
+                <lpage>2378</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXhvFKit7s%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1073/pnas.0409572102</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zabrodsky</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Peleg</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Avnir</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Continuous symmetry measures</article-title>
+                <source>J Am Chem Soc</source>
+                <year>1992</year>
+                <volume>114</volume>
+                <issue>20</issue>
+                <fpage>7843</fpage>
+                <lpage>7851</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK38XlsFSgsb8%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ja00046a033</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zabrodsky</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Avnir</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Continuous symmetry measures. 4. Chirality</article-title>
+                <source>J Am Chem Soc</source>
+                <year>1995</year>
+                <volume>117</volume>
+                <issue>1</issue>
+                <fpage>462</fpage>
+                <lpage>473</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2MXivVeltbw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ja00106a053</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pinsky</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Dryzun</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Casanova</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Alemany</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Avnir</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Analytical methods for calculating continuous symmetry measures and the chirality measure</article-title>
+                <source>J Comput Chem</source>
+                <year>2008</year>
+                <volume>29</volume>
+                <issue>16</issue>
+                <fpage>2712</fpage>
+                <lpage>2721</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXhsVartbrF</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.20990</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Alon</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Tuvi-Arad</surname>
+                    <given-names>I</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Improved algorithms for symmetry analysis: structure preserving permutations</article-title>
+                <source>J Math Chem</source>
+                <year>2018</year>
+                <volume>56</volume>
+                <issue>1</issue>
+                <fpage>193</fpage>
+                <lpage>212</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhtlCntLrL</pub-id>
+                <pub-id pub-id-type="doi">10.1007/s10910-017-0788-y</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Dryzun</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Zait</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Avnir</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Quantitative symmetry and chirality—a fast computational algorithm for large structures: proteins, macromolecules, nanotubes, and unit cells</article-title>
+                <source>J Comput Chem</source>
+                <year>2011</year>
+                <volume>32</volume>
+                <issue>12</issue>
+                <fpage>2526</fpage>
+                <lpage>2538</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXnvFalsbs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.21828</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Skolnick</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">TM-align: a protein structure alignment algorithm based on the TM-score</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2005</year>
+                <volume>33</volume>
+                <issue>7</issue>
+                <fpage>2302</fpage>
+                <lpage>2309</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXjsl2gsLY%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gki524</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Tai</surname>
+                    <given-names>CH</given-names>
+                  </name>
+                  <name>
+                    <surname>Paul</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Dukka</surname>
+                    <given-names>KC</given-names>
+                  </name>
+                  <name>
+                    <surname>Shilling</surname>
+                    <given-names>JD</given-names>
+                  </name>
+                  <name>
+                    <surname>Lee</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SymD webserver: a platform for detecting internally symmetric protein structures</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2014</year>
+                <volume>42</volume>
+                <issue>W1</issue>
+                <fpage>W296</fpage>
+                <lpage>W300</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXhtFCqs7%2FM</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gku364</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Myers-Turnbull</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Bliven</surname>
+                    <given-names>SE</given-names>
+                  </name>
+                  <name>
+                    <surname>Rose</surname>
+                    <given-names>PW</given-names>
+                  </name>
+                  <name>
+                    <surname>Aziz</surname>
+                    <given-names>ZK</given-names>
+                  </name>
+                  <name>
+                    <surname>Youkharibache</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Systematic detection of internal symmetry in proteins using CE-Symm</article-title>
+                <source>J Mol Biol</source>
+                <year>2014</year>
+                <volume>426</volume>
+                <issue>11</issue>
+                <fpage>2255</fpage>
+                <lpage>2268</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXmsFCnu7o%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.jmb.2014.03.010</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Mukherjee</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">MM-align: a quick algorithm for aligning multiple-chain protein complex structures using iterative dynamic programming</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2009</year>
+                <volume>37</volume>
+                <issue>11</issue>
+                <fpage>e83</fpage>
+                <pub-id pub-id-type="doi">10.1093/nar/gkp318</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Madej</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Lanczycki</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>DC</given-names>
+                  </name>
+                  <name>
+                    <surname>Thiessen</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                  <name>
+                    <surname>Geer</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">MMDB and VAST+: tracking structural similarities between macromolecular complexes</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2014</year>
+                <volume>42</volume>
+                <issue>D1</issue>
+                <fpage>D297</fpage>
+                <lpage>D303</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXos1Cl</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkt1208</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lafita</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bliven</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Kryshtafovych</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bertoni</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Monastyrskyy</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Assessment of protein assembly prediction in CASP12</article-title>
+                <source>Proteins Struct Funct Bioinform</source>
+                <year>2018</year>
+                <volume>86</volume>
+                <fpage>247</fpage>
+                <lpage>256</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhslygt7zO</pub-id>
+                <pub-id pub-id-type="doi">10.1002/prot.25408</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Basner</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Lee</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Detecting internally symmetric protein structures</article-title>
+                <source>BMC Bioinform</source>
+                <year>2010</year>
+                <volume>11</volume>
+                <fpage>303</fpage>
+                <pub-id pub-id-type="doi">10.1186/1471-2105-11-303</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Do Viet</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Roche</surname>
+                    <given-names>DB</given-names>
+                  </name>
+                  <name>
+                    <surname>Kajava</surname>
+                    <given-names>AV</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">TAPO: a combined method for the identification of tandem repeats in protein structures</article-title>
+                <source>FEBS Lett</source>
+                <year>2015</year>
+                <volume>589</volume>
+                <issue>19</issue>
+                <fpage>2611</fpage>
+                <lpage>2619</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXhsVWlsrfM</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.febslet.2015.08.025</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pagès</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Kinzina</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Grudinin</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Analytical symmetry detection in protein assemblies. I. Cyclic symmetries</article-title>
+                <source>J Struct Biol</source>
+                <year>2018</year>
+                <volume>203</volume>
+                <issue>2</issue>
+                <fpage>142</fpage>
+                <lpage>148</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.jsb.2018.04.004</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pagès</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Grudinin</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Analytical symmetry detection in protein assemblies. II. Dihedral and cubic symmetries</article-title>
+                <source>J Struct Biol</source>
+                <year>2018</year>
+                <volume>203</volume>
+                <issue>3</issue>
+                <fpage>185</fpage>
+                <lpage>194</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.jsb.2018.05.005</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Shindyalov</surname>
+                    <given-names>IN</given-names>
+                  </name>
+                  <name>
+                    <surname>Bourne</surname>
+                    <given-names>PE</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Protein structure alignment by incremental combinatorial extension (CE) of the optimal path</article-title>
+                <source>Protein Eng</source>
+                <year>1998</year>
+                <volume>11</volume>
+                <issue>9</issue>
+                <fpage>739</fpage>
+                <lpage>747</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK1cXmsVynsbk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1093/protein/11.9.739</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zhang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Skolnick</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Scoring function for automated assessment of protein structure template quality</article-title>
+                <source>Proteins Struct Funct Bioinform</source>
+                <year>2004</year>
+                <volume>57</volume>
+                <issue>4</issue>
+                <fpage>702</fpage>
+                <lpage>710</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhtVaqtLvI</pub-id>
+                <pub-id pub-id-type="doi">10.1002/prot.20264</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Munkres</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Algorithms for the Assignment and Transportation Problems</article-title>
+                <source>J Soc Ind Appl Math</source>
+                <year>1957</year>
+                <volume>5</volume>
+                <issue>1</issue>
+                <fpage>32</fpage>
+                <lpage>38</lpage>
+                <pub-id pub-id-type="doi">10.1137/0105003</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Allen</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Rizzo</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Implementation of the Hungarian algorithm to account for ligand symmetry and similarity in structure-based design</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2014</year>
+                <volume>54</volume>
+                <issue>2</issue>
+                <fpage>518</fpage>
+                <lpage>529</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXmsVSmtg%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci400534h</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Pinsky</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Casanova</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Alemany</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Alvarez</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Avnir</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Symmetry operation measures</article-title>
+                <source>J Comput Chem</source>
+                <year>2008</year>
+                <volume>29</volume>
+                <issue>2</issue>
+                <fpage>190</fpage>
+                <lpage>197</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXmtV2ktw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/jcc.20772</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Carugo</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Eisenhaber</surname>
+                    <given-names>F</given-names>
+                  </name>
+                </person-group>
+                <source>Data mining techniques for the life sciences</source>
+                <year>2016</year>
+                <edition>2</edition>
+                <publisher-loc>New York</publisher-loc>
+                <publisher-name>Springer</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lamb</surname>
+                    <given-names>AL</given-names>
+                  </name>
+                  <name>
+                    <surname>Kappock</surname>
+                    <given-names>TJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Silvaggi</surname>
+                    <given-names>NR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">You are lost without a map: Navigating the sea of protein structures</article-title>
+                <source>Biochim Biophys Acta Proteins Proteom</source>
+                <year>2015</year>
+                <volume>1854</volume>
+                <issue>4</issue>
+                <fpage>258</fpage>
+                <lpage>268</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXltVOktg%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.bbapap.2014.12.021</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="other">Martz E. FirstGlance in Jmol. Version 2.51. <ext-link xlink:href="https://bioinformatics.org/firstglance/fgij" ext-link-type="uri">https://bioinformatics.org/firstglance/fgij</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kleywegt</surname>
+                    <given-names>GJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Jones</surname>
+                    <given-names>TA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Model building and refinement practice</article-title>
+                <source>Macromol Crystallogr B</source>
+                <year>1997</year>
+                <volume>277</volume>
+                <fpage>208</fpage>
+                <lpage>230</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2sXntFamtrc%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/S0076-6879(97)77013-7</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Trueblood</surname>
+                    <given-names>KN</given-names>
+                  </name>
+                  <name>
+                    <surname>Burgi</surname>
+                    <given-names>HB</given-names>
+                  </name>
+                  <name>
+                    <surname>Burzlaff</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Dunitz</surname>
+                    <given-names>JD</given-names>
+                  </name>
+                  <name>
+                    <surname>Gramaccioli</surname>
+                    <given-names>CM</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Atomic displacement parameter nomenclature—report of a subcommittee on atomic displacement parameter nomenclature</article-title>
+                <source>Acta Crystallogr Sect A</source>
+                <year>1996</year>
+                <volume>52</volume>
+                <fpage>770</fpage>
+                <lpage>781</lpage>
+                <pub-id pub-id-type="doi">10.1107/S0108767396005697</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Read</surname>
+                    <given-names>RJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Adams</surname>
+                    <given-names>PD</given-names>
+                  </name>
+                  <name>
+                    <surname>Arendall</surname>
+                    <given-names>WB</given-names>
+                  </name>
+                  <name>
+                    <surname>Brunger</surname>
+                    <given-names>AT</given-names>
+                  </name>
+                  <name>
+                    <surname>Emsley</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">A new generation of crystallographic validation tools for the protein data bank</article-title>
+                <source>Structure</source>
+                <year>2011</year>
+                <volume>19</volume>
+                <issue>10</issue>
+                <fpage>1395</fpage>
+                <lpage>1412</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhtlejtrnI</pub-id>
+                <pub-id pub-id-type="doi">10.1016/j.str.2011.08.006</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gillespie</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Phan</surname>
+                    <given-names>IQH</given-names>
+                  </name>
+                  <name>
+                    <surname>Scheib</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Subramanian</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Edwards</surname>
+                    <given-names>TE</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Structural insight into how bacteria prevent interference between multiple divergent type IV secretion systems</article-title>
+                <source>mBio</source>
+                <year>2015</year>
+                <volume>6</volume>
+                <issue>6</issue>
+                <fpage>e01867-15</fpage>
+                <pub-id pub-id-type="doi">10.1128/mBio.01867-15</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="other">Molecular Operating Environment (MOE) (2013) Chemical Computing Group Inc. <ext-link xlink:href="https://www.chemcomp.com" ext-link-type="uri">https://www.chemcomp.com</ext-link></mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec17">
+              <title>Additional file</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Additional file">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2019_360_MOESM1_ESM.docx" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0360-9" ext-link-type="uri">Additional file 1.</ext-link> Supplementary material.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+          </app>
+        </app-group>
+        <glossary>
+          <title>Abbreviations</title>
+          <def-list>
+            <def-item>
+              <term>CSM</term>
+              <def>
+                <p id="Par2">continuous symmetry measure</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RMSD</term>
+              <def>
+                <p id="Par3">root mean square deviation</p>
+              </def>
+            </def-item>
+          </def-list>
+        </glossary>
+        <notes notes-type="Misc">
+          <title>Publisher's Note</title>
+          <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+        </notes>
+      </back>
+    </article>

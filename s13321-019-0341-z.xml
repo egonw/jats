@@ -1,0 +1,1966 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <?properties open_access?>
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">s13321-019-0341-z</article-id>
+          <article-id pub-id-type="manuscript">341</article-id>
+          <article-id pub-id-type="doi">10.1186/s13321-019-0341-z</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Exploring the GDB-13 chemical space using deep generative models</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" corresp="yes" id="Au1">
+              <contrib-id contrib-id-type="orcid">http://orcid.org/0000-0002-9860-2944</contrib-id>
+              <name>
+                <surname>Arús-Pous</surname>
+                <given-names>Josep</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff3">3</xref>
+              <xref ref-type="corresp" rid="IDs133210190341z_cor1">a</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au2">
+              <name>
+                <surname>Blaschke</surname>
+                <given-names>Thomas</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="aff" rid="Aff4">4</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au3">
+              <name>
+                <surname>Ulander</surname>
+                <given-names>Silas</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff2">2</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au4">
+              <name>
+                <surname>Reymond</surname>
+                <given-names>Jean-Louis</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff3">3</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au5">
+              <name>
+                <surname>Chen</surname>
+                <given-names>Hongming</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" id="Au6">
+              <name>
+                <surname>Engkvist</surname>
+                <given-names>Ola</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 1519 6403</institution-id>
+                <institution-id institution-id-type="GRID">grid.418151.8</institution-id>
+                <institution content-type="org-division">Hit Discovery, Discovery Sciences</institution>
+                <institution content-type="org-name">IMED Biotech Unit, AstraZeneca, Gothenburg</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Pepparedsleden 1</addr-line>
+              <addr-line content-type="postcode">43183</addr-line>
+              <addr-line content-type="city">Mölndal</addr-line>
+              <country country="SE">Sweden</country>
+            </aff>
+            <aff id="Aff2">
+              <label>2</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 1519 6403</institution-id>
+                <institution-id institution-id-type="GRID">grid.418151.8</institution-id>
+                <institution content-type="org-division">Medicinal Chemistry, Cardiovascular, Renal and Metabolism</institution>
+                <institution content-type="org-name">IMED Biotech Unit, AstraZeneca, Gothenburg</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Pepparedsleden 1</addr-line>
+              <addr-line content-type="postcode">43183</addr-line>
+              <addr-line content-type="city">Mölndal</addr-line>
+              <country country="SE">Sweden</country>
+            </aff>
+            <aff id="Aff3">
+              <label>3</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 0726 5157</institution-id>
+                <institution-id institution-id-type="GRID">grid.5734.5</institution-id>
+                <institution content-type="org-division">Department of Chemistry and Biochemistry</institution>
+                <institution content-type="org-name">University of Bern</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Freiestrasse 3</addr-line>
+              <addr-line content-type="postcode">3012</addr-line>
+              <addr-line content-type="city">Bern</addr-line>
+              <country country="CH">Switzerland</country>
+            </aff>
+            <aff id="Aff4">
+              <label>4</label>
+              <institution-wrap>
+                <institution-id institution-id-type="ISNI">0000 0001 2240 3300</institution-id>
+                <institution-id institution-id-type="GRID">grid.10388.32</institution-id>
+                <institution content-type="org-division">Department of Life Science Informatics, B-IT, LIMES Program Unit Chemical Biology and Medicinal Chemistry</institution>
+                <institution content-type="org-name">Rheinische Friedrich-Wilhelms-Universität</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Endenicher Allee 19C</addr-line>
+              <addr-line content-type="postcode">53115</addr-line>
+              <addr-line content-type="city">Bonn</addr-line>
+              <country country="DE">Germany</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDs133210190341z_cor1">
+              <label>a</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>12</day>
+            <month>3</month>
+            <year>2019</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2019</year>
+          </pub-date>
+          <volume>11</volume>
+          <issue seq="20">1</issue>
+          <elocation-id>20</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>26</day>
+              <month>2</month>
+              <year>2019</year>
+            </date>
+            <date date-type="received">
+              <day>19</day>
+              <month>10</month>
+              <year>2018</year>
+            </date>
+            <date date-type="accepted">
+              <day>26</day>
+              <month>2</month>
+              <year>2019</year>
+            </date>
+            <date date-type="online">
+              <day>12</day>
+              <month>3</month>
+              <year>2019</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© The Author(s) 2019</copyright-statement>
+            <copyright-year>2019</copyright-year>
+            <copyright-holder>The Author(s)</copyright-holder>
+            <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (<ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <p id="Par1">Recent applications of recurrent neural networks (RNN) enable training models that sample the chemical space. In this study we train RNN with molecular string representations (SMILES) with a subset of the enumerated database GDB-13 (975 million molecules). We show that a model trained with 1 million structures (0.1% of the database) reproduces 68.9% of the entire database after training, when sampling 2 billion molecules. We also developed a method to assess the quality of the training process using negative log-likelihood plots. Furthermore, we use a mathematical model based on the “coupon collector problem” that compares the trained model to an upper bound and thus we are able to quantify how much it has learned. We also suggest that this method can be used as a tool to benchmark the learning capabilities of any molecular generative model architecture. Additionally, an analysis of the generated chemical space was performed, which shows that, mostly due to the syntax of SMILES, complex molecules with many rings and heteroatoms are more difficult to sample.<fig id="Figa" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_341_Figa_HTML.png" position="anchor" /></fig></p>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Deep learning</kwd>
+            <kwd>Chemical space exploration</kwd>
+            <kwd>Deep generative models</kwd>
+            <kwd>Recurrent neural networks</kwd>
+            <kwd>Chemical databases</kwd>
+          </kwd-group>
+          <funding-group>
+            <award-group>
+              <funding-source>
+                <institution-wrap>
+                  <institution>H2020 Marie Skłodowska-Curie Actions</institution>
+                  <institution-id institution-id-type="doi" vocab="open-funder-registry">http://dx.doi.org/10.13039/100010665</institution-id>
+                </institution-wrap>
+              </funding-source>
+              <award-id award-type="FundRef grant">676434</award-id>
+            </award-group>
+          </funding-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Springer</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-pricelist-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2019</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>2</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>26</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2019_Article_341.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (<ext-link xlink:href="10.1186/s13321-019-0341-z" ext-link-type="doi">https://doi.org/10.1186/s13321-019-0341-z</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1" sec-type="introduction">
+          <title>Introduction</title>
+          <p id="Par17">Finding novel molecules with specific properties is one of the main problems that drug discovery faces. One of the most common approaches to this is to explore chemical space by enumerating large virtual libraries, hoping to find a novel region of space containing useful structures. However, the drug-like chemical space is intractably large and a rough estimate would be at least 10<sup>23</sup> molecules [<xref ref-type="bibr" rid="CR1">1</xref>]. There are two classical approaches to exploring chemical space. One is to use implicit models, which do not store all molecules in a region of the chemical space but instead represent molecules indirectly. Techniques such as chemical space navigation by mutations [<xref ref-type="bibr" rid="CR2">2</xref>] or creating reaction graphs have proven to be successful [<xref ref-type="bibr" rid="CR3">3</xref>, <xref ref-type="bibr" rid="CR4">4</xref>]. The other more common way is to use explicit models. By searching public databases that contain molecules obtained from various sources, e.g. ChEMBL [<xref ref-type="bibr" rid="CR5">5</xref>], new molecules of interest can be discovered. An alternative approach is the GDB project, a set of databases that exhaustively enumerate a part of the chemical space. For example, GDB-13 [<xref ref-type="bibr" rid="CR6">6</xref>] and GDB-17 [<xref ref-type="bibr" rid="CR7">7</xref>] are large databases that hold large amounts of drug-like molecules up to 13 and 17 heavy atoms (~ 10<sup>9</sup> and ~ 10<sup>11</sup> molecules) respectively. Additionally, GDB-4c [<xref ref-type="bibr" rid="CR8">8</xref>] is a database that enumerates all possible ring systems up to four rings. These databases include a wealth of novel structures of potential interest for drug discovery [<xref ref-type="bibr" rid="CR9">9</xref>].</p>
+          <p id="Par18">In recent years deep learning has been a major addition in machine learning. Problems that were difficult to tackle before are now successfully approached using deep learning, such as image classification [<xref ref-type="bibr" rid="CR10">10</xref>], face recognition [<xref ref-type="bibr" rid="CR11">11</xref>] or playing Go [<xref ref-type="bibr" rid="CR12">12</xref>]. Recently there has been another step forward in the field with deep generative models, which generate content similar to that upon which they have been trained. Deep generative models have been successfully applied to music composition [<xref ref-type="bibr" rid="CR13">13</xref>], image generation [<xref ref-type="bibr" rid="CR14">14</xref>] and language translation [<xref ref-type="bibr" rid="CR15">15</xref>]. These new methods are also being applied to chemical space exploration in a novel way [<xref ref-type="bibr" rid="CR16">16</xref>]. When trained with a small subset of molecules, these models generate molecules similar to the training set. Different types of neural networks such as variational auto-encoders (VAE) [<xref ref-type="bibr" rid="CR17">17</xref>], recurrent neural networks (RNNs) [<xref ref-type="bibr" rid="CR18">18</xref>, <xref ref-type="bibr" rid="CR19">19</xref>] and generative adversarial networks (GAN) [<xref ref-type="bibr" rid="CR20">20</xref>] trained with string representations (SMILES) [<xref ref-type="bibr" rid="CR21">21</xref>] from ChEMBL have proven to be successful at generating novel chemical space.</p>
+          <p id="Par19">Despite the results obtained by previous research, the question as to how much of the chemical space surrounding the molecules in the training set can be generated by a RNN trained with SMILES remains unanswered. The Fréchet ChemNet distance, [<xref ref-type="bibr" rid="CR22">22</xref>] which compares a given generated chemical library with real molecule data from ChEMBL, [<xref ref-type="bibr" rid="CR5">5</xref>] PubChem, [<xref ref-type="bibr" rid="CR23">23</xref>] and ZINC [<xref ref-type="bibr" rid="CR24">24</xref>] was recently proposed as a benchmark. However, we think that this metric is not able to unequivocally measure the learning capabilities of a generative model architecture, as it gives information on how likely a generated molecule set is to a set of real bioactive molecules.</p>
+          <p id="Par20">Here we aim to gain insight on how a RNN explores the chemical space and how the SMILES format affect it by training RNNs with canonical SMILES sampled from the GDB databases. We use GDB-13, because this database has denser representation of a reduced chemical space (drug-like molecules up to 13 heavy atoms) and because it has a large yet still manageable size (975 million molecules). Figure <xref rid="Fig1" ref-type="fig">1</xref> illustrates the whole domain of possible outcomes from a RNN trained with SMILES. This domain changes during the training process: before training the RNN generates random strings, a few of which are going to be valid SMILES. After training, the generated strings are mostly valid SMILES that, to a large extent, belong to GDB-13. By computing how much of the whole GDB-13 a model can generate from a small subset and which molecules outside of the domain of GDB-13 are generated, the learning limitations are assessed. To do this, the results obtained from the trained model are compared to those from an abstract ideal model which generates all GDB-13 molecules with uniform distribution. Any model, regardless of its architecture or input format, trained with a subset of GDB-13 can be compared to this ideal model in the same manner, thus creating a new way to benchmark the limitations of models prior to using them to explore chemical space.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Representation as an Euler diagram of the domain of a RNN trained with SMILES strings. The sets are the following, ordered by their size: All possible strings generated by an RNN (red), all possible valid SMILES (yellow), all possible SMILES of GDB-13 molecules (light blue), all canonical SMILES of GDB-13 molecules (dark blue) and the training set (black). Note that the relative sizes of the different subsets do not reflect their true size</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_341_Fig1_HTML.png" /></fig></p>
+          <p id="Par21">Deep learning based molecular generation methods can be applied either to optimize an already existing chemical series or to find through scaffold hopping a completely novel chemical series. While for optimizing a chemical series, it is only necessary to investigate the local chemical space around the series, for scaffold hopping it is important to span the whole desirable chemical space and in addition, not waste time generating molecules outside the desirable domain. Therefore, the proposed benchmark will be especially important for scaffold hopping to ensure that the model explores as much of the desired chemical space as possible, while minimizing sampling undesirable compounds.</p>
+        </sec>
+        <sec id="Sec2" sec-type="materials|methods">
+          <title>Methods</title>
+          <sec id="Sec3">
+            <title>Recurrent neural networks</title>
+            <p id="Par22">A (feed-forward) neural network [<xref ref-type="bibr" rid="CR25">25</xref>] (NN) is a machine learning architecture that maps a given input to some output result. After training with a set of predefined input–output examples (called the training set), the system modulates the outputs depending on the inputs given, having a similar behavior to the training set. The internal structure of the system is formed by a series of fully interconnected layers (formed by nodes), starting with the input layer, the hidden layers and ending with the output layer. This topology vaguely resembles a biological neural network, thus its name.</p>
+            <p id="Par23">Recurrent neural networks [<xref ref-type="bibr" rid="CR25">25</xref>] (RNNs) add additional complexity to the feed-forward ones, by converting the topology to a directed graph (which can have cycles). This allows the network to perform recursion and exhibit dynamic temporal behavior. This dynamic behavior creates persistence in the network, not dissimilar to memory. Importantly, a difference between RNNs and NNs is that, instead of having fixed-length input and output vectors, they can be run sequentially. This allows networks to operate on sequences of inputs and thus enables efficient parsing of content of varying length (one-to-many, many-to-one or many-to-many inputs-outputs).</p>
+            <p id="Par24">The most common architecture used in RNNs is to connect layers with time-dynamic behavior to layers that normalize the input and the output to achieve an iterative behavior. For each iteration, the model receives two inputs: a vector of numbers and also a hidden state matrix (which contains information from the previous steps) and returns two outputs: an output vector and an updated hidden state matrix. For the next iteration the output and the hidden state from the previous iteration is input. This is repeated until all the input sequences are added, or when the end conditions are met (i.e. outputting specific data).</p>
+            <p id="Par25">Since the development of RNNs [<xref ref-type="bibr" rid="CR26">26</xref>], the system was often unable to learn correctly when many recurrent layers were connected together or the input sequence was too long, due to problems such as vanishing and exploding gradients [<xref ref-type="bibr" rid="CR27">27</xref>]. These were mitigated by using a very specific layer called a long short-term memory [<xref ref-type="bibr" rid="CR28">28</xref>] (LSTM). Further research led to the gated recurrent unit [<xref ref-type="bibr" rid="CR29">29</xref>] (GRU), which has been demonstrated to produce similar results at a lower computational cost.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Training a model with SMILES</title>
+            <p id="Par26">SMILES were discretized into tokens before inputting them to the RNN. Each atom was extracted as a token, taking special care with the multi-letter atoms “Br” or “Cl”. Moreover, all atoms between brackets, such as “[N+]” and “[O−]” were converted into only one token. The set with all the possible tokens is called the vocabulary.</p>
+            <p id="Par27">After gathering the vocabulary, two special symbols were added: “^” and “$”, which represent the beginning and end of a sequence respectively. SMILES strings were then encoded using a series of one-hot vectors, each with as many binary positions as tokens in the vocabulary. The represented token having a “1” and the rest “0”. All the SMILES strings were encoded as a matrix with a “^” and “$” token added in the first and last position respectively.</p>
+            <p id="Par28">The RNN architecture (Fig. <xref rid="Fig2" ref-type="fig">2</xref>) used in this publication is similar to previous approaches [<xref ref-type="bibr" rid="CR18">18</xref>, <xref ref-type="bibr" rid="CR19">19</xref>]. First an embedding layer [<xref ref-type="bibr" rid="CR30">30</xref>] with 256 dimensions converts the discrete one-hot-encoded SMILES to a continuous representation. Then three layers composed of 512 GRU units comprise the bulk of the network. Lastly, a fully-connected linear layer reshapes the output to the size of the vocabulary and a <italic>softmax</italic> operation is performed, making the values sum up to one so they can be used as a probability distribution with the same size as the vocabulary.<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>Example of a forward pass of nicotine (CN1CCCC1c1cccnc1) on a trained model. The symbol sampled from the probability distribution at the step <inline-formula id="IEq35"><alternatives><mml:math id="IEq35_Math"><mml:mi>i</mml:mi></mml:math><tex-math id="IEq35_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$i$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq35.gif" /></alternatives></inline-formula> (highlighted in black) is input at the step <inline-formula id="IEq36"><alternatives><mml:math id="IEq36_Math"><mml:mrow><mml:mi>i</mml:mi><mml:mo>+</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:math><tex-math id="IEq36_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$i + 1$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq36.gif" /></alternatives></inline-formula>. This, with the hidden state (h<sub>i</sub>), enables the model to have time-dynamic behavior. Note that sometimes tokens with lower probability are sampled (like in step 1) due to the multinomial sampling of the model. Also note that the probability distributions are not from real trained models and that the vocabulary used throughout this publication is much bigger</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_341_Fig2_HTML.png" /></fig></p>
+            <p id="Par29">For each RNN, two sets were collected beforehand. The training set is a 1 million molecule random sample of GDB-13 used to train the model. Its size was chosen based on what was used in previous research about RNN SMILES generative models [<xref ref-type="bibr" rid="CR18">18</xref>, <xref ref-type="bibr" rid="CR19">19</xref>]. The validation set is another sample of 100,000 molecules not from the training set, used to evaluate the performance of the model during training.</p>
+            <p id="Par30">The sampling process of the model is illustrated in Fig. <xref rid="Fig2" ref-type="fig">2</xref>. First the “^” token is passed in and the RNN outputs a probability distribution for all the possible tokens. For the next token to be sampled, the RNN requires the previous token and hidden state (memory) to be inputted again. The process continues until a “$” symbol is outputted. Defining <inline-formula id="IEq1"><alternatives><mml:math id="IEq1_Math"><mml:mrow><mml:mi>P</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:msub><mml:mi>X</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mrow><mml:mo stretchy="false">|</mml:mo></mml:mrow><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mn>1</mml:mn></mml:msub></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$P\left( {X_{i} = T_{i} |X_{i - 1} = T_{i - 1} , \ldots ,X_{1} = T_{1} } \right)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq1.gif" /></alternatives></inline-formula> as the probability of sampling token <inline-formula id="IEq2"><alternatives><mml:math id="IEq2_Math"><mml:msub><mml:mi>T</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$T_{i}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq2.gif" /></alternatives></inline-formula> on step <inline-formula id="IEq3"><alternatives><mml:math id="IEq3_Math"><mml:msub><mml:mi>X</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$X_{i}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq3.gif" /></alternatives></inline-formula> after having sampled tokens <inline-formula id="IEq4"><alternatives><mml:math id="IEq4_Math"><mml:mrow><mml:msub><mml:mi>T</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>…</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mn>1</mml:mn></mml:msub></mml:mrow></mml:math><tex-math id="IEq4_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$T_{i - 1} \ldots T_{1}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq4.gif" /></alternatives></inline-formula> on steps <inline-formula id="IEq5"><alternatives><mml:math id="IEq5_Math"><mml:mrow><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>…</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>1</mml:mn></mml:msub></mml:mrow></mml:math><tex-math id="IEq5_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$X_{i - 1} \ldots X_{1}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq5.gif" /></alternatives></inline-formula>, the resulting probability on step <inline-formula id="IEq6"><alternatives><mml:math id="IEq6_Math"><mml:mi>i</mml:mi></mml:math><tex-math id="IEq6_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$i$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq6.gif" /></alternatives></inline-formula> is:<disp-formula id="Equa"><alternatives><mml:math display="block" id="Equa_Math"><mml:mrow><mml:mi>P</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:msub><mml:mi>X</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mn>1</mml:mn></mml:msub></mml:mrow></mml:mfenced><mml:mo>=</mml:mo><mml:mi>P</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:msub><mml:mi>X</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mn>1</mml:mn></mml:msub></mml:mrow></mml:mfenced><mml:mo>·</mml:mo><mml:munderover><mml:mo movablelimits="false">∏</mml:mo><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>2</mml:mn></mml:mrow><mml:mi>i</mml:mi></mml:munderover><mml:mi>P</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:msub><mml:mi>X</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mrow><mml:mo stretchy="false">|</mml:mo></mml:mrow><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mn>1</mml:mn></mml:msub></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="Equa_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$P\left( {X_{i} = T_{i} , \ldots ,X_{1} = T_{1} } \right) = P\left( {X_{1} = T_{1} } \right) \cdot \mathop \prod \limits_{k = 2}^{i} P\left( {X_{k} = T_{k} |X_{k - 1} = T_{k - 1} , \ldots ,X_{1} = T_{1} } \right)$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_341_Article_Equa.gif" /></alternatives></disp-formula></p>
+            <p id="Par31">As the value would rapidly diminish to 0, due to hardware precision problems, (natural) logarithm sums are used:<disp-formula id="Equ1"><label>1</label><alternatives><mml:math display="block" id="Equ1_Math"><mml:mrow><mml:mi>N</mml:mi><mml:mi>L</mml:mi><mml:msub><mml:mi>L</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:mo>-</mml:mo><mml:mi>l</mml:mi><mml:mi>n</mml:mi><mml:mi>P</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:msub><mml:mi>X</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mn>1</mml:mn></mml:msub></mml:mrow></mml:mfenced><mml:mo>=</mml:mo><mml:mo>-</mml:mo><mml:mi>l</mml:mi><mml:mi>n</mml:mi><mml:mi>P</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:msub><mml:mi>X</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mn>1</mml:mn></mml:msub></mml:mrow></mml:mfenced><mml:mo>-</mml:mo><mml:munderover><mml:mo movablelimits="false">∑</mml:mo><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>2</mml:mn></mml:mrow><mml:mi>i</mml:mi></mml:munderover><mml:mi>l</mml:mi><mml:mi>n</mml:mi><mml:mi>P</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:msub><mml:mi>X</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mrow><mml:mo stretchy="false">|</mml:mo></mml:mrow><mml:msub><mml:mi>X</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mrow><mml:mi>k</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>X</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>=</mml:mo><mml:msub><mml:mi>T</mml:mi><mml:mn>1</mml:mn></mml:msub></mml:mrow></mml:mfenced></mml:mrow></mml:math><tex-math id="Equ1_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$NLL_{i} = - ln P\left( {X_{i} = T_{i} , \ldots ,X_{1} = T_{1} } \right) = - ln P\left( {X_{1} = T_{1} } \right) - \mathop \sum \limits_{k = 2}^{i} ln P\left( {X_{k} = T_{k} |X_{k - 1} = T_{k - 1} , \ldots ,X_{1} = T_{1} } \right)$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_341_Article_Equ1.gif" /></alternatives></disp-formula></p>
+            <p id="Par32">This value is called a negative log-likelihood (NLL) and it gives a measure on how likely a sequence is to appear when randomly sampling the model. Its range is <inline-formula id="IEq7"><alternatives><mml:math id="IEq7_Math"><mml:mfenced close=")" open="[" separators=""><mml:mrow><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mo>+</mml:mo><mml:mi>∞</mml:mi></mml:mrow></mml:mfenced></mml:math><tex-math id="IEq7_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left[ {0, + \infty } \right)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq7.gif" /></alternatives></inline-formula> with higher values corresponding to lower probabilities.</p>
+            <p id="Par33">As in previous research [<xref ref-type="bibr" rid="CR18">18</xref>, <xref ref-type="bibr" rid="CR19">19</xref>], backpropagation with the ADAM optimizer was used to train the RNN. The goal is to minimize a cost function <inline-formula id="IEq8"><alternatives><mml:math id="IEq8_Math"><mml:mrow><mml:mi>J</mml:mi><mml:mfenced close=")" open="("><mml:mi>w</mml:mi></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq8_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$J\left( w \right)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq8.gif" /></alternatives></inline-formula> for all molecules in the training set. To achieve that, it calculates from the last to the first step the average of the <inline-formula id="IEq9"><alternatives><mml:math id="IEq9_Math"><mml:mrow><mml:mi>J</mml:mi><mml:mfenced close=")" open="("><mml:mi>w</mml:mi></mml:mfenced></mml:mrow></mml:math><tex-math id="IEq9_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$J\left( w \right)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq9.gif" /></alternatives></inline-formula> of a set of sequences (a batch). From this, a gradient is calculated which can be used to iteratively fit the model to the training data. Formally, the loss function is the partial NLL up to position <inline-formula id="IEq10"><alternatives><mml:math id="IEq10_Math"><mml:mi>i</mml:mi></mml:math><tex-math id="IEq10_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$i$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq10.gif" /></alternatives></inline-formula>:<disp-formula id="Equb"><alternatives><mml:math display="block" id="Equb_Math"><mml:mrow><mml:mi>J</mml:mi><mml:mfenced close=")" open="("><mml:mi>w</mml:mi></mml:mfenced><mml:mo>=</mml:mo><mml:mi>N</mml:mi><mml:mi>L</mml:mi><mml:msub><mml:mi>L</mml:mi><mml:mi>i</mml:mi></mml:msub></mml:mrow></mml:math><tex-math id="Equb_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$J\left( w \right) = NLL_{i}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_341_Article_Equb.gif" /></alternatives></disp-formula></p>
+            <p id="Par34">The teacher’s forcing [<xref ref-type="bibr" rid="CR31">31</xref>] method was used. In this method the likelihood calculation on step <inline-formula id="IEq11"><alternatives><mml:math id="IEq11_Math"><mml:mi>i</mml:mi></mml:math><tex-math id="IEq11_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$i$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq11.gif" /></alternatives></inline-formula> is calculated from the previous tokens in the training SMILES and not from the possibly wrong token of the untrained RNN. This allows the RNN to learn the information in the training set faster and more reliably.</p>
+            <p id="Par35">The training data was passed to the RNN multiple times: each iteration, called an epoch, all compounds in the set were input to the RNN. To enhance the learning process learning rate (LR) decay was used. This hyperparameter controls the optimization speed of the learning process, higher LRs imply faster learning but less refined solutions. After some early testing it was observed that a LR greater than 10<sup>−3</sup> and smaller than 10<sup>−5</sup> have no effect on the training whatsoever, so the LR changes from 10<sup>−3</sup> to 10<sup>−5</sup>, being multiplied by a constant every epoch.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Ideal model</title>
+            <p id="Par36">In our research, a RNN-based model must learn how to generate SMILES and how to create molecules that appear in GDB-13. An ideal model is an abstract model that samples molecules from GDB-13 and only from GDB-13. Formally, the probability of sampling any molecule in the ideal model follows a uniform probability distribution with <inline-formula id="IEq12"><alternatives><mml:math id="IEq12_Math"><mml:mrow><mml:mi>p</mml:mi><mml:mo>=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mfenced close="|" open="|" separators=""><mml:mrow><mml:mi>G</mml:mi><mml:mi>D</mml:mi><mml:mi>B</mml:mi><mml:mo>-</mml:mo><mml:mn>13</mml:mn></mml:mrow></mml:mfenced></mml:mfrac><mml:mo>=</mml:mo><mml:mn>1.02</mml:mn><mml:mo>·</mml:mo><mml:msup><mml:mn>10</mml:mn><mml:mrow><mml:mo>-</mml:mo><mml:mn>9</mml:mn></mml:mrow></mml:msup></mml:mrow></mml:math><tex-math id="IEq12_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$p = \frac{1}{{\left| {GDB - 13} \right|}} = 1.02 \cdot 10^{ - 9}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq12.gif" /></alternatives></inline-formula>. Due to the probabilistic nature of RNNs, no trained model will be able to have the same behavior, thus an ideal model serves as an upper bound.</p>
+            <p id="Par37">We can calculate the expected number of times GDB-13 needs to be sampled to obtain 100% of the database. This problem is commonly known in mathematics as the “coupon collector problem” [<xref ref-type="bibr" rid="CR32">32</xref>]. It was originally used to calculate the number of coupons (or stickers) that are needed to be bought to be able to obtain the full collection, knowing that every time a coupon is bought it is sampled with replacement from a distribution containing all possible coupons. Formally, for a uniform distribution with <inline-formula id="IEq13"><alternatives><mml:math id="IEq13_Math"><mml:mrow><mml:mi>n</mml:mi><mml:mo>></mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:math><tex-math id="IEq13_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n > 1$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq13.gif" /></alternatives></inline-formula> coupons:<disp-formula id="Equ2"><label>2</label><alternatives><mml:math display="block" id="Equ2_Math"><mml:mrow><mml:mi>E</mml:mi><mml:mfenced close="]" open="[" separators=""><mml:msub><mml:mi>T</mml:mi><mml:mi>u</mml:mi></mml:msub></mml:mfenced><mml:mo>=</mml:mo><mml:mi>n</mml:mi><mml:mo>·</mml:mo><mml:msub><mml:mi>H</mml:mi><mml:mi>n</mml:mi></mml:msub><mml:mo>≈</mml:mo><mml:mi>n</mml:mi><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mo>ln</mml:mo><mml:mfenced close=")" open="("><mml:mi>n</mml:mi></mml:mfenced><mml:mo>+</mml:mo><mml:mi>γ</mml:mi></mml:mrow></mml:mfenced><mml:mo>+</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mn>2</mml:mn></mml:mfrac></mml:mrow></mml:math><tex-math id="Equ2_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$E\left[ {T_{u} } \right] = n \cdot H_{n} \approx n\left( {\ln \left( n \right) + \gamma } \right) + \frac{1}{2}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_341_Article_Equ2.gif" /></alternatives></disp-formula>where <inline-formula id="IEq14"><alternatives><mml:math id="IEq14_Math"><mml:msub><mml:mi>H</mml:mi><mml:mi>n</mml:mi></mml:msub></mml:math><tex-math id="IEq14_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$H_{n}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq14.gif" /></alternatives></inline-formula> is the n-th harmonic number and <inline-formula id="IEq15"><alternatives><mml:math id="IEq15_Math"><mml:mi>γ</mml:mi></mml:math><tex-math id="IEq15_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\gamma$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq15.gif" /></alternatives></inline-formula> is the Euler–Mascheroni constant. By fitting this to the GDB-13 we would need to sample on average 20,761,554,747 SMILES. For non-uniform probability distributions, this expected value is a lower bound and it tends to infinity for distributions where <inline-formula id="IEq16"><alternatives><mml:math id="IEq16_Math"><mml:mrow><mml:mo>∃</mml:mo><mml:msub><mml:mi>p</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo stretchy="false">→</mml:mo><mml:mn>0</mml:mn></mml:mrow></mml:math><tex-math id="IEq16_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\exists p_{k} \to 0$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq16.gif" /></alternatives></inline-formula> (Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Suppl. Material S1). Sampling the GDB-13 20 billion times is a computationally expensive task, so we can also obtain the expected fraction of a collection with <inline-formula id="IEq17"><alternatives><mml:math id="IEq17_Math"><mml:mrow><mml:mi>n</mml:mi><mml:mo>></mml:mo><mml:mn>2</mml:mn></mml:mrow></mml:math><tex-math id="IEq17_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n > 2$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq17.gif" /></alternatives></inline-formula> coupons if <inline-formula id="IEq18"><alternatives><mml:math id="IEq18_Math"><mml:mrow><mml:mi>k</mml:mi><mml:mo>></mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:math><tex-math id="IEq18_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k > 1$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq18.gif" /></alternatives></inline-formula> were sampled from the ideal model (Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Suppl. Material S2):<disp-formula id="Equ3"><label>3</label><alternatives><mml:math display="block" id="Equ3_Math"><mml:mrow><mml:mi>f</mml:mi><mml:mi>r</mml:mi><mml:mi>a</mml:mi><mml:mi>c</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>o</mml:mi><mml:mi>n</mml:mi><mml:mi>_</mml:mi><mml:mi>u</mml:mi><mml:mi>n</mml:mi><mml:mi>i</mml:mi><mml:mi>f</mml:mi><mml:mi>o</mml:mi><mml:mi>r</mml:mi><mml:mi>m</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn><mml:mo>-</mml:mo><mml:msup><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mn>1</mml:mn><mml:mo>-</mml:mo><mml:mi>p</mml:mi></mml:mrow></mml:mfenced><mml:mi>k</mml:mi></mml:msup></mml:mrow></mml:math><tex-math id="Equ3_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$fraction\_uniform = 1 - \left( {1 - p} \right)^{k}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2019_341_Article_Equ3.gif" /></alternatives></disp-formula></p>
+            <p id="Par38">In the case of a sample of <inline-formula id="IEq19"><alternatives><mml:math id="IEq19_Math"><mml:mrow><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>2</mml:mn><mml:mo>·</mml:mo><mml:msup><mml:mn>10</mml:mn><mml:mn>9</mml:mn></mml:msup></mml:mrow></mml:math><tex-math id="IEq19_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$k = 2 \cdot 10^{9}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq19.gif" /></alternatives></inline-formula> molecules from the ideal model the average fraction of molecules sampled would be <inline-formula id="IEq20"><alternatives><mml:math id="IEq20_Math"><mml:mrow><mml:mn>1</mml:mn><mml:mo>-</mml:mo><mml:msup><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mn>1</mml:mn><mml:mo>-</mml:mo><mml:mn>1.02</mml:mn><mml:mo>·</mml:mo><mml:msup><mml:mn>10</mml:mn><mml:mrow><mml:mo>-</mml:mo><mml:mn>9</mml:mn></mml:mrow></mml:msup></mml:mrow></mml:mfenced><mml:mrow><mml:mn>2</mml:mn><mml:mo>·</mml:mo><mml:msup><mml:mn>10</mml:mn><mml:mn>9</mml:mn></mml:msup></mml:mrow></mml:msup><mml:mo>=</mml:mo><mml:mn>0.8712</mml:mn></mml:mrow></mml:math><tex-math id="IEq20_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$1 - \left( {1 - 1.02 \cdot 10^{ - 9} } \right)^{{2 \cdot 10^{9} }} = 0.8712$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq20.gif" /></alternatives></inline-formula>. This value is an upper bound (Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>: Suppl. Material S3): any model that is either non-uniform or non-complete will have a smaller fraction of molecules from GDB-13. This allows us to measure the completeness and uniformness of any generative model architecture trained with GDB-13.</p>
+          </sec>
+          <sec id="Sec6">
+            <title>Sampling SMILES from a model</title>
+            <p id="Par39">To be able to evaluate how much of GDB-13 can be reliably sampled from a model, it must be sampled at least 20 billion times (Eq. <xref rid="Equ2" ref-type="disp-formula">2</xref>). This has an unfeasible computational cost. For this reason, samples of 2 billion molecules were performed, which account for approximately 10% of the optimal sample size. After each sample, several tests were done: the database was checked for duplicates, for invalid SMILES, for non-canonical SMILES and was intersected with GDB-13, yielding 2 subsets: IN and OUT of GDB-13.</p>
+          </sec>
+          <sec id="Sec7">
+            <title>PCA plots with MQN</title>
+            <p id="Par40">PCA plots were based on the method described previously in literature [<xref ref-type="bibr" rid="CR33">33</xref>]. The 42-dimension MQN fingerprint [<xref ref-type="bibr" rid="CR34">34</xref>] was calculated with the JChem Library 18.22.0 from ChemAxon (<ext-link xlink:href="http://www.chemaxon.com" ext-link-type="uri">www.chemaxon.com</ext-link>) for each of the molecules in the dataset. Then, without any normalization or standardization, a principal component analysis (PCA) was performed on the 42-dimensional resulting dataset. The two first principal components were selected and normalized to values between 0 and <inline-formula id="IEq21"><alternatives><mml:math id="IEq21_Math"><mml:mi>w</mml:mi></mml:math><tex-math id="IEq21_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$w$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq21.gif" /></alternatives></inline-formula> or <inline-formula id="IEq22"><alternatives><mml:math id="IEq22_Math"><mml:mi>h</mml:mi></mml:math><tex-math id="IEq22_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$h$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq22.gif" /></alternatives></inline-formula> and molecules were organized in buckets. Each bucket represents a pixel <inline-formula id="IEq23"><alternatives><mml:math id="IEq23_Math"><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:mi>y</mml:mi></mml:mrow></mml:mfenced></mml:math><tex-math id="IEq23_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left( {x,y} \right)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq23.gif" /></alternatives></inline-formula> in the resulting <inline-formula id="IEq24"><alternatives><mml:math id="IEq24_Math"><mml:mrow><mml:mi>w</mml:mi><mml:mo>×</mml:mo><mml:mi>h</mml:mi></mml:mrow></mml:math><tex-math id="IEq24_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$w \times h$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq24.gif" /></alternatives></inline-formula> plot with a black background. A descriptor was also calculated for all molecules in each bucket and the average and count were calculated and normalized to the range <inline-formula id="IEq25"><alternatives><mml:math id="IEq25_Math"><mml:mfenced close="]" open="[" separators=""><mml:mrow><mml:mn>0</mml:mn><mml:mo>,</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:mfenced></mml:math><tex-math id="IEq25_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\left[ {0,1} \right]$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq25.gif" /></alternatives></inline-formula>. To color the pixels, the hue-saturation-value (HSV) format was used with the normalized average descriptor as hue, a fixed value of 1.0 as the saturation and <inline-formula id="IEq26"><alternatives><mml:math id="IEq26_Math"><mml:mrow><mml:mi>v</mml:mi><mml:mi>a</mml:mi><mml:mi>l</mml:mi><mml:mi>u</mml:mi><mml:mi>e</mml:mi><mml:mo>=</mml:mo><mml:mtext>min</mml:mtext><mml:mfenced close=")" open="(" separators=""><mml:mrow><mml:mn>0.25</mml:mn><mml:mo>,</mml:mo><mml:msub><mml:mo>log</mml:mo><mml:mn>10</mml:mn></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>c</mml:mi><mml:mi>o</mml:mi><mml:mi>u</mml:mi><mml:mi>n</mml:mi></mml:mrow><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi mathvariant="italic">norm</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfenced><mml:mrow><mml:mo stretchy="false">)</mml:mo><mml:mo>.</mml:mo></mml:mrow></mml:mrow></mml:math><tex-math id="IEq26_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$value = \hbox{min} \left( {0.25,\log_{10} (count_{norm} } \right)).$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq26.gif" /></alternatives></inline-formula> With this setup, the pixels that have low count are gradually merged with the background and those that have the highest counts stand out.</p>
+          </sec>
+          <sec id="Sec8">
+            <title>Labelling sampled molecules out of GDB-13</title>
+            <p id="Par41">Sampled molecules not included in GDB-13 were labeled with the topological and chemical filters used in the enumeration process of GDB-13 that they broke [<xref ref-type="bibr" rid="CR6">6</xref>, <xref ref-type="bibr" rid="CR35">35</xref>]. The molecules with disallowed topology were labelled the following way: carbon skeletons from all the molecules in GDB-13 were calculated and compared to the carbon skeletons for each sampled molecule, labelling the molecules whose skeleton was not in GDB-13. All tautomers for all the molecules were calculated with MolVS [<xref ref-type="bibr" rid="CR36">36</xref>] 0.1.1. For each molecule, if one tautomer was part of GDB-13, the molecule was labelled as a tautomer. Molecules with disallowed functional groups, heteroatom configurations or bonds were detected using SMARTS.</p>
+          </sec>
+          <sec id="Sec9">
+            <title>Technical details</title>
+            <p id="Par42">All the programming, except noted, was done in Python 3.6 using RDKit [<xref ref-type="bibr" rid="CR37">37</xref>] version 2018.03 as the chemistry toolkit and PyTorch [<xref ref-type="bibr" rid="CR38">38</xref>] 0.4.1 as the deep learning library. Stochastic gradient descent was used for training with the ADAM [<xref ref-type="bibr" rid="CR39">39</xref>] optimizer with parameters <inline-formula id="IEq27"><alternatives><mml:math id="IEq27_Math"><mml:mrow><mml:msub><mml:mi>β</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>=</mml:mo><mml:mn>0.9</mml:mn><mml:mo>,</mml:mo><mml:msub><mml:mi>β</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mo>=</mml:mo><mml:mn>0.999</mml:mn><mml:mo>,</mml:mo><mml:mi>ε</mml:mi><mml:mo>=</mml:mo><mml:msup><mml:mn>10</mml:mn><mml:mrow><mml:mo>-</mml:mo><mml:mn>8</mml:mn></mml:mrow></mml:msup></mml:mrow></mml:math><tex-math id="IEq27_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\beta_{1} = 0.9, \beta_{2} = 0.999, \varepsilon = 10^{ - 8}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq27.gif" /></alternatives></inline-formula> and a batch size of 128.</p>
+            <p id="Par43">The GDB-13 database was obtained from the gdb.unibe.ch website and preprocessed with RDKit to obtain canonicalized SMILES and to filter molecules impossible to read with the toolkit. The final size of the database was 975,820,187 molecules. Data processing and PCA calculation were done with Apache Spark [<xref ref-type="bibr" rid="CR40">40</xref>] 2.3.1 and all datasets were stored in Apache Parquet files. All plots, including the PCA maps, were created with Matplotlib [<xref ref-type="bibr" rid="CR41">41</xref>] and Seaborn [<xref ref-type="bibr" rid="CR42">42</xref>]. The Jensen-Shannon Divergence was calculated with an in-house script using SciPy [<xref ref-type="bibr" rid="CR43">43</xref>]. Table <xref rid="Tab1" ref-type="table">1</xref> shows the resources and cost of the different computations described previously, all of which were performed in CentOS 7.4 with Tesla V-100 (Volta) graphics cards and CUDA 9. <table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Computational resources and cost associated with training and sampling the model and annotating a 2B sample</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Operation</p></th><th align="left"><p>CPUs</p></th><th align="left"><p>RAM</p></th><th align="left"><p>GPU</p></th><th align="left"><p>Time</p></th></tr></thead><tbody><tr><td align="left"><p>Training a model</p></td><td align="left"><p>4</p></td><td align="left"><p>32 GB</p></td><td align="left"><p>1</p></td><td align="left"><p>8 min/epoch</p></td></tr><tr><td align="left"><p>Sampling molecules</p></td><td align="left"><p>4</p></td><td align="left"><p>32 GB</p></td><td align="left"><p>1</p></td><td align="left"><p>33 million/h</p></td></tr><tr><td align="left"><p>Annotating 2B molecules</p></td><td align="left"><p>32</p></td><td align="left"><p>256 GB</p></td><td align="left"><p>0</p></td><td align="left"><p>24 h</p></td></tr></tbody></table></table-wrap></p>
+          </sec>
+        </sec>
+        <sec id="Sec10">
+          <title>Results and discussion</title>
+          <sec id="Sec11">
+            <title>Using negative log-likelihood plots to guide the training process</title>
+            <p id="Par45">A model was trained with a set of 1 million compounds randomly obtained from GDB-13. An initial way to assess the quality of the sampled molecules from the trained model is to check the percentage of valid molecules (Fig. <xref rid="Fig3" ref-type="fig">3</xref>c). This metric has often been used to train models [<xref ref-type="bibr" rid="CR18">18</xref>, <xref ref-type="bibr" rid="CR19">19</xref>], but in the case of the GDB databases it proves to be insufficient, as it is always over 96.5%. To view the progress of the training, negative log-likelihoods (NLLs) of the SMILES in the training, validation and sampled sets were calculated after training the model each epoch. These NLLs were plotted together as histograms every 25 epochs (Fig. <xref rid="Fig3" ref-type="fig">3</xref>a). Also, the Jensen–Shannon divergence (JSD) of all pairs of NLL plots was calculated (Fig. <xref rid="Fig3" ref-type="fig">3</xref>b). This measure allows the quantification of the differences between each pair of distributions.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>Metrics used to evaluate the training process. The red line at epoch 70 represents the chosen epoch used in further tests. The negative log-likelihood (NLL) is calculated with natural logarithms. <bold>a</bold> 10 NLL plots of the training, validation and sampled sets every 25 epochs (from 1 to 200) and the chosen epoch (70). <bold>b</bold> JSD plot between the three NLL distributions from the previous section for each of the 200 epochs. <bold>c</bold> Percentage of valid molecules in each epoch. Notice that the plot already starts at around 96.5%. Mean (<bold>d</bold>) and variance (<bold>e</bold>) of the three distributions from section (<bold>a</bold>). Note that spikes around epochs 1–20 are statistical fluctuations common in the beginning of the training process of a RNN, when the learning rate is high</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_341_Fig3_HTML.png" /></fig></p>
+            <p id="Par46">Figure <xref rid="Fig3" ref-type="fig">3</xref> plots are interpreted as follows: after epoch 1, the sampled set NLL distribution has the lowest average (higher probability) and the other two sets are extremely similar and have a higher NLL (lower probability). This means that the model is not completely trained, as the SMILES strings sampled are only a subset of the ones in the training set. Between epochs 25–50, the distributions become more similar, and around epochs 50-100 the three plots match as much as possible, as can be seen both in (a) and in (b). When all the plots are similar it is equally probable to sample a SMILES from the training set as it is a SMILES outside it, implying that a higher percent of the database can be sampled. After this, the training set NLL distribution becomes more similar to the sampled set while the validation set has higher NLL. This indicates that the model is gradually being over trained, as a molecule from the training set will be sampled from it with a higher probability than a molecule from the validation set. This trend becomes more pronounced in later epochs.</p>
+            <p id="Par47">To further discern whether the model is uniform and complete, the mean (<inline-formula id="IEq28"><alternatives><mml:math id="IEq28_Math"><mml:mi>μ</mml:mi></mml:math><tex-math id="IEq28_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mu$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq28.gif" /></alternatives></inline-formula>) and especially the variance (<inline-formula id="IEq29"><alternatives><mml:math id="IEq29_Math"><mml:msup><mml:mi>σ</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:math><tex-math id="IEq29_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sigma^{2}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq29.gif" /></alternatives></inline-formula>) of the NLL distributions have been calculated after each training epoch (Fig. <xref rid="Fig3" ref-type="fig">3</xref>c, d). Knowing that the uniform model NLL plot has <inline-formula id="IEq30"><alternatives><mml:math id="IEq30_Math"><mml:mrow><mml:msup><mml:mi>σ</mml:mi><mml:mn>2</mml:mn></mml:msup><mml:mo>=</mml:mo><mml:mn>0</mml:mn></mml:mrow></mml:math><tex-math id="IEq30_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sigma^{2} = 0$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq30.gif" /></alternatives></inline-formula> and <inline-formula id="IEq31"><alternatives><mml:math id="IEq31_Math"><mml:mrow><mml:mi>μ</mml:mi><mml:mo>=</mml:mo><mml:mo>-</mml:mo><mml:mo>ln</mml:mo><mml:mfenced close=")" open="(" separators=""><mml:mfrac><mml:mn>1</mml:mn><mml:mfenced close="|" open="|" separators=""><mml:mrow><mml:mi>G</mml:mi><mml:mi>D</mml:mi><mml:mi>B</mml:mi><mml:mo>-</mml:mo><mml:mn>13</mml:mn></mml:mrow></mml:mfenced></mml:mfrac></mml:mfenced><mml:mo>=</mml:mo><mml:mn>20.7</mml:mn></mml:mrow></mml:math><tex-math id="IEq31_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\mu = - \ln \left( {\frac{1}{{\left| {GDB - 13} \right|}}} \right) = 20.7$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq31.gif" /></alternatives></inline-formula>, the variance and the mean of the validation set should be as similar to these values as possible. Both descriptors reach plateaus at around epochs 60–150 for the mean and 60–90 for the variance.</p>
+            <p id="Par48">By comparing all the intervals from the three different plots, we can obtain a joined interval from around epoch 60 to 90, in which the model will have learned how to create the biggest and more uniform domain.</p>
+          </sec>
+          <sec id="Sec12">
+            <title>Sampling the model and analyzing its domain</title>
+            <p id="Par49">To validate the previous method, 2 billion SMILES strings were sampled every five epochs (totaling 80 billion). As can be seen in Fig. <xref rid="Fig4" ref-type="fig">4</xref>, the total percent of generated molecules including repeats that are part of GDB-13 always increases, but in Fig. <xref rid="Fig4" ref-type="fig">4</xref> the percent of unique molecules generated that are in GDB-13 is maximal at epoch 90 (69,2%), but there is a plateau starting around epoch 70 (68.9%) and decreases steadily again after epoch 100 (68.9%). Also, the sampled molecules not included GDB-13 steadily decrease during the whole training. These results are very similar to the results obtained from the analysis of the NLL plots, the mean and the variance plot in Fig. <xref rid="Fig3" ref-type="fig">3</xref>b, d, e. Having a model representing a more uniform sampling (epoch 70) conflicts with having a more focused sampling (epoch 100). Depending on the specific needs for a given project a different epoch should be chosen, yet the differences are very small. Epoch 70 was chosen for future experiments with this model, because a more uniform model was desired. <fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>Results from sampling 2 billion SMILES from the 1 M model every five epochs (from 1 to 195). The red line at epoch 70 represents the chosen epoch for further tests. <bold>a</bold> Percent of the total sample (2B) that are valid SMILES, canonical SMILES, in GDB-13 and out of GDB-13. Solid lines represent all SMILES sampled, including repeats, whereas dotted lines represent only the unique molecules obtained from the whole count. <bold>b</bold> Close-up percentage of GDB-13 obtained every five epochs. Notice that the plot starts at around 54% and that the drop around epoch 10 correlates with the training fluctuations already mentioned in Fig. <xref rid="Fig3" ref-type="fig">3</xref></p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_341_Fig4_HTML.png" /></fig></p>
+            <p id="Par50">For any molecule there are many SMILES that uniquely represent it. In Fig. <xref rid="Fig1" ref-type="fig">1</xref> the light and dark blue sets represent the number of possible SMILES for all the molecules and only one canonical SMILES for each molecule respectively. In the ideal model, only the canonical SMILES for each molecule are generated. Figure <xref rid="Fig4" ref-type="fig">4</xref> shows (pink) that 85.6% of the SMILES in epoch 70 were generated directly as canonical, implying that the model can learn the canonical form of most of the generated SMILES. Notice also that the number of unique canonical SMILES decreases steadily. This is correlated with the model not being uniform, and this trend is further pronounced after epoch 100, as the molecules from the training set are generated more often.</p>
+          </sec>
+          <sec id="Sec13">
+            <title>Understanding the diversity of the generated molecules</title>
+            <p id="Par51">25 models with the same parameters as in the previous section were trained with a different 1 M random sample obtained from GDB-13. The probability of sampling each molecule from GDB-13 is averaged and molecules not generated by any model have a higher chance to be problematic due to the limitations of the model and not by chance.</p>
+            <p id="Par52">For each model a sampling of 2 billion molecules was performed in epoch 70 (summing up to 50 billion molecules), repeated molecules were filtered and the whole sample was separated between molecules contained and not contained in GDB-13. Note that the number of molecules needed to sample from the ideal model to obtain 100% of the database on average is around 21 billion (Eq. <xref rid="Equ2" ref-type="disp-formula">2</xref>), much less than the 50 billion molecules sampled in this experiment. The frequency for each molecule in GDB-13 was computed, which is the number of times from 0 (not sampled in any model) to 25 (sampled in all models) each molecule was uniquely sampled from each model. In the ideal model, each sample can be considered as a Bernoulli trial with <inline-formula id="IEq32"><alternatives><mml:math id="IEq32_Math"><mml:mrow><mml:mi>p</mml:mi><mml:mo>=</mml:mo><mml:mn>0.8712</mml:mn></mml:mrow></mml:math><tex-math id="IEq32_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$p = 0.8712$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq32.gif" /></alternatives></inline-formula> ((Eq. <xref rid="Equ3" ref-type="disp-formula">3</xref>)), so the distribution of the frequency would follow a binomial distribution with <inline-formula id="IEq33"><alternatives><mml:math id="IEq33_Math"><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>25</mml:mn><mml:mo>,</mml:mo><mml:mi>k</mml:mi><mml:mo>=</mml:mo><mml:mn>2</mml:mn><mml:mo>·</mml:mo><mml:msup><mml:mn>10</mml:mn><mml:mn>9</mml:mn></mml:msup></mml:mrow></mml:math><tex-math id="IEq33_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$n = 25, k = 2 \cdot 10^{9}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq33.gif" /></alternatives></inline-formula> and <inline-formula id="IEq34"><alternatives><mml:math id="IEq34_Math"><mml:mrow><mml:mi>p</mml:mi><mml:mo>=</mml:mo><mml:mn>0.8712</mml:mn></mml:mrow></mml:math><tex-math id="IEq34_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$p = 0.8712$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq34.gif" /></alternatives></inline-formula>. Figure <xref rid="Fig5" ref-type="fig">5</xref>a shows that the two distributions have a different mean (17.1 and 21.8) and mode (20 and 22) and the distribution obtained from the RNN models has an extremely long tail. Moreover, 5,720,928 molecules (0.6%) were never sampled by any model. Notice also in Fig. <xref rid="Fig5" ref-type="fig">5</xref>b that frequency is heavily correlated with the average negative log-likelihood for each molecule obtained from every model.<fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p><bold>a</bold> Histograms of the frequency of the RNN models (orange) and the theoretical (binomial) frequency distribution of the ideal model (blue). <bold>b</bold> Histograms of the average NLL per molecule (from the 25 models) for molecules with frequency 0, 5, 10, 15, 20 and 25 computed from a sample of 5 million molecules from GDB-13</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_341_Fig5_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec14">
+            <title>Analysis of the sampled molecules included in GDB-13</title>
+            <p id="Par53">PCA plots of the MQN fingerprint were performed with a sample of GDB-13 stratified by frequency (Fig. <xref rid="Fig6" ref-type="fig">6</xref>). Figure <xref rid="Fig6" ref-type="fig">6</xref>a, shows that there is a difference between the molecules that have lower (top-right) and higher (bottom-left) frequency. Nevertheless, the density plot (Fig. <xref rid="Fig6" ref-type="fig">6</xref>b) shows that the most densely packed regions are at the center and occupied by molecules with both a high and a low frequency. Additional PCA plots were generated with some key descriptors that help pinpointing the different regions of the chemical space. Figure <xref rid="Fig6" ref-type="fig">6</xref>c shows that pixels at the right have mostly cyclic bonds, implying more rings and fewer sidechains and linkers. This area is mostly covered by molecules that have low frequency. Moreover, Fig. <xref rid="Fig6" ref-type="fig">6</xref>d shows that pixels at the top have more heteroatoms. This closely matches the top lighter area in Fig. <xref rid="Fig6" ref-type="fig">6</xref>a, which features molecules with low frequency.<fig id="Fig6"><label>Fig. 6</label><caption xml:lang="en"><p><bold>a</bold>–<bold>f</bold> MQN PCA plots (Explained variance: <inline-formula id="IEq37"><alternatives><mml:math id="IEq37_Math"><mml:mrow><mml:mi>P</mml:mi><mml:mi>C</mml:mi><mml:msub><mml:mi>A</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>=</mml:mo><mml:mn>51.3</mml:mn><mml:mo>%</mml:mo><mml:mo>,</mml:mo><mml:mi>P</mml:mi><mml:mi>C</mml:mi><mml:msub><mml:mi>A</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mo>=</mml:mo><mml:mn>12</mml:mn><mml:mo>,</mml:mo><mml:mn>2</mml:mn><mml:mo>%</mml:mo></mml:mrow></mml:math><tex-math id="IEq37_TeX">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym}
+				\usepackage{amsfonts}
+				\usepackage{amssymb}
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$PCA_{1} = 51.3 \% , PCA_{2} = 12,2 \%$$\end{document}</tex-math><inline-graphic xlink:href="13321_2019_341_Article_IEq37.gif" /></alternatives></inline-formula>) calculated from a 130 million stratified sample of GDB-13 with 5 million molecules from each frequency value (0–25) colored by different descriptors. In all plots each pixel represents a group of similar molecules and its color represents the average value of a given descriptor. The colors rank from minimum to maximum: dark blue, cyan, green, yellow, orange, red and magenta. Each plot has the numeric range (min–max) between brackets after its title. Plots are colored by: <bold>a</bold> Number of trained models that generate each molecule. <bold>b</bold> Occupancy of every pixel. <bold>c</bold> Number of cyclic bonds. <bold>d</bold> Number of carbon atoms</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2019_341_Fig6_HTML.jpg" /></fig></p>
+            <p id="Par54">From the previous plots, molecules with many heteroatoms or complex topologies have a lower probability of being sampled than molecules with less rings and more carbon atoms. However, Fig. <xref rid="Fig6" ref-type="fig">6</xref>b also shows that most of these structures are in lower density zones of the database, which implies that are only a small part of the database. In Table <xref rid="Tab2" ref-type="table">2</xref>, 24 fragment-like molecules with frequency 0, 5, 10, 15, 20 and 25 were selected from GDB-13 and shows that molecules with lower frequency have a tendency to have a more complex structure, especially more cyclic bonds, although it is not possible to separate them clearly.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>A selection of 24 fragment-like molecules obtained from GDB-13 with frequency 0, 5, 10, 15, 20 and 25. The molecules are sorted top to bottom by frequency and left to right by average negative log-likelihood (NLL) of the 25 models. A random sample of 10 million molecules annotated with the frequency and the average NLL is available for download (<ext-link xlink:href="http://gdb.unibe.ch/downloads" ext-link-type="uri">http://gdb.unibe.ch/downloads</ext-link>)</p></caption><graphic xlink:href="MediaObjects/13321_2019_341_Tab2_HTML.png" id="MO12" /></table-wrap></p>
+            <p id="Par55">To further understand how molecules are generated, the composition of the SMILES was analyzed. As shown in Fig. <xref rid="Fig7" ref-type="fig">7</xref>a (dashed orange line), the 1-g (token) count distribution is exponential and mostly features C (40%). In order, less featured tokens are <monospace>1</monospace>, <monospace>N</monospace>, <monospace>=</monospace>, <monospace>(</monospace>,<monospace>)</monospace>, <monospace>O</monospace> and <monospace>2</monospace>. The rest of the tokens sum up to less than 7% of the total. SMILES representing simple topologies use mostly the tokens enumerated before and molecules that have complex shapes tend to have more rings, so they have less common tokens, such as <monospace>3</monospace>,<monospace>4</monospace>, …, <monospace>7</monospace>. The frequency of the molecules containing each token is also plotted in Fig. <xref rid="Fig7" ref-type="fig">7</xref>a, showing that the frequency correlates with the counts. Note especially, marked in red in Fig. <xref rid="Fig7" ref-type="fig">7</xref>a, the numeric tokens starting from 4 tend to have a significantly lower average frequency than the neighboring tokens. This means that molecules in GDB-13 with four or more rings are significantly less likely to be sampled than others. One explanation is that these tokens only appear in pairs in valid SMILES, which indicates that learning how to create a correct molecular SMILES with these tokens is much more difficult than with other equally frequent tokens, as both tokens in each pair must be correctly positioned with respect to each other. Additionally, molecules in GDB-13 (max. 13 heavy atoms) with more than three rings have extremely complex topologies. When performing the same analysis for 2-g same interpretation applies (Fig. <xref rid="Fig7" ref-type="fig">7</xref>b): the count is correlated with the average frequency and the most frequent 2-g (<monospace>CC</monospace>, <monospace>C1</monospace>, <monospace>C(</monospace>,<monospace>)C</monospace>, <monospace>C=</monospace>) match the SMILES of simple molecules and the less frequent (<monospace>5o</monospace>, <monospace>3[N+]</monospace>, <monospace>7O</monospace>, <monospace>7(</monospace>, <monospace>72</monospace>) match exclusively molecules with complex topologies and several rings. This implies that the n-grams that appear fewer times in the database, i.e. in the training set, are not learned correctly and thus have a lower probability of being sampled. Therefore, molecules that contain an increasing number of low probability n-grams in their canonical SMILES, will progressively have a lower probability of being sampled (Eq. <xref rid="Equ1" ref-type="disp-formula">1</xref>).<fig id="Fig7"><label>Fig. 7</label><caption xml:lang="en"><p>Plots of the frequency (left y axis) and the percent in database (right y axis) of 1 and 2-g in the canonical smiles of all GDB-13 molecules. The plot is sorted by the percentage present in the database. <bold>a</bold> Plot with the 1-g (tokens). In blue the mean frequency and in orange the percent of 1-g in database. Notice that the numeric tokens have been highlighted in red. <bold>b</bold> Plot with the 2-g mean frequency (blue) and percent (dashed orange). As the number of 2-g is too large (287), the x axis has been intentionally left blank and the mean frequency has been smoothed by an average window function size 8</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_341_Fig7_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec15">
+            <title>Analysis of the sampled chemical space outside of GDB-13</title>
+            <p id="Par56">All the SMILES outside of GDB-13 generated by the 25 models were joined obtaining a database with 10,084,412,477 molecules. After filtering repeated molecules, a set with 2,979,671,366 unique molecules was obtained, from which a sample of 3 million was used for further research. Each molecule was then labelled with the constraints used to enumerate GDB-13 [<xref ref-type="bibr" rid="CR6">6</xref>, <xref ref-type="bibr" rid="CR35">35</xref>] that it breaks (see methods). Figure <xref rid="Fig8" ref-type="fig">8</xref> includes a plot with the percent of molecules that break each constraint (Fig. <xref rid="Fig8" ref-type="fig">8</xref>a) and another histogram with the number of constraints broken per molecule (Fig. <xref rid="Fig8" ref-type="fig">8</xref>b). The most common broken constraint, not allowed functional groups (26.2%), is the most complex one to learn, as any given functional group can have multiple SMILES strings, depending on where it is positioned in the molecule, thus making it more difficult to learn the string patterns to avoid. Also, 19.8% of the molecules have a graph that was filtered during the GDB-13 enumeration process, which correlates with the problems encountered when generating molecules with complex graph topologies: the model is not able to correctly learn the underlying graph topologies of the molecules. Additionally, due to the probabilistic nature of the model, 17.5% of the molecules generated outside of GDB-13 have more than 13 heavy atoms. Heteroatom/Carbon ratios used to create GDB-13 are generally followed (10.9%) and there are a similar number (10.1%) of molecules with disallowed neighboring heteroatom configurations. These constrains can easily be learnt by the model, as they have very little topological complexity compared to the previous two. For the same reason, 9.4% of the database are tautomers of molecules existing in GDB-13 and less than 7% of the molecules have problems with double or triple bonds. Interestingly, the miscellaneous category (22.7%) includes all molecules that are not in GDB-13 and that have broken none of the previous constraints. This occurs partially due to compatibility issues with the chemical library used (GDB-13 was created with JChem from 2008 and this research uses RDKit from 2018) and because GDB-13 is not completely exhaustive. The enumerative process used to create GDB-13 performed several levels of filtering: when a molecule was filtered out in an intermediate step, the molecules that would have derived from it were never generated. Most of these molecules would have probably been filtered if they had been generated, as they are extremely uncommon. Lastly, Fig. <xref rid="Fig8" ref-type="fig">8</xref>b shows that 72% of the molecules only break one constraint, hence the chemical space generated outside of GDB-13 is very similar to the space represented by GDB-13.<fig id="Fig8"><label>Fig. 8</label><caption xml:lang="en"><p>Distribution of a sample of 3 million molecules obtained from all the outside of GDB-13 sampled by the RNN model. <bold>a</bold> Histogram of the GDB-13 constraints broken by each molecule. Notice that a molecule can break more than one constraint. <bold>b</bold> Distribution of the number of GDB-13 constraints broken by each molecule</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2019_341_Fig8_HTML.png" /></fig></p>
+          </sec>
+          <sec id="Sec16">
+            <title>Counteracting the limitations in models using SMILES</title>
+            <p id="Par57">The previous two sections show that the SMILES format adds two substantial biases to the chemical space learned by our model. Firstly, the model has more difficulties generating molecules with many rings, especially with complex ring systems. This limitation stems from the nature of SMILES: highly cyclic molecules have longer SMILES sequences than equally-sized acyclic molecules and the relative positioning of the ring tokens is context-sensitive. Fortunately, most drug-like molecules (like those in ChEMBL) tend to have simpler structures than GDB-13 molecules, making this problem less important for generative models that target the known drug-like space. One way that could help overcoming this bias is to carefully tailor the training set to feature more molecules that include complex ring systems. This will give the model more examples of complex molecules from which to learn, even though it would possibly add other biases. Also, a theoretical approach that could help was recently published [<xref ref-type="bibr" rid="CR44">44</xref>] and alters the SMILES semantics, making ring tokens behave differently. This approach may make some ring systems have a less convoluted syntax but could make the SMILES syntax significantly more complex for the model to learn. The second bias has to do with the molecules outside of GDB-13 being incorrectly generated by the model and is also partially associated with the SMILES syntax. For instance, there are many ways of writing SMILES strings that represent most functional groups and there are many molecules with extremely different SMILES that share the same underlying graph. These ambiguities make it especially difficult for the model to learn to correctly filter some molecules that have not allowed functional groups or graphs. One way that we think it could partially mitigate these problems is using a less ambiguous molecular representation that also separates the graph from its decoration such as graph generative models [<xref ref-type="bibr" rid="CR45">45</xref>].</p>
+          </sec>
+          <sec id="Sec17">
+            <title>Training models with smaller training sets</title>
+            <p id="Par58">Another important question is how using smaller datasets (100.000 molecules or less) would impact the chemical space generated. We performed some preliminary analysis, and we found that models with smaller training sets tend to overfit more and faster. Due to the reduced amount of diversity present in them, the model easily learns to reproduce the training set. That is why training models with smaller subsets of the GDB-13 database could give us information on which are the best architectures and hyperparameter configurations to minimize the overfit and optimize the learning capabilities of any model.</p>
+          </sec>
+        </sec>
+        <sec id="Sec18" sec-type="conclusion">
+          <title>Conclusions</title>
+          <p id="Par59">This study shows that a large amount of chemical space can be sampled with generative models that are trained only with a very small sample of that chemical space. Specifically, we generate up to 68.9% of GDB-13 by using a training set with only 0.1% of the database. The model is not only capable of learning basic chemistry (e.g. valency, ring structures) but also to follow complex constraints applied during the GDB-13 enumeration process, such as heteroatom ratios and positioning of double and triple bonds. More difficult constraints, e.g. complex graph topologies or not allowed functional groups are more difficult to learn mostly due to the limitations of the SMILES notation. We developed a computationally efficient method to monitor and assess the quality of the training process using NLL plots. This method allows to identify the different stages of the training process and select a better model. To further understand the NLL plot analysis, we sampled the model every five epochs and compared the results with those from the ideal model. Moreover, this sampling can be used as a benchmarking tool for molecular generative model architectures as we showed that the ideal model sets an upper limit (87.12%) to the amount of GDB-13 generated with a 2 billion sample. We encourage researchers to try training models with different architectures or input formats on GDB-13, sample them 2 billion times, calculate the coverage and compare the results. This may lead to a better understanding of the different architectures of molecular generative models. Finally, we performed an extensive analysis to find if there is any bias attributable to the model using the generated chemical space from a joined sample of 25 models at the same epoch. We obtained that although most of the problematic molecules have a tendency of having more cyclic bonds and heteroatoms, the main difference arises from issues within the SMILES syntax, especially related to using numeric ring tokens. We think that all the methods described here will help to find new generative model architectures that can overcome some of the limitations of the current ones.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Authors’ contributions</title>
+          <sec>
+            <p>JAP designed and performed the research, wrote the software and wrote the manuscript. TB co-wrote the software, reviewed and edited the manuscript. SU performed the mathematical analysis. OE, HC and JLR supervised the project. All authors read and approved the final manuscript.</p>
+          </sec>
+          <sec id="FPar1">
+            <title>Acknowledgements</title>
+            <p id="Par60">The authors would like to acknowledge Esben Bjerrum, Thierry Kogej and Christian Tyrchan for their scientific insight and Laurianne David, Oliver Laufkötter, Noé Sturm, Amol Thakkar and Michael Withnall for their help in reviewing the publication.</p>
+          </sec>
+          <sec id="FPar2">
+            <title>Competing interests</title>
+            <p id="Par61">The authors declare that they have no competing interests.</p>
+          </sec>
+          <sec id="FPar3">
+            <title>Availability of data and materials</title>
+            <p id="Par62">One sample model trained with GDB-13 and the software used to train and sample it described in this publication is available through a Github repository (<ext-link xlink:href="https://github.com/undeadpixel/reinvent-gdb13" ext-link-type="uri">https://github.com/undeadpixel/reinvent-gdb13</ext-link>). The GDB-13 database and a 1 million random sample annotated with frequency and average negative log-likelihood is available through the Reymond group website (<ext-link xlink:href="http://gdb.unibe.ch/downloads" ext-link-type="uri">http://gdb.unibe.ch/downloads</ext-link>).</p>
+          </sec>
+          <sec id="FPar4">
+            <title>Funding</title>
+            <p id="Par63">Josep Arús-Pous and Thomas Blaschke are supported financially by the European Union’s Horizon 2020 research and innovation program under the Marie Skłodowska-Curie Grant Agreement No. 676434, “Big Data in Chemistry” (“BIGCHEM,” <ext-link xlink:href="http://bigchem.eu" ext-link-type="uri">http://bigchem.eu</ext-link>).</p>
+          </sec>
+          <sec>
+            <title>Publisher’s Note</title>
+            <p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+          </sec>
+        </ack>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ertl</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Cheminformatics analysis of organic substituents: identification of the most common substituents, calculation of substituent properties, and automatic identification of drug-like bioisosteric groups</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <fpage>374</fpage>
+                <lpage>380</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38Xpt1Cmtbs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci0255782</pub-id>
+                <pub-id pub-id-type="pmid">12653499</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Van Deursen</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Reymond</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chemical space travel</article-title>
+                <source>ChemMedChem</source>
+                <year>2007</year>
+                <volume>2</volume>
+                <fpage>636</fpage>
+                <lpage>640</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXlvVGrurg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/cmdc.200700021</pub-id>
+                <pub-id pub-id-type="pmid">17366512</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hartenfeller</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Zettl</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Walter</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Dogs: reaction-driven de novo design of bioactive compounds</article-title>
+                <source>PLoS Comput Biol</source>
+                <year>2012</year>
+                <volume>8</volume>
+                <fpage>e1002380</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38Xjt1Sjtr0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1371/journal.pcbi.1002380</pub-id>
+                <pub-id pub-id-type="pmid">22359493</pub-id>
+                <pub-id pub-id-type="pmcid">3280956</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Andersen</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                  <name>
+                    <surname>Flamm</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Merkle</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Stadler</surname>
+                    <given-names>PF</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Generic strategies for chemical space exploration</article-title>
+                <source>Int J Comput Biol Drug Des</source>
+                <year>2014</year>
+                <volume>7</volume>
+                <fpage>225</fpage>
+                <pub-id pub-id-type="doi">10.1504/IJCBDD.2014.061649</pub-id>
+                <pub-id pub-id-type="pmid">24878732</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gaulton</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bellis</surname>
+                    <given-names>LJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Bento</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">ChEMBL: a large-scale bioactivity database for drug discovery</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2012</year>
+                <volume>40</volume>
+                <fpage>1100</fpage>
+                <lpage>1107</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhs12htbjN</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkr777</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Blum</surname>
+                    <given-names>LC</given-names>
+                  </name>
+                  <name>
+                    <surname>Reymond</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">970 Million druglike small molecules for virtual screening in the chemical universe database GDB-13</article-title>
+                <source>J Am Chem Soc</source>
+                <year>2009</year>
+                <volume>131</volume>
+                <fpage>8732</fpage>
+                <lpage>8733</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXmvFWru7k%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ja902302h</pub-id>
+                <pub-id pub-id-type="pmid">19505099</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ruddigkeit</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Van Deursen</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Blum</surname>
+                    <given-names>LC</given-names>
+                  </name>
+                  <name>
+                    <surname>Reymond</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Enumeration of 166 billion organic small molecules in the chemical universe database GDB-17</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2012</year>
+                <volume>52</volume>
+                <fpage>2864</fpage>
+                <lpage>2875</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XhsFClsL3J</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci300415d</pub-id>
+                <pub-id pub-id-type="pmid">23088335</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Visini</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Arús-Pous</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Awale</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Reymond</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Virtual exploration of the ring systems chemical universe</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2017</year>
+                <volume>57</volume>
+                <fpage>2707</fpage>
+                <lpage>2718</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhs1ehtbnL</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.7b00457</pub-id>
+                <pub-id pub-id-type="pmid">29019686</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Reymond</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The chemical space project</article-title>
+                <source>Acc Chem Res</source>
+                <year>2015</year>
+                <volume>48</volume>
+                <fpage>722</fpage>
+                <lpage>730</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXivFWisb4%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ar500432k</pub-id>
+                <pub-id pub-id-type="pmid">25687211</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="other">Szegedy C, Liu W, Jia Y et al (2015) Going deeper with convolutions. In: Proceedings of the IEEE computer society conference on computer vision and pattern recognition 07–12–June, pp 1–9. <ext-link xlink:href="10.1109/CVPR.2015.7298594" ext-link-type="doi">https://doi.org/10.1109/CVPR.2015.7298594</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="other">Taigman Y, Yang M, Ranzato M, Wolf L (2014) DeepFace: closing the gap to human-level performance in face verification. In: Proceedings of the IEEE computer society conference on computer vision and pattern recognition, pp 1701–1708. <ext-link xlink:href="10.1109/CVPR.2014.220" ext-link-type="doi">https://doi.org/10.1109/CVPR.2014.220</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Silver</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Huang</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Maddison</surname>
+                    <given-names>CJ</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Mastering the game of Go with deep neural networks and tree search</article-title>
+                <source>Nature</source>
+                <year>2016</year>
+                <volume>529</volume>
+                <fpage>484</fpage>
+                <lpage>489</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28Xhs12is7w%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nature16961</pub-id>
+                <pub-id pub-id-type="pmid">26819042</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="other">Hadjeres G, Pachet F, Nielsen F (2016) DeepBach: a steerable model for bach chorales generation. <ext-link xlink:href="https://arxiv.org/abs/1612.01010" ext-link-type="uri">arXiv:1612.01010</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Garg</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Rish</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Cecchi</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Lozano</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Neurogenesis-inspired dictionary learning: online model adaption in a changing world</article-title>
+                <source>IJCAI Int Jt Conf Artif Intell</source>
+                <year>2017</year>
+                <pub-id pub-id-type="doi">10.1002/joe.20070</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Johnson</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Schuster</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Le</surname>
+                    <given-names>QV</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Google’s multilingual neural machine translation system: enabling zero-shot translation</article-title>
+                <source>Trans Assoc Comput Linguist</source>
+                <year>2016</year>
+                <volume>5</volume>
+                <fpage>339</fpage>
+                <pub-id pub-id-type="doi">10.1162/tacl_a_00065</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Engkvist</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">The rise of deep learning in drug discovery</article-title>
+                <source>Drug Discov Today</source>
+                <year>2018</year>
+                <volume>23</volume>
+                <fpage>1241</fpage>
+                <lpage>1250</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.drudis.2018.01.039</pub-id>
+                <pub-id pub-id-type="pmid">29366762</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Blaschke</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Olivecrona</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Engkvist</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Application of generative autoencoder in de novo molecular design</article-title>
+                <source>Mol Inform</source>
+                <year>2018</year>
+                <volume>37</volume>
+                <fpage>1700123</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhvFKhurvK</pub-id>
+                <pub-id pub-id-type="doi">10.1002/minf.201700123</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Olivecrona</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Blaschke</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Engkvist</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Chen</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Molecular de-novo design through deep reinforcement learning</article-title>
+                <source>J Cheminform</source>
+                <year>2017</year>
+                <volume>9</volume>
+                <fpage>48</fpage>
+                <pub-id pub-id-type="doi">10.1186/s13321-017-0235-x</pub-id>
+                <pub-id pub-id-type="pmid">29086083</pub-id>
+                <pub-id pub-id-type="pmcid">5583141</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Segler</surname>
+                    <given-names>MHS</given-names>
+                  </name>
+                  <name>
+                    <surname>Kogej</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Tyrchan</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Waller</surname>
+                    <given-names>MP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Generating focused molecule libraries for drug discovery with recurrent neural networks</article-title>
+                <source>ACS Cent Sci</source>
+                <year>2018</year>
+                <volume>4</volume>
+                <fpage>120</fpage>
+                <lpage>131</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXitVCjsLfP</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acscentsci.7b00512</pub-id>
+                <pub-id pub-id-type="pmid">29392184</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sanchez-Lengeling</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Outeiral</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Guimaraes</surname>
+                    <given-names>GL</given-names>
+                  </name>
+                  <name>
+                    <surname>Aspuru-Guzik</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Optimizing distributions over molecular space. An objective-reinforced generative adversarial network for inverse-design chemistry (ORGANIC)</article-title>
+                <source>ChemRxiv</source>
+                <year>2017</year>
+                <pub-id pub-id-type="doi">10.26434/chemrxiv.5309668.v3</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Weininger</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SMILES, a chemical language and information system: 1: introduction to methodology and encoding rules</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1988</year>
+                <volume>28</volume>
+                <fpage>31</fpage>
+                <lpage>36</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL1cXnsVeqsA%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci00057a005</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Preuer</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Renz</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Unterthiner</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Fréchet ChemNet distance: a metric for generative models for molecules in drug discovery</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2018</year>
+                <volume>58</volume>
+                <fpage>1736</fpage>
+                <lpage>1741</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXhsFejsLrL</pub-id>
+                <pub-id pub-id-type="doi">10.1021/acs.jcim.8b00234</pub-id>
+                <pub-id pub-id-type="pmid">30118593</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Kim</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Thiessen</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                  <name>
+                    <surname>Bolton</surname>
+                    <given-names>EE</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">PubChem substance and compound databases</article-title>
+                <source>Nucleic Acids Res</source>
+                <year>2016</year>
+                <volume>44</volume>
+                <fpage>D1202</fpage>
+                <lpage>D1213</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhtV2gu7bE</pub-id>
+                <pub-id pub-id-type="doi">10.1093/nar/gkv951</pub-id>
+                <pub-id pub-id-type="pmid">26400175</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Irwin</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Sterling</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Mysinger</surname>
+                    <given-names>MM</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">ZINC: a free tool to discover chemistry for biology</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2012</year>
+                <volume>52</volume>
+                <fpage>1757</fpage>
+                <lpage>1768</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XmvFGnsrg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci3001277</pub-id>
+                <pub-id pub-id-type="pmid">22587354</pub-id>
+                <pub-id pub-id-type="pmcid">3402020</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schmidhuber</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Deep learning in neural networks: an overview</article-title>
+                <source>Neural Netw</source>
+                <year>2015</year>
+                <volume>61</volume>
+                <fpage>85</fpage>
+                <lpage>117</lpage>
+                <pub-id pub-id-type="doi">10.1016/j.neunet.2014.09.003</pub-id>
+                <pub-id pub-id-type="pmid">25462637</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hopfield</surname>
+                    <given-names>JJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Neural networks and physical systems with emergent collective computational abilities</article-title>
+                <source>Proc Natl Acad Sci</source>
+                <year>1982</year>
+                <volume>79</volume>
+                <fpage>2554</fpage>
+                <lpage>2558</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:STN:280:DyaL383it1WktQ%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1073/pnas.79.8.2554</pub-id>
+                <pub-id pub-id-type="pmid">6953413</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hochreiter</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Bengio</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Frasconi</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Schmidhuber</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Kremer</surname>
+                    <given-names>SC</given-names>
+                  </name>
+                  <name>
+                    <surname>Kolen</surname>
+                    <given-names>JF</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Gradient flow in recurrent nets: the difficulty of learning longterm dependencies</article-title>
+                <source>A field guide to dynamical recurrent networks</source>
+                <year>2009</year>
+                <publisher-loc>London</publisher-loc>
+                <publisher-name>IEEE Press</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hochreiter</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Schmidhuber</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Long short-term memory</article-title>
+                <source>Neural Comput</source>
+                <year>1997</year>
+                <volume>9</volume>
+                <fpage>1735</fpage>
+                <lpage>1780</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:STN:280:DyaK1c%2FhvVahsQ%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1162/neco.1997.9.8.1735</pub-id>
+                <pub-id pub-id-type="pmid">9377276</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="other">Cho K, van Merrienboer B, Gulcehre C et al (2014) Learning phrase representations using RNN encoder–decoder for statistical machine translation. <ext-link xlink:href="10.3115/v1/D14-1179" ext-link-type="doi">https://doi.org/10.3115/v1/D14-1179</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rahman</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Borah</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A survey on existing extractive techniques for query-based text summarization</article-title>
+                <source>Int Symp Adv Comput Commun ISACC</source>
+                <year>2015</year>
+                <volume>2015</volume>
+                <fpage>98</fpage>
+                <lpage>102</lpage>
+                <pub-id pub-id-type="doi">10.1109/ISACC.2015.7377323</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Williams</surname>
+                    <given-names>RJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Zipser</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A learning algorithm for continually running fully recurrent neural networks</article-title>
+                <source>Neural Comput</source>
+                <year>1989</year>
+                <volume>1</volume>
+                <fpage>270</fpage>
+                <lpage>280</lpage>
+                <pub-id pub-id-type="doi">10.1162/neco.1989.1.2.270</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="other">Laplace P-S (1814) Chapitre II: De la probabilité des événements composés d’événements simples dont les possibilités respectives sont données (4). In: Théorie analytique des probabilités, 2nd ed. Mme. Ve. Courcier, Paris, pp 191–201</mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Blum</surname>
+                    <given-names>LC</given-names>
+                  </name>
+                  <name>
+                    <surname>Van Deursen</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Reymond</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Visualisation and subsets of the chemical universe database GDB-13 for virtual screening</article-title>
+                <source>J Comput Aided Mol Des</source>
+                <year>2011</year>
+                <volume>25</volume>
+                <fpage>637</fpage>
+                <lpage>647</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhtVSqtbbN</pub-id>
+                <pub-id pub-id-type="doi">10.1007/s10822-011-9436-y</pub-id>
+                <pub-id pub-id-type="pmid">21618009</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Nguyen</surname>
+                    <given-names>KT</given-names>
+                  </name>
+                  <name>
+                    <surname>Blum</surname>
+                    <given-names>LC</given-names>
+                  </name>
+                  <name>
+                    <surname>van Deursen</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Reymond</surname>
+                    <given-names>J-L</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Classification of organic molecules by molecular quantum numbers</article-title>
+                <source>ChemMedChem</source>
+                <year>2009</year>
+                <volume>4</volume>
+                <fpage>1803</fpage>
+                <lpage>1805</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXhtlagu77M</pub-id>
+                <pub-id pub-id-type="doi">10.1002/cmdc.200900317</pub-id>
+                <pub-id pub-id-type="pmid">19774591</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Fink</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Raymond</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Virtual exploration of the chemical universe up to 11 atoms of C, N, O, F: Assembly of 26.4 million structures (110.9 million stereoisomers) and analysis for new ring systems, stereochemistry, physicochemical properties, compound classes, and drug discove</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <fpage>342</fpage>
+                <lpage>353</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXhtVens7k%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci600423u</pub-id>
+                <pub-id pub-id-type="pmid">17260980</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="other">Swain M, JoshuaMeyers (2018) mcs07/MolVS: MolVS v0.1.1. <ext-link xlink:href="10.5281/zenodo.1217118" ext-link-type="doi">https://doi.org/10.5281/zenodo.1217118</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="other">Landrum G, Kelley B, Tosco P, et al. (2018) rdkit/rdkit: 2018_03_4 (Q1 2018) Release. <ext-link xlink:href="10.5281/zenodo.1345120" ext-link-type="doi">https://doi.org/10.5281/zenodo.1345120</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Paszke</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Chanan</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>Lin</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Automatic differentiation in PyTorch</article-title>
+                <source>Adv Neural Inf Process Syst</source>
+                <year>2017</year>
+                <volume>30</volume>
+                <fpage>1</fpage>
+                <lpage>4</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lee</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Myung</surname>
+                    <given-names>K</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Read my lips, login to the virtual world</article-title>
+                <source>IEEE Int Conf Consum Electron ICCE</source>
+                <year>2017</year>
+                <volume>2017</volume>
+                <fpage>434</fpage>
+                <lpage>435</lpage>
+                <pub-id pub-id-type="doi">10.1109/ICCE.2017.7889386</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Zaharia</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Franklin</surname>
+                    <given-names>MJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Ghodsi</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Apache spark</article-title>
+                <source>Commun ACM</source>
+                <year>2016</year>
+                <volume>59</volume>
+                <fpage>56</fpage>
+                <lpage>65</lpage>
+                <pub-id pub-id-type="doi">10.1145/2934664</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hunter</surname>
+                    <given-names>JD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Matplotlib: a 2D graphics environment</article-title>
+                <source>Comput Sci Eng</source>
+                <year>2007</year>
+                <volume>9</volume>
+                <fpage>99</fpage>
+                <lpage>104</lpage>
+                <pub-id pub-id-type="doi">10.1109/MCSE.2007.55</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="other">Waskom M, Botvinnik O, O’Kane D et al. (2018) mwaskom/seaborn: v0.9.0 (July 2018). <ext-link xlink:href="10.5281/zenodo.1313201" ext-link-type="doi">https://doi.org/10.5281/zenodo.1313201</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="other">Virtanen P, Gommers R, Burovski E et al. (2018) scipy/scipy: SciPy 1.1.0. <ext-link xlink:href="10.5281/zenodo.1241501" ext-link-type="doi">https://doi.org/10.5281/zenodo.1241501</ext-link></mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>O’Boyle</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Dalke</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">DeepSMILES: an adaptation of SMILES for use in machine-learning of chemical structures</article-title>
+                <source>chemRxiv</source>
+                <year>2018</year>
+                <pub-id pub-id-type="doi">10.26434/chemrxiv.7097960.v1</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Li</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Vinyals</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Dyer</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <etal />
+                </person-group>
+                <article-title xml:lang="en">Learning deep generative models of graphs</article-title>
+                <source>ICLR</source>
+                <year>2018</year>
+                <pub-id pub-id-type="doi">10.1146/annurev-statistics-010814-020120</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec19">
+              <title>Additional file</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Additional file">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2019_341_MOESM1_ESM.docx" position="anchor">
+                    <caption xml:lang="en">
+                      <p><ext-link xlink:href="https://doi.org/10.1186/s13321-019-0341-z" ext-link-type="uri">Additional file 1.</ext-link> Supplementary material.</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+          </app>
+        </app-group>
+        <glossary>
+          <title>Abbreviations</title>
+          <def-list>
+            <def-item>
+              <term>ADAM</term>
+              <def>
+                <p id="Par2">adaptive moment estimation</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>GAN</term>
+              <def>
+                <p id="Par3">generative adversarial network</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>GDB</term>
+              <def>
+                <p id="Par4">generated database</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>GRU</term>
+              <def>
+                <p id="Par5">gated recurrent unit</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>HSV</term>
+              <def>
+                <p id="Par6">hue–saturation–value</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>NLL</term>
+              <def>
+                <p id="Par7">negative log-likelihood</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>LR</term>
+              <def>
+                <p id="Par8">learning rate</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>LSTM</term>
+              <def>
+                <p id="Par9">long short-term memory</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>MQN</term>
+              <def>
+                <p id="Par10">molecular quantum numbers</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>NN</term>
+              <def>
+                <p id="Par11">neural network</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>PCA</term>
+              <def>
+                <p id="Par12">principal component analysis</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>RNN</term>
+              <def>
+                <p id="Par13">recurrent neural network</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>SMARTS</term>
+              <def>
+                <p id="Par14">smiles arbitrary target specification</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>SMILES</term>
+              <def>
+                <p id="Par15">simplified molecular-input line-entry system</p>
+              </def>
+            </def-item>
+            <def-item>
+              <term>VAE</term>
+              <def>
+                <p id="Par16">variational auto-encoder</p>
+              </def>
+            </def-item>
+          </def-list>
+        </glossary>
+      </back>
+    </article>
