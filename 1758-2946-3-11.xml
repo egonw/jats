@@ -124,14 +124,14 @@
           </history>
           <permissions>
             <copyright-statement content-type="compact">© Rosenbaum et al; licensee Chemistry Central Ltd. 2011</copyright-statement>
-            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="uri">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
             <copyright-year>2011</copyright-year>
             <copyright-holder>Rosenbaum et al; licensee Chemistry Central Ltd.</copyright-holder>
             <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0/">
-              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="url">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="uri">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
             </license>
           </permissions>
-          <abstract id="Abs1" xml:lang="en">
+          <abstract xml:lang="en" id="Abs1">
             <title>Abstract</title>
             <sec id="ASec1">
               <title>Background</title>
@@ -147,9 +147,7 @@
             </sec>
             <sec>
               <fig id="Figa" position="anchor">
-                <p>
-                  <graphic position="anchor" specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2010_Article_126_Figa_HTML.gif" />
-                </p>
+                <graphic specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2010_Article_126_Figa_HTML.gif" position="anchor" />
               </fig>
             </sec>
           </abstract>
@@ -310,7 +308,7 @@
         </article-meta>
         <notes notes-type="ESMHint">
           <title>Electronic supplementary material</title>
-          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-3-11" ext-link-type="doi">10.1186/1758-2946-3-11</ext-link>) contains supplementary material, which is available to authorized users.</p>
+          <p>The online version of this article (doi:<ext-link xlink:href="10.1186/1758-2946-3-11" ext-link-type="doi">10.1186/1758-2946-3-11</ext-link>) contains supplementary material, which is available to authorized users.</p>
         </notes>
       </front>
       <body>
@@ -339,7 +337,7 @@
           <sec id="Sec4">
             <title>Molecular Encodings</title>
             <p>For structure-based classifiers, it is common to encode the molecular graph of a compound with binary fingerprints for large-scale learning tasks in cheminformatics. Each bit of a fingerprint indicates the presence or absence of a fingerprint feature. The specific choice of molecular encoding is crucial to obtain an interpretable linear model. The employed encoding must ensure that the set of atoms or bonds which a fingerprint feature represents is available while calculating the molecular encoding. Consequently, the weight of a fingerprint feature can be mapped back to those atoms or bonds. The mapping from sets of atoms or bonds to fingerprint features needs not to be injective. If a collision occurs, the weight of a feature is mapped to all sets of atoms or bonds that caused the collision. Common molecular encodings that generate interpretable features are radial atom environments [<xref ref-type="bibr" rid="CR3">3</xref>], depth first search paths [<xref ref-type="bibr" rid="CR15">15</xref>], or extended connectivity fingerprints (ECFP) [<xref ref-type="bibr" rid="CR16">16</xref>].</p>
-            <p>We employed a variant of the ECFP to encode the molecules because ECFP features are intuitively interpretable and can be mapped back to the topology of a chemical graph. Each ECFP feature of a fingerprinted compound represents a circular substructure around a center atom. The algorithm starts with the initial atom identifier (in our case Daylight invariants [<xref ref-type="bibr" rid="CR17">17</xref>]) of the center atom and grows a circular substructure around this atom. This growing can be done implicitly, like in the original algorithm, or explicitly, like in our variant. In the original algorithm the identifiers of the alpha atoms of a center atom are used to calculate an updated identifier for the center atom. In each iteration, the identifiers of the previous iteration are used as atom identifiers. This iterative procedure implicitly grows a circular substructure around the center atom because with an increasing number of iterations the updated identifier of a center atom contains information from further and further away. Our variant does the growing of a substructure explicitly by keeping the circular substructures of the previous iteration and their possible attachment points in memory. In each iteration the circular substructures are extended at their possible attachment points using the initial atom identifiers (Figure <xref rid="Fig1" ref-type="fig">1</xref>). Both ECFP variants generate an ECFP feature for each possible center atom and iteration. We evaluated the performance of both ECFP variants and could not observe a significant difference. We employed our variant because the information contained in a feature is defined more precisely.<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>Illustration of the ECFP</bold>. Each circular substructure around a center atom represents an ECFP feature. The circular substructure is grown in each iteration at the attachment points A. Any atom can be matched on an attachment point. Aromatic bonds are marked by a dashed line.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig1_HTML.jpg" /></p></fig></p>
+            <p>We employed a variant of the ECFP to encode the molecules because ECFP features are intuitively interpretable and can be mapped back to the topology of a chemical graph. Each ECFP feature of a fingerprinted compound represents a circular substructure around a center atom. The algorithm starts with the initial atom identifier (in our case Daylight invariants [<xref ref-type="bibr" rid="CR17">17</xref>]) of the center atom and grows a circular substructure around this atom. This growing can be done implicitly, like in the original algorithm, or explicitly, like in our variant. In the original algorithm the identifiers of the alpha atoms of a center atom are used to calculate an updated identifier for the center atom. In each iteration, the identifiers of the previous iteration are used as atom identifiers. This iterative procedure implicitly grows a circular substructure around the center atom because with an increasing number of iterations the updated identifier of a center atom contains information from further and further away. Our variant does the growing of a substructure explicitly by keeping the circular substructures of the previous iteration and their possible attachment points in memory. In each iteration the circular substructures are extended at their possible attachment points using the initial atom identifiers (Figure <xref rid="Fig1" ref-type="fig">1</xref>). Both ECFP variants generate an ECFP feature for each possible center atom and iteration. We evaluated the performance of both ECFP variants and could not observe a significant difference. We employed our variant because the information contained in a feature is defined more precisely.<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>Illustration of the ECFP</bold>. Each circular substructure around a center atom represents an ECFP feature. The circular substructure is grown in each iteration at the attachment points A. Any atom can be matched on an attachment point. Aromatic bonds are marked by a dashed line.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig1_HTML.jpg" /></fig></p>
             <p>To be able to look up the substructure information of an ECFP feature, we saved the mapping from fingerprint feature identifiers to circular substructures while calculating the fingerprints of a data set. Due to the hashing, which is conducted to assign a fingerprint feature identifier, it is possible that a features identifier maps to several different substructures. However, collisions can be minimized by choosing a sufficiently large hash space.</p>
           </sec>
           <sec id="Sec5">
@@ -348,7 +346,7 @@
             <p>Another intuitive approach to interpret a linear model is to select all patterns that exceed a certain weight threshold, as done in a study by Fechner et al. [<xref ref-type="bibr" rid="CR8">8</xref>]. Their pattern selection approach proved to be useful on small data sets which share a common scaffold. However, preliminary experiments showed that the approach does not lead to interpretable results on large, diverse chemical data sets of assay outcomes, especially for external predictions. The top 5 ranked patterns (examples for several employed data sets can be found in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>) mostly had a significantly higher precision than expected by chance. However, the chance to find a significantly predictive pattern drops considerably with decreasing rank. Even for data sets with a promising performance (<italic>AUC</italic> > 0.9), the chance to find a singular predictive pattern in the set of selected patterns (weight ≥ 3 × <italic>σ</italic>) for the training set is small (<italic>p</italic> &lt; 0.3). This probability drops considerably for the test set. A reason for this low probability might be that several patterns that by themselves cannot separate the two classes well might separate the classes better if combined [<xref ref-type="bibr" rid="CR18">18</xref>]. For example, two patterns can perform perfectly random on their own, but can perfectly separate both classes if combined. However, combining patterns can not be accomplished by a method that inspects single patterns separately. Another reason can be the redundancy of the ECFP. The SVM might split the importance (weight) of a substructure among the redundant patterns that represent it.</p>
             <p>Consequently, the patterns appear less important than they actually are. This problem is circumvented by the heat map coloring technique because it integrates the information of all training patterns. Hence, the importance of all redundant patterns that represent a certain substructure is fused in the coloring of a molecule. Additionally, in a chemical compound, patterns with different weights might overlap, making the interpretation unintuitive. In contrast, the information of overlapping patterns is integrated and intuitively visualized by the heat map coloring approach.</p>
             <p>The inputs of our method are a previously trained linear SVM model, a list of compounds of interest and possibly the whole training data set depending on the employed normalization. Our method can be divided into two separate steps. First, our algorithm assigns a score to each atom and bond of a molecule based on the weights of the linear SVM model. Second, the scores are transformed to a color on a color gradient.</p>
-            <p>In this manuscript, we only performed bond coloring. Thus, we only explain the calculation of bond scores. The calculation of scores is analogous for atoms and bonds. Hence, the presented calculation of bond scores can be easily transferred to atoms if needed. We had two reasons for solely using bond coloring. Firstly, the ECFP focuses on connectivity information which can be better visualized using bond coloring. Secondly, we wanted to allow for easy element identification by using element type atom coloring. For a different fingerprinting algorithm, like radial atom environments, atom colorings might be more useful. To assign a score to each bond, our algorithm fingerprints the compounds of interest or the whole training data set again. Throughout the fingerprinting process the information, which bonds a fingerprint feature represents in a certain compound, is stored. Based on the weights of the fingerprint features, a score is assigned to each bond of a compound. The score of a bond <italic>b</italic> is equal to the sum of weights of the fingerprint features that contain the bond (Figure <xref rid="Fig2" ref-type="fig">2</xref>). Thus, the score <italic>s</italic><sub><italic>b</italic></sub> of a bond <italic>b</italic> is<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>Illustration of pattern to bond weight mapping</bold>. The weight <italic>w</italic><sub><italic>j</italic></sub> of a pattern <italic>p</italic><sub><italic>j</italic></sub> is added to the score <italic>s</italic><sub><italic>b</italic></sub> of a bond <italic>b</italic> if the bond is contained in the pattern <italic>p</italic><sub><italic>j</italic></sub>. Attachment points A can be mapped on any atom. Aromatic bonds are marked by a dashed line.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig2_HTML.jpg" /></p></fig></p>
+            <p>In this manuscript, we only performed bond coloring. Thus, we only explain the calculation of bond scores. The calculation of scores is analogous for atoms and bonds. Hence, the presented calculation of bond scores can be easily transferred to atoms if needed. We had two reasons for solely using bond coloring. Firstly, the ECFP focuses on connectivity information which can be better visualized using bond coloring. Secondly, we wanted to allow for easy element identification by using element type atom coloring. For a different fingerprinting algorithm, like radial atom environments, atom colorings might be more useful. To assign a score to each bond, our algorithm fingerprints the compounds of interest or the whole training data set again. Throughout the fingerprinting process the information, which bonds a fingerprint feature represents in a certain compound, is stored. Based on the weights of the fingerprint features, a score is assigned to each bond of a compound. The score of a bond <italic>b</italic> is equal to the sum of weights of the fingerprint features that contain the bond (Figure <xref rid="Fig2" ref-type="fig">2</xref>). Thus, the score <italic>s</italic><sub><italic>b</italic></sub> of a bond <italic>b</italic> is<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>Illustration of pattern to bond weight mapping</bold>. The weight <italic>w</italic><sub><italic>j</italic></sub> of a pattern <italic>p</italic><sub><italic>j</italic></sub> is added to the score <italic>s</italic><sub><italic>b</italic></sub> of a bond <italic>b</italic> if the bond is contained in the pattern <italic>p</italic><sub><italic>j</italic></sub>. Attachment points A can be mapped on any atom. Aromatic bonds are marked by a dashed line.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig2_HTML.jpg" /></fig></p>
             <p>
               <disp-formula id="Equ4">
                 <label>4</label>
@@ -394,21 +392,21 @@
           </sec>
           <sec id="Sec11">
             <title>Visualization of Kazius Ames toxicity data set</title>
-            <p>Using a linear model of the Kazius data set, we externally predicted compounds 1028-11-1 (C<sub><italic>A</italic></sub>) and 146795-38-2 (C<sub><italic>B</italic></sub>), and applied our heat map atom coloring method with both normalization variants. Figure <xref rid="Fig3" ref-type="fig">3(A,B)</xref> shows the heat map coloring of the correctly predicted non-toxic compound C<sub><italic>A</italic></sub>. The toxic and the detoxifying substructures described by Kazius et al. could be identified with our method. However, in addition to the detoxifying sulfonamide our method also colored parts of the aromatic ring structure red (non-toxic), which is probably caused by the fact that the sulfonamide is often attached to an aromatic ring in the data set. Compound C <sub><italic>B</italic></sub> (Figure <xref rid="Fig3" ref-type="fig">3C,D</xref>) was correctly predicted as toxic. The compound contains the same aromatic nitro toxicophore as compound C<sub><italic>A</italic></sub>, which our method identified together with parts of the attached aromatic ring. In contrast to C<sub><italic>A</italic></sub>, compound C <sub><italic>B</italic></sub> is toxic because it does not contain a detoxifying sulfonamide. However, the compound has a red colored chlorobenzene substructure, which is non-toxic and not detoxifying in case of C<sub><italic>B</italic></sub>. The overall toxicity of both compounds is visualized by the full set normalization. Compound C <sub><italic>A</italic></sub> (Figure <xref rid="Fig3" ref-type="fig">3B</xref>) is more reddish compared to compound C <sub><italic>B</italic></sub> (Figure <xref rid="Fig3" ref-type="fig">3D</xref>) and therefore has a lower prediction value.<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>Kazius data set example compounds</bold>. A heat map coloring of the non-toxic compound 1028-11-1 (C<sub><italic>A</italic></sub>) and the toxic compound 146795-38-2 (C<sub><italic>B</italic></sub>). Both compounds were predicted correctly. The color gradient ranges from green (toxic) to red (non-toxic). Both, the single molecule normalization (A,C) and the full data set normalization were applied (B,D). Compound C<sub><italic>A</italic></sub> contains a correctly identified aromatic nitro toxicophore. However, the compound has a detoxifying sulfonamide as well, rendering the compound non-toxic. The sulfonamide and parts of the aromatic ring were identified as non-toxic. In compound C<sub><italic>B</italic></sub> the aromatic nitro toxicophore was also identified as toxicophore. Compound C<sub><italic>B</italic></sub> is toxic because the red chlorobenzene substructure is not a detoxifying substructure.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig3_HTML.jpg" /></p></fig></p>
+            <p>Using a linear model of the Kazius data set, we externally predicted compounds 1028-11-1 (C<sub><italic>A</italic></sub>) and 146795-38-2 (C<sub><italic>B</italic></sub>), and applied our heat map atom coloring method with both normalization variants. Figure <xref rid="Fig3" ref-type="fig">3(A,B)</xref> shows the heat map coloring of the correctly predicted non-toxic compound C<sub><italic>A</italic></sub>. The toxic and the detoxifying substructures described by Kazius et al. could be identified with our method. However, in addition to the detoxifying sulfonamide our method also colored parts of the aromatic ring structure red (non-toxic), which is probably caused by the fact that the sulfonamide is often attached to an aromatic ring in the data set. Compound C <sub><italic>B</italic></sub> (Figure <xref rid="Fig3" ref-type="fig">3C,D</xref>) was correctly predicted as toxic. The compound contains the same aromatic nitro toxicophore as compound C<sub><italic>A</italic></sub>, which our method identified together with parts of the attached aromatic ring. In contrast to C<sub><italic>A</italic></sub>, compound C <sub><italic>B</italic></sub> is toxic because it does not contain a detoxifying sulfonamide. However, the compound has a red colored chlorobenzene substructure, which is non-toxic and not detoxifying in case of C<sub><italic>B</italic></sub>. The overall toxicity of both compounds is visualized by the full set normalization. Compound C <sub><italic>A</italic></sub> (Figure <xref rid="Fig3" ref-type="fig">3B</xref>) is more reddish compared to compound C <sub><italic>B</italic></sub> (Figure <xref rid="Fig3" ref-type="fig">3D</xref>) and therefore has a lower prediction value.<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>Kazius data set example compounds</bold>. A heat map coloring of the non-toxic compound 1028-11-1 (C<sub><italic>A</italic></sub>) and the toxic compound 146795-38-2 (C<sub><italic>B</italic></sub>). Both compounds were predicted correctly. The color gradient ranges from green (toxic) to red (non-toxic). Both, the single molecule normalization (A,C) and the full data set normalization were applied (B,D). Compound C<sub><italic>A</italic></sub> contains a correctly identified aromatic nitro toxicophore. However, the compound has a detoxifying sulfonamide as well, rendering the compound non-toxic. The sulfonamide and parts of the aromatic ring were identified as non-toxic. In compound C<sub><italic>B</italic></sub> the aromatic nitro toxicophore was also identified as toxicophore. Compound C<sub><italic>B</italic></sub> is toxic because the red chlorobenzene substructure is not a detoxifying substructure.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig3_HTML.jpg" /></fig></p>
             <p>The coloring of the compounds reveals weaknesses of both normalization methods. When the single molecule normalization is applied, one can not distinguish between a non-toxic and a detoxifying substructure because the normalization can only visualize differences within the structure. Thus, it is impossible to decide if a substructure is detoxifying or non-toxic without additional information on the toxicity. Given a compound that only contains toxicophores, the most toxic substructure would be colored green and the least toxic weighted substructure would be colored red. However, the information on the toxicity of a compound is available in form of the prediction value. Thus, this weakness can be compensated. The visualization of compound C <sub><italic>A</italic></sub> (Figure <xref rid="Fig3" ref-type="fig">3B</xref>) indicates the drawbacks of the full set normalization method: While it captures the overall toxicity of the compound, the aromatic nitro toxicophore and the detoxifying sulfonamide are less distinguishable.</p>
           </sec>
           <sec id="Sec12">
             <title>Visualization of MUV548 protein kinase A data set</title>
             <p>We conducted external predictions for the ligands of the PDB entries 3MVJ (L<sub><italic>A</italic></sub>), 3DNE (L<sub><italic>B</italic></sub>), and 3DND (L<sub><italic>C</italic></sub>) using a model trained on MUV548. Then, we applied our heat map coloring to the ligands. The employed PDB entries were the most suitable ones of several crystal structures available for protein kinase A because of their similarity to the compounds contained in MUV548. The ligands of other PDB structures are more dissimilar and thus presumably not in the applicability domain of a model trained on MUV548. The crystal structures of L <sub><italic>B</italic></sub> and L <sub><italic>C</italic></sub> originate from a study by Orts et al [<xref ref-type="bibr" rid="CR25">25</xref>]. The authors used an NMR based method to determine the binding orientation of low-affinity inhibitors. The method allowed for selecting the correct binding orientation of both ligands from four different orientations gained by rotation of the ligands in the binding pocket. To elucidate if our coloring method can also assist to select the correct binding orientation, we applied our method to the ligands presented in the study of Orts et al. and additionally ligand L<sub><italic>A</italic></sub>. The crystal structure of L <sub><italic>A</italic></sub> stems from an analysis of selective inhibitors against Akt1 (PKB) [<xref ref-type="bibr" rid="CR26">26</xref>]. The ligand inhibits PKA with an <italic>IC</italic><sub>50</sub> of 3.2 <italic>μM</italic>.</p>
-            <p>The coloring of the substructures of all three ligands correlates with the substructure position in the binding pocket (Figure <xref rid="Fig4" ref-type="fig">4</xref>). Especially the position of the green colored basic aromatic ring deep in the binding pocket is conserved for the three structures. If the ligands were rotated by 180° around the <italic>y</italic> axis, the red colored (unimportant) substructures would be located deep in the binding pocket. Hence, our approach assists to find the correct orientation of the ligands if rotated around the <italic>y</italic> axis. This rotation excludes two of the possible four orientations described by Orts et al. However, in case of the presented ligands our approach can not help to discriminate between rotations around the <italic>z</italic> axis. Yet, this limitation is not a real drawback for our method because it can be applied on the data of an HTS without performing additional NMR experiments.<fig id="Fig4"><label>Figure 4</label><caption xml:lang="en"><p><bold>Orientation of different protein kinase A ligands</bold>. Binding orientation of the ligands of PDB entries 3MVJ (L<sub><italic>A</italic></sub>), 3DNE (L<sub><italic>B</italic></sub>), and 3DND (L<sub><italic>C</italic></sub>). Compounds within the binding pocket were colored with the single molecule normalization, the compounds above with the full set normalization. The color gradient ranges from green (important for activity) to red (unimportant or even decreasing for activity). The binding pocket is indicated as an exclusion surface. Substructures, which are located at similar positions in the binding pocket, were colored similarly by the heat map coloring approach.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig4_HTML.jpg" /></p></fig></p>
+            <p>The coloring of the substructures of all three ligands correlates with the substructure position in the binding pocket (Figure <xref rid="Fig4" ref-type="fig">4</xref>). Especially the position of the green colored basic aromatic ring deep in the binding pocket is conserved for the three structures. If the ligands were rotated by 180° around the <italic>y</italic> axis, the red colored (unimportant) substructures would be located deep in the binding pocket. Hence, our approach assists to find the correct orientation of the ligands if rotated around the <italic>y</italic> axis. This rotation excludes two of the possible four orientations described by Orts et al. However, in case of the presented ligands our approach can not help to discriminate between rotations around the <italic>z</italic> axis. Yet, this limitation is not a real drawback for our method because it can be applied on the data of an HTS without performing additional NMR experiments.<fig id="Fig4"><label>Figure 4</label><caption xml:lang="en"><p><bold>Orientation of different protein kinase A ligands</bold>. Binding orientation of the ligands of PDB entries 3MVJ (L<sub><italic>A</italic></sub>), 3DNE (L<sub><italic>B</italic></sub>), and 3DND (L<sub><italic>C</italic></sub>). Compounds within the binding pocket were colored with the single molecule normalization, the compounds above with the full set normalization. The color gradient ranges from green (important for activity) to red (unimportant or even decreasing for activity). The binding pocket is indicated as an exclusion surface. Substructures, which are located at similar positions in the binding pocket, were colored similarly by the heat map coloring approach.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig4_HTML.jpg" /></fig></p>
             <p>The external prediction value of ligand L<sub><italic>C</italic></sub>, as indicated by the full set coloring (Figure <xref rid="Fig4" ref-type="fig">4</xref>), is lower than the prediction value of the other two ligands. On the ranked list of prediction values the ligands L <sub><italic>A</italic></sub> and L <sub><italic>B</italic></sub> are under the top 1% while the ligand L <sub><italic>C</italic></sub> is at position 4, 206 of 15,003 compounds. Hence, the coloring of L <sub><italic>C</italic></sub> could be inaccurate and changed if the ligands are included in the training set. Thus, we added all three ligands to the training set and applied the heat map coloring again. As expected, the training prediction values of all three ligands then were under the top 1% of the ranked list of training prediction values. The new position of the ligand L <sub><italic>C</italic></sub> in the ranked list was reflected by the full set normalized coloring. However, the single molecule normalized coloring did not change considerably for any of the ligands. The change in the full set normalized coloring was caused by a positive weighting of a large substructure of ligand L<sub><italic>C</italic></sub>. Re-weighting large substructures does not substantially influence weight differences within the molecule. Hence, in the case of L <sub><italic>C</italic></sub> the single molecule normalization might be more robust than the full set normalization.</p>
             <p>The approach to compare the colorings of an external prediction and an inclusion in the training set might be a way to estimate the robustness of a coloring. While test compounds should never be included in model training when building predictive models, our intend is to build a descriptive model to identify features crucial for a molecule's molecular behavior. In the later case, inclusion of a compound for model building might be beneficial because additional information for finding important features is available. However, if the coloring of a compound changes drastically after inclusion in the model training, the descriptive model might not be sensible or structural aspects of a certain scaffold were not included. A robust model should not swap from completely meaningless features to sensible features by inclusion of just one compound in model training.</p>
-            <p>To evaluate if our visualization colors those substructures important for the interaction between a ligand and the target, we aligned the binding pockets of the crystal structures of L <sub><italic>A</italic></sub> and L <sub><italic>B</italic></sub> using Schrödinger 2010 [<xref ref-type="bibr" rid="CR24">24</xref>]. We chose L <sub><italic>A</italic></sub> and L <sub><italic>B</italic></sub> because the external prediction values of the ligands were within the top 1% of the ranked prediction value list. The important interactions of the ligands can be illustrated in comparison to the binding of ATP. The purine base of ATP is anchored in the binding pocket by hydrogen bonds to three protein residues: Glu121, Val123 and Thr183 [<xref ref-type="bibr" rid="CR27">27</xref>, <xref ref-type="bibr" rid="CR28">28</xref>]. In both compounds a basic aromatic ring substructure is marked as important for activity by the heat map coloring method (Figure <xref rid="Fig5" ref-type="fig">5</xref>). According to Schrödinger 2010, Val123 establishes an H-bond with the N1 of the pyridine of L <sub><italic>B</italic></sub> and the N1 of the pyrrolopyrimidine of L<sub><italic>A</italic></sub>. In the structure of L<sub><italic>B</italic></sub>, an additional H-bond connects Thr183 and the N1 of the indazole ring. In the structure of L<sub><italic>A</italic></sub>, Glu121 establishes an H-bond with the N7 of the pyrrolopyrimidine substructure. All H-bonds are reflected by the heat map coloring of the ligands. Additionally, the N1 of the pyrrolidine is colored as important for activity. While no interaction was detected for nitrogen N1, all active compounds of MUV548 that are based on a pyrrolopyrimidine scaffold also contain this nitrogen. Furthermore, parts of the pyrrolopyrimidine and the C5 attached methyl group of the ligand L <sub><italic>A</italic></sub> were marked as unimportant suggesting that the protein might be more flexible in this region. This flexibility assumption is supported by the form of the binding pocket of L <sub><italic>C</italic></sub> (Figure <xref rid="Fig4" ref-type="fig">4</xref>) which is not closed in the corresponding region. Consequently, the most important substructure, according to the heat map coloring approach, might be a basic aromatic ring substructure which is able to interact with Val123.<fig id="Fig5"><label>Figure 5</label><caption xml:lang="en"><p><bold>Aligned binding pockets of L</bold><sub><bold><italic>A</italic></bold></sub><bold>and L</bold><sub><bold><italic>B</italic></bold></sub>. The binding pockets of L<sub><italic>A</italic></sub> and L<sub><italic>B</italic></sub> were aligned and the ligands were colored with the single molecule normalization. The color gradient ranges from green (important for activity) to red (unimportant for activity or even decreasing). The green protein residues belong to L<sub><italic>A</italic></sub> and the orange ones to L<sub><italic>B</italic></sub>. The binding pocket is indicated as an exclusion surface. H-bonds detected by Schrödinger are indicated by a dashed line. Two similar basic aromatic rings located deep in the binding pocket are identified as important for activity.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig5_HTML.jpg" /></p></fig></p>
+            <p>To evaluate if our visualization colors those substructures important for the interaction between a ligand and the target, we aligned the binding pockets of the crystal structures of L <sub><italic>A</italic></sub> and L <sub><italic>B</italic></sub> using Schrödinger 2010 [<xref ref-type="bibr" rid="CR24">24</xref>]. We chose L <sub><italic>A</italic></sub> and L <sub><italic>B</italic></sub> because the external prediction values of the ligands were within the top 1% of the ranked prediction value list. The important interactions of the ligands can be illustrated in comparison to the binding of ATP. The purine base of ATP is anchored in the binding pocket by hydrogen bonds to three protein residues: Glu121, Val123 and Thr183 [<xref ref-type="bibr" rid="CR27">27</xref>, <xref ref-type="bibr" rid="CR28">28</xref>]. In both compounds a basic aromatic ring substructure is marked as important for activity by the heat map coloring method (Figure <xref rid="Fig5" ref-type="fig">5</xref>). According to Schrödinger 2010, Val123 establishes an H-bond with the N1 of the pyridine of L <sub><italic>B</italic></sub> and the N1 of the pyrrolopyrimidine of L<sub><italic>A</italic></sub>. In the structure of L<sub><italic>B</italic></sub>, an additional H-bond connects Thr183 and the N1 of the indazole ring. In the structure of L<sub><italic>A</italic></sub>, Glu121 establishes an H-bond with the N7 of the pyrrolopyrimidine substructure. All H-bonds are reflected by the heat map coloring of the ligands. Additionally, the N1 of the pyrrolidine is colored as important for activity. While no interaction was detected for nitrogen N1, all active compounds of MUV548 that are based on a pyrrolopyrimidine scaffold also contain this nitrogen. Furthermore, parts of the pyrrolopyrimidine and the C5 attached methyl group of the ligand L <sub><italic>A</italic></sub> were marked as unimportant suggesting that the protein might be more flexible in this region. This flexibility assumption is supported by the form of the binding pocket of L <sub><italic>C</italic></sub> (Figure <xref rid="Fig4" ref-type="fig">4</xref>) which is not closed in the corresponding region. Consequently, the most important substructure, according to the heat map coloring approach, might be a basic aromatic ring substructure which is able to interact with Val123.<fig id="Fig5"><label>Figure 5</label><caption xml:lang="en"><p><bold>Aligned binding pockets of L</bold><sub><bold><italic>A</italic></bold></sub><bold>and L</bold><sub><bold><italic>B</italic></bold></sub>. The binding pockets of L<sub><italic>A</italic></sub> and L<sub><italic>B</italic></sub> were aligned and the ligands were colored with the single molecule normalization. The color gradient ranges from green (important for activity) to red (unimportant for activity or even decreasing). The green protein residues belong to L<sub><italic>A</italic></sub> and the orange ones to L<sub><italic>B</italic></sub>. The binding pocket is indicated as an exclusion surface. H-bonds detected by Schrödinger are indicated by a dashed line. Two similar basic aromatic rings located deep in the binding pocket are identified as important for activity.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig5_HTML.jpg" /></fig></p>
           </sec>
           <sec id="Sec13">
             <title>Visualization of MUV846 factor XIa data set</title>
             <p>As with protein kinase A (MUV548), a plethora of crystal structures with small compound ligands are available for factor XIa. We tested our approach on the 6 ligands of the PDB entries 1ZRK, 1ZSK, 1ZTL, 2FDA, 3BG8, and 1ZOM. We trained a model on MUV846 and conducted external predictions and heat map colorings on the ligands. All external predictions were ranked between position 3127 and 11762 on the ranked list of the prediction values of 15,006 compounds. We included all six compounds in the training set to estimate the robustness of the colorings, analogously to the setup for ligand L <sub><italic>C</italic></sub> on MUV548. All compounds, except the ligand of PDB entry 3BG8, had a considerably different coloring compared to the external prediction. Hence, in the case of these five ligands the colorings might not be robust and apparently do not reflect sensible structure-activity relationships.</p>
-            <p>PDB entry 3BG8 contains a natural product, Clavatadine A, which inhibits factor XIa with an <italic>IC</italic><sub>50</sub> of 1.3 <italic>μM</italic> [<xref ref-type="bibr" rid="CR29">29</xref>]. Clavatadine A (Figure <xref rid="Fig6" ref-type="fig">6</xref>) is cleaved by a nucleophilic serine at the carbamate bond leaving only the carbamate side chain in the protein. Although the external prediction value of Clavatadine A is not convincing (position 3127 in the ranked list), the single molecule normalized heat map coloring of Clavatadine A identifies the carbamate bond as an important substructure for activity. A closer look at the active structures of MUV846 reveals that several active compounds also contain a carbamate bond and thus might exhibit the same binding mode. As with compound C <sub><italic>A</italic></sub> of the Kazius data set the full set normalization does not yield a useful coloring for Clavatadine A. The whole compound is colored reddish, which obscures the slight differences in coloring that are visible with the single molecule normalization.<fig id="Fig6"><label>Figure 6</label><caption xml:lang="en"><p><bold>Clavatadine A</bold>. Clavatadine A colored according to a model trained on MUV846. The color gradient ranges from green (important for activity) to red (unimportant for activity). The current molecule normalization (A) and the full data set normalization (B) were both applied. The carbamate substructure is marked as important for activity.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig6_HTML.jpg" /></p></fig></p>
+            <p>PDB entry 3BG8 contains a natural product, Clavatadine A, which inhibits factor XIa with an <italic>IC</italic><sub>50</sub> of 1.3 <italic>μM</italic> [<xref ref-type="bibr" rid="CR29">29</xref>]. Clavatadine A (Figure <xref rid="Fig6" ref-type="fig">6</xref>) is cleaved by a nucleophilic serine at the carbamate bond leaving only the carbamate side chain in the protein. Although the external prediction value of Clavatadine A is not convincing (position 3127 in the ranked list), the single molecule normalized heat map coloring of Clavatadine A identifies the carbamate bond as an important substructure for activity. A closer look at the active structures of MUV846 reveals that several active compounds also contain a carbamate bond and thus might exhibit the same binding mode. As with compound C <sub><italic>A</italic></sub> of the Kazius data set the full set normalization does not yield a useful coloring for Clavatadine A. The whole compound is colored reddish, which obscures the slight differences in coloring that are visible with the single molecule normalization.<fig id="Fig6"><label>Figure 6</label><caption xml:lang="en"><p><bold>Clavatadine A</bold>. Clavatadine A colored according to a model trained on MUV846. The color gradient ranges from green (important for activity) to red (unimportant for activity). The current molecule normalization (A) and the full data set normalization (B) were both applied. The carbamate substructure is marked as important for activity.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_126_Fig6_HTML.jpg" /></fig></p>
           </sec>
         </sec>
         <sec id="Sec14" sec-type="conclusions">
@@ -423,7 +421,7 @@
         </sec>
         <sec id="Sec15">
           <title>Availability</title>
-          <p>All employed programs are available free of charge as executable jar and source code at <ext-link xlink:href="http://www.ra.cs.uni-tuebingen.de/software/ChemHeatmap/" ext-link-type="url">http://www.ra.cs.uni-tuebingen.de/software/ChemHeatmap/</ext-link>. This includes the employed ECFP fingerprints, a modified Java version of LIBLINEAR and a graphical user interface to perform a heat map coloring of a compound. A short tutorial showing the workflow to obtain the colorings of the two compounds of the Kazius data set is also available.</p>
+          <p>All employed programs are available free of charge as executable jar and source code at <ext-link xlink:href="http://www.ra.cs.uni-tuebingen.de/software/ChemHeatmap/" ext-link-type="uri">http://www.ra.cs.uni-tuebingen.de/software/ChemHeatmap/</ext-link>. This includes the employed ECFP fingerprints, a modified Java version of LIBLINEAR and a graphical user interface to perform a heat map coloring of a compound. A short tutorial showing the workflow to obtain the colorings of the two compounds of the Kazius data set is also available.</p>
         </sec>
       </body>
       <back>
@@ -446,7 +444,7 @@
                 <fpage>882</fpage>
                 <lpage>894</lpage>
                 <pub-id pub-id-type="doi">10.1038/nrd941</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD38XotleqtLY%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XotleqtLY%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR2">
@@ -477,7 +475,7 @@
                 <fpage>369</fpage>
                 <lpage>378</lpage>
                 <pub-id pub-id-type="doi">10.1038/nrd1086</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXjslamtb8%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3sXjslamtb8%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR3">
@@ -508,7 +506,7 @@
                 <fpage>170</fpage>
                 <lpage>178</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci034207y</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXhtVSis7vM</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3sXhtVSis7vM</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR4">
@@ -572,7 +570,7 @@
                 <fpage>756</fpage>
                 <lpage>766</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci8004379</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXjvVSqt7w%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXjvVSqt7w%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR6">
@@ -615,7 +613,7 @@
                 <fpage>1821</fpage>
                 <lpage>1838</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci900367j</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXht1akt7zN</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXht1akt7zN</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR7">
@@ -655,7 +653,7 @@
                 <fpage>203</fpage>
                 <lpage>213</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci100073w</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3MXoslGi</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXoslGi</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR8">
@@ -690,7 +688,7 @@
                 <fpage>491</fpage>
                 <lpage>497</lpage>
                 <pub-id pub-id-type="doi">10.1002/minf.201000053</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXpslWksbc%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXpslWksbc%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR9">
@@ -717,7 +715,7 @@
                 <fpage>793</fpage>
                 <lpage>800</lpage>
                 <pub-id pub-id-type="doi">10.1002/minf.201000096</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXhsVGisL7E</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXhsVGisL7E</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR10">
@@ -744,7 +742,7 @@
                 <fpage>312</fpage>
                 <lpage>320</lpage>
                 <pub-id pub-id-type="doi">10.1021/jm040835a</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXhtFSlur%2FL</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhtFSlur%2FL</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR11">
@@ -767,7 +765,7 @@
                 <fpage>169</fpage>
                 <lpage>184</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci8002649</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXptlOhtQ%3D%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXptlOhtQ%3D%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR12">
@@ -790,7 +788,7 @@
                 <fpage>395</fpage>
                 <lpage>399</lpage>
                 <pub-id pub-id-type="doi">10.1021/jm00334a001</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaF2cXkt1OltbY%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaF2cXkt1OltbY%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR13">
@@ -809,7 +807,7 @@
                 <fpage>121</fpage>
                 <lpage>133</lpage>
                 <pub-id pub-id-type="doi">10.1002/qsar.19880070303</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaL1MXhsl2hug%3D%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL1MXhsl2hug%3D%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR14">
@@ -881,7 +879,7 @@
                 <fpage>742</fpage>
                 <lpage>754</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci100050t</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXlt1Onsbg%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXlt1Onsbg%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR17">
@@ -908,7 +906,7 @@
                 <fpage>97</fpage>
                 <lpage>101</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci00062a008</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaL1MXitFWlt7s%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL1MXitFWlt7s%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR18">
@@ -956,12 +954,12 @@
                 <fpage>1189</fpage>
                 <lpage>1204</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci100176x</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXnvVeitLk%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXnvVeitLk%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR20">
               <label>20.</label>
-              <mixed-citation publication-type="other">ChemAxon: JChem 5.3.8. [<ext-link xlink:href="http://www.chemaxon.com" ext-link-type="url">http://www.chemaxon.com</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">ChemAxon: JChem 5.3.8. [<ext-link xlink:href="http://www.chemaxon.com" ext-link-type="uri">http://www.chemaxon.com</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR21">
               <label>21.</label>
@@ -999,7 +997,7 @@
                 <fpage>493</fpage>
                 <lpage>500</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci025584y</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXhtVaktbg%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3sXhtVaktbg%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR22">
@@ -1063,7 +1061,7 @@
             </ref>
             <ref id="CR24">
               <label>24.</label>
-              <mixed-citation publication-type="other">Schrödinger LLC, New York, NY: Schrödinger 2010. [<ext-link xlink:href="http://www.schrodinger.com" ext-link-type="url">http://www.schrodinger.com</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Schrödinger LLC, New York, NY: Schrödinger 2010. [<ext-link xlink:href="http://www.schrodinger.com" ext-link-type="uri">http://www.schrodinger.com</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR25">
               <label>25.</label>
@@ -1117,7 +1115,7 @@
                 <fpage>7736</fpage>
                 <lpage>7740</lpage>
                 <pub-id pub-id-type="doi">10.1002/anie.200801792</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXht1Gms73P</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXht1Gms73P</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR26">
@@ -1232,7 +1230,7 @@
                 <fpage>4615</fpage>
                 <lpage>4622</lpage>
                 <pub-id pub-id-type="doi">10.1021/jm1003842</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXmt12ku78%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXmt12ku78%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR27">
@@ -1266,7 +1264,7 @@
                 <volume>12</volume>
                 <fpage>849</fpage>
                 <lpage>859</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaK3sXit12ju7k%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK3sXit12ju7k%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR28">
@@ -1305,7 +1303,7 @@
                 <fpage>1627</fpage>
                 <lpage>1637</lpage>
                 <pub-id pub-id-type="doi">10.1016/S0969-2126(97)00310-9</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaK1cXmtVWqug%3D%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK1cXmtVWqug%3D%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR29">
@@ -1372,7 +1370,7 @@
                 <fpage>3583</fpage>
                 <lpage>3587</lpage>
                 <pub-id pub-id-type="doi">10.1021/jm800314b</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXmsVOgsr4%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXmsVOgsr4%3D</pub-id>
               </mixed-citation>
             </ref>
           </ref-list>
@@ -1383,7 +1381,7 @@
               <title>Electronic supplementary material</title>
               <p>
                 <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Electronic supplementary material">
-                  <media xlink:href="MediaObjects/13321_2010_126_MOESM1_ESM.PDF" mimetype="application" mime-subtype="pdf">
+                  <media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2010_126_MOESM1_ESM.PDF" position="anchor">
                     <caption xml:lang="en">
                       <p>Additional file 1: <bold>Number of support vectors and top weighted fragments</bold>. For each data set with an <italic>AUC</italic> ≥ 0.7 the number of support vectors and the top five weighted fragments are listed in the file. (PDF 476 KB)</p>
                     </caption>
@@ -1393,7 +1391,7 @@
             </sec>
             <sec id="Sec17">
               <title>Authors’ original submitted files for images</title>
-              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_126_MOESM2_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_126_MOESM3_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_126_MOESM4_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_126_MOESM5_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_126_MOESM6_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_126_MOESM7_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material></p>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2010_126_MOESM2_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2010_126_MOESM3_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2010_126_MOESM4_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2010_126_MOESM5_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2010_126_MOESM6_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2010_126_MOESM7_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material></p>
             </sec>
           </app>
         </app-group>

@@ -113,12 +113,12 @@ Ontology (CiTO) Pilot</subject>
             <copyright-year>2021</copyright-year>
             <copyright-holder>The Author(s)</copyright-holder>
             <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
-              <license-p><bold>Open Access</bold>This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="url">http://creativecommons.org/licenses/by/4.0/</ext-link>. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="url">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated in a credit line to the data.</license-p>
+              <license-p><bold>Open Access</bold>This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated in a credit line to the data.</license-p>
             </license>
           </permissions>
-          <abstract id="Abs1" xml:lang="en">
+          <abstract xml:lang="en" id="Abs1">
             <title>Abstract</title>
-            <p id="Par1">The Resource Description Framework (RDF), together with well-defined ontologies, significantly increases data interoperability and usability. The SPARQL query language was introduced to retrieve requested RDF data and to explore links between them. Among other useful features, SPARQL supports federated queries that combine multiple independent data source endpoints. This allows users to obtain insights that are not possible using only a single data source. Owing to all of these useful features, many biological and chemical databases present their data in RDF, and support SPARQL querying. In our project, we primary focused on PubChem, ChEMBL and ChEBI small-molecule datasets. These datasets are already being exported to RDF by their creators. However, none of them has an official and currently supported SPARQL endpoint. This omission makes it difficult to construct complex or federated queries that could access all of the datasets, thus underutilising the main advantage of the availability of RDF data. Our goal is to address this gap by integrating the datasets into one database called the Integrated Database of Small Molecules (IDSM) that will be accessible through a SPARQL endpoint. Beyond that, we will also focus on increasing mutual interoperability of the datasets. To realise the endpoint, we decided to implement an in-house developed SPARQL engine based on the PostgreSQL relational database for data storage. In our approach, data are stored in the traditional relational form, and the SPARQL engine translates incoming SPARQL queries into equivalent SQL queries. An important feature of the engine is that it optimises the resulting SQL queries. Together with optimisations performed by PostgreSQL, this allows efficient evaluations of SPARQL queries. The endpoint provides not only querying in the dataset, but also the compound substructure and similarity search supported by our Sachem project. Although the endpoint is accessible from an internet browser, it is mainly intended to be used for programmatic access by other services, for example as a part of federated queries. For regular users, we offer a rich web application called ChemWebRDF using the endpoint. The application is publicly available at <ext-link xlink:href="https://idsm.elixir-czech.cz/chemweb/" ext-link-type="url">https://idsm.elixir-czech.cz/chemweb/</ext-link>.</p>
+            <p id="Par1">The Resource Description Framework (RDF), together with well-defined ontologies, significantly increases data interoperability and usability. The SPARQL query language was introduced to retrieve requested RDF data and to explore links between them. Among other useful features, SPARQL supports federated queries that combine multiple independent data source endpoints. This allows users to obtain insights that are not possible using only a single data source. Owing to all of these useful features, many biological and chemical databases present their data in RDF, and support SPARQL querying. In our project, we primary focused on PubChem, ChEMBL and ChEBI small-molecule datasets. These datasets are already being exported to RDF by their creators. However, none of them has an official and currently supported SPARQL endpoint. This omission makes it difficult to construct complex or federated queries that could access all of the datasets, thus underutilising the main advantage of the availability of RDF data. Our goal is to address this gap by integrating the datasets into one database called the Integrated Database of Small Molecules (IDSM) that will be accessible through a SPARQL endpoint. Beyond that, we will also focus on increasing mutual interoperability of the datasets. To realise the endpoint, we decided to implement an in-house developed SPARQL engine based on the PostgreSQL relational database for data storage. In our approach, data are stored in the traditional relational form, and the SPARQL engine translates incoming SPARQL queries into equivalent SQL queries. An important feature of the engine is that it optimises the resulting SQL queries. Together with optimisations performed by PostgreSQL, this allows efficient evaluations of SPARQL queries. The endpoint provides not only querying in the dataset, but also the compound substructure and similarity search supported by our Sachem project. Although the endpoint is accessible from an internet browser, it is mainly intended to be used for programmatic access by other services, for example as a part of federated queries. For regular users, we offer a rich web application called ChemWebRDF using the endpoint. The application is publicly available at <ext-link xlink:href="https://idsm.elixir-czech.cz/chemweb/" ext-link-type="uri">https://idsm.elixir-czech.cz/chemweb/</ext-link>.</p>
           </abstract>
           <kwd-group xml:lang="en">
             <title>Keywords</title>
@@ -307,7 +307,7 @@ Ontology (CiTO) Pilot</subject>
       <body>
         <sec id="Sec1">
           <title>Introduction</title>
-          <p id="Par2">The role of information has become crucially important in many aspects of human activities, including in life science research. The size of life science datasets, their complexity, and their number have increased continuously over time. Due to this increasing size and complexity of datasets, the user effort that is needed to obtain relevant data increases too, especially when data are spread out over multiple heterogeneous datasets. There still does not exist a general solution for this issue. This is partly due to the fact that datasets are often exported in different formats. Another important reason is that datasets often use different ontologies, meaning one thing can be expressed in different ways in different datasets. What is worse, property names can collide, i.e., a certain property name can in fact express different properties in different datasets. Last but not least, the precise semantics of properties used in a dataset is often documented with insufficient accuracy.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>ChEMBL data example</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig1_HTML.png" id="MO1" /></p></fig><fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>IDSM database schema</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig2_HTML.png" id="MO2" /></p></fig></p>
+          <p id="Par2">The role of information has become crucially important in many aspects of human activities, including in life science research. The size of life science datasets, their complexity, and their number have increased continuously over time. Due to this increasing size and complexity of datasets, the user effort that is needed to obtain relevant data increases too, especially when data are spread out over multiple heterogeneous datasets. There still does not exist a general solution for this issue. This is partly due to the fact that datasets are often exported in different formats. Another important reason is that datasets often use different ontologies, meaning one thing can be expressed in different ways in different datasets. What is worse, property names can collide, i.e., a certain property name can in fact express different properties in different datasets. Last but not least, the precise semantics of properties used in a dataset is often documented with insufficient accuracy.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>ChEMBL data example</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig1_HTML.png" /></fig><fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>IDSM database schema</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig2_HTML.png" /></fig></p>
           <p id="Par3">One of the approaches that can be used to improve the interoperability of datasets produced by heterogeneous providers is to adopt Linked Data principles [<xref ref-type="bibr" rid="CR1">1</xref>]. According to these principles, things should be identified by uniform identifiers, connected with useful information accessible from the Internet in standard formats over the HTTP protocol and interlinked with other relevant things. The Semantic Web technologies were introduced to implement this approach. The main technology is the Resource Description Framework (RDF) [<xref ref-type="bibr" rid="CR2">2</xref>, <xref ref-type="bibr" rid="CR3">3</xref>]. The framework is intended to represent information about resources where a resource is an abstraction of an entity in the world. In this framework, each piece of information is expressed as a subject-predicate-object triple denoting that the subject is related to the object, where the relation is denoted by the predicate. Although this basic concept is very simple, it is able to express very complex information as a set of such triples. A set of triples is often visualised as a connected graph with nodes representing subjects and objects and with labelled arcs representing predicates. An example of such an RDF graph can be seen in Fig. <xref rid="Fig1" ref-type="fig">1</xref>a. For comparison, the same information presented in the relational form is shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref>b.</p>
           <p id="Par4">The RDF framework employs the Internationalised Resource Identifiers (IRIs) to identify resources [<xref ref-type="bibr" rid="CR4">4</xref>]. The IRIs have a global meaning which makes interlinking between various datasets easy and straightforward. The predicates are also identified by IRIs, which avoids the situation where a certain property name has different meanings in different datasets. A set of IRIs used for describing resources related to an area of interest is called an RDF vocabulary. The RDF Schema (RDFS) [<xref ref-type="bibr" rid="CR5">5</xref>] and Web Ontology Language (OWL) [<xref ref-type="bibr" rid="CR6">6</xref>] have been introduced for the definition of RDF vocabularies and ontologies, which helps to define the precise semantics of data. The SPARQL query language was introduced in order to support querying RDF datasets [<xref ref-type="bibr" rid="CR7">7</xref>]. One of its most important features is the federated query extension. It allows a SPARQL service to redirect a portion of a query to another SPARQL service, and to then combine obtained results with results from the rest of the query [<xref ref-type="bibr" rid="CR8">8</xref>]. This highly increases interoperability, because one query allows users to gather information from different datasets. Each SPARQL service listens for requests at a specific IRI that is generally known as a SPARQL endpoint [<xref ref-type="bibr" rid="CR9">9</xref>].</p>
           <p id="Par5">Several former (currently discontinued) pioneering projects decided to take advantage of the fact that many life science datasets are publicly available for download, and they have converted these datasets into RDF. Bio2RDF [<xref ref-type="bibr" rid="CR10">10</xref>, <xref ref-type="bibr" rid="CR11">11</xref>] integrated data from some of the most popular public bioinformatics databases, and supported the conversion of primary resource entries into RDF on demand. Entries have been identified by IRIs in the generic form http://bio2rdf.org/namespace:id. Each namespace was associated with a JSP script connected to the appropriate primary resource in order to obtain information about an entity identified by the id used in an IRI, and to then return a result formatted in RDF. Chem2Bio2RDF [<xref ref-type="bibr" rid="CR12">12</xref>] was focused on the creation of a single RDF repository that aggregated data from multiple chemogenomics repositories (including small molecule, target, gene, pathway and drug information). Similarly, Linked Life Data [<xref ref-type="bibr" rid="CR13">13</xref>] was a platform converting public biomedical databases into RDF and accessing them through a single SPARQL endpoint. In addition to projects focused on converting and integrating multiple datasets, there were also projects focused on single datasets. For example, ChEMBL-RDF [<xref ref-type="bibr" rid="CR14">14</xref>, <xref ref-type="bibr" rid="CR15">15</xref>] was focused on converting the ChEMBL dataset into RDF, and then linking it with other existing RDF datasets.</p>
@@ -354,7 +354,7 @@ Ontology (CiTO) Pilot</subject>
             <title>SPARQL engine</title>
             <p id="Par33">To run a robust SPARQL endpoint, we experimented with several SPARQL engines during recent years, but none of them was fully sufficient for our purposes in terms of extensibility, reliability or efficiency. For this reason, we decided to implement an in-house SPARQL engine that supports the SPARQL 1.1 specification. For reliability, we use the well-established PostgreSQL relational database [<xref ref-type="bibr" rid="CR56">56</xref>] for data storage. In our approach, datasets are stored in a relational database using optimised database schemas designed specifically for the given datasets. Special mappings from relational database schemas to RDF datasets are introduced in order to present the stored data in the RDF form. These mappings are then used to translate SPARQL queries operating on RDF data to equivalent SQL queries operating on relational data. The approach is similar to the Linked Data Views from the Virtuoso database [<xref ref-type="bibr" rid="CR57">57</xref>], to the D2RQ mapping language [<xref ref-type="bibr" rid="CR58">58</xref>] and to the R2RML mapping language [<xref ref-type="bibr" rid="CR59">59</xref>] implemented, for example, in the Oracle Database [<xref ref-type="bibr" rid="CR60">60</xref>]. In our approach, each dataset mapping consists of two basic parts: <list list-type="order"><list-item><p id="Par34"><italic>IRI mappings describe mappings between IRIs and SQL datatypes.</italic> In RDF, all resources are identified by IRIs. However, it is very inefficient to store IRIs directly to a relational database and to use them to identify database records. For this reason, IRIs are mapped into more efficient SQL types. More precisely, all IRIs used to identify resources in the dataset are divided into disjunct classes, and for each IRI class there is a bijection defined between the class and SQL type(s). Values of these SQL types then can be used to identify resources stored in a relational database unambiguously and efficiently.</p></list-item><list-item><p id="Par35"><italic>Quad Mappings describe mappings between rows of tables and RDF triples.</italic> RDF datasets are organised into collections of RDF graphs that contain a set of RDF triples. Thus, RDF datasets can be viewed as a set of RDF quadruplets. In order to map the rows of a specified table into quadruplets, for each term in a quadruplet mapping (i.e., for subject, predicate, object and graph) it is specified from which column (or columns) the term is generated. If a term is an IRI, the information about its IRI class is also included.</p></list-item></list>Although a dataset mapping describes a conversion from a database schema of a relational database to an RDF dataset, the conversion is never performed directly, and the RDF dataset is never materialised. The real purpose is the opposite. The mapping is used to convert incoming SPARQL queries operated on the RDF dataset to SQL queries operated on the target relational database. For each triple pattern occurring in a SPARQL query, it is determined which quad mappings generate triples that can be matched by the pattern. These mappings are then used to generate simple SQL statements that select requested data specified by corresponding patterns. These SQL statements are joined into a SQL query respecting SPARQL semantics. To achieve maximum effectiveness, database schema constraints (e.g., primary and foreign keys), together with information about IRI classes, are used during the translation in order to produce optimised SQL queries.</p>
             <p id="Par36">We have used a small portion of the ChEMBL data shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref> to demonstrate how the IDSM SPARQL engine works. In Fig. <xref rid="Fig1" ref-type="fig">1</xref>a, data are expressed in the form of an RDF graph. This particular piece of data describes information about four documents and two journals. Resources representing journals are typed as cco:Journal, and have been assigned short titles via the predicate bibo:shortTitle. Similarly, resources representing documents are typed as cco:Document, and have been assigned titles via the predicate dcterms:title. If a document was published in a journal, it is denoted by the predicate cco:hasJournal.</p>
-            <p id="Par37">As shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref>b, the same information can be expressed in a relational database by two tables. Table chembl.journals and table chembl.documents represent information about journals and documents, respectively. In both tables, each table row represents one resource. Individual resources are identified by integer values stored in appropriate id columns. These values were obtained from the resource IRIs by cutting off their non-numeric fixed parts. Resource titles are stored in relevant columns. The journal_id column referencing table chembl.journals is used to express links between document and journals.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>Basic idea of mapping and SPARQL query translation</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig3_HTML.png" id="MO3" /></p></fig><fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>SPARQL queries to observe how well is ChEMBL included by PubChem</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig4_HTML.png" id="MO4" /></p></fig></p>
+            <p id="Par37">As shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref>b, the same information can be expressed in a relational database by two tables. Table chembl.journals and table chembl.documents represent information about journals and documents, respectively. In both tables, each table row represents one resource. Individual resources are identified by integer values stored in appropriate id columns. These values were obtained from the resource IRIs by cutting off their non-numeric fixed parts. Resource titles are stored in relevant columns. The journal_id column referencing table chembl.journals is used to express links between document and journals.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>Basic idea of mapping and SPARQL query translation</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig3_HTML.png" /></fig><fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p>SPARQL queries to observe how well is ChEMBL included by PubChem</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig4_HTML.png" /></fig></p>
             <p id="Par38">The example relational database (Fig. <xref rid="Fig1" ref-type="fig">1</xref>b) can be simply mapped into RDF (Fig. <xref rid="Fig1" ref-type="fig">1</xref>a) and queried by SPARQL, as demonstrated in Fig. <xref rid="Fig3" ref-type="fig">3</xref>. The schema of the tables used by the example data is shown in Fig. <xref rid="Fig3" ref-type="fig">3</xref>a. The mapping in Fig. <xref rid="Fig3" ref-type="fig">3</xref>b is utilised to map this relational schema into RDF. Firstly, two IRI classes are defined, one for the journal IRIs and one for the document IRIs. The classes describe how integer identifiers are converted into IRIs by adding appropriate fixed prefixes. Secondly, a set of quad mapping is defined for each table. For example, quad mapping ‘iri:document(id) dcterms:title (title)^^xsd:string’ for table chembl.documents denotes that each row of the table is mapped on the triple having the subject generated from column id by IRI class iri:document, the predicate bibo:shortTitle, and the object with a value from column short_title typed as xsd:string. The triples are stored in the default RDF graph, and therefore the graph declaration is omitted from the quad mapping. For all quad mappings, there is the following condition: a table row is used for a quad mapping only if all required values are not null.</p>
             <p id="Par39">The introduced mapping is used to translate a SPARQL query into an SQL query that generates an equivalent result. Quad mappings generating triples that can be matched by a triple pattern are selected for each triple pattern in the SPARQL query. These quad mappings are then used to generate SQL SELECT clauses to obtain requested data. The clauses are joined according to the SPARQL semantics to obtain the final result. For example, triple pattern ‘?document dcterms:title ?title’ can match triples generated by the quad mapping mentioned above. This quad mapping is then used to generate the appropriate SQL SELECT clause retrieving documents and their titles.</p>
             <p id="Par40">A full translation of the example SPARQL query from Fig. <xref rid="Fig3" ref-type="fig">3</xref>c is shown in Fig. <xref rid="Fig3" ref-type="fig">3</xref>d. However, this translation can be optimised if the database schema in Fig. <xref rid="Fig3" ref-type="fig">3</xref>a is taken into account. Tables tab1 and tab2 are derived from the same table, and they are joined according to the table primary key. Thus, these two SQL SELECT clauses can be merged. Moreover, table tab3 derived from table chembl.journals is joined with table tab2 according to the foreign key journal_id that references the primary key in this table. For this reason, table tab3 can be eliminated in this case, because no additional information from table tab3 is required. Fig. <xref rid="Fig3" ref-type="fig">3</xref>e shows the final SQL query obtained after the optimisations are performed.</p>
@@ -368,7 +368,7 @@ Ontology (CiTO) Pilot</subject>
           </sec>
           <sec id="Sec8">
             <title>User interface</title>
-            <p id="Par48">The SPARQL endpoint of the service is <ext-link xlink:href="https://idsm.elixir-czech.cz/sparql/endpoint/idsm" ext-link-type="url">https://idsm.elixir-czech.cz/sparql/endpoint/idsm</ext-link>. Although the endpoint is accessible from an internet browser, it is mainly intended to be used for programmatic access by other services, for example, as a part of federated queries. For regular users, we offer the ChemWebRDF web application using the endpoint and located at <ext-link xlink:href="https://idsm.elixir-czech.cz/chemweb/" ext-link-type="url">https://idsm.elixir-czech.cz/chemweb/</ext-link>. The application helps users to edit a SPARQL query, it presents query results in a user-friendly way as retrieved resources are displayed together with additional information, and it allows users to walk through results in order to discover other relations. The application is based on our older approach [<xref ref-type="bibr" rid="CR65">65</xref>], except that it uses the new SPARQL engine.</p>
+            <p id="Par48">The SPARQL endpoint of the service is <ext-link xlink:href="https://idsm.elixir-czech.cz/sparql/endpoint/idsm" ext-link-type="uri">https://idsm.elixir-czech.cz/sparql/endpoint/idsm</ext-link>. Although the endpoint is accessible from an internet browser, it is mainly intended to be used for programmatic access by other services, for example, as a part of federated queries. For regular users, we offer the ChemWebRDF web application using the endpoint and located at <ext-link xlink:href="https://idsm.elixir-czech.cz/chemweb/" ext-link-type="uri">https://idsm.elixir-czech.cz/chemweb/</ext-link>. The application helps users to edit a SPARQL query, it presents query results in a user-friendly way as retrieved resources are displayed together with additional information, and it allows users to walk through results in order to discover other relations. The application is based on our older approach [<xref ref-type="bibr" rid="CR65">65</xref>], except that it uses the new SPARQL engine.</p>
             <p id="Par49">The user interface of the application is divided into three parts. The left part contains the SPARQL query editor. The query result is visualised in the central part of the application. And finally, the right part of the application is used to visualise details about the selected resource.</p>
             <p id="Par50">The query editor is based on the third-party CodeMirror component [<xref ref-type="bibr" rid="CR66">66</xref>] that allows SPARQL syntax highlighting and auto-completion of predicates used in the IDSM database. The users can create a SPARQL query from scratch, or they can load a predefined query example that can be modified further. These examples were adopted from PubChemRDF use cases [<xref ref-type="bibr" rid="CR67">67</xref>]. Another possibility is to use the application query wizard that allows users to generate queries searching for compounds, bioassays, participants (proteins or genes) or their combinations.</p>
             <p id="Par51">The result of a submitted query is shown as a result table in the central part of the application interface. Each variable used in the select clause of the query is represented by one column. Individual solution mappings forming single results are represented by rows. To present the result in a user-friendly way, a resource in the database can be associated with an item template written in the Velocity Template Language [<xref ref-type="bibr" rid="CR68">68</xref>]. If a variable is bound to a resource with an assigned item template, the item template is then used to visualise the appropriate table cell. Otherwise, the value itself is used as the cell content. The visualisation typically contains the resource label that is separately searched in the IDSM database by a SPARQL query specified in the template.</p>
@@ -389,7 +389,7 @@ Ontology (CiTO) Pilot</subject>
           </sec>
           <sec id="Sec11">
             <title>Use cases</title>
-            <p id="Par60">To demonstrate the usefulness of our service, we present several use cases that together employ all loaded datasets (i.e., PubChem, ChEMBL, and ChEBI). SPARQL queries solving the individual cases are shown in Figs. <xref rid="Fig5" ref-type="fig">5</xref>, <xref rid="Fig6" ref-type="fig">6</xref>, <xref rid="Fig7" ref-type="fig">7</xref>, <xref rid="Fig8" ref-type="fig">8</xref> and <xref rid="Fig9" ref-type="fig">9</xref>. It should also be noted that these queries do not explicitly load additional data about requested resources (e.g., their names), as these data are loaded automatically by our web interface that can be used to submit the presented queries.<fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p>SPARQL query selecting aspirin-like compounds active in bioassays having protein targets</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig5_HTML.png" id="MO5" /></p></fig><fig id="Fig6"><label>Fig. 6</label><caption xml:lang="en"><p>SPARQL query selecting proteins inhibited by cholinesterase inhibitors</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig6_HTML.png" id="MO6" /></p></fig></p>
+            <p id="Par60">To demonstrate the usefulness of our service, we present several use cases that together employ all loaded datasets (i.e., PubChem, ChEMBL, and ChEBI). SPARQL queries solving the individual cases are shown in Figs. <xref rid="Fig5" ref-type="fig">5</xref>, <xref rid="Fig6" ref-type="fig">6</xref>, <xref rid="Fig7" ref-type="fig">7</xref>, <xref rid="Fig8" ref-type="fig">8</xref> and <xref rid="Fig9" ref-type="fig">9</xref>. It should also be noted that these queries do not explicitly load additional data about requested resources (e.g., their names), as these data are loaded automatically by our web interface that can be used to submit the presented queries.<fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p>SPARQL query selecting aspirin-like compounds active in bioassays having protein targets</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig5_HTML.png" /></fig><fig id="Fig6"><label>Fig. 6</label><caption xml:lang="en"><p>SPARQL query selecting proteins inhibited by cholinesterase inhibitors</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig6_HTML.png" /></fig></p>
             <sec id="Sec12">
               <title>Case 1: Aspirin-like compounds active in bioassays having protein targets</title>
               <p id="Par61">The first case is an example of a SPARQL query (Fig. <xref rid="Fig5" ref-type="fig">5</xref>) generated by the web application wizard. The wizard is able to generate various queries selecting interlinked compounds, bioassays and their targets from PubChem according to specified constraints. In this case, the query identifies PubChem compounds that contain acetylsalicylic acid as their substructure and that are active in bioassays containing protein targets. The corresponding compounds, bioassays and their targets are then returned as the query result.</p>
@@ -398,7 +398,7 @@ Ontology (CiTO) Pilot</subject>
             </sec>
             <sec id="Sec13">
               <title>Case 2: Proteins inhibited by cholinesterase inhibitors</title>
-              <p id="Par64">The next case was adopted from the PubChemRDF site and illustrates how to select protein targets that are inhibited by cholinesterase inhibitors with an IC50 less than 10 <inline-formula id="IEq2"><alternatives><mml:math><mml:mi mathvariant="normal">μ</mml:mi></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
+              <p id="Par64">The next case was adopted from the PubChemRDF site and illustrates how to select protein targets that are inhibited by cholinesterase inhibitors with an IC50 less than 10 <inline-formula id="IEq2"><alternatives><mml:math id="IEq2_Math"><mml:mi mathvariant="normal">μ</mml:mi></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -408,7 +408,7 @@ Ontology (CiTO) Pilot</subject>
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
 				\begin{document}$$\upmu$$\end{document}</tex-math><inline-graphic xlink:href="13321_2021_515_Article_IEq2.gif" /></alternatives></inline-formula>M [<xref ref-type="bibr" rid="CR67">67</xref>]. The cholinesterase inhibitors are selected from the ChEBI dataset, while the rest of data is selected from the PubChem dataset. Hence, the case simply demonstrates how the interconnection of PubChem and ChEBI can be employed to obtain requested information.</p>
-              <p id="Par65">The corresponding SPARQL query is listed in Fig. <xref rid="Fig6" ref-type="fig">6</xref>. The first part of the query (lines 2–5) selects all ChEBI classes annotated to have the cholinesterase inhibitor role that is identified by the ChEBI:37733 identifier. Based on these classes, the relevant PubChem substances are obtained (line 7). Consequently, measure groups and their endpoints related to the substances and having an IC50 less than 10 <inline-formula id="IEq3"><alternatives><mml:math><mml:mi mathvariant="normal">μ</mml:mi></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
+              <p id="Par65">The corresponding SPARQL query is listed in Fig. <xref rid="Fig6" ref-type="fig">6</xref>. The first part of the query (lines 2–5) selects all ChEBI classes annotated to have the cholinesterase inhibitor role that is identified by the ChEBI:37733 identifier. Based on these classes, the relevant PubChem substances are obtained (line 7). Consequently, measure groups and their endpoints related to the substances and having an IC50 less than 10 <inline-formula id="IEq3"><alternatives><mml:math id="IEq3_Math"><mml:mi mathvariant="normal">μ</mml:mi></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -417,7 +417,7 @@ Ontology (CiTO) Pilot</subject>
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$\upmu$$\end{document}</tex-math><inline-graphic xlink:href="13321_2021_515_Article_IEq3.gif" /></alternatives></inline-formula>M are identified (lines 9–13). Finally, protein targets of the endpoints are identified (lines 15–16) and returned as the query result.<fig id="Fig7"><label>Fig. 7</label><caption xml:lang="en"><p>SPARQL query summarising numbers of substances tested by protein targets</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig7_HTML.png" id="MO7" /></p></fig><fig id="Fig8"><label>Fig. 8</label><caption xml:lang="en"><p>SPARQL query selecting inhibitors of proteins catalysing reactions of cholesterol or its derivatives</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig8_HTML.png" id="MO8" /></p></fig><fig id="Fig9"><label>Fig. 9</label><caption xml:lang="en"><p>SPARQL query computing the numbers of bioassays with proteins expressed in the liver and involved in transport</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig9_HTML.png" id="MO9" /></p></fig></p>
+				\begin{document}$$\upmu$$\end{document}</tex-math><inline-graphic xlink:href="13321_2021_515_Article_IEq3.gif" /></alternatives></inline-formula>M are identified (lines 9–13). Finally, protein targets of the endpoints are identified (lines 15–16) and returned as the query result.<fig id="Fig7"><label>Fig. 7</label><caption xml:lang="en"><p>SPARQL query summarising numbers of substances tested by protein targets</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig7_HTML.png" /></fig><fig id="Fig8"><label>Fig. 8</label><caption xml:lang="en"><p>SPARQL query selecting inhibitors of proteins catalysing reactions of cholesterol or its derivatives</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig8_HTML.png" /></fig><fig id="Fig9"><label>Fig. 9</label><caption xml:lang="en"><p>SPARQL query computing the numbers of bioassays with proteins expressed in the liver and involved in transport</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2021_515_Fig9_HTML.png" /></fig></p>
             </sec>
             <sec id="Sec14">
               <title>Case 3: Summarise numbers of substances tested by protein targets</title>
@@ -443,7 +443,7 @@ Ontology (CiTO) Pilot</subject>
         </sec>
         <sec id="Sec17" sec-type="conclusions">
           <title>Conclusion</title>
-          <p id="Par77">The paper introduced the Integrated Database of Small Molecules (IDSM) that is available as a SPARQL service based on an in-house SPARQL engine. This SPARQL service supports querying in the selected RDF small-molecule datasets, which include PubChem, ChEMBL and ChEBI. These datasets have been extended to improve their mutual interlinking. The usefulness of the service has been demonstrated with several examples that focused on the simultaneous use of multiple datasets supported by the service, as well as with examples focused on the interoperability between the service and other SPARQL services. It showed that the presented service can be used to solve complex tasks to obtain information spread out across several datasets. The SPARQL endpoint of the service is <ext-link xlink:href="https://idsm.elixir-czech.cz/sparql/endpoint/idsm" ext-link-type="url">https://idsm.elixir-czech.cz/sparql/endpoint/idsm</ext-link>. A rich web application supporting querying in a user-friendly way has been introduced as well. The application allows writing queries in a SPARQL query editor, and it uses a template-based approach to present query results together with other relevant data. This makes SPARQL querying more convenient for users. The application is available at <ext-link xlink:href="https://idsm.elixir-czech.cz/chemweb/" ext-link-type="url">https://idsm.elixir-czech.cz/chemweb/</ext-link>.</p>
+          <p id="Par77">The paper introduced the Integrated Database of Small Molecules (IDSM) that is available as a SPARQL service based on an in-house SPARQL engine. This SPARQL service supports querying in the selected RDF small-molecule datasets, which include PubChem, ChEMBL and ChEBI. These datasets have been extended to improve their mutual interlinking. The usefulness of the service has been demonstrated with several examples that focused on the simultaneous use of multiple datasets supported by the service, as well as with examples focused on the interoperability between the service and other SPARQL services. It showed that the presented service can be used to solve complex tasks to obtain information spread out across several datasets. The SPARQL endpoint of the service is <ext-link xlink:href="https://idsm.elixir-czech.cz/sparql/endpoint/idsm" ext-link-type="uri">https://idsm.elixir-czech.cz/sparql/endpoint/idsm</ext-link>. A rich web application supporting querying in a user-friendly way has been introduced as well. The application allows writing queries in a SPARQL query editor, and it uses a template-based approach to present query results together with other relevant data. This makes SPARQL querying more convenient for users. The application is available at <ext-link xlink:href="https://idsm.elixir-czech.cz/chemweb/" ext-link-type="uri">https://idsm.elixir-czech.cz/chemweb/</ext-link>.</p>
         </sec>
       </body>
       <back>
@@ -461,7 +461,7 @@ Ontology (CiTO) Pilot</subject>
         </sec>
         <sec sec-type="data-availability">
           <title>Availability of data and materials</title>
-          <p>All datasets used are publicly accessible on their web sites. The service is public and freely available. Project source codes and installation notes are available in repositories <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb/chemweb" ext-link-type="url">chemweb</ext-link>, <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb/pgsparql" ext-link-type="url">pgsparql</ext-link>, <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb/sachem" ext-link-type="url">sachem</ext-link>, <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb/loaders" ext-link-type="url">loaders</ext-link> and <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb/notes" ext-link-type="url">notes</ext-link> at <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb" ext-link-type="url">https://bioinfo.uochb.cas.cz/gitlab/chemdb</ext-link>.</p>
+          <p>All datasets used are publicly accessible on their web sites. The service is public and freely available. Project source codes and installation notes are available in repositories <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb/chemweb" ext-link-type="uri">chemweb</ext-link>, <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb/pgsparql" ext-link-type="uri">pgsparql</ext-link>, <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb/sachem" ext-link-type="uri">sachem</ext-link>, <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb/loaders" ext-link-type="uri">loaders</ext-link> and <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb/notes" ext-link-type="uri">notes</ext-link> at <ext-link xlink:href="https://bioinfo.uochb.cas.cz/gitlab/chemdb" ext-link-type="uri">https://bioinfo.uochb.cas.cz/gitlab/chemdb</ext-link>.</p>
         </sec>
         <sec sec-type="ethics-statement">
           <title>Declarations</title>
@@ -475,39 +475,39 @@ Ontology (CiTO) Pilot</subject>
           <ref-list>
             <ref id="CR1">
               <label>1.</label>
-              <mixed-citation publication-type="other">Berners-Lee T (2009) Linked Data. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/DesignIssues/LinkedData.html" ext-link-type="url">https://www.w3.org/DesignIssues/LinkedData.html</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Berners-Lee T (2009) Linked Data. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/DesignIssues/LinkedData.html" ext-link-type="uri">https://www.w3.org/DesignIssues/LinkedData.html</ext-link></mixed-citation>
             </ref>
             <ref id="CR2">
               <label>2.</label>
-              <mixed-citation publication-type="other">Cyganiak R, Wood D, Lanthaler M (2014) RDF 1.1 Concepts and Abstract Syntax. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/" ext-link-type="url">https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Cyganiak R, Wood D, Lanthaler M (2014) RDF 1.1 Concepts and Abstract Syntax. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/" ext-link-type="uri">https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/</ext-link></mixed-citation>
             </ref>
             <ref id="CR3">
               <label>3.</label>
-              <mixed-citation publication-type="other">Schreiber G, Raimond, Y (2014) RDF 1.1 Primer. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2014/NOTE-rdf11-primer-20140624/" ext-link-type="url">https://www.w3.org/TR/2014/NOTE-rdf11-primer-20140624/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Schreiber G, Raimond, Y (2014) RDF 1.1 Primer. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2014/NOTE-rdf11-primer-20140624/" ext-link-type="uri">https://www.w3.org/TR/2014/NOTE-rdf11-primer-20140624/</ext-link></mixed-citation>
             </ref>
             <ref id="CR4">
               <label>4.</label>
-              <mixed-citation publication-type="other">Duerst M, Suignard M (2005) Internationalized Resource Identifiers (IRIs). <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://tools.ietf.org/html/rfc3987" ext-link-type="url">https://tools.ietf.org/html/rfc3987</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Duerst M, Suignard M (2005) Internationalized Resource Identifiers (IRIs). <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://tools.ietf.org/html/rfc3987" ext-link-type="uri">https://tools.ietf.org/html/rfc3987</ext-link></mixed-citation>
             </ref>
             <ref id="CR5">
               <label>5.</label>
-              <mixed-citation publication-type="other">Brickley D, Guha RV (2014) RDF Schema 1.1. <bold>[cito:citesAsAuthority]</bold> . <ext-link xlink:href="https://www.w3.org/TR/2014/REC-rdf-schema-20140225/" ext-link-type="url">https://www.w3.org/TR/2014/REC-rdf-schema-20140225/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Brickley D, Guha RV (2014) RDF Schema 1.1. <bold>[cito:citesAsAuthority]</bold> . <ext-link xlink:href="https://www.w3.org/TR/2014/REC-rdf-schema-20140225/" ext-link-type="uri">https://www.w3.org/TR/2014/REC-rdf-schema-20140225/</ext-link></mixed-citation>
             </ref>
             <ref id="CR6">
               <label>6.</label>
-              <mixed-citation publication-type="other">Group WOW (2012) OWL 2 Web Ontology Language Document Overview (Second Edition). <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2012/REC-owl2-overview-20121211/" ext-link-type="url">https://www.w3.org/TR/2012/REC-owl2-overview-20121211/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Group WOW (2012) OWL 2 Web Ontology Language Document Overview (Second Edition). <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2012/REC-owl2-overview-20121211/" ext-link-type="uri">https://www.w3.org/TR/2012/REC-owl2-overview-20121211/</ext-link></mixed-citation>
             </ref>
             <ref id="CR7">
               <label>7.</label>
-              <mixed-citation publication-type="other">Harris S, Seaborne A (2013) SPARQL 1.1 Query Language. <bold>[cito:citesAsAuthority]</bold> . <ext-link xlink:href="https://www.w3.org/TR/2013/REC-sparql11-query-20130321/" ext-link-type="url">https://www.w3.org/TR/2013/REC-sparql11-query-20130321/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Harris S, Seaborne A (2013) SPARQL 1.1 Query Language. <bold>[cito:citesAsAuthority]</bold> . <ext-link xlink:href="https://www.w3.org/TR/2013/REC-sparql11-query-20130321/" ext-link-type="uri">https://www.w3.org/TR/2013/REC-sparql11-query-20130321/</ext-link></mixed-citation>
             </ref>
             <ref id="CR8">
               <label>8.</label>
-              <mixed-citation publication-type="other">Prud’hommeaux E, Buil-Aranda C (2013) SPARQL 1.1 Federated Query. <bold>[cito:citesAsAuthority]</bold> . <ext-link xlink:href="https://www.w3.org/TR/2013/REC-sparql11-federated-query-20130321/" ext-link-type="url">https://www.w3.org/TR/2013/REC-sparql11-federated-query-20130321/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Prud’hommeaux E, Buil-Aranda C (2013) SPARQL 1.1 Federated Query. <bold>[cito:citesAsAuthority]</bold> . <ext-link xlink:href="https://www.w3.org/TR/2013/REC-sparql11-federated-query-20130321/" ext-link-type="uri">https://www.w3.org/TR/2013/REC-sparql11-federated-query-20130321/</ext-link></mixed-citation>
             </ref>
             <ref id="CR9">
               <label>9.</label>
-              <mixed-citation publication-type="other">Feigenbaum L, Williams GT, Clark KG, Torres E (2013) SPARQL 1.1 Protocol. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/" ext-link-type="url">https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Feigenbaum L, Williams GT, Clark KG, Torres E (2013) SPARQL 1.1 Protocol. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/" ext-link-type="uri">https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/</ext-link></mixed-citation>
             </ref>
             <ref id="CR10">
               <label>10.</label>
@@ -588,7 +588,7 @@ Ontology (CiTO) Pilot</subject>
                 <year>2010</year>
                 <volume>11</volume>
                 <fpage>255</fpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXntFSku7s%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXntFSku7s%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1186/1471-2105-11-255</pub-id>
                 <pub-id pub-id-type="pmid">20478034</pub-id>
                 <pub-id pub-id-type="pmcid">2881087</pub-id>
@@ -692,7 +692,7 @@ Ontology (CiTO) Pilot</subject>
                 <volume>5</volume>
                 <issue>1</issue>
                 <fpage>23</fpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3sXhtFOmsbfO</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXhtFOmsbfO</pub-id>
                 <pub-id pub-id-type="doi">10.1186/1758-2946-5-23</pub-id>
                 <pub-id pub-id-type="pmid">23657106</pub-id>
                 <pub-id pub-id-type="pmcid">3700754</pub-id>
@@ -841,7 +841,7 @@ Ontology (CiTO) Pilot</subject>
                 <issue>D1</issue>
                 <fpage>158</fpage>
                 <lpage>169</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1cXhslWgs7c%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXhslWgs7c%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1093/nar/gkw1099</pub-id>
                 <comment>[cito:citesAsAuthority]</comment>
               </mixed-citation>
@@ -888,7 +888,7 @@ Ontology (CiTO) Pilot</subject>
             </ref>
             <ref id="CR21">
               <label>21.</label>
-              <mixed-citation publication-type="other">Bento AP, Gaulton A, Hersey A, Bellis LJ, Chambers J, Davies M, Kruger FA, Light Y, Mak L, McGlinchey S, Nowotka M, Papadatos G, Santos R, Overington JP (2014) The ChEMBL bioactivity database: an update. Nucleic Acids Res 42(Database issue), 1083–1090. <ext-link xlink:href="https://doi.org/10.1093/nar/gkt1031" ext-link-type="doi">https://doi.org/10.1093/nar/gkt1031</ext-link>. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold></mixed-citation>
+              <mixed-citation publication-type="other">Bento AP, Gaulton A, Hersey A, Bellis LJ, Chambers J, Davies M, Kruger FA, Light Y, Mak L, McGlinchey S, Nowotka M, Papadatos G, Santos R, Overington JP (2014) The ChEMBL bioactivity database: an update. Nucleic Acids Res 42(Database issue), 1083–1090. <ext-link xlink:href="10.1093/nar/gkt1031" ext-link-type="doi">https://doi.org/10.1093/nar/gkt1031</ext-link>. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold></mixed-citation>
             </ref>
             <ref id="CR22">
               <label>22.</label>
@@ -986,18 +986,18 @@ Ontology (CiTO) Pilot</subject>
                 <issue>D1</issue>
                 <fpage>930</fpage>
                 <lpage>940</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1MXhs1Gqtr%2FF</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1MXhs1Gqtr%2FF</pub-id>
                 <pub-id pub-id-type="doi">10.1093/nar/gky1075</pub-id>
                 <comment>[cito:citesAsAuthority] [cito:usesDataFrom]</comment>
               </mixed-citation>
             </ref>
             <ref id="CR23">
               <label>23.</label>
-              <mixed-citation publication-type="other">Hastings J, de Matos P, Dekker A, Ennis M, Harsha B, Kale N, Muthukrishnan V, Owen G, Turner S, Williams M, Steinbeck C (2013) The ChEBI reference database and ontology for biologically relevant chemistry: enhancements for 2013. Nucleic Acids Res 41(Database issue), 456–463. <ext-link xlink:href="https://doi.org/10.1093/nar/gks1146" ext-link-type="doi">https://doi.org/10.1093/nar/gks1146</ext-link>. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold></mixed-citation>
+              <mixed-citation publication-type="other">Hastings J, de Matos P, Dekker A, Ennis M, Harsha B, Kale N, Muthukrishnan V, Owen G, Turner S, Williams M, Steinbeck C (2013) The ChEBI reference database and ontology for biologically relevant chemistry: enhancements for 2013. Nucleic Acids Res 41(Database issue), 456–463. <ext-link xlink:href="10.1093/nar/gks1146" ext-link-type="doi">https://doi.org/10.1093/nar/gks1146</ext-link>. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold></mixed-citation>
             </ref>
             <ref id="CR24">
               <label>24.</label>
-              <mixed-citation publication-type="other">Gaudet P, Michel PA, Zahn-Zabal M, Cusin I, Duek PD, Evalet O, Gateau A, Gleizes A, Pereira M, Teixeira D, Zhang Y, Lane L, Bairoch A (2015) The neXtProt knowledgebase on human proteins: current status. Nucleic Acids Res 43(Database issue), 764–70. <ext-link xlink:href="https://doi.org/10.1093/nar/gku1178" ext-link-type="doi">https://doi.org/10.1093/nar/gku1178</ext-link>. <bold>[cito:citesAsAuthority]</bold></mixed-citation>
+              <mixed-citation publication-type="other">Gaudet P, Michel PA, Zahn-Zabal M, Cusin I, Duek PD, Evalet O, Gateau A, Gleizes A, Pereira M, Teixeira D, Zhang Y, Lane L, Bairoch A (2015) The neXtProt knowledgebase on human proteins: current status. Nucleic Acids Res 43(Database issue), 764–70. <ext-link xlink:href="10.1093/nar/gku1178" ext-link-type="doi">https://doi.org/10.1093/nar/gku1178</ext-link>. <bold>[cito:citesAsAuthority]</bold></mixed-citation>
             </ref>
             <ref id="CR25">
               <label>25.</label>
@@ -1063,7 +1063,7 @@ Ontology (CiTO) Pilot</subject>
                 <issue>D1</issue>
                 <fpage>328</fpage>
                 <lpage>334</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BB3cXhs1GltrjE</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BB3cXhs1GltrjE</pub-id>
                 <pub-id pub-id-type="doi">10.1093/nar/gkz995</pub-id>
                 <comment>[cito:citesAsAuthority]</comment>
               </mixed-citation>
@@ -1124,14 +1124,14 @@ Ontology (CiTO) Pilot</subject>
                 <issue>D1</issue>
                 <fpage>596</fpage>
                 <lpage>600</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1MXhs1Clu73M</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1MXhs1Clu73M</pub-id>
                 <pub-id pub-id-type="doi">10.1093/nar/gky876</pub-id>
                 <comment>[cito:citesAsAuthority]</comment>
               </mixed-citation>
             </ref>
             <ref id="CR27">
               <label>27.</label>
-              <mixed-citation publication-type="other">Kinjo AR, Suzuki H, Yamashita R, Ikegawa Y, Kudou T, Igarashi R, Kengaku Y, Cho H, Standley DM, Nakagawa A, Nakamura H (2012) Protein Data Bank Japan (PDBj): maintaining a structural data archive and resource description framework format. Nucleic Acids Res 40(Database issue), 453–460. <ext-link xlink:href="https://doi.org/10.1093/nar/gkr811" ext-link-type="doi">https://doi.org/10.1093/nar/gkr811</ext-link>. <bold>[cito:citesAsAuthority]</bold></mixed-citation>
+              <mixed-citation publication-type="other">Kinjo AR, Suzuki H, Yamashita R, Ikegawa Y, Kudou T, Igarashi R, Kengaku Y, Cho H, Standley DM, Nakagawa A, Nakamura H (2012) Protein Data Bank Japan (PDBj): maintaining a structural data archive and resource description framework format. Nucleic Acids Res 40(Database issue), 453–460. <ext-link xlink:href="10.1093/nar/gkr811" ext-link-type="doi">https://doi.org/10.1093/nar/gkr811</ext-link>. <bold>[cito:citesAsAuthority]</bold></mixed-citation>
             </ref>
             <ref id="CR28">
               <label>28.</label>
@@ -1205,7 +1205,7 @@ Ontology (CiTO) Pilot</subject>
                 <issue>D1</issue>
                 <fpage>488</fpage>
                 <lpage>94</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2sXhtV2nsrrE</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhtV2nsrrE</pub-id>
                 <pub-id pub-id-type="doi">10.1093/nar/gkv1024</pub-id>
                 <comment>[cito:citesAsAuthority]</comment>
               </mixed-citation>
@@ -1252,7 +1252,7 @@ Ontology (CiTO) Pilot</subject>
                 <year>2015</year>
                 <volume>2015</volume>
                 <fpage>028</fpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2MXotVagtrk%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2MXotVagtrk%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1093/database/bav028</pub-id>
                 <comment>[cito:citesAsAuthority]</comment>
               </mixed-citation>
@@ -1297,7 +1297,7 @@ Ontology (CiTO) Pilot</subject>
                 <issue>D1</issue>
                 <fpage>845</fpage>
                 <lpage>855</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BB3cXhs1Glt73K</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BB3cXhs1Glt73K</pub-id>
                 <pub-id pub-id-type="doi">10.1093/nar/gkz1021</pub-id>
                 <comment>[cito:citesAsAuthority]</comment>
               </mixed-citation>
@@ -1366,7 +1366,7 @@ Ontology (CiTO) Pilot</subject>
                 <issue>D1</issue>
                 <fpage>477</fpage>
                 <lpage>485</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1cXitlGjtbrJ</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXitlGjtbrJ</pub-id>
                 <pub-id pub-id-type="doi">10.1093/nar/gkx1019</pub-id>
                 <comment>[cito:citesAsAuthority]</comment>
               </mixed-citation>
@@ -1447,7 +1447,7 @@ Ontology (CiTO) Pilot</subject>
                 <issue>9</issue>
                 <fpage>1338</fpage>
                 <lpage>9</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2cXmvFCjsLc%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXmvFCjsLc%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1093/bioinformatics/btt765</pub-id>
                 <pub-id pub-id-type="pmid">24413672</pub-id>
                 <pub-id pub-id-type="pmcid">3998127</pub-id>
@@ -1456,11 +1456,11 @@ Ontology (CiTO) Pilot</subject>
             </ref>
             <ref id="CR33">
               <label>33.</label>
-              <mixed-citation publication-type="other">Kawashima S, Katayama T, Hatanaka H, Kushida T, Takagi T (2018) NBDC RDF portal: a comprehensive repository for semantic data in life sciences. Database (Oxford) 2018. <ext-link xlink:href="https://doi.org/10.1093/database/bay123" ext-link-type="doi">https://doi.org/10.1093/database/bay123</ext-link><bold>[cito:citesAsAuthority]</bold></mixed-citation>
+              <mixed-citation publication-type="other">Kawashima S, Katayama T, Hatanaka H, Kushida T, Takagi T (2018) NBDC RDF portal: a comprehensive repository for semantic data in life sciences. Database (Oxford) 2018. <ext-link xlink:href="10.1093/database/bay123" ext-link-type="doi">https://doi.org/10.1093/database/bay123</ext-link><bold>[cito:citesAsAuthority]</bold></mixed-citation>
             </ref>
             <ref id="CR34">
               <label>34.</label>
-              <mixed-citation publication-type="other">Abeyruwan S, Vempati UD, Kucuk-McGinty H, Visser U, Koleti A, Mir A, Sakurai K, Chung C, Bittker JA, Clemons PA, Brudz S, Siripala A, Morales AJ, Romacker M, Twomey D, Bureeva S, Lemmon V, Schurer SC (2014) Evolving BioAssay Ontology (BAO): modularization, integration and applications. J Biomed Semantics 5(Suppl 1 Proceedings of the Bio-Ontologies Spec Interest G), 5. <ext-link xlink:href="https://doi.org/10.1186/2041-1480-5-S1-S5" ext-link-type="doi">https://doi.org/10.1186/2041-1480-5-S1-S5</ext-link>. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold></mixed-citation>
+              <mixed-citation publication-type="other">Abeyruwan S, Vempati UD, Kucuk-McGinty H, Visser U, Koleti A, Mir A, Sakurai K, Chung C, Bittker JA, Clemons PA, Brudz S, Siripala A, Morales AJ, Romacker M, Twomey D, Bureeva S, Lemmon V, Schurer SC (2014) Evolving BioAssay Ontology (BAO): modularization, integration and applications. J Biomed Semantics 5(Suppl 1 Proceedings of the Bio-Ontologies Spec Interest G), 5. <ext-link xlink:href="10.1186/2041-1480-5-S1-S5" ext-link-type="doi">https://doi.org/10.1186/2041-1480-5-S1-S5</ext-link>. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold></mixed-citation>
             </ref>
             <ref id="CR35">
               <label>35.</label>
@@ -1562,14 +1562,14 @@ Ontology (CiTO) Pilot</subject>
                 <issue>D1</issue>
                 <fpage>339</fpage>
                 <lpage>346</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1cXhslWgsLw%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1cXhslWgsLw%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1093/nar/gkw1075</pub-id>
                 <comment>[cito:citesAsAuthority] [cito:usesDataFrom]</comment>
               </mixed-citation>
             </ref>
             <ref id="CR36">
               <label>36.</label>
-              <mixed-citation publication-type="other">The Gene Ontology C (2019) The Gene Ontology Resource: 20 years and still GOing strong. Nucleic Acids Res 47(D1):330–338. <ext-link xlink:href="https://doi.org/10.1093/nar/gky1055" ext-link-type="doi">https://doi.org/10.1093/nar/gky1055</ext-link>. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold></mixed-citation>
+              <mixed-citation publication-type="other">The Gene Ontology C (2019) The Gene Ontology Resource: 20 years and still GOing strong. Nucleic Acids Res 47(D1):330–338. <ext-link xlink:href="10.1093/nar/gky1055" ext-link-type="doi">https://doi.org/10.1093/nar/gky1055</ext-link>. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold></mixed-citation>
             </ref>
             <ref id="CR37">
               <label>37.</label>
@@ -1635,7 +1635,7 @@ Ontology (CiTO) Pilot</subject>
                 <volume>6</volume>
                 <issue>10</issue>
                 <fpage>25513</fpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3MXhtlGmtLzF</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhtlGmtLzF</pub-id>
                 <pub-id pub-id-type="doi">10.1371/journal.pone.0025513</pub-id>
                 <comment>[cito:citesAsAuthority] [cito:usesDataFrom]</comment>
               </mixed-citation>
@@ -1777,7 +1777,7 @@ Ontology (CiTO) Pilot</subject>
                 <issue>10</issue>
                 <fpage>1325</fpage>
                 <lpage>32</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3sXnvV2msbk%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXnvV2msbk%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1093/bioinformatics/btt113</pub-id>
                 <pub-id pub-id-type="pmid">23479348</pub-id>
                 <pub-id pub-id-type="pmcid">3654706</pub-id>
@@ -1824,14 +1824,14 @@ Ontology (CiTO) Pilot</subject>
                 <issue>Web Server issue</issue>
                 <fpage>541</fpage>
                 <lpage>5</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3MXosVOmsLw%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXosVOmsLw%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1093/nar/gkr469</pub-id>
                 <comment>[cito:citesAsAuthority]</comment>
               </mixed-citation>
             </ref>
             <ref id="CR42">
               <label>42.</label>
-              <mixed-citation publication-type="other">Board DU (2020) DCMI Metadata Terms. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold> . <ext-link xlink:href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/" ext-link-type="url">https://www.dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Board DU (2020) DCMI Metadata Terms. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold> . <ext-link xlink:href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/" ext-link-type="uri">https://www.dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/</ext-link></mixed-citation>
             </ref>
             <ref id="CR43">
               <label>43.</label>
@@ -1897,19 +1897,19 @@ Ontology (CiTO) Pilot</subject>
             </ref>
             <ref id="CR45">
               <label>45.</label>
-              <mixed-citation publication-type="other">Gray AJG, Baran J, Marshall MS, Dumontier M (2015) Dataset Descriptions: HCLS Community Profile. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2015/NOTE-hcls-dataset-20150514/" ext-link-type="url">https://www.w3.org/TR/2015/NOTE-hcls-dataset-20150514/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Gray AJG, Baran J, Marshall MS, Dumontier M (2015) Dataset Descriptions: HCLS Community Profile. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2015/NOTE-hcls-dataset-20150514/" ext-link-type="uri">https://www.w3.org/TR/2015/NOTE-hcls-dataset-20150514/</ext-link></mixed-citation>
             </ref>
             <ref id="CR46">
               <label>46.</label>
-              <mixed-citation publication-type="other">Maali F, Erickson J (2014) Data Catalog Vocabulary (DCAT). <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2014/REC-vocab-dcat-20140116/" ext-link-type="url">https://www.w3.org/TR/2014/REC-vocab-dcat-20140116/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Maali F, Erickson J (2014) Data Catalog Vocabulary (DCAT). <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2014/REC-vocab-dcat-20140116/" ext-link-type="uri">https://www.w3.org/TR/2014/REC-vocab-dcat-20140116/</ext-link></mixed-citation>
             </ref>
             <ref id="CR47">
               <label>47.</label>
-              <mixed-citation publication-type="other">Alexander K, Cyganiak R, Hausenblas M, Zhao J (2011) Describing Linked Datasets with the VoID Vocabulary. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2011/NOTE-void-20110303/" ext-link-type="url">https://www.w3.org/TR/2011/NOTE-void-20110303/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Alexander K, Cyganiak R, Hausenblas M, Zhao J (2011) Describing Linked Datasets with the VoID Vocabulary. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2011/NOTE-void-20110303/" ext-link-type="uri">https://www.w3.org/TR/2011/NOTE-void-20110303/</ext-link></mixed-citation>
             </ref>
             <ref id="CR48">
               <label>48.</label>
-              <mixed-citation publication-type="other">Williams GT (2013) SPARQL 1.1 Service Description. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2013/REC-sparql11-service-description-20130321/" ext-link-type="url">https://www.w3.org/TR/2013/REC-sparql11-service-description-20130321/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Williams GT (2013) SPARQL 1.1 Service Description. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2013/REC-sparql11-service-description-20130321/" ext-link-type="uri">https://www.w3.org/TR/2013/REC-sparql11-service-description-20130321/</ext-link></mixed-citation>
             </ref>
             <ref id="CR49">
               <label>49.</label>
@@ -1934,7 +1934,7 @@ Ontology (CiTO) Pilot</subject>
                 <volume>10</volume>
                 <issue>1</issue>
                 <fpage>27</fpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1MXmtFWitLc%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1MXmtFWitLc%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1186/s13321-018-0282-y</pub-id>
                 <pub-id pub-id-type="pmid">29797000</pub-id>
                 <pub-id pub-id-type="pmcid">5966370</pub-id>
@@ -1964,7 +1964,7 @@ Ontology (CiTO) Pilot</subject>
                 <volume>11</volume>
                 <issue>1</issue>
                 <fpage>45</fpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1MXht1yktb3N</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1MXht1yktb3N</pub-id>
                 <pub-id pub-id-type="doi">10.1186/s13321-019-0367-2</pub-id>
                 <pub-id pub-id-type="pmid">31254167</pub-id>
                 <pub-id pub-id-type="pmcid">6599361</pub-id>
@@ -1997,55 +1997,55 @@ Ontology (CiTO) Pilot</subject>
             </ref>
             <ref id="CR52">
               <label>52.</label>
-              <mixed-citation publication-type="other">Snorql: A SPARQL Explorer for ChEMBL RDF. <ext-link xlink:href="https://chemblmirror.rdf.bigcat-bioinformatics.org/" ext-link-type="url">https://chemblmirror.rdf.bigcat-bioinformatics.org/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Snorql: A SPARQL Explorer for ChEMBL RDF. <ext-link xlink:href="https://chemblmirror.rdf.bigcat-bioinformatics.org/" ext-link-type="uri">https://chemblmirror.rdf.bigcat-bioinformatics.org/</ext-link></mixed-citation>
             </ref>
             <ref id="CR53">
               <label>53.</label>
-              <mixed-citation publication-type="other">NCBI organismal classification. <bold>[cito:usesDataFrom]</bold>. <ext-link xlink:href="http://www.obofoundry.org/ontology/ncbitaxon.html" ext-link-type="url">http://www.obofoundry.org/ontology/ncbitaxon.html</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">NCBI organismal classification. <bold>[cito:usesDataFrom]</bold>. <ext-link xlink:href="http://www.obofoundry.org/ontology/ncbitaxon.html" ext-link-type="uri">http://www.obofoundry.org/ontology/ncbitaxon.html</ext-link></mixed-citation>
             </ref>
             <ref id="CR54">
               <label>54.</label>
-              <mixed-citation publication-type="other">Llinares MB, Gomez JF, Juty N, Goble C, Wimalaratne SM, Hermjakob H (2020) Identifiers.org - Compact Identifier Services in the Cloud. Bioinformatics. <ext-link xlink:href="https://doi.org/10.1093/bioinformatics/btaa864" ext-link-type="doi">https://doi.org/10.1093/bioinformatics/btaa864</ext-link>. <bold>[cito:citesAsAuthority]</bold></mixed-citation>
+              <mixed-citation publication-type="other">Llinares MB, Gomez JF, Juty N, Goble C, Wimalaratne SM, Hermjakob H (2020) Identifiers.org - Compact Identifier Services in the Cloud. Bioinformatics. <ext-link xlink:href="10.1093/bioinformatics/btaa864" ext-link-type="doi">https://doi.org/10.1093/bioinformatics/btaa864</ext-link>. <bold>[cito:citesAsAuthority]</bold></mixed-citation>
             </ref>
             <ref id="CR55">
               <label>55.</label>
-              <mixed-citation publication-type="other">Federhen S (2012) The NCBI Taxonomy database. Nucleic Acids Res 40(Database issue), 136–143. <ext-link xlink:href="https://doi.org/10.1093/nar/gkr1178" ext-link-type="doi">https://doi.org/10.1093/nar/gkr1178</ext-link>. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold></mixed-citation>
+              <mixed-citation publication-type="other">Federhen S (2012) The NCBI Taxonomy database. Nucleic Acids Res 40(Database issue), 136–143. <ext-link xlink:href="10.1093/nar/gkr1178" ext-link-type="doi">https://doi.org/10.1093/nar/gkr1178</ext-link>. <bold>[cito:citesAsAuthority] [cito:usesDataFrom]</bold></mixed-citation>
             </ref>
             <ref id="CR56">
               <label>56.</label>
-              <mixed-citation publication-type="other">PostgreSQL. <bold>[cito:usesMethodIn]</bold>. <ext-link xlink:href="https://www.postgresql.org/about/" ext-link-type="url">https://www.postgresql.org/about/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">PostgreSQL. <bold>[cito:usesMethodIn]</bold>. <ext-link xlink:href="https://www.postgresql.org/about/" ext-link-type="uri">https://www.postgresql.org/about/</ext-link></mixed-citation>
             </ref>
             <ref id="CR57">
               <label>57.</label>
-              <mixed-citation publication-type="other">Team OSD. Mapping SQL Data to Linked Data Views. <bold>[cito:citesAsRelated]</bold>. <ext-link xlink:href="http://vos.openlinksw.com/owiki/wiki/VOS/VOSSQL2RDF" ext-link-type="url">http://vos.openlinksw.com/owiki/wiki/VOS/VOSSQL2RDF</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Team OSD. Mapping SQL Data to Linked Data Views. <bold>[cito:citesAsRelated]</bold>. <ext-link xlink:href="http://vos.openlinksw.com/owiki/wiki/VOS/VOSSQL2RDF" ext-link-type="uri">http://vos.openlinksw.com/owiki/wiki/VOS/VOSSQL2RDF</ext-link></mixed-citation>
             </ref>
             <ref id="CR58">
               <label>58.</label>
-              <mixed-citation publication-type="other">Cyganiak R, Bizer C, Garbers J, Maresch O, Becker C (2012) The D2RQ Mapping Language. <bold>[cito:citesAsRelated]</bold> . <ext-link xlink:href="http://d2rq.org/d2rq-language" ext-link-type="url">http://d2rq.org/d2rq-language</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Cyganiak R, Bizer C, Garbers J, Maresch O, Becker C (2012) The D2RQ Mapping Language. <bold>[cito:citesAsRelated]</bold> . <ext-link xlink:href="http://d2rq.org/d2rq-language" ext-link-type="uri">http://d2rq.org/d2rq-language</ext-link></mixed-citation>
             </ref>
             <ref id="CR59">
               <label>59.</label>
-              <mixed-citation publication-type="other">Das S, Sundara S, Cyganiak R (2012) R2RML: RDB to RDF Mapping Language. <bold>[cito:citesAsRelated]</bold> . <ext-link xlink:href="https://www.w3.org/TR/2012/REC-r2rml-20120927/" ext-link-type="url">https://www.w3.org/TR/2012/REC-r2rml-20120927/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Das S, Sundara S, Cyganiak R (2012) R2RML: RDB to RDF Mapping Language. <bold>[cito:citesAsRelated]</bold> . <ext-link xlink:href="https://www.w3.org/TR/2012/REC-r2rml-20120927/" ext-link-type="uri">https://www.w3.org/TR/2012/REC-r2rml-20120927/</ext-link></mixed-citation>
             </ref>
             <ref id="CR60">
               <label>60.</label>
-              <mixed-citation publication-type="other">RDF Views: Relational Data as RDF. <bold>[cito:citesAsRelated]</bold>. <ext-link xlink:href="https://docs.oracle.com/en/database/oracle/oracle-database/19/rdfrm/rdf-views.html" ext-link-type="url">https://docs.oracle.com/en/database/oracle/oracle-database/19/rdfrm/rdf-views.html</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">RDF Views: Relational Data as RDF. <bold>[cito:citesAsRelated]</bold>. <ext-link xlink:href="https://docs.oracle.com/en/database/oracle/oracle-database/19/rdfrm/rdf-views.html" ext-link-type="uri">https://docs.oracle.com/en/database/oracle/oracle-database/19/rdfrm/rdf-views.html</ext-link></mixed-citation>
             </ref>
             <ref id="CR61">
               <label>61.</label>
-              <mixed-citation publication-type="other">Gandon F, Schreiber G (2014) RDF 1.1 XML Syntax. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2014/REC-rdf-syntax-grammar-20140225/" ext-link-type="url">https://www.w3.org/TR/2014/REC-rdf-syntax-grammar-20140225/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Gandon F, Schreiber G (2014) RDF 1.1 XML Syntax. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2014/REC-rdf-syntax-grammar-20140225/" ext-link-type="uri">https://www.w3.org/TR/2014/REC-rdf-syntax-grammar-20140225/</ext-link></mixed-citation>
             </ref>
             <ref id="CR62">
               <label>62.</label>
-              <mixed-citation publication-type="other">Prud’hommeaux E, Carothers G (2014) RDF 1.1 Turtle: Terse RDF Triple Language. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2014/REC-turtle-20140225/" ext-link-type="url">https://www.w3.org/TR/2014/REC-turtle-20140225/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Prud’hommeaux E, Carothers G (2014) RDF 1.1 Turtle: Terse RDF Triple Language. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/2014/REC-turtle-20140225/" ext-link-type="uri">https://www.w3.org/TR/2014/REC-turtle-20140225/</ext-link></mixed-citation>
             </ref>
             <ref id="CR63">
               <label>63.</label>
-              <mixed-citation publication-type="other">Apache Jena. <bold>[cito:usesMethodIn]</bold>. <ext-link xlink:href="https://jena.apache.org/" ext-link-type="url">https://jena.apache.org/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Apache Jena. <bold>[cito:usesMethodIn]</bold>. <ext-link xlink:href="https://jena.apache.org/" ext-link-type="uri">https://jena.apache.org/</ext-link></mixed-citation>
             </ref>
             <ref id="CR64">
               <label>64.</label>
-              <mixed-citation publication-type="other">Clark J, DeRose S (1999) XML Path Language (XPath) Version 1.0. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/1999/REC-xpath-19991116/" ext-link-type="url">https://www.w3.org/TR/1999/REC-xpath-19991116/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Clark J, DeRose S (1999) XML Path Language (XPath) Version 1.0. <bold>[cito:citesAsAuthority]</bold>. <ext-link xlink:href="https://www.w3.org/TR/1999/REC-xpath-19991116/" ext-link-type="uri">https://www.w3.org/TR/1999/REC-xpath-19991116/</ext-link></mixed-citation>
             </ref>
             <ref id="CR65">
               <label>65.</label>
@@ -2089,27 +2089,27 @@ Ontology (CiTO) Pilot</subject>
             </ref>
             <ref id="CR66">
               <label>66.</label>
-              <mixed-citation publication-type="other">CodeMirror. <bold>[cito:usesMethodIn]</bold>. <ext-link xlink:href="https://codemirror.net/" ext-link-type="url">https://codemirror.net/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">CodeMirror. <bold>[cito:usesMethodIn]</bold>. <ext-link xlink:href="https://codemirror.net/" ext-link-type="uri">https://codemirror.net/</ext-link></mixed-citation>
             </ref>
             <ref id="CR67">
               <label>67.</label>
-              <mixed-citation publication-type="other">PubChemRDF. <bold>[cito:usesDataFrom] [cito:citesAsDataSource]</bold>. <ext-link xlink:href="https://pubchemdocs.ncbi.nlm.nih.gov/rdf" ext-link-type="url">https://pubchemdocs.ncbi.nlm.nih.gov/rdf</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">PubChemRDF. <bold>[cito:usesDataFrom] [cito:citesAsDataSource]</bold>. <ext-link xlink:href="https://pubchemdocs.ncbi.nlm.nih.gov/rdf" ext-link-type="uri">https://pubchemdocs.ncbi.nlm.nih.gov/rdf</ext-link></mixed-citation>
             </ref>
             <ref id="CR68">
               <label>68.</label>
-              <mixed-citation publication-type="other">The Apache Velocity Project - User Guide. <bold>[cito:usesMethodIn]</bold>. <ext-link xlink:href="https://velocity.apache.org/engine/2.2/user-guide.html" ext-link-type="url">https://velocity.apache.org/engine/2.2/user-guide.html</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">The Apache Velocity Project - User Guide. <bold>[cito:usesMethodIn]</bold>. <ext-link xlink:href="https://velocity.apache.org/engine/2.2/user-guide.html" ext-link-type="uri">https://velocity.apache.org/engine/2.2/user-guide.html</ext-link></mixed-citation>
             </ref>
             <ref id="CR69">
               <label>69.</label>
-              <mixed-citation publication-type="other">Rhea SPARQL endpoint. <bold>[cito:citesAsDataSource] [cito:usesMethodIn]</bold>. <ext-link xlink:href="https://sparql.rhea-db.org/sparql" ext-link-type="url">https://sparql.rhea-db.org/sparql</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">Rhea SPARQL endpoint. <bold>[cito:citesAsDataSource] [cito:usesMethodIn]</bold>. <ext-link xlink:href="https://sparql.rhea-db.org/sparql" ext-link-type="uri">https://sparql.rhea-db.org/sparql</ext-link></mixed-citation>
             </ref>
             <ref id="CR70">
               <label>70.</label>
-              <mixed-citation publication-type="other">UniProt. <bold>[cito:usesMethodIn]</bold>. <ext-link xlink:href="https://sparql.uniprot.org/" ext-link-type="url">https://sparql.uniprot.org/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">UniProt. <bold>[cito:usesMethodIn]</bold>. <ext-link xlink:href="https://sparql.uniprot.org/" ext-link-type="uri">https://sparql.uniprot.org/</ext-link></mixed-citation>
             </ref>
             <ref id="CR71">
               <label>71.</label>
-              <mixed-citation publication-type="other">neXtProt. <bold>[cito:citesAsDataSource] [cito:usesMethodIn]</bold>. <ext-link xlink:href="https://www.nextprot.org/" ext-link-type="url">https://www.nextprot.org/</ext-link></mixed-citation>
+              <mixed-citation publication-type="other">neXtProt. <bold>[cito:citesAsDataSource] [cito:usesMethodIn]</bold>. <ext-link xlink:href="https://www.nextprot.org/" ext-link-type="uri">https://www.nextprot.org/</ext-link></mixed-citation>
             </ref>
           </ref-list>
         </ref-list>

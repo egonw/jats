@@ -115,17 +115,17 @@
           </history>
           <permissions>
             <copyright-statement content-type="compact">© Nasr et al; licensee BioMed Central Ltd. 2009</copyright-statement>
-            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="uri">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
             <copyright-year>2009</copyright-year>
             <copyright-holder>Nasr et al; licensee BioMed Central Ltd.</copyright-holder>
             <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by-nc/2/">
               <license-p><bold>Open Access</bold> This is an open access article distributed under the terms of the Creative Commons Attribution Noncommercial License ( 
-    <ext-link xlink:href="https://creativecommons.org/licenses/by-nc/2.0" ext-link-type="url">https://creativecommons.org/licenses/by-nc/2.0</ext-link> 
+    <ext-link xlink:href="https://creativecommons.org/licenses/by-nc/2.0" ext-link-type="uri">https://creativecommons.org/licenses/by-nc/2.0</ext-link> 
     ), which permits any noncommercial use, distribution, and reproduction in any medium, provided the original author(s) and source are credited. 
 </license-p>
             </license>
           </permissions>
-          <abstract id="Abs1" xml:lang="en">
+          <abstract xml:lang="en" id="Abs1">
             <title>Abstract</title>
             <sec id="ASec1">
               <title>Background</title>
@@ -139,13 +139,11 @@
             </sec>
             <sec id="ASec3">
               <title>Conclusion</title>
-              <p>Fourteen methods for multiple-molecule querying of chemical databases, including novel methods, (ETD) and (TPD), are validated using publicly available data sets, standard cross-validation protocols, and established metrics. The best results are obtained with ETD, TPD, BKD, MAX-SIM, and MIN-RANK. These results can be replicated and compared with the results of future studies using data freely downloadable from <ext-link xlink:href="http://cdb.ics.uci.edu/" ext-link-type="url">http://cdb.ics.uci.edu/</ext-link>.</p>
+              <p>Fourteen methods for multiple-molecule querying of chemical databases, including novel methods, (ETD) and (TPD), are validated using publicly available data sets, standard cross-validation protocols, and established metrics. The best results are obtained with ETD, TPD, BKD, MAX-SIM, and MIN-RANK. These results can be replicated and compared with the results of future studies using data freely downloadable from <ext-link xlink:href="http://cdb.ics.uci.edu/" ext-link-type="uri">http://cdb.ics.uci.edu/</ext-link>.</p>
             </sec>
             <sec>
               <fig id="Figa" position="anchor">
-                <p>
-                  <graphic position="anchor" specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2009_Article_7_Figa_HTML.gif" />
-                </p>
+                <graphic specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2009_Article_7_Figa_HTML.gif" position="anchor" />
               </fig>
             </sec>
           </abstract>
@@ -306,7 +304,7 @@
         </article-meta>
         <notes notes-type="ESMHint">
           <title>Electronic supplementary material</title>
-          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-1-7" ext-link-type="doi">10.1186/1758-2946-1-7</ext-link>) contains supplementary material, which is available to authorized users.</p>
+          <p>The online version of this article (doi:<ext-link xlink:href="10.1186/1758-2946-1-7" ext-link-type="doi">10.1186/1758-2946-1-7</ext-link>) contains supplementary material, which is available to authorized users.</p>
         </notes>
         <notes notes-type="Misc">
           <p>Ramzi J Nasr, S Joshua Swamidass contributed equally to this work.</p>
@@ -316,7 +314,7 @@
         <sec id="Sec1">
           <title>Introduction</title>
           <p>The rapid search of large repositories of molecules is a fundamental task of chemoinformatics. In a typical search, the molecules in a repository are ranked by their similarity to a single molecule query. If an appropriate similarity metric is employed, the molecules most similar to the query are most likely to exhibit physical, chemical, or biological properties similar to the query molecule. There is extensive body of literature on how to search based on this type of single-molecule query ([<xref ref-type="bibr" rid="CR1">1</xref>–<xref ref-type="bibr" rid="CR5">5</xref>] and references therein).</p>
-          <p>However, in some chemoinformatic applications, several molecules of the same class are known. For example, given a set of molecules known to bind estrogen-receptor (Figure <xref rid="Fig1" ref-type="fig">1</xref>), one could search for additional estrogen-receptor binders. In these situations, searching the database with the whole group of query molecules may be more accurate than selecting a single-molecule to use as the query.<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>A multiple-molecule query</bold>. Examples of five estrogen receptor binding compounds that could be entered in a profile query.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig1_HTML.jpg" /></p></fig></p>
+          <p>However, in some chemoinformatic applications, several molecules of the same class are known. For example, given a set of molecules known to bind estrogen-receptor (Figure <xref rid="Fig1" ref-type="fig">1</xref>), one could search for additional estrogen-receptor binders. In these situations, searching the database with the whole group of query molecules may be more accurate than selecting a single-molecule to use as the query.<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>A multiple-molecule query</bold>. Examples of five estrogen receptor binding compounds that could be entered in a profile query.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig1_HTML.jpg" /></fig></p>
           <p>Multiple-molecule searches [<xref ref-type="bibr" rid="CR4">4</xref>–<xref ref-type="bibr" rid="CR8">8</xref>] have been less studied than single-molecules searches. Furthermore, the published studies of multiple-molecule searches suffer from critical weaknesses: reliance on proprietary data, poorly characterized background databases, and non-standardized performance metrics. Furthermore, some of these studies do not appropriately cross-validate their results.</p>
           <p>Our study directly rectifies these deficiencies by using public data and better evaluation methodology. We both introduce novel multiple-molecule query methods and compare these methods with previously described multiple-molecule query methods using public activity data sets, a public background database, a strict cross-validation protocol, and reproducible evaluation methodology.</p>
           <p>In what follows, many of the disparate methods from the literature are organized into a common framework.</p>
@@ -402,9 +400,9 @@
           </sec>
           <sec id="Sec10">
             <title>Data</title>
-            <p>other cases, they are known to elicit the same biological effect. Data sets include active molecules against HIV, different steroid receptors activists and antagonists, enzymes, and steroid families. See Table <xref rid="Tab2" ref-type="table">2</xref> enough to effectively evaluate methods in our largest data set, <italic>suth-dhfr</italic> with 722 chemicals. This background database is available for download at <ext-link xlink:href="http://cdb.ics.uci.edu" ext-link-type="url">http://cdb.ics.uci.edu</ext-link>.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Data set characteristics.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Name</p></th><th align="center"><p>Size</p></th><th align="left"><p>Reference</p></th></tr></thead><tbody><tr><td align="left"><p>muv-chaperone</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-gpcr-1</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-gpcr-2</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-gpcr-3</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-kinase-1</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-kinase-2</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-kinase-3</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-nr-1</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-nr-2</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-ppi-1</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-ppi-2</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-ppi-3</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-protease-1</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-protease-2</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-protease-3</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-rnase</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-rtk</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>nci-hiv</p></td><td align="center"><p>415</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR23">23</xref>]</p></td></tr><tr><td align="left"><p>stahl-cox2</p></td><td align="center"><p>125</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>stahl-estrogen</p></td><td align="center"><p>53</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>stahl-gelatinase</p></td><td align="center"><p>40</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>stahl-neuraminidase</p></td><td align="center"><p>17</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>stahl-p38-map-kinase</p></td><td align="center"><p>24</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>stahl-thrombin</p></td><td align="center"><p>67</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>suth-benzodiazepine</p></td><td align="center"><p>404</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR22">22</xref>]</p></td></tr><tr><td align="left"><p>suth-dhfr</p></td><td align="center"><p>722</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR22">22</xref>]</p></td></tr><tr><td align="left"><p>suth-estrogen</p></td><td align="center"><p>361</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR22">22</xref>]</p></td></tr><tr><td align="left"><p>suth-steroid</p></td><td align="center"><p>28</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR22">22</xref>]</p></td></tr><tr><td align="left"><p>wom-alr2</p></td><td align="center"><p>42</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-androgen</p></td><td align="center"><p>36</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-cdk2</p></td><td align="center"><p>152</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-cox2</p></td><td align="center"><p>76</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-d2</p></td><td align="center"><p>334</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-egfr</p></td><td align="center"><p>74</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-estrogen</p></td><td align="center"><p>64</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-fxa</p></td><td align="center"><p>107</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-hiv1rt</p></td><td align="center"><p>99</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-impdh</p></td><td align="center"><p>49</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-p38-map-kinase</p></td><td align="center"><p>59</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-pde5</p></td><td align="center"><p>88</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-ppar-gamma</p></td><td align="center"><p>27</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr></tbody></table><table-wrap-foot><p>Each data set is given an abbreviated name and is listed with the the number of molecules and its reference. In the case of the the NCI HIV screen (nci-hiv) we use only the 415 confirmed actives and discard the inactive and moderately-active compounds.</p></table-wrap-foot></table-wrap></p>
+            <p>other cases, they are known to elicit the same biological effect. Data sets include active molecules against HIV, different steroid receptors activists and antagonists, enzymes, and steroid families. See Table <xref rid="Tab2" ref-type="table">2</xref> enough to effectively evaluate methods in our largest data set, <italic>suth-dhfr</italic> with 722 chemicals. This background database is available for download at <ext-link xlink:href="http://cdb.ics.uci.edu" ext-link-type="uri">http://cdb.ics.uci.edu</ext-link>.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Data set characteristics.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Name</p></th><th align="center"><p>Size</p></th><th align="left"><p>Reference</p></th></tr></thead><tbody><tr><td align="left"><p>muv-chaperone</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-gpcr-1</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-gpcr-2</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-gpcr-3</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-kinase-1</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-kinase-2</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-kinase-3</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-nr-1</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-nr-2</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-ppi-1</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-ppi-2</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-ppi-3</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-protease-1</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-protease-2</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-protease-3</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-rnase</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>muv-rtk</p></td><td align="center"><p>30</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR25">25</xref>]</p></td></tr><tr><td align="left"><p>nci-hiv</p></td><td align="center"><p>415</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR23">23</xref>]</p></td></tr><tr><td align="left"><p>stahl-cox2</p></td><td align="center"><p>125</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>stahl-estrogen</p></td><td align="center"><p>53</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>stahl-gelatinase</p></td><td align="center"><p>40</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>stahl-neuraminidase</p></td><td align="center"><p>17</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>stahl-p38-map-kinase</p></td><td align="center"><p>24</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>stahl-thrombin</p></td><td align="center"><p>67</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR21">21</xref>]</p></td></tr><tr><td align="left"><p>suth-benzodiazepine</p></td><td align="center"><p>404</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR22">22</xref>]</p></td></tr><tr><td align="left"><p>suth-dhfr</p></td><td align="center"><p>722</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR22">22</xref>]</p></td></tr><tr><td align="left"><p>suth-estrogen</p></td><td align="center"><p>361</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR22">22</xref>]</p></td></tr><tr><td align="left"><p>suth-steroid</p></td><td align="center"><p>28</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR22">22</xref>]</p></td></tr><tr><td align="left"><p>wom-alr2</p></td><td align="center"><p>42</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-androgen</p></td><td align="center"><p>36</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-cdk2</p></td><td align="center"><p>152</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-cox2</p></td><td align="center"><p>76</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-d2</p></td><td align="center"><p>334</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-egfr</p></td><td align="center"><p>74</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-estrogen</p></td><td align="center"><p>64</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-fxa</p></td><td align="center"><p>107</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-hiv1rt</p></td><td align="center"><p>99</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-impdh</p></td><td align="center"><p>49</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-p38-map-kinase</p></td><td align="center"><p>59</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-pde5</p></td><td align="center"><p>88</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr><tr><td align="left"><p>wom-ppar-gamma</p></td><td align="center"><p>27</p></td><td align="left"><p>[<xref ref-type="bibr" rid="CR20">20</xref>]</p></td></tr></tbody></table><table-wrap-foot><p>Each data set is given an abbreviated name and is listed with the the number of molecules and its reference. In the case of the the NCI HIV screen (nci-hiv) we use only the 415 confirmed actives and discard the inactive and moderately-active compounds.</p></table-wrap-foot></table-wrap></p>
             <p>The multiple-molecule queries are benchmarked on a total of forty one data sets, divided into two groups. The first group of benchmarks use a background of negative examples randomly selected from the ChemDB. The second group of benchmarks uses data sets carefully derived from high throughput screening experiments specifically to more accurately assess query performance. This second group is expected to be more difficult than the first group.</p>
-            <p>First, we used twenty-four active data sets against a background database of molecules selected from the ChemDB. The data sets include thirteen WOMBAT data sets [<xref ref-type="bibr" rid="CR20">20</xref>], six data sets from Stahl et al. [<xref ref-type="bibr" rid="CR21">21</xref>], four data sets from Sutherland et al. [<xref ref-type="bibr" rid="CR22">22</xref>] and the compounds with confirmed activity against HIV from the National Cancer Institute's (NCI) high throughput screen [<xref ref-type="bibr" rid="CR23">23</xref>]. The background consists of 175, 000 randomly selected molecules. Based on the number of molecules in the active set, |<inline-formula id="IEq49"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq4_HTML.gif" /></inline-formula>|, Trunchon et. al. [<xref ref-type="bibr" rid="CR24">24</xref>] derived a minimum size for the background database which ensures that there will be enough information for metrics to provide meaningful discrimination between compared methods. A background database size of 175, 000 corresponds to a maximum active set size of 860 actives: more than large enough to effectively evaluate methods in our largest data set, <italic>suth-dhfr</italic> with 722 chemicals. This background database is available for download at <ext-link xlink:href="http://cdb.ics.uci.edu" ext-link-type="url">http://cdb.ics.uci.edu</ext-link>.</p>
+            <p>First, we used twenty-four active data sets against a background database of molecules selected from the ChemDB. The data sets include thirteen WOMBAT data sets [<xref ref-type="bibr" rid="CR20">20</xref>], six data sets from Stahl et al. [<xref ref-type="bibr" rid="CR21">21</xref>], four data sets from Sutherland et al. [<xref ref-type="bibr" rid="CR22">22</xref>] and the compounds with confirmed activity against HIV from the National Cancer Institute's (NCI) high throughput screen [<xref ref-type="bibr" rid="CR23">23</xref>]. The background consists of 175, 000 randomly selected molecules. Based on the number of molecules in the active set, |<inline-formula id="IEq49"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq4_HTML.gif" /></inline-formula>|, Trunchon et. al. [<xref ref-type="bibr" rid="CR24">24</xref>] derived a minimum size for the background database which ensures that there will be enough information for metrics to provide meaningful discrimination between compared methods. A background database size of 175, 000 corresponds to a maximum active set size of 860 actives: more than large enough to effectively evaluate methods in our largest data set, <italic>suth-dhfr</italic> with 722 chemicals. This background database is available for download at <ext-link xlink:href="http://cdb.ics.uci.edu" ext-link-type="uri">http://cdb.ics.uci.edu</ext-link>.</p>
             <p>Second, we also used seventeen Maximum Unbiased Validation (MUV) data sets provided by Rohrer et al. [<xref ref-type="bibr" rid="CR25">25</xref>] against their corresponding background databases. Each of these data sets include both 30 maximally dissimilar active compounds and a background set of 15,000 decoys similar to the actives in regards to low-dimension properties like solubility, volume, and surface area. These data sets were constructed specifically to avoid artificially high screening performance caused by using an inappropriate decoy data set. By selecting decoy data sets in this manner, it is assumed that the decoy chemicals are inactive even while there remains a small chance that they are active. In the case of the MUV data sets, the background decoys are selected from chemicals which have screened negatively and have, therefore, preliminary experimental evidence of inactivity. In contrast, by selecting the ChemDB background from untested chemicals, a stronger assumption that none of the untested chemicals are actives. There is a small chance that, for a small number of molecules, this assumption is not valid, and they are therefore incorrectly labeled as negative examples. This chance is sufficiently rare that it would not affect the performance metrics by an appreciable amount.</p>
             <p>All of the forty-one data sets represent groups of diverse molecules with similar activity. In some cases, the molecules of each group are known to interact with the same protein. In other cases, they are known to elicit the same biological effect. Data sets include active molecules against HIV, different steroid receptors activists and antagonists, enzymes, and steroid families. See Table <xref rid="Tab2" ref-type="table">2</xref> for a full listing of the data sets.</p>
             <p>For each data set we generate fingerprints with the same protocol using an in-house program written in Python. Fingerprints are associated with labelled paths of length up to 8 (i.e. 9 atoms and 8 bonds). In this case, the total number of observed labelled paths is about 150, 000. Compression is done using the lossy fingerprint folding algorithm. Results are reported for fingerprints of length <italic>N</italic> = 1024.</p>
@@ -424,26 +422,26 @@
           <p>In the next subsections, we explore graphical comparisons between methods within the same class of approaches. All ROCs and pROCs are leave-one-out (LOO) cross-validated and aggregated over all data sets with the ChemDB background. The plots visually illustrate qualitative comparisons of each method.</p>
           <sec id="Sec12">
             <title>Aggregating ranks</title>
-            <p>First, we examine the different methods based on rank aggregation. Figure <xref rid="Fig2" ref-type="fig">2</xref> shows the cross-validated (a) ROC and (b) pROC curves derived by aggregating over all data sets. We can clearly see that <bold>MIN-RANK</bold> performs better than <bold>MAX-RANK</bold> and <bold>SUM-RANK</bold> by a substantial margin.<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>ROC and pROC curves of multiple-molecule query methods that aggregate ranks</bold>. This figure compares the parameter-free methods, <bold>MIN-RANK</bold>, <bold>MAX-RANK</bold>, and <bold>SUM-RANK</bold> with (a) complete ROC curves, and (b) pROC curves.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig2_HTML.jpg" /></p></fig></p>
+            <p>First, we examine the different methods based on rank aggregation. Figure <xref rid="Fig2" ref-type="fig">2</xref> shows the cross-validated (a) ROC and (b) pROC curves derived by aggregating over all data sets. We can clearly see that <bold>MIN-RANK</bold> performs better than <bold>MAX-RANK</bold> and <bold>SUM-RANK</bold> by a substantial margin.<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>ROC and pROC curves of multiple-molecule query methods that aggregate ranks</bold>. This figure compares the parameter-free methods, <bold>MIN-RANK</bold>, <bold>MAX-RANK</bold>, and <bold>SUM-RANK</bold> with (a) complete ROC curves, and (b) pROC curves.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig2_HTML.jpg" /></fig></p>
           </sec>
           <sec id="Sec13">
             <title>Aggregating similarities (parameter-free)</title>
             <p>We next examine the different parameter-free methods of similarity aggregating; the methods which require fitting parameters from the data are not discussed here, but in a later section.</p>
-            <p>By convention, lower ranks correspond with higher scores. So, if <bold>MIN-RANK</bold> performs best, we would also expect <bold>MAX-SIM</bold> to perform better than other methods of aggregating similarities. This is exactly what we observe. Figure <xref rid="Fig3" ref-type="fig">3</xref> shows the cross-validated and aggregated (a) ROC and (b) pROC curves for the parameter-free similarity aggregating methods.<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>ROC and pROC curves of multiple-molecule query methods that aggregate similarities with no learned parameters</bold>. This figure compares the parameter-free methods, <bold>MAX-SIM</bold>, <bold>MIN-SIM</bold>, and <bold>SUM-SIM</bold> with (a) complete ROC curves, and (b) pROC curves.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig3_HTML.jpg" /></p></fig></p>
+            <p>By convention, lower ranks correspond with higher scores. So, if <bold>MIN-RANK</bold> performs best, we would also expect <bold>MAX-SIM</bold> to perform better than other methods of aggregating similarities. This is exactly what we observe. Figure <xref rid="Fig3" ref-type="fig">3</xref> shows the cross-validated and aggregated (a) ROC and (b) pROC curves for the parameter-free similarity aggregating methods.<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>ROC and pROC curves of multiple-molecule query methods that aggregate similarities with no learned parameters</bold>. This figure compares the parameter-free methods, <bold>MAX-SIM</bold>, <bold>MIN-SIM</bold>, and <bold>SUM-SIM</bold> with (a) complete ROC curves, and (b) pROC curves.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig3_HTML.jpg" /></fig></p>
           </sec>
           <sec id="Sec14">
             <title>Profile similarity and aggregating numerators and denominators</title>
             <p>For Tanimoto similarity, MinMax similarity computed between a profile vector and a database fingerprint (Equation 22) exactly corresponds with separately aggregating the numerators and denominators (<bold>NUMDEN-SIM</bold>, Equation <xref rid="Equ19" ref-type="disp-formula">19</xref>). So, in the case of binary fingerprints, the only distinct profile similarity method we describe is <bold>BAYES</bold> method (Equation 24).</p>
-            <p>The <bold>BAYES</bold> method is used extensively by [<xref ref-type="bibr" rid="CR18">18</xref>, <xref ref-type="bibr" rid="CR19">19</xref>, <xref ref-type="bibr" rid="CR27">27</xref>]. However, in our experiments it performs surprisingly poorly. Figure <xref rid="Fig4" ref-type="fig">4</xref> shows the ROC and pROC curves for <bold>BAYES</bold> and <bold>NUMDEN-SIM</bold> for comparison. <bold>NUMDEN-SIM</bold> clearly outperforms <bold>BAYES</bold><fig id="Fig4"><label>Figure 4</label><caption xml:lang="en"><p><bold>ROC and pROC curves of BAYES and NUMDEN-SIM</bold>. This figure shows the (a) ROC and (b) pROC curves for <bold>BAYES</bold> with <bold>NUMDEN-SIM</bold> included for comparison.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig4_HTML.jpg" /></p></fig></p>
+            <p>The <bold>BAYES</bold> method is used extensively by [<xref ref-type="bibr" rid="CR18">18</xref>, <xref ref-type="bibr" rid="CR19">19</xref>, <xref ref-type="bibr" rid="CR27">27</xref>]. However, in our experiments it performs surprisingly poorly. Figure <xref rid="Fig4" ref-type="fig">4</xref> shows the ROC and pROC curves for <bold>BAYES</bold> and <bold>NUMDEN-SIM</bold> for comparison. <bold>NUMDEN-SIM</bold> clearly outperforms <bold>BAYES</bold><fig id="Fig4"><label>Figure 4</label><caption xml:lang="en"><p><bold>ROC and pROC curves of BAYES and NUMDEN-SIM</bold>. This figure shows the (a) ROC and (b) pROC curves for <bold>BAYES</bold> with <bold>NUMDEN-SIM</bold> included for comparison.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig4_HTML.jpg" /></fig></p>
           </sec>
           <sec id="Sec15">
             <title>Aggregating similarities (with learned parameters)</title>
             <p>In this section, we consider methods which learn one or two parameters from the data. These methods were easily trained using a standard leave-one-out procedure to select the best parameterization from an exhaustive parameter sweep. Although one can imagine more efficient means of training these models, this is consistent with the literature. In turn, we first evaluate <bold>SUM-ET</bold>, <bold>SUM-EH</bold>, and <bold>SUM-TP</bold>, which learn using only an active set of molecules, and then <bold>ETD</bold>, <bold>BKD</bold>, and <bold>TPD</bold>, which use additional information from inferred inactive molecules randomly chosen from the background database.</p>
-            <p>Results of <bold>SUM-ET</bold>, <bold>SUM-TP</bold>, and <bold>SUM-EH</bold> are shown in Figure <xref rid="Fig5" ref-type="fig">5</xref>. The first two methods perform at almost the same level, and outperform <bold>SUM-EH</bold>. The three methods which use additional information from inferred inactive compounds, <bold>ETD</bold>, <bold>BKD</bold>, and <bold>TPD</bold>, are all high performers as well. Figure <xref rid="Fig6" ref-type="fig">6</xref> displays the aggregated ROC and pROC curves of the three methods. We see that although the curves are very close in Figure <xref rid="Fig5" ref-type="fig">5</xref> that <bold>ETD</bold> slightly outperforms the other two methods.<fig id="Fig5"><label>Figure 5</label><caption xml:lang="en"><p><bold>ROC and pROC curves of two-parameter multiple-molecule query methods (only active sets)</bold>. This figure compares the learned methods that use only an active set of molecules, <bold>SUM-TP</bold>, <bold>SUM-ET</bold>, and <bold>SUM-EH</bold> with (a) complete ROC curves, and (b) pROC curves.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig5_HTML.jpg" /></p></fig><fig id="Fig6"><label>Figure 6</label><caption xml:lang="en"><p><bold>ROC and pROC curves of two-parameter multiple-molecule query methods</bold>. This figure compares the learned methods, <bold>TPD</bold>, <bold>ETD</bold>, and <bold>BKD</bold> with (a) complete ROC curves, and (b) pROC curves.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig6_HTML.jpg" /></p></fig></p>
+            <p>Results of <bold>SUM-ET</bold>, <bold>SUM-TP</bold>, and <bold>SUM-EH</bold> are shown in Figure <xref rid="Fig5" ref-type="fig">5</xref>. The first two methods perform at almost the same level, and outperform <bold>SUM-EH</bold>. The three methods which use additional information from inferred inactive compounds, <bold>ETD</bold>, <bold>BKD</bold>, and <bold>TPD</bold>, are all high performers as well. Figure <xref rid="Fig6" ref-type="fig">6</xref> displays the aggregated ROC and pROC curves of the three methods. We see that although the curves are very close in Figure <xref rid="Fig5" ref-type="fig">5</xref> that <bold>ETD</bold> slightly outperforms the other two methods.<fig id="Fig5"><label>Figure 5</label><caption xml:lang="en"><p><bold>ROC and pROC curves of two-parameter multiple-molecule query methods (only active sets)</bold>. This figure compares the learned methods that use only an active set of molecules, <bold>SUM-TP</bold>, <bold>SUM-ET</bold>, and <bold>SUM-EH</bold> with (a) complete ROC curves, and (b) pROC curves.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig5_HTML.jpg" /></fig><fig id="Fig6"><label>Figure 6</label><caption xml:lang="en"><p><bold>ROC and pROC curves of two-parameter multiple-molecule query methods</bold>. This figure compares the learned methods, <bold>TPD</bold>, <bold>ETD</bold>, and <bold>BKD</bold> with (a) complete ROC curves, and (b) pROC curves.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig6_HTML.jpg" /></fig></p>
           </sec>
           <sec id="Sec16">
             <title>Best methods</title>
-            <p>In this subsection, we examine the best methods from the above subsections. Only one of the best methods from each of the classes is chosen as a representative. Figure <xref rid="Fig7" ref-type="fig">7</xref> displays the ROC and pROC curves of <bold>ETD</bold>, <bold>SUM-ET</bold>, <bold>MAX-SIM</bold>, <bold>MIN-RANK</bold>, and <bold>NUMDEN-SIM</bold>.<fig id="Fig7"><label>Figure 7</label><caption xml:lang="en"><p><bold>ROC and pROC curves of the best multiple-molecule query methods</bold>. This figure compares both the (a) complete ROC curves, and (b) the pROC curves of some of the the best performing methods: <bold>ETD</bold>, <bold>SUM-ET</bold>, <bold>MAX-SIM</bold>, <bold>MIN-RANK</bold>, and <bold>NUMDEN-SIM</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig7_HTML.jpg" /></p></fig></p>
+            <p>In this subsection, we examine the best methods from the above subsections. Only one of the best methods from each of the classes is chosen as a representative. Figure <xref rid="Fig7" ref-type="fig">7</xref> displays the ROC and pROC curves of <bold>ETD</bold>, <bold>SUM-ET</bold>, <bold>MAX-SIM</bold>, <bold>MIN-RANK</bold>, and <bold>NUMDEN-SIM</bold>.<fig id="Fig7"><label>Figure 7</label><caption xml:lang="en"><p><bold>ROC and pROC curves of the best multiple-molecule query methods</bold>. This figure compares both the (a) complete ROC curves, and (b) the pROC curves of some of the the best performing methods: <bold>ETD</bold>, <bold>SUM-ET</bold>, <bold>MAX-SIM</bold>, <bold>MIN-RANK</bold>, and <bold>NUMDEN-SIM</bold>.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig7_HTML.jpg" /></fig></p>
             <p>From the figure, we observe that <bold>ETD</bold> consistently outperforms <bold>SUM-ET</bold> by a small margin. There is little gain in performance from the information the inferred inactive compounds are adding. <bold>MINRANK</bold> consistently outperforms <bold>MAX-SIM</bold> and outperforms <bold>ETD</bold> in the early section of the curves (Figure <xref rid="Fig7" ref-type="fig">7(b)</xref>). <bold>NUMDEN-SIM</bold>'s performance falls behind the other methods'.</p>
             <p>In most cases, we expect <bold>MAX-SIM</bold> and <bold>MIN-RANK</bold> to be of the most use because of their high performance and simple implementation. However, the stronger performance of the methods with learned parameter(s) suggests a small performance gain can be realized from the added effort of tuning a query to each data set.</p>
           </sec>
@@ -455,7 +453,7 @@
           <p><bold>BAYES</bold> did not perform as well as expected. This could be because we fully cross-validated these methods when prior studies may not have done so. Hopefully, by releasing our data to the scientific community our results can be confirmed by other laboratories.</p>
           <p>We can explain the improved performance of <bold>ETD</bold> over <bold>BKD</bold> on the ChemDB and MUV data. Recall that the Tanimoto metrics used by <bold>ETD</bold> are corrected while the Hamming distance and Simple Matching similarity, used by <bold>BKD</bold>, are not corrected. This would be expected to produce a small performance gain. Experiments not reported here show that, indeed, the performance of the Tanimoto-based methods degrades slightly when the uncorrected version is used in place of the corrected version. This, however, is not enough to fully explain the performance gain; these uncorrected versions still outperform <bold>BKD</bold>. This suggests that part of the performance gain is a direct result of building the method on the Tanimoto similarity rather than the Hamming distance.</p>
           <p>Furthermore, we can explain the strong performance of the top methods by noting that most other methods implicitly assume that the chemicals in a given activity class are all similar to one another, that they are all in the same cluster of similar molecules. For example, summing or averaging similarities together assumes that the most likely chemicals are similar to <italic>all</italic> the chemicals in the query and by averaging similarities we are measuring their membership in this 'one-cluster' in a cleaner way. In contrast, for some parameters, the <bold>BKD</bold>, <bold>TPD</bold> and <bold>ETD</bold> a molecule's score can be large if only one query molecule is very similar, regardless of how dissimilar the other query molecules are.</p>
-          <p>We know, in fact, that this 'one-cluster' assumption is not valid on most data sets. For example, clustering the active and moderately-active compounds from the NCI HIV screen using the Quality Threshold clustering algorithm [<xref ref-type="bibr" rid="CR28">28</xref>], the Tanimoto distance, and 0.5 as the cluster diameter parameter, produces a few large clusters and many smaller clusters (see Figure <xref rid="Fig8" ref-type="fig">8</xref>). Most of these clusters may have only a few chemicals in them but some may have many. There are inactive compounds which are close to the aggregate center of the large clusters. This makes biological sense. Each cluster could represent different classes of entirely different molecules. In the case of screening data, different classes could interact with a different protein, different binding sites on the same protein, or, perhaps more importantly, they could represent compounds with different scaffolds interacting with the same protein at the same binding-site. One can imagine inactive compounds which would be ranked inappropriately as actives by 'one-cluster' methods because they have features in common with disparate classes.<fig id="Fig8"><label>Figure 8</label><caption xml:lang="en"><p><bold>Size distribution of clusters of the HIV data set</bold>. Clustering the active and moderately-active compounds from the NCI HIV screen using the QT (Quality Threshold) clustering algorithm [<xref ref-type="bibr" rid="CR28">28</xref>], using the Tanimoto distance and 0.5 as the cluster diameter parameter, produces a few large clusters and many smaller clusters. The size of the one hundred largest clusters found by this method are plotted in decreasing order. These sizes follow a power-law distribution.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig8_HTML.jpg" /></p></fig></p>
+          <p>We know, in fact, that this 'one-cluster' assumption is not valid on most data sets. For example, clustering the active and moderately-active compounds from the NCI HIV screen using the Quality Threshold clustering algorithm [<xref ref-type="bibr" rid="CR28">28</xref>], the Tanimoto distance, and 0.5 as the cluster diameter parameter, produces a few large clusters and many smaller clusters (see Figure <xref rid="Fig8" ref-type="fig">8</xref>). Most of these clusters may have only a few chemicals in them but some may have many. There are inactive compounds which are close to the aggregate center of the large clusters. This makes biological sense. Each cluster could represent different classes of entirely different molecules. In the case of screening data, different classes could interact with a different protein, different binding sites on the same protein, or, perhaps more importantly, they could represent compounds with different scaffolds interacting with the same protein at the same binding-site. One can imagine inactive compounds which would be ranked inappropriately as actives by 'one-cluster' methods because they have features in common with disparate classes.<fig id="Fig8"><label>Figure 8</label><caption xml:lang="en"><p><bold>Size distribution of clusters of the HIV data set</bold>. Clustering the active and moderately-active compounds from the NCI HIV screen using the QT (Quality Threshold) clustering algorithm [<xref ref-type="bibr" rid="CR28">28</xref>], using the Tanimoto distance and 0.5 as the cluster diameter parameter, produces a few large clusters and many smaller clusters. The size of the one hundred largest clusters found by this method are plotted in decreasing order. These sizes follow a power-law distribution.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_7_Fig8_HTML.jpg" /></fig></p>
           <p>It may be more appropriate to first divide up the query into clusters, and then score the database by their distance from the closest cluster. For example, to reformulate the <bold>BAYES</bold> method which typically makes one model of the activity class, we could first segment the query into clusters and model each cluster using a separate Bayesian model. This type of mixture modeling could yield some small performance gains but substantially increases the complexity of the method.</p>
           <p>The <bold>MAX-SIM</bold> method has a nice interpretation which does not make the 'one-cluster' assumption. If we assume (1) the probability a given molecule (ℬ) has the same activity (<italic>A</italic>) as a query molecule (<inline-formula id="IEq50"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq1_HTML.gif" /></inline-formula>) is some positive-monotonic function, <italic>f</italic>, of their similarity [<xref ref-type="bibr" rid="CR29">29</xref>], i.e. <italic>P</italic>(<italic>A</italic>|<italic>S</italic>(<inline-formula id="IEq51"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq1_HTML.gif" /></inline-formula>, ℬ)) = <italic>f</italic>(<italic>S</italic>(<inline-formula id="IEq52"><inline-graphic xlink:href="MediaObjects/13321_2009_Article_7_IEq1_HTML.gif" /></inline-formula>, ℬ)), and (2) this function, <italic>f</italic>, does not vary significantly across chemical space, then sorting chemicals by their maximum similarity to a set of query molecules is a natural way of finding additional molecules with the highest probability of having the same activity.</p>
           <p>This interpretation helps us direct future work. For example, by relaxing the second assumption; perhaps the similarity can be tuned by additional indicators, such as the size of the molecule, its solubility, etc., to create a more explicit model of this probability function which would vary appropriately across chemical space. It is also possible that a more rigorous probabilistic framework could further improve retrieval accuracy.</p>
@@ -514,7 +512,7 @@
                 <fpage>379</fpage>
                 <lpage>386</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci970437z</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaK1cXislShsbg%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK1cXislShsbg%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR3">
@@ -568,7 +566,7 @@
                 <fpage>1218</fpage>
                 <lpage>1225</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci030287u</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXks12nu7Y%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3sXks12nu7Y%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR5">
@@ -596,7 +594,7 @@
                 <fpage>2032</fpage>
                 <lpage>2039</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci0400819</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXntF2itLg%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXntF2itLg%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR6">
@@ -640,7 +638,7 @@
                 <fpage>1177</fpage>
                 <lpage>1185</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci034231b</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXhsVOis7g%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhsVOis7g%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR7">
@@ -684,7 +682,7 @@
                 <fpage>7049</fpage>
                 <lpage>54</lpage>
                 <pub-id pub-id-type="doi">10.1021/jm050316n</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXhtVGisrjL</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXhtVGisrjL</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR8">
@@ -728,7 +726,7 @@
                 <fpage>462</fpage>
                 <lpage>470</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci050348j</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XlvV2h</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XlvV2h</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR9">
@@ -752,7 +750,7 @@
                 <fpage>2280</fpage>
                 <lpage>2286</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci700274r</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXht1KitrfK</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXht1KitrfK</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR10">
@@ -826,7 +824,7 @@
                 <fpage>i359</fpage>
                 <lpage>i368</lpage>
                 <pub-id pub-id-type="doi">10.1093/bioinformatics/bti1055</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXlslyktLc%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXlslyktLc%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR13">
@@ -876,7 +874,7 @@
                 <fpage>952</fpage>
                 <lpage>964</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci600526a</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXksVSmtbo%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXksVSmtbo%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR15">
@@ -904,7 +902,7 @@
                 <fpage>155</fpage>
                 <lpage>66</lpage>
                 <pub-id pub-id-type="doi">10.2174/1386207024607338</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD38Xjt1amsrs%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38Xjt1amsrs%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR16">
@@ -940,7 +938,7 @@
                 <fpage>1295</fpage>
                 <lpage>1300</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci000397q</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3MXjt1Wnsb0%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3MXjt1Wnsb0%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR17">
@@ -984,7 +982,7 @@
                 <fpage>478</fpage>
                 <lpage>486</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci0505426</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XhsFOrt7k%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XhsFOrt7k%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR18">
@@ -1012,7 +1010,7 @@
                 <fpage>4356</fpage>
                 <lpage>4359</lpage>
                 <pub-id pub-id-type="doi">10.1021/jm049970d</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXlvFGis7o%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXlvFGis7o%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR19">
@@ -1048,7 +1046,7 @@
                 <fpage>2743</fpage>
                 <lpage>2749</lpage>
                 <pub-id pub-id-type="doi">10.1021/jm030363k</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXjsVChsbc%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXjsVChsbc%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR20">
@@ -1080,7 +1078,7 @@
                 <fpage>1308</fpage>
                 <lpage>1315</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci010366a</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3MXlt1Okt7s%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3MXlt1Okt7s%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR21">
@@ -1104,7 +1102,7 @@
                 <fpage>1035</fpage>
                 <lpage>1042</lpage>
                 <pub-id pub-id-type="doi">10.1021/jm0003992</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3MXhsFKitro%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3MXhsFKitro%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR22">
@@ -1131,12 +1129,12 @@
                 <issue>6</issue>
                 <fpage>1906</fpage>
                 <lpage>1915</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXot1Khsr0%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3sXot1Khsr0%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR23">
               <label>23.</label>
-              <mixed-citation publication-type="other">The Developmental Therapeutics Program NCI/NIH. [<ext-link xlink:href="http://dtp.nci.nih.gov/" ext-link-type="url">http://dtp.nci.nih.gov/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">The Developmental Therapeutics Program NCI/NIH. [<ext-link xlink:href="http://dtp.nci.nih.gov/" ext-link-type="uri">http://dtp.nci.nih.gov/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR24">
               <label>24.</label>
@@ -1159,7 +1157,7 @@
                 <fpage>488</fpage>
                 <lpage>508</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci600426e</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXhsVCgtLY%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXhsVCgtLY%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR25">
@@ -1183,7 +1181,7 @@
                 <fpage>169</fpage>
                 <lpage>184</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci8002649</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXptlOhtQ%3D%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXptlOhtQ%3D%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR26">
@@ -1207,7 +1205,7 @@
                 <fpage>141</fpage>
                 <lpage>146</lpage>
                 <pub-id pub-id-type="doi">10.1007/s10822-008-9181-z</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXjsFOnsLc%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXjsFOnsLc%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR27">
@@ -1238,7 +1236,7 @@
                 <fpage>32</fpage>
                 <lpage>36</lpage>
                 <pub-id pub-id-type="doi">10.1177/1087057103260590</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXitlOntrc%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXitlOntrc%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR28">
@@ -1266,7 +1264,7 @@
                 <fpage>1106</fpage>
                 <lpage>1115</lpage>
                 <pub-id pub-id-type="doi">10.1101/gr.9.11.1106</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaK1MXns12ktrc%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK1MXns12ktrc%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR29">
@@ -1306,7 +1304,7 @@
                 <fpage>941</fpage>
                 <lpage>948</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci7004498</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXkvVSrs7o%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXkvVSrs7o%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR30">
@@ -1330,7 +1328,7 @@
                 <fpage>302</fpage>
                 <lpage>317</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci600358f</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXitFCms7w%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXitFCms7w%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR31">
@@ -1358,7 +1356,7 @@
                 <fpage>1367</fpage>
                 <lpage>1378</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci800076s</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXnvFGjsr4%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXnvFGjsr4%3D</pub-id>
               </mixed-citation>
             </ref>
           </ref-list>
@@ -1369,21 +1367,21 @@
               <title>Electronic supplementary material</title>
               <p>
                 <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Electronic supplementary material">
-                  <media xlink:href="MediaObjects/13321_2009_7_MOESM1_ESM.csv" mimetype="text" mime-subtype="plain">
+                  <media mimetype="text" mime-subtype="plain" xlink:href="MediaObjects/13321_2009_7_MOESM1_ESM.csv" position="anchor">
                     <caption xml:lang="en">
                       <p>Additional file 1: xvalranks. The CSV file contains all the ranks of cross-validated active compounds per data set per similarity method. The first entry on each line is the data set, the second entry is the similarity method, and the rest of the entries are the ranks of the actives when cross validated over the entire data set. (CSV 252 KB)</p>
                     </caption>
                   </media>
                 </supplementary-material>
                 <supplementary-material content-type="local-data" id="MOESM2" xlink:title="Electronic supplementary material">
-                  <media xlink:href="MediaObjects/13321_2009_7_MOESM2_ESM.csv" mimetype="text" mime-subtype="plain">
+                  <media mimetype="text" mime-subtype="plain" xlink:href="MediaObjects/13321_2009_7_MOESM2_ESM.csv" position="anchor">
                     <caption xml:lang="en">
                       <p>Additional file 2: performance. The CSV file contains all the results of the cross-validated experiments per data set per similarity method. On each line, the first entry is the data set, the second entry is the similarity method, the third, fourth, fifth, and sixth entries are the different performance metrics respectively: AUC, AUAC, F1, and BEDROC (CSV 42 KB)</p>
                     </caption>
                   </media>
                 </supplementary-material>
                 <supplementary-material content-type="local-data" id="MOESM3" xlink:title="Electronic supplementary material">
-                  <media xlink:href="MediaObjects/13321_2009_7_MOESM3_ESM.pdf" mimetype="application" mime-subtype="pdf">
+                  <media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2009_7_MOESM3_ESM.pdf" position="anchor">
                     <caption xml:lang="en">
                       <p>Additional file 3: <bold>performance.</bold> The PDF file contains all the results of the cross-validated experiments per data set per similarity method in different tables. The highest performance of each data set is shown in <bold>bold</bold>. The columns, left to right, are: data set, similarity method, AUC, AUAC, F1, and BEDROC. (PDF 49 KB)</p>
                     </caption>
@@ -1393,7 +1391,7 @@
             </sec>
             <sec id="Sec19">
               <title>Authors’ original submitted files for images</title>
-              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM4_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM5_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM6_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM7_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM8" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM8_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM9" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM9_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM10" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM10_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 7</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM11" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_7_MOESM11_ESM.eps" mimetype="application" mime-subtype="postscript"><caption xml:lang="en"><p>Authors’ original file for figure 8</p></caption></media></supplementary-material></p>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="postscript" xlink:href="MediaObjects/13321_2009_7_MOESM4_ESM.eps" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="postscript" xlink:href="MediaObjects/13321_2009_7_MOESM5_ESM.eps" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="postscript" xlink:href="MediaObjects/13321_2009_7_MOESM6_ESM.eps" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="postscript" xlink:href="MediaObjects/13321_2009_7_MOESM7_ESM.eps" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM8" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="postscript" xlink:href="MediaObjects/13321_2009_7_MOESM8_ESM.eps" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM9" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="postscript" xlink:href="MediaObjects/13321_2009_7_MOESM9_ESM.eps" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM10" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="postscript" xlink:href="MediaObjects/13321_2009_7_MOESM10_ESM.eps" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 7</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM11" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="postscript" xlink:href="MediaObjects/13321_2009_7_MOESM11_ESM.eps" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 8</p></caption></media></supplementary-material></p>
             </sec>
           </app>
         </app-group>

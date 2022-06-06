@@ -130,14 +130,14 @@
           </history>
           <permissions>
             <copyright-statement content-type="compact">© Chepelev and Dumontier; licensee Chemistry Central Ltd. 2011</copyright-statement>
-            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="uri">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
             <copyright-year>2011</copyright-year>
             <copyright-holder>Chepelev and Dumontier; licensee Chemistry Central Ltd.</copyright-holder>
             <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0/">
-              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="url">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="uri">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
             </license>
           </permissions>
-          <abstract id="Abs1" xml:lang="en">
+          <abstract xml:lang="en" id="Abs1">
             <title>Abstract</title>
             <sec id="ASec1">
               <title>Background</title>
@@ -153,9 +153,7 @@
             </sec>
             <sec>
               <fig id="Figa" position="anchor">
-                <p>
-                  <graphic position="anchor" specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2010_Article_196_Figa_HTML.gif" />
-                </p>
+                <graphic specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2010_Article_196_Figa_HTML.gif" position="anchor" />
               </fig>
             </sec>
           </abstract>
@@ -320,7 +318,7 @@
         </article-meta>
         <notes notes-type="ESMHint">
           <title>Electronic supplementary material</title>
-          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-3-16" ext-link-type="doi">10.1186/1758-2946-3-16</ext-link>) contains supplementary material, which is available to authorized users.</p>
+          <p>The online version of this article (doi:<ext-link xlink:href="10.1186/1758-2946-3-16" ext-link-type="doi">10.1186/1758-2946-3-16</ext-link>) contains supplementary material, which is available to authorized users.</p>
         </notes>
       </front>
       <body>
@@ -335,14 +333,14 @@
           <p>This situation has changed with the recent introduction of the SADI framework [<xref ref-type="bibr" rid="CR22">22</xref>]. Web services created with SADI consume and produce RDF graphs, operating on instances of input and output classes formally defined in supporting service OWL ontologies. The input class of a SADI service subsumes the output class, as these services are stateless, atomic, and annotative. That is, each service carries out a single primitive function and annotates an instance of the input class with information through a particular predicate. SADI services are also REST-like, in that there is only a standard basic set of HTTP verbs that they may respond to, namely GET and POST. A GET operation on a given service returns its semantic description, while a POST of a well-formed RDF graph to the service initiates service execution and returns the same RDF graph with the annotations created by the service. If a SADI service is computationally-intensive, standard asynchronous execution mechanisms are available.</p>
           <p>Unlike its aforementioned predecessors, SADI service specification is extremely simple as it neither imposes nor invents a central schema, ontology, or message structure, using standard web components instead. Because of the formal logical definition of the input class, output class, and the introduced predicate, SADI services can be tightly integrated into the Semantic Web and very naturally reasoned about by a machine client. This combination of simplicity of specification and power of formal reasoning allows SADI web services to be seamlessly integrated into SPARQL queries with simple machine reasoning clients, as if the data that they can potentially generate was already available in an RDF triple store. One such prototype client, Semantic Health And Research Environment (SHARE), operates on SPARQL queries and is capable reasoning about the desired overall query goal and chaining services and information together such as to reach this goal in the least computationally expensive way [<xref ref-type="bibr" rid="CR23">23</xref>]. SHARE draws on a central freely accessible service registry that contains information about service input, output, and predicate types to carry out this automated workflow construction. Thus, in order to pose a query through SHARE, a human agent has to be aware of service specification details in the registry to be able to create a well-formed query. For this, the user needs to acquaint themselves with the input and output classes operated upon and annotations created by the collection of SADI services available in a given SADI instance by perusing the service registry [<xref ref-type="bibr" rid="CR24">24</xref>]. Thus, one only needs to identify an input class that contains the information that is already available as a starting point, as well as the service-specific predicates corresponding to the annotation that is desired.</p>
           <p>In order to maximise service interoperability, it is of course recommended to reuse concepts and classes as much as possible by adhering to upper-level domain ontologies, but this is not a requirement in SADI and concepts can be manually mapped to those appearing in supporting service ontologies, if required. By the virtue of allowing external formal ontologies to be referenced in SPARQL queries executed by SHARE, this approach provides support for discourse in science while disambiguating and explicitly highlighting the points of disagreement. For example, a small molecule according to one researcher may be one that is no heavier than 500 Daltons, while another may insist that number to be 750 Daltons. With OWL, both of these viewpoints may be represented with an explicit specification which can then be used to classify a set of molecules automatically using the same SADI services, and filter down into further assertions and reasoning seamlessly. Further, multiple researchers may construct ontologies that may model molecules, and consequently <italic>smilesmolecule</italic> differently. So long as a formal logical mapping can be either inferred or directly made to concepts used by the service ontologies, this difference can be accommodated and the construction of computational workflows may be initiated. In other words, SADI enables liberation from conformity in existing consortia-generated ontologies and facilitates discourse and disagreement which drive science forward, at the cost of making the end user aware of the ontologies used by the existing SADI services.</p>
-          <p>SADI, with supporting machine reasoning clients, also enables the conversion of ontologies into workflows. As we have seen, a formal definition of a small molecule as having a molecular mass descriptor within a particular range in an external ontology will trigger the execution of an appropriate service through a SPARQL query posted to SHARE, if no such data is already available, and the input and output classes the service operates upon are consistent with the external ontology. Therefore, integrative workflows (in e.g. molecular classification) can be constructed just by redefining the problem in terms of classifying a given entity into a particular formal ontology-defined class or a set of classes of interest in a given study (Figure <xref rid="Fig1" ref-type="fig">1</xref>). Furthermore, because computational tasks are explicitly specified and service invocation is controlled, SADI allows for a greater reproducibility and interoperability of computational analysis.<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>Seamless service integration into the Semantic Web with SPARQL queries over RDF-encoded resources in chemistry, as enabled by SADI</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_196_Fig1_HTML.jpg" /></p></fig></p>
+          <p>SADI, with supporting machine reasoning clients, also enables the conversion of ontologies into workflows. As we have seen, a formal definition of a small molecule as having a molecular mass descriptor within a particular range in an external ontology will trigger the execution of an appropriate service through a SPARQL query posted to SHARE, if no such data is already available, and the input and output classes the service operates upon are consistent with the external ontology. Therefore, integrative workflows (in e.g. molecular classification) can be constructed just by redefining the problem in terms of classifying a given entity into a particular formal ontology-defined class or a set of classes of interest in a given study (Figure <xref rid="Fig1" ref-type="fig">1</xref>). Furthermore, because computational tasks are explicitly specified and service invocation is controlled, SADI allows for a greater reproducibility and interoperability of computational analysis.<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>Seamless service integration into the Semantic Web with SPARQL queries over RDF-encoded resources in chemistry, as enabled by SADI</bold>.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_196_Fig1_HTML.jpg" /></fig></p>
           <p>In this work, we shall describe and discuss the exposition of a range of computational chemical resources as SADI services and their resultant amenability to seamless automated semantic integration through ontologies, SPARQL queries, and with graphical interfaces.</p>
         </sec>
         <sec id="Sec2">
           <title>Results and Discussion</title>
           <sec id="Sec3">
             <title>Exposing CDK QSAR Functionality with SADI</title>
-            <p>The exposure of computational functionality of a particular software package or application programming interface begins with the isolation of the smallest accessible functional units of the software at hand. At the most detailed level, this process may be likened to decomposition of an API into its constituent classes, which may often become input classes in the supporting service ontology, and their corresponding methods, which may be viewed as the actual computational functionality of these services (Figure <xref rid="Fig2" ref-type="fig">2</xref>). This comparison is limited and highly simplified, but it captures the general essence of what we are trying to do. If one concerns themselves solely with the primary <italic>functionalities</italic> of a given piece of software relevant to a particular problem, individual services may envelop more than one basic method in a given API or software. One limitation that arises as a consequence of the annotative nature of SADI services is the requirement to support transformative functionalities by differentiating the input and output, even if both are of the same class in the software package. For example, a method that removes hydrogen atoms from a given input molecule specified by a SMILES string and returns a SMILES string (or void), would have to be converted into a SADI service that operates upon an input class that consists of molecules that have a SMILES string specified and produces output typed to a class that consists of molecules that are annotated with a SMILES string as well as a hydrogen-free SMILES string. It must be noted that SADI services do not <italic>have</italic> to return all of the information present in the specification of the annotated entity that is a member of the input class. For a member of the output class of a service whose input is a molecule that has a SMILES string, it is possible to introduce only the new service-generated annotations on the existing input entity (present at a dereferenceable URI) in the output. Thus, in our hydrogen depletion example, only a reference to the input entity and the new annotation need to be included in the output, without the need to include all of the inherited entity attributes.<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>In principle, classes and methods in APIs can, with some adjustments, be converted to input/output classes and functionality-encapsulating services</bold>. Note that since SADI services are annotative, the input class subsumes the output class which merely contains the extra annotation computed by the service.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_196_Fig2_HTML.jpg" /></p></fig></p>
+            <p>The exposure of computational functionality of a particular software package or application programming interface begins with the isolation of the smallest accessible functional units of the software at hand. At the most detailed level, this process may be likened to decomposition of an API into its constituent classes, which may often become input classes in the supporting service ontology, and their corresponding methods, which may be viewed as the actual computational functionality of these services (Figure <xref rid="Fig2" ref-type="fig">2</xref>). This comparison is limited and highly simplified, but it captures the general essence of what we are trying to do. If one concerns themselves solely with the primary <italic>functionalities</italic> of a given piece of software relevant to a particular problem, individual services may envelop more than one basic method in a given API or software. One limitation that arises as a consequence of the annotative nature of SADI services is the requirement to support transformative functionalities by differentiating the input and output, even if both are of the same class in the software package. For example, a method that removes hydrogen atoms from a given input molecule specified by a SMILES string and returns a SMILES string (or void), would have to be converted into a SADI service that operates upon an input class that consists of molecules that have a SMILES string specified and produces output typed to a class that consists of molecules that are annotated with a SMILES string as well as a hydrogen-free SMILES string. It must be noted that SADI services do not <italic>have</italic> to return all of the information present in the specification of the annotated entity that is a member of the input class. For a member of the output class of a service whose input is a molecule that has a SMILES string, it is possible to introduce only the new service-generated annotations on the existing input entity (present at a dereferenceable URI) in the output. Thus, in our hydrogen depletion example, only a reference to the input entity and the new annotation need to be included in the output, without the need to include all of the inherited entity attributes.<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>In principle, classes and methods in APIs can, with some adjustments, be converted to input/output classes and functionality-encapsulating services</bold>. Note that since SADI services are annotative, the input class subsumes the output class which merely contains the extra annotation computed by the service.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_196_Fig2_HTML.jpg" /></fig></p>
             <p>In this study, we have exposed a portion of QSAR descriptor calculating <italic>functionality</italic>, to calculate descriptors starting from a SMILES string molecular specification, as implemented in the Chemistry Development Kit. Because we are primarily concerned with demonstrating the envelopment of <italic>functionalities</italic> of CDK in this work, we have chosen to distribute the calculation of every available descriptor as a separate web service, even if such services relied on multiple methods and classes in CDK (Table <xref rid="Tab1" ref-type="table">1</xref>).<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>A highly abbreviated representative list of the descriptors created for this study.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Descriptor</p></th><th align="left"><p>Explanation</p></th></tr></thead><tbody><tr><td align="left"><p>AlogP</p></td><td align="left"><p>Atomic calculation-based octanol-water partition coefficient.</p></td></tr><tr><td align="left"><p>Aromatic Atom Count</p></td><td align="left"><p>Number of aromatic atoms in a given molecule.</p></td></tr><tr><td align="left"><p>Atom Count</p></td><td align="left"><p>Number of atoms in a molecule.</p></td></tr><tr><td align="left"><p>Atomic Polarizability</p></td><td align="left"><p>Sum of atomic polarizabilities of all atoms in a given molecule.</p></td></tr><tr><td align="left"><p>Bond Count</p></td><td align="left"><p>Number of bonds in a molecule.</p></td></tr><tr><td align="left"><p>Eccentric Connectivity Index</p></td><td align="left"><p>A topological molecular descriptor that reflects on atom connectivity and distance.</p></td></tr><tr><td align="left"><p>Fractional Polar Surface Area</p></td><td align="left"><p>Total partially positively charged molecular surface area divided by the total molecular surface area.</p></td></tr><tr><td align="left"><p>Hydrogen Bond Acceptor Count</p></td><td align="left"><p>Number of atoms that can act as hydrogen bond acceptors.</p></td></tr><tr><td align="left"><p>Hydrogen Bond Donor Count</p></td><td align="left"><p>Number of atoms acting as hydrogen bond donors.</p></td></tr><tr><td align="left"><p>Ionization Potential</p></td><td align="left"><p>Propensity of a given molecule to lose an electron.</p></td></tr><tr><td align="left"><p>Largest Chain</p></td><td align="left"><p>The length of the longest chain of heavy atoms in a molecule</p></td></tr><tr><td align="left"><p>Largest PI System</p></td><td align="left"><p>The number of atoms in the largest conjugated pi-bond system.</p></td></tr><tr><td align="left"><p>Maximal Length/Breadth Ratio</p></td><td align="left"><p>Descriptor of molecular shape describing the ratio of a molecule's length to breadth in the region where it is highest.</p></td></tr><tr><td align="left"><p>Minimal Length/Breadth Ratio</p></td><td align="left"><p>Descriptor of molecular shape describing the ratio of a molecule's length to breadth in the region where it is lowest.</p></td></tr><tr><td align="left"><p>MlogP</p></td><td align="left"><p>Mannhold algorithm-based octanol-water partition coefficient.</p></td></tr><tr><td align="left"><p>Molar Refractivity</p></td><td align="left"><p>Total polarizability of a mole of a given molecule.</p></td></tr><tr><td align="left"><p>Molecular Complexity</p></td><td align="left"><p>A descriptor reflecting on the complexity of a given molecule in terms of quantities of heteroatoms and their connectivity.</p></td></tr><tr><td align="left"><p>Molecular Formula</p></td><td align="left"><p>A molecular formula that captures the types and counts of atoms present in a molecule.</p></td></tr><tr><td align="left"><p>Molecular Mass</p></td><td align="left"><p>The mass of a given molecule, in Daltons.</p></td></tr><tr><td align="left"><p>Petitjean Geometric Shape Index</p></td><td align="left"><p>A descriptor that reflects on the shape of the molecular connectivity graph and factors in distance information.</p></td></tr><tr><td align="left"><p>Petitjean Number</p></td><td align="left"><p>An index characterizing molecular graph topology.</p></td></tr><tr><td align="left"><p>Petitjean Topological Shape Index</p></td><td align="left"><p>A descriptor that reflects on the topological shape of the molecular graph.</p></td></tr><tr><td align="left"><p>Relative Hydrophobic Surface Area</p></td><td align="left"><p>The fraction of the overall molecular surface area that is hydrophobic.</p></td></tr><tr><td align="left"><p>Topological Polar Surface Area</p></td><td align="left"><p>Total molecular surface area that has a non-zero partial charge.</p></td></tr><tr><td align="left"><p>Total Hydrophilic Surface Area</p></td><td align="left"><p>Sum of solvent-accessible surfaces of partially charged atoms.</p></td></tr><tr><td align="left"><p>Total Hydrophobic Surface Area</p></td><td align="left"><p>Sum of solvent-accessible surfaces of nonpolar atoms.</p></td></tr><tr><td align="left"><p>Total Partially Negative Surface Area</p></td><td align="left"><p>Total surface area of a molecule that has a partially negative charge.</p></td></tr><tr><td align="left"><p>Total Partially Positive Surface Area</p></td><td align="left"><p>Total molecular area that has a partially positive charge.</p></td></tr><tr><td align="left"><p>Vertex Adjacency Magnitude</p></td><td align="left"><p>A descriptor reflecting upon the number of bonds between heavy atoms in a given molecule.</p></td></tr><tr><td align="left"><p>Wiener Polarity Number</p></td><td align="left"><p>A descriptor that reflects on atomic connectivity and molecular topology.</p></td></tr><tr><td align="left"><p>XlogP</p></td><td align="left"><p>Group contribution-based octanol-water partition coefficient.</p></td></tr><tr><td align="left"><p>Zagreb Index</p></td><td align="left"><p>The sum of squares of all heavy atom degrees.</p></td></tr></tbody></table><table-wrap-foot><p>A full, dynamically updated list of services is available [<xref ref-type="bibr" rid="CR23">23</xref>].</p></table-wrap-foot></table-wrap></p>
             <p>The second step in service creation is formal description of the input and output classes in a service ontology. For our whole set of QSAR descriptor services, we have created a single service ontology [<xref ref-type="bibr" rid="CR25">25</xref>], extended from the CHEMINF ontology [<xref ref-type="bibr" rid="CR26">26</xref>] that contains concepts relevant to formal specification of chemical information in general and descriptor information in particular. The reuse of concepts and relations from widely accepted higher-level ontologies in CHEMINF translates into greater integration of service input and output classes into cross-domain queries.</p>
             <p>For each descriptor calculating service, the input class is a <italic>smilesmolecule</italic> which is formally defined as the following.</p>
@@ -351,8 +349,8 @@
             </p>
             <p>This input specification assures that the service will receive and operate upon an entity of the type molecule that has a SMILES descriptor and that this descriptor has a string value which the service can parse, transform into a molecular graph, and for which it can carry out descriptor calculations with a given API, in this case CDK. Note that the terms <italic>molecule</italic>, <italic>has attribute</italic>, and <italic>has value</italic> are reused from upper-level ontologies, meaning that concepts introduced in third-party ontologies constructed using the same upper-level ontologies will be much easier to integrate with than if we were to invent our own terms. The input is an RDF-XML graph submitted to the service through a simple HTTP POST to the service URL (Listing 1).</p>
             <p>Listing 1. A fragment of the RDF input graph for the CDK descriptor services, in N3 form.</p>
-            <p>@prefix ss:<ext-link xlink:href="http://semanticscience.org/" ext-link-type="url">http://semanticscience.org/</ext-link>.</p>
-            <p>@prefix sio:<ext-link xlink:href="http://semanticscience.org/resource/" ext-link-type="url">http://semanticscience.org/resource/</ext-link>.</p>
+            <p>@prefix ss:<ext-link xlink:href="http://semanticscience.org/" ext-link-type="uri">http://semanticscience.org/</ext-link>.</p>
+            <p>@prefix sio:<ext-link xlink:href="http://semanticscience.org/resource/" ext-link-type="uri">http://semanticscience.org/resource/</ext-link>.</p>
             <p>ss:Ethanol rdf:type sio:SIO_011125.</p>
             <p>ss:Ethanol sio:SIO_000008 ss:EthanolSmilesDescriptor.</p>
             <p>ss:EthanolSmilesDescriptor rdf:type sio:CHEMINF_000018; sio:SIO_000300 "OCC".</p>
@@ -362,23 +360,23 @@
             </p>
             <p>This class definition specifies that in the output, a given <italic>smilesmolecule</italic> instance will be annotated with a bond count descriptor which would have an integer value (Listing 2).</p>
             <p>Listing 2. A fragment of the RDF output graph produced by the CDK bond count calculator service, converted to N3 RDF form.</p>
-            <p>@prefix:<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl%23" ext-link-type="url">http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl#</ext-link>.</p>
-            <p>@prefix ss:<ext-link xlink:href="http://semanticscience.org/resource/" ext-link-type="url">http://semanticscience.org/resource/</ext-link>.</p>
-            <p>prefix rdf:<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="url">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>.</p>
+            <p>@prefix:<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl%23" ext-link-type="uri">http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl#</ext-link>.</p>
+            <p>@prefix ss:<ext-link xlink:href="http://semanticscience.org/resource/" ext-link-type="uri">http://semanticscience.org/resource/</ext-link>.</p>
+            <p>prefix rdf:<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="uri">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>.</p>
             <p>ss:Ethanol a:bondcountsmilesmolecule,:smilesmolecule.</p>
             <p>ss:Ethanol sio:SIO_000008 ss:EthanolSmilesDescriptor.</p>
             <p>ss:EthanolSmilesDescriptor a sio:CHEMINF_000018; sio:SIO_000300 "OCC".</p>
             <p>ss:Ethanol sio:SIO_000008 ss:EthanolBondCount.</p>
             <p>ss:EthanolBondCount a sio:CHEMINF_000233.</p>
-            <p>ss:EthanolBondCount sio:SIO_000300 "3"^^<ext-link xlink:href="http://www.w3.org/2001/XMLSchema#int" ext-link-type="url">http://www.w3.org/2001/XMLSchema#int</ext-link>.</p>
+            <p>ss:EthanolBondCount sio:SIO_000300 "3"^^<ext-link xlink:href="http://www.w3.org/2001/XMLSchema#int" ext-link-type="uri">http://www.w3.org/2001/XMLSchema#int</ext-link>.</p>
             <p>The service OWL ontology, containing these input and output class specifications, along with the relevant predicate (<italic>has attribute</italic>) specifications, has to be made distributed such as to assure that these resources have dereferenceable URIs and that the ontology itself is readily available for machine reasoning agents. In order to expose services for invocation and automated workflow composition with the SHARE client, one needs to also register the service on the central SADI registry. Descriptor information can then be obtained by submitting SPARQL queries that are no different from queries over triple stores that are already populated with RDF knowledge, to the SHARE client. In essence, we are seamlessly querying <italic>all</italic> the data at our disposal, even the knowledge that does not yet exist, but can be generated. For example, to determine the number of hydrogen bond donors in a given molecule, one may submit the following query to the SHARE client (Listing 3).</p>
             <p>Listing 3. A sample SPARQL query to determine the value (specified by the ?value variable) of the hydrogen bond donor count descriptor for a molecule specified in the given (lipinski_test) RDF graph, submitted to a SHARE client [<xref ref-type="bibr" rid="CR28">28</xref>].</p>
-            <p>PREFIX rdf:<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="url">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>.</p>
-            <p>PREFIX ss:<ext-link xlink:href="http://semanticscience.org/resource/" ext-link-type="url">http://semanticscience.org/resource/</ext-link>.</p>
-            <p>PREFIX lso:<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl%23" ext-link-type="url">http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl#</ext-link>.</p>
+            <p>PREFIX rdf:<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="uri">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>.</p>
+            <p>PREFIX ss:<ext-link xlink:href="http://semanticscience.org/resource/" ext-link-type="uri">http://semanticscience.org/resource/</ext-link>.</p>
+            <p>PREFIX lso:<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl%23" ext-link-type="uri">http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl#</ext-link>.</p>
             <p>select ?s ?value</p>
-            <p>FROM<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl" ext-link-type="url">http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl</ext-link>.</p>
-            <p>FROM<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinski_test.rdf" ext-link-type="url">http://semanticscience.org/sadi/ontology/lipinski_test.rdf</ext-link>.</p>
+            <p>FROM<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl" ext-link-type="uri">http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl</ext-link>.</p>
+            <p>FROM<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinski_test.rdf" ext-link-type="uri">http://semanticscience.org/sadi/ontology/lipinski_test.rdf</ext-link>.</p>
             <p>where {</p>
             <p>?s rdf:type lso:smilesmolecule. #S is a molecule with a SMILES descriptor.</p>
             <p>?s lso:hasChemicalDescriptor ?attr. #S has a chemical descriptor attr.</p>
@@ -416,11 +414,11 @@
             </p>
             <p>In this formal definition of a drug-like molecule, each statement linking the input SMILES molecule to a particular descriptor conforms to the output class and annotating predicate specification of a corresponding descriptor calculator service. This means that when a SPARQL query is posed to a SHARE client to determine whether a given instance of the <italic>smilesmolecule</italic> class is drug-like, the client will be capable of identifying and executing the four services necessary for the completion of this query (Listing 4).</p>
             <p>Listing 4. A SPARQL query to determine whether a molecule (in lipinski_test RDF graph) is drug-like. If it is the case, the URI corresponding to the matching molecule will be returned.</p>
-            <p>PREFIX rdf:<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="url">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>.</p>
-            <p>PREFIX lso:<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl%23" ext-link-type="url">http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl#</ext-link>.</p>
+            <p>PREFIX rdf:<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="uri">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>.</p>
+            <p>PREFIX lso:<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl%23" ext-link-type="uri">http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl#</ext-link>.</p>
             <p>select ?s</p>
-            <p>FROM<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl" ext-link-type="url">http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl</ext-link>.</p>
-            <p>FROM<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinski_test.rdf" ext-link-type="url">http://semanticscience.org/sadi/ontology/lipinski_test.rdf</ext-link>.</p>
+            <p>FROM<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl" ext-link-type="uri">http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl</ext-link>.</p>
+            <p>FROM<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinski_test.rdf" ext-link-type="uri">http://semanticscience.org/sadi/ontology/lipinski_test.rdf</ext-link>.</p>
             <p>where {</p>
             <p>?s rdf:type lso:lipinskismilesmolecule.</p>
             <p>}</p>
@@ -441,27 +439,27 @@
             <p>)</p>
             <p>An instance of <italic>parameterized data transformation</italic> may be placed, along with the input, into the input RDF graph and referred to in the SPARQL query to execute service computational functionality according to explicit, precise, and reproducible specifications. To demonstrate parametric execution capacity, we have created a prototype service to compute a scaled octanol-water partition coefficient value [<xref ref-type="bibr" rid="CR33">33</xref>]. For some compounds, it may be necessary to apply correction factors to arrive at more accurate predicted logP values. Our service computes a logP value which is multiplied by the value of the scaling factor parameter specified in the input as follows.</p>
             <p>Listing 5. A simplified input to the parameterized logP calculating service, converted to N3.</p>
-            <p>@prefix ss:<ext-link xlink:href="http://semanticscience.org/" ext-link-type="url">http://semanticscience.org/</ext-link>.</p>
-            <p>@prefix sio:<ext-link xlink:href="http://semanticscience.org/resource/" ext-link-type="url">http://semanticscience.org/resource/</ext-link>.</p>
+            <p>@prefix ss:<ext-link xlink:href="http://semanticscience.org/" ext-link-type="uri">http://semanticscience.org/</ext-link>.</p>
+            <p>@prefix sio:<ext-link xlink:href="http://semanticscience.org/resource/" ext-link-type="uri">http://semanticscience.org/resource/</ext-link>.</p>
             <p>ss:parameterX rdf:type sio:SIO_000144; sio:SIO_000300 "1.05".</p>
             <p>ss:Ethanol rdf:type sio:SIO_011125.</p>
             <p>ss:Ethanol sio:SIO_000008 ss:EthanolSmilesDescriptor.</p>
             <p>ss:EthanolSmilesDescriptor rdf:type sio:CHEMINF_000018; sio:SIO_000300 "OCC".</p>
             <p>If no parameter is specified, the service has an internally-specified default parameter to fall back on. In both cases, the value of the parameter is reported in the output, and the parameter itself is linked to the process executed in order to obtain the value of the descriptor (Listing 6). Because the output of a parameterized service preserves this provenance information explicitly on the descriptor this service generates, it is then possible to query over only descriptors generated using a particular set of parameters, or with a given software package. This is useful when addressing the construction of toxicological models using data derived from multiple disparate data sources or across chemical entity databases. Finally, this preserved provenance information makes our calculation fully and unambiguously reproducible.</p>
             <p>Listing 6. A simplified output of the parameterized logP calculating service, converted to N3.</p>
-            <p>@prefix:<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl%23" ext-link-type="url">http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl#</ext-link>.</p>
-            <p>@prefix ss:<ext-link xlink:href="http://semanticscience.org/resource/" ext-link-type="url">http://semanticscience.org/resource/</ext-link>.</p>
-            <p>@prefix rdf:<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="url">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>.</p>
+            <p>@prefix:<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl%23" ext-link-type="uri">http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl#</ext-link>.</p>
+            <p>@prefix ss:<ext-link xlink:href="http://semanticscience.org/resource/" ext-link-type="uri">http://semanticscience.org/resource/</ext-link>.</p>
+            <p>@prefix rdf:<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="uri">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>.</p>
             <p>ss:Ethanol a:bondcountsmilesmolecule,:smilesmolecule.</p>
             <p>ss:Ethanol sio:SIO_000008 ss:EthanolSmilesDescriptor.</p>
             <p>ss:EthanolSmilesDescriptor a sio:CHEMINF_000018; sio:SIO_000300 "OCC".</p>
             <p>ss:Ethanol sio:SIO_000008 ss:EthanolBondCount.</p>
             <p>ss:EthanolParamlogP a sio:CHEMINF_000251.</p>
-            <p>ss:EthanolParamlogP sio:SIO_000300 "1.727"^^<ext-link xlink:href="http://www.w3.org/2001/XMLSchema#double" ext-link-type="url">http://www.w3.org/2001/XMLSchema#double</ext-link>.</p>
+            <p>ss:EthanolParamlogP sio:SIO_000300 "1.727"^^<ext-link xlink:href="http://www.w3.org/2001/XMLSchema#double" ext-link-type="uri">http://www.w3.org/2001/XMLSchema#double</ext-link>.</p>
             <p>ss:EthanolParamlogP sio:SIO_000232 ss:PDTOCCLOGP.</p>
             <p>ss:PDTOCCLOGP:hasParameter ss:parameterX.</p>
             <p>ss:parameterX rdf:type sio:SIO_000144.</p>
-            <p>ss:parameterX sio:SIO_000300 "1.05"^^<ext-link xlink:href="http://www.w3.org/2001/XMLSchema#double" ext-link-type="url">http://www.w3.org/2001/XMLSchema#double</ext-link>.</p>
+            <p>ss:parameterX sio:SIO_000300 "1.05"^^<ext-link xlink:href="http://www.w3.org/2001/XMLSchema#double" ext-link-type="uri">http://www.w3.org/2001/XMLSchema#double</ext-link>.</p>
           </sec>
           <sec id="Sec7">
             <title>Integration and Repurposing of Chemical Resources</title>
@@ -547,7 +545,7 @@
                 <fpage>493</fpage>
                 <lpage>500</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci025584y</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXhtVaktbg%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3sXhtVaktbg%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR2">
@@ -594,7 +592,7 @@
                 <fpage>991</fpage>
                 <lpage>998</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci050400b</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28Xhs1Wjsbw%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28Xhs1Wjsbw%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR3">
@@ -661,16 +659,16 @@
                 <fpage>57</fpage>
                 <lpage>90</lpage>
                 <pub-id pub-id-type="doi">10.1080/10590500902885593</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXlsVeqt78%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXlsVeqt78%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR4">
               <label>4.</label>
-              <mixed-citation publication-type="other">JOELib Java-based cheminformatics library. [<ext-link xlink:href="http://www.ra.cs.uni-tuebingen.de/software/joelib/" ext-link-type="url">http://www.ra.cs.uni-tuebingen.de/software/joelib/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">JOELib Java-based cheminformatics library. [<ext-link xlink:href="http://www.ra.cs.uni-tuebingen.de/software/joelib/" ext-link-type="uri">http://www.ra.cs.uni-tuebingen.de/software/joelib/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR5">
               <label>5.</label>
-              <mixed-citation publication-type="other">RDKit Cheminformatics Package. [<ext-link xlink:href="http://rdkit.org/" ext-link-type="url">http://rdkit.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">RDKit Cheminformatics Package. [<ext-link xlink:href="http://rdkit.org/" ext-link-type="uri">http://rdkit.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR6">
               <label>6.</label>
@@ -729,15 +727,15 @@
             </ref>
             <ref id="CR8">
               <label>8.</label>
-              <mixed-citation publication-type="other">Web Service Description Language Specification. [<ext-link xlink:href="http://www.w3.org/TR/wsdl" ext-link-type="url">http://www.w3.org/TR/wsdl</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Web Service Description Language Specification. [<ext-link xlink:href="http://www.w3.org/TR/wsdl" ext-link-type="uri">http://www.w3.org/TR/wsdl</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR9">
               <label>9.</label>
-              <mixed-citation publication-type="other">Resource Description Framework Specification. [<ext-link xlink:href="http://www.w3.org/RDF/" ext-link-type="url">http://www.w3.org/RDF/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Resource Description Framework Specification. [<ext-link xlink:href="http://www.w3.org/RDF/" ext-link-type="uri">http://www.w3.org/RDF/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR10">
               <label>10.</label>
-              <mixed-citation publication-type="other">Web Ontology Language Specification. [<ext-link xlink:href="http://www.w3.org/TR/owl2-overview/" ext-link-type="url">http://www.w3.org/TR/owl2-overview/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Web Ontology Language Specification. [<ext-link xlink:href="http://www.w3.org/TR/owl2-overview/" ext-link-type="uri">http://www.w3.org/TR/owl2-overview/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR11">
               <label>11.</label>
@@ -817,11 +815,11 @@
             </ref>
             <ref id="CR13">
               <label>13.</label>
-              <mixed-citation publication-type="other">Linking Open Drug Data Project. [<ext-link xlink:href="http://esw.w3.org/HCLSIG/LODD" ext-link-type="url">http://esw.w3.org/HCLSIG/LODD</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Linking Open Drug Data Project. [<ext-link xlink:href="http://esw.w3.org/HCLSIG/LODD" ext-link-type="uri">http://esw.w3.org/HCLSIG/LODD</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR14">
               <label>14.</label>
-              <mixed-citation publication-type="other">Semantic Annotations for WSDL and XML Schema Specification. [<ext-link xlink:href="http://www.w3.org/TR/sawsdl/" ext-link-type="url">http://www.w3.org/TR/sawsdl/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Semantic Annotations for WSDL and XML Schema Specification. [<ext-link xlink:href="http://www.w3.org/TR/sawsdl/" ext-link-type="uri">http://www.w3.org/TR/sawsdl/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR15">
               <label>15.</label>
@@ -893,7 +891,7 @@
                 <fpage>178</fpage>
                 <lpage>88</lpage>
                 <pub-id pub-id-type="doi">10.1093/bib/6.2.178</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXnt1ymurg%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXnt1ymurg%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR17">
@@ -940,7 +938,7 @@
                 <fpage>184</fpage>
                 <lpage>185</lpage>
                 <pub-id pub-id-type="doi">10.1093/bioinformatics/16.2.184</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3cXktVyitrc%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3cXktVyitrc%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR18">
@@ -1117,23 +1115,23 @@
             </ref>
             <ref id="CR24">
               <label>24.</label>
-              <mixed-citation publication-type="other">SADI Service Registry. [<ext-link xlink:href="http://sadiframework.org/registry/services/" ext-link-type="url">http://sadiframework.org/registry/services/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">SADI Service Registry. [<ext-link xlink:href="http://sadiframework.org/registry/services/" ext-link-type="uri">http://sadiframework.org/registry/services/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR25">
               <label>25.</label>
-              <mixed-citation publication-type="other">Lipinski Service Ontology. [<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl" ext-link-type="url">http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Lipinski Service Ontology. [<ext-link xlink:href="http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl" ext-link-type="uri">http://semanticscience.org/sadi/ontology/lipinskiserviceontology.owl</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR26">
               <label>26.</label>
-              <mixed-citation publication-type="other">CHEMINF Ontology. [<ext-link xlink:href="http://semanticchemistry.googlecode.com/svn/trunk/ontology/cheminf.owl" ext-link-type="url">http://semanticchemistry.googlecode.com/svn/trunk/ontology/cheminf.owl</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">CHEMINF Ontology. [<ext-link xlink:href="http://semanticchemistry.googlecode.com/svn/trunk/ontology/cheminf.owl" ext-link-type="uri">http://semanticchemistry.googlecode.com/svn/trunk/ontology/cheminf.owl</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR27">
               <label>27.</label>
-              <mixed-citation publication-type="other">Bond Count Descriptor Service. [<ext-link xlink:href="http://s6.semanticscience.org:8080/bondcount/bondcount" ext-link-type="url">http://s6.semanticscience.org:8080/bondcount/bondcount</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Bond Count Descriptor Service. [<ext-link xlink:href="http://s6.semanticscience.org:8080/bondcount/bondcount" ext-link-type="uri">http://s6.semanticscience.org:8080/bondcount/bondcount</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR28">
               <label>28.</label>
-              <mixed-citation publication-type="other">SHARE Web Interface. [<ext-link xlink:href="http://dev.biordf.net/cardioSHARE/" ext-link-type="url">http://dev.biordf.net/cardioSHARE/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">SHARE Web Interface. [<ext-link xlink:href="http://dev.biordf.net/cardioSHARE/" ext-link-type="uri">http://dev.biordf.net/cardioSHARE/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR29">
               <label>29.</label>
@@ -1150,12 +1148,12 @@
                 <volume>28</volume>
                 <fpage>12</fpage>
                 <lpage>15</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XhtlWmsr3I</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XhtlWmsr3I</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR30">
               <label>30.</label>
-              <mixed-citation publication-type="other">Service for converting InChI to SMILES. [<ext-link xlink:href="http://s7.semanticscience.org:9090/wyrm/inchi2smilesbabel" ext-link-type="url">http://s7.semanticscience.org:9090/wyrm/inchi2smilesbabel</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Service for converting InChI to SMILES. [<ext-link xlink:href="http://s7.semanticscience.org:9090/wyrm/inchi2smilesbabel" ext-link-type="uri">http://s7.semanticscience.org:9090/wyrm/inchi2smilesbabel</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR31">
               <label>31.</label>
@@ -1185,7 +1183,7 @@
                 <fpage>3</fpage>
                 <lpage>25</lpage>
                 <pub-id pub-id-type="doi">10.1016/S0169-409X(96)00423-1</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaK2sXktlKlsQ%3D%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2sXktlKlsQ%3D%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR32">
@@ -1204,32 +1202,32 @@
                 <fpage>337</fpage>
                 <lpage>341</lpage>
                 <pub-id pub-id-type="doi">10.1016/j.ddtec.2004.11.007</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXhtlSqsrg%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXhtlSqsrg%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR33">
               <label>33.</label>
-              <mixed-citation publication-type="other">Parameterized LogP Calculator Service. [<ext-link xlink:href="http://s7.semanticscience.org:9090/parameters/paramlogp" ext-link-type="url">http://s7.semanticscience.org:9090/parameters/paramlogp</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Parameterized LogP Calculator Service. [<ext-link xlink:href="http://s7.semanticscience.org:9090/parameters/paramlogp" ext-link-type="uri">http://s7.semanticscience.org:9090/parameters/paramlogp</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR34">
               <label>34.</label>
-              <mixed-citation publication-type="other">KEGG Pathway Association Retrieval Service. [<ext-link xlink:href="http://dev.biordf.net/~kawas/cgi-bin/getKeggPathwaysByKeggDrug" ext-link-type="url">http://dev.biordf.net/~kawas/cgi-bin/getKeggPathwaysByKeggDrug</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">KEGG Pathway Association Retrieval Service. [<ext-link xlink:href="http://dev.biordf.net/~kawas/cgi-bin/getKeggPathwaysByKeggDrug" ext-link-type="uri">http://dev.biordf.net/~kawas/cgi-bin/getKeggPathwaysByKeggDrug</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR35">
               <label>35.</label>
-              <mixed-citation publication-type="other">Functional Group Annotation Service. [<ext-link xlink:href="http://s7.semanticscience.org:9090/computesas/fgannotate" ext-link-type="url">http://s7.semanticscience.org:9090/computesas/fgannotate</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Functional Group Annotation Service. [<ext-link xlink:href="http://s7.semanticscience.org:9090/computesas/fgannotate" ext-link-type="uri">http://s7.semanticscience.org:9090/computesas/fgannotate</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR36">
               <label>36.</label>
-              <mixed-citation publication-type="other">SADI Taverna Plugin. [<ext-link xlink:href="http://www.taverna.org.uk/documentation/taverna-plugins/taverna-2-x-plugins/#sadi_plugin" ext-link-type="url">http://www.taverna.org.uk/documentation/taverna-plugins/taverna-2-x-plugins/#sadi_plugin</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">SADI Taverna Plugin. [<ext-link xlink:href="http://www.taverna.org.uk/documentation/taverna-plugins/taverna-2-x-plugins/#sadi_plugin" ext-link-type="uri">http://www.taverna.org.uk/documentation/taverna-plugins/taverna-2-x-plugins/#sadi_plugin</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR37">
               <label>37.</label>
-              <mixed-citation publication-type="other">Semanticscience Integrated Ontology. [<ext-link xlink:href="http://semanticscience.org" ext-link-type="url">http://semanticscience.org</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Semanticscience Integrated Ontology. [<ext-link xlink:href="http://semanticscience.org" ext-link-type="uri">http://semanticscience.org</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR38">
               <label>38.</label>
-              <mixed-citation publication-type="other">Open Babel Open Source Chemistry Toolbox. [<ext-link xlink:href="http://openbabel.org/wiki/Main_Page" ext-link-type="url">http://openbabel.org/wiki/Main_Page</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Open Babel Open Source Chemistry Toolbox. [<ext-link xlink:href="http://openbabel.org/wiki/Main_Page" ext-link-type="uri">http://openbabel.org/wiki/Main_Page</ext-link>]</mixed-citation>
             </ref>
           </ref-list>
         </ref-list>
@@ -1237,7 +1235,7 @@
           <app id="App1">
             <sec id="Sec15">
               <title>Authors’ original submitted files for images</title>
-              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM1" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_196_MOESM1_ESM.bmp" mimetype="image" mime-subtype="bmp"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_196_MOESM2_ESM.bmp" mimetype="image" mime-subtype="bmp"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material></p>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM1" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="bmp" xlink:href="MediaObjects/13321_2010_196_MOESM1_ESM.bmp" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="bmp" xlink:href="MediaObjects/13321_2010_196_MOESM2_ESM.bmp" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material></p>
             </sec>
           </app>
         </app-group>

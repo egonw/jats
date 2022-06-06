@@ -115,17 +115,17 @@
           </history>
           <permissions>
             <copyright-statement content-type="compact">© Chen et al; licensee BioMed Central Ltd. 2009</copyright-statement>
-            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="uri">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
             <copyright-year>2009</copyright-year>
             <copyright-holder>Chen et al; licensee BioMed Central Ltd.</copyright-holder>
             <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by-nc/2/">
               <license-p><bold>Open Access</bold> This is an open access article distributed under the terms of the Creative Commons Attribution Noncommercial License ( 
-    <ext-link xlink:href="https://creativecommons.org/licenses/by-nc/2.0" ext-link-type="url">https://creativecommons.org/licenses/by-nc/2.0</ext-link> 
+    <ext-link xlink:href="https://creativecommons.org/licenses/by-nc/2.0" ext-link-type="uri">https://creativecommons.org/licenses/by-nc/2.0</ext-link> 
     ), which permits any noncommercial use, distribution, and reproduction in any medium, provided the original author(s) and source are credited. 
 </license-p>
             </license>
           </permissions>
-          <abstract id="Abs1" xml:lang="en">
+          <abstract xml:lang="en" id="Abs1">
             <title>Abstract
 </title>
             <sec id="ASec1">
@@ -145,9 +145,7 @@
             </sec>
             <sec>
               <fig id="Figa" position="anchor">
-                <p>
-                  <graphic position="anchor" specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2009_Article_5_Figa_HTML.gif" />
-                </p>
+                <graphic specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2009_Article_5_Figa_HTML.gif" position="anchor" />
               </fig>
             </sec>
           </abstract>
@@ -308,7 +306,7 @@
         </article-meta>
         <notes notes-type="ESMHint">
           <title>Electronic supplementary material</title>
-          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-1-5" ext-link-type="doi">10.1186/1758-2946-1-5</ext-link>) contains supplementary material, which is available to authorized users.</p>
+          <p>The online version of this article (doi:<ext-link xlink:href="10.1186/1758-2946-1-5" ext-link-type="doi">10.1186/1758-2946-1-5</ext-link>) contains supplementary material, which is available to authorized users.</p>
         </notes>
       </front>
       <body>
@@ -327,7 +325,7 @@
 </title>
             <p>A Bayesian inference network (hereafter BIN) is a tool that permits the computation of the probability that an event will occur, allowing for the fact that this chosen event can be dependent on other events occurring. Our interest has been spurred by work in information retrieval, where BINs have been used to rank textual documents in decreasing probability of relevance to a user-defined query statement. In particular, Croft and his collaborators have used a BIN as the basis for the InQuery retrieval system [<xref ref-type="bibr" rid="CR17">17</xref>–<xref ref-type="bibr" rid="CR20">20</xref>] and for subsequent work on the use of language models in information retrieval [<xref ref-type="bibr" rid="CR21">21</xref>, <xref ref-type="bibr" rid="CR22">22</xref>]. To provide the necessary background, we first describe the operation of a BIN when it is used for textual information retrieval, and then show, in the next section, how simple modifications enable it to be used for similarity-based virtual screening.</p>
             <p>The BIN in InQuery is a directed-acyclic dependency graph (DAG) in which the nodes represent propositional variables or events, which can be true or false, and in which the edges represent relationships between the propositions, i.e., an edge is drawn between two nodes if there is a conditional relationship between them. For example if the node <italic>p</italic> causes <italic>q</italic>, a conditional dependence between them exists, denoted by P(<italic>q</italic>|<italic>p</italic>). Associated with each relationship in the DAG is the degree of belief, which measures the magnitude of the influence of a parent node on a child node. The degrees of belief are stored in a storage-efficient manner in a data structure called a canonical link matrix [<xref ref-type="bibr" rid="CR17">17</xref>]. An example of a simple BIN is shown in Figure <xref rid="Fig1" ref-type="fig">1</xref>, which consists of two parts. The document network represents the database that is to be searched, and hence needs to be generated just once when the database is created. The query network represents the query that is to be searched against the database, and can be regarded as an inverted DAG connected to the document network. Based on the connectivity and the interactions between the nodes, the network can then be evaluated by calculating the probabilities throughout the network starting with the root nodes.<fig id="Fig1"><label>Figure 1
-</label><caption xml:lang="en"><p><bold>Use of a Bayesian inference network for information retrieval</bold>. In the chemoinformatics context, the Document network describes the structures of the database molecules, and the Query network describes the reference structure that is to be searched against this database.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_5_Fig1_HTML.jpg" /></p></fig></p>
+</label><caption xml:lang="en"><p><bold>Use of a Bayesian inference network for information retrieval</bold>. In the chemoinformatics context, the Document network describes the structures of the database molecules, and the Query network describes the reference structure that is to be searched against this database.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2009_Article_5_Fig1_HTML.jpg" /></fig></p>
             <p>The root nodes in Figure <xref rid="Fig1" ref-type="fig">1</xref>, denoted by <italic>d</italic><sub><italic>l</italic></sub>, represent the event that a document is observed. Associated with each such event is a probability, or belief. The representation nodes (<italic>r</italic><sub><italic>k</italic></sub>) represent the event that a particular indexing term (e.g., a keyword, a phrase or a thesaural term) is observed. The associated probability is called a belief function, <italic>bel</italic>(<italic>r</italic><sub><italic>k</italic></sub>), and much of the BIN research in information retrieval has focused on belief functions that take account of the weighting of index terms. The weights that have been developed are based principally on two ideas: term weighting, where the importance of a term is proportional to the frequency with which a term occurs in an individual document or query; and inverse document frequency weighting, where the importance of a term is inversely proportional to its frequency of occurrence within the database as a whole [<xref ref-type="bibr" rid="CR23">23</xref>–<xref ref-type="bibr" rid="CR25">25</xref>].</p>
             <p>The first layer in the query network contains the query nodes, each of which describes an operator that expresses constraints between the words in the retrieved documents. Examples of such operators used in the InQuery system of Croft <italic>et al</italic>. [<xref ref-type="bibr" rid="CR17">17</xref>–<xref ref-type="bibr" rid="CR19">19</xref>] include: Boolean AND, OR and NOT; weighted AND; maximum, sum and weighted sum of the beliefs. The root of the query network, <italic>I</italic>, represents the information need: this node combines all the information from its parent nodes into a single value. To evaluate the Bayesian network, the state of each document in turn is set to true (and the state of all the other document nodes set to false) and the belief then propagated through the network by calculating the posterior probabilities for each node. The posterior probability of the information need node then represents the conditional probability of that document being relevant to the given query. The procedure is repeated for each of the documents and the database then ranked in order of decreasing probability of relevance to the query.</p>
           </sec>
@@ -382,7 +380,7 @@
           <sec id="Sec8">
             <title>Experimental
 </title>
-            <p>Our experiments have used two of the most popular chemoinformatics databases: the MDL Drug Data Report database (MDDR, available from Symyx Technologies at <ext-link xlink:href="http://www.symyx.com/products/databases/bioactivity/mddr/index.jsp" ext-link-type="url">http://www.symyx.com/products/databases/bioactivity/mddr/index.jsp</ext-link>) and the <italic>World of Molecular Bioactivity</italic> database (WOMBAT, available from Sunset Molecular Discovery LLC at <ext-link xlink:href="http://www.sunsetmolecular.com/" ext-link-type="url">http://www.sunsetmolecular.com/</ext-link>). The version of MDDR used here was that originally described by Hert <italic>et al</italic>. and used subsequently, by both us and others, for the validation of virtual screening methods [<xref ref-type="bibr" rid="CR34">34</xref>–<xref ref-type="bibr" rid="CR36">36</xref>]. It contains 102,516 molecules, with searches being carried out not only for the original eleven activity classes described by Hert et al. but also for two additional sets of activity classes: one chosen to be as structurally homogeneous as possible (MDDR-HOM) and one chosen to be as structurally heterogeneous as possible (MDDR-HET) [<xref ref-type="bibr" rid="CR37">37</xref>]. The three sets of MDDR classes are listed in Tables <xref rid="Tab3" ref-type="table">3</xref>, <xref rid="Tab4" ref-type="table">4</xref> and <xref rid="Tab5" ref-type="table">5</xref>. Each row of the table contains an activity class, the number of molecules belonging to the class, and the class's diversity, this being based on the pair-wise Tanimoto similarities calculated using the standard Unity 2D fingerprint (available from Tripos Inc. at <ext-link xlink:href="http://www.tripos.com" ext-link-type="url">http://www.tripos.com</ext-link>). The version of WOMBAT used here contained 138,127 molecules with searches being carried out for the 14 activity classes listed in Table <xref rid="Tab6" ref-type="table">6</xref>. The identification of these classes is described in detail by Gardiner <italic>et al</italic>. [<xref ref-type="bibr" rid="CR38">38</xref>].<table-wrap id="Tab3"><label>Table 3
+            <p>Our experiments have used two of the most popular chemoinformatics databases: the MDL Drug Data Report database (MDDR, available from Symyx Technologies at <ext-link xlink:href="http://www.symyx.com/products/databases/bioactivity/mddr/index.jsp" ext-link-type="uri">http://www.symyx.com/products/databases/bioactivity/mddr/index.jsp</ext-link>) and the <italic>World of Molecular Bioactivity</italic> database (WOMBAT, available from Sunset Molecular Discovery LLC at <ext-link xlink:href="http://www.sunsetmolecular.com/" ext-link-type="uri">http://www.sunsetmolecular.com/</ext-link>). The version of MDDR used here was that originally described by Hert <italic>et al</italic>. and used subsequently, by both us and others, for the validation of virtual screening methods [<xref ref-type="bibr" rid="CR34">34</xref>–<xref ref-type="bibr" rid="CR36">36</xref>]. It contains 102,516 molecules, with searches being carried out not only for the original eleven activity classes described by Hert et al. but also for two additional sets of activity classes: one chosen to be as structurally homogeneous as possible (MDDR-HOM) and one chosen to be as structurally heterogeneous as possible (MDDR-HET) [<xref ref-type="bibr" rid="CR37">37</xref>]. The three sets of MDDR classes are listed in Tables <xref rid="Tab3" ref-type="table">3</xref>, <xref rid="Tab4" ref-type="table">4</xref> and <xref rid="Tab5" ref-type="table">5</xref>. Each row of the table contains an activity class, the number of molecules belonging to the class, and the class's diversity, this being based on the pair-wise Tanimoto similarities calculated using the standard Unity 2D fingerprint (available from Tripos Inc. at <ext-link xlink:href="http://www.tripos.com" ext-link-type="uri">http://www.tripos.com</ext-link>). The version of WOMBAT used here contained 138,127 molecules with searches being carried out for the 14 activity classes listed in Table <xref rid="Tab6" ref-type="table">6</xref>. The identification of these classes is described in detail by Gardiner <italic>et al</italic>. [<xref ref-type="bibr" rid="CR38">38</xref>].<table-wrap id="Tab3"><label>Table 3
 </label><caption xml:lang="en"><p>MDDR activity classes used in the virtual screening experiments.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Activity class</p></th><th align="center"><p>Active molecules</p></th><th align="center" colspan="2"><p>Pairwise similarity</p></th></tr></thead><tbody><tr><td align="left"><p>Renin inhibitors</p></td><td align="center"><p>1130</p></td><td align="center"><p>0.573</p></td><td align="center"><p>0.11</p></td></tr><tr><td align="left"><p>HIV protease inhibitors</p></td><td align="center"><p>750</p></td><td align="center"><p>0.446</p></td><td align="center"><p>0.12</p></td></tr><tr><td align="left"><p>Thrombin inhibitors</p></td><td align="center"><p>803</p></td><td align="center"><p>0.419</p></td><td align="center"><p>0.13</p></td></tr><tr><td align="left"><p>Angiotensin II AT1 antagonists</p></td><td align="center"><p>943</p></td><td align="center"><p>0.403</p></td><td align="center"><p>0.10</p></td></tr><tr><td align="left"><p>Substance P antagonists</p></td><td align="center"><p>1246</p></td><td align="center"><p>0.399</p></td><td align="center"><p>0.11</p></td></tr><tr><td align="left"><p>5HT3 antagonists</p></td><td align="center"><p>752</p></td><td align="center"><p>0.351</p></td><td align="center"><p>0.12</p></td></tr><tr><td align="left"><p>5HT reuptake inhibitors</p></td><td align="center"><p>359</p></td><td align="center"><p>0.345</p></td><td align="center"><p>0.12</p></td></tr><tr><td align="left"><p>D2 antagonists</p></td><td align="center"><p>395</p></td><td align="center"><p>0.345</p></td><td align="center"><p>0.10</p></td></tr><tr><td align="left"><p>5HT1A agonists</p></td><td align="center"><p>827</p></td><td align="center"><p>0.343</p></td><td align="center"><p>0.10</p></td></tr><tr><td align="left"><p>Protein kinase C inhibitors</p></td><td align="center"><p>453</p></td><td align="center"><p>0.323</p></td><td align="center"><p>0.14</p></td></tr><tr><td align="left"><p>Cyclooxygenase inhibitors</p></td><td align="center"><p>636</p></td><td align="center"><p>0.268</p></td><td align="center"><p>0.09</p></td></tr></tbody></table><table-wrap-foot><p>The three columns in each table give the number of actives in the class and the mean and the standard deviation of the inter-molecular similarities for all the molecules in the chosen class.</p></table-wrap-foot></table-wrap><table-wrap id="Tab4"><label>Table 4
 </label><caption xml:lang="en"><p>MDDR-HOM activity classes used in the virtual screening experiments.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Activity class</p></th><th align="center"><p>Active molecules</p></th><th align="center" colspan="2"><p>Pairwise similarity</p></th></tr></thead><tbody><tr><td align="left"><p>Muscarinic (M1) agonists</p></td><td align="center"><p>848</p></td><td align="center"><p>0.206</p></td><td align="center"><p>0.098</p></td></tr><tr><td align="left"><p>NMDA receptor antagonists</p></td><td align="center"><p>1311</p></td><td align="center"><p>0.199</p></td><td align="center"><p>0.090</p></td></tr><tr><td align="left"><p>Nitric oxide synthase inhibitors</p></td><td align="center"><p>377</p></td><td align="center"><p>0.189</p></td><td align="center"><p>0.086</p></td></tr><tr><td align="left"><p>Dopamine beta-hydroxylase inhibitors</p></td><td align="center"><p>95</p></td><td align="center"><p>0.229</p></td><td align="center"><p>0.076</p></td></tr><tr><td align="left"><p>Aldose reductase inhibitors</p></td><td align="center"><p>882</p></td><td align="center"><p>0.232</p></td><td align="center"><p>0.096</p></td></tr><tr><td align="left"><p>Reverse transcriptase inhibitors</p></td><td align="center"><p>519</p></td><td align="center"><p>0.218</p></td><td align="center"><p>0.095</p></td></tr><tr><td align="left"><p>Aromatase inhibitors</p></td><td align="center"><p>513</p></td><td align="center"><p>0.229</p></td><td align="center"><p>0.117</p></td></tr><tr><td align="left"><p>Cyclooxygenase inhibitors</p></td><td align="center"><p>636</p></td><td align="center"><p>0.220</p></td><td align="center"><p>0.107</p></td></tr><tr><td align="left"><p>Phospholipase A2 inhibitors</p></td><td align="center"><p>704</p></td><td align="center"><p>0.224</p></td><td align="center"><p>0.111</p></td></tr><tr><td align="left"><p>Lipoxygenase inhibitors</p></td><td align="center"><p>2555</p></td><td align="center"><p>0.224</p></td><td align="center"><p>0.110</p></td></tr></tbody></table><table-wrap-foot><p>Details as for Table 3.</p></table-wrap-foot></table-wrap><table-wrap id="Tab5"><label>Table 5
 </label><caption xml:lang="en"><p>MDDR-HET activity classes used in the virtual screening experiments.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Activity class</p></th><th align="center"><p>Active molecules</p></th><th align="center" colspan="2"><p>Pairwise similarity</p></th></tr></thead><tbody><tr><td align="left"><p>Adenosine (A1) agonists</p></td><td align="center"><p>88</p></td><td align="center"><p>0.524</p></td><td align="center"><p>0.124</p></td></tr><tr><td align="left"><p>Adenosine (A2) agonists</p></td><td align="center"><p>71</p></td><td align="center"><p>0.536</p></td><td align="center"><p>0.137</p></td></tr><tr><td align="left"><p>Renin inhibitors</p></td><td align="center"><p>1130</p></td><td align="center"><p>0.459</p></td><td align="center"><p>0.119</p></td></tr><tr><td align="left"><p>CCK agonists</p></td><td align="center"><p>79</p></td><td align="center"><p>0.452</p></td><td align="center"><p>0.099</p></td></tr><tr><td align="left"><p>Monocyclic beta-lactams</p></td><td align="center"><p>76</p></td><td align="center"><p>0.549</p></td><td align="center"><p>0.084</p></td></tr><tr><td align="left"><p>Cephalosporins</p></td><td align="center"><p>1312</p></td><td align="center"><p>0.501</p></td><td align="center"><p>0.098</p></td></tr><tr><td align="left"><p>Carbacephems</p></td><td align="center"><p>73</p></td><td align="center"><p>0.487</p></td><td align="center"><p>0.099</p></td></tr><tr><td align="left"><p>Carbapenems</p></td><td align="center"><p>896</p></td><td align="center"><p>0.457</p></td><td align="center"><p>0.124</p></td></tr><tr><td align="left"><p>Tribactams</p></td><td align="center"><p>74</p></td><td align="center"><p>0.548</p></td><td align="center"><p>0.150</p></td></tr><tr><td align="left"><p>Vitamin D analogues</p></td><td align="center"><p>279</p></td><td align="center"><p>0.574</p></td><td align="center"><p>0.105</p></td></tr></tbody></table><table-wrap-foot><p>Details as for Table 3.</p></table-wrap-foot></table-wrap><table-wrap id="Tab6"><label>Table 6
@@ -437,7 +435,7 @@
                 <fpage>882</fpage>
                 <lpage>894</lpage>
                 <pub-id pub-id-type="doi">10.1038/nrd941</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD38XotleqtLY%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XotleqtLY%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR3">
@@ -469,7 +467,7 @@
                 <fpage>27</fpage>
                 <lpage>34</lpage>
                 <pub-id pub-id-type="doi">10.1016/S1359-6446(04)02939-3</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXhtVOjur0%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhtVOjur0%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR4">
@@ -493,7 +491,7 @@
                 <fpage>349</fpage>
                 <lpage>58</lpage>
                 <pub-id pub-id-type="doi">10.1016/j.cbpa.2004.06.008</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXmt1Onu7Y%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXmt1Onu7Y%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR5">
@@ -540,7 +538,7 @@
                 <fpage>5851</fpage>
                 <lpage>5</lpage>
                 <pub-id pub-id-type="doi">10.1021/jm060999m</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XhtVShsrjE</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XhtVShsrjE</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR7">
@@ -568,7 +566,7 @@
                 <fpage>133</fpage>
                 <lpage>48</lpage>
                 <pub-id pub-id-type="doi">10.2174/157340907780809516</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXmsFerurs%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXmsFerurs%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR8">
@@ -596,7 +594,7 @@
                 <fpage>983</fpage>
                 <lpage>96</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci9800211</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaK1cXks1ynu74%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK1cXks1ynu74%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR9">
@@ -666,7 +664,7 @@
                 <fpage>3204</fpage>
                 <lpage>18</lpage>
                 <pub-id pub-id-type="doi">10.1039/b409813g</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXpsVOqt74%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXpsVOqt74%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR12">
@@ -698,7 +696,7 @@
                 <fpage>39</fpage>
                 <lpage>79</lpage>
                 <pub-id pub-id-type="doi">10.1007/s11030-006-8697-1</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XjsFCmsg%3D%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XjsFCmsg%3D%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR13">
@@ -722,7 +720,7 @@
                 <fpage>1133</fpage>
                 <lpage>42</lpage>
                 <pub-id pub-id-type="doi">10.1002/qsar.200610097</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXmsFCjsw%3D%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXmsFCjsw%3D%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR14">
@@ -742,7 +740,7 @@
                 <fpage>423</fpage>
                 <lpage>30</lpage>
                 <pub-id pub-id-type="doi">10.1517/17460441.2.4.423</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXmtVCqs7g%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXmtVCqs7g%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR15">
@@ -766,7 +764,7 @@
                 <fpage>225</fpage>
                 <lpage>33</lpage>
                 <pub-id pub-id-type="doi">10.1016/j.drudis.2007.01.011</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXitl2htLw%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXitl2htLw%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR16">
@@ -1075,7 +1073,7 @@
                 <fpage>2887</fpage>
                 <lpage>93</lpage>
                 <pub-id pub-id-type="doi">10.1021/jm9602928</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaK28XjvVejtro%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28XjvVejtro%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR30">
@@ -1126,7 +1124,7 @@
                 <fpage>819</fpage>
                 <lpage>28</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci034001x</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXislSitL4%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3sXislSitL4%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR32">
@@ -1150,7 +1148,7 @@
                 <fpage>210</fpage>
                 <lpage>18</lpage>
                 <pub-id pub-id-type="doi">10.1002/cmdc.200800290</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXislWju7k%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXislWju7k%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR33">
@@ -1170,7 +1168,7 @@
                 <fpage>1143</fpage>
                 <lpage>52</lpage>
                 <pub-id pub-id-type="doi">10.1002/qsar.200610084</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXmsFCjsA%3D%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXmsFCjsA%3D%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR34">
@@ -1199,7 +1197,7 @@
                 <fpage>1177</fpage>
                 <lpage>85</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci034231b</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXhsVOis7g%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhsVOis7g%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR35">
@@ -1235,7 +1233,7 @@
                 <fpage>1912</fpage>
                 <lpage>8</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci6002152</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28Xpt1Wgu7c%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28Xpt1Wgu7c%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR36">
@@ -1259,7 +1257,7 @@
                 <fpage>1341</fpage>
                 <lpage>53</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci700007b</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXmtl2lsb4%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXmtl2lsb4%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR37">
@@ -1288,7 +1286,7 @@
                 <fpage>462</fpage>
                 <lpage>70</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci050348j</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XlvV2h</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XlvV2h</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR38">
@@ -1340,7 +1338,7 @@
                 <fpage>343</fpage>
                 <lpage>57</lpage>
                 <pub-id pub-id-type="doi">10.1016/S1093-3263(00)00061-9</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3cXotVOisbs%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3cXotVOisbs%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR40">
@@ -1364,7 +1362,7 @@
                 <fpage>488</fpage>
                 <lpage>508</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci600426e</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXhsVCgtLY%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXhsVCgtLY%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR41">
@@ -1389,7 +1387,7 @@
                 <fpage>133</fpage>
                 <lpage>139</lpage>
                 <pub-id pub-id-type="doi">10.1007/s10822-008-9196-5</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXjsFOnsb0%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXjsFOnsb0%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR42">
@@ -1413,7 +1411,7 @@
                 <fpage>18</fpage>
                 <lpage>25</lpage>
                 <pub-id pub-id-type="doi">10.1002/qsar.19860050105</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaL2sXjt1Wjsg%3D%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL2sXjt1Wjsg%3D%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR43">
@@ -1437,7 +1435,7 @@
                 <fpage>572</fpage>
                 <lpage>84</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci9501047</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaK28Xis1yjsrw%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28Xis1yjsrw%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR44">
@@ -1461,7 +1459,7 @@
                 <fpage>1407</fpage>
                 <lpage>14</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci025531g</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD38XnvVOjtr0%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XnvVOjtr0%3D</pub-id>
               </mixed-citation>
             </ref>
           </ref-list>
@@ -1472,56 +1470,56 @@
               <title>Electronic supplementary material</title>
               <p>
                 <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Electronic supplementary material">
-                  <media xlink:href="MediaObjects/13321_2009_5_MOESM1_ESM.doc" mimetype="application" mime-subtype="msword">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2009_5_MOESM1_ESM.doc" position="anchor">
                     <caption xml:lang="en">
                       <p>Additional file 1: Table S1. Recall of actives in the top-1% of the ranked MDDR database using the Bayesian SUM inference network and Tanimoto searches. The belief functions used are STD (for the standard function used in the InQuery project), OKA (for that used in the OKAPI project), SMO (for the language-modeling smoothing function) and SMOL (for the natural logarithm of the smoothing function). Each pair of columns lists the mean and the standard deviation for the percentage recall. (DOC 48 KB)</p>
                     </caption>
                   </media>
                 </supplementary-material>
                 <supplementary-material content-type="local-data" id="MOESM2" xlink:title="Electronic supplementary material">
-                  <media xlink:href="MediaObjects/13321_2009_5_MOESM2_ESM.doc" mimetype="application" mime-subtype="msword">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2009_5_MOESM2_ESM.doc" position="anchor">
                     <caption xml:lang="en">
                       <p>Additional file 2: <bold>Table S2.</bold> Recall of actives in the top-1% of the ranked MDDR database using the Bayesian WSUM inference network and Tanimoto searches. Details as for Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>. (DOC 50 KB)</p>
                     </caption>
                   </media>
                 </supplementary-material>
                 <supplementary-material content-type="local-data" id="MOESM3" xlink:title="Electronic supplementary material">
-                  <media xlink:href="MediaObjects/13321_2009_5_MOESM3_ESM.doc" mimetype="application" mime-subtype="msword">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2009_5_MOESM3_ESM.doc" position="anchor">
                     <caption xml:lang="en">
                       <p>Additional file 3: <bold>Table S3.</bold> Recall of actives in the top-1% of the ranked WOMBAT database using the Bayesian SUM inference network and Tanimoto searches. Details as for Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>. (DOC 52 KB)</p>
                     </caption>
                   </media>
                 </supplementary-material>
                 <supplementary-material content-type="local-data" id="MOESM4" xlink:title="Electronic supplementary material">
-                  <media xlink:href="MediaObjects/13321_2009_5_MOESM4_ESM.doc" mimetype="application" mime-subtype="msword">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2009_5_MOESM4_ESM.doc" position="anchor">
                     <caption xml:lang="en">
                       <p>Additional file 4: <bold>Table S4.</bold> Recall of actives in the top-1% of the ranked WOMBAT database using the Bayesian WSUM inference network and Tanimoto searches. Details as for Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>. (DOC 52 KB)</p>
                     </caption>
                   </media>
                 </supplementary-material>
                 <supplementary-material content-type="local-data" id="MOESM5" xlink:title="Electronic supplementary material">
-                  <media xlink:href="MediaObjects/13321_2009_5_MOESM5_ESM.doc" mimetype="application" mime-subtype="msword">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2009_5_MOESM5_ESM.doc" position="anchor">
                     <caption xml:lang="en">
                       <p>Additional file 5: <bold>Table S5.</bold> Recall of actives in the top-1% of the ranked MDDR-HOM database using the Bayesian SUM inference network and Tanimoto searches. Details as for Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>. (DOC 46 KB)</p>
                     </caption>
                   </media>
                 </supplementary-material>
                 <supplementary-material content-type="local-data" id="MOESM6" xlink:title="Electronic supplementary material">
-                  <media xlink:href="MediaObjects/13321_2009_5_MOESM6_ESM.doc" mimetype="application" mime-subtype="msword">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2009_5_MOESM6_ESM.doc" position="anchor">
                     <caption xml:lang="en">
                       <p>Additional file 6: <bold>Table S6.</bold> Recall of actives in the top-1% of the ranked MDDR-HOM database using the Bayesian WSUM inference network and Tanimoto searches. Details as for Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>. (DOC 46 KB)</p>
                     </caption>
                   </media>
                 </supplementary-material>
                 <supplementary-material content-type="local-data" id="MOESM7" xlink:title="Electronic supplementary material">
-                  <media xlink:href="MediaObjects/13321_2009_5_MOESM7_ESM.doc" mimetype="application" mime-subtype="msword">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2009_5_MOESM7_ESM.doc" position="anchor">
                     <caption xml:lang="en">
                       <p>Additional file 7: <bold>Table S7.</bold> Recall of actives in the top-1% of the ranked MDDR-HET database using the Bayesian SUM inference network and Tanimoto searches. Details as for Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>. (DOC 46 KB)</p>
                     </caption>
                   </media>
                 </supplementary-material>
                 <supplementary-material content-type="local-data" id="MOESM8" xlink:title="Electronic supplementary material">
-                  <media xlink:href="MediaObjects/13321_2009_5_MOESM8_ESM.doc" mimetype="application" mime-subtype="msword">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2009_5_MOESM8_ESM.doc" position="anchor">
                     <caption xml:lang="en">
                       <p>Additional file 8: <bold>Table S8.</bold> Recall of actives in the top-1% of the ranked MDDR-HET database using the Bayesian WSUM inference network and Tanimoto searches. Details as for Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>. (DOC 46 KB)</p>
                     </caption>
@@ -1531,7 +1529,7 @@
             </sec>
             <sec id="Sec10">
               <title>Authors’ original submitted files for images</title>
-              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM9" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2009_5_MOESM9_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material></p>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM9" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2009_5_MOESM9_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material></p>
             </sec>
           </app>
         </app-group>

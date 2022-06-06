@@ -106,14 +106,14 @@
           </history>
           <permissions>
             <copyright-statement content-type="compact">© Townsend and Murray-Rust; licensee Chemistry Central Ltd. 2011</copyright-statement>
-            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="uri">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
             <copyright-year>2011</copyright-year>
             <copyright-holder>Townsend and Murray-Rust; licensee Chemistry Central Ltd.</copyright-holder>
             <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0/">
-              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="url">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="uri">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
             </license>
           </permissions>
-          <abstract id="Abs1" xml:lang="en">
+          <abstract xml:lang="en" id="Abs1">
             <title>Abstract</title>
             <p>CMLLite is a collection of definitions and processes which provide strong and flexible validation for a document in Chemical Markup Language (CML). It consists of an updated CML schema (schema3), conventions specifying rules in both human and machine-understandable forms and a validator available both online and offline to check conformance. This article explores the rationale behind the changes which have been made to the schema, explains how conventions interact and how they are designed, formulated, implemented and tested, and gives an overview of the validation service.</p>
           </abstract>
@@ -274,7 +274,7 @@
         </article-meta>
         <notes notes-type="ESMHint">
           <title>Electronic supplementary material</title>
-          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-3-39" ext-link-type="doi">10.1186/1758-2946-3-39</ext-link>) contains supplementary material, which is available to authorized users.</p>
+          <p>The online version of this article (doi:<ext-link xlink:href="10.1186/1758-2946-3-39" ext-link-type="doi">10.1186/1758-2946-3-39</ext-link>) contains supplementary material, which is available to authorized users.</p>
         </notes>
       </front>
       <body>
@@ -289,7 +289,7 @@
           <sec id="Sec2">
             <title>Semantics in CML</title>
             <p>We agree with Dumontier's analysis and in this article show how our current approach to semantics in CML is both achievable and largely compatible with his and others' [<xref ref-type="bibr" rid="CR7">7</xref>, <xref ref-type="bibr" rid="CR8">8</xref>] ideal chemical representations. As noted, CML has a small, but important, set of elements (molecule, atom, bond, crystal, spectrum and a few others) where some semantics are implicit and the rules hardcoded. This approach is pragmatic; translating the implicit rules to formal semantics is a considerable effort and makes it more difficult to write libraries to support them.</p>
-            <p>However most CML concepts can be automatically expressed in equivalent semantic form, <italic>e.g</italic>. using RDF format [<xref ref-type="bibr" rid="CR9">9</xref>] for the document and RDFSchema [<xref ref-type="bibr" rid="CR10">10</xref>] or (if appropriate) the OWL language to specify an ontology [<xref ref-type="bibr" rid="CR11">11</xref>] (see Figure <xref rid="Fig1" ref-type="fig">1</xref>) and managed with generic (non-chemical) semantic tools. The use of RDF in this manner is advocated by <italic>e.g</italic>. the Bio2RDF project [<xref ref-type="bibr" rid="CR12">12</xref>]. In particular property and parameter can be completely represented in RDF and we already use this extensively in Quixote [<xref ref-type="bibr" rid="CR13">13</xref>, <xref ref-type="bibr" rid="CR14">14</xref>] and similar projects (where CML is imported as RDF).<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>A property represented in CML (top) and the equivalent RDF (bottom)-as used in the Quixote repository</bold> [<xref ref-type="bibr" rid="CR47">47</xref>]. The dictionary is referenced by <bold>compchem:hfenergy</bold> for which there must be an entry in an online dictionary. These are completely equivalent and can be translated in both directions without semantic loss. (There are minor syntactic variants such as the capitalization varying systematically.) It is always possible to generate RDF from CML; the reverse may not be possible for arbitrary RDF. The challenge is to create communally acceptable dictionaries/ontologies-the syntax (CML or RDF) is immaterial.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig1_HTML.jpg" /></p></fig></p>
+            <p>However most CML concepts can be automatically expressed in equivalent semantic form, <italic>e.g</italic>. using RDF format [<xref ref-type="bibr" rid="CR9">9</xref>] for the document and RDFSchema [<xref ref-type="bibr" rid="CR10">10</xref>] or (if appropriate) the OWL language to specify an ontology [<xref ref-type="bibr" rid="CR11">11</xref>] (see Figure <xref rid="Fig1" ref-type="fig">1</xref>) and managed with generic (non-chemical) semantic tools. The use of RDF in this manner is advocated by <italic>e.g</italic>. the Bio2RDF project [<xref ref-type="bibr" rid="CR12">12</xref>]. In particular property and parameter can be completely represented in RDF and we already use this extensively in Quixote [<xref ref-type="bibr" rid="CR13">13</xref>, <xref ref-type="bibr" rid="CR14">14</xref>] and similar projects (where CML is imported as RDF).<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>A property represented in CML (top) and the equivalent RDF (bottom)-as used in the Quixote repository</bold> [<xref ref-type="bibr" rid="CR47">47</xref>]. The dictionary is referenced by <bold>compchem:hfenergy</bold> for which there must be an entry in an online dictionary. These are completely equivalent and can be translated in both directions without semantic loss. (There are minor syntactic variants such as the capitalization varying systematically.) It is always possible to generate RDF from CML; the reverse may not be possible for arbitrary RDF. The challenge is to create communally acceptable dictionaries/ontologies-the syntax (CML or RDF) is immaterial.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig1_HTML.jpg" /></fig></p>
             <p>We have explored a full RDF implementation of CML through ChemAxiom [<xref ref-type="bibr" rid="CR15">15</xref>] (an OWL-compatible representation of physical chemical properties) and we have also explored full RDF in Open Bibliography [<xref ref-type="bibr" rid="CR16">16</xref>]). Both of these have shown that the entry overhead is high as the tools are at an early stage. For example there is no support for RDFSchema-based approaches in chemistry. At this stage in chemical informatics, therefore, we feel that CML as a mixture of explicit and implicit semantics provides a useful infrastructure accessible to a large number of implementers and users.</p>
           </sec>
           <sec id="Sec3">
@@ -390,7 +390,7 @@
           </sec>
           <sec id="Sec6">
             <title>The Need for Validation</title>
-            <p>Validation of input documents is at the heart of the CMLLite approach. There are two complementary approaches to validation (see also Figure <xref rid="Fig2" ref-type="fig">2</xref>). Both components (Schema and convention) are <italic>validators</italic> and are normally run sequentially<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>(a) historical approach to CML processing</bold>. Software was expected to perform a wide variety of tasks including validation and transformations (processing). (b) the CMLLite approach: each module performs only one task <italic>i.e</italic>. validation, normalisation or transformation (processing). This makes each of the modules more straightforward to understand and produces cleaner code.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig2_HTML.jpg" /></p></fig></p>
+            <p>Validation of input documents is at the heart of the CMLLite approach. There are two complementary approaches to validation (see also Figure <xref rid="Fig2" ref-type="fig">2</xref>). Both components (Schema and convention) are <italic>validators</italic> and are normally run sequentially<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>(a) historical approach to CML processing</bold>. Software was expected to perform a wide variety of tasks including validation and transformations (processing). (b) the CMLLite approach: each module performs only one task <italic>i.e</italic>. validation, normalisation or transformation (processing). This makes each of the modules more straightforward to understand and produces cleaner code.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig2_HTML.jpg" /></fig></p>
             <p>
               <list list-type="bullet">
                 <list-item>
@@ -497,14 +497,14 @@
           </sec>
           <sec id="Sec16">
             <title>A schema3 validatorTest</title>
-            <p>As an example of how to test schema3 we take the definition of molecule in schema3 (Figure <xref rid="Fig3" ref-type="fig">3</xref>).<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>A snippet from schema3 showing the typical relaxed content model of the molecule element container</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig3_HTML.jpg" /></p></fig></p>
+            <p>As an example of how to test schema3 we take the definition of molecule in schema3 (Figure <xref rid="Fig3" ref-type="fig">3</xref>).<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>A snippet from schema3 showing the typical relaxed content model of the molecule element container</bold>.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig3_HTML.jpg" /></fig></p>
             <p>This is read as:</p>
             <p><italic>A molecule can have zero (minOccurs = 0) or many (maxOccurs = unbounded) child elements in any order; it has no mixed content. The children can be any CML elements ("anyCml"), any elements with a foreign namespace (#other or #local (default namespace when not CML)). All the elements in the CML namespace are part of the anyCml substitution group</italic>.</p>
             <p>There are currently <italic>ca</italic>. 300 validatorTests (which test both schema and conventions) and we show examples that can validate the schema snippet for molecule. Each validatorTest is run against the schema, which only emits messages for invalid constructs.</p>
             <p>
               <list list-type="order">
                 <list-item>
-                  <p>&lt;cml:molecule xmlns:cml = "<ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="url">http://www.xml-cml.org/schema</ext-link>"></p>
+                  <p>&lt;cml:molecule xmlns:cml = "<ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="uri">http://www.xml-cml.org/schema</ext-link>"></p>
                   <p>&lt;element-in-default-namespace></p>
                   <p>This is fine. The null prefix is not bound</p>
                   <p>to anything and therefore is associated with</p>
@@ -518,7 +518,7 @@
             <p>
               <list list-type="order">
                 <list-item>
-                  <p>&lt;molecule xmlns = "<ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="url">http://www.xml-cml.org/schema</ext-link> "xmlns:other = "<ext-link xlink:href="http://www.example.net" ext-link-type="url">http://www.example.net</ext-link>"></p>
+                  <p>&lt;molecule xmlns = "<ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="uri">http://www.xml-cml.org/schema</ext-link> "xmlns:other = "<ext-link xlink:href="http://www.example.net" ext-link-type="uri">http://www.example.net</ext-link>"></p>
                   <p>&lt;other:foreign-element></p>
                   <p>This is fine. The null prefix is bound to the</p>
                   <p>CML namespace and the "other" prefix</p>
@@ -532,7 +532,7 @@
             <p>
               <list list-type="order">
                 <list-item>
-                  <p>&lt;molecule xmlns = "<ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="url">http://www.xml-cml.org/schema</ext-link>"></p>
+                  <p>&lt;molecule xmlns = "<ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="uri">http://www.xml-cml.org/schema</ext-link>"></p>
                   <p>&lt;non-cml-element></p>
                   <p>This is invalid. The null prefix is bound</p>
                   <p>to the CML namespace and the element</p>
@@ -546,7 +546,7 @@
             <p>
               <list list-type="order">
                 <list-item>
-                  <p>&lt;cml:molecule xmlns:cml = "<ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="url">http://www.xml-cml.org/schema</ext-link>"></p>
+                  <p>&lt;cml:molecule xmlns:cml = "<ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="uri">http://www.xml-cml.org/schema</ext-link>"></p>
                   <p>&lt;cml:non-cml-element></p>
                   <p>This is invalid. The cml prefix is bound</p>
                   <p>to the CML namespace and the element</p>
@@ -561,8 +561,8 @@
           <sec id="Sec17">
             <title>CMLValidator report language</title>
             <p>Because we have taken a unit-test-based approach the initial design of our convention verification software used Schematron, an ISO Standard for testing assertions about the structure of XML documents. After initial testing we found that Schematron scaled poorly with the complexity of the rules and was difficult to debug. We also desired a report language that could better support partial validation required to reflect the MUST, SHOULD, MAY approach to defining rules adopted by CMLLite.</p>
-            <p>The validating rules are now expressed directly as XSLT which gives greater flexibility and control structure. To support the MUST, SHOULD, MAY style of rules we have developed a small report language (Figure <xref rid="Fig4" ref-type="fig">4</xref>) to indicate the different levels of severity.<fig id="Fig4"><label>Figure 4</label><caption xml:lang="en"><p><bold>An outline of the CML report language</bold>. If a test (<italic>e.g</italic>. well-formed-test or URIs-reachable-test) contains a valid element child then it MUST NOT contain any warning or error element children. There is no such restriction on info elements and these may occur for input documents that otherwise conform completely to the convention.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig4_HTML.jpg" /></p></fig></p>
-            <p>Figure <xref rid="Fig5" ref-type="fig">5</xref> shows how we use XSLT to encode a typical rule in the molecular convention:<fig id="Fig5"><label>Figure 5</label><caption xml:lang="en"><p><bold>Example rules expressed in XSLT: an atom must have an id attribute and the value of the id must be unique among the ids of all the atoms in the eldest containing parent molecule</bold>. The cml prefix is bound to <ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="url">http://www.xml-cml.org/schema</ext-link> and the report prefix is bound to <ext-link xlink:href="http://www.xml-cml.org/report/" ext-link-type="url">http://www.xml-cml.org/report/</ext-link>. The error reporting has been simplified for clarity (the location attribute is omitted).</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig5_HTML.jpg" /></p></fig></p>
+            <p>The validating rules are now expressed directly as XSLT which gives greater flexibility and control structure. To support the MUST, SHOULD, MAY style of rules we have developed a small report language (Figure <xref rid="Fig4" ref-type="fig">4</xref>) to indicate the different levels of severity.<fig id="Fig4"><label>Figure 4</label><caption xml:lang="en"><p><bold>An outline of the CML report language</bold>. If a test (<italic>e.g</italic>. well-formed-test or URIs-reachable-test) contains a valid element child then it MUST NOT contain any warning or error element children. There is no such restriction on info elements and these may occur for input documents that otherwise conform completely to the convention.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig4_HTML.jpg" /></fig></p>
+            <p>Figure <xref rid="Fig5" ref-type="fig">5</xref> shows how we use XSLT to encode a typical rule in the molecular convention:<fig id="Fig5"><label>Figure 5</label><caption xml:lang="en"><p><bold>Example rules expressed in XSLT: an atom must have an id attribute and the value of the id must be unique among the ids of all the atoms in the eldest containing parent molecule</bold>. The cml prefix is bound to <ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="uri">http://www.xml-cml.org/schema</ext-link> and the report prefix is bound to <ext-link xlink:href="http://www.xml-cml.org/report/" ext-link-type="uri">http://www.xml-cml.org/report/</ext-link>. The error reporting has been simplified for clarity (the location attribute is omitted).</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig5_HTML.jpg" /></fig></p>
             <p>
               <list list-type="bullet">
                 <list-item>
@@ -618,7 +618,7 @@
           </sec>
           <sec id="Sec19">
             <title>The ruleset</title>
-            <p>1 The simpleUnit convention is specified with the <ext-link xlink:href="http://www.xml-cml.org/convention/simpleUnit" ext-link-type="url">http://www.xml-cml.org/convention/simpleUnit</ext-link> namespace.</p>
+            <p>1 The simpleUnit convention is specified with the <ext-link xlink:href="http://www.xml-cml.org/convention/simpleUnit" ext-link-type="uri">http://www.xml-cml.org/convention/simpleUnit</ext-link> namespace.</p>
             <p>2 The simpleUnit convention MUST be specified on a cml:unitList element using the convention attribute.</p>
             <p>3 A cml:unitList element MUST contain at least one cml:unit child element.</p>
             <p>4 A cml:unitList element MAY contain other child elements from the CML namespace or from foreign namespaces.</p>
@@ -630,12 +630,12 @@
           </sec>
           <sec id="Sec21">
             <title>Validator</title>
-            <p>Figure <xref rid="Fig6" ref-type="fig">6</xref> shows the XSLT required to encode the ruleset of the simpleUnit convention.<fig id="Fig6"><label>Figure 6</label><caption xml:lang="en"><p><bold>the XSLT for the simpleUnit convention-the error reporting has been simplified for clarity</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig6_HTML.jpg" /></p></fig></p>
+            <p>Figure <xref rid="Fig6" ref-type="fig">6</xref> shows the XSLT required to encode the ruleset of the simpleUnit convention.<fig id="Fig6"><label>Figure 6</label><caption xml:lang="en"><p><bold>the XSLT for the simpleUnit convention-the error reporting has been simplified for clarity</bold>.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig6_HTML.jpg" /></fig></p>
             <p>We now address the purpose of each of the templates in the validator in detail.</p>
             <p><bold>Template 1</bold>: creates the root report:result element</p>
             <p><bold>Template 2</bold>: match = "*|@*|text()" matches any element, attribute or text node when not in simpleUnit mode. The match expressions for the three node types are the most general possible and will therefore be overridden by any more specific matches. This template takes no action but allows recursive traversal to find elements covered by the simpleUnit conventions arbitrarily deep in the input document.</p>
             <p><bold>Template 3</bold>: carries out the same operations as template 2 but only when in simpleUnit mode. Non-CML elements may be interspersed with CML in the text document and will not cause the validator to emit warnings.</p>
-            <p><bold>Template 4</bold>: Only elements from the cml namespace will be matched; the element MUST have a convention attribute, with namespace <ext-link xlink:href="http://www.xml-cml.org/convention/" ext-link-type="url">http://www.xml-cml.org/convention/</ext-link> and the local name simpleUnit. The schema enforces that the value of the convention attribute must be a namespaceRefType.</p>
+            <p><bold>Template 4</bold>: Only elements from the cml namespace will be matched; the element MUST have a convention attribute, with namespace <ext-link xlink:href="http://www.xml-cml.org/convention/" ext-link-type="uri">http://www.xml-cml.org/convention/</ext-link> and the local name simpleUnit. The schema enforces that the value of the convention attribute must be a namespaceRefType.</p>
             <p>If the element matched is cml:unitList this triggers mode = "simpleUnit" which remains in scope for all descendants.</p>
             <p>If the element matched is not cml:unitList the validator informs the users that it is an error to specify the simpleUnit convention and apply-templates is called but not in simpleUnit mode.</p>
             <p><bold>Template 5</bold>: matches any cml:unitList element. If this does not have at least one cml:unit child element then an error is reported. Any child nodes are then processed in simpleUnit mode.</p>
@@ -646,9 +646,9 @@
         </sec>
         <sec id="Sec22">
           <title>Interaction and extension of conventions</title>
-          <p>Conventions are generally designed so that they can be mixed in a document, typically as discrete sections of a document (<italic>i.e</italic>. they do not overlap (instance 2 in Figure <xref rid="Fig7" ref-type="fig">7</xref>)). Thus the CMLSpect convention does not involve molecular, and molecular does not involve CMLSpect. The CMLValidator will engage the appropriate modes when processing each convention.<fig id="Fig7"><label>Figure 7</label><caption xml:lang="en"><p><bold>Documents with multiple conventions</bold>. The black lines represents the XML tree (DOM) and are shadowed by constraints imposed by conventions A (blue) and B (red).</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig7_HTML.jpg" /></p></fig></p>
+          <p>Conventions are generally designed so that they can be mixed in a document, typically as discrete sections of a document (<italic>i.e</italic>. they do not overlap (instance 2 in Figure <xref rid="Fig7" ref-type="fig">7</xref>)). Thus the CMLSpect convention does not involve molecular, and molecular does not involve CMLSpect. The CMLValidator will engage the appropriate modes when processing each convention.<fig id="Fig7"><label>Figure 7</label><caption xml:lang="en"><p><bold>Documents with multiple conventions</bold>. The black lines represents the XML tree (DOM) and are shadowed by constraints imposed by conventions A (blue) and B (red).</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig7_HTML.jpg" /></fig></p>
           <p>It is sometimes desirable to nest conventions (a subtree with one convention being found completely within a larger tree with a different convention-<italic>e.g</italic>. instances 3 and 4 in Figure <xref rid="Fig7" ref-type="fig">7</xref>). We use this approach in the current CMLLite conventions (Table <xref rid="Tab1" ref-type="table">1</xref>) which may (recursively) validate subtrees labelled as having known conventions. The rules for nesting are under community review and Figure <xref rid="Fig7" ref-type="fig">7</xref> shows the currently allowed interaction of conventions. The scope of a convention is thus similar to that of a namespace in that it "extends from the beginning of the start-tag in which it appears to the end of the corresponding end-tag" [<xref ref-type="bibr" rid="CR41">41</xref>].</p>
-          <p>Some of the specifications from the molecular convention <ext-link xlink:href="http://www.xml-cml.org/convention/molecular" ext-link-type="url">http://www.xml-cml.org/convention/molecular</ext-link> are given below;</p>
+          <p>Some of the specifications from the molecular convention <ext-link xlink:href="http://www.xml-cml.org/convention/molecular" ext-link-type="uri">http://www.xml-cml.org/convention/molecular</ext-link> are given below;</p>
           <p>
             <list list-type="bullet">
               <list-item>
@@ -671,18 +671,18 @@
               </list-item>
             </list>
           </p>
-          <p>The compchem convention <ext-link xlink:href="http://www.xml-cml.org/convention/compchem" ext-link-type="url">http://www.xml-cml.org/convention/compchem</ext-link> has been developed as part of the Quixote project. It requires that the <italic>initialization module</italic> contains exactly one molecule and that all the atoms in this molecule MUST have three dimensional coordinates. Rather than create a new convention for molecules it was decided that these requirements were compatible with the molecular convention but required a tightening of some constraints.</p>
+          <p>The compchem convention <ext-link xlink:href="http://www.xml-cml.org/convention/compchem" ext-link-type="uri">http://www.xml-cml.org/convention/compchem</ext-link> has been developed as part of the Quixote project. It requires that the <italic>initialization module</italic> contains exactly one molecule and that all the atoms in this molecule MUST have three dimensional coordinates. Rather than create a new convention for molecules it was decided that these requirements were compatible with the molecular convention but required a tightening of some constraints.</p>
           <p>Some of the rules from the compchem convention are shown below:</p>
           <p>
             <list list-type="bullet">
               <list-item>
-                <p>There MUST be an initialization module which is a module element with a specific value of its dictRef attribute (cml:module/@dictRef = 'compchem:initialization' where the compchem prefix is bound to <ext-link xlink:href="http://xml-cml.org/dictionary/compchem/" ext-link-type="url">http://xml-cml.org/dictionary/compchem/</ext-link>).</p>
+                <p>There MUST be an initialization module which is a module element with a specific value of its dictRef attribute (cml:module/@dictRef = 'compchem:initialization' where the compchem prefix is bound to <ext-link xlink:href="http://xml-cml.org/dictionary/compchem/" ext-link-type="uri">http://xml-cml.org/dictionary/compchem/</ext-link>).</p>
               </list-item>
               <list-item>
                 <p>The initialization module MUST contain exactly one molecule.</p>
               </list-item>
               <list-item>
-                <p>molecules MUST declare that they conform to the molecular convention by declaring this in the convention attribute (cml:molecule/@convention = 'conventions:molecular' where the conventions prefix is bound to <ext-link xlink:href="http://www.xml-cml.org/convention/" ext-link-type="url">http://www.xml-cml.org/convention/</ext-link>).</p>
+                <p>molecules MUST declare that they conform to the molecular convention by declaring this in the convention attribute (cml:molecule/@convention = 'conventions:molecular' where the conventions prefix is bound to <ext-link xlink:href="http://www.xml-cml.org/convention/" ext-link-type="uri">http://www.xml-cml.org/convention/</ext-link>).</p>
               </list-item>
               <list-item>
                 <p>The molecule in the initialization module is REQUIRED to have an atomArray child.</p>
@@ -692,16 +692,16 @@
               </list-item>
             </list>
           </p>
-          <p>Figure <xref rid="Fig8" ref-type="fig">8</xref> shows the part of the XSLT that will enforce the requirements on the molecule in the initialization module described above. The first template tests that there is only a single molecule child of the initialization module and that the molecule must specify the molecular convention. The existence of this convention statement will trigger the CMLValidator to apply the relevant rules to the molecule and its descendant nodes.<fig id="Fig8"><label>Figure 8</label><caption xml:lang="en"><p><bold>A snippet showing how the compchem convention can rely on the molecular convention and add further restrictions</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig8_HTML.jpg" /></p></fig></p>
+          <p>Figure <xref rid="Fig8" ref-type="fig">8</xref> shows the part of the XSLT that will enforce the requirements on the molecule in the initialization module described above. The first template tests that there is only a single molecule child of the initialization module and that the molecule must specify the molecular convention. The existence of this convention statement will trigger the CMLValidator to apply the relevant rules to the molecule and its descendant nodes.<fig id="Fig8"><label>Figure 8</label><caption xml:lang="en"><p><bold>A snippet showing how the compchem convention can rely on the molecular convention and add further restrictions</bold>.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig8_HTML.jpg" /></fig></p>
           <p>The second template is in a separate mode (test-atoms-have-3d-coordinates) and tests that an atomArray is present and that all the child atoms of this have 3D coordinates. Note that we do not need to check whether or not the molecule has child molecules or other atomArray children because this will be done by the molecular convention.</p>
           <sec id="Sec23">
             <title>Validation Service</title>
             <p>Following the W3C validation tools [<xref ref-type="bibr" rid="CR42">42</xref>] (specifically Unicorn [<xref ref-type="bibr" rid="CR43">43</xref>]), we have created the CML validation service [<xref ref-type="bibr" rid="CR44">44</xref>]. The validator is available in the following forms: an interactive form-based [<xref ref-type="bibr" rid="CR45">45</xref>] webpage, a RESTful [<xref ref-type="bibr" rid="CR46">46</xref>] web service and as a Java library.</p>
             <p>The Java library is the same as the backend engine for the web-based services. The program consists of validator classes, an overall workflow control class and a ValidationReport class. The validation report class encapsulates both an XML document containing information about which tests have passed, failed or caused warnings and a ValidationResult property. The ValidationResult can be VALID, VALID_WITH_WARNINGS or INVALID.</p>
             <p>The checks performed by the validator are shown below in order of application. If a particular check results in an INVALID ValidationResult no further processing is performed and the ValidationReport is created and returned.<list list-type="order"><list-item><p>It is well-formed XML. The control class can takes as input either an <italic>InputStream</italic> or a <italic>nu.xom.Document</italic> (xomDoc) and produces a ValidationReport. If input is an InputStream the program checks that it is well-formed XML (this is not necessary for a xomDoc as it is necessarily well-formed). A xomDoc is built from the InputStream and further processing is identical regardless of input format.</p></list-item><list-item><p>The xomDoc conforms to the CML schema3.</p></list-item><list-item><p>Deprecated constructs are not used. The use of deprecated constructs will give a VALID_WITH_WARNINGS result.</p></list-item><list-item><p>Any conventions specified in the document are obeyed.</p></list-item><list-item><p>All the prefixes used in namespaceRefTypes (effectively QNames) have been bound to namespaces and are resolvable URLs.</p></list-item></list></p>
-            <p>The final check has been put in place as a reminder to users that sharing information is preferable and they can only "code to the green bar" [<xref ref-type="bibr" rid="CR37">37</xref>] by making their dictionaries and conventions <italic>etc</italic>. publicly available. The workflow is shown in Figure <xref rid="Fig9" ref-type="fig">9</xref> and <xref rid="Fig10" ref-type="fig">10</xref>.<fig id="Fig9"><label>Figure 9</label><caption xml:lang="en"><p><bold>Workflow of validation in the CMLValidator</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig9_HTML.jpg" /></p></fig><fig id="Fig10"><label>Figure 10</label><caption xml:lang="en"><p><bold>The CMLValidator webform interface</bold>. The input claims that it should conform to the unit-dictionary convention but unit 1 does not have an id attribute.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig10_HTML.jpg" /></p></fig></p>
-            <p>The RESTful webservice implementation is accessed by POSTing the XML/CML document to <ext-link xlink:href="http://validator.xml-cml.org/validate" ext-link-type="url">http://validator.xml-cml.org/validate</ext-link> which returns a ValidationReport. This must then be queried by the user to determine whether the overall validation resulted in VALID, VALID_WITH_WARNINGS or INVALID. Informal feedback from users indicated that it was more useful to send the complete ValidationReport rather than just a ValidationResult as feedback as this would allow the calling tool to do more.</p>
-            <p>The website is effectively an instance of a tool that uses the RESTful implementation to do the actual validation but then interprets the results and displays them in the most human-user friendly fashion. Figures <xref rid="Fig11" ref-type="fig">11</xref>, <xref rid="Fig12" ref-type="fig">12</xref> and <xref rid="Fig13" ref-type="fig">13</xref> show the interactive form-based service in use.<fig id="Fig11"><label>Figure 11</label><caption xml:lang="en"><p><bold>Part of the CMLValidator results page showing that the input (in Figure 10) was invalid</bold>. The report contains a human-understandable message and an XPath (machine-understandable) expression giving the location of the error.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig11_HTML.jpg" /></p></fig><fig id="Fig12"><label>Figure 12</label><caption xml:lang="en"><p><bold>Part of the CMLValidator results page showing that the input is valid but has warnings</bold><bold><italic>i.e</italic></bold>. the convention states that the dictionary element SHOULD have a title but none was found in the document. The warning gives a human-understandable message and an XPath (machine-understandable) expression giving the location of the warning.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig12_HTML.jpg" /></p></fig><fig id="Fig13"><label>Figure 13</label><caption xml:lang="en"><p><bold>Part of the CMLValidator results page showing that the document is valid and which checks have been performed</bold>. Further information is also given because the input document contained a molecule element (which is not part of the unit-dictionary convention).</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig13_HTML.jpg" /></p></fig></p>
+            <p>The final check has been put in place as a reminder to users that sharing information is preferable and they can only "code to the green bar" [<xref ref-type="bibr" rid="CR37">37</xref>] by making their dictionaries and conventions <italic>etc</italic>. publicly available. The workflow is shown in Figure <xref rid="Fig9" ref-type="fig">9</xref> and <xref rid="Fig10" ref-type="fig">10</xref>.<fig id="Fig9"><label>Figure 9</label><caption xml:lang="en"><p><bold>Workflow of validation in the CMLValidator</bold>.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig9_HTML.jpg" /></fig><fig id="Fig10"><label>Figure 10</label><caption xml:lang="en"><p><bold>The CMLValidator webform interface</bold>. The input claims that it should conform to the unit-dictionary convention but unit 1 does not have an id attribute.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig10_HTML.jpg" /></fig></p>
+            <p>The RESTful webservice implementation is accessed by POSTing the XML/CML document to <ext-link xlink:href="http://validator.xml-cml.org/validate" ext-link-type="uri">http://validator.xml-cml.org/validate</ext-link> which returns a ValidationReport. This must then be queried by the user to determine whether the overall validation resulted in VALID, VALID_WITH_WARNINGS or INVALID. Informal feedback from users indicated that it was more useful to send the complete ValidationReport rather than just a ValidationResult as feedback as this would allow the calling tool to do more.</p>
+            <p>The website is effectively an instance of a tool that uses the RESTful implementation to do the actual validation but then interprets the results and displays them in the most human-user friendly fashion. Figures <xref rid="Fig11" ref-type="fig">11</xref>, <xref rid="Fig12" ref-type="fig">12</xref> and <xref rid="Fig13" ref-type="fig">13</xref> show the interactive form-based service in use.<fig id="Fig11"><label>Figure 11</label><caption xml:lang="en"><p><bold>Part of the CMLValidator results page showing that the input (in Figure 10) was invalid</bold>. The report contains a human-understandable message and an XPath (machine-understandable) expression giving the location of the error.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig11_HTML.jpg" /></fig><fig id="Fig12"><label>Figure 12</label><caption xml:lang="en"><p><bold>Part of the CMLValidator results page showing that the input is valid but has warnings</bold><bold><italic>i.e</italic></bold>. the convention states that the dictionary element SHOULD have a title but none was found in the document. The warning gives a human-understandable message and an XPath (machine-understandable) expression giving the location of the warning.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig12_HTML.jpg" /></fig><fig id="Fig13"><label>Figure 13</label><caption xml:lang="en"><p><bold>Part of the CMLValidator results page showing that the document is valid and which checks have been performed</bold>. Further information is also given because the input document contained a molecule element (which is not part of the unit-dictionary convention).</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_220_Fig13_HTML.jpg" /></fig></p>
           </sec>
         </sec>
         <sec id="Sec24" sec-type="conclusions">
@@ -713,7 +713,7 @@
         </sec>
         <sec id="Sec25">
           <title>Availability of Code</title>
-          <p>The CMLValidator and associated tests are available at <ext-link xlink:href="http://bitbucket.org/cml/cmllite-validator-code" ext-link-type="url">http://bitbucket.org/cml/cmllite-validator-code</ext-link> and the web-based implementation is available at <ext-link xlink:href="http://bitbucket.org/cml/cmllite-validator-ws" ext-link-type="url">http://bitbucket.org/cml/cmllite-validator-ws</ext-link> both under an Apache 2.0 licence.</p>
+          <p>The CMLValidator and associated tests are available at <ext-link xlink:href="http://bitbucket.org/cml/cmllite-validator-code" ext-link-type="uri">http://bitbucket.org/cml/cmllite-validator-code</ext-link> and the web-based implementation is available at <ext-link xlink:href="http://bitbucket.org/cml/cmllite-validator-ws" ext-link-type="uri">http://bitbucket.org/cml/cmllite-validator-ws</ext-link> both under an Apache 2.0 licence.</p>
         </sec>
         <sec id="Sec26">
           <title>Appendix A</title>
@@ -724,7 +724,7 @@
         <sec id="Sec27">
           <title>Appendix B</title>
           <p>The documents below are a subset of the documents used to test the behaviour of the simpleUnit convention validator. After every alteration (new test, bug fix <italic>etc</italic>.) of the convention, the validator is run against this test set to verify that its behaviour still conforms to expectations.</p>
-          <p>In all the examples below the cml prefix is bound to <ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="url">http://www.xml-cml.org/schema</ext-link> and the conventions prefix is bound to <ext-link xlink:href="http://www.xml-cml.org/convention/." ext-link-type="url">http://www.xml-cml.org/convention/</ext-link></p>
+          <p>In all the examples below the cml prefix is bound to <ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="uri">http://www.xml-cml.org/schema</ext-link> and the conventions prefix is bound to <ext-link xlink:href="http://www.xml-cml.org/convention/." ext-link-type="uri">http://www.xml-cml.org/convention/</ext-link></p>
           <sec id="Sec28">
             <title>Documents Valid Against the simpleUnit Convention</title>
             <p>The input documents below should all result in a ValidationResult of VALID and the ValidationReport MUST NOT contain info elements. The tests in this section are primarily concerned with ensuring that the convention is recognised wherever it appears in a document and that non-CML elements do not give rise to info reports.</p>
@@ -733,7 +733,7 @@
             <p>&lt;cml:unit/></p>
             <p>&lt;/cml:unitList></p>
             <p>This produces the following ValidationReport:</p>
-            <p>&lt;report xmlns = "<ext-link xlink:href="http://www.xml-cml.org/report/" ext-link-type="url">http://www.xml-cml.org/report/</ext-link>"></p>
+            <p>&lt;report xmlns = "<ext-link xlink:href="http://www.xml-cml.org/report/" ext-link-type="uri">http://www.xml-cml.org/report/</ext-link>"></p>
             <p>&lt;well-formed-test></p>
             <p>&lt;valid >xml is well formed&lt;/valid></p>
             <p>&lt;/well-formed-test></p>
@@ -750,7 +750,7 @@
             <p>&lt;/report></p>
             <p>The subsequent inputs produce exactly the same report and we therefore choose to explain what the document is testing for rather than show the output.</p>
             <p>(ii)</p>
-            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="url">http://www.w3.org/1999/xhtml</ext-link>"></p>
+            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="uri">http://www.w3.org/1999/xhtml</ext-link>"></p>
             <p>&lt;cml:unitList convention = "conventions:simpleUnit"></p>
             <p>&lt;cml:unit/></p>
             <p>&lt;/cml:unitList></p>
@@ -771,7 +771,7 @@
             <p>&lt;/element-in-default-namespace></p>
             <p>Tests that simpleUnit convention can be declared on a unitList that is not the root element of the document and is a child of an element from the default-namespace.</p>
             <p>(v)</p>
-            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="url">http://www.w3.org/1999/xhtml</ext-link>"></p>
+            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="uri">http://www.w3.org/1999/xhtml</ext-link>"></p>
             <p>the unitList need not be the root element</p>
             <p>&lt;cml:unitList convention = "conventions:simpleUnit"></p>
             <p>&lt;cml:unit/></p>
@@ -779,7 +779,7 @@
             <p>&lt;/x:p></p>
             <p>Test that although CML does not have a mixed content model the unitList can occur within non-CML mixed content.</p>
             <p>(vi)</p>
-            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="url">http://www.w3.org/1999/xhtml</ext-link>"></p>
+            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="uri">http://www.w3.org/1999/xhtml</ext-link>"></p>
             <p>there are multiple instances of the simpleUnit</p>
             <p>convention in this document</p>
             <p>&lt;cml:unitList convention = "conventions:simpleUnit"></p>
@@ -793,7 +793,7 @@
             <p>(vii)</p>
             <p>&lt;cml:unitList convention = "conventions:simpleUnit"></p>
             <p>&lt;cml:unit/></p>
-            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="url">http://www.w3.org/1999/xhtml</ext-link>"></p>
+            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="uri">http://www.w3.org/1999/xhtml</ext-link>"></p>
             <p>non cml child-this is fine</p>
             <p>&lt;/x:p></p>
             <p>&lt;/cml:unitList></p>
@@ -807,7 +807,7 @@
             <p>(ix)</p>
             <p>&lt;cml:unitList convention = "conventions:simpleUnit"></p>
             <p>&lt;cml:unit></p>
-            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="url">http://www.w3.org/1999/xhtml</ext-link>"></p>
+            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="uri">http://www.w3.org/1999/xhtml</ext-link>"></p>
             <p>non cml child-this is fine</p>
             <p>&lt;/x:p></p>
             <p>&lt;/cml:unit></p>
@@ -824,7 +824,7 @@
             <p>&lt;cml:unitList convention = "conventions:simpleUnit"></p>
             <p>&lt;cml:unit/></p>
             <p>&lt;cml:unit></p>
-            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="url">http://www.w3.org/1999/xhtml</ext-link>"></p>
+            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="uri">http://www.w3.org/1999/xhtml</ext-link>"></p>
             <p>multiple cml:unit elements are allowed</p>
             <p>&lt;/x:p></p>
             <p>&lt;/cml:unit></p>
@@ -840,7 +840,7 @@
             <p>&lt;cml:molecule/></p>
             <p>&lt;/cml:unitList></p>
             <p>Produces:</p>
-            <p>&lt;report xmlns = "<ext-link xlink:href="http://www.xml-cml.org/report/" ext-link-type="url">http://www.xml-cml.org/report/</ext-link>"></p>
+            <p>&lt;report xmlns = "<ext-link xlink:href="http://www.xml-cml.org/report/" ext-link-type="uri">http://www.xml-cml.org/report/</ext-link>"></p>
             <p>&lt;well-formed-test></p>
             <p>&lt;valid > xml is well formed &lt;/valid></p>
             <p>&lt;/well-formed-test></p>
@@ -848,8 +848,8 @@
             <p>&lt;valid > document conforms to the schema &lt;/valid></p>
             <p>&lt;/schema-validation-test></p>
             <p>&lt;convention-validation-test></p>
-            <p>&lt;info location = "/*[local-name() = 'unitList' and namespace-uri() = '<ext-link xlink:href="http://www.xml-cml.org/schema'" ext-link-type="url">http://www.xml-cml.org/schema'</ext-link>] [<xref ref-type="bibr" rid="CR1">1</xref>]/*[local-name() = 'molecule' and namespace-uri() = '<ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="url">http://www.xml-cml.org/schema</ext-link>'] [<xref ref-type="bibr" rid="CR1">1</xref>]"></p>
-            <p>molecule is not a part of the <ext-link xlink:href="http://www.xml-cml.org/convention/simpleUnit" ext-link-type="url">http://www.xml-cml.org/convention/simpleUnit</ext-link> convention and may be ignored by some processors.</p>
+            <p>&lt;info location = "/*[local-name() = 'unitList' and namespace-uri() = '<ext-link xlink:href="http://www.xml-cml.org/schema'" ext-link-type="uri">http://www.xml-cml.org/schema'</ext-link>] [<xref ref-type="bibr" rid="CR1">1</xref>]/*[local-name() = 'molecule' and namespace-uri() = '<ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="uri">http://www.xml-cml.org/schema</ext-link>'] [<xref ref-type="bibr" rid="CR1">1</xref>]"></p>
+            <p>molecule is not a part of the <ext-link xlink:href="http://www.xml-cml.org/convention/simpleUnit" ext-link-type="uri">http://www.xml-cml.org/convention/simpleUnit</ext-link> convention and may be ignored by some processors.</p>
             <p>&lt;/info></p>
             <p>&lt;valid></p>
             <p>document conforms to all the conventions specified</p>
@@ -866,7 +866,7 @@
             <p>&lt;cml:atom/></p>
             <p>&lt;/cml:unit></p>
             <p>&lt;/cml:unitList></p>
-            <p>Produces: "atom is not a part of the <ext-link xlink:href="http://www.xml-cml.org/convention/simpleUnit" ext-link-type="url">http://www.xml-cml.org/convention/simpleUnit</ext-link> convention and may be ignored by some processors"</p>
+            <p>Produces: "atom is not a part of the <ext-link xlink:href="http://www.xml-cml.org/convention/simpleUnit" ext-link-type="uri">http://www.xml-cml.org/convention/simpleUnit</ext-link> convention and may be ignored by some processors"</p>
             <p>(iii)</p>
             <p>&lt;cml:unitList convention = "conventions:simpleUnit"></p>
             <p>&lt;cml:unit/></p>
@@ -874,28 +874,28 @@
             <p>&lt;cml:bond/></p>
             <p>&lt;/cml:unit></p>
             <p>&lt;/cml:unitList></p>
-            <p>Produces: "bond is not a part of the <ext-link xlink:href="http://www.xml-cml.org/convention/simpleUnit" ext-link-type="url">http://www.xml-cml.org/convention/simpleUnit</ext-link> convention and may be ignored by some processors"</p>
+            <p>Produces: "bond is not a part of the <ext-link xlink:href="http://www.xml-cml.org/convention/simpleUnit" ext-link-type="uri">http://www.xml-cml.org/convention/simpleUnit</ext-link> convention and may be ignored by some processors"</p>
             <p>Note that if the bond specified a numeric bond order (<italic>e.g</italic>. order = '1') the test result would be VALID_WITH_WARNINGS because numeric bond orders are deprecated.</p>
             <p>(iv)</p>
             <p>&lt;cml:unitList convention = "conventions:simpleUnit"></p>
             <p>&lt;cml:unit></p>
-            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="url">http://www.w3.org/1999/xhtml</ext-link>"></p>
+            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="uri">http://www.w3.org/1999/xhtml</ext-link>"></p>
             <p>this is still going to be processed in</p>
             <p>unitList mode.</p>
             <p>&lt;cml:bond/></p>
             <p>&lt;/x:p></p>
             <p>&lt;/cml:unit></p>
             <p>&lt;/cml:unitList></p>
-            <p>Produces: "bond is not a part of the <ext-link xlink:href="http://www.xml-cml.org/convention/simpleUnit" ext-link-type="url">http://www.xml-cml.org/convention/simpleUnit</ext-link> convention and may be ignored by some processors"</p>
+            <p>Produces: "bond is not a part of the <ext-link xlink:href="http://www.xml-cml.org/convention/simpleUnit" ext-link-type="uri">http://www.xml-cml.org/convention/simpleUnit</ext-link> convention and may be ignored by some processors"</p>
             <p>(v)</p>
-            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="url">http://www.w3.org/1999/xhtml</ext-link>"></p>
+            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="uri">http://www.w3.org/1999/xhtml</ext-link>"></p>
             <p>the unitList need not be the root element</p>
             <p>&lt;cml:unitList convention = "conventions:simpleUnit"></p>
             <p>&lt;cml:molecule/></p>
             <p>&lt;cml:unit/></p>
             <p>&lt;/cml:unitList></p>
             <p>&lt;/x:p></p>
-            <p>Produces: "molecule is not a part of the <ext-link xlink:href="http://www.xml-cml.org/convention/simpleUnit" ext-link-type="url">http://www.xml-cml.org/convention/simpleUnit</ext-link> convention and may be ignored by some processors".</p>
+            <p>Produces: "molecule is not a part of the <ext-link xlink:href="http://www.xml-cml.org/convention/simpleUnit" ext-link-type="uri">http://www.xml-cml.org/convention/simpleUnit</ext-link> convention and may be ignored by some processors".</p>
           </sec>
           <sec id="Sec30">
             <title>Documents Invalid Against the simpleUnit Convention</title>
@@ -907,7 +907,7 @@
             <p>&lt;/cml:unitList></p>
             <p>&lt;/cml:molecule></p>
             <p>Produces the following ValidationReport:</p>
-            <p>&lt;report xmlns = "<ext-link xlink:href="http://www.xml-cml.org/report/" ext-link-type="url">http://www.xml-cml.org/report/</ext-link>"></p>
+            <p>&lt;report xmlns = "<ext-link xlink:href="http://www.xml-cml.org/report/" ext-link-type="uri">http://www.xml-cml.org/report/</ext-link>"></p>
             <p>&lt;well-formed-test></p>
             <p>&lt;valid > xml is well formed &lt;/valid></p>
             <p>&lt;/well-formed-test></p>
@@ -915,7 +915,7 @@
             <p>&lt;valid > document conforms to the schema &lt;/valid></p>
             <p>&lt;/schema-validation-test></p>
             <p>&lt;convention-validation-test></p>
-            <p>&lt;error location = "/*[local-name() = 'molecule' and namespace-uri() = '<ext-link xlink:href="http://www.xml-cml.org/schema'" ext-link-type="url">http://www.xml-cml.org/schema'</ext-link>] [<xref ref-type="bibr" rid="CR1">1</xref>]@*[local-name() = 'convention' and namespace-uri() = '']"></p>
+            <p>&lt;error location = "/*[local-name() = 'molecule' and namespace-uri() = '<ext-link xlink:href="http://www.xml-cml.org/schema'" ext-link-type="uri">http://www.xml-cml.org/schema'</ext-link>] [<xref ref-type="bibr" rid="CR1">1</xref>]@*[local-name() = 'convention' and namespace-uri() = '']"></p>
             <p>the only valid cml element that can specify the simpleUnit convention is "unitList"</p>
             <p>&lt;/error></p>
             <p>&lt;/convention-validation-test></p>
@@ -925,7 +925,7 @@
             <p>&lt;/uris-reachable-test></p>
             <p>&lt;/report></p>
             <p>(ii)</p>
-            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="url">http://www.w3.org/1999/xhtml</ext-link>"></p>
+            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="uri">http://www.w3.org/1999/xhtml</ext-link>"></p>
             <p>&lt;cml:molecule convention = "conventions:simpleUnit"></p>
             <p>&lt;cml:unitList></p>
             <p>&lt;cml:unit/></p>
@@ -943,14 +943,14 @@
             <p>Produces: "A unit list MUST contain child cml:unit elements".</p>
             <p>(v)</p>
             <p>&lt;cml:unitList convention = "conventions:simpleUnit"></p>
-            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="url">http://www.w3.org/1999/xhtml</ext-link>"></p>
+            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="uri">http://www.w3.org/1999/xhtml</ext-link>"></p>
             <p>no unit child of unitList</p>
             <p>&lt;/x:p></p>
             <p>&lt;/cml:unitList></p>
             <p>Produces: "A unit list MUST contain child cml:unit elements".</p>
             <p>(vi)</p>
             <p>&lt;cml:unitList convention = "conventions:simpleUnit"></p>
-            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="url">http://www.w3.org/1999/xhtml</ext-link>"></p>
+            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="uri">http://www.w3.org/1999/xhtml</ext-link>"></p>
             <p>&lt;cml:unit/></p>
             <p>This unit is not a direct child of unitList</p>
             <p>and therefore should cause an error.</p>
@@ -961,7 +961,7 @@
             <p>&lt;cml:unitList convention = "conventions:simpleUnit"></p>
             <p>&lt;cml:unitList></p>
             <p>&lt;cml:unit></p>
-            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="url">http://www.w3.org/1999/xhtml</ext-link>"></p>
+            <p>&lt;x:p xmlns:x = "<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="uri">http://www.w3.org/1999/xhtml</ext-link>"></p>
             <p>the outer unitList does not have at least</p>
             <p>one unit child</p>
             <p>&lt;/x:p></p>
@@ -1000,7 +1000,7 @@
                 <fpage>705</fpage>
                 <lpage>714</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci9704423</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaK2sXktlGls7g%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2sXktlGls7g%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR2">
@@ -1047,7 +1047,7 @@
                 <fpage>3284</fpage>
                 <lpage>3293</lpage>
                 <pub-id pub-id-type="doi">10.1039/b410075a</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXpsVOqt7g%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXpsVOqt7g%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR3">
@@ -1069,7 +1069,7 @@
                 <volume>3</volume>
                 <fpage>20</fpage>
                 <pub-id pub-id-type="doi">10.1186/1758-2946-3-20</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3MXms1Kgtr0%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXms1Kgtr0%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR4">
@@ -1095,11 +1095,11 @@
             </ref>
             <ref id="CR5">
               <label>5.</label>
-              <mixed-citation publication-type="other">Chemistry Add-in for Word. Accessed 2011-06-28, [<ext-link xlink:href="http://chem4word.codeplex.com/" ext-link-type="url">http://chem4word.codeplex.com/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Chemistry Add-in for Word. Accessed 2011-06-28, [<ext-link xlink:href="http://chem4word.codeplex.com/" ext-link-type="uri">http://chem4word.codeplex.com/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR6">
               <label>6.</label>
-              <mixed-citation publication-type="other">Chemical Markup Language. Accessed 2011-06-28, [<ext-link xlink:href="http://sourceforge.net/projects/cml/" ext-link-type="url">http://sourceforge.net/projects/cml/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Chemical Markup Language. Accessed 2011-06-28, [<ext-link xlink:href="http://sourceforge.net/projects/cml/" ext-link-type="uri">http://sourceforge.net/projects/cml/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR7">
               <label>7.</label>
@@ -1125,7 +1125,7 @@
                 <fpage>755</fpage>
                 <lpage>770</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci100052b</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXlsVSksL0%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXlsVSksL0%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR8">
@@ -1148,20 +1148,20 @@
                 <fpage>2355</fpage>
                 <lpage>2368</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci050533x</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XpslWnsL4%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XpslWnsL4%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR9">
               <label>9.</label>
-              <mixed-citation publication-type="other">Resource Description Framework, RDF. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/RDF/" ext-link-type="url">http://www.w3.org/RDF/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Resource Description Framework, RDF. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/RDF/" ext-link-type="uri">http://www.w3.org/RDF/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR10">
               <label>10.</label>
-              <mixed-citation publication-type="other">RDF Vocabulary Description Language 1.0: RDF Schema. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/rdf-schema/" ext-link-type="url">http://www.w3.org/TR/rdf-schema/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">RDF Vocabulary Description Language 1.0: RDF Schema. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/rdf-schema/" ext-link-type="uri">http://www.w3.org/TR/rdf-schema/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR11">
               <label>11.</label>
-              <mixed-citation publication-type="other">Web Ontology Language (OWL). Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/2004/OWL/" ext-link-type="url">http://www.w3.org/2004/OWL/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Web Ontology Language (OWL). Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/2004/OWL/" ext-link-type="uri">http://www.w3.org/2004/OWL/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR12">
               <label>12.</label>
@@ -1249,7 +1249,7 @@
             </ref>
             <ref id="CR14">
               <label>14.</label>
-              <mixed-citation publication-type="other">Quixote project on QC databases. Accessed 2011-06-28, [<ext-link xlink:href="http://quixote.wikispot.org/" ext-link-type="url">http://quixote.wikispot.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Quixote project on QC databases. Accessed 2011-06-28, [<ext-link xlink:href="http://quixote.wikispot.org/" ext-link-type="uri">http://quixote.wikispot.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR15">
               <label>15.</label>
@@ -1312,16 +1312,16 @@
                 <volume>3</volume>
                 <fpage>47</fpage>
                 <pub-id pub-id-type="doi">10.1186/1758-2946-3-47</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3MXhsVCisr%2FE</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhsVCisr%2FE</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR17">
               <label>17.</label>
-              <mixed-citation publication-type="other">The Chemistry Development Kit, CDK. Accessed 2011-06-28, [<ext-link xlink:href="http://sourceforge.net/projects/cdk/" ext-link-type="url">http://sourceforge.net/projects/cdk/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">The Chemistry Development Kit, CDK. Accessed 2011-06-28, [<ext-link xlink:href="http://sourceforge.net/projects/cdk/" ext-link-type="uri">http://sourceforge.net/projects/cdk/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR18">
               <label>18.</label>
-              <mixed-citation publication-type="other">Open Babel: The Open Source Chemistry Toolbox. Accessed 2011-06-28, [<ext-link xlink:href="http://openbabel.org/" ext-link-type="url">http://openbabel.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Open Babel: The Open Source Chemistry Toolbox. Accessed 2011-06-28, [<ext-link xlink:href="http://openbabel.org/" ext-link-type="uri">http://openbabel.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR19">
               <label>19.</label>
@@ -1343,23 +1343,23 @@
             </ref>
             <ref id="CR20">
               <label>20.</label>
-              <mixed-citation publication-type="other">Postel J: Postel's Law. Accessed on 2011-06-28, [<ext-link xlink:href="http://en.wikipedia.org/wiki/Jon_Postel#Postel.27s_Law" ext-link-type="url">http://en.wikipedia.org/wiki/Jon_Postel#Postel.27s_Law</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Postel J: Postel's Law. Accessed on 2011-06-28, [<ext-link xlink:href="http://en.wikipedia.org/wiki/Jon_Postel#Postel.27s_Law" ext-link-type="uri">http://en.wikipedia.org/wiki/Jon_Postel#Postel.27s_Law</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR21">
               <label>21.</label>
-              <mixed-citation publication-type="other">IUPAC International Chemical Identifier, InChI. Accessed 2011-06-28, [<ext-link xlink:href="http://www.iupac.org/inchi/" ext-link-type="url">http://www.iupac.org/inchi/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">IUPAC International Chemical Identifier, InChI. Accessed 2011-06-28, [<ext-link xlink:href="http://www.iupac.org/inchi/" ext-link-type="uri">http://www.iupac.org/inchi/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR22">
               <label>22.</label>
-              <mixed-citation publication-type="other">XHTML specification. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/xhtml11/" ext-link-type="url">http://www.w3.org/TR/xhtml11/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">XHTML specification. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/xhtml11/" ext-link-type="uri">http://www.w3.org/TR/xhtml11/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR23">
               <label>23.</label>
-              <mixed-citation publication-type="other">Mathematical Markup Language (MathML) specification. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/MathML2/" ext-link-type="url">http://www.w3.org/TR/MathML2/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Mathematical Markup Language (MathML) specification. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/MathML2/" ext-link-type="uri">http://www.w3.org/TR/MathML2/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR24">
               <label>24.</label>
-              <mixed-citation publication-type="other">W3C Scalable Vector Graphics (SVG) Working Group. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/Graphics/SVG/" ext-link-type="url">http://www.w3.org/Graphics/SVG/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">W3C Scalable Vector Graphics (SVG) Working Group. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/Graphics/SVG/" ext-link-type="uri">http://www.w3.org/Graphics/SVG/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR25">
               <label>25.</label>
@@ -1733,7 +1733,7 @@
                 <fpage>935</fpage>
                 <lpage>942</lpage>
                 <pub-id pub-id-type="doi">10.1038/nbt.1666</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXhtFegsbnL</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXhtFegsbnL</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR26">
@@ -1801,7 +1801,7 @@
                 <fpage>2015</fpage>
                 <lpage>2034</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci600531a</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXhtVKrs7zM</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXhtVKrs7zM</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR28">
@@ -1823,7 +1823,7 @@
             </ref>
             <ref id="CR29">
               <label>29.</label>
-              <mixed-citation publication-type="other">Bradner S: IETF RFC 2119: Key words for use in RFCs to Indicate Requirement Levels. Accessed 2011-06-28, [<ext-link xlink:href="http://www.ietf.org/rfc/rfc2119.txt" ext-link-type="url">http://www.ietf.org/rfc/rfc2119.txt</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Bradner S: IETF RFC 2119: Key words for use in RFCs to Indicate Requirement Levels. Accessed 2011-06-28, [<ext-link xlink:href="http://www.ietf.org/rfc/rfc2119.txt" ext-link-type="uri">http://www.ietf.org/rfc/rfc2119.txt</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR30">
               <label>30.</label>
@@ -1856,32 +1856,32 @@
                 <volume>3</volume>
                 <fpage>43</fpage>
                 <pub-id pub-id-type="doi">10.1186/1758-2946-3-43</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3MXhsVCisr%2FF</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhsVCisr%2FF</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR31">
               <label>31.</label>
-              <mixed-citation publication-type="other">XML Schema Definition Language (XSD) 1.1 Part 1: Structures. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/xmlschema11-1/" ext-link-type="url">http://www.w3.org/TR/xmlschema11-1/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">XML Schema Definition Language (XSD) 1.1 Part 1: Structures. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/xmlschema11-1/" ext-link-type="uri">http://www.w3.org/TR/xmlschema11-1/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR32">
               <label>32.</label>
-              <mixed-citation publication-type="other">XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/xmlschema11-2/" ext-link-type="url">http://www.w3.org/TR/xmlschema11-2/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/xmlschema11-2/" ext-link-type="uri">http://www.w3.org/TR/xmlschema11-2/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR33">
               <label>33.</label>
-              <mixed-citation publication-type="other">XSL Transformations (XSLT). Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/xslt20/" ext-link-type="url">http://www.w3.org/TR/xslt20/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">XSL Transformations (XSLT). Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/xslt20/" ext-link-type="uri">http://www.w3.org/TR/xslt20/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR34">
               <label>34.</label>
-              <mixed-citation publication-type="other">XML Path Language. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/xpath/" ext-link-type="url">http://www.w3.org/TR/xpath/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">XML Path Language. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/xpath/" ext-link-type="uri">http://www.w3.org/TR/xpath/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR35">
               <label>35.</label>
-              <mixed-citation publication-type="other">Schematron, a language for making assertions about patterns found in XML documents. Accessed 2011-06-28, [<ext-link xlink:href="http://www.schematron.com/" ext-link-type="url">http://www.schematron.com/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Schematron, a language for making assertions about patterns found in XML documents. Accessed 2011-06-28, [<ext-link xlink:href="http://www.schematron.com/" ext-link-type="uri">http://www.schematron.com/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR36">
               <label>36.</label>
-              <mixed-citation publication-type="other">Tennison J: XSLT UK 2001 Report. Accessed 2011-06-28, [<ext-link xlink:href="http://www.xml.com/pub/a/2001/04/25/xsltuk.html?page=2" ext-link-type="url">http://www.xml.com/pub/a/2001/04/25/xsltuk.html?page=2</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Tennison J: XSLT UK 2001 Report. Accessed 2011-06-28, [<ext-link xlink:href="http://www.xml.com/pub/a/2001/04/25/xsltuk.html?page=2" ext-link-type="uri">http://www.xml.com/pub/a/2001/04/25/xsltuk.html?page=2</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR37">
               <label>37.</label>
@@ -1900,11 +1900,11 @@
             </ref>
             <ref id="CR38">
               <label>38.</label>
-              <mixed-citation publication-type="other">JUMBO-Converters. Accessed 2011-06-28, [<ext-link xlink:href="https://bitbucket.org/wwmm/jumbo-converters" ext-link-type="url">https://bitbucket.org/wwmm/jumbo-converters</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">JUMBO-Converters. Accessed 2011-06-28, [<ext-link xlink:href="https://bitbucket.org/wwmm/jumbo-converters" ext-link-type="uri">https://bitbucket.org/wwmm/jumbo-converters</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR39">
               <label>39.</label>
-              <mixed-citation publication-type="other">Bioclipse. Accessed 2011-06-28, [<ext-link xlink:href="http://www.bioclipse.net/" ext-link-type="url">http://www.bioclipse.net/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Bioclipse. Accessed 2011-06-28, [<ext-link xlink:href="http://www.bioclipse.net/" ext-link-type="uri">http://www.bioclipse.net/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR40">
               <label>40.</label>
@@ -1927,23 +1927,23 @@
             </ref>
             <ref id="CR41">
               <label>41.</label>
-              <mixed-citation publication-type="other">Namespaces in XML. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/xml-names/" ext-link-type="url">http://www.w3.org/TR/xml-names/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Namespaces in XML. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/xml-names/" ext-link-type="uri">http://www.w3.org/TR/xml-names/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR42">
               <label>42.</label>
-              <mixed-citation publication-type="other">W3C Quality Assurance Tools. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/QA/Tools/" ext-link-type="url">http://www.w3.org/QA/Tools/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">W3C Quality Assurance Tools. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/QA/Tools/" ext-link-type="uri">http://www.w3.org/QA/Tools/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR43">
               <label>43.</label>
-              <mixed-citation publication-type="other">Unicorn-W3C's Unified Validator. Accessed 2011-06-28, [<ext-link xlink:href="http://validator.w3.org/unicorn/" ext-link-type="url">http://validator.w3.org/unicorn/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Unicorn-W3C's Unified Validator. Accessed 2011-06-28, [<ext-link xlink:href="http://validator.w3.org/unicorn/" ext-link-type="uri">http://validator.w3.org/unicorn/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR44">
               <label>44.</label>
-              <mixed-citation publication-type="other">CMLValidator service. Accessed 2011-06-28, [<ext-link xlink:href="http://validator.xml-cml.org/" ext-link-type="url">http://validator.xml-cml.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">CMLValidator service. Accessed 2011-06-28, [<ext-link xlink:href="http://validator.xml-cml.org/" ext-link-type="uri">http://validator.xml-cml.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR45">
               <label>45.</label>
-              <mixed-citation publication-type="other">HTML4 Recommendation-Forms. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/html4/interact/forms.html" ext-link-type="url">http://www.w3.org/TR/html4/interact/forms.html</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">HTML4 Recommendation-Forms. Accessed 2011-06-28, [<ext-link xlink:href="http://www.w3.org/TR/html4/interact/forms.html" ext-link-type="uri">http://www.w3.org/TR/html4/interact/forms.html</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR46">
               <label>46.</label>
@@ -1963,7 +1963,7 @@
             </ref>
             <ref id="CR47">
               <label>47.</label>
-              <mixed-citation publication-type="other">Chempound repository. Accessed 2011-06-28, [<ext-link xlink:href="http://quixote.ch.cam.ac.uk/" ext-link-type="url">http://quixote.ch.cam.ac.uk/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Chempound repository. Accessed 2011-06-28, [<ext-link xlink:href="http://quixote.ch.cam.ac.uk/" ext-link-type="uri">http://quixote.ch.cam.ac.uk/</ext-link>]</mixed-citation>
             </ref>
           </ref-list>
         </ref-list>
@@ -1971,7 +1971,7 @@
           <app id="App1">
             <sec id="Sec31">
               <title>Authors’ original submitted files for images</title>
-              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM1" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_220_MOESM1_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_220_MOESM2_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_220_MOESM3_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_220_MOESM4_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_220_MOESM5_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_220_MOESM6_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_220_MOESM7_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 7</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM8" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_220_MOESM8_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 8</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM9" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_220_MOESM9_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 9</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM10" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_220_MOESM10_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 10</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM11" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_220_MOESM11_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 11</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM12" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_220_MOESM12_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 12</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM13" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_220_MOESM13_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 13</p></caption></media></supplementary-material></p>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM1" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_220_MOESM1_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_220_MOESM2_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_220_MOESM3_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_220_MOESM4_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_220_MOESM5_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_220_MOESM6_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_220_MOESM7_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 7</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM8" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_220_MOESM8_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 8</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM9" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_220_MOESM9_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 9</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM10" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_220_MOESM10_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 10</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM11" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_220_MOESM11_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 11</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM12" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_220_MOESM12_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 12</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM13" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_220_MOESM13_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 13</p></caption></media></supplementary-material></p>
             </sec>
           </app>
         </app-group>

@@ -218,10 +218,10 @@
             <copyright-year>2020</copyright-year>
             <copyright-holder>The Author(s)</copyright-holder>
             <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/4.0/">
-              <license-p><bold>Open Access</bold>This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="url">http://creativecommons.org/licenses/by/4.0/</ext-link>. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="url">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated in a credit line to the data.</license-p>
+              <license-p><bold>Open Access</bold>This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <ext-link xlink:href="http://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link>. The Creative Commons Public Domain Dedication waiver (<ext-link xlink:href="http://creativecommons.org/publicdomain/zero/1.0/" ext-link-type="uri">http://creativecommons.org/publicdomain/zero/1.0/</ext-link>) applies to the data made available in this article, unless otherwise stated in a credit line to the data.</license-p>
             </license>
           </permissions>
-          <abstract id="Abs1" xml:lang="en">
+          <abstract xml:lang="en" id="Abs1">
             <title>Abstract</title>
             <sec id="ASec1">
               <title>Background</title>
@@ -233,7 +233,7 @@
             </sec>
             <sec id="ASec3">
               <title>Results</title>
-              <p id="Par3">The docking procedure and resulting models were validated by docking well-known inhibitors for each of the 7 targets using QuickVina. The model predictions showed comparable performance to molecular docking scores against an external validation set. The implementation as publicly available microservices on Kubernetes ensures resilience, scalability, and extensibility.<fig id="Figa" position="anchor"><p><graphic position="anchor" specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Figa_HTML.png" id="MO100" /></p></fig></p>
+              <p id="Par3">The docking procedure and resulting models were validated by docking well-known inhibitors for each of the 7 targets using QuickVina. The model predictions showed comparable performance to molecular docking scores against an external validation set. The implementation as publicly available microservices on Kubernetes ensures resilience, scalability, and extensibility.<fig id="Figa" position="anchor"><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Figa_HTML.png" position="anchor" /></fig></p>
             </sec>
           </abstract>
           <kwd-group xml:lang="en">
@@ -428,13 +428,13 @@
           <p id="Par16">A key disadvantage with QSAR based modelling studies is their dependence on experimental data from the large interaction databases. Normally, the data has a strong bias towards active compounds i.e. on-target or intended effects [<xref ref-type="bibr" rid="CR15">15</xref>]. Based on this, it is counter-intuitive to use ligand’s on-target binding data to build target profiles for understanding off-target effects. So when studying adverse target reactions it becomes beneficial to find another way than to just look at data from the databases. Furthermore, in some of the earlier research efforts, openness of the source-code and extensibility of the web services is not completely clear.</p>
           <p id="Par17">Another approach is to build models from molecular docking scores using a docking software and perform ligand predictions using the models. In [<xref ref-type="bibr" rid="CR15">15</xref>], LaBute et al. presented an approach to predict adverse drug reactions using scores produced by large-scale docking on High-Performance Computing machines. AutoDock Vina was used to dock 906 ligands out of which, 560 conformers were selected to train L1-regularized logistic regression models to predict 85 off-target effects. Similarly, Wallach et al. [<xref ref-type="bibr" rid="CR16">16</xref>] presents a method for logistic regression based model training using docking scores from eHiTS [<xref ref-type="bibr" rid="CR17">17</xref>] docking software for predicting side effects of drugs. Building predicted target profiles based on docking scores is less common because the docking scores are not considered to represent the real drug-target affinity, but large training datasets allows to make better decisions and can cover this weakness.</p>
           <p id="Par18">One important limitation is lack of information about confidence on the predictions in both of the above mentioned approaches, i.e., ligand-target interaction based QSAR models and docking scores based models. Confidence on predictions are of critical importance because off-target drug reactions can directly effect human health.</p>
-          <p id="Par19">In this paper we introduce an extensible methodology for predicting target profiles with confidence, where models are trained on docking scores. The methodology is implemented using a microservices architecture with each target deployed as a Docker container (see Fig. <xref rid="Fig1" ref-type="fig">1</xref>). For orchestration we use Kubernetes managed by Rancher [<xref ref-type="bibr" rid="CR18">18</xref>] providing resilience and scalability. The result is an open-source extendable web service, and we demonstrate it with a panel of 7 targets where models are trained on QuickVina docking scores. We also show in this manuscript that target profiles built using docking scores has predictive properties, and that conformal prediction enables quantifying the confidence for each target in a panel.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Vision of the work.  The figure shows the vision of the work i.e. all targets would have a Docker container and these Docker containers would be fired up simultaneously in a Cloud environment. A compound of interest would be tested against all the targets and a target profile of the compound would be created</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Fig1_HTML.png" id="MO1" /></p></fig></p>
+          <p id="Par19">In this paper we introduce an extensible methodology for predicting target profiles with confidence, where models are trained on docking scores. The methodology is implemented using a microservices architecture with each target deployed as a Docker container (see Fig. <xref rid="Fig1" ref-type="fig">1</xref>). For orchestration we use Kubernetes managed by Rancher [<xref ref-type="bibr" rid="CR18">18</xref>] providing resilience and scalability. The result is an open-source extendable web service, and we demonstrate it with a panel of 7 targets where models are trained on QuickVina docking scores. We also show in this manuscript that target profiles built using docking scores has predictive properties, and that conformal prediction enables quantifying the confidence for each target in a panel.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Vision of the work.  The figure shows the vision of the work i.e. all targets would have a Docker container and these Docker containers would be fired up simultaneously in a Cloud environment. A compound of interest would be tested against all the targets and a target profile of the compound would be created</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Fig1_HTML.png" /></fig></p>
         </sec>
         <sec id="Sec2" sec-type="methods">
           <title>Methods</title>
           <sec id="Sec3">
             <title>Data and tools</title>
-            <p id="Par20">We used the <italic>clean drug-like molecule library</italic>, downloaded from ZINC [<xref ref-type="bibr" rid="CR19">19</xref>] in ready-to-dock SDF format, preprocessed according to the protocol in [<xref ref-type="bibr" rid="CR19">19</xref>]. Two distinct datasets of <inline-formula id="IEq1"><alternatives><mml:math><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq1_TeX">\documentclass[12pt]{minimal}
+            <p id="Par20">We used the <italic>clean drug-like molecule library</italic>, downloaded from ZINC [<xref ref-type="bibr" rid="CR19">19</xref>] in ready-to-dock SDF format, preprocessed according to the protocol in [<xref ref-type="bibr" rid="CR19">19</xref>]. Two distinct datasets of <inline-formula id="IEq1"><alternatives><mml:math id="IEq1_Math"><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq1_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -446,7 +446,7 @@
 				\begin{document}$$\sim $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq1.gif" /></alternatives></inline-formula>2.3M molecules and 200K molecules were randomly sampled from the <italic>clean drug-like molecule library</italic> as the modelling set and the validation set respectively. The modelling set was used for modelling and internal testing and the validation set was used for external testing. The molecules were described using the signature molecular descriptor [<xref ref-type="bibr" rid="CR20">20</xref>]. A parallel signature descriptor [<xref ref-type="bibr" rid="CR21">21</xref>] implementation with Spark was employed and consecutive signature heights of 1–3, i.e., an atom at a distance of max 3 edges, were used. An earlier study [<xref ref-type="bibr" rid="CR22">22</xref>] identifies that signature heights of 1–3 works well with Support Vector Machine (SVM) [<xref ref-type="bibr" rid="CR23">23</xref>] based molecular classification. A fast version of Autodock Vina [<xref ref-type="bibr" rid="CR24">24</xref>], i.e. QuickVina 2 [<xref ref-type="bibr" rid="CR25">25</xref>] was used as the underlying docking tool.</p>
             <p id="Par21">The 7 targets 1RT2, 1E66, 1QCF, 3ERD, 3LN1, 1BNU, 1B8O were selected from the safety-related targets in [<xref ref-type="bibr" rid="CR5">5</xref>] based on availability of good 3D structures for docking and known inhibitors. The PDB entry for each target was selected based on high resolution, i.e., 2.5 Åor better [<xref ref-type="bibr" rid="CR26">26</xref>]. Receptors and binding site information were downloaded from sc-pdb [<xref ref-type="bibr" rid="CR27">27</xref>] database and receptors were prepared using OpenBabel [<xref ref-type="bibr" rid="CR28">28</xref>]. Each receptor was docked and scored against its ligand from the receptor-ligand complex using root-mean-square-deviation (RMSD); an RMSD below 2.0 Åis considered to be a successful docking [<xref ref-type="bibr" rid="CR29">29</xref>]. Table <xref rid="Tab1" ref-type="table">1</xref> presents the final set of receptors, their PDB codes, resolution and RMSD against corresponding ligand.
 <table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Selection of receptors: the table represents the selected receptors and how they were selected</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Target class</p></th><th align="left"><p>PDB entry</p></th><th align="left"><p>Resolution (Å)</p></th><th align="left"><p>RMSD (Å)</p></th></tr></thead><tbody><tr><td align="left"><p>HIV RT</p></td><td align="left"><p>1RT2</p></td><td align="left"><p>2.5</p></td><td align="left"><p>0.46</p></td></tr><tr><td align="left"><p>Acetylcholinesterase</p></td><td align="left"><p>1E66</p></td><td align="left"><p>2.1</p></td><td align="left"><p>0.34</p></td></tr><tr><td align="left"><p>HCK Tyrosine kinase</p></td><td align="left"><p>1QCF</p></td><td align="left"><p>2</p></td><td align="left"><p>0.29</p></td></tr><tr><td align="left"><p>Estrogen receptor</p></td><td align="left"><p>3ERD</p></td><td align="left"><p>2.03</p></td><td align="left"><p>0.57</p></td></tr><tr><td align="left"><p>Cyclooxygenase-2</p></td><td align="left"><p>3LN1</p></td><td align="left"><p>2.4</p></td><td align="left"><p>0.27</p></td></tr><tr><td align="left"><p>Carbonic anhydrase 2</p></td><td align="left"><p>1BNU</p></td><td align="left"><p>2.15</p></td><td align="left"><p>1.21</p></td></tr><tr><td align="left"><p>Purine nucleoside phosphorylase</p></td><td align="left"><p>1B8O</p></td><td align="left"><p>1.5</p></td><td align="left"><p>0.37</p></td></tr></tbody></table><table-wrap-foot><p>All the selected receptors must have resolution of 2.5 (Å) or under and RMSD of 2.0 (Å) or under</p></table-wrap-foot></table-wrap></p>
-            <p id="Par22">A set of well-known inhibitors for each of the receptors was compiled for testing purposes. The inhibitors were selected by reported affinity and downloaded from CHEMBL [<xref ref-type="bibr" rid="CR8">8</xref>] and Drugbank.ca. [<xref ref-type="bibr" rid="CR30">30</xref>] The average number of inhibitors in each set was <inline-formula id="IEq2"><alternatives><mml:math><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
+            <p id="Par22">A set of well-known inhibitors for each of the receptors was compiled for testing purposes. The inhibitors were selected by reported affinity and downloaded from CHEMBL [<xref ref-type="bibr" rid="CR8">8</xref>] and Drugbank.ca. [<xref ref-type="bibr" rid="CR30">30</xref>] The average number of inhibitors in each set was <inline-formula id="IEq2"><alternatives><mml:math id="IEq2_Math"><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -464,7 +464,7 @@
           </sec>
           <sec id="Sec5">
             <title>Modelling</title>
-            <p id="Par25">For building the machine learning (ML) models, we used our earlier work, an intelligent iterative conformal prediction based virtual screening (CPVS) [<xref ref-type="bibr" rid="CR37">37</xref>] strategy. A modified version of CPVS was used for modelling, whereas QuickVina [<xref ref-type="bibr" rid="CR25">25</xref>] was used for docking. CPVS is an SVM based, efficient, parallel, iterative virtual screening method. QuickVina is an opensource tool and therefore permits inclusions in web services to be used by everyone. In QuickVina, a ligand with a lower score is generally considered to have better affinity against a particular receptor, therefore, the labelling strategy in CPVS was modified accordingly, i.e., ligands with low scores were labelled as 1 (high-affinity) and ligands with high scores were labelled as 0 (low-affinity). A sample dataset was docked and sorted by docking scores and the top 10% and the bottom 10% of the molecules were used for model training. The rest of the strategy was same as given in the original CPVS method [<xref ref-type="bibr" rid="CR37">37</xref>]. The model training was performed in an iterative fashion until the model reaches the intended efficiency of 80 or above. During modelling, an average of <inline-formula id="IEq3"><alternatives><mml:math><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
+            <p id="Par25">For building the machine learning (ML) models, we used our earlier work, an intelligent iterative conformal prediction based virtual screening (CPVS) [<xref ref-type="bibr" rid="CR37">37</xref>] strategy. A modified version of CPVS was used for modelling, whereas QuickVina [<xref ref-type="bibr" rid="CR25">25</xref>] was used for docking. CPVS is an SVM based, efficient, parallel, iterative virtual screening method. QuickVina is an opensource tool and therefore permits inclusions in web services to be used by everyone. In QuickVina, a ligand with a lower score is generally considered to have better affinity against a particular receptor, therefore, the labelling strategy in CPVS was modified accordingly, i.e., ligands with low scores were labelled as 1 (high-affinity) and ligands with high scores were labelled as 0 (low-affinity). A sample dataset was docked and sorted by docking scores and the top 10% and the bottom 10% of the molecules were used for model training. The rest of the strategy was same as given in the original CPVS method [<xref ref-type="bibr" rid="CR37">37</xref>]. The model training was performed in an iterative fashion until the model reaches the intended efficiency of 80 or above. During modelling, an average of <inline-formula id="IEq3"><alternatives><mml:math id="IEq3_Math"><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -473,7 +473,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$\sim $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq3.gif" /></alternatives></inline-formula>0.53 million ligands were docked against each of the 7 receptors. In comparison to the mentioned studies (see Table <xref rid="Tab2" ref-type="table">2</xref>), the training set for modelling in our study was much larger, i.e., on average <inline-formula id="IEq4"><alternatives><mml:math><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq4_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$\sim $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq3.gif" /></alternatives></inline-formula>0.53 million ligands were docked against each of the 7 receptors. In comparison to the mentioned studies (see Table <xref rid="Tab2" ref-type="table">2</xref>), the training set for modelling in our study was much larger, i.e., on average <inline-formula id="IEq4"><alternatives><mml:math id="IEq4_Math"><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq4_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -486,7 +486,7 @@
           </sec>
           <sec id="Sec6">
             <title>Web service</title>
-            <p id="Par26">We developed a Web service with a front-end that offers a graphical user interface (GUI) to input one or more chemical compounds in SMILES format and options to set the confidence level for predictions. The GUI communicates with all individual target model microservices, and delivers a panel of target predictions; HIGH, LOW or UNKNOWN docking score. The predictions are based on conformal p-values, i.e. if only p-value(0) <inline-formula id="IEq5"><alternatives><mml:math><mml:mrow><mml:mo>></mml:mo><mml:mspace width="3.33333pt" /><mml:mi>ϵ</mml:mi></mml:mrow></mml:math><tex-math id="IEq5_TeX">\documentclass[12pt]{minimal}
+            <p id="Par26">We developed a Web service with a front-end that offers a graphical user interface (GUI) to input one or more chemical compounds in SMILES format and options to set the confidence level for predictions. The GUI communicates with all individual target model microservices, and delivers a panel of target predictions; HIGH, LOW or UNKNOWN docking score. The predictions are based on conformal p-values, i.e. if only p-value(0) <inline-formula id="IEq5"><alternatives><mml:math id="IEq5_Math"><mml:mrow><mml:mo>></mml:mo><mml:mspace width="3.33333pt" /><mml:mi>ϵ</mml:mi></mml:mrow></mml:math><tex-math id="IEq5_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -495,7 +495,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$>~\epsilon $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq5.gif" /></alternatives></inline-formula>, then the output prediction is HIGH, if only p-value(1) <inline-formula id="IEq6"><alternatives><mml:math><mml:mrow><mml:mo>></mml:mo><mml:mspace width="3.33333pt" /><mml:mi>ϵ</mml:mi></mml:mrow></mml:math><tex-math id="IEq6_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$>~\epsilon $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq5.gif" /></alternatives></inline-formula>, then the output prediction is HIGH, if only p-value(1) <inline-formula id="IEq6"><alternatives><mml:math id="IEq6_Math"><mml:mrow><mml:mo>></mml:mo><mml:mspace width="3.33333pt" /><mml:mi>ϵ</mml:mi></mml:mrow></mml:math><tex-math id="IEq6_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -504,7 +504,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$>~\epsilon $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq6.gif" /></alternatives></inline-formula>, then the output prediction is LOW and if both p-value(0) and p-value(1) are greater or less than  <inline-formula id="IEq7"><alternatives><mml:math><mml:mi>ϵ</mml:mi></mml:math><tex-math id="IEq7_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$>~\epsilon $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq6.gif" /></alternatives></inline-formula>, then the output prediction is LOW and if both p-value(0) and p-value(1) are greater or less than  <inline-formula id="IEq7"><alternatives><mml:math id="IEq7_Math"><mml:mi>ϵ</mml:mi></mml:math><tex-math id="IEq7_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -513,7 +513,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$\epsilon $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq7.gif" /></alternatives></inline-formula>, the prediction is UNKNOWN, where <inline-formula id="IEq8"><alternatives><mml:math><mml:mrow><mml:mi>ϵ</mml:mi><mml:mspace width="3.33333pt" /><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:math><tex-math id="IEq8_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$\epsilon $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq7.gif" /></alternatives></inline-formula>, the prediction is UNKNOWN, where <inline-formula id="IEq8"><alternatives><mml:math id="IEq8_Math"><mml:mrow><mml:mi>ϵ</mml:mi><mml:mspace width="3.33333pt" /><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:math><tex-math id="IEq8_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -522,11 +522,11 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$\epsilon ~= 1$$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq8.gif" /></alternatives></inline-formula> - confidence. An example of the predicted target profiles for two compounds is shown in Fig. <xref rid="Fig2" ref-type="fig">2</xref>. For QuickVina, a low-score prediction means high-affinity and vice versa. The actual p-values for the low-score and the high-score classifications are available by hovering over the prediction cells.<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p> Predicted profiles and molecular docking. The figure shows the predicted target profiles for two compounds against 7 receptors. The prediction is either low-scoring, high-scoring or unknown presented in green, red and blue color respectively. The prediction models were developed based on QuickVina docking scores. Following QuickVina, in general, a low-score prediction means high-affinity and vice versa. An unknown prediction means the model has either failed to recognize a class for the compound or the compound is predicted to be part of both classes with the given confidence level. The p-values for the low-score and high-score class are also available by hovering over the prediction cells, seen here in the black placeholder. A molecule of interest can then be docked against a particular receptor using QuickVina</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Fig2_HTML.png" id="MO2" /></p></fig></p>
+				\begin{document}$$\epsilon ~= 1$$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq8.gif" /></alternatives></inline-formula> - confidence. An example of the predicted target profiles for two compounds is shown in Fig. <xref rid="Fig2" ref-type="fig">2</xref>. For QuickVina, a low-score prediction means high-affinity and vice versa. The actual p-values for the low-score and the high-score classifications are available by hovering over the prediction cells.<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p> Predicted profiles and molecular docking. The figure shows the predicted target profiles for two compounds against 7 receptors. The prediction is either low-scoring, high-scoring or unknown presented in green, red and blue color respectively. The prediction models were developed based on QuickVina docking scores. Following QuickVina, in general, a low-score prediction means high-affinity and vice versa. An unknown prediction means the model has either failed to recognize a class for the compound or the compound is predicted to be part of both classes with the given confidence level. The p-values for the low-score and high-score class are also available by hovering over the prediction cells, seen here in the black placeholder. A molecule of interest can then be docked against a particular receptor using QuickVina</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Fig2_HTML.png" /></fig></p>
             <p id="Par27">Once target profiles are produced, the user can select individual compounds and invoke the molecular docking functionality to dock them. The time for docking a compound varies between 10 to 30 seconds on our system. We also provide a functionality for users to submit new receptors in PDBQT format to the system administrator and request inclusion in the system. This requires quite some work, and will be done as time permits.</p>
             <sec id="Sec7">
               <title>Implementation and deployment</title>
-              <p id="Par28">The REST API for the web service was implemented using microservices and the Play 2.0 [<xref ref-type="bibr" rid="CR38">38</xref>] web application framework using Scala language and deployed using Rancher [<xref ref-type="bibr" rid="CR18">18</xref>], an open-source platform for Kubernetes management, providing integrated tools for running containerized applications. Complete code for the web service REST API and GUI is available on Github [<xref ref-type="bibr" rid="CR39">39</xref>, <xref ref-type="bibr" rid="CR40">40</xref>]. For deploying the web service using Kubernetes, Docker containers were used to build an independent service for each receptor. Similarly a separate container was used for the MariaDB database that keeps the docking scores of all the docked ligands. A separate container was also build for the webservice GUI. A bash script [<xref ref-type="bibr" rid="CR41">41</xref>] was written to deploy all the Docker containers. The bash script applies all kubernetes yaml deployment descriptors that launch the Docker containers. The microservice architecture has many advantages, e.g. independent scaling of services based on usage, cross platform independence and several other inherited benefits of dockerization [<xref ref-type="bibr" rid="CR42">42</xref>]. All the Docker images are available on Docker Hub [<xref ref-type="bibr" rid="CR43">43</xref>] with appropriate tags [<xref ref-type="bibr" rid="CR44">44</xref>–<xref ref-type="bibr" rid="CR47">47</xref>]. Additionally, users can also create Docker images for new receptors using the Dockerfile available at [<xref ref-type="bibr" rid="CR48">48</xref>]. A tutorial is available in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref> explaining how to create and execute Docker images locally. The webpage for the PTPAAS microservice can be accessed at <ext-link xlink:href="http://ptpaas.service.pharmb.io" ext-link-type="url">http://ptpaas.service.pharmb.io</ext-link> and the models can also be accessed separately via an OpenAPI interface.</p>
+              <p id="Par28">The REST API for the web service was implemented using microservices and the Play 2.0 [<xref ref-type="bibr" rid="CR38">38</xref>] web application framework using Scala language and deployed using Rancher [<xref ref-type="bibr" rid="CR18">18</xref>], an open-source platform for Kubernetes management, providing integrated tools for running containerized applications. Complete code for the web service REST API and GUI is available on Github [<xref ref-type="bibr" rid="CR39">39</xref>, <xref ref-type="bibr" rid="CR40">40</xref>]. For deploying the web service using Kubernetes, Docker containers were used to build an independent service for each receptor. Similarly a separate container was used for the MariaDB database that keeps the docking scores of all the docked ligands. A separate container was also build for the webservice GUI. A bash script [<xref ref-type="bibr" rid="CR41">41</xref>] was written to deploy all the Docker containers. The bash script applies all kubernetes yaml deployment descriptors that launch the Docker containers. The microservice architecture has many advantages, e.g. independent scaling of services based on usage, cross platform independence and several other inherited benefits of dockerization [<xref ref-type="bibr" rid="CR42">42</xref>]. All the Docker images are available on Docker Hub [<xref ref-type="bibr" rid="CR43">43</xref>] with appropriate tags [<xref ref-type="bibr" rid="CR44">44</xref>–<xref ref-type="bibr" rid="CR47">47</xref>]. Additionally, users can also create Docker images for new receptors using the Dockerfile available at [<xref ref-type="bibr" rid="CR48">48</xref>]. A tutorial is available in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref> explaining how to create and execute Docker images locally. The webpage for the PTPAAS microservice can be accessed at <ext-link xlink:href="http://ptpaas.service.pharmb.io" ext-link-type="uri">http://ptpaas.service.pharmb.io</ext-link> and the models can also be accessed separately via an OpenAPI interface.</p>
             </sec>
           </sec>
         </sec>
@@ -534,15 +534,15 @@
           <title>Results</title>
           <sec id="Sec9">
             <title>Virtual screening evaluation</title>
-            <p id="Par29">In order to verify the virtual screening process, we separately docked well-known inhibitors (actives) for each of the 7 receptors using QuickVina and computed the enrichment factor for the inhibitors docking scores against the docking scores of the ligands docked during the modelling procedure. Enrichment factor is one of the most commonly used metrics for measuring the accuracy of virtual screening. Enrichment means where the position of the value is in the evaluated dataset in comparison to the compared dataset. The higher the enrichment factor, the better the performance of docking in identifying known inhibitors. Figure <xref rid="Fig3" ref-type="fig">3</xref> shows the docking enrichment results of QuickVina based CPVS for all the 7 receptors. The black dashed line represents ideal scores, the grey dotted line on the diagonal represents random scores, whereas the blue solid line represents the scores of the known inhibitors. For most of the receptors, the results show good or satisfactory enrichment i.e. well above what would be scores of random ligands and relatively closer to the ideal scores.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>Enrichment curves for Vina docking.  In order to verify the virtual screening process, well known inhibitors for each of the 7 receptors were docked using QuickVina and the enrichment factor was computed for the inhibitors docking scores against the docking scores of molecules docked during modelling procedure. Enrichment factor is one of the most common index used for measuring the success of Virtual Screening. Enrichment means where the value lies in the evaluated dataset in comparison to the compared dataset. The higher the enrichment factor, the better the performance of docking in identifying known inhibitors. The black dashed line represents ideal scores, the grey dotted line in the middle represents random scores whereas the blue solid line represents the scores of the inhibitors. For most of the receptors, the results show good or satisfactory enrichment</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Fig3_HTML.png" id="MO3" /></p></fig></p>
-            <p id="Par30">We also performed docking enrichment of inhibitors against docking scores of an external validation set which was not seen by the CPVS algorithm during modelling. The docking enrichment can be seen as blue solid line in Fig. <xref rid="Fig4" ref-type="fig">4</xref>. The enrichment shows satisfactory results and were used as baseline for evaluating model predictions.<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p> Predicted enrichment vs docking enrichment on the external validation set. The figure presents the comparison of docking enrichment in blue and predicted enrichment in red whereas the grey line in the figure represents random predictions. The comparison was used to evaluate the performance of CPVS models. The docking enrichment was created by comparing docking scores of well known inhibitors and docking scores of an external validation. Similarly the predicted enrichment was created by comparing predicted p-values for well-known inhibitors and the external validation set. AUC was also calculated and reported in the figure for comparison. Overall the CPVS models performed well and predicted enrichment is comparable to docking enrichment, except for receptor with PDB-ID 1B8O, when the predicted enrichment is a little worse than docked enrichment. The reason could be less number of known inhibitors in the top scored molecules, seen in the left bottom corner of the 1B8O graph</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Fig4_HTML.png" id="MO4" /></p></fig></p>
+            <p id="Par29">In order to verify the virtual screening process, we separately docked well-known inhibitors (actives) for each of the 7 receptors using QuickVina and computed the enrichment factor for the inhibitors docking scores against the docking scores of the ligands docked during the modelling procedure. Enrichment factor is one of the most commonly used metrics for measuring the accuracy of virtual screening. Enrichment means where the position of the value is in the evaluated dataset in comparison to the compared dataset. The higher the enrichment factor, the better the performance of docking in identifying known inhibitors. Figure <xref rid="Fig3" ref-type="fig">3</xref> shows the docking enrichment results of QuickVina based CPVS for all the 7 receptors. The black dashed line represents ideal scores, the grey dotted line on the diagonal represents random scores, whereas the blue solid line represents the scores of the known inhibitors. For most of the receptors, the results show good or satisfactory enrichment i.e. well above what would be scores of random ligands and relatively closer to the ideal scores.<fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>Enrichment curves for Vina docking.  In order to verify the virtual screening process, well known inhibitors for each of the 7 receptors were docked using QuickVina and the enrichment factor was computed for the inhibitors docking scores against the docking scores of molecules docked during modelling procedure. Enrichment factor is one of the most common index used for measuring the success of Virtual Screening. Enrichment means where the value lies in the evaluated dataset in comparison to the compared dataset. The higher the enrichment factor, the better the performance of docking in identifying known inhibitors. The black dashed line represents ideal scores, the grey dotted line in the middle represents random scores whereas the blue solid line represents the scores of the inhibitors. For most of the receptors, the results show good or satisfactory enrichment</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Fig3_HTML.png" /></fig></p>
+            <p id="Par30">We also performed docking enrichment of inhibitors against docking scores of an external validation set which was not seen by the CPVS algorithm during modelling. The docking enrichment can be seen as blue solid line in Fig. <xref rid="Fig4" ref-type="fig">4</xref>. The enrichment shows satisfactory results and were used as baseline for evaluating model predictions.<fig id="Fig4"><label>Fig. 4</label><caption xml:lang="en"><p> Predicted enrichment vs docking enrichment on the external validation set. The figure presents the comparison of docking enrichment in blue and predicted enrichment in red whereas the grey line in the figure represents random predictions. The comparison was used to evaluate the performance of CPVS models. The docking enrichment was created by comparing docking scores of well known inhibitors and docking scores of an external validation. Similarly the predicted enrichment was created by comparing predicted p-values for well-known inhibitors and the external validation set. AUC was also calculated and reported in the figure for comparison. Overall the CPVS models performed well and predicted enrichment is comparable to docking enrichment, except for receptor with PDB-ID 1B8O, when the predicted enrichment is a little worse than docked enrichment. The reason could be less number of known inhibitors in the top scored molecules, seen in the left bottom corner of the 1B8O graph</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Fig4_HTML.png" /></fig></p>
           </sec>
           <sec id="Sec10">
             <title>Model evaluation</title>
             <p id="Par31">The CPVS models were evaluated using multiple methods: (i) by comparing the docking and the predicted enrichment on the external validation set, (ii) by polypharmacology validation i.e. by predicting the activity of known inhibitors for multiple receptors and (iii) by computing the model efficiency.</p>
             <sec id="Sec11">
               <title>Predicted vs docking enrichment</title>
-              <p id="Par32">In Fig. <xref rid="Fig4" ref-type="fig">4</xref>, the red line represents the predicted enrichment on the external validation set and the grey line on the diagonal represents random predictions. To generate the predicted enrichment red line, we made predictions using the CPVS models, i.e., the p-values of the inhibitors and the external validation set for being predicted as either a low-scoring or a high-scoring ligand. The p-values were used to compute unary enrichment values by the following formula:<disp-formula id="Equ1"><alternatives><mml:math display="block"><mml:mrow><mml:mtable><mml:mtr><mml:mtd /><mml:mtd columnalign="left"><mml:mrow><mml:mtext>If</mml:mtext><mml:mspace width="0.166667em" /><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi mathvariant="italic">P</mml:mi><mml:mrow><mml:mi mathvariant="italic">low</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mo>></mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mrow><mml:mi mathvariant="italic">high</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow /></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mspace width="1em" /><mml:msub><mml:mi mathvariant="italic">P</mml:mi><mml:mrow><mml:mi mathvariant="italic">low</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mrow /><mml:mo>∗</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mn>1</mml:mn><mml:mo>-</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mrow><mml:mi mathvariant="italic">high</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow /></mml:mtd><mml:mtd columnalign="left"><mml:mtext>else</mml:mtext></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow /></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mspace width="1em" /><mml:mo>-</mml:mo><mml:msub><mml:mi mathvariant="italic">P</mml:mi><mml:mrow><mml:mi mathvariant="italic">high</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mrow /><mml:mo>∗</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mn>1</mml:mn><mml:mo>-</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mrow><mml:mi mathvariant="italic">low</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math><tex-math id="Equ1_TeX">\documentclass[12pt]{minimal}
+              <p id="Par32">In Fig. <xref rid="Fig4" ref-type="fig">4</xref>, the red line represents the predicted enrichment on the external validation set and the grey line on the diagonal represents random predictions. To generate the predicted enrichment red line, we made predictions using the CPVS models, i.e., the p-values of the inhibitors and the external validation set for being predicted as either a low-scoring or a high-scoring ligand. The p-values were used to compute unary enrichment values by the following formula:<disp-formula id="Equ1"><alternatives><mml:math display="block" id="Equ1_Math"><mml:mrow><mml:mtable><mml:mtr><mml:mtd /><mml:mtd columnalign="left"><mml:mrow><mml:mtext>If</mml:mtext><mml:mspace width="0.166667em" /><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi mathvariant="italic">P</mml:mi><mml:mrow><mml:mi mathvariant="italic">low</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mo>></mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mrow><mml:mi mathvariant="italic">high</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow /></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mspace width="1em" /><mml:msub><mml:mi mathvariant="italic">P</mml:mi><mml:mrow><mml:mi mathvariant="italic">low</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mrow /><mml:mo>∗</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mn>1</mml:mn><mml:mo>-</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mrow><mml:mi mathvariant="italic">high</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow /></mml:mtd><mml:mtd columnalign="left"><mml:mtext>else</mml:mtext></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow /></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mspace width="1em" /><mml:mo>-</mml:mo><mml:msub><mml:mi mathvariant="italic">P</mml:mi><mml:mrow><mml:mi mathvariant="italic">high</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mrow /><mml:mo>∗</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mn>1</mml:mn><mml:mo>-</mml:mo><mml:msub><mml:mi>P</mml:mi><mml:mrow><mml:mi mathvariant="italic">low</mml:mi><mml:mo>-</mml:mo><mml:mi mathvariant="italic">scoring</mml:mi></mml:mrow></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math><tex-math id="Equ1_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -551,10 +551,10 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$\begin{aligned}&amp;\hbox {If} \, ({\textit{P}}_{{\textit{low}}{-}{\textit{scoring}}} > P_{{\textit{high}}{-}{\textit{scoring}}})\\&amp;\quad {\textit{P}}_{{\textit{low}}{-}{\textit{scoring}}} * (1- P_{{\textit{high}}-{\textit{scoring}}})\\&amp;\hbox {else}\\&amp;\quad -{\textit{P}}_{{\textit{high}}-{\textit{scoring}}} * (1- P_{{\textit{low}}-{\textit{scoring}}}) \end{aligned}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2020_464_Article_Equ1.gif" /></alternatives></disp-formula><fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p> Validating the model for the known in-actives for the receptor 1BNU. The figure presents the comparison of the docking enrichment in green and the predicted enrichment in magenta for the known in-active compounds. The comparison was used to validate the performance of the 1BNU receptor model for the known in-active compounds. The docking enrichment was created by comparing the docking scores of the known in-actives and the docking scores of the external validation set. Similarly the predicted enrichment was created by comparing the predicted p-values for the known in-actives and the p-values for the external validation set. AUC was also calculated and reported in the figure for comparison. Overall, the 1BNU model performed well and the predicted enrichment was comparable to the docking enrichment. The green line for the docking enrichment, which was below the random grey line, also confirms the validity of the virtual screening evaluation</p></caption><p><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Fig5_HTML.png" id="MO6" /></p></fig></p>
+				\begin{document}$$\begin{aligned}&amp;\hbox {If} \, ({\textit{P}}_{{\textit{low}}{-}{\textit{scoring}}} > P_{{\textit{high}}{-}{\textit{scoring}}})\\&amp;\quad {\textit{P}}_{{\textit{low}}{-}{\textit{scoring}}} * (1- P_{{\textit{high}}-{\textit{scoring}}})\\&amp;\hbox {else}\\&amp;\quad -{\textit{P}}_{{\textit{high}}-{\textit{scoring}}} * (1- P_{{\textit{low}}-{\textit{scoring}}}) \end{aligned}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2020_464_Article_Equ1.gif" /></alternatives></disp-formula><fig id="Fig5"><label>Fig. 5</label><caption xml:lang="en"><p> Validating the model for the known in-actives for the receptor 1BNU. The figure presents the comparison of the docking enrichment in green and the predicted enrichment in magenta for the known in-active compounds. The comparison was used to validate the performance of the 1BNU receptor model for the known in-active compounds. The docking enrichment was created by comparing the docking scores of the known in-actives and the docking scores of the external validation set. Similarly the predicted enrichment was created by comparing the predicted p-values for the known in-actives and the p-values for the external validation set. AUC was also calculated and reported in the figure for comparison. Overall, the 1BNU model performed well and the predicted enrichment was comparable to the docking enrichment. The green line for the docking enrichment, which was below the random grey line, also confirms the validity of the virtual screening evaluation</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2020_464_Fig5_HTML.png" /></fig></p>
               <p id="Par33">These values were used to create predicted enrichment of known inhibitors against the external validation set. In comparing the predicted enrichment (red solid line) to the docking enrichment (blue solid line), the results were satisfactory for the most of the receptors except for PDB-ID 1B8O. Area under the enrichment curves (AUC) was also calculated and reported in Fig. <xref rid="Fig4" ref-type="fig">4</xref> for comparison.</p>
               <p id="Par34">The number of the known inhibitors found in the top 10% and 20% of the docked molecules and the predicted ligands were also computed and presented in Table <xref rid="Tab3" ref-type="table">3</xref>. The average number of the known inhibitors, for all the receptors, found in the top 20% of the predicted ligands was 63% whereas it was 74% for the docked molecules. In the top 10% of the predicted ligands, the average number of known inhibitors found were 46% whereas in the top 10% of the docked molecules, it was 55%. Again, the receptor with PDB-ID 1B8O was an exception where only 11% of the inhibitors were found in the top 20% of the predicted ligands and none in the top 10%. Inspection of the PDB file for 1B8O did not reveal any obvious explanations for this. The docking works better for some receptors than others and in the case of 1B8O, not many inhibitors were found in the top most scoring ligands (see Fig. <xref rid="Fig4" ref-type="fig">4</xref>). This could be one reason of under-performing predicted enrichment for 1B8O.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p>The table represents the model efficiency of predictions on the complete modelling set (from which training set was taken) and the external validation set</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>PDB entry</p></th><th align="left"><p>Eff on modelling set (%)</p></th><th align="left"><p>Eff on ext. val. set (%)</p></th><th align="left"><p>Inhibitors in top 10 (%) predicted ligands</p></th><th align="left"><p>Inhibitors in top 10 (%) docked molecules</p></th><th align="left"><p>Inhibitors in top 20 (%) predicted ligands</p></th><th align="left"><p>Inhibitors in top 20 (%) docked molecules</p></th></tr></thead><tbody><tr><td align="left"><p>1RT2</p></td><td align="left"><p>93</p></td><td align="left"><p>97</p></td><td align="left"><p>32</p></td><td align="left"><p>31</p></td><td align="left"><p>68</p></td><td align="left"><p>68</p></td></tr><tr><td align="left"><p>1E66</p></td><td align="left"><p>93</p></td><td align="left"><p>94</p></td><td align="left"><p>60</p></td><td align="left"><p>52</p></td><td align="left"><p>67</p></td><td align="left"><p>70</p></td></tr><tr><td align="left"><p>1QCF</p></td><td align="left"><p>86</p></td><td align="left"><p>93</p></td><td align="left"><p>65</p></td><td align="left"><p>65</p></td><td align="left"><p>73</p></td><td align="left"><p>79</p></td></tr><tr><td align="left"><p>3ERD</p></td><td align="left"><p>93</p></td><td align="left"><p>92</p></td><td align="left"><p>65</p></td><td align="left"><p>58</p></td><td align="left"><p>78</p></td><td align="left"><p>69</p></td></tr><tr><td align="left"><p>3LN1</p></td><td align="left"><p>98</p></td><td align="left"><p>98</p></td><td align="left"><p>50</p></td><td align="left"><p>82</p></td><td align="left"><p>68</p></td><td align="left"><p>86</p></td></tr><tr><td align="left"><p>1BNU</p></td><td align="left"><p>87</p></td><td align="left"><p>87</p></td><td align="left"><p>47</p></td><td align="left"><p>55</p></td><td align="left"><p>75</p></td><td align="left"><p>78</p></td></tr><tr><td align="left"><p>1B8O</p></td><td align="left"><p>94</p></td><td align="left"><p>94</p></td><td align="left"><p>0</p></td><td align="left"><p>43</p></td><td align="left"><p>11</p></td><td align="left"><p>73</p></td></tr><tr><td align="left"><p>Average</p></td><td align="left"><p>92</p></td><td align="left"><p>94</p></td><td align="left"><p>46</p></td><td align="left"><p>55</p></td><td align="left"><p>63</p></td><td align="left"><p>74</p></td></tr></tbody></table><table-wrap-foot><p>The last four columns represents the predicted and the docking enrichment factor for inhibitors, i.e., the percent inhibitors found in the top 10% and 20% of the database search</p></table-wrap-foot></table-wrap></p>
-              <p id="Par35">The methodology was also tested for known in-actives against the external validation set and the results are shown in Fig. <xref rid="Fig5" ref-type="fig">5</xref>. The green line represents the docking enrichment of the known in-actives of the 1BNU receptor against the external validation set and the magenta line represents the predicted enrichment of the known in-actives of the 1BNU receptor against the predictions of the external validation set. AUC was also computed and shown in Fig. <xref rid="Fig5" ref-type="fig">5</xref> for comparison. The result is satisfactory, with <inline-formula id="IEq9"><alternatives><mml:math><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq9_TeX">\documentclass[12pt]{minimal}
+              <p id="Par35">The methodology was also tested for known in-actives against the external validation set and the results are shown in Fig. <xref rid="Fig5" ref-type="fig">5</xref>. The green line represents the docking enrichment of the known in-actives of the 1BNU receptor against the external validation set and the magenta line represents the predicted enrichment of the known in-actives of the 1BNU receptor against the predictions of the external validation set. AUC was also computed and shown in Fig. <xref rid="Fig5" ref-type="fig">5</xref> for comparison. The result is satisfactory, with <inline-formula id="IEq9"><alternatives><mml:math id="IEq9_Math"><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq9_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -563,7 +563,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$\sim $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq9.gif" /></alternatives></inline-formula>82% of the green line being below the random line. Similarly, the predicted enrichment for the known in-actives (magenta) shows encouraging results as <inline-formula id="IEq10"><alternatives><mml:math><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq10_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$\sim $$\end{document}</tex-math><inline-graphic xlink:href="13321_2020_464_Article_IEq9.gif" /></alternatives></inline-formula>82% of the green line being below the random line. Similarly, the predicted enrichment for the known in-actives (magenta) shows encouraging results as <inline-formula id="IEq10"><alternatives><mml:math id="IEq10_Math"><mml:mo>∼</mml:mo></mml:math><tex-math id="IEq10_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -588,7 +588,7 @@
           <title>Discussion</title>
           <p id="Par38">Target profiles are utilized to understand the off-target effects of drugs in early stage of drug development. In this work, we present a new way to build prediction based target profiles. We build conformal prediction based machine learning models using the docking scores produced by QuickVina. The process was validated through virtual screening and model evaluation and overall recorded comparable results. Hence, the main finding is that building efficient models for predicting the target profiles are possible through docking scores.</p>
           <p id="Par39">Although previous studies with predictions of ligand-target binding using the docking scores are available, a tool or a web service for predicting target profiles based on docking scores is unavailable to the best of our knowledge; the available web services make use of interaction values from databases. Our work opens up a new direction of using docking scores for predicting target profiles and it would be interesting to compare the two approaches in the future and investigate hybrid system.</p>
-          <p id="Par40">The PTPAAS system can be instantiated on other infrastructures such as public cloud providers or on-prem infrastructures (e.g. a company intranet), our deployment at <ext-link xlink:href="http://ptpaas.service.pharmb.io" ext-link-type="url">http://ptpaas.service.pharmb.io</ext-link> should be seen as a reference instance. The system has been designed with extensibility in mind, and new models can be deployed as micro services using Docker containers. Such new services (comprising models for new receptors) can be deployed in a similar way as shown for the reference instance on Kubernetes (code and instructions available on [<xref ref-type="bibr" rid="CR41">41</xref>]). In Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref> we show how users can build models using our previous method [<xref ref-type="bibr" rid="CR37">37</xref>] and then use the models to create service for a new receptor. Instructions are provided to deploy and add the Docker container for a new receptor to the service [<xref ref-type="bibr" rid="CR39">39</xref>].</p>
+          <p id="Par40">The PTPAAS system can be instantiated on other infrastructures such as public cloud providers or on-prem infrastructures (e.g. a company intranet), our deployment at <ext-link xlink:href="http://ptpaas.service.pharmb.io" ext-link-type="uri">http://ptpaas.service.pharmb.io</ext-link> should be seen as a reference instance. The system has been designed with extensibility in mind, and new models can be deployed as micro services using Docker containers. Such new services (comprising models for new receptors) can be deployed in a similar way as shown for the reference instance on Kubernetes (code and instructions available on [<xref ref-type="bibr" rid="CR41">41</xref>]). In Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref> we show how users can build models using our previous method [<xref ref-type="bibr" rid="CR37">37</xref>] and then use the models to create service for a new receptor. Instructions are provided to deploy and add the Docker container for a new receptor to the service [<xref ref-type="bibr" rid="CR39">39</xref>].</p>
           <p id="Par41">Openness and accessibility are important in science, and hence we switched from OEDocking used in the original CPVS method to QuickVina for docking in this study. The move to QuickVina was quite simple and suggests that the proposed methodology can be used with different docking methods with ease. However, QuickVina is slower and thus restricted us to build limited number of models especially with large datasets. In the future, we would like to add more receptor models, and we encourage the community to contribute to this goal.</p>
         </sec>
         <sec id="Sec15" sec-type="conclusions">
@@ -676,7 +676,7 @@
                 <volume>4</volume>
                 <issue>11</issue>
                 <fpage>682</fpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXht1Kgs7fK</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXht1Kgs7fK</pub-id>
                 <pub-id pub-id-type="doi">10.1038/nchembio.118</pub-id>
               </mixed-citation>
             </ref>
@@ -696,7 +696,7 @@
                 <issue>22</issue>
                 <fpage>8955</fpage>
                 <lpage>8971</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3sXht1amtrnO</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXht1amtrnO</pub-id>
                 <pub-id pub-id-type="doi">10.1021/jm400856t</pub-id>
                 <pub-id pub-id-type="pmid">23919353</pub-id>
               </mixed-citation>
@@ -721,7 +721,7 @@
                 <issue>2</issue>
                 <fpage>179</fpage>
                 <lpage>192</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2sXhvFOntrfM</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhvFOntrfM</pub-id>
                 <pub-id pub-id-type="doi">10.1080/17460441.2018.1413089</pub-id>
                 <pub-id pub-id-type="pmid">29233023</pub-id>
               </mixed-citation>
@@ -765,7 +765,7 @@
                 <volume>11</volume>
                 <issue>12</issue>
                 <fpage>909</fpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC38XhslCnur%2FJ</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XhslCnur%2FJ</pub-id>
                 <pub-id pub-id-type="doi">10.1038/nrd3845</pub-id>
                 <pub-id pub-id-type="pmid">23197038</pub-id>
                 <comment>
@@ -852,7 +852,7 @@
                 <issue>5</issue>
                 <fpage>1728</fpage>
                 <lpage>1742</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC1MXjslyhurc%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC1MXjslyhurc%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1021/acs.jcim.8b00832</pub-id>
               </mixed-citation>
             </ref>
@@ -1072,7 +1072,7 @@
                 <issue>5</issue>
                 <fpage>413</fpage>
                 <lpage>424</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC28Xnsleju78%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28Xnsleju78%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1007/s10822-016-9915-2</pub-id>
                 <pub-id pub-id-type="pmid">27167132</pub-id>
               </mixed-citation>
@@ -1125,7 +1125,7 @@
                 <issue>6</issue>
                 <fpage>861</fpage>
                 <lpage>873</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXntVShu74%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXntVShu74%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR13">
@@ -1164,7 +1164,7 @@
                 <issue>2</issue>
                 <fpage>395</fpage>
                 <lpage>406</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3sXlsF2hsLk%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3sXlsF2hsLk%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1208/s12248-012-9449-z</pub-id>
                 <pub-id pub-id-type="pmid">23292636</pub-id>
                 <pub-id pub-id-type="pmcid">3675739</pub-id>
@@ -1291,13 +1291,13 @@
                 <issue>1</issue>
                 <fpage>198</fpage>
                 <lpage>212</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXntFygu7s%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXntFygu7s%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1016/j.jmgm.2006.06.002</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR18">
               <label>18.</label>
-              <mixed-citation publication-type="other">Run Kubernetes everywhere. <ext-link xlink:href="https://rancher.com/" ext-link-type="url">https://rancher.com/</ext-link>. <bold>[cito:usesMethodIn]</bold> (2019–2020)</mixed-citation>
+              <mixed-citation publication-type="other">Run Kubernetes everywhere. <ext-link xlink:href="https://rancher.com/" ext-link-type="uri">https://rancher.com/</ext-link>. <bold>[cito:usesMethodIn]</bold> (2019–2020)</mixed-citation>
             </ref>
             <ref id="CR19">
               <label>19.</label>
@@ -1331,7 +1331,7 @@
                 <issue>7</issue>
                 <fpage>1757</fpage>
                 <lpage>1768</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC38XmvFGnsrg%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XmvFGnsrg%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1021/ci3001277</pub-id>
                 <comment>
                   <bold>[cito:citesAsDataSource]</bold>
@@ -1362,7 +1362,7 @@
                 <issue>3</issue>
                 <fpage>707</fpage>
                 <lpage>720</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3sXitlams7k%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3sXitlams7k%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1021/ci020345w</pub-id>
                 <pub-id pub-id-type="pmid">12767129</pub-id>
                 <comment>
@@ -1372,7 +1372,7 @@
             </ref>
             <ref id="CR21">
               <label>21.</label>
-              <mixed-citation publication-type="other">Capuccini M, Spark cheminformatics utils. <ext-link xlink:href="https://github.com/mcapuccini/spark-cheminformatics" ext-link-type="url">https://github.com/mcapuccini/spark-cheminformatics</ext-link>. <bold>[cito:usesMethodIn]</bold> (2015–2020)</mixed-citation>
+              <mixed-citation publication-type="other">Capuccini M, Spark cheminformatics utils. <ext-link xlink:href="https://github.com/mcapuccini/spark-cheminformatics" ext-link-type="uri">https://github.com/mcapuccini/spark-cheminformatics</ext-link>. <bold>[cito:usesMethodIn]</bold> (2015–2020)</mixed-citation>
             </ref>
             <ref id="CR22">
               <label>22.</label>
@@ -1410,7 +1410,7 @@
                 <issue>11</issue>
                 <fpage>3211</fpage>
                 <lpage>3217</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2cXhslGgt7vI</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXhslGgt7vI</pub-id>
                 <pub-id pub-id-type="doi">10.1021/ci500344v</pub-id>
                 <pub-id pub-id-type="pmid">25318024</pub-id>
                 <comment>
@@ -1463,7 +1463,7 @@
                 <issue>2</issue>
                 <fpage>455</fpage>
                 <lpage>461</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXhsFGnur3O</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXhsFGnur3O</pub-id>
                 <pub-id pub-id-type="pmid">19499576</pub-id>
                 <pub-id pub-id-type="pmcid">3041641</pub-id>
               </mixed-citation>
@@ -1496,7 +1496,7 @@
                 <issue>13</issue>
                 <fpage>2214</fpage>
                 <lpage>2216</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC28XhtlamsrjJ</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC28XhtlamsrjJ</pub-id>
                 <pub-id pub-id-type="doi">10.1093/bioinformatics/btv082</pub-id>
                 <pub-id pub-id-type="pmid">25717194</pub-id>
                 <comment>
@@ -1536,7 +1536,7 @@
                 <issue>3</issue>
                 <fpage>727</fpage>
                 <lpage>748</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaK2sXis1KntLo%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2sXis1KntLo%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1006/jmbi.1996.0897</pub-id>
                 <pub-id pub-id-type="pmid">9126849</pub-id>
               </mixed-citation>
@@ -1577,7 +1577,7 @@
                 <issue>2</issue>
                 <fpage>717</fpage>
                 <lpage>727</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XjsFCgtQ%3D%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XjsFCgtQ%3D%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1021/ci050372x</pub-id>
                 <pub-id pub-id-type="pmid">16563002</pub-id>
                 <comment>
@@ -1662,14 +1662,14 @@
                 <issue>4</issue>
                 <fpage>1673</fpage>
                 <lpage>1687</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXmtlOnur0%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXmtlOnur0%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1021/ci6005596</pub-id>
                 <pub-id pub-id-type="pmid">17559207</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR30">
               <label>30.</label>
-              <mixed-citation publication-type="other">Wishart DS, Knox C, Guo AC, Cheng D, Shrivastava S, Tzur D, Gautam B, Hassanali M (2007) Drugbank: a knowledgebase for drugs, drug actions and drug targets. Nucleic acids research 36(suppl<inline-formula id="IEq12"><alternatives><mml:math><mml:mi>_</mml:mi></mml:math><tex-math id="IEq12_TeX">\documentclass[12pt]{minimal}
+              <mixed-citation publication-type="other">Wishart DS, Knox C, Guo AC, Cheng D, Shrivastava S, Tzur D, Gautam B, Hassanali M (2007) Drugbank: a knowledgebase for drugs, drug actions and drug targets. Nucleic acids research 36(suppl<inline-formula id="IEq12"><alternatives><mml:math id="IEq12_Math"><mml:mi>_</mml:mi></mml:math><tex-math id="IEq12_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -1734,7 +1734,7 @@
                 <issue>6</issue>
                 <fpage>1596</fpage>
                 <lpage>1603</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2cXntlGitrk%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2cXntlGitrk%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1021/ci5001168</pub-id>
                 <pub-id pub-id-type="pmid">24797111</pub-id>
                 <comment>
@@ -1765,7 +1765,7 @@
                 <volume>72</volume>
                 <fpage>256</fpage>
                 <lpage>265</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC2sXhsleltLc%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC2sXhsleltLc%3D</pub-id>
                 <pub-id pub-id-type="doi">10.1016/j.jmgm.2017.01.008</pub-id>
                 <comment>
                   <bold>[cito:agreesWith]</bold>
@@ -1808,7 +1808,7 @@
                 <issue>5</issue>
                 <fpage>4791</fpage>
                 <lpage>4810</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC38Xntlehsrs%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38Xntlehsrs%3D</pub-id>
                 <pub-id pub-id-type="doi">10.3390/molecules17054791</pub-id>
                 <pub-id pub-id-type="pmid">22534664</pub-id>
                 <pub-id pub-id-type="pmcid">6268288</pub-id>
@@ -1907,15 +1907,15 @@
             </ref>
             <ref id="CR39">
               <label>39.</label>
-              <mixed-citation publication-type="other">Ahmed L. Rest API for CPVS. <ext-link xlink:href="https://github.com/laeeq80/cpvsAPI" ext-link-type="url">https://github.com/laeeq80/cpvsAPI</ext-link> (2019–2020)</mixed-citation>
+              <mixed-citation publication-type="other">Ahmed L. Rest API for CPVS. <ext-link xlink:href="https://github.com/laeeq80/cpvsAPI" ext-link-type="uri">https://github.com/laeeq80/cpvsAPI</ext-link> (2019–2020)</mixed-citation>
             </ref>
             <ref id="CR40">
               <label>40.</label>
-              <mixed-citation publication-type="other">Ahmed L. User Interface for CPVSAPI. <ext-link xlink:href="https://github.com/laeeq80/cpvs-ui" ext-link-type="url">https://github.com/laeeq80/cpvs-ui</ext-link> (2019–2020)</mixed-citation>
+              <mixed-citation publication-type="other">Ahmed L. User Interface for CPVSAPI. <ext-link xlink:href="https://github.com/laeeq80/cpvs-ui" ext-link-type="uri">https://github.com/laeeq80/cpvs-ui</ext-link> (2019–2020)</mixed-citation>
             </ref>
             <ref id="CR41">
               <label>41.</label>
-              <mixed-citation publication-type="other">Larsson A. Kubernetes deployment of ptdpaas. <ext-link xlink:href="https://github.com/pharmbio/dpaas" ext-link-type="url">https://github.com/pharmbio/dpaas</ext-link>. <bold>[cito:usesMethodIn]</bold> (2019–2020)</mixed-citation>
+              <mixed-citation publication-type="other">Larsson A. Kubernetes deployment of ptdpaas. <ext-link xlink:href="https://github.com/pharmbio/dpaas" ext-link-type="uri">https://github.com/pharmbio/dpaas</ext-link>. <bold>[cito:usesMethodIn]</bold> (2019–2020)</mixed-citation>
             </ref>
             <ref id="CR42">
               <label>42.</label>
@@ -1939,27 +1939,27 @@
             </ref>
             <ref id="CR43">
               <label>43.</label>
-              <mixed-citation publication-type="other">Docker Hub. <ext-link xlink:href="https://hub.docker.com/" ext-link-type="url">https://hub.docker.com/</ext-link>. <bold>[cito:usesMethodIn]</bold> (2014–2020)</mixed-citation>
+              <mixed-citation publication-type="other">Docker Hub. <ext-link xlink:href="https://hub.docker.com/" ext-link-type="uri">https://hub.docker.com/</ext-link>. <bold>[cito:usesMethodIn]</bold> (2014–2020)</mixed-citation>
             </ref>
             <ref id="CR44">
               <label>44.</label>
-              <mixed-citation publication-type="other">Ahmed L. Docker Image for CPVS API on Docker Hub. <ext-link xlink:href="https://hub.docker.com/r/laeeq/cpvsapi" ext-link-type="url">https://hub.docker.com/r/laeeq/cpvsapi</ext-link> (2019–2020)</mixed-citation>
+              <mixed-citation publication-type="other">Ahmed L. Docker Image for CPVS API on Docker Hub. <ext-link xlink:href="https://hub.docker.com/r/laeeq/cpvsapi" ext-link-type="uri">https://hub.docker.com/r/laeeq/cpvsapi</ext-link> (2019–2020)</mixed-citation>
             </ref>
             <ref id="CR45">
               <label>45.</label>
-              <mixed-citation publication-type="other">Ahmed L. Docker Image for CPVS UI on Docker Hub. <ext-link xlink:href="https://hub.docker.com/r/laeeq/cpvs-ui" ext-link-type="url">https://hub.docker.com/r/laeeq/cpvs-ui</ext-link> (2019–2020)</mixed-citation>
+              <mixed-citation publication-type="other">Ahmed L. Docker Image for CPVS UI on Docker Hub. <ext-link xlink:href="https://hub.docker.com/r/laeeq/cpvs-ui" ext-link-type="uri">https://hub.docker.com/r/laeeq/cpvs-ui</ext-link> (2019–2020)</mixed-citation>
             </ref>
             <ref id="CR46">
               <label>46.</label>
-              <mixed-citation publication-type="other">Ahmed L. Docker Image for Custom MariaDB on Docker Hub. <ext-link xlink:href="https://hub.docker.com/r/laeeq/ligandprofiledb" ext-link-type="url">https://hub.docker.com/r/laeeq/ligandprofiledb</ext-link> (2019–2020)</mixed-citation>
+              <mixed-citation publication-type="other">Ahmed L. Docker Image for Custom MariaDB on Docker Hub. <ext-link xlink:href="https://hub.docker.com/r/laeeq/ligandprofiledb" ext-link-type="uri">https://hub.docker.com/r/laeeq/ligandprofiledb</ext-link> (2019–2020)</mixed-citation>
             </ref>
             <ref id="CR47">
               <label>47.</label>
-              <mixed-citation publication-type="other">Ahmed L. Docker Image on Docker Hub to Upload PDBQT file to the web service. <ext-link xlink:href="https://hub.docker.com/r/laeeq/uploadfile" ext-link-type="url">https://hub.docker.com/r/laeeq/uploadfile</ext-link> (2019–2020)</mixed-citation>
+              <mixed-citation publication-type="other">Ahmed L. Docker Image on Docker Hub to Upload PDBQT file to the web service. <ext-link xlink:href="https://hub.docker.com/r/laeeq/uploadfile" ext-link-type="uri">https://hub.docker.com/r/laeeq/uploadfile</ext-link> (2019–2020)</mixed-citation>
             </ref>
             <ref id="CR48">
               <label>48.</label>
-              <mixed-citation publication-type="other">Ahmed L. Docker File for CPVSAPI Project. <ext-link xlink:href="https://github.com/laeeq80/cpvsDocker" ext-link-type="url">https://github.com/laeeq80/cpvsDocker</ext-link> (2018–2020)</mixed-citation>
+              <mixed-citation publication-type="other">Ahmed L. Docker File for CPVSAPI Project. <ext-link xlink:href="https://github.com/laeeq80/cpvsDocker" ext-link-type="uri">https://github.com/laeeq80/cpvsDocker</ext-link> (2018–2020)</mixed-citation>
             </ref>
             <ref id="CR49">
               <label>49.</label>
@@ -1973,7 +1973,7 @@
               <title>Supplementary information</title>
               <p>
                 <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Supplementary information">
-                  <media xlink:href="MediaObjects/13321_2020_464_MOESM1_ESM.pdf" mimetype="application" mime-subtype="pdf">
+                  <media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2020_464_MOESM1_ESM.pdf" position="anchor">
                     <caption xml:lang="en">
                       <p><bold>Additional file 1.</bold> The file contains a step by step tutorial for running the CPVS API on a local system. It also explains the process of preparing new Docker images for new receptors. Secondly, the file contains various compounds used in the study. Thirdly, it includes property distribution of the known actives and inactives for the receptor 1BNU.</p>
                     </caption>
@@ -2054,7 +2054,7 @@
         </notes>
         <notes notes-type="ESMHint">
           <title>Supplementary information</title>
-          <p><bold>Supplementary information</bold> accompanies this paper at <ext-link xlink:href="https://doi.org/10.1186/s13321-020-00464-1" ext-link-type="doi">https://doi.org/10.1186/s13321-020-00464-1</ext-link>.</p>
+          <p><bold>Supplementary information</bold> accompanies this paper at <ext-link xlink:href="10.1186/s13321-020-00464-1" ext-link-type="doi">https://doi.org/10.1186/s13321-020-00464-1</ext-link>.</p>
         </notes>
       </back>
     </article>

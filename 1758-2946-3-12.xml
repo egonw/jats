@@ -170,17 +170,17 @@
           </history>
           <permissions>
             <copyright-statement content-type="compact">© Norgan et al; licensee Chemistry Central Ltd. 2011</copyright-statement>
-            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="uri">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
             <copyright-year>2011</copyright-year>
             <copyright-holder>Norgan et al; licensee Chemistry Central Ltd.</copyright-holder>
             <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by-nc/2/">
               <license-p><bold>Open Access</bold> This is an open access article distributed under the terms of the Creative Commons Attribution Noncommercial License ( 
-    <ext-link xlink:href="https://creativecommons.org/licenses/by-nc/2.0" ext-link-type="url">https://creativecommons.org/licenses/by-nc/2.0</ext-link> 
+    <ext-link xlink:href="https://creativecommons.org/licenses/by-nc/2.0" ext-link-type="uri">https://creativecommons.org/licenses/by-nc/2.0</ext-link> 
     ), which permits any noncommercial use, distribution, and reproduction in any medium, provided the original author(s) and source are credited. 
 </license-p>
             </license>
           </permissions>
-          <abstract id="Abs1" xml:lang="en">
+          <abstract xml:lang="en" id="Abs1">
             <title>Abstract</title>
             <sec id="ASec1">
               <title>Background</title>
@@ -352,7 +352,7 @@
         </article-meta>
         <notes notes-type="ESMHint">
           <title>Electronic supplementary material</title>
-          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-3-12" ext-link-type="doi">10.1186/1758-2946-3-12</ext-link>) contains supplementary material, which is available to authorized users.</p>
+          <p>The online version of this article (doi:<ext-link xlink:href="10.1186/1758-2946-3-12" ext-link-type="doi">10.1186/1758-2946-3-12</ext-link>) contains supplementary material, which is available to authorized users.</p>
         </notes>
         <notes notes-type="Misc">
           <p>Andrew P Norgan, Paul K Coffman contributed equally to this work.</p>
@@ -376,7 +376,7 @@
           </sec>
           <sec id="Sec4">
             <title>I/O Optimization</title>
-            <p>AD4 requires the precalculation of one electrostatic map, one desolvation map, and individual atomic affinity grid maps for each AD4 atom type found in the ligand(s). The default AD4 behavior is to load all grid maps required for a specific docking into memory from the file system and to release that memory at the end of the docking. Thus, when the next docking begins many of the same grid maps are reloaded. In addition to the time required to load the grid maps, this behavior generates significant I/O that is unnecessary given that different dockings utilize the same electrostatic and desolvation maps, and often atomic affinity maps. Therefore, a parameter has been added to the mpAD4 executable to control grid maps persistence from one docking to another on the slave nodes. With mpAD4, as the main() function begins execution on the slave the default behavior is to load all grid maps required to dock the first ligand into compute node memory. Any remaining atomic affinity maps are loaded for subsequent dockings at the node only when required by a ligand with a previously unused atom type. Once loaded, a map persists in node memory until program termination (Figure <xref rid="Fig1" ref-type="fig">1</xref>). To accomplish this, the scope of the multi-dimensional array holding the grid map data changed from local (in the main() function) to global, allowing the grid map data to persist from docking to docking on a slave node. In addition, the code that manages and references this grid map array was modified to initially load only atomic affinity maps required for the first docking, and then subsequently load appropriate atomic affinity maps when required. This approach minimizes startup I/O by loading the smallest possible amount of initial data onto the compute nodes. The user can specify grid map persistence at runtime using the flags (reload_maps or reuse_maps). Except were otherwise indicated, benchmarks were run with grid map reuse (gm = reuse).<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>Workflow of mpAutoDock</bold>. mpAD4 uses an MPI-driver to distribute work to individual nodes. With grid map reuse enabled, the precomputed grid maps, receptor and docking parameter files are loaded at the node level and reused for each additional docking. An individual docking on each node can be parallelized by running multiple instances of Lamarkian Genetic Algorithm in parallel using OpenMP threads.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_195_Fig1_HTML.jpg" /></p></fig></p>
+            <p>AD4 requires the precalculation of one electrostatic map, one desolvation map, and individual atomic affinity grid maps for each AD4 atom type found in the ligand(s). The default AD4 behavior is to load all grid maps required for a specific docking into memory from the file system and to release that memory at the end of the docking. Thus, when the next docking begins many of the same grid maps are reloaded. In addition to the time required to load the grid maps, this behavior generates significant I/O that is unnecessary given that different dockings utilize the same electrostatic and desolvation maps, and often atomic affinity maps. Therefore, a parameter has been added to the mpAD4 executable to control grid maps persistence from one docking to another on the slave nodes. With mpAD4, as the main() function begins execution on the slave the default behavior is to load all grid maps required to dock the first ligand into compute node memory. Any remaining atomic affinity maps are loaded for subsequent dockings at the node only when required by a ligand with a previously unused atom type. Once loaded, a map persists in node memory until program termination (Figure <xref rid="Fig1" ref-type="fig">1</xref>). To accomplish this, the scope of the multi-dimensional array holding the grid map data changed from local (in the main() function) to global, allowing the grid map data to persist from docking to docking on a slave node. In addition, the code that manages and references this grid map array was modified to initially load only atomic affinity maps required for the first docking, and then subsequently load appropriate atomic affinity maps when required. This approach minimizes startup I/O by loading the smallest possible amount of initial data onto the compute nodes. The user can specify grid map persistence at runtime using the flags (reload_maps or reuse_maps). Except were otherwise indicated, benchmarks were run with grid map reuse (gm = reuse).<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>Workflow of mpAutoDock</bold>. mpAD4 uses an MPI-driver to distribute work to individual nodes. With grid map reuse enabled, the precomputed grid maps, receptor and docking parameter files are loaded at the node level and reused for each additional docking. An individual docking on each node can be parallelized by running multiple instances of Lamarkian Genetic Algorithm in parallel using OpenMP threads.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_195_Fig1_HTML.jpg" /></fig></p>
           </sec>
           <sec id="Sec5">
             <title>OpenMP Parallelization</title>
@@ -398,7 +398,7 @@
         </sec>
         <sec id="Sec9">
           <title>Results and Discussion</title>
-          <p>To assess the performance characteristics of the hybrid parallelization and grid map reuse code, the 32 k indinavir library was docked on a 2,048(8,192) node(core) Blue Gene/P system with intermediate I/O settings (1 I/O node per 128 cores). Figure <xref rid="Fig2" ref-type="fig">2a</xref> shows the relative docking time in 4 different modes: VN(OMP = 1, gm = reload), VN(OMP = 1, gm = reuse), SMP(OMP = 4, gm = reload) and SMP(OMP = 4, gm = reuse). Grid map reuse reduced single-threaded execution time by approximately 17.5% due to reductions in I/O (Figure <xref rid="Fig2" ref-type="fig">2a</xref>). Multithreaded execution in SMP mode further reduced docking time by 10%, for an overall improvement of 25% over VN(OMP = 1, gm = reload) (Figure <xref rid="Fig2" ref-type="fig">2a</xref>). The improvement in docking speed observed with multithreading was due to system I/O bottlenecks experienced with single-threaded execution, as in VN mode each compute node CPU core receives an independent MPI task (8,192 in this instance), while in SMP mode only physical compute nodes (2,048 in this instance) receive a task, so that one fourth as many tasks run concurrently.<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>Impact of grid map reuse, OpenMP multithreading, and I/O on mpAD4 execution speed</bold>. (A) A 32,000 copy indinavir library was docked with mpAD4 on a 2,048(8,192) node(core) BG/P system in VN node mode (MPI + OpenMP with 1 OpenMP thread/node, 4× virtual nodes) with either grid map reloading or reuse and SMP mode (MPI + OpenMP with 4 OpenMP threads/node) with grid map reloading or reuse. The system was configured with 64 I/O nodes (1 I/O node per 128 cores). Runtimes were normalized to the fastest case (SMP, gm = reuse). (B) An 8,000 copy indinavir library was docked on a 1,024(4,096) node(core) BG/P system in VN mode (gm = reload or gm = reuse) and SMP mode (gm = reuse) configured with either 8 I/O nodes (I/O poor) or 64 I/O nodes (I/O replete). Runtimes were normalized to the fastest case (SMP, gm = reuse, I/O = 64).</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_195_Fig2_HTML.jpg" /></p></fig></p>
+          <p>To assess the performance characteristics of the hybrid parallelization and grid map reuse code, the 32 k indinavir library was docked on a 2,048(8,192) node(core) Blue Gene/P system with intermediate I/O settings (1 I/O node per 128 cores). Figure <xref rid="Fig2" ref-type="fig">2a</xref> shows the relative docking time in 4 different modes: VN(OMP = 1, gm = reload), VN(OMP = 1, gm = reuse), SMP(OMP = 4, gm = reload) and SMP(OMP = 4, gm = reuse). Grid map reuse reduced single-threaded execution time by approximately 17.5% due to reductions in I/O (Figure <xref rid="Fig2" ref-type="fig">2a</xref>). Multithreaded execution in SMP mode further reduced docking time by 10%, for an overall improvement of 25% over VN(OMP = 1, gm = reload) (Figure <xref rid="Fig2" ref-type="fig">2a</xref>). The improvement in docking speed observed with multithreading was due to system I/O bottlenecks experienced with single-threaded execution, as in VN mode each compute node CPU core receives an independent MPI task (8,192 in this instance), while in SMP mode only physical compute nodes (2,048 in this instance) receive a task, so that one fourth as many tasks run concurrently.<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>Impact of grid map reuse, OpenMP multithreading, and I/O on mpAD4 execution speed</bold>. (A) A 32,000 copy indinavir library was docked with mpAD4 on a 2,048(8,192) node(core) BG/P system in VN node mode (MPI + OpenMP with 1 OpenMP thread/node, 4× virtual nodes) with either grid map reloading or reuse and SMP mode (MPI + OpenMP with 4 OpenMP threads/node) with grid map reloading or reuse. The system was configured with 64 I/O nodes (1 I/O node per 128 cores). Runtimes were normalized to the fastest case (SMP, gm = reuse). (B) An 8,000 copy indinavir library was docked on a 1,024(4,096) node(core) BG/P system in VN mode (gm = reload or gm = reuse) and SMP mode (gm = reuse) configured with either 8 I/O nodes (I/O poor) or 64 I/O nodes (I/O replete). Runtimes were normalized to the fastest case (SMP, gm = reuse, I/O = 64).</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_195_Fig2_HTML.jpg" /></fig></p>
           <p>We examined the impact of system I/O on docking using I/O times recorded by the profiling code. The major sources of I/O when running mpAD4 were the loading of grid maps and the writing of log files, while MPI communication was a negligible percentage of network traffic. I/O saturation was most apparent at the end of the initial wave of docking jobs when multiple log files are simultaneously written to disk and grid maps for the next docking jobs are loaded. In our testing with the 32 k indinavir library, instituting grid map reuse diminished VN mode average file loading time by 77%, while SMP mode (OMP = 4, gm = reuse) file loading time was 1% that of VN mode (OMP = 1, gm = reload) (Table <xref rid="Tab1" ref-type="table">1</xref>). Similarly, average log file writing time was reduced by 92% with grid map reuse, and over 99% in SMP mode (Table <xref rid="Tab1" ref-type="table">1</xref>). Though grid map reuse significantly reduced I/O times in our tests, the impact on overall docking times was variable.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Impact of grid map reuse and OpenMP multithreading on I/O.</p></caption><table frame="hsides" rules="groups"><thead><tr><th /><th align="center" colspan="4"><p>VN (gm = reload)</p></th><th align="center" colspan="4"><p>VN (gm = reuse)</p></th><th align="center" colspan="4"><p>SMP (gm = reuse)</p></th></tr><tr><th /><th align="right"><p>FLD</p></th><th align="right"><p>MAP</p></th><th align="right"><p>LIG</p></th><th align="right"><p>LOG</p></th><th align="right"><p>FLD</p></th><th align="right"><p>MAP</p></th><th align="right"><p>LIG</p></th><th align="right"><p>LOG</p></th><th align="right"><p>FLD</p></th><th align="right"><p>MAP</p></th><th align="right"><p>LIG</p></th><th align="right"><p>LOG</p></th></tr></thead><tbody><tr><td align="center"><p>ave</p></td><td align="right"><p>2.5</p></td><td align="right"><p>25.9</p></td><td align="right"><p>90.0</p></td><td align="right"><p>150.5</p></td><td align="right"><p>0.3</p></td><td align="right"><p>5.1</p></td><td align="right"><p>21.2</p></td><td align="right"><p>12.0</p></td><td align="right"><p>0.0</p></td><td align="right"><p>0.6</p></td><td align="right"><p>0.3</p></td><td align="right"><p>0.3</p></td></tr><tr><td align="center"><p>rms</p></td><td align="right"><p>8.0</p></td><td align="right"><p>50.8</p></td><td align="right"><p>335.8</p></td><td align="right"><p>584.1</p></td><td align="right"><p>1.5</p></td><td align="right"><p>13.8</p></td><td align="right"><p>40.8</p></td><td align="right"><p>55.4</p></td><td align="right"><p>0.1</p></td><td align="right"><p>2.4</p></td><td align="right"><p>0.3</p></td><td align="right"><p>0.3</p></td></tr><tr><td align="center"><p>med</p></td><td align="right"><p>0.3</p></td><td align="right"><p>13.4</p></td><td align="right"><p>1.9</p></td><td align="right"><p>0.2</p></td><td align="right"><p>0.0</p></td><td align="right"><p>0.0</p></td><td align="right"><p>1.5</p></td><td align="right"><p>0.3</p></td><td align="right"><p>0.0</p></td><td align="right"><p>0.0</p></td><td align="right"><p>0.2</p></td><td align="right"><p>0.2</p></td></tr><tr><td align="center"><p>max</p></td><td align="right"><p>247.2</p></td><td align="right"><p>542.3</p></td><td align="right"><p>3567.5</p></td><td align="right"><p>3630.0</p></td><td align="right"><p>54.6</p></td><td align="right"><p>187.9</p></td><td align="right"><p>469.6</p></td><td align="right"><p>546.8</p></td><td align="right"><p>1.7</p></td><td align="right"><p>14.0</p></td><td align="right"><p>2.9</p></td><td align="right"><p>3.2</p></td></tr><tr><td align="center"><p>%</p></td><td /><td /><td /><td /><td align="right"><p>14.6</p></td><td align="right"><p>19.7</p></td><td align="right"><p>23.6</p></td><td align="right"><p>8.0</p></td><td align="right"><p>1.1</p></td><td align="right"><p>2.5</p></td><td align="right"><p>0.4</p></td><td align="right"><p>0.3</p></td></tr></tbody></table><table-wrap-foot><p>A 32,000 copy indinavir library was docked with mpAD4 on a 2,048(8,192) node(core) BG/P system in VN node mode (MPI + OpenMP with 1 OpenMP thread/node, 4× virtual nodes) with either grid map reloading or reuse, and SMP mode (MPI + OpenMP with 4 OpenMP threads/node) with grid map reloading or reuse. Statistics for total duration (in seconds) of .fld map load time (FLD), atomic affinity map load time (MAP), ligand load time (LIG), and docking log write time (LOG) are shown for VN (gm = reload), VN (gm = reuse) and SMP (gm = reuse). Pairwise comparisons of average I/O times (seconds) between VN (gm = reload) and VN (gm = reuse) or SMP (gm = reuse) were calculated, and are shown as percent of VN (gm = reload) times. I/O differences between SMP (gm = reload) and (gm = reuse) were negligible, and are not shown.</p></table-wrap-foot></table-wrap></p>
           <sec id="Sec10">
             <title>I/O and Performance</title>
@@ -406,7 +406,7 @@
           </sec>
           <sec id="Sec11">
             <title>Hybrid Scalability</title>
-            <p>To test mpAD4 scalability, small molecule libraries including a 34 k ZINC, 9 k ZINC and 4 k indinavir were run on 512(2,048), 1,024(4,096), 2,048(8,192), and 4,096(16,384) node(core) BG/P systems. Figure <xref rid="Fig3" ref-type="fig">3a</xref> shows the speedup observed with the 34 k ZINC library in SMP and VN modes (gm = reuse). SMP mode scaling was nearly linear at approximately 92% ideal speed on the 16,384 core system. VN mode deviated to a greater degree at 72% ideal on the 16,384 core system, a 22% decrease from SMP-mode performance (Figure <xref rid="Fig3" ref-type="fig">3a</xref>). Interestingly, this performance decrease was not due to I/O differences, but instead reflected improved system utilization efficiency in the multithreaded execution mode. For both SMP and VN mode, deviations from ideal occur on larger systems as a virtual screen comes to the end and fewer ligands remain to be docked than capacity of the system, resulting in portions of the system remaining idle while the remaining active jobs finish. Multithreaded execution helps to alleviate this inefficiency in two ways: 1) when using multithreading there are fewer MPI nodes in the system and a virtual screen proceeds closer to completion before nodes become idle, and 2) individual dockings are executed more quickly when multithreaded, reducing time spent with idle nodes. For very large screening libraries, node utilization efficiency differences at the end of screening are unlikely to contribute to significant difference overall docking time. However, the opposite is true as library size shrinks in comparison to system size, as demonstrated in the scaling of the 9 K ZINC library where node utilization inefficiencies are apparent in both VN and SMP mode, though SMP mode is less effected (Figure <xref rid="Fig3" ref-type="fig">3b</xref>).<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>Scaling of MPI alone versus MPI with OpenMP multithreading</bold>. Virtual compound libraries were docked in VN and SMP modes on BG/P systems of 512(2,048), 1,024(4,096), 2,048(8,192) and 4,096(16,384) nodes(cores). (A) A 34,841 compound ZINC library was docked on variable BG/P systems sizes. Ideal speedup was calculated from the fastest 512 node result (SMP), and the relative speedup SMP and VN mode results were plotted. (B) A 9,000 compound subset ZINC library was docked on variable BG/P systems sizes, and ideal speedup was calculated from the fastest 512 node result (SMP). (C) A 4,000 copy indinavir library was docked on variable BG/P systems sizes, and an ideal speedup line was calculated from the fastest 512 node result (SMP). (D) Relative execution times for the 4,000 copy indinavir library were calculated for SMP and VN modes at each system size.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_195_Fig3_HTML.jpg" /></p></fig></p>
+            <p>To test mpAD4 scalability, small molecule libraries including a 34 k ZINC, 9 k ZINC and 4 k indinavir were run on 512(2,048), 1,024(4,096), 2,048(8,192), and 4,096(16,384) node(core) BG/P systems. Figure <xref rid="Fig3" ref-type="fig">3a</xref> shows the speedup observed with the 34 k ZINC library in SMP and VN modes (gm = reuse). SMP mode scaling was nearly linear at approximately 92% ideal speed on the 16,384 core system. VN mode deviated to a greater degree at 72% ideal on the 16,384 core system, a 22% decrease from SMP-mode performance (Figure <xref rid="Fig3" ref-type="fig">3a</xref>). Interestingly, this performance decrease was not due to I/O differences, but instead reflected improved system utilization efficiency in the multithreaded execution mode. For both SMP and VN mode, deviations from ideal occur on larger systems as a virtual screen comes to the end and fewer ligands remain to be docked than capacity of the system, resulting in portions of the system remaining idle while the remaining active jobs finish. Multithreaded execution helps to alleviate this inefficiency in two ways: 1) when using multithreading there are fewer MPI nodes in the system and a virtual screen proceeds closer to completion before nodes become idle, and 2) individual dockings are executed more quickly when multithreaded, reducing time spent with idle nodes. For very large screening libraries, node utilization efficiency differences at the end of screening are unlikely to contribute to significant difference overall docking time. However, the opposite is true as library size shrinks in comparison to system size, as demonstrated in the scaling of the 9 K ZINC library where node utilization inefficiencies are apparent in both VN and SMP mode, though SMP mode is less effected (Figure <xref rid="Fig3" ref-type="fig">3b</xref>).<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>Scaling of MPI alone versus MPI with OpenMP multithreading</bold>. Virtual compound libraries were docked in VN and SMP modes on BG/P systems of 512(2,048), 1,024(4,096), 2,048(8,192) and 4,096(16,384) nodes(cores). (A) A 34,841 compound ZINC library was docked on variable BG/P systems sizes. Ideal speedup was calculated from the fastest 512 node result (SMP), and the relative speedup SMP and VN mode results were plotted. (B) A 9,000 compound subset ZINC library was docked on variable BG/P systems sizes, and ideal speedup was calculated from the fastest 512 node result (SMP). (C) A 4,000 copy indinavir library was docked on variable BG/P systems sizes, and an ideal speedup line was calculated from the fastest 512 node result (SMP). (D) Relative execution times for the 4,000 copy indinavir library were calculated for SMP and VN modes at each system size.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_195_Fig3_HTML.jpg" /></fig></p>
             <p>In addition to multithreading, node utilization can be improved by pre-ordering ligands to be docked by complexity (descending number of torsional angles). For a sorted 9 k indinavir library docked in VN mode on a 2,048 core system, sorting improved docking speed by 10%, though it was still 9% slower than SMP mode (data not shown). In cases where the availably of CPUs greatly exceeds the number of molecules to be screened, multithreading is particularly useful for increasing the usefully employable system size. For example, a 4 k indinavir library in single-threaded execution (VN, OMP = 1) is unable to take advantage of more than 4,000 cores (Figure <xref rid="Fig3" ref-type="fig">3c</xref>). In contrast, multithreading (SMP, OMP = 4) allows up to 16,000 cores to be employed, decreasing the docking time by over 70% (Figure <xref rid="Fig3" ref-type="fig">3c</xref> and Figure <xref rid="Fig3" ref-type="fig">3d</xref>). For larger systems, combining OpenMP multithreading with MPI allows for more efficient utilization of system resources at the end of screens. For smaller screens, multithreading has a clear advantages over serial execution when the number of available cores exceeds the number of ligand-receptor complexes to be docked.</p>
           </sec>
           <sec id="Sec12">
@@ -429,7 +429,7 @@
         <sec id="Sec16">
           <title>Availability and Requirements</title>
           <p>Project name: mpAutoDock 4.2</p>
-          <p>Project home page: <ext-link xlink:href="http://autodock.scripps.edu/downloads/multilevel-parallel-autodock4.2" ext-link-type="url">http://autodock.scripps.edu/downloads/multilevel-parallel-autodock4.2</ext-link></p>
+          <p>Project home page: <ext-link xlink:href="http://autodock.scripps.edu/downloads/multilevel-parallel-autodock4.2" ext-link-type="uri">http://autodock.scripps.edu/downloads/multilevel-parallel-autodock4.2</ext-link></p>
           <p>Operating system(s): Platform independent</p>
           <p>Programming language: C++</p>
           <p>Other requirements: MPI (MPICH2), OpenMP</p>
@@ -461,7 +461,7 @@
                 <fpage>862</fpage>
                 <lpage>5</lpage>
                 <pub-id pub-id-type="doi">10.1038/nature03197</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXhtVOht7jK</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhtVOht7jK</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR2">
@@ -499,7 +499,7 @@
                 <fpage>494</fpage>
                 <lpage>502</lpage>
                 <pub-id pub-id-type="doi">10.1016/j.cbpa.2007.08.033</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXhtF2rsbrN</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXhtF2rsbrN</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR4">
@@ -531,7 +531,7 @@
                 <fpage>429</fpage>
                 <lpage>36</lpage>
                 <pub-id pub-id-type="doi">10.1016/j.copbio.2009.08.003</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXht1OrtLbL</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXht1OrtLbL</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR5">
@@ -558,7 +558,7 @@
                 <fpage>15</fpage>
                 <lpage>26</lpage>
                 <pub-id pub-id-type="doi">10.1002/prot.21082</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28Xpt1Cmuro%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28Xpt1Cmuro%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR6">
@@ -598,7 +598,7 @@
                 <fpage>1879</fpage>
                 <lpage>81</lpage>
                 <pub-id pub-id-type="doi">10.1021/jm0341913</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXhvV2js74%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhvV2js74%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR7">
@@ -638,7 +638,7 @@
                 <fpage>597</fpage>
                 <lpage>607</lpage>
                 <pub-id pub-id-type="doi">10.1517/17460441.2010.484460</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXmtlKhtL0%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXmtlKhtL0%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR8">
@@ -682,7 +682,7 @@
                 <fpage>2785</fpage>
                 <lpage>91</lpage>
                 <pub-id pub-id-type="doi">10.1002/jcc.21256</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXht1GitrnK</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXht1GitrnK</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR9">
@@ -709,7 +709,7 @@
                 <fpage>1</fpage>
                 <lpage>5</lpage>
                 <pub-id pub-id-type="doi">10.1002/(SICI)1099-1352(199601)9:1&lt;1::AID-JMR241>3.0.CO;2-6</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaK28Xis1SqtrY%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28Xis1SqtrY%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR10">
@@ -753,7 +753,7 @@
                 <fpage>1639</fpage>
                 <lpage>1662</lpage>
                 <pub-id pub-id-type="doi">10.1002/(SICI)1096-987X(19981115)19:14&lt;1639::AID-JCC10>3.0.CO;2-B</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DyaK1cXntFemur4%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK1cXntFemur4%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR11">
@@ -781,7 +781,7 @@
                 <fpage>549</fpage>
                 <lpage>54</lpage>
                 <pub-id pub-id-type="doi">10.1002/prot.21183</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XhtFWqt7nK</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XhtFWqt7nK</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR12">
@@ -872,7 +872,7 @@
                 <fpage>1374</fpage>
                 <lpage>5</lpage>
                 <pub-id pub-id-type="doi">10.1093/bioinformatics/btq149</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXlvVWqt78%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXlvVWqt78%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR15">
@@ -958,7 +958,7 @@
                 <fpage>1202</fpage>
                 <lpage>9</lpage>
                 <pub-id pub-id-type="doi">10.1002/jcc.21696</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3MXivVGjsL8%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXivVGjsL8%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR18">
@@ -982,7 +982,7 @@
                 <fpage>1971</fpage>
                 <lpage>1982</lpage>
                 <pub-id pub-id-type="doi">10.1002/jcc.1146</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3MXotlCntr4%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3MXotlCntr4%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR19">
@@ -1018,7 +1018,7 @@
                 <fpage>598</fpage>
                 <lpage>599</lpage>
                 <pub-id pub-id-type="doi">10.1107/S0021889807011053</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXltlKqurc%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXltlKqurc%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR20">
@@ -1089,7 +1089,7 @@
                 <fpage>177</fpage>
                 <lpage>82</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci049714+</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2cXhtVOjt77J</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhtVOjt77J</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR23">
@@ -1107,7 +1107,7 @@
                 <volume>17</volume>
                 <fpage>57</fpage>
                 <lpage>61</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD3cXhtV2rsA%3D%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3cXhtV2rsA%3D%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR24">
@@ -1151,7 +1151,7 @@
                 <fpage>601</fpage>
                 <lpage>19</lpage>
                 <pub-id pub-id-type="doi">10.1007/s10822-006-9060-4</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XhtlCksbjM</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XhtlCksbjM</pub-id>
               </mixed-citation>
             </ref>
           </ref-list>
@@ -1160,7 +1160,7 @@
           <app id="App1">
             <sec id="Sec17">
               <title>Authors’ original submitted files for images</title>
-              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM1" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_195_MOESM1_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_195_MOESM2_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_195_MOESM3_ESM.pdf" mimetype="application" mime-subtype="pdf"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material></p>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM1" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2011_195_MOESM1_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2011_195_MOESM2_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2011_195_MOESM3_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material></p>
             </sec>
           </app>
         </app-group>

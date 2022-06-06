@@ -158,14 +158,14 @@
           </history>
           <permissions>
             <copyright-statement content-type="compact">© Murray-Rust et al; licensee Chemistry Central Ltd. 2011</copyright-statement>
-            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="uri">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
             <copyright-year>2011</copyright-year>
             <copyright-holder>Murray-Rust et al; licensee Chemistry Central Ltd.</copyright-holder>
             <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0/">
-              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="url">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="uri">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
             </license>
           </permissions>
-          <abstract id="Abs1" xml:lang="en">
+          <abstract xml:lang="en" id="Abs1">
             <title>Abstract</title>
             <p>The semantic architecture of CML consists of conventions, dictionaries and units. The conventions conform to a top-level specification and each convention can constrain compliant documents through machine-processing (validation). Dictionaries conform to a dictionary specification which also imposes machine validation on the dictionaries. Each dictionary can also be used to validate data in a CML document, and provide human-readable descriptions. An additional set of conventions and dictionaries are used to support scientific units. All conventions, dictionaries and dictionary elements are identifiable and addressable through unique URIs.</p>
           </abstract>
@@ -326,16 +326,16 @@
         </article-meta>
         <notes notes-type="ESMHint">
           <title>Electronic supplementary material</title>
-          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-3-43" ext-link-type="doi">10.1186/1758-2946-3-43</ext-link>) contains supplementary material, which is available to authorized users.</p>
+          <p>The online version of this article (doi:<ext-link xlink:href="10.1186/1758-2946-3-43" ext-link-type="doi">10.1186/1758-2946-3-43</ext-link>) contains supplementary material, which is available to authorized users.</p>
         </notes>
       </front>
       <body>
         <sec id="Sec1">
           <title>Introduction</title>
           <p>From an early stage, Chemical Markup Language (CML) was designed so that it could accommodate an indefinitely large amount of chemical and related concepts. This objective has been achieved by developing a dictionary mechanism where many of the semantics are added not through hard-coded elements and attributes but by linking to semantic dictionaries. CML has a number of objects and object containers which are abstract and which can be used to represent the structure and datatype of objects. The meaning of these, both for humans and machines, is then realised by linking an appropriate element in a dictionary.</p>
-          <p>The dictionary approach was inspired by the CIF dictionaries [<xref ref-type="bibr" rid="CR1">1</xref>] from the International Union of Crystallography (IUCr) and has a similar (in many places isomorphous) structure to that project. The design allows for an indefinitely large number of dictionaries created by communities within chemistry who recognise a common semantic approach and who are prepared to create the appropriate dictionaries. At an early stage, CML provided for this with the concept of "convention". This attribute is an indication that the current element and its descendants obey semantics defined by a group of scientists using a particularly unique label (Figure <xref rid="Fig1" ref-type="fig">1</xref>).<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>The primary semantic components of CML</bold>. Elements in a document link to conventions, dictionaries and units through attributes. The referenced resources are themselves constrained by specification documents (convention spec, dictionary spec, system of units) with unique URIs. Within the dictionaries and the unit collections, every entry has a unique ID and when combined with the dictionary URI produces a globally-unique identifier.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_226_Fig1_HTML.jpg" /></p></fig></p>
+          <p>The dictionary approach was inspired by the CIF dictionaries [<xref ref-type="bibr" rid="CR1">1</xref>] from the International Union of Crystallography (IUCr) and has a similar (in many places isomorphous) structure to that project. The design allows for an indefinitely large number of dictionaries created by communities within chemistry who recognise a common semantic approach and who are prepared to create the appropriate dictionaries. At an early stage, CML provided for this with the concept of "convention". This attribute is an indication that the current element and its descendants obey semantics defined by a group of scientists using a particularly unique label (Figure <xref rid="Fig1" ref-type="fig">1</xref>).<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>The primary semantic components of CML</bold>. Elements in a document link to conventions, dictionaries and units through attributes. The referenced resources are themselves constrained by specification documents (convention spec, dictionary spec, system of units) with unique URIs. Within the dictionaries and the unit collections, every entry has a unique ID and when combined with the dictionary URI produces a globally-unique identifier.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_226_Fig1_HTML.jpg" /></fig></p>
           <p>During the evolution of CML we explored a number of syntactic approaches to representing and imposing semantics through dictionaries. These have ranged from a formally controlled ontology (ChemAxiom [<xref ref-type="bibr" rid="CR2">2</xref>]) which is consistent with OWL2.0 [<xref ref-type="bibr" rid="CR3">3</xref>] and the biosciences' Open Biological and Biomedical Ontologies (OBO)[<xref ref-type="bibr" rid="CR4">4</xref>] framework, to uncontrolled folksonomy-like tagging. Although we have implemented ChemAxiom and it is part of the bioscientists' description of chemistry, we regard it as too challenging for the current practice of chemistry and unnecessary for its communication. This is because chemistry has a well-understood (albeit implicit) ontology and the last 15 years have confirmed that it is highly stable. The power of declaration logic is therefore not required in building semantic structures. The consequence is that some of the mechanics of the semantics must be hard-coded, but this is a relatively small part and primarily consists of the linking mechanism and the treatment of scientific units of measurement. At the other end of the spectrum, we have found that the folksonomy approach is difficult to control without at least some formal semantic labelling. We have also found that there is considerable variation in how sub-communities approach their subject, and we do not wish to be prescriptive (even if we could). For example, the computational solids group (CMLComp) insisted that a molecule should not contain bonds as they did not exist, whereas the chemical informatics community is concerned not only that bonds should exist but that they should be annotated with their formal bond order.</p>
-          <p>The design of CML has always been based on the need for dictionaries, and has also recognised that there are different conventions within chemical practice. The original design (Figure <xref rid="Fig2" ref-type="fig">2</xref>) shows the linked dictionary concept and this has proved resilient and is the basis of the current architecture. However, the precise representation has varied over the years. This article represents a convergence and crystallisation of the semantic environment of CML, and we believe that there are now no immediate requirements for early refinement. This paper can therefore be used, we hope, for several years as a reference in a more robust manner than has been possible up to now. However, the exact practice of the CML community will be primarily governed by public discussions on mailing lists and formal releases of software and specifications.<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>The original design for CML semantic architecture (1996)</bold>. This shows how different groups can create their own semantics and inter-operate. The concept has been proven over 15 years with appropriate changes to the terminology (<italic>i.e</italic>. we now talk of linked metadata rather than a hyperglossary).</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_226_Fig2_HTML.jpg" /></p></fig></p>
+          <p>The design of CML has always been based on the need for dictionaries, and has also recognised that there are different conventions within chemical practice. The original design (Figure <xref rid="Fig2" ref-type="fig">2</xref>) shows the linked dictionary concept and this has proved resilient and is the basis of the current architecture. However, the precise representation has varied over the years. This article represents a convergence and crystallisation of the semantic environment of CML, and we believe that there are now no immediate requirements for early refinement. This paper can therefore be used, we hope, for several years as a reference in a more robust manner than has been possible up to now. However, the exact practice of the CML community will be primarily governed by public discussions on mailing lists and formal releases of software and specifications.<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>The original design for CML semantic architecture (1996)</bold>. This shows how different groups can create their own semantics and inter-operate. The concept has been proven over 15 years with appropriate changes to the terminology (<italic>i.e</italic>. we now talk of linked metadata rather than a hyperglossary).</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_226_Fig2_HTML.jpg" /></fig></p>
           <p>This practice and principles are general to all the semantic elements in this article, and is best illustrated in the requirements for creating a convention and enforcing it. In the spirit of communal development, any sub-community is at liberty to create their own convention without formal permission from any central governance, subject to the requirement that it must be valid against the (very flexible) CML Schema 3 [<xref ref-type="bibr" rid="CR5">5</xref>]. This is done by associating the convention with a unique namespace identifier and the convention specification shows how this must be done, but does not dictate the contents or scope of any convention. In this way, an indefinite number of sub-communities can develop and 'do their own thing' without breaking the CML semantics. The success of a convention is then a social, not technical, phenomenon. If group A develops a convention and groups B, C and D adopt it then there is wide interoperability. If A develops a convention and B develops an alternative then there is fragmentation. It's not always a bad thing to have "more than one way to do it"[<xref ref-type="bibr" rid="CR6">6</xref>], but it can it make life very complex for software developers.</p>
           <p>The price for this freedom is that a community cannot by default expect other users of CML to adopt their convention. If a community wishes its convention to be used, it needs to educate it in how CML can support it, and almost always to create or re-use software to support the convention. Thus, for example, the CMLSpect convention is supported by the JSpecView [<xref ref-type="bibr" rid="CR7">7</xref>] software, which has a vigorous community of practice. Similarly, the CMLCryst convention (not yet released) is being driven by the development of the CrystalEye [<xref ref-type="bibr" rid="CR8">8</xref>] knowledgebase and its adoption by the IUCr.</p>
           <p>The dictionary reference mechanism (the dictRef attribute) was designed to have a namespace-oriented value; <italic>i.e</italic>. it has a prefix as well as a local name. Although this approach is not formally supported by XML, it is widespread in approaches such as XSD Schema. This has turned out to be a valuable design as it is isomorphic to the use of namespaced URIs and indeed the dictRef attribute can be automatically translated to and from the URI formulation. This means that CML is semantically compatible with the emergence of Linked Open Data (LOD) on the Open web, and that CML documents and dictionaries can be used in this with little more than syntactic conversion. In our own practice, we now enforce the discipline that dictRef values must be QNames[<xref ref-type="bibr" rid="CR9">9</xref>] and that both the namespace and the local entry should be resolvable.</p>
@@ -397,24 +397,24 @@
                 </list-item>
               </list>
             </p>
-            <p>CML Schema 3 is less restrictive than Schema 2.4 [<xref ref-type="bibr" rid="CR12">12</xref>] and is designed to be used in conjunction with conventions. The loosening of the restrictions in the schema mean that it is schema-valid to create documents which do not make chemical sense (such as molecules being the children of atoms and bonds being defined in a molecule with no atoms present). The chemical validity and constraints are now imposed through the use of conventions and XSLT/XPath. @convention signifies that the element and its descendants must obey a convention, probably enforced by software and with defined semantics. There MUST (the keyword 'MUST' should be interpreted as described in RFC 2119, <ext-link xlink:href="http://www.ietf.org/rfc/rfc2119.txt" ext-link-type="url">http://www.ietf.org/rfc/rfc2119.txt</ext-link>) be a convention document describing a convention.</p>
+            <p>CML Schema 3 is less restrictive than Schema 2.4 [<xref ref-type="bibr" rid="CR12">12</xref>] and is designed to be used in conjunction with conventions. The loosening of the restrictions in the schema mean that it is schema-valid to create documents which do not make chemical sense (such as molecules being the children of atoms and bonds being defined in a molecule with no atoms present). The chemical validity and constraints are now imposed through the use of conventions and XSLT/XPath. @convention signifies that the element and its descendants must obey a convention, probably enforced by software and with defined semantics. There MUST (the keyword 'MUST' should be interpreted as described in RFC 2119, <ext-link xlink:href="http://www.ietf.org/rfc/rfc2119.txt" ext-link-type="uri">http://www.ietf.org/rfc/rfc2119.txt</ext-link>) be a convention document describing a convention.</p>
             <p>Currently supported conventions (see Figure <xref rid="Fig1" ref-type="fig">1</xref>) are:</p>
             <p>
               <list list-type="bullet">
                 <list-item>
-                  <p>dictionary (for which the namespace is <ext-link xlink:href="http://www.xml-cml.org/convention/dictionary" ext-link-type="url">http://www.xml-cml.org/convention/dictionary</ext-link>).</p>
+                  <p>dictionary (for which the namespace is <ext-link xlink:href="http://www.xml-cml.org/convention/dictionary" ext-link-type="uri">http://www.xml-cml.org/convention/dictionary</ext-link>).</p>
                 </list-item>
                 <list-item>
-                  <p>molecular (namespace: <ext-link xlink:href="http://www.xml-cml.org/convention/molecular" ext-link-type="url">http://www.xml-cml.org/convention/molecular</ext-link>).</p>
+                  <p>molecular (namespace: <ext-link xlink:href="http://www.xml-cml.org/convention/molecular" ext-link-type="uri">http://www.xml-cml.org/convention/molecular</ext-link>).</p>
                 </list-item>
                 <list-item>
-                  <p>compchem (namespace: <ext-link xlink:href="http://www.xml-cml.org/convention/compchem" ext-link-type="url">http://www.xml-cml.org/convention/compchem</ext-link>).</p>
+                  <p>compchem (namespace: <ext-link xlink:href="http://www.xml-cml.org/convention/compchem" ext-link-type="uri">http://www.xml-cml.org/convention/compchem</ext-link>).</p>
                 </list-item>
                 <list-item>
-                  <p>unit-dictionary (namespace: <ext-link xlink:href="http://www.xml-cml.org/convention/unit-dictionary" ext-link-type="url">http://www.xml-cml.org/convention/unit-dictionary</ext-link>).</p>
+                  <p>unit-dictionary (namespace: <ext-link xlink:href="http://www.xml-cml.org/convention/unit-dictionary" ext-link-type="uri">http://www.xml-cml.org/convention/unit-dictionary</ext-link>).</p>
                 </list-item>
                 <list-item>
-                  <p>unitType-dictionary (namespace: <ext-link xlink:href="http://www.xml-cml.org/convention/unitType-dictionary" ext-link-type="url">http://www.xml-cml.org/convention/unitType-dictionary</ext-link>).</p>
+                  <p>unitType-dictionary (namespace: <ext-link xlink:href="http://www.xml-cml.org/convention/unitType-dictionary" ext-link-type="uri">http://www.xml-cml.org/convention/unitType-dictionary</ext-link>).</p>
                 </list-item>
               </list>
             </p>
@@ -442,18 +442,18 @@
             <p>One important way of creating dictionaries is to extract terms and discourse from CML documents. A particular example is the markup of concepts created in computational chemistry and here we often associate a given program or code with a dictionary specific to that program/code. Thus, for example, a program/code might use a set of keywords found nowhere else; currently around six such dictionaries exist, and the number is increasing. In these cases we often find the need for a hierarchy so that a code might use code-specific dictionary terms in addition to those in the general computational chemistry dictionary. Different programs sometimes produce data with the same label but a different interpretation; does "<italic>density"</italic> mean electron density or mass density? There can be any number of dictionaries (and we envisage one for each code, or ideally fewer). Each dictionary has a unique namespace so there are no collisions. The entries can be minimal (id, term, definition, <italic>etc</italic>.) but will usually indicate the data structure (scalar, array etc.), data type, constraints etc. The descriptions can be HTML and include all sorts of additional material (including SVG).</p>
             <p>Applying @dictRef to an element asserts that it is defined in some way by a dictionary entry but does not generally transmit to descendants of that element. Thus:</p>
             <p>&lt; property @dictRef = 'foo:cpuInfo' > ... &lt;/property ></p>
-            <p>might specify that this property must be interpreted with the help of the cpuInfo entry in the foo dictionary. The @dictRef construct is most generally used for primitive types (scalar, array or matrix) though we are starting to see its use for compound types (<italic>e.g</italic>. parameter constraining a property). There MUST (the keyword 'MUST' should be interpreted as described in RFC 2119, <ext-link xlink:href="http://www.ietf.org/rfc/rfc2119.txt" ext-link-type="url">http://www.ietf.org/rfc/rfc2119.txt</ext-link>) be a dictionary entry for a dictRef.</p>
-            <p>Example (from <ext-link xlink:href="http://www.xml-cml.org/convention/dictionary" ext-link-type="url">http://www.xml-cml.org/convention/dictionary</ext-link>):</p>
+            <p>might specify that this property must be interpreted with the help of the cpuInfo entry in the foo dictionary. The @dictRef construct is most generally used for primitive types (scalar, array or matrix) though we are starting to see its use for compound types (<italic>e.g</italic>. parameter constraining a property). There MUST (the keyword 'MUST' should be interpreted as described in RFC 2119, <ext-link xlink:href="http://www.ietf.org/rfc/rfc2119.txt" ext-link-type="uri">http://www.ietf.org/rfc/rfc2119.txt</ext-link>) be a dictionary entry for a dictRef.</p>
+            <p>Example (from <ext-link xlink:href="http://www.xml-cml.org/convention/dictionary" ext-link-type="uri">http://www.xml-cml.org/convention/dictionary</ext-link>):</p>
             <p>&lt; ?xml version = "1.0" encoding = "UTF-8" ? ></p>
-            <p>&lt; dictionary xmlns = ""<ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="url">http://www.xml-cml.org/schema</ext-link></p>
-            <p>xmlns:convention = ""<ext-link xlink:href="http://www.xml-cml.org/convention/" ext-link-type="url">http://www.xml-cml.org/convention/</ext-link></p>
-            <p>xmlns:unit = ""<ext-link xlink:href="http://www.xml-cml.org/unit/nonSi/" ext-link-type="url">http://www.xml-cml.org/unit/nonSi/</ext-link></p>
-            <p>xmlns:unitType = ""<ext-link xlink:href="http://www.xml-cml.org/unit/unitType/" ext-link-type="url">http://www.xml-cml.org/unit/unitType/</ext-link></p>
-            <p>xmlns:xhtml = ""<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="url">http://www.w3.org/1999/xhtml</ext-link></p>
-            <p>xmlns:xsd = ""<ext-link xlink:href="http://www.w3.org/2001/XMLSchema" ext-link-type="url">http://www.w3.org/2001/XMLSchema</ext-link></p>
+            <p>&lt; dictionary xmlns = ""<ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="uri">http://www.xml-cml.org/schema</ext-link></p>
+            <p>xmlns:convention = ""<ext-link xlink:href="http://www.xml-cml.org/convention/" ext-link-type="uri">http://www.xml-cml.org/convention/</ext-link></p>
+            <p>xmlns:unit = ""<ext-link xlink:href="http://www.xml-cml.org/unit/nonSi/" ext-link-type="uri">http://www.xml-cml.org/unit/nonSi/</ext-link></p>
+            <p>xmlns:unitType = ""<ext-link xlink:href="http://www.xml-cml.org/unit/unitType/" ext-link-type="uri">http://www.xml-cml.org/unit/unitType/</ext-link></p>
+            <p>xmlns:xhtml = ""<ext-link xlink:href="http://www.w3.org/1999/xhtml" ext-link-type="uri">http://www.w3.org/1999/xhtml</ext-link></p>
+            <p>xmlns:xsd = ""<ext-link xlink:href="http://www.w3.org/2001/XMLSchema" ext-link-type="uri">http://www.w3.org/2001/XMLSchema</ext-link></p>
             <p>convention = "convention:dictionary"</p>
             <p>title = "fundamental chemistry concepts"</p>
-            <p>namespace = ""<ext-link xlink:href="http://www.xml-cml.org/dictionary/dummy/" ext-link-type="url">http://www.xml-cml.org/dictionary/dummy/</ext-link></p>
+            <p>namespace = ""<ext-link xlink:href="http://www.xml-cml.org/dictionary/dummy/" ext-link-type="uri">http://www.xml-cml.org/dictionary/dummy/</ext-link></p>
             <p>dictionaryPrefix = "dummy"></p>
             <p>&lt;description></p>
             <p>&lt;xhtml:p> This is an example dictionary</p>
@@ -497,7 +497,7 @@
             <p>@role signifies how an element is to be interpreted. In some CML architectures, @role might be used as a human-readable tag - <italic>i.e</italic>. part of a folksonomy, while in other cases @convention could be used as a machine-readable tag and impose machine semantics. There are currently no constrained semantics or vocabulary for @role.</p>
             <p>Example showing how role is used in the definition of a fragment within a polymer [<xref ref-type="bibr" rid="CR17">17</xref>]:</p>
             <p>&lt;?xml version = "1.0" encoding = "UTF-8"?></p>
-            <p>&lt;fragment id = "cl_nsp2_methyl" convention = "cml:PML-complete" xmlns = "<ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="url">http://www.xml-cml.org/schema</ext-link>" xmlns:g = "<ext-link xlink:href="http://www.xml-cml.org/mols/geom1" ext-link-type="url">http://www.xml-cml.org/mols/geom1</ext-link>"></p>
+            <p>&lt;fragment id = "cl_nsp2_methyl" convention = "cml:PML-complete" xmlns = "<ext-link xlink:href="http://www.xml-cml.org/schema" ext-link-type="uri">http://www.xml-cml.org/schema</ext-link>" xmlns:g = "<ext-link xlink:href="http://www.xml-cml.org/mols/geom1" ext-link-type="uri">http://www.xml-cml.org/mols/geom1</ext-link>"></p>
             <p>&lt;molecule role = "fragment" id = "benzene_1"></p>
             <p>&lt;atomArray></p>
             <p>&lt;atom elementType = "C" x3 = "9.526706134000763" y3 = "3.869733600000001" z3 = "5.213518402229052" id = "benzene_1_a1"></p>
@@ -653,7 +653,7 @@
             </list>
           </p>
           <p>The output files normally deal with outcomes of running the job (<italic>e.g</italic>. abnormal termination, level of convergence achieved, elapsed time) and calculated properties.</p>
-          <p>Most of these concepts are common to all codes and where possible we are creating entries in a single common compchem dictionary [<xref ref-type="bibr" rid="CR38">38</xref>] (Figure <xref rid="Fig3" ref-type="fig">3</xref>). In some cases, however, methods and properties are unique to one code, and many of the intricate details in the logfiles are not directly transferable. For that reason, we are using a hierarchy of dictionaries with the following components:<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>A compchem-compliant document read into the Avogadro</bold> [<xref ref-type="bibr" rid="CR39">39</xref>]<bold>browser and computational chemistry manager</bold>. The structure of the document is shown with the primary subdivisions. Each piece of information is in a precisely specified position in the hierarchy, so that it may easily be discovered by processing software. For example the hostname must occur as a scalar child of parameter with a specific @dictRef, and so on.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_226_Fig3_HTML.jpg" /></p></fig></p>
+          <p>Most of these concepts are common to all codes and where possible we are creating entries in a single common compchem dictionary [<xref ref-type="bibr" rid="CR38">38</xref>] (Figure <xref rid="Fig3" ref-type="fig">3</xref>). In some cases, however, methods and properties are unique to one code, and many of the intricate details in the logfiles are not directly transferable. For that reason, we are using a hierarchy of dictionaries with the following components:<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>A compchem-compliant document read into the Avogadro</bold> [<xref ref-type="bibr" rid="CR39">39</xref>]<bold>browser and computational chemistry manager</bold>. The structure of the document is shown with the primary subdivisions. Each piece of information is in a precisely specified position in the hierarchy, so that it may easily be discovered by processing software. For example the hostname must occur as a scalar child of parameter with a specific @dictRef, and so on.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2011_Article_226_Fig3_HTML.jpg" /></fig></p>
           <p>
             <list list-type="order">
               <list-item>
@@ -699,7 +699,7 @@
           <ref-list>
             <ref id="CR1">
               <label>1.</label>
-              <mixed-citation publication-type="other">IUCr CIF dictionaries. Accessed 2011-05-25, [<ext-link xlink:href="http://www.iucr.org/resources/cif/dictionaries" ext-link-type="url">http://www.iucr.org/resources/cif/dictionaries</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">IUCr CIF dictionaries. Accessed 2011-05-25, [<ext-link xlink:href="http://www.iucr.org/resources/cif/dictionaries" ext-link-type="uri">http://www.iucr.org/resources/cif/dictionaries</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR2">
               <label>2.</label>
@@ -725,31 +725,31 @@
             </ref>
             <ref id="CR3">
               <label>3.</label>
-              <mixed-citation publication-type="other">OWL 2 Web Ontology Language. Accessed 2011-05-25, [<ext-link xlink:href="http://www.w3.org/TR/owl2-overview/" ext-link-type="url">http://www.w3.org/TR/owl2-overview/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">OWL 2 Web Ontology Language. Accessed 2011-05-25, [<ext-link xlink:href="http://www.w3.org/TR/owl2-overview/" ext-link-type="uri">http://www.w3.org/TR/owl2-overview/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR4">
               <label>4.</label>
-              <mixed-citation publication-type="other">Open Biological and Biomedical Ontologies (OBO). Accessed 2011-05-25, [<ext-link xlink:href="http://www.obofoundry.org/" ext-link-type="url">http://www.obofoundry.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Open Biological and Biomedical Ontologies (OBO). Accessed 2011-05-25, [<ext-link xlink:href="http://www.obofoundry.org/" ext-link-type="uri">http://www.obofoundry.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR5">
               <label>5.</label>
-              <mixed-citation publication-type="other">CMl Schema 3. Accessed 2011-05-25, [<ext-link xlink:href="http://www.xml-cml.org/schema/schema3/index.php" ext-link-type="url">http://www.xml-cml.org/schema/schema3/index.php</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">CMl Schema 3. Accessed 2011-05-25, [<ext-link xlink:href="http://www.xml-cml.org/schema/schema3/index.php" ext-link-type="uri">http://www.xml-cml.org/schema/schema3/index.php</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR6">
               <label>6.</label>
-              <mixed-citation publication-type="other">"There's more than one way to do it", Perl motto. Accessed 2011-05-25, [<ext-link xlink:href="http://en.wikipedia.org/wiki/There%27s_more_than_one_way_to_do_it" ext-link-type="url">http://en.wikipedia.org/wiki/There%27s_more_than_one_way_to_do_it</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">"There's more than one way to do it", Perl motto. Accessed 2011-05-25, [<ext-link xlink:href="http://en.wikipedia.org/wiki/There%27s_more_than_one_way_to_do_it" ext-link-type="uri">http://en.wikipedia.org/wiki/There%27s_more_than_one_way_to_do_it</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR7">
               <label>7.</label>
-              <mixed-citation publication-type="other">JSpecView software. Accessed 2011-05-25, [<ext-link xlink:href="http://jspecview.sourceforge.net" ext-link-type="url">http://jspecview.sourceforge.net</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">JSpecView software. Accessed 2011-05-25, [<ext-link xlink:href="http://jspecview.sourceforge.net" ext-link-type="uri">http://jspecview.sourceforge.net</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR8">
               <label>8.</label>
-              <mixed-citation publication-type="other">CrystalEye. [<ext-link xlink:href="http://wwmm.ch.cam.ac.uk/crystaleye/" ext-link-type="url">http://wwmm.ch.cam.ac.uk/crystaleye/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">CrystalEye. [<ext-link xlink:href="http://wwmm.ch.cam.ac.uk/crystaleye/" ext-link-type="uri">http://wwmm.ch.cam.ac.uk/crystaleye/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR9">
               <label>9.</label>
-              <mixed-citation publication-type="other">Namespaces in XML, QName. Accessed 2011-08-01, [<ext-link xlink:href="http://www.w3.org/TR/REC-xml-names/#NT-QName" ext-link-type="url">http://www.w3.org/TR/REC-xml-names/#NT-QName</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Namespaces in XML, QName. Accessed 2011-08-01, [<ext-link xlink:href="http://www.w3.org/TR/REC-xml-names/#NT-QName" ext-link-type="uri">http://www.w3.org/TR/REC-xml-names/#NT-QName</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR10">
               <label>10.</label>
@@ -791,20 +791,20 @@
                 <fpage>2015</fpage>
                 <lpage>2034</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci600531a</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXhtVKrs7zM</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXhtVKrs7zM</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR11">
               <label>11.</label>
-              <mixed-citation publication-type="other">CML validators. Accessed 2011-05-25, [<ext-link xlink:href="http://validator.xml-cml.org/" ext-link-type="url">http://validator.xml-cml.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">CML validators. Accessed 2011-05-25, [<ext-link xlink:href="http://validator.xml-cml.org/" ext-link-type="uri">http://validator.xml-cml.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR12">
               <label>12.</label>
-              <mixed-citation publication-type="other">CML Schema 2.4. Accessed 2011-05-25, [<ext-link xlink:href="http://xml-cml.org/schema/schema24/index.php" ext-link-type="url">http://xml-cml.org/schema/schema24/index.php</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">CML Schema 2.4. Accessed 2011-05-25, [<ext-link xlink:href="http://xml-cml.org/schema/schema24/index.php" ext-link-type="uri">http://xml-cml.org/schema/schema24/index.php</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR13">
               <label>13.</label>
-              <mixed-citation publication-type="other">CML dictionary ecology. Accessed 2011-05-25, [<ext-link xlink:href="http://www.xml-cml.org/convention/dictionary" ext-link-type="url">http://www.xml-cml.org/convention/dictionary</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">CML dictionary ecology. Accessed 2011-05-25, [<ext-link xlink:href="http://www.xml-cml.org/convention/dictionary" ext-link-type="uri">http://www.xml-cml.org/convention/dictionary</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR14">
               <label>14.</label>
@@ -846,16 +846,16 @@
                 <fpage>4315</fpage>
                 <lpage>4316</lpage>
                 <pub-id pub-id-type="doi">10.1093/bioinformatics/bti693</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXht1Gltr7I</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXht1Gltr7I</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR15">
               <label>15.</label>
-              <mixed-citation publication-type="other">IUPAC Compendium of Chemical Terminology - the Gold Book. Accessed 2011-05-25, [<ext-link xlink:href="http://goldbook.iupac.org/" ext-link-type="url">http://goldbook.iupac.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">IUPAC Compendium of Chemical Terminology - the Gold Book. Accessed 2011-05-25, [<ext-link xlink:href="http://goldbook.iupac.org/" ext-link-type="uri">http://goldbook.iupac.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR16">
               <label>16.</label>
-              <mixed-citation publication-type="other">IUPAC Project: Glossary of atmospheric chemistry. Accessed 2011-06-03, [<ext-link xlink:href="http://www.iupac.org/web/ins/1999-033-1-600" ext-link-type="url">http://www.iupac.org/web/ins/1999-033-1-600</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">IUPAC Project: Glossary of atmospheric chemistry. Accessed 2011-06-03, [<ext-link xlink:href="http://www.iupac.org/web/ins/1999-033-1-600" ext-link-type="uri">http://www.iupac.org/web/ins/1999-033-1-600</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR17">
               <label>17.</label>
@@ -885,12 +885,12 @@
                 <fpage>2118</fpage>
                 <lpage>2128</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci8002123</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXhtlCrsL7M</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXhtlCrsL7M</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR18">
               <label>18.</label>
-              <mixed-citation publication-type="other">CML unitType dictionary. Accessed 2011-05-25, [<ext-link xlink:href="http://www.xml-cml.org/unit/unitType/" ext-link-type="url">http://www.xml-cml.org/unit/unitType/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">CML unitType dictionary. Accessed 2011-05-25, [<ext-link xlink:href="http://www.xml-cml.org/unit/unitType/" ext-link-type="uri">http://www.xml-cml.org/unit/unitType/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR19">
               <label>19.</label>
@@ -913,15 +913,15 @@
             </ref>
             <ref id="CR20">
               <label>20.</label>
-              <mixed-citation publication-type="other">Taylor BN, Thompson A, (eds.): The International System of Units (SI). 2008, NIST Special Publication 330, Accessed 2011-05-25, [<ext-link xlink:href="http://www.nist.gov/pml/pubs/sp330/index.cfm" ext-link-type="url">http://www.nist.gov/pml/pubs/sp330/index.cfm</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Taylor BN, Thompson A, (eds.): The International System of Units (SI). 2008, NIST Special Publication 330, Accessed 2011-05-25, [<ext-link xlink:href="http://www.nist.gov/pml/pubs/sp330/index.cfm" ext-link-type="uri">http://www.nist.gov/pml/pubs/sp330/index.cfm</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR21">
               <label>21.</label>
-              <mixed-citation publication-type="other">Units markup language (UnitsML). Accessed 2011-05-25, [<ext-link xlink:href="http://unitsml.nist.gov/" ext-link-type="url">http://unitsml.nist.gov/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Units markup language (UnitsML). Accessed 2011-05-25, [<ext-link xlink:href="http://unitsml.nist.gov/" ext-link-type="uri">http://unitsml.nist.gov/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR22">
               <label>22.</label>
-              <mixed-citation publication-type="other">JUMBO. Accessed 2011-05-25, [<ext-link xlink:href="http://sourceforge.net/projects/cml/" ext-link-type="url">http://sourceforge.net/projects/cml/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">JUMBO. Accessed 2011-05-25, [<ext-link xlink:href="http://sourceforge.net/projects/cml/" ext-link-type="uri">http://sourceforge.net/projects/cml/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR23">
               <label>23.</label>
@@ -972,23 +972,23 @@
             </ref>
             <ref id="CR24">
               <label>24.</label>
-              <mixed-citation publication-type="other">CML SI units dictionary. Accessed 2011-05-25, [<ext-link xlink:href="http://xml-cml.org/unit/si/" ext-link-type="url">http://xml-cml.org/unit/si/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">CML SI units dictionary. Accessed 2011-05-25, [<ext-link xlink:href="http://xml-cml.org/unit/si/" ext-link-type="uri">http://xml-cml.org/unit/si/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR25">
               <label>25.</label>
-              <mixed-citation publication-type="other">CML non-SI units dictionary. Accessed 2011-05-25, [<ext-link xlink:href="http://xml-cml.org/unit/nonSi/" ext-link-type="url">http://xml-cml.org/unit/nonSi/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">CML non-SI units dictionary. Accessed 2011-05-25, [<ext-link xlink:href="http://xml-cml.org/unit/nonSi/" ext-link-type="uri">http://xml-cml.org/unit/nonSi/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR26">
               <label>26.</label>
-              <mixed-citation publication-type="other">The Gene Ontology, GO. Accessed 2011-05-25, [<ext-link xlink:href="http://www.geneontology.org/" ext-link-type="url">http://www.geneontology.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">The Gene Ontology, GO. Accessed 2011-05-25, [<ext-link xlink:href="http://www.geneontology.org/" ext-link-type="uri">http://www.geneontology.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR27">
               <label>27.</label>
-              <mixed-citation publication-type="other">GO file format guide. Accessed 2011-05-25, [<ext-link xlink:href="http://www.geneontology.org/GO.format.shtml" ext-link-type="url">http://www.geneontology.org/GO.format.shtml</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">GO file format guide. Accessed 2011-05-25, [<ext-link xlink:href="http://www.geneontology.org/GO.format.shtml" ext-link-type="uri">http://www.geneontology.org/GO.format.shtml</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR28">
               <label>28.</label>
-              <mixed-citation publication-type="other">CML CIF dictionary. Accessed 2011-05-25, [<ext-link xlink:href="http://xml-cml.org/dictionary/cif/" ext-link-type="url">http://xml-cml.org/dictionary/cif/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">CML CIF dictionary. Accessed 2011-05-25, [<ext-link xlink:href="http://xml-cml.org/dictionary/cif/" ext-link-type="uri">http://xml-cml.org/dictionary/cif/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR29">
               <label>29.</label>
@@ -1017,7 +1017,7 @@
                 <volume>3</volume>
                 <fpage>17</fpage>
                 <pub-id pub-id-type="doi">10.1186/1758-2946-3-17</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3MXmsV2hu7g%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXmsV2hu7g%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR30">
@@ -1043,12 +1043,12 @@
                 <volume>3</volume>
                 <fpage>40</fpage>
                 <pub-id pub-id-type="doi">10.1186/1758-2946-3-40</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3MXhsVCisrzO</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhsVCisrzO</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR31">
               <label>31.</label>
-              <mixed-citation publication-type="other">Quixote project on QC databases. Accessed 2011-05-25, [<ext-link xlink:href="http://quixote.wikispot.org/" ext-link-type="url">http://quixote.wikispot.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Quixote project on QC databases. Accessed 2011-05-25, [<ext-link xlink:href="http://quixote.wikispot.org/" ext-link-type="uri">http://quixote.wikispot.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR32">
               <label>32.</label>
@@ -1101,31 +1101,31 @@
             </ref>
             <ref id="CR33">
               <label>33.</label>
-              <mixed-citation publication-type="other">Official Gaussian website. Accessed 2011-05-25, [<ext-link xlink:href="http://www.gaussian.com/" ext-link-type="url">http://www.gaussian.com/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Official Gaussian website. Accessed 2011-05-25, [<ext-link xlink:href="http://www.gaussian.com/" ext-link-type="uri">http://www.gaussian.com/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR34">
               <label>34.</label>
-              <mixed-citation publication-type="other">GAMESS-UK software. Accessed 2011-05-25, [<ext-link xlink:href="http://www.cse.scitech.ac.uk/ccg/software/gamess-uk/" ext-link-type="url">http://www.cse.scitech.ac.uk/ccg/software/gamess-uk/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">GAMESS-UK software. Accessed 2011-05-25, [<ext-link xlink:href="http://www.cse.scitech.ac.uk/ccg/software/gamess-uk/" ext-link-type="uri">http://www.cse.scitech.ac.uk/ccg/software/gamess-uk/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR35">
               <label>35.</label>
-              <mixed-citation publication-type="other">Jaguar software, Schrödinger Inc. Accessed 2011-05-25, [<ext-link xlink:href="http://www.schrodinger.com/products/14/7/" ext-link-type="url">http://www.schrodinger.com/products/14/7/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Jaguar software, Schrödinger Inc. Accessed 2011-05-25, [<ext-link xlink:href="http://www.schrodinger.com/products/14/7/" ext-link-type="uri">http://www.schrodinger.com/products/14/7/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR36">
               <label>36.</label>
-              <mixed-citation publication-type="other">NWChem software. Accessed 2011-05-25, [<ext-link xlink:href="http://www.nwchem-sw.org/" ext-link-type="url">http://www.nwchem-sw.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">NWChem software. Accessed 2011-05-25, [<ext-link xlink:href="http://www.nwchem-sw.org/" ext-link-type="uri">http://www.nwchem-sw.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR37">
               <label>37.</label>
-              <mixed-citation publication-type="other">Quantum ESPRESSO software. Accessed 2011-05-25, [<ext-link xlink:href="http://www.quantum-espresso.org/" ext-link-type="url">http://www.quantum-espresso.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Quantum ESPRESSO software. Accessed 2011-05-25, [<ext-link xlink:href="http://www.quantum-espresso.org/" ext-link-type="uri">http://www.quantum-espresso.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR38">
               <label>38.</label>
-              <mixed-citation publication-type="other">CML compchem dictionary. Accessed 2011-05-25, [<ext-link xlink:href="http://xml-cml.org/dictionary/compchem/" ext-link-type="url">http://xml-cml.org/dictionary/compchem/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">CML compchem dictionary. Accessed 2011-05-25, [<ext-link xlink:href="http://xml-cml.org/dictionary/compchem/" ext-link-type="uri">http://xml-cml.org/dictionary/compchem/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR39">
               <label>39.</label>
-              <mixed-citation publication-type="other">Avogadro software. Accessed 2011-05-25, [<ext-link xlink:href="http://avogadro.openmolecules.net" ext-link-type="url">http://avogadro.openmolecules.net</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Avogadro software. Accessed 2011-05-25, [<ext-link xlink:href="http://avogadro.openmolecules.net" ext-link-type="uri">http://avogadro.openmolecules.net</ext-link>]</mixed-citation>
             </ref>
           </ref-list>
         </ref-list>
@@ -1133,7 +1133,7 @@
           <app id="App1">
             <sec id="Sec11">
               <title>Authors’ original submitted files for images</title>
-              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM1" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_226_MOESM1_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_226_MOESM2_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2011_226_MOESM3_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material></p>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM1" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_226_MOESM1_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_226_MOESM2_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2011_226_MOESM3_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material></p>
             </sec>
           </app>
         </app-group>

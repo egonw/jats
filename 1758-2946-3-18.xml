@@ -106,21 +106,19 @@
           </history>
           <permissions>
             <copyright-statement content-type="compact">© Jeliazkova and Jeliazkov; licensee Chemistry Central Ltd. 2011</copyright-statement>
-            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="url">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="uri">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
             <copyright-year>2011</copyright-year>
             <copyright-holder>Jeliazkova and Jeliazkov; licensee Chemistry Central Ltd.</copyright-holder>
             <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0/">
-              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="url">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="uri">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
             </license>
           </permissions>
-          <abstract id="Abs1" xml:lang="en">
+          <abstract xml:lang="en" id="Abs1">
             <title>Abstract</title>
             <p>The AMBIT web services package is one of the several existing independent implementations of the OpenTox Application Programming Interface and is built according to the principles of the Representational State Transfer (REST) architecture. The Open Source Predictive Toxicology Framework, developed by the partners in the EC FP7 OpenTox project, aims at providing a unified access to toxicity data and predictive models, as well as validation procedures. This is achieved by i) an information model, based on a common OWL-DL ontology ii) links to related ontologies; iii) data and algorithms, available through a standardized REST web services interface, where every compound, data set or predictive method has a unique web address, used to retrieve its Resource Description Framework (RDF) representation, or initiate the associated calculations.</p>
             <p>The AMBIT web services package has been developed as an extension of AMBIT modules, adding the ability to create (Quantitative) Structure-Activity Relationship (QSAR) models and providing an OpenTox API compliant interface. The representation of data and processing resources in W3C Resource Description Framework facilitates integrating the resources as Linked Data. By uploading datasets with chemical structures and arbitrary set of properties, they become automatically available online in several formats. The services provide unified interfaces to several descriptor calculation, machine learning and similarity searching algorithms, as well as to applicability domain and toxicity prediction models. All Toxtree modules for predicting the toxicological hazard of chemical compounds are also integrated within this package. The complexity and diversity of the processing is reduced to the simple paradigm "read data from a web address, perform processing, write to a web address". The online service allows to easily run predictions, without installing any software, as well to share online datasets and models. The downloadable web application allows researchers to setup an arbitrary number of service instances for specific purposes and at suitable locations. These services could be used as a distributed framework for processing of resource-intensive tasks and data sharing or in a fully independent way, according to the specific needs. The advantage of exposing the functionality via the OpenTox API is seamless interoperability, not only within a single web application, but also in a network of distributed services. Last, but not least, the services provide a basis for building web mashups, end user applications with friendly GUIs, as well as embedding the functionalities in existing workflow systems.</p>
             <fig id="Figa" position="anchor">
-              <p>
-                <graphic position="anchor" specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2010_Article_201_Figa_HTML.gif" />
-              </p>
+              <graphic specific-use="HTML" mime-subtype="GIF" xlink:href="MediaObjects/13321_2010_Article_201_Figa_HTML.gif" position="anchor" />
             </fig>
           </abstract>
           <kwd-group xml:lang="en">
@@ -284,7 +282,7 @@
         </article-meta>
         <notes notes-type="ESMHint">
           <title>Electronic supplementary material</title>
-          <p>The online version of this article (doi:<ext-link xlink:href="https://doi.org/10.1186/1758-2946-3-18" ext-link-type="doi">10.1186/1758-2946-3-18</ext-link>) contains supplementary material, which is available to authorized users.</p>
+          <p>The online version of this article (doi:<ext-link xlink:href="10.1186/1758-2946-3-18" ext-link-type="doi">10.1186/1758-2946-3-18</ext-link>) contains supplementary material, which is available to authorized users.</p>
         </notes>
       </front>
       <body>
@@ -306,38 +304,38 @@
           <title>Implementation</title>
           <p>AMBIT is implemented in Java, uses a MySQL database as backend, and relies on The Chemistry Development Kit [<xref ref-type="bibr" rid="CR23">23</xref>–<xref ref-type="bibr" rid="CR25">25</xref>] for cheminformatics functionality. The OpenTox API implementation introduces two additional major dependencies, namely, the Restlet [<xref ref-type="bibr" rid="CR26">26</xref>] library for implementation of REST services, and the Jena [<xref ref-type="bibr" rid="CR27">27</xref>] RDF API. Apache Maven [<xref ref-type="bibr" rid="CR28">28</xref>] is used for software project management (organizing dependencies and building of executables). The source code is available in a Subversion repository at the SourceForge site [<xref ref-type="bibr" rid="CR29">29</xref>]. There are two top level Maven projects, <italic>ambit2-all</italic> and <italic>ambit2-apps</italic>, consisting of several sub-modules. The first is used to organize and build modules, while <italic>ambit2-apps</italic> uses these modules as dependencies and builds the end user applications. The Toxtree source code [<xref ref-type="bibr" rid="CR30">30</xref>] also includes dependencies on some of the <italic>ambit-all</italic> modules, and, on the other hand, is itself a dependency of the end user applications, in which it has been incorporated, such as AmbitXT and REST web services. The entire package currently consists of 30 Maven modules. The larger number of modules (30, compared to 21, as reported in the previous publication [<xref ref-type="bibr" rid="CR15">15</xref>] that describes the standalone application), is mostly due to refactoring towards better organization of dependencies and introduction of new algorithms. The REST services implementation is organized in two modules, <italic>ambit2-rest</italic> and <italic>ambit2-www</italic>; the first one contains generic REST and RDF functionality, while the second is an implementation of the OpenTox API and builds the web application used to run AMBIT REST services.</p>
           <p>Table <xref rid="Tab1" ref-type="table">1</xref> provides a non-exhaustive overview of the most important objects and operations of the OpenTox API, implemented by the AMBIT services. The complete description of the API [<xref ref-type="bibr" rid="CR1">1</xref>] includes specifications of the input parameters and the result codes. An up-to-date version is available from the dedicated wiki at the OpenTox web site [<xref ref-type="bibr" rid="CR31">31</xref>]. Currently, there is no AMBIT implementation of the OpenTox validation and reporting services; however, remote validation and reporting services are compatible, and can be used to validate models created via AMBIT services. Incorporation of the Authentication and Authorization API is under development.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p>Summary of the OpenTox API, implemented by AMBIT REST services. {service} defaults to "ambit2".</p></caption><table frame="hsides" rules="groups"><tbody><tr><td align="left" colspan="2"><p><bold>1. Chemical compound http(s)://host:port/{service}/compound/{id}</bold></p></td></tr><tr><td align="left"><p>GET</p></td><td align="left"><p>Retrieves a representation of the chemical compound (in Chemical MIME [<xref ref-type="bibr" rid="CR32">32</xref>] formats or image/* formats)</p></td></tr><tr><td align="left"><p>PUT</p></td><td align="left"><p>Updates the chemical compound</p></td></tr><tr><td align="left"><p>POST</p></td><td align="left"><p>Creates a new chemical compound, returns the URI of the new chemical compound</p></td></tr><tr><td align="left"><p>DELETE</p></td><td align="left"><p>Deletes the chemical compound</p></td></tr><tr><td align="left" colspan="2"><p><bold>2. Features (or properties) of chemical compounds http(s)://host:port/{service}/feature/{id}</bold></p></td></tr><tr><td align="left"><p>GET</p></td><td align="left"><p>Retrieves a representation of the property (RDF representation of the <italic>ot:Feature</italic> class)</p></td></tr><tr><td align="left"><p>PUT</p></td><td align="left"><p>Updates the property representation</p></td></tr><tr><td align="left"><p>POST</p></td><td align="left"><p>Creates a new property, returns a URI of the new property</p></td></tr><tr><td align="left"><p>DELETE</p></td><td align="left"><p>Deletes the property</p></td></tr><tr><td align="left" colspan="2"><p><bold>3. Datasets of chemical compounds http(s)://host:port/{service}/dataset/{id}</bold></p></td></tr><tr><td align="left"><p>GET</p></td><td align="left"><p>Retrieves a representation of the dataset (RDF representation of the <italic>ot:Dataset</italic> class, or Chemical MIME formats)</p></td></tr><tr><td align="left"><p>PUT</p></td><td align="left"><p>Updates the dataset (adds new compounds and/or properties)</p></td></tr><tr><td align="left"><p>POST</p></td><td align="left"><p>Creates a new dataset (e.g. uploads a file, which is transformed into a dataset). Returns the new dataset URI, or a Task URI for long running jobs. Parameters are expected in the body of the POST command, several formats are supported via the "Content-type" HTTP header, including RDF and chemical MIME formats.</p></td></tr><tr><td align="left"><p>DELETE</p></td><td align="left"><p>Deletes the dataset</p></td></tr><tr><td align="left" colspan="2"><p><bold>4. Algorithms http(s)://host:port/{service}/algorithm/{id}</bold></p></td></tr><tr><td align="left"><p>GET</p></td><td align="left"><p>Retrieves a representation of the algorithm (RDF representation of the <italic>ot:Algorithm</italic> class)</p></td></tr><tr><td align="left"><p>POST</p></td><td align="left"><p>• Given a compound URI, or a dataset URI as input parameter, launches the processing algorithm and returns the URI of the dataset, containing the results, or returns a Task URI for long running jobs.</p></td></tr><tr><td /><td align="left"><p>• If the algorithm is a machine learning one, given a dataset URI as input parameter, builds a new predictive model and returns the Model URI, or the Task URI.</p></td></tr><tr><td /><td align="left"><p>• Parameters are expected in the body of the POST command, in "application/x-www-form-urlencoded" MIME format.</p></td></tr><tr><td /><td align="left"><p>• A common required parameter is dataset_uri = http://host:port/{service}/dataset/{datasetid}, which specifies the data set to be operated on.</p></td></tr><tr><td align="left" colspan="2"><p><bold>5. Models http(s)://host:port/{service}/model/{id}</bold></p></td></tr><tr><td align="left"><p>GET</p></td><td align="left"><p>Retrieves a representation of the model (RDF representation of the <italic>ot:Model</italic> class)</p></td></tr><tr><td align="left"><p>POST</p></td><td align="left"><p>• Given a compound URI, or a dataset URI as input parameter, applies the predictive model, and returns the URI of the dataset, containing the predictions, or a Task URI for long running jobs.</p></td></tr><tr><td /><td align="left"><p>• Parameters are expected in the body of POST command, in "application/x- www-form-urlencoded" MIME format.</p></td></tr><tr><td /><td align="left"><p>• A common required parameter (in the body of the POST command is dataset_uri = http://host:port/{service}/dataset/{datasetid}, which specifies the data set to be operated on.</p></td></tr><tr><td align="left"><p>DELETE</p></td><td align="left"><p>Deletes the model</p></td></tr><tr><td align="left" colspan="2"><p><bold>6. Task http(s)://host:port/{service}/task/{id}</bold></p></td></tr><tr><td align="left"><p>GET</p></td><td align="left"><p>Retrieves a representation of the task (RDF representation of the <italic>ot:Task</italic> class). The task status can be one of Queued, Running, Cancelled, Error or Completed.</p></td></tr><tr><td align="left"><p>DELETE</p></td><td align="left"><p>Cancels the task</p></td></tr><tr><td align="left" colspan="2"><p><bold>7.Query for compounds http(s)://host:port/{service}/query/compound/{identifier}/{results}</bold></p></td></tr><tr><td align="left"><p>GET</p></td><td align="left"><p>Returns compounds, features and feature values, matching the submitted search criteria, in supported formats (dataset representation in RDF, SDF, MOL or SMILES format), according to the mime type requested by the corresponding Accept header:</p></td></tr><tr><td /><td align="left"><p>• <italic>identifier</italic> - any <italic>name</italic>, <italic>formula</italic>, <italic>registry identifier</italic>, <italic>InChI</italic> , <italic>SMILES</italic>, or predefined string "<italic>url</italic>"; if the string "<italic>url</italic>" is used, a query parameter is expected ?<italic>search</italic>=&lt;<italic>compound url</italic>></p></td></tr><tr><td /><td align="left"><p>• <italic>results</italic> - predefined strings: <italic>'names'</italic>, <italic>'stdinchi'</italic>, <italic>'all'</italic>, <italic>'smiles'</italic>, <italic>'stdinchikey'</italic></p></td></tr><tr><td align="left" colspan="2"><p><bold>8. Ontology http(s)://host:port/ontology</bold></p></td></tr><tr><td align="left"><p>GET</p></td><td align="left"><p>Submits a SPARQL query and retrieves the result in "application/sparql-results+xml" format. Requires an input parameter <italic>query</italic> = "SPARQL"</p></td></tr><tr><td align="left"><p>POST</p></td><td align="left"><p>Submits a SPARQL query and retrieves the result in "application/sparql-results+xml" format. Requires an input parameter <italic>query</italic> = "SPARQL" in the message body in "application/x-www-form- urlencoded" MIME format. Useful for submitting long queries that might exceed the supported URI length.</p></td></tr><tr><td align="left"><p>POST</p></td><td align="left"><p>Reads the RDF representation of an OpenTox object and adds it into the triple storage. Requires input parameter <italic>uri=</italic>"<italic>OpenTox resource URI</italic>"</p></td></tr><tr><td align="left"><p>DELETE</p></td><td align="left"><p>Deletes all RDF triples that refer to a given URI. Requires an input parameter <italic>uri=</italic>"<italic>OpenTox resource URI</italic>"</p></td></tr></tbody></table></table-wrap></p>
-          <p>The RDF representation of OpenTox objects is defined by the OpenTox ontology. The current version is available at <ext-link xlink:href="http://www.opentox.org/api/1.1/opentox.owl" ext-link-type="url">http://www.opentox.org/api/1.1/opentox.owl</ext-link> The namespace prefix used in this paper is "ot:", e.g. <italic>ot:Model</italic> refers to the <ext-link xlink:href="http://www.opentox.org/api/1.1/opentox.owl#Modelclass" ext-link-type="url">http://www.opentox.org/api/1.1/opentox.owl#Modelclass</ext-link>. OpenTox REST resources are instances of the relevant RDF classes (e.g. <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/model/9" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/model/9</ext-link> is an instance of the <italic>ot:Model</italic> class). Appendixes 1 and 2 provide examples how to retrieve the representations of an OpenTox model and algorithm, respectively. As a consequence of being exposed as REST web services, all OpenTox objects URIs are dereferenceable. The examples provided in the Appendixes rely on the cURL [<xref ref-type="bibr" rid="CR33">33</xref>] command line tool for transferring data with URI syntax, which supports all HTTP operations (as well as other protocols). Any tool or programming language library, supporting the HTTP protocol, can be used to communicate with the OpenTox REST services. The examples use live demo instances of the AMBIT implementation of the services, but are also applicable, with minor trivial changes, to any OpenTox compliant service.</p>
+          <p>The RDF representation of OpenTox objects is defined by the OpenTox ontology. The current version is available at <ext-link xlink:href="http://www.opentox.org/api/1.1/opentox.owl" ext-link-type="uri">http://www.opentox.org/api/1.1/opentox.owl</ext-link> The namespace prefix used in this paper is "ot:", e.g. <italic>ot:Model</italic> refers to the <ext-link xlink:href="http://www.opentox.org/api/1.1/opentox.owl#Modelclass" ext-link-type="uri">http://www.opentox.org/api/1.1/opentox.owl#Modelclass</ext-link>. OpenTox REST resources are instances of the relevant RDF classes (e.g. <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/model/9" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/model/9</ext-link> is an instance of the <italic>ot:Model</italic> class). Appendixes 1 and 2 provide examples how to retrieve the representations of an OpenTox model and algorithm, respectively. As a consequence of being exposed as REST web services, all OpenTox objects URIs are dereferenceable. The examples provided in the Appendixes rely on the cURL [<xref ref-type="bibr" rid="CR33">33</xref>] command line tool for transferring data with URI syntax, which supports all HTTP operations (as well as other protocols). Any tool or programming language library, supporting the HTTP protocol, can be used to communicate with the OpenTox REST services. The examples use live demo instances of the AMBIT implementation of the services, but are also applicable, with minor trivial changes, to any OpenTox compliant service.</p>
           <sec id="Sec3">
             <title>Appendix 1: An example how to retrieve the representation of an OpenTox model</title>
-            <p>curl -H "Accept:text/n3" <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/model/9" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/model/9</ext-link></p>
-            <p>@prefix ot:   &lt;<ext-link xlink:href="http://www.opentox.org/api/1.1%23" ext-link-type="url">http://www.opentox.org/api/1.1#</ext-link>>.</p>
-            <p>@prefix dc:   &lt;<ext-link xlink:href="http://purl.org/dc/elements/1.1/" ext-link-type="url">http://purl.org/dc/elements/1.1/</ext-link>>.</p>
-            <p>@prefix rdfs:   &lt;<ext-link xlink:href="http://www.w3.org/2000/01/rdf-schema%23" ext-link-type="url">http://www.w3.org/2000/01/rdf-schema#</ext-link>>.</p>
-            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/model/9" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/model/9</ext-link>></p>
+            <p>curl -H "Accept:text/n3" <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/model/9" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/model/9</ext-link></p>
+            <p>@prefix ot:   &lt;<ext-link xlink:href="http://www.opentox.org/api/1.1%23" ext-link-type="uri">http://www.opentox.org/api/1.1#</ext-link>>.</p>
+            <p>@prefix dc:   &lt;<ext-link xlink:href="http://purl.org/dc/elements/1.1/" ext-link-type="uri">http://purl.org/dc/elements/1.1/</ext-link>>.</p>
+            <p>@prefix rdfs:   &lt;<ext-link xlink:href="http://www.w3.org/2000/01/rdf-schema%23" ext-link-type="uri">http://www.w3.org/2000/01/rdf-schema#</ext-link>>.</p>
+            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/model/9" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/model/9</ext-link>></p>
             <p>   a   ot:Model ;</p>
             <p>   dc:title "XLogP" ;</p>
             <p>   ot:algorithm</p>
-            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor</ext-link>>;</p>
+            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor</ext-link>>;</p>
             <p>   ot:predictedVariables</p>
-            <p>      &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/feature/22114" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/feature/22114</ext-link>>.</p>
-            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/feature/22114" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/feature/22114</ext-link>>.</p>
+            <p>      &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/feature/22114" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/feature/22114</ext-link>>.</p>
+            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/feature/22114" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/feature/22114</ext-link>>.</p>
             <p>   a   ot:Feature.</p>
-            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor</ext-link>></p>
+            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor</ext-link>></p>
             <p>   a   ot:Algorithm</p>
           </sec>
           <sec id="Sec4">
             <title>Appendix 2: An example how to retrieve the representation of an OpenTox algorithm</title>
             <p>curl -H "Accept:text/n3" \</p>
             <p>
-              <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor</ext-link>
+              <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor</ext-link>
             </p>
-            <p>@prefix ot:   &lt;<ext-link xlink:href="http://www.opentox.org/api/1.1%23" ext-link-type="url">http://www.opentox.org/api/1.1#</ext-link>>.</p>
-            <p>@prefix dc:   &lt;<ext-link xlink:href="http://purl.org/dc/elements/1.1/" ext-link-type="url">http://purl.org/dc/elements/1.1/</ext-link>>.</p>
-            <p>@prefix rdfs:   &lt;<ext-link xlink:href="http://www.w3.org/2000/01/rdf-schema%23" ext-link-type="url">http://www.w3.org/2000/01/rdf-schema#</ext-link>>.</p>
+            <p>@prefix ot:   &lt;<ext-link xlink:href="http://www.opentox.org/api/1.1%23" ext-link-type="uri">http://www.opentox.org/api/1.1#</ext-link>>.</p>
+            <p>@prefix dc:   &lt;<ext-link xlink:href="http://purl.org/dc/elements/1.1/" ext-link-type="uri">http://purl.org/dc/elements/1.1/</ext-link>>.</p>
+            <p>@prefix rdfs:   &lt;<ext-link xlink:href="http://www.w3.org/2000/01/rdf-schema%23" ext-link-type="uri">http://www.w3.org/2000/01/rdf-schema#</ext-link>>.</p>
             <p>@prefix bo:   &lt;http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#>.</p>
-            <p>@prefix xsd:   &lt;<ext-link xlink:href="http://www.w3.org/2001/XMLSchema%23" ext-link-type="url">http://www.w3.org/2001/XMLSchema#</ext-link>>.</p>
+            <p>@prefix xsd:   &lt;<ext-link xlink:href="http://www.w3.org/2001/XMLSchema%23" ext-link-type="uri">http://www.w3.org/2001/XMLSchema#</ext-link>>.</p>
             <p>@prefix ota:   &lt;http://www.opentox.org/algorithmTypes.owl#>.</p>
-            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor</ext-link>></p>
+            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor</ext-link>></p>
             <p>   a   ot:Algorithm, ota:DescriptorCalculation ;</p>
             <p>   dc:title "XLogP"^^xsd:string ;</p>
             <p>   bo:instanceOf bo:xlogP.</p>
@@ -345,11 +343,11 @@
           </sec>
           <sec id="Sec5">
             <title>Appendix 3: An example of launching XLogP prediction for a dataset</title>
-            <p>curl -H "Accept:text/uri-list" -X POST -d "dataset_uri=<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/dataset/112" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/dataset/112</ext-link>" \</p>
-            <p><ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/model/9" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/model/9</ext-link> -v</p>
+            <p>curl -H "Accept:text/uri-list" -X POST -d "dataset_uri=<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/dataset/112" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/dataset/112</ext-link>" \</p>
+            <p><ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/model/9" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/model/9</ext-link> -v</p>
             <p>&lt; HTTP/1.1 202 Accepted</p>
             <p>
-              <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/task/232289a2-2ce8-4f2e-9a62-8db02887577b" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/task/232289a2-2ce8-4f2e-9a62-8db02887577b</ext-link>
+              <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/task/232289a2-2ce8-4f2e-9a62-8db02887577b" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/task/232289a2-2ce8-4f2e-9a62-8db02887577b</ext-link>
             </p>
             <p>Note that both the dataset and the models are accessed indirectly via URIs, so the only data transferred on input and output are those URIs, not actual content. The result is a Task URI, and the HTTP return code 202 Accepted is an indicator that the processing has not been completed yet. In case processing was completed, the return code would have been OK 200 and the returned URI - an <italic>ot:Dataset</italic>, where results could be retrieved.</p>
           </sec>
@@ -364,41 +362,41 @@
           <sec id="Sec7">
             <title>Appendix 5: An example of prediction results retrieval by HTTP GET command on URI, received as shown in Appendix 4</title>
             <p>curl -H "Accept:text/n3" \</p>
-            <p>"<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/dataset/112?feature_uris%5B%5D=http%3A%2F%2Fapps.ideaconsult.net%3A8080%2Fambit2%2Fmodel%2F9%2Fpredicted" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/dataset/112?feature_uris%5B%5D=http%3A%2F%2Fapps.ideaconsult.net%3A8080%2Fambit2%2Fmodel%2F9%2Fpredicted</ext-link>"</p>
-            <p>@prefix ot:   &lt;<ext-link xlink:href="http://www.opentox.org/api/1.1%23" ext-link-type="url">http://www.opentox.org/api/1.1#</ext-link>>.</p>
-            <p>@prefix dc:   &lt;<ext-link xlink:href="http://purl.org/dc/elements/1.1/" ext-link-type="url">http://purl.org/dc/elements/1.1/</ext-link>>.</p>
-            <p>@prefix:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/</ext-link>>.</p>
-            <p>@prefix rdfs:   &lt;<ext-link xlink:href="http://www.w3.org/2000/01/rdf-schema%23" ext-link-type="url">http://www.w3.org/2000/01/rdf-schema#</ext-link>>.</p>
-            <p>@prefix owl:   &lt;<ext-link xlink:href="http://www.w3.org/2002/07/owl%23" ext-link-type="url">http://www.w3.org/2002/07/owl#</ext-link>>.</p>
-            <p>@prefix xsd:   &lt;<ext-link xlink:href="http://www.w3.org/2001/XMLSchema%23" ext-link-type="url">http://www.w3.org/2001/XMLSchema#</ext-link>>.</p>
-            <p>@prefix rdf:   &lt;<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="url">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>>.</p>
-            <p>@prefix otee:   &lt;<ext-link xlink:href="http://www.opentox.org/echaEndpoints.owl%23" ext-link-type="url">http://www.opentox.org/echaEndpoints.owl#</ext-link>>.</p>
+            <p>"<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/dataset/112?feature_uris%5B%5D=http%3A%2F%2Fapps.ideaconsult.net%3A8080%2Fambit2%2Fmodel%2F9%2Fpredicted" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/dataset/112?feature_uris%5B%5D=http%3A%2F%2Fapps.ideaconsult.net%3A8080%2Fambit2%2Fmodel%2F9%2Fpredicted</ext-link>"</p>
+            <p>@prefix ot:   &lt;<ext-link xlink:href="http://www.opentox.org/api/1.1%23" ext-link-type="uri">http://www.opentox.org/api/1.1#</ext-link>>.</p>
+            <p>@prefix dc:   &lt;<ext-link xlink:href="http://purl.org/dc/elements/1.1/" ext-link-type="uri">http://purl.org/dc/elements/1.1/</ext-link>>.</p>
+            <p>@prefix:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/</ext-link>>.</p>
+            <p>@prefix rdfs:   &lt;<ext-link xlink:href="http://www.w3.org/2000/01/rdf-schema%23" ext-link-type="uri">http://www.w3.org/2000/01/rdf-schema#</ext-link>>.</p>
+            <p>@prefix owl:   &lt;<ext-link xlink:href="http://www.w3.org/2002/07/owl%23" ext-link-type="uri">http://www.w3.org/2002/07/owl#</ext-link>>.</p>
+            <p>@prefix xsd:   &lt;<ext-link xlink:href="http://www.w3.org/2001/XMLSchema%23" ext-link-type="uri">http://www.w3.org/2001/XMLSchema#</ext-link>>.</p>
+            <p>@prefix rdf:   &lt;<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="uri">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>>.</p>
+            <p>@prefix otee:   &lt;<ext-link xlink:href="http://www.opentox.org/echaEndpoints.owl%23" ext-link-type="uri">http://www.opentox.org/echaEndpoints.owl#</ext-link>>.</p>
             <p>[] a   ot:Dataset ;</p>
             <p>   ot:dataEntry</p>
             <p>      [a   ot:DataEntry ;</p>
-            <p>       ot:compound <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/compound/147678/conformer/419677" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/compound/147678/conformer/419677</ext-link>> ;</p>
+            <p>       ot:compound <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/compound/147678/conformer/419677" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/compound/147678/conformer/419677</ext-link>> ;</p>
             <p>       ot:values</p>
             <p>         [a   ot:FeatureValue ;</p>
-            <p>          ot:feature &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/feature/22114" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/feature/22114</ext-link>> ;</p>
+            <p>          ot:feature &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/feature/22114" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/feature/22114</ext-link>> ;</p>
             <p>          ot:value "2.74"^^xsd:double</p>
             <p>         ]</p>
             <p>      ] ;</p>
             <p>   ot:dataEntry</p>
             <p>      [a   ot:DataEntry ;</p>
-            <p>       ot:compound &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/compound/2146/conformer/419678" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/compound/2146/conformer/419678</ext-link>> ;</p>
+            <p>       ot:compound &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/compound/2146/conformer/419678" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/compound/2146/conformer/419678</ext-link>> ;</p>
             <p>       ot:values</p>
             <p>         [a   ot:FeatureValue ;</p>
-            <p>          ot:feature &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/feature/22114" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/feature/22114</ext-link>> ;</p>
+            <p>          ot:feature &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/feature/22114" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/feature/22114</ext-link>> ;</p>
             <p>          ot:value "1.59"^^xsd:double</p>
             <p>         ]</p>
             <p>      ].</p>
-            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor</ext-link>></p>
+            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor</ext-link>></p>
             <p>   a   ot:Algorithm.</p>
-            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/feature/22114" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/feature/22114</ext-link>></p>
+            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/feature/22114" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/feature/22114</ext-link>></p>
             <p>   a   ot:Feature, ot:NumericFeature ;</p>
             <p>   dc:title "XLogP" ;</p>
             <p>   ot:hasSource</p>
-            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor</ext-link>> ;</p>
+            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor</ext-link>> ;</p>
             <p>   =   otee:ENDPOINT_Octanol-water_partition_coefficient.</p>
             <p><bold>The Ontology Service</bold> is a separate project, which does not depend on AMBIT modules, and which compiles into a different web application. It currently uses the Jena TDB [<xref ref-type="bibr" rid="CR35">35</xref>] persistence mechanism, and was initially designed as a proof-of-concept service to illustrate the added value of gathering RDF triples of several remote OpenTox services into the same triple storage and enabling SPARQL queries. According to our experience, the performance of the TDB storage, especially when embedded as a web service and being concurrently accessed by many users, is not optimal, and other available solutions are being evaluated. Currently, it is planned to use the ontology service as a registry of all deployed OpenTox services (both local and remote).</p>
             <p><bold>AMBIT REST services</bold> is a web application that includes all resources listed in Table <xref rid="Tab1" ref-type="table">1</xref> except the ontology service. All OpenTox objects are implemented as subclasses of <italic>org.restlet.resource.ServerResource</italic> [<xref ref-type="bibr" rid="CR36">36</xref>], and reside in the <italic>ambit-www</italic> module, which compiles into a single web archive (<italic>ambit2.war</italic>). The Algorithm and Task resources are implemented as in-memory objects. Compounds, Features, Datasets, and Models rely on a MySQL database backend. The common architecture is as follows.</p>
@@ -433,24 +431,24 @@
           </sec>
           <sec id="Sec14">
             <title>Appendix 6: An example of retrieving a compound in a specified format (Chemical MIME for SMILES in this example)</title>
-            <p>curl -H "Accept:chemical/x-daylight-smiles" <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/compound/1" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/compound/1</ext-link></p>
+            <p>curl -H "Accept:chemical/x-daylight-smiles" <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/compound/1" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/compound/1</ext-link></p>
             <p>O=C</p>
             <p>The concept of a <bold>dataset of chemical compounds</bold> is central to the OpenTox web services functionality. Algorithm services accept a dataset URI in order to build a model or to generate descriptor values. Model services accept a dataset URI in order to apply a model and obtain predictions. Predictions are also returned as a dataset URI, whose contents could be subsequently retrieved (Appendix 5). Search results (by identifiers, similarity, or substructure), are available as datasets as well.</p>
             <p>The OpenTox Dataset (<italic>ot:Dataset</italic> class) can be thought of as a file of chemical compounds, along with their properties, which is identified (and referred to) by a unique web address, instead of a filename, and can be read and written remotely. The dataset POST operation allows uploading datasets in RDF representation, as well as files with chemical structures with arbitrary set of fields. AMBIT services do not restrict entering and uploading data to predefined fields only. Instead, arbitrary data can be imported, and later annotated to establish the semantics of the fields. When uploading data in RDF format, the client has full control of the fields' representation. This is a substantial improvement over most of the current practices with popular chemical formats, which usually involve describing the meaning of the fields in separate documents, targeted at human readers; sadly, this approach tends to lead to quite frequent peculiarities.</p>
           </sec>
           <sec id="Sec15">
             <title>Appendix 7: A RDF representation of a single entry from the DSSTox Carcinogenic Potency Database dataset</title>
-            <p>@prefix ot:   &lt;<ext-link xlink:href="http://www.opentox.org/api/1.1%23" ext-link-type="url">http://www.opentox.org/api/1.1#</ext-link>>.</p>
-            <p>@prefix dc:   &lt;<ext-link xlink:href="http://purl.org/dc/elements/1.1/" ext-link-type="url">http://purl.org/dc/elements/1.1/</ext-link>>.</p>
-            <p>@prefix:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/</ext-link>>.</p>
-            <p>@prefix otee:   &lt;<ext-link xlink:href="http://www.opentox.org/echaEndpoints.owl%23" ext-link-type="url">http://www.opentox.org/echaEndpoints.owl#</ext-link>>.</p>
-            <p>@prefix rdfs:   &lt;<ext-link xlink:href="http://www.w3.org/2000/01/rdf-schema%23" ext-link-type="url">http://www.w3.org/2000/01/rdf-schema#</ext-link>>.</p>
-            <p>@prefix owl:   &lt;<ext-link xlink:href="http://www.w3.org/2002/07/owl%23" ext-link-type="url">http://www.w3.org/2002/07/owl#</ext-link>>.</p>
-            <p>@prefix xsd:   &lt;<ext-link xlink:href="http://www.w3.org/2001/XMLSchema%23" ext-link-type="url">http://www.w3.org/2001/XMLSchema#</ext-link>>.</p>
-            <p>@prefix ac:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/compound/" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/compound/</ext-link>>.</p>
-            <p>@prefix ad:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/dataset/" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/dataset/</ext-link>>.</p>
-            <p>@prefix rdf:   &lt;<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="url">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>>.</p>
-            <p>@prefix af:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/feature/" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/feature/</ext-link>>.</p>
+            <p>@prefix ot:   &lt;<ext-link xlink:href="http://www.opentox.org/api/1.1%23" ext-link-type="uri">http://www.opentox.org/api/1.1#</ext-link>>.</p>
+            <p>@prefix dc:   &lt;<ext-link xlink:href="http://purl.org/dc/elements/1.1/" ext-link-type="uri">http://purl.org/dc/elements/1.1/</ext-link>>.</p>
+            <p>@prefix:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/</ext-link>>.</p>
+            <p>@prefix otee:   &lt;<ext-link xlink:href="http://www.opentox.org/echaEndpoints.owl%23" ext-link-type="uri">http://www.opentox.org/echaEndpoints.owl#</ext-link>>.</p>
+            <p>@prefix rdfs:   &lt;<ext-link xlink:href="http://www.w3.org/2000/01/rdf-schema%23" ext-link-type="uri">http://www.w3.org/2000/01/rdf-schema#</ext-link>>.</p>
+            <p>@prefix owl:   &lt;<ext-link xlink:href="http://www.w3.org/2002/07/owl%23" ext-link-type="uri">http://www.w3.org/2002/07/owl#</ext-link>>.</p>
+            <p>@prefix xsd:   &lt;<ext-link xlink:href="http://www.w3.org/2001/XMLSchema%23" ext-link-type="uri">http://www.w3.org/2001/XMLSchema#</ext-link>>.</p>
+            <p>@prefix ac:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/compound/" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/compound/</ext-link>>.</p>
+            <p>@prefix ad:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/dataset/" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/dataset/</ext-link>>.</p>
+            <p>@prefix rdf:   &lt;<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="uri">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>>.</p>
+            <p>@prefix af:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/feature/" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/feature/</ext-link>>.</p>
             <p>af:21611</p>
             <p>   a   ot:Feature ;</p>
             <p>   dc:title "ActivityOutcome_CPDBAS_Mutagenicity" ;</p>
@@ -486,7 +484,7 @@
           <sec id="Sec16">
             <title>Appendix 8: A RDF representation of the "Canc" field of the ISSCAN dataset, available via AMBIT services and OpenTox API (prefixes are the same as in Appendix 7, and therefore omitted)</title>
             <p>ad:9 a ot:Dataset ;</p>
-            <p>   rdfs:seeAlso "<ext-link xlink:href="http://www.epa.gov/NCCT/dsstox/sdf_isscan_external.html" ext-link-type="url">http://www.epa.gov/NCCT/dsstox/sdf_isscan_external.html</ext-link>" ;</p>
+            <p>   rdfs:seeAlso "<ext-link xlink:href="http://www.epa.gov/NCCT/dsstox/sdf_isscan_external.html" ext-link-type="uri">http://www.epa.gov/NCCT/dsstox/sdf_isscan_external.html</ext-link>" ;</p>
             <p>   dc:source "ISSCAN_v3a_1153_19Sept08.1222179139.sdf" ;</p>
             <p>   dc:title "ISSCAN: Istituto Superiore di Sanita, CHEMICAL CARCINOGENS: STRUCTURES AND EXPERIMENTAL DATA".</p>
             <p>af:21573</p>
@@ -515,7 +513,7 @@
             <p>   =   otee:ENDPOINT_Carcinogenicity.</p>
             <p>ad:10</p>
             <p>   a   ot:Dataset ;</p>
-            <p>   rdfs:seeAlso "<ext-link xlink:href="http://www.epa.gov/NCCT/dsstox/sdf_cpdbas.html" ext-link-type="url">http://www.epa.gov/NCCT/dsstox/sdf_cpdbas.html</ext-link>" ;</p>
+            <p>   rdfs:seeAlso "<ext-link xlink:href="http://www.epa.gov/NCCT/dsstox/sdf_cpdbas.html" ext-link-type="uri">http://www.epa.gov/NCCT/dsstox/sdf_cpdbas.html</ext-link>" ;</p>
             <p>   dc:title "CPDBAS: Carcinogenic Potency Database Summary Tables - All Species".</p>
             <p>Instances of the <italic>ot:Feature</italic> class (Appendix 9) are used to represent arbitrary properties, including chemical identifiers (e.g. <italic>STRUCTURE_ChemicalName_IUPAC</italic>), properties like molecular weight (e.g. <italic>STRUCTURE_MolecularWeight</italic>), or calculated descriptors (Appendix 5) and model predictions (Appendix 11). If <italic>ot:hasSource</italic> points to an OpenTox algorithm or model URI, it could be directly used to launch the calculations for any new compound or dataset by simply initiating a HTTP POST to this URI, with an input parameter, pointing to the compound or dataset. This ensures keeping track of all the processing steps performed by the OpenTox services, and provides sufficient information to reproduce or repeat the calculations (Appendix 5). Features can be deleted by sending a DELETE command to the feature service, and created or updated via POST and PUT commands by providing a RDF representation as an input parameter. AMBIT services automatically create features when a dataset is being uploaded. If the uploaded dataset is not in RDF format, the features are generated with <italic>dc:title</italic> equal to the field name in the file and <italic>ot:hasSource</italic> property linking to the dataset, the combination of both properties used as a unique key. The features representation can be modified and annotated later by sending an appropriate RDF representation to the feature URI via a HTTP PUT command.</p>
             <p>The use of dynamically generated and dereferenceable URIs for RDF resource identifiers differs from the classic recommendation of using "stable" identifiers from a predefined ontology. However, we consider the dynamically generated RDF graph an advantage of OpenTox services, and, moreover, it does not preclude linking dynamically generated resources with equivalent resources that have stable identifiers, if such exist. For example, features are expected to be associated via <italic>owl:sameAs</italic> links with stable identifiers, describing specific chemical properties. Arbitrary RDF statements, including both dynamically generated and stable resources could be added as well. The dynamically generated RDF representations allow quickly publishing information in RDF format and making it available online. Models and predictions also immediately become available as RDF resources online, and include live local and remote links, keeping track of the provenance (how predictions have been calculated and where the data came from). Given the availability of the OpenTox services as open source, anybody interested could run an instance of the services themselves, for as long as necessary. Because of the interoperable and distributed design, multiple instances of services running at multiple places could communicate and generate dynamically linked data. The URIs and addresses of networking resources generally don't have infinite lifetime, but this is not considered disadvantage for the World Wide Web, where, if any piece of the dynamic infrastructure is perceived important - for economic or any other reasons - it will certainly remain available for longer than average. The fact that HTTP URIs are transient and dependent on the service location is a consequence of the early Internet design as a medium for host-to-host communication, rather than one for data access, and also of the lack of location independent application names in Internet protocols [<xref ref-type="bibr" rid="CR48">48</xref>]. Revising the current status of network resources naming towards persistent and self-certifying names and content-oriented networking is a field of active research nowadays, and may render the disputes about dereferenceability and stability of resource identifiers irrelevant in future.</p>
@@ -543,7 +541,7 @@
                 </list-item>
               </list>
             </p>
-            <p>This architecture turns out to be successful in encapsulating different algorithms and models in a single API. A summary of the algorithms, included in AMBIT REST services, is shown in Table <xref rid="Tab2" ref-type="table">2</xref> and the full list can be retrieved originally from <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/algorithm</ext-link> or from http://host:port/ambit2/algorithm in any other installation of the <italic>ambit2.war</italic>.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Algorithms, implemented in AMBIT REST services</p></caption><table frame="hsides" rules="groups"><tbody><tr><td align="left"><p>CDK descriptors</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular" ext-link-type="url">http://host:port/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular</ext-link>.*</p></td></tr><tr><td align="left"><p>Weka [<xref ref-type="bibr" rid="CR51">51</xref>] machine learning algorithms</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/LR" ext-link-type="url">http://www.host:port/ambit2/algorithm/LR</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/SimpleKMeans" ext-link-type="url">http://host:port/ambit2/algorithm/SimpleKMeans</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/J48" ext-link-type="url">http://host:port/ambit2/algorithm/J48</ext-link></p></td></tr><tr><td align="left"><p>Toxtree [<xref ref-type="bibr" rid="CR20">20</xref>] modules</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreecarc" ext-link-type="url">http://host:port/ambit2/algorithm/toxtreecarc</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreecramer" ext-link-type="url">http://host:port/ambit2/algorithm/toxtreecramer</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreecramer2" ext-link-type="url">http://host:port/ambit2/algorithm/toxtreecramer2</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreeeye" ext-link-type="url">http://host:port/ambit2/algorithm/toxtreeeye</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreemichaelacceptors" ext-link-type="url">http://host:port/ambit2/algorithm/toxtreemichaelacceptors</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreeskinirritation" ext-link-type="url">http://host:port/ambit2/algorithm/toxtreeskinirritation</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreeskinsens" ext-link-type="url">http://host:port/ambit2/algorithm/toxtreeskinsens</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreemic" ext-link-type="url">http://host:port/ambit2/algorithm/toxtreemic</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreeverhaar" ext-link-type="url">http://host:port/ambit2/algorithm/toxtreeverhaar</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreesmartcyp" ext-link-type="url">http://host:port/ambit2/algorithm/toxtreesmartcyp</ext-link>[<xref ref-type="bibr" rid="CR52">52</xref>]</p></td></tr><tr><td align="left"><p>pKa [<xref ref-type="bibr" rid="CR53">53</xref>] prediction</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/pka" ext-link-type="url">http://host:port/ambit2/algorithm/pka</ext-link></p></td></tr><tr><td align="left"><p>Applicability domain algorithms [<xref ref-type="bibr" rid="CR54">54</xref>–<xref ref-type="bibr" rid="CR56">56</xref>]</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/distanceCityBlock" ext-link-type="url">http://host:port/ambit2/algorithm/distanceCityBlock</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/distanceEuclidean" ext-link-type="url">http://host:port/ambit2/algorithm/distanceEuclidean</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/fpmissingfragments" ext-link-type="url">http://host:port/ambit2/algorithm/fpmissingfragments</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/fptanimoto" ext-link-type="url">http://host:port/ambit2/algorithm/fptanimoto</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/leverage" ext-link-type="url">http://host:port/ambit2/algorithm/leverage</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/distanceMahalanobis" ext-link-type="url">http://host:port/ambit2/algorithm/distanceMahalanobis</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/nparamdensity" ext-link-type="url">http://host:port/ambit2/algorithm/nparamdensity</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/pcaRanges" ext-link-type="url">http://host:port/ambit2/algorithm/pcaRanges</ext-link></p></td></tr><tr><td align="left"><p>Superservice</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/superservice" ext-link-type="url">http://host:port/ambit2/algorithm/superservice</ext-link></p></td></tr><tr><td align="left"><p>InChI</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/ambit2.descriptors.InChI" ext-link-type="url">http://host:port/ambit2/algorithm/ambit2.descriptors.InChI</ext-link>??</p></td></tr><tr><td align="left"><p>MOPAC descriptors</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/ambit2.mopac" ext-link-type="url">http://host:port/ambit2/algorithm/ambit2.mopac</ext-link>.</p></td></tr><tr><td /><td align="left"><p><italic>MopacOriginalStructure</italic></p></td></tr><tr><td align="left"><p>3D structure optimization via MOPAC</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/ambit2.mopac.MopacShell" ext-link-type="url">http://host:port/ambit2/algorithm/ambit2.mopac.MopacShell</ext-link></p></td></tr><tr><td align="left"><p>SOME [<xref ref-type="bibr" rid="CR57">57</xref>]</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/ambit2.some" ext-link-type="url">http://host:port/ambit2/algorithm/ambit2.some</ext-link>.</p></td></tr><tr><td /><td align="left"><p><italic>DescriptorSOMEShell</italic></p></td></tr><tr><td align="left"><p>MCSS</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/mcss" ext-link-type="url">http://host:port/ambit2/algorithm/mcss</ext-link></p></td></tr><tr><td align="left"><p>Fingerprints, used in similarity searching</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/fingerprints" ext-link-type="url">http://host:port/ambit2/algorithm/fingerprints</ext-link></p></td></tr><tr><td align="left"><p>Generate data for accelerating substructure search</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/smartsprop" ext-link-type="url">http://host:port/ambit2/algorithm/smartsprop</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/struckeys" ext-link-type="url">http://host:port/ambit2/algorithm/struckeys</ext-link></p></td></tr><tr><td align="left"><p>Retrieve structures from non-OpenTox online services</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/finder" ext-link-type="url">http://host:port/ambit2/algorithm/finder</ext-link></p></td></tr></tbody></table></table-wrap></p>
+            <p>This architecture turns out to be successful in encapsulating different algorithms and models in a single API. A summary of the algorithms, included in AMBIT REST services, is shown in Table <xref rid="Tab2" ref-type="table">2</xref> and the full list can be retrieved originally from <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/algorithm</ext-link> or from http://host:port/ambit2/algorithm in any other installation of the <italic>ambit2.war</italic>.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p>Algorithms, implemented in AMBIT REST services</p></caption><table frame="hsides" rules="groups"><tbody><tr><td align="left"><p>CDK descriptors</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular" ext-link-type="uri">http://host:port/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular</ext-link>.*</p></td></tr><tr><td align="left"><p>Weka [<xref ref-type="bibr" rid="CR51">51</xref>] machine learning algorithms</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/LR" ext-link-type="uri">http://www.host:port/ambit2/algorithm/LR</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/SimpleKMeans" ext-link-type="uri">http://host:port/ambit2/algorithm/SimpleKMeans</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/J48" ext-link-type="uri">http://host:port/ambit2/algorithm/J48</ext-link></p></td></tr><tr><td align="left"><p>Toxtree [<xref ref-type="bibr" rid="CR20">20</xref>] modules</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreecarc" ext-link-type="uri">http://host:port/ambit2/algorithm/toxtreecarc</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreecramer" ext-link-type="uri">http://host:port/ambit2/algorithm/toxtreecramer</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreecramer2" ext-link-type="uri">http://host:port/ambit2/algorithm/toxtreecramer2</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreeeye" ext-link-type="uri">http://host:port/ambit2/algorithm/toxtreeeye</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreemichaelacceptors" ext-link-type="uri">http://host:port/ambit2/algorithm/toxtreemichaelacceptors</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreeskinirritation" ext-link-type="uri">http://host:port/ambit2/algorithm/toxtreeskinirritation</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreeskinsens" ext-link-type="uri">http://host:port/ambit2/algorithm/toxtreeskinsens</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreemic" ext-link-type="uri">http://host:port/ambit2/algorithm/toxtreemic</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreeverhaar" ext-link-type="uri">http://host:port/ambit2/algorithm/toxtreeverhaar</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/toxtreesmartcyp" ext-link-type="uri">http://host:port/ambit2/algorithm/toxtreesmartcyp</ext-link>[<xref ref-type="bibr" rid="CR52">52</xref>]</p></td></tr><tr><td align="left"><p>pKa [<xref ref-type="bibr" rid="CR53">53</xref>] prediction</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/pka" ext-link-type="uri">http://host:port/ambit2/algorithm/pka</ext-link></p></td></tr><tr><td align="left"><p>Applicability domain algorithms [<xref ref-type="bibr" rid="CR54">54</xref>–<xref ref-type="bibr" rid="CR56">56</xref>]</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/distanceCityBlock" ext-link-type="uri">http://host:port/ambit2/algorithm/distanceCityBlock</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/distanceEuclidean" ext-link-type="uri">http://host:port/ambit2/algorithm/distanceEuclidean</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/fpmissingfragments" ext-link-type="uri">http://host:port/ambit2/algorithm/fpmissingfragments</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/fptanimoto" ext-link-type="uri">http://host:port/ambit2/algorithm/fptanimoto</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/leverage" ext-link-type="uri">http://host:port/ambit2/algorithm/leverage</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/distanceMahalanobis" ext-link-type="uri">http://host:port/ambit2/algorithm/distanceMahalanobis</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/nparamdensity" ext-link-type="uri">http://host:port/ambit2/algorithm/nparamdensity</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/pcaRanges" ext-link-type="uri">http://host:port/ambit2/algorithm/pcaRanges</ext-link></p></td></tr><tr><td align="left"><p>Superservice</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/superservice" ext-link-type="uri">http://host:port/ambit2/algorithm/superservice</ext-link></p></td></tr><tr><td align="left"><p>InChI</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/ambit2.descriptors.InChI" ext-link-type="uri">http://host:port/ambit2/algorithm/ambit2.descriptors.InChI</ext-link>??</p></td></tr><tr><td align="left"><p>MOPAC descriptors</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/ambit2.mopac" ext-link-type="uri">http://host:port/ambit2/algorithm/ambit2.mopac</ext-link>.</p></td></tr><tr><td /><td align="left"><p><italic>MopacOriginalStructure</italic></p></td></tr><tr><td align="left"><p>3D structure optimization via MOPAC</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/ambit2.mopac.MopacShell" ext-link-type="uri">http://host:port/ambit2/algorithm/ambit2.mopac.MopacShell</ext-link></p></td></tr><tr><td align="left"><p>SOME [<xref ref-type="bibr" rid="CR57">57</xref>]</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/ambit2.some" ext-link-type="uri">http://host:port/ambit2/algorithm/ambit2.some</ext-link>.</p></td></tr><tr><td /><td align="left"><p><italic>DescriptorSOMEShell</italic></p></td></tr><tr><td align="left"><p>MCSS</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/mcss" ext-link-type="uri">http://host:port/ambit2/algorithm/mcss</ext-link></p></td></tr><tr><td align="left"><p>Fingerprints, used in similarity searching</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/fingerprints" ext-link-type="uri">http://host:port/ambit2/algorithm/fingerprints</ext-link></p></td></tr><tr><td align="left"><p>Generate data for accelerating substructure search</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/smartsprop" ext-link-type="uri">http://host:port/ambit2/algorithm/smartsprop</ext-link></p></td></tr><tr><td /><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/struckeys" ext-link-type="uri">http://host:port/ambit2/algorithm/struckeys</ext-link></p></td></tr><tr><td align="left"><p>Retrieve structures from non-OpenTox online services</p></td><td align="left"><p><ext-link xlink:href="http://host.port/ambit2/algorithm/finder" ext-link-type="uri">http://host:port/ambit2/algorithm/finder</ext-link></p></td></tr></tbody></table></table-wrap></p>
             <p>Most of the algorithms (except Weka and Toxtree) are considered data processing algorithms, and accept a dataset URI as input parameter, returning URI of the resulting dataset. The calculated values are included as feature values, as explained above. The structure optimization algorithm returns a dataset with links to the new 3D structures. SMARTCyp and SOME algorithms return their results as features as well, but the features represent calculated atomic properties. The MCSS algorithm accepts a dataset and creates a model, containing a set of maximum common substructures. The model could be further applied to new datasets or compounds. The superservice is an algorithm, which encapsulates descriptor calculation and model prediction, by automatically identifying which descriptors are required by a given model, launching the calculation, and, when results are available, applying the model itself. Toxtree algorithms are implemented as a model building algorithm, although being fixed rules and not requiring a training dataset. Thus, upon installation of the web application, the Toxtree model needs to be created by sending a HTTP POST to the corresponding algorithm. The Weka algorithms are selected to be representative of regression, classification, and clustering algorithms. They accept a dataset URI and a feature URI (referring to the target variable), and generate a model URI, as specified in the API. The implementation of Weka algorithms as OpenTox REST services is a generic one; inclusion of all algorithms, available in the Weka package, is just a matter of configuration, and the list will be extended in future releases. The RDF representation of all algorithms and models can be retrieved by submitting a GET command.</p>
           </sec>
           <sec id="Sec19">
@@ -552,13 +550,13 @@
           </sec>
           <sec id="Sec20">
             <title>Appendix 10: An example of retrieving information about a specific model (X and Y variables; learning algorithm; variables, containing the predictions; endpoints)</title>
-            <p>PREFIX ot:   &lt;<ext-link xlink:href="http://www.opentox.org/api/1.1%23" ext-link-type="url">http://www.opentox.org/api/1.1#</ext-link>></p>
+            <p>PREFIX ot:   &lt;<ext-link xlink:href="http://www.opentox.org/api/1.1%23" ext-link-type="uri">http://www.opentox.org/api/1.1#</ext-link>></p>
             <p>PREFIX ota:   &lt;http://www.opentox.org/algorithms.owl#></p>
-            <p>PREFIX owl:   &lt;<ext-link xlink:href="http://www.w3.org/2002/07/owl%23" ext-link-type="url">http://www.w3.org/2002/07/owl#</ext-link>></p>
-            <p>PREFIX dc:   &lt;<ext-link xlink:href="http://purl.org/dc/elements/1.1/" ext-link-type="url">http://purl.org/dc/elements/1.1/</ext-link>></p>
-            <p>PREFIX rdfs:   &lt;<ext-link xlink:href="http://www.w3.org/2000/01/rdf-schema%23" ext-link-type="url">http://www.w3.org/2000/01/rdf-schema#</ext-link>></p>
-            <p>PREFIX rdf:   &lt;<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="url">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>></p>
-            <p>PREFIX otee:   &lt;<ext-link xlink:href="http://www.opentox.org/echaEndpoints.owl%23" ext-link-type="url">http://www.opentox.org/echaEndpoints.owl#</ext-link>></p>
+            <p>PREFIX owl:   &lt;<ext-link xlink:href="http://www.w3.org/2002/07/owl%23" ext-link-type="uri">http://www.w3.org/2002/07/owl#</ext-link>></p>
+            <p>PREFIX dc:   &lt;<ext-link xlink:href="http://purl.org/dc/elements/1.1/" ext-link-type="uri">http://purl.org/dc/elements/1.1/</ext-link>></p>
+            <p>PREFIX rdfs:   &lt;<ext-link xlink:href="http://www.w3.org/2000/01/rdf-schema%23" ext-link-type="uri">http://www.w3.org/2000/01/rdf-schema#</ext-link>></p>
+            <p>PREFIX rdf:   &lt;<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="uri">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>></p>
+            <p>PREFIX otee:   &lt;<ext-link xlink:href="http://www.opentox.org/echaEndpoints.owl%23" ext-link-type="uri">http://www.opentox.org/echaEndpoints.owl#</ext-link>></p>
             <p>   SELECT ?Model ?algorithm ?xvars ?descriptorAlgorithms ?yvars ?endpoints ?predicted</p>
             <p>      WHERE {</p>
             <p>      ?Model rdf:type ot:Model.</p>
@@ -585,23 +583,23 @@
           </sec>
           <sec id="Sec21">
             <title>Appendix 11: A RDF graph, representing two remote models, using the same training dataset (the RDF content was aggregated by retrieving the RDF representations of multiple web services, and is available as Supporting Information [Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>])</title>
-            <p>@prefix:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/</ext-link>>.</p>
-            <p>@prefix ot:   &lt;<ext-link xlink:href="http://www.opentox.org/api/1.1%23" ext-link-type="url">http://www.opentox.org/api/1.1#</ext-link>>.</p>
-            <p>@prefix dc:   &lt;<ext-link xlink:href="http://purl.org/dc/elements/1.1/" ext-link-type="url">http://purl.org/dc/elements/1.1/</ext-link>>.</p>
+            <p>@prefix:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/</ext-link>>.</p>
+            <p>@prefix ot:   &lt;<ext-link xlink:href="http://www.opentox.org/api/1.1%23" ext-link-type="uri">http://www.opentox.org/api/1.1#</ext-link>>.</p>
+            <p>@prefix dc:   &lt;<ext-link xlink:href="http://purl.org/dc/elements/1.1/" ext-link-type="uri">http://purl.org/dc/elements/1.1/</ext-link>>.</p>
             <p>@prefix tuma:   &lt;http://opentox.informatik.tu-muenchen.de:8080/OpenTox-dev/algorithm/>.</p>
             <p>@prefix tumm:   &lt;http://opentox.informatik.tu-muenchen.de:8080/OpenTox-dev/model/>.</p>
             <p>@prefix ota:   &lt;http://www.opentox.org/algorithmTypes.owl#>.</p>
-            <p>@prefix otee:   &lt;<ext-link xlink:href="http://www.opentox.org/echaEndpoints.owl%23" ext-link-type="url">http://www.opentox.org/echaEndpoints.owl#</ext-link>>.</p>
+            <p>@prefix otee:   &lt;<ext-link xlink:href="http://www.opentox.org/echaEndpoints.owl%23" ext-link-type="uri">http://www.opentox.org/echaEndpoints.owl#</ext-link>>.</p>
             <p>@prefix bo:   &lt;http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#>.</p>
-            <p>@prefix rdfs:   &lt;<ext-link xlink:href="http://www.w3.org/2000/01/rdf-schema%23" ext-link-type="url">http://www.w3.org/2000/01/rdf-schema#</ext-link>>.</p>
-            <p>@prefix am:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/model/" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/model/</ext-link>>.</p>
-            <p>@prefix owl:   &lt;<ext-link xlink:href="http://www.w3.org/2002/07/owl%23" ext-link-type="url">http://www.w3.org/2002/07/owl#</ext-link>>.</p>
-            <p>@prefix xsd:   &lt;<ext-link xlink:href="http://www.w3.org/2001/XMLSchema%23" ext-link-type="url">http://www.w3.org/2001/XMLSchema#</ext-link>>.</p>
-            <p>@prefix ac:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/compound/" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/compound/</ext-link>>.</p>
-            <p>@prefix rdf:   &lt;<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="url">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>>.</p>
-            <p>@prefix ad:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/dataset/" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/dataset/</ext-link>>.</p>
-            <p>@prefix ag:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/algorithm/</ext-link>>.</p>
-            <p>@prefix af:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/feature/" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/feature/</ext-link>>.</p>
+            <p>@prefix rdfs:   &lt;<ext-link xlink:href="http://www.w3.org/2000/01/rdf-schema%23" ext-link-type="uri">http://www.w3.org/2000/01/rdf-schema#</ext-link>>.</p>
+            <p>@prefix am:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/model/" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/model/</ext-link>>.</p>
+            <p>@prefix owl:   &lt;<ext-link xlink:href="http://www.w3.org/2002/07/owl%23" ext-link-type="uri">http://www.w3.org/2002/07/owl#</ext-link>>.</p>
+            <p>@prefix xsd:   &lt;<ext-link xlink:href="http://www.w3.org/2001/XMLSchema%23" ext-link-type="uri">http://www.w3.org/2001/XMLSchema#</ext-link>>.</p>
+            <p>@prefix ac:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/compound/" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/compound/</ext-link>>.</p>
+            <p>@prefix rdf:   &lt;<ext-link xlink:href="http://www.w3.org/1999/02/22-rdf-syntax-ns%23" ext-link-type="uri">http://www.w3.org/1999/02/22-rdf-syntax-ns#</ext-link>>.</p>
+            <p>@prefix ad:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/dataset/" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/dataset/</ext-link>>.</p>
+            <p>@prefix ag:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/algorithm/</ext-link>>.</p>
+            <p>@prefix af:   &lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/feature/" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/feature/</ext-link>>.</p>
             <p>tumm:TUMOpenToxModel_kNN_92</p>
             <p>   a   ot:Model ;</p>
             <p>   dc:title "OpenTox model created with TUM's kNNregression model learning web service." ; ot:algorithm tuma:kNNregression ;</p>
@@ -630,11 +628,11 @@
             <p>   a   ot:Feature ;</p>
             <p>   dc:title "FPSA-2" ;</p>
             <p>   ot:hasSource</p>
-            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.CPSADescriptor" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.CPSADescriptor</ext-link> >.</p>
+            <p>&lt;<ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.CPSADescriptor" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/algorithm/org.openscience.cdk.qsar.descriptors.molecular.CPSADescriptor</ext-link> >.</p>
           </sec>
           <sec id="Sec22">
             <title>Linked resources</title>
-            <p>Uploading data and running calculations via the OpenTox API and its implementation by AMBIT services generates a multitude of linked resources, all available via their RDF representations. The links could span many remote sites, running various implementations of OpenTox services. For example, a model, built by model services running at site A, will be accessible via its web address, but the representation could include links to the training dataset and prediction variables, hosted at OpenTox services running at site B. The features, representing predicted variables, contain links back to the remote model. An illustration of linked resources, generated by OpenTox services, is provided on Figure <xref rid="Fig1" ref-type="fig">1</xref> and Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>.<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>Illustration of linked resources, generated by OpenTox services</bold>.</p></caption><p><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_201_Fig1_HTML.jpg" /></p></fig></p>
+            <p>Uploading data and running calculations via the OpenTox API and its implementation by AMBIT services generates a multitude of linked resources, all available via their RDF representations. The links could span many remote sites, running various implementations of OpenTox services. For example, a model, built by model services running at site A, will be accessible via its web address, but the representation could include links to the training dataset and prediction variables, hosted at OpenTox services running at site B. The features, representing predicted variables, contain links back to the remote model. An illustration of linked resources, generated by OpenTox services, is provided on Figure <xref rid="Fig1" ref-type="fig">1</xref> and Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>.<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>Illustration of linked resources, generated by OpenTox services</bold>.</p></caption><graphic specific-use="HTML" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2010_Article_201_Fig1_HTML.jpg" /></fig></p>
           </sec>
           <sec id="Sec23">
             <title>Comparison with similar systems</title>
@@ -650,7 +648,7 @@
             <p>
               <list list-type="bullet">
                 <list-item>
-                  <p>Download the web application archive (<italic>war</italic>) file from <ext-link xlink:href="http://ambit.sourceforge.net/" ext-link-type="url">http://ambit.sourceforge.net/</ext-link></p>
+                  <p>Download the web application archive (<italic>war</italic>) file from <ext-link xlink:href="http://ambit.sourceforge.net/" ext-link-type="uri">http://ambit.sourceforge.net/</ext-link></p>
                 </list-item>
                 <list-item>
                   <p>Deploy the <italic>war</italic> file into a servlet container</p>
@@ -691,7 +689,7 @@
                 <p><bold>Project name</bold>: AMBIT implementation of OpenTox REST web services</p>
               </list-item>
               <list-item>
-                <p><bold>Project home page</bold>: <ext-link xlink:href="http://ambit.sourceforge.net/" ext-link-type="url">http://ambit.sourceforge.net/</ext-link></p>
+                <p><bold>Project home page</bold>: <ext-link xlink:href="http://ambit.sourceforge.net/" ext-link-type="uri">http://ambit.sourceforge.net/</ext-link></p>
               </list-item>
               <list-item>
                 <p><bold>Operating system(s)</bold>: Platform independent</p>
@@ -709,7 +707,7 @@
                 <p><bold>Any restrictions to use by non-academics</bold>: None</p>
               </list-item>
               <list-item>
-                <p><bold>Online web services</bold>: <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/" ext-link-type="url">http://apps.ideaconsult.net:8080/ambit2/</ext-link></p>
+                <p><bold>Online web services</bold>: <ext-link xlink:href="http://apps.ideaconsult.net:8080/ambit2/" ext-link-type="uri">http://apps.ideaconsult.net:8080/ambit2/</ext-link></p>
               </list-item>
             </list>
           </p>
@@ -723,7 +721,7 @@
       <back>
         <ack>
           <title>Acknowledgements and Funding</title>
-          <p>The AMBIT software was initially developed within the framework of the CEFIC LRI project EEM-9 'Building blocks for a future (Q)SAR decision support system: databases, applicability domain, similarity assessment and structure conversions', <ext-link xlink:href="http://www.cefic-lri.org/projects/1202813618/21/EEM9-PGEU-Quantitative-Structure-Activity-Relationships-software-for-data-management/?cntnt01template=display_list_test" ext-link-type="url">http://www.cefic-lri.org/projects/1202813618/21/EEM9-PGEU-Quantitative-Structure-Activity-Relationships-software-for-data-management/?cntnt01template=display_list_test</ext-link>, and further extended under a subsequent CEFIC LRI contract for developing AmbitXT, <ext-link xlink:href="http://www.cefic-lri.org/lri-toolbox/ambit." ext-link-type="url">http://www.cefic-lri.org/lri-toolbox/ambit</ext-link> The AMBIT web services package was developed within the OpenTox project - An Open Source Predictive Toxicology Framework, <ext-link xlink:href="http://www.opentox.org/" ext-link-type="url">http://www.opentox.org/</ext-link> funded under the EU Seventh Framework Programme: HEALTH-2007-1.3-3 Promotion, development, validation, acceptance and implementation of QSARs (Quantitative Structure-Activity Relationships) for toxicology, Project Reference Number Health-F5-2008-200787 (2008-2011). Support for applicability domain algorithms has been integrated into the AMBIT web services package in the framework of the CADASTER project - Case studies on the development and application of in-silico techniques for environmental hazard and risk assessment, <ext-link xlink:href="http://www.cadaster.eu/" ext-link-type="url">http://www.cadaster.eu/</ext-link>, funded under the EU Seventh Framework Programme: ENV.2007.3.3.1.1 In-silico techniques for hazard-, safety-, and environmental risk-assessment, Project Reference Number 212668 (2009-2012).</p>
+          <p>The AMBIT software was initially developed within the framework of the CEFIC LRI project EEM-9 'Building blocks for a future (Q)SAR decision support system: databases, applicability domain, similarity assessment and structure conversions', <ext-link xlink:href="http://www.cefic-lri.org/projects/1202813618/21/EEM9-PGEU-Quantitative-Structure-Activity-Relationships-software-for-data-management/?cntnt01template=display_list_test" ext-link-type="uri">http://www.cefic-lri.org/projects/1202813618/21/EEM9-PGEU-Quantitative-Structure-Activity-Relationships-software-for-data-management/?cntnt01template=display_list_test</ext-link>, and further extended under a subsequent CEFIC LRI contract for developing AmbitXT, <ext-link xlink:href="http://www.cefic-lri.org/lri-toolbox/ambit." ext-link-type="uri">http://www.cefic-lri.org/lri-toolbox/ambit</ext-link> The AMBIT web services package was developed within the OpenTox project - An Open Source Predictive Toxicology Framework, <ext-link xlink:href="http://www.opentox.org/" ext-link-type="uri">http://www.opentox.org/</ext-link> funded under the EU Seventh Framework Programme: HEALTH-2007-1.3-3 Promotion, development, validation, acceptance and implementation of QSARs (Quantitative Structure-Activity Relationships) for toxicology, Project Reference Number Health-F5-2008-200787 (2008-2011). Support for applicability domain algorithms has been integrated into the AMBIT web services package in the framework of the CADASTER project - Case studies on the development and application of in-silico techniques for environmental hazard and risk assessment, <ext-link xlink:href="http://www.cadaster.eu/" ext-link-type="uri">http://www.cadaster.eu/</ext-link>, funded under the EU Seventh Framework Programme: ENV.2007.3.3.1.1 In-silico techniques for hazard-, safety-, and environmental risk-assessment, Project Reference Number 212668 (2009-2012).</p>
           <p>We acknowledge the article processing charge for this article that has been partially funded by Pfizer, Inc. Pfizer, Inc. has had no input into the content of the article. The article has been independently prepared by the authors and been subject to the journal's standard peer review process.</p>
         </ack>
         <ref-list id="Bib1">
@@ -880,11 +878,11 @@
             </ref>
             <ref id="CR2">
               <label>2.</label>
-              <mixed-citation publication-type="other">Resource Description Framework. [<ext-link xlink:href="http://www.w3.org/RDF/" ext-link-type="url">http://www.w3.org/RDF/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Resource Description Framework. [<ext-link xlink:href="http://www.w3.org/RDF/" ext-link-type="uri">http://www.w3.org/RDF/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR3">
               <label>3.</label>
-              <mixed-citation publication-type="other">R. Fielding, Representational State Transfer (REST). [<ext-link xlink:href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" ext-link-type="url">http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">R. Fielding, Representational State Transfer (REST). [<ext-link xlink:href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" ext-link-type="uri">http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR4">
               <label>4.</label>
@@ -907,43 +905,43 @@
             </ref>
             <ref id="CR5">
               <label>5.</label>
-              <mixed-citation publication-type="other">OASIS Standards. [<ext-link xlink:href="http://www.oasis-open.org/specs/" ext-link-type="url">http://www.oasis-open.org/specs/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">OASIS Standards. [<ext-link xlink:href="http://www.oasis-open.org/specs/" ext-link-type="uri">http://www.oasis-open.org/specs/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR6">
               <label>6.</label>
-              <mixed-citation publication-type="other">RFC 2616 Hypertext Transfer Protocol -- HTTP/1.1. [<ext-link xlink:href="http://tools.ietf.org/html/rfc2616" ext-link-type="url">http://tools.ietf.org/html/rfc2616</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">RFC 2616 Hypertext Transfer Protocol -- HTTP/1.1. [<ext-link xlink:href="http://tools.ietf.org/html/rfc2616" ext-link-type="uri">http://tools.ietf.org/html/rfc2616</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR7">
               <label>7.</label>
-              <mixed-citation publication-type="other">RFC 5023 The Atom Publishing Protocol. [<ext-link xlink:href="http://tools.ietf.org/html/rfc5023" ext-link-type="url">http://tools.ietf.org/html/rfc5023</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">RFC 5023 The Atom Publishing Protocol. [<ext-link xlink:href="http://tools.ietf.org/html/rfc5023" ext-link-type="uri">http://tools.ietf.org/html/rfc5023</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR8">
               <label>8.</label>
-              <mixed-citation publication-type="other">OpenTox ontology. [<ext-link xlink:href="http://opentox.org/api/1.1/opentox.owl" ext-link-type="url">http://opentox.org/api/1.1/opentox.owl</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">OpenTox ontology. [<ext-link xlink:href="http://opentox.org/api/1.1/opentox.owl" ext-link-type="uri">http://opentox.org/api/1.1/opentox.owl</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR9">
               <label>9.</label>
-              <mixed-citation publication-type="other">RDF/XML Syntax Specification. [<ext-link xlink:href="http://www.w3.org/TR/REC-rdf-syntax/" ext-link-type="url">http://www.w3.org/TR/REC-rdf-syntax/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">RDF/XML Syntax Specification. [<ext-link xlink:href="http://www.w3.org/TR/REC-rdf-syntax/" ext-link-type="uri">http://www.w3.org/TR/REC-rdf-syntax/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR10">
               <label>10.</label>
-              <mixed-citation publication-type="other">Notation 3 (N3) A Readable RDF Syntax. [<ext-link xlink:href="http://www.w3.org/DesignIssues/Notation3" ext-link-type="url">http://www.w3.org/DesignIssues/Notation3</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Notation 3 (N3) A Readable RDF Syntax. [<ext-link xlink:href="http://www.w3.org/DesignIssues/Notation3" ext-link-type="uri">http://www.w3.org/DesignIssues/Notation3</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR11">
               <label>11.</label>
-              <mixed-citation publication-type="other">Turtle - Terse RDF Triple Language. [<ext-link xlink:href="http://www.w3.org/TeamSubmission/turtle/" ext-link-type="url">http://www.w3.org/TeamSubmission/turtle/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Turtle - Terse RDF Triple Language. [<ext-link xlink:href="http://www.w3.org/TeamSubmission/turtle/" ext-link-type="uri">http://www.w3.org/TeamSubmission/turtle/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR12">
               <label>12.</label>
-              <mixed-citation publication-type="other">OWL Web Ontology Language Guide. [<ext-link xlink:href="http://www.w3.org/TR/owl-guide/" ext-link-type="url">http://www.w3.org/TR/owl-guide/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">OWL Web Ontology Language Guide. [<ext-link xlink:href="http://www.w3.org/TR/owl-guide/" ext-link-type="uri">http://www.w3.org/TR/owl-guide/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR13">
               <label>13.</label>
-              <mixed-citation publication-type="other">Microformats. [<ext-link xlink:href="http://microformats.org/" ext-link-type="url">http://microformats.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Microformats. [<ext-link xlink:href="http://microformats.org/" ext-link-type="uri">http://microformats.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR14">
               <label>14.</label>
-              <mixed-citation publication-type="other">AMBIT project. [<ext-link xlink:href="http://ambit.sourceforge.net/" ext-link-type="url">http://ambit.sourceforge.net/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">AMBIT project. [<ext-link xlink:href="http://ambit.sourceforge.net/" ext-link-type="uri">http://ambit.sourceforge.net/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR15">
               <label>15.</label>
@@ -980,23 +978,23 @@
             </ref>
             <ref id="CR16">
               <label>16.</label>
-              <mixed-citation publication-type="other">MySQL. [<ext-link xlink:href="http://www.mysql.com/" ext-link-type="url">http://www.mysql.com/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">MySQL. [<ext-link xlink:href="http://www.mysql.com/" ext-link-type="uri">http://www.mysql.com/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR17">
               <label>17.</label>
-              <mixed-citation publication-type="other">CEFIC Long Range research initiative. [<ext-link xlink:href="http://www.cefic-lri.org/" ext-link-type="url">http://www.cefic-lri.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">CEFIC Long Range research initiative. [<ext-link xlink:href="http://www.cefic-lri.org/" ext-link-type="uri">http://www.cefic-lri.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR18">
               <label>18.</label>
-              <mixed-citation publication-type="other">Apache Tomcat. [<ext-link xlink:href="http://tomcat.apache.org/" ext-link-type="url">http://tomcat.apache.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Apache Tomcat. [<ext-link xlink:href="http://tomcat.apache.org/" ext-link-type="uri">http://tomcat.apache.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR19">
               <label>19.</label>
-              <mixed-citation publication-type="other">Java Servlet Technology. [<ext-link xlink:href="http://www.oracle.com/technetwork/java/index-jsp-135475.html" ext-link-type="url">http://www.oracle.com/technetwork/java/index-jsp-135475.html</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Java Servlet Technology. [<ext-link xlink:href="http://www.oracle.com/technetwork/java/index-jsp-135475.html" ext-link-type="uri">http://www.oracle.com/technetwork/java/index-jsp-135475.html</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR20">
               <label>20.</label>
-              <mixed-citation publication-type="other">Toxtree. [<ext-link xlink:href="http://toxtree.sourceforge.net/" ext-link-type="url">http://toxtree.sourceforge.net/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Toxtree. [<ext-link xlink:href="http://toxtree.sourceforge.net/" ext-link-type="uri">http://toxtree.sourceforge.net/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR21">
               <label>21.</label>
@@ -1031,16 +1029,16 @@
                 <fpage>495</fpage>
                 <lpage>524</lpage>
                 <pub-id pub-id-type="doi">10.1080/10629360802083871</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXht1Chsr7E</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXht1Chsr7E</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR22">
               <label>22.</label>
-              <mixed-citation publication-type="other">Implementation of simple OpenTox Ontology service. [<ext-link xlink:href="https://ambit.svn.sourceforge.net/svnroot/ambit/branches/opentox/ontology-service" ext-link-type="url">https://ambit.svn.sourceforge.net/svnroot/ambit/branches/opentox/ontology-service</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Implementation of simple OpenTox Ontology service. [<ext-link xlink:href="https://ambit.svn.sourceforge.net/svnroot/ambit/branches/opentox/ontology-service" ext-link-type="uri">https://ambit.svn.sourceforge.net/svnroot/ambit/branches/opentox/ontology-service</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR23">
               <label>23.</label>
-              <mixed-citation publication-type="other">The Chemistry Development Kit. [<ext-link xlink:href="http://cdk.sourceforge.net/" ext-link-type="url">http://cdk.sourceforge.net/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">The Chemistry Development Kit. [<ext-link xlink:href="http://cdk.sourceforge.net/" ext-link-type="uri">http://cdk.sourceforge.net/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR24">
               <label>24.</label>
@@ -1116,96 +1114,96 @@
                 <fpage>2111</fpage>
                 <lpage>2120</lpage>
                 <pub-id pub-id-type="doi">10.2174/138161206777585274</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD28XmslWqsL0%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XmslWqsL0%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR26">
               <label>26.</label>
-              <mixed-citation publication-type="other">Restlet, REST framework for Java. [<ext-link xlink:href="http://www.restlet.org/" ext-link-type="url">http://www.restlet.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Restlet, REST framework for Java. [<ext-link xlink:href="http://www.restlet.org/" ext-link-type="uri">http://www.restlet.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR27">
               <label>27.</label>
-              <mixed-citation publication-type="other">Jena - A Semantic Web Framework for Java. [<ext-link xlink:href="http://jena.sourceforge.net/" ext-link-type="url">http://jena.sourceforge.net/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Jena - A Semantic Web Framework for Java. [<ext-link xlink:href="http://jena.sourceforge.net/" ext-link-type="uri">http://jena.sourceforge.net/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR28">
               <label>28.</label>
-              <mixed-citation publication-type="other">Apache Maven. [<ext-link xlink:href="http://maven.apache.org/" ext-link-type="url">http://maven.apache.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Apache Maven. [<ext-link xlink:href="http://maven.apache.org/" ext-link-type="uri">http://maven.apache.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR29">
               <label>29.</label>
-              <mixed-citation publication-type="other">AMBIT source code. [<ext-link xlink:href="https://ambit.svn.sourceforge.net/svnroot/ambit/trunk/ambit2-all" ext-link-type="url">https://ambit.svn.sourceforge.net/svnroot/ambit/trunk/ambit2-all</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">AMBIT source code. [<ext-link xlink:href="https://ambit.svn.sourceforge.net/svnroot/ambit/trunk/ambit2-all" ext-link-type="uri">https://ambit.svn.sourceforge.net/svnroot/ambit/trunk/ambit2-all</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR30">
               <label>30.</label>
-              <mixed-citation publication-type="other">Toxtree - Toxic Hazard Estimation by decision tree approach, source code. [<ext-link xlink:href="https://toxtree.svn.sourceforge.net/svnroot/toxtree/trunk/toxtree" ext-link-type="url">https://toxtree.svn.sourceforge.net/svnroot/toxtree/trunk/toxtree</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Toxtree - Toxic Hazard Estimation by decision tree approach, source code. [<ext-link xlink:href="https://toxtree.svn.sourceforge.net/svnroot/toxtree/trunk/toxtree" ext-link-type="uri">https://toxtree.svn.sourceforge.net/svnroot/toxtree/trunk/toxtree</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR31">
               <label>31.</label>
-              <mixed-citation publication-type="other">OpenTox API wiki site. [<ext-link xlink:href="http://opentox.org/dev/apis/" ext-link-type="url">http://opentox.org/dev/apis/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">OpenTox API wiki site. [<ext-link xlink:href="http://opentox.org/dev/apis/" ext-link-type="uri">http://opentox.org/dev/apis/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR32">
               <label>32.</label>
-              <mixed-citation publication-type="other">Chemical MIME. [<ext-link xlink:href="http://chemical-mime.sourceforge.net/" ext-link-type="url">http://chemical-mime.sourceforge.net/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Chemical MIME. [<ext-link xlink:href="http://chemical-mime.sourceforge.net/" ext-link-type="uri">http://chemical-mime.sourceforge.net/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR33">
               <label>33.</label>
-              <mixed-citation publication-type="other">cURL tool. [<ext-link xlink:href="http://curl.haxx.se/" ext-link-type="url">http://curl.haxx.se/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">cURL tool. [<ext-link xlink:href="http://curl.haxx.se/" ext-link-type="uri">http://curl.haxx.se/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR34">
               <label>34.</label>
-              <mixed-citation publication-type="other">ToxCast - Predicting Hazard, Characterizing Toxicity Pathways, and Prioritizing the Toxicity Testing of Environmental Chemicals. [<ext-link xlink:href="http://www.epa.gov/ncct/toxcast/" ext-link-type="url">http://www.epa.gov/ncct/toxcast/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">ToxCast - Predicting Hazard, Characterizing Toxicity Pathways, and Prioritizing the Toxicity Testing of Environmental Chemicals. [<ext-link xlink:href="http://www.epa.gov/ncct/toxcast/" ext-link-type="uri">http://www.epa.gov/ncct/toxcast/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR35">
               <label>35.</label>
-              <mixed-citation publication-type="other">TDB - A SPARQL Database for Jena. [<ext-link xlink:href="http://openjena.org/TDB/" ext-link-type="url">http://openjena.org/TDB/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">TDB - A SPARQL Database for Jena. [<ext-link xlink:href="http://openjena.org/TDB/" ext-link-type="uri">http://openjena.org/TDB/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR36">
               <label>36.</label>
-              <mixed-citation publication-type="other">Restlet documentation on ServerResource class. [<ext-link xlink:href="http://www.restlet.org/documentation/2.0/jee/api/org/restlet/resource/ServerResource.html" ext-link-type="url">http://www.restlet.org/documentation/2.0/jee/api/org/restlet/resource/ServerResource.html</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Restlet documentation on ServerResource class. [<ext-link xlink:href="http://www.restlet.org/documentation/2.0/jee/api/org/restlet/resource/ServerResource.html" ext-link-type="uri">http://www.restlet.org/documentation/2.0/jee/api/org/restlet/resource/ServerResource.html</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR37">
               <label>37.</label>
-              <mixed-citation publication-type="other">The Streaming API for XML. [<ext-link xlink:href="http://stax.codehaus.org/" ext-link-type="url">http://stax.codehaus.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">The Streaming API for XML. [<ext-link xlink:href="http://stax.codehaus.org/" ext-link-type="uri">http://stax.codehaus.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR38">
               <label>38.</label>
-              <mixed-citation publication-type="other">JDK Documentation. [<ext-link xlink:href="http://download.oracle.com/javase/6/docs/api/java/util/concurrent/Callable.html" ext-link-type="url">http://download.oracle.com/javase/6/docs/api/java/util/concurrent/Callable.html</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">JDK Documentation. [<ext-link xlink:href="http://download.oracle.com/javase/6/docs/api/java/util/concurrent/Callable.html" ext-link-type="uri">http://download.oracle.com/javase/6/docs/api/java/util/concurrent/Callable.html</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR39">
               <label>39.</label>
-              <mixed-citation publication-type="other">JSON (JavaScript Object Notation). [<ext-link xlink:href="http://www.json.org/" ext-link-type="url">http://www.json.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">JSON (JavaScript Object Notation). [<ext-link xlink:href="http://www.json.org/" ext-link-type="uri">http://www.json.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR40">
               <label>40.</label>
-              <mixed-citation publication-type="other">CPDBAS: Carcinogenic Potency Database Summary Tables. [<ext-link xlink:href="http://www.epa.gov/ncct/dsstox/sdf_cpdbas.html" ext-link-type="url">http://www.epa.gov/ncct/dsstox/sdf_cpdbas.html</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">CPDBAS: Carcinogenic Potency Database Summary Tables. [<ext-link xlink:href="http://www.epa.gov/ncct/dsstox/sdf_cpdbas.html" ext-link-type="uri">http://www.epa.gov/ncct/dsstox/sdf_cpdbas.html</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR41">
               <label>41.</label>
-              <mixed-citation publication-type="other">ISSCAN: Chemical Carcinogens Database. [<ext-link xlink:href="http://www.iss.it/ampp/dati/cont.php?id=233%26lang=1%26tipo=7" ext-link-type="url">http://www.iss.it/ampp/dati/cont.php?id=233%26lang=1%26tipo=7</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">ISSCAN: Chemical Carcinogens Database. [<ext-link xlink:href="http://www.iss.it/ampp/dati/cont.php?id=233%26lang=1%26tipo=7" ext-link-type="uri">http://www.iss.it/ampp/dati/cont.php?id=233%26lang=1%26tipo=7</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR42">
               <label>42.</label>
-              <mixed-citation publication-type="other">ToxML. [<ext-link xlink:href="http://www.leadscope.com/toxml.php" ext-link-type="url">http://www.leadscope.com/toxml.php</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">ToxML. [<ext-link xlink:href="http://www.leadscope.com/toxml.php" ext-link-type="uri">http://www.leadscope.com/toxml.php</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR43">
               <label>43.</label>
-              <mixed-citation publication-type="other">ToxML project. [<ext-link xlink:href="https://www.lhasalimited.org/research/toxml" ext-link-type="url">https://www.lhasalimited.org/research/toxml</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">ToxML project. [<ext-link xlink:href="https://www.lhasalimited.org/research/toxml" ext-link-type="uri">https://www.lhasalimited.org/research/toxml</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR44">
               <label>44.</label>
-              <mixed-citation publication-type="other">The Open Biological and Biomedical Ontologies. [<ext-link xlink:href="http://www.obofoundry.org/" ext-link-type="url">http://www.obofoundry.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">The Open Biological and Biomedical Ontologies. [<ext-link xlink:href="http://www.obofoundry.org/" ext-link-type="uri">http://www.obofoundry.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR45">
               <label>45.</label>
-              <mixed-citation publication-type="other">MIBBI: Minimum Information for Biological and Biomedical Investigations. [<ext-link xlink:href="http://www.mibbi.org/" ext-link-type="url">http://www.mibbi.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">MIBBI: Minimum Information for Biological and Biomedical Investigations. [<ext-link xlink:href="http://www.mibbi.org/" ext-link-type="uri">http://www.mibbi.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR46">
               <label>46.</label>
-              <mixed-citation publication-type="other">Guidance on information requirements and chemical safety assessment Chapter R.6: QSARs and grouping of chemicals. [<ext-link xlink:href="http://guidance.echa.europa.eu/docs/guidance_document/information_requirements_r6_en.pdf?vers=20_08_08" ext-link-type="url">http://guidance.echa.europa.eu/docs/guidance_document/information_requirements_r6_en.pdf?vers=20_08_08</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Guidance on information requirements and chemical safety assessment Chapter R.6: QSARs and grouping of chemicals. [<ext-link xlink:href="http://guidance.echa.europa.eu/docs/guidance_document/information_requirements_r6_en.pdf?vers=20_08_08" ext-link-type="uri">http://guidance.echa.europa.eu/docs/guidance_document/information_requirements_r6_en.pdf?vers=20_08_08</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR47">
               <label>47.</label>
-              <mixed-citation publication-type="other">GO Ontology. [<ext-link xlink:href="http://www.geneontology.org/" ext-link-type="url">http://www.geneontology.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">GO Ontology. [<ext-link xlink:href="http://www.geneontology.org/" ext-link-type="uri">http://www.geneontology.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR48">
               <label>48.</label>
@@ -1284,7 +1282,7 @@
             </ref>
             <ref id="CR51">
               <label>51.</label>
-              <mixed-citation publication-type="other">WEKA - Machine learning in Java. [<ext-link xlink:href="http://www.cs.waikato.ac.nz/ml/weka/" ext-link-type="url">http://www.cs.waikato.ac.nz/ml/weka/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">WEKA - Machine learning in Java. [<ext-link xlink:href="http://www.cs.waikato.ac.nz/ml/weka/" ext-link-type="uri">http://www.cs.waikato.ac.nz/ml/weka/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR52">
               <label>52.</label>
@@ -1319,7 +1317,7 @@
                 <fpage>96</fpage>
                 <lpage>100</lpage>
                 <pub-id pub-id-type="doi">10.1021/ml100016x</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BC3cXjtFOqsL0%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXjtFOqsL0%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR53">
@@ -1347,7 +1345,7 @@
                 <fpage>2042</fpage>
                 <lpage>2053</lpage>
                 <pub-id pub-id-type="doi">10.1021/ci8001815</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1cXhtFygtLbO</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXhtFygtLbO</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR54">
@@ -1371,7 +1369,7 @@
                 <fpage>195</fpage>
                 <lpage>207</lpage>
                 <pub-id pub-id-type="doi">10.1080/10629360701306050</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2sXlsVeru7w%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXlsVeru7w%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR55">
@@ -1397,7 +1395,7 @@
                 <volume>33</volume>
                 <fpage>445</fpage>
                 <lpage>459</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXht1OgtLnJ</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXht1OgtLnJ</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR56">
@@ -1495,7 +1493,7 @@
                 <volume>33</volume>
                 <fpage>155</fpage>
                 <lpage>173</lpage>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD2MXktl2gsbg%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXktl2gsbg%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR57">
@@ -1539,12 +1537,12 @@
                 <fpage>1251</fpage>
                 <lpage>1258</lpage>
                 <pub-id pub-id-type="doi">10.1093/bioinformatics/btp140</pub-id>
-                <pub-id pub-id-type="coi">1:CAS:528:DC%2BD1MXlslGgtL0%3D</pub-id>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1MXlslGgtL0%3D</pub-id>
               </mixed-citation>
             </ref>
             <ref id="CR58">
               <label>58.</label>
-              <mixed-citation publication-type="other">SADI framework. [<ext-link xlink:href="http://sadiframework.org/" ext-link-type="url">http://sadiframework.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">SADI framework. [<ext-link xlink:href="http://sadiframework.org/" ext-link-type="uri">http://sadiframework.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR59">
               <label>59.</label>
@@ -1609,19 +1607,19 @@
             </ref>
             <ref id="CR61">
               <label>61.</label>
-              <mixed-citation publication-type="other">ToxPredict demo application. [<ext-link xlink:href="http://toxpredict.org/" ext-link-type="url">http://toxpredict.org/</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">ToxPredict demo application. [<ext-link xlink:href="http://toxpredict.org/" ext-link-type="uri">http://toxpredict.org/</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR62">
               <label>62.</label>
-              <mixed-citation publication-type="other">OpenTox Authentication and Authorisation API. [<ext-link xlink:href="http://opentox.org/dev/apis/api-1.2/AA" ext-link-type="url">http://opentox.org/dev/apis/api-1.2/AA</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">OpenTox Authentication and Authorisation API. [<ext-link xlink:href="http://opentox.org/dev/apis/api-1.2/AA" ext-link-type="uri">http://opentox.org/dev/apis/api-1.2/AA</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR63">
               <label>63.</label>
-              <mixed-citation publication-type="other">OpenAM. [<ext-link xlink:href="http://www.forgerock.com/openam.html" ext-link-type="url">http://www.forgerock.com/openam.html</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">OpenAM. [<ext-link xlink:href="http://www.forgerock.com/openam.html" ext-link-type="uri">http://www.forgerock.com/openam.html</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR64">
               <label>64.</label>
-              <mixed-citation publication-type="other">Wikipedia entry for Linked Data. [<ext-link xlink:href="http://en.wikipedia.org/wiki/Linked_Data" ext-link-type="url">http://en.wikipedia.org/wiki/Linked_Data</ext-link>]</mixed-citation>
+              <mixed-citation publication-type="other">Wikipedia entry for Linked Data. [<ext-link xlink:href="http://en.wikipedia.org/wiki/Linked_Data" ext-link-type="uri">http://en.wikipedia.org/wiki/Linked_Data</ext-link>]</mixed-citation>
             </ref>
             <ref id="CR65">
               <label>65.</label>
@@ -1650,14 +1648,14 @@
               <title>Electronic supplementary material</title>
               <p>
                 <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Electronic supplementary material">
-                  <media xlink:href="MediaObjects/13321_2010_201_MOESM1_ESM.DOC" mimetype="application" mime-subtype="msword">
+                  <media mimetype="application" mime-subtype="msword" xlink:href="MediaObjects/13321_2010_201_MOESM1_ESM.DOC" position="anchor">
                     <caption xml:lang="en">
                       <p>Additional file 1: Supporting Information. Examples of accessing various AMBIT REST services via the cURL tool. (DOC 50 KB)</p>
                     </caption>
                   </media>
                 </supplementary-material>
                 <supplementary-material content-type="local-data" id="MOESM2" xlink:title="Electronic supplementary material">
-                  <media xlink:href="MediaObjects/13321_2010_201_MOESM2_ESM.N3" mimetype="text" mime-subtype="plain">
+                  <media mimetype="text" mime-subtype="plain" xlink:href="MediaObjects/13321_2010_201_MOESM2_ESM.N3" position="anchor">
                     <caption xml:lang="en">
                       <p>Additional file 2: Supporting Information. RDF graph, representing two remote models, using the same training dataset. (N3 4 KB)</p>
                     </caption>
@@ -1667,7 +1665,7 @@
             </sec>
             <sec id="Sec30">
               <title>Authors’ original submitted files for images</title>
-              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_201_MOESM3_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_201_MOESM4_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_201_MOESM5_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_201_MOESM6_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media xlink:href="MediaObjects/13321_2010_201_MOESM7_ESM.png" mimetype="image" mime-subtype="png"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material></p>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2010_201_MOESM3_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2010_201_MOESM4_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2010_201_MOESM5_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2010_201_MOESM6_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2010_201_MOESM7_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material></p>
             </sec>
           </app>
         </app-group>
