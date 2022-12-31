@@ -1,0 +1,1502 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">BMC1758-2946-4-22</article-id>
+          <article-id pub-id-type="manuscript">342</article-id>
+          <article-id pub-id-type="doi">10.1186/1758-2946-4-22</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Towards a Universal SMILES representation - A standard method to generate canonical SMILES based on the InChI</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author" corresp="yes">
+              <name>
+                <surname>O’Boyle</surname>
+                <given-names>Noel M</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDBMC17582946422_cor1">a</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.7872.a</institution-id>
+                <institution-id institution-id-type="ISNI">0000000123318773</institution-id>
+                <institution content-type="org-division">Analytical and Biological Chemistry Research Facility</institution>
+                <institution content-type="org-name">University College Cork, Cork, Co.</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Cavanagh Pharmacy Building</addr-line>
+              <addr-line content-type="city">Cork</addr-line>
+              <country country="IE">Ireland</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDBMC17582946422_cor1">
+              <label>a</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>18</day>
+            <month>9</month>
+            <year>2012</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2012</year>
+          </pub-date>
+          <volume>4</volume>
+          <issue seq="14">1</issue>
+          <elocation-id>22</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>12</day>
+              <month>6</month>
+              <year>2012</year>
+            </date>
+            <date date-type="received">
+              <day>12</day>
+              <month>6</month>
+              <year>2012</year>
+            </date>
+            <date date-type="accepted">
+              <day>3</day>
+              <month>9</month>
+              <year>2012</year>
+            </date>
+            <date date-type="online">
+              <day>18</day>
+              <month>9</month>
+              <year>2012</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© O'Boyle; licensee Chemistry Central Ltd. 2012</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="uri">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-year>2012</copyright-year>
+            <copyright-holder>O'Boyle; licensee Chemistry Central Ltd.</copyright-holder>
+            <license license-type="open-access" xlink:href="https://creativecommons.org/licenses/by/2.0">
+              <license-p><bold>Open Access</bold>
+ This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (
+    <ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="uri">https://creativecommons.org/licenses/by/2.0</ext-link>
+    ), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.
+</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <sec id="ASec1">
+              <title>Background</title>
+              <p>There are two line notations of chemical structures that have established themselves in the field: the SMILES string and the InChI string. The InChI aims to provide a unique, or canonical, identifier for chemical structures, while SMILES strings are widely used for storage and interchange of chemical structures, but no standard exists to generate a canonical SMILES string.</p>
+            </sec>
+            <sec id="ASec2">
+              <title>Results</title>
+              <p>I describe how to use the InChI canonicalisation to derive a canonical SMILES string in a straightforward way, either incorporating the InChI normalisations (Inchified SMILES) or not (Universal SMILES). This is the first description of a method to generate canonical SMILES that takes stereochemistry into account. When tested on the 1.1 m compounds in the ChEMBL database, and a 1 m compound subset of the PubChem Substance database, no canonicalisation failures were found with Inchified SMILES. Using Universal SMILES, 99.79% of the ChEMBL database was canonicalised successfully and 99.77% of the PubChem subset.</p>
+            </sec>
+            <sec id="ASec3">
+              <title>Conclusions</title>
+              <p>The InChI canonicalisation algorithm can successfully be used as the basis for a common standard for canonical SMILES. While challenges remain – such as the development of a standard aromatic model for SMILES – the ability to create the same SMILES using different toolkits will mean that for the first time it will be possible to easily compare the chemical models used by different toolkits.</p>
+            </sec>
+            <sec>
+              <fig id="Figa" position="anchor">
+                <graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_342_Figa_HTML.gif" position="anchor" />
+              </fig>
+            </sec>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Line notations</kwd>
+            <kwd>InChI</kwd>
+            <kwd>SMILES</kwd>
+            <kwd>Canonicalisation</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Chemistry Central</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>39</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2012</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2012</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>6</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>12</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2012_Article_342.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:<ext-link xlink:href="10.1186/1758-2946-4-22" ext-link-type="doi">10.1186/1758-2946-4-22</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Background</title>
+          <p>Line notations are linear representations of chemical structures that encode the connection table and (usually) the stereochemistry of a molecule as a line of text [<xref ref-type="bibr" rid="CR1">1</xref>]. They are widely used for storing, representing, communicating and checking the identity of chemical structures. Their popularity derives from one or more of the following: they encode the chemical structure in a compact form; they may be human-readable and/or human-writable; they are easily entered into software (for example, by copying and pasting into a text entry box on a website or a dialog box in a GUI, or entered into a spreadsheet cell); they may be canonical (that is, provide a unique representation for a particular molecule), in which case they may easily be used to check identity, search databases or even search the web.</p>
+          <p>While line notations typically do not allow the incorporation of additional information beyond the connection table and its associated chemistry (with the notable exception of SYBYL Line Notation [<xref ref-type="bibr" rid="CR2">2</xref>, <xref ref-type="bibr" rid="CR3">3</xref>]), even where the underlying data is stored in a 2D or 3D file format as in several web databases (for example, PubChem [<xref ref-type="bibr" rid="CR4">4</xref>]), linear representations of the data are usually provided for convenience. Apart from IUPAC nomenclature [<xref ref-type="bibr" rid="CR5">5</xref>], the two most widely used line notations and the focus of the current work are the SMILES (Simplified Molecular Input Line Entry System) string developed by Weininger [<xref ref-type="bibr" rid="CR6">6</xref>] and Daylight Chemical Information Systems [<xref ref-type="bibr" rid="CR7">7</xref>], and IUPAC’s InChI (International Chemistry Identifier) representation [<xref ref-type="bibr" rid="CR8">8</xref>, <xref ref-type="bibr" rid="CR9">9</xref>]. Others include SLN (SYBYL Line Notation), ROSDAL [<xref ref-type="bibr" rid="CR10">10</xref>] (from the Beilstein Institute), WLN (Wiswesser Line Notation [<xref ref-type="bibr" rid="CR11">11</xref>]), MCDL (Modular Chemical Descriptor Language [<xref ref-type="bibr" rid="CR12">12</xref>, <xref ref-type="bibr" rid="CR13">13</xref>]), the InChIKey (a hashed representation of the InChI) and more [<xref ref-type="bibr" rid="CR1">1</xref>, <xref ref-type="bibr" rid="CR14">14</xref>–<xref ref-type="bibr" rid="CR20">20</xref>].</p>
+          <p>The SMILES format is the most popular line notation in use today. Created by David Weininger in 1986 at the US Environmental Research Laboratory (USEPA), and further developed at the company he co-founded, Daylight Chemical Information Systems, the SMILES format is particularly attractive as it is easily learnt, is both human-readable and -writable, and encodes stereochemistry in an intuitive way. Since no formal specification of the SMILES format was ever published and there are several ambiguities that have led to differences in implementation, in 2007 Craig James (eMolecules, Inc., and formerly of Daylight) initiated a community approach to develop a specification for SMILES, the OpenSMILES specification [<xref ref-type="bibr" rid="CR21">21</xref>]. The SMILES format is not without some drawbacks: it is focused on molecules whose bonds fit the 2-electron valence model, it handles a limited array of stereochemistry types, and as yet there is no standard for handling aromaticity. However, perhaps the greatest limitation of the SMILES format is that there is no standard way to generate a canonical representation. While Weininger et al. [<xref ref-type="bibr" rid="CR22">22</xref>] did publish a canonicalisation procedure (CANGEN) for SMILES, the procedure did not include a treatment of stereochemistry, one of the most difficult aspects of the problem. Daylight subsequently provided a commercial product to generate canonical SMILES but as the algorithm was proprietary, other commercial and open-source software developed their own algorithms for generating canonical SMILES all of which differed from each other and none of which are published.</p>
+          <p>In 1999, the need for a community standard for a canonical linear representation led to a proposal by Steve Heller and Steve Stein at the National Institute of Standards and Technology (NIST) in the US for a new representation, the InChI (International Chemical Identifier), which was subsequently developed as an IUPAC initiative in collaboration with NIST [<xref ref-type="bibr" rid="CR8">8</xref>]. The first version of the InChI was released in 2005, and in 2009 the InChI Trust [<xref ref-type="bibr" rid="CR9">9</xref>] was formed to oversee its development. The goal of the InChI is to provide an canonical representation that can be used to link information from different databases on the same molecules. To do this, the InChI algorithm combines a normalisation procedure, a canonicalisation algorithm, and a layered structure that helps identify isomers.</p>
+          <p>This work describes a method to generate canonical SMILES using canonical labels from the InChI. While other canonicalisation methods have been developed that take stereochemistry into account (for example, Koichi et al. [<xref ref-type="bibr" rid="CR16">16</xref>] as well as all of the (unpublished) methods used by the various cheminformatics toolkits), only the InChI is suitable for the development of a standard canonical SMILES string that can easily be supported by many different software libraries, as there exists only a single implementation, the code for which is freely available under an Open Source license. This implementation has been incorporated into several Open Source cheminformatics libraries (Open Babel [<xref ref-type="bibr" rid="CR23">23</xref>], the Chemistry Development Kit [<xref ref-type="bibr" rid="CR24">24</xref>], RDKit [<xref ref-type="bibr" rid="CR25">25</xref>], Chemkit [<xref ref-type="bibr" rid="CR26">26</xref>] and Indigo [<xref ref-type="bibr" rid="CR27">27</xref>]) as well as proprietary software from several companies (for example, ACD/ChemSketch [<xref ref-type="bibr" rid="CR28">28</xref>], CACTVS [<xref ref-type="bibr" rid="CR29">29</xref>], JChem [<xref ref-type="bibr" rid="CR30">30</xref>], and planned for OEChem [<xref ref-type="bibr" rid="CR31">31</xref>]). This means that all of these programs can generate the same InChI as the official InChI software, and thus they have the capability to generate the same canonical SMILES.</p>
+          <p>Here I describe Universal SMILES and Inchified SMILES, easily-implemented methods that use the canonical labels provided by the InChI to generate canonical SMILES. The term Universal is used as the method can be universally adopted by any software with access to the InChI library or executable, without the need for any changes to the InChI software. These SMILES strings do not use any extensions to the SMILES standard, and so are completely interchangeable with the existing SMILES strings used by many databases. The advantage of replacing existing SMILES strings with Universal SMILES or Inchified SMILES is that the ease of use and readability of SMILES strings is enhanced by the indexing and linking ability associated with a canonical representation such as the InChI.</p>
+          <p>This is the first description of a method to generate canonical SMILES that takes stereochemistry into account. Apart from yaInChI (a modification of the InChI by Cho et al. [<xref ref-type="bibr" rid="CR32">32</xref>]), it is also the first time that the canonical labels from the InChI have been used to generate an alternative canonical representation, although in fact the idea itself has previously been proposed by Murray-Rust (on the Open Babel mailing list, February 2005 [<xref ref-type="bibr" rid="CR33">33</xref>]). However, there are other studies that share the idea of exploiting information contained in the InChI for purposes other than uniquely identifying a molecule. Thalheim et al. [<xref ref-type="bibr" rid="CR34">34</xref>] implemented a tautomer enumeration procedure based on information contained in the InChI. The InChI normalises all (supported) tautomers to the same representation, and stores the normalised information in the mobile hydrogen layer of the InChI which describes how one or more hydrogens is shared between a set of heteroatoms. The authors extracted this layer, and developed an algorithm that generated all of the tautomers consistent with it. The layered structure of the InChI can be exploited to identify isomers of various types; in a crystallographic study, Fábián and Brock [<xref ref-type="bibr" rid="CR35">35</xref>] used the enantiomer layer to identify a particular class of racemic crystal, kryptoracemates, where the enantiomers are not related by space-group symmetry.</p>
+          <p>I propose two approaches for the generation of a canonical SMILES based on the InChI, one of which includes the normalisation steps introduced by the InChI:<list list-type="order"><list-item><p>The <bold>Inchified SMILES</bold> can be considered as a canonical SMILES string that corresponds to the Standard InChI. All of the normalisations applied to the structure by the InChI are passed onto the Inchified SMILES, and there is a one-to-one relationship between the two.</p></list-item><list-item><p>In contrast, the <bold>Universal SMILES</bold> retains the original structure (and tautomeric state) but uses the canonical labels from the InChI to create a canonical SMILES string. It can be considered a drop-in replacement for existing SMILES, with the added benefit of being a canonical representation.</p></list-item></list></p>
+          <p>The Methods section describes how to generate Inchified and Universal SMILES. The Results section covers how these approaches were tested by implementing them as part of the Open Babel cheminformatics toolkit. Additional comments on the implementation as well as the implications of a widely-available standard canonical form for SMILES are contained in the Discussion.</p>
+        </sec>
+        <sec id="Sec2" sec-type="methods">
+          <title>Methods</title>
+          <sec id="Sec3">
+            <title>Overview</title>
+            <p>The generation of an Inchified SMILES string involves four overall steps: structure normalisation, canonical labelling, tree traversal, and SMILES generation (Figure <xref rid="Fig1" ref-type="fig">1</xref>). The procedure for generating Universal SMILES does not include the normalisation step, and incorporates information from the InChI in a different way:<list list-type="order"><list-item><p><bold>Inchified SMILES:</bold> Generate a Standard InChI for a molecule <italic>mol1</italic> and use the InChI library to convert it back to a molecule <italic>mol2</italic>. The atoms of <italic>mol2</italic> will be in a canonical order although its connection table may be different to <italic>mol1</italic> due to normalisation. Using the canonical order, generate a canonical SMILES for <italic>mol2</italic>.</p></list-item><list-item><p><bold>Universal SMILES:</bold> Generate a non-standard InChI for a molecule <italic>mol1</italic>, and parse the auxiliary information to obtain the canonical labels. Using the canonical labels, generate a canonical SMILES for <italic>mol1</italic>.</p></list-item></list><fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>An overview of the steps involved in generating Universal and Inchified SMILES.</bold> The normalisation step just applies to Inchified SMILES. To simplify the diagram a Standard InChI is shown, but in practice a non-standard InChI (options <italic>FixedH</italic> and <italic>RecMet</italic>) is used for Universal SMILES.</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_342_Fig1_HTML.jpg" /></fig></p>
+            <p>In the absence of any normalisations affecting the Inchified SMILES, or differences between the Standard and non-standard InChIs, the Universal SMILES and Inchified SMILES for a particular molecule will be identical.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Structure normalisation</title>
+            <p>When generating a Standard InChI a set of normalisations are first applied to the supplied structure. The purpose of these normalisations is to make sure that different ways of drawing the same structure will all yield the same InChI. For example, tautomers that differ by (1,3)-shifts of H atoms between heteroatoms may be normalised to the same representation; ion-pair representations (e.g. nitro group as –[N+]([O-])=O) are replaced by expanded valence representations (e.g. nitro group as –N(=O)=O). Other more complex normalisation steps are also applied to handle radicals and movable charges.</p>
+            <p>The Inchified SMILES incorporates these normalisation steps in a rather straightforward way. An InChI is generated from the original structure, and then that InChI is converted back to a molecular structure using the InChI library. Several structures with different connection tables may give the same InChI due to normalisation, but that InChI will only be converted back to a single structure, the normalised structure. For Inchified SMILES, the original structure is discarded and the normalised structure is used instead.</p>
+            <p>It is worth emphasising that the normalisations incorporated by the Inchified SMILES are completely dependent on the Standard InChI. If the Standard InChI does not detect and normalise different tautomeric states of a molecule (which happens for various classes of tautomers), different tautomers will not yield the same Inchified SMILES.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Canonical labelling</title>
+            <p>In order to generate a unique, or canonical, representation for a molecule, one needs a way to canonically label the atoms of the molecule. Such a method will always give the same label to the same atom no matter how the atoms of the molecule are presented. As discussed above, different canonicalisation procedures have been developed by a variety of software vendors and open source projects. Here the canonical labels provided by the InChI canonicalisation algorithm are used.</p>
+            <p>Although a full and detailed description of the InChI canonicalisation algorithm has not been published, the InChI Technical Manual [<xref ref-type="bibr" rid="CR36">36</xref>] presents an overview and Tchekhovskoi (of the InChI development team) has given some details in emails to the InChI public mailing list (see Apodaca [<xref ref-type="bibr" rid="CR37">37</xref>]). The hydrogenless molecular graph is first canonicalised, based on an initial partitioning of the atoms similar to that described by Weininger for SMILES. Canonical numbering is then obtained using a method described by Agarwal and Gelernter [<xref ref-type="bibr" rid="CR38">38</xref>], but using McKay’s Nauty algorithm [<xref ref-type="bibr" rid="CR39">39</xref>] to improve efficiency. Further canonicalisation steps are then carried out in a stepwise manner for each additional InChI layer, while keeping previous layers fixed.</p>
+            <p>When generating Inchified SMILES, the preceding structure normalisation step returns the atoms of the molecule in InChI canonical order, so no further work is required. To generate Universal SMILES, the canonical order must instead be obtained by generating an InChI for the molecule and extracting the order from the InChI auxiliary information.</p>
+            <p>The relationship between the input order and the InChI canonical labels is given by the /N layer in the auxiliary information (output by default if using the InChI command-line application, or requested with <italic>–xa</italic> if using Open Babel). For example, for the input SMILES string ClCC(=O)Br (see Table <xref rid="Tab1" ref-type="table">1</xref>) the /N layer indicates that canonical labels 1 through 5 correspond to input atoms 2, 3, 5, 1 and 4 respectively (e.g. canonical label 3 is input atom 5, the Br). Disconnected structures (such as C.C in Table <xref rid="Tab1" ref-type="table">1</xref>) are handled similarly but with a semicolon separating the labels for each structure. Note that only bridging hydrogens are given canonical labels; neither hydrogens in general nor specific hydrogen isotopes receive them (see C([H])C and C([2H])O in Table <xref rid="Tab1" ref-type="table">1</xref>).<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p><bold>Universal SMILES for structures discussed in the text showing the input SMILES, and the corresponding non-standard InChI and auxiliary information</bold></p></caption><table frame="hsides" rules="groups"><thead><tr><th><p>SMILES</p></th><th><p>Non-standard InChI*</p></th><th><p>InChI Auxiliary info</p></th><th><p>Universal SMILES</p></th></tr></thead><tbody><tr><td><p>OCC</p></td><td><p>InChI=1/C2H6O/c1-2-3/h3H,2H2,1H3</p></td><td><p>AuxInfo=1/0/N:3,2,1/rA:3OCC/rB:s1;s2;/rC:;;;</p></td><td><p>CCO</p></td></tr><tr><td><p>ClCC(=O)Br</p></td><td><p>InChI=1/C2H2BrClO/c3-2(5)1-4/h1H2</p></td><td><p>AuxInfo=1/0/N:2,3,5,1,4/rA:5ClCCOBr/rB:s1;s2;d3;s3;/rC:;;;;;</p></td><td><p>C(C(=O)Br)Cl</p></td></tr><tr><td><p>C.C</p></td><td><p>InChI=1/2CH4/h2*1H4</p></td><td><p>AuxInfo=1/0/N:1;2/rA:2CC/rB:;/rC:;;</p></td><td><p>C.C</p></td></tr><tr><td><p>C.CC</p></td><td><p>InChI=1/C2H6.CH4/c1-2;/h1-2H3;1H4</p></td><td><p>AuxInfo=1/0/N:2,3;1/E:(1,2);/rA:3CCC/rB:;s2;/rC:;;;</p></td><td><p>CC.C</p></td></tr><tr><td><p>C([H])C</p></td><td><p>InChI=1/C2H6/c1-2/h1-2H3</p></td><td><p>AuxInfo=1/0/N:1,3/E:(1,2)/rA:3CHC/rB:s1;s1;/rC:;;;</p></td><td><p>CC</p></td></tr><tr><td><p>C([2H])O</p></td><td><p>InChI=1/CH4O/c1-2/h2H,1H3/i1D</p></td><td><p>AuxInfo=1/0/N:1,3/rA:3CH.i2O/rB:s1;s1;/rC:;;;</p></td><td><p>C([2H])O</p></td></tr></tbody></table><table-wrap-foot><p>* InChI generated using the non-standard options <italic>RecMet</italic> and <italic>FixedH.</italic></p></table-wrap-foot></table-wrap></p>
+            <p>For the purpose of generating Universal SMILES, two non-standard InChI options are used: <italic>FixedH</italic> (include fixed hydrogen layer) and <italic>RecMet</italic> (reconnect disconnected metals). The former allows us to correctly relate the input order and the canonical labels in certain cases where the molecular symmetry is broken only by a protonation state. For example, without this option, the following two SMILES strings for the same molecule, C(=O)([O-])C(=O)O and C(=O)(O)C(=O)[O-], give different Universal SMILES as the corresponding atoms receive different canonical labels in each case (see Table <xref rid="Tab2" ref-type="table">2</xref>). Once <italic>FixedH</italic> is used, a fixed hydrogen layer (/f) is added to the InChI when mobile hydrogens are present, and the auxiliary information contains a corresponding /F section describing the correspondence between the input atom order and the canonical labels. Once this is used the same Universal SMILES can be generated in each case (Table <xref rid="Tab2" ref-type="table">2</xref>).<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p><bold>The effect of using the non-standard option FixedH on the InChI and Universal SMILES</bold></p></caption><table frame="hsides" rules="groups"><tbody><tr><td><p><bold>SMILES</bold></p></td><td><p><bold>Standard InChI</bold></p></td><td><p><bold>InChI Auxiliary info</bold></p></td><td><p><bold>“Universal” SMILES</bold></p></td></tr><tr><td><p>C(=O)([O-])C(=O)O</p></td><td><p>InChI=1/C2H2O4/c3-1(4)2(5)6/h(H,3,4)(H,5,6)/p-1</p></td><td><p>AuxInfo =1/1/<bold>N:1,4,2,3,5,6</bold>/E:(1,2)(3,4,5,6)/gE:(1,2)/rA:6COO-COO/rB:d1;s1;s1;d4;s4;/rC:;;;;;;</p></td><td><p>C(=O)(C(=O)O)[O-]</p></td></tr><tr><td><p>C(=O)(O)C(=O)[O-]</p></td><td><p>InChI=1/C2H2O4/c3-1(4)2(5)6/h(H,3,4)(H,5,6)/p-1</p></td><td><p>AuxInfo=1/1/<bold>N:1,4,2,3,5,6</bold>/E:(1,2)(3,4,5,6)/gE:(1,2)/rA:6COOCOO-/rB:d1;s1;s1;d4;s4;/rC:;;;;;;</p></td><td><p>C(=O)(C(=O)[O-])O</p></td></tr><tr><td><p><bold>SMILES</bold></p></td><td><p><bold>Non-standard InChI*</bold></p></td><td><p><bold>InChI Auxiliary info</bold></p></td><td><p><bold>Universal SMILES</bold></p></td></tr><tr><td><p>C(=O)([O-])C(=O)O</p></td><td><p>InChI=1/C2H2O4/c3-1(4)2(5)6/h(H,3,4)(H,5,6)/p-1/fC2HO4/h3H/q-1</p></td><td><p>AuxInfo=1/1/N:1,4,2,3,5,6/E:(1,2)(3,4,5,6)/gE:(1,2)/<bold>F:4,1,6,5,2,3</bold>/E:(5,6)/rA:6COO-COO/rB:d1;s1;s1;d4;s4;/rC:;;;;;;</p></td><td><p>C(=O)(C(=O)[O-])O</p></td></tr><tr><td><p>C(=O)(O)C(=O)[O-]</p></td><td><p>InChI=1/C2H2O4/c3-1(4)2(5)6/h(H,3,4)(H,5,6)/p-1/fC2HO4/h3H/q-1</p></td><td><p>AuxInfo=1/1/N:1,4,2,3,5,6/E:(1,2)(3,4,5,6)/gE:(1,2)/<bold>F:1,4,3,2,5,6</bold>/E:(5,6)/rA:6COOCOO-/rB:d1;s1;s1;d4;s4;/rC:;;;;;;</p></td><td><p>C(=O)(C(=O)[O-])O</p></td></tr></tbody></table></table-wrap></p>
+            <p>When generating a Standard InChI, ligands are disconnected from any metal atoms present in order to normalise different representations of the same metal-ligand bonding system. This can cause some problems when trying to relate the input atoms and the canonical labels. For example, if you consider the platinum complex represented by the SMILES string C(=O)O[Pt](N)(N)Cl, when disconnected the two oxygens of the carboxy are considered equivalent by the InChI and so the canonical labels for the oxygens in the input structure may interchange depending on their atom order. To avoid such problems, the <italic>RecMet</italic> option is used when generating the InChI. This adds a reconnected metal layer (/r) to the InChI if a metal atom has been disconnected, and a corresponding /R section to the auxiliary information. The /R section has its own /N section (and its own /F section as described above if mobile hydrogens are present) which contains the correspondence between the input atom order and the canonical labels.</p>
+            <p>The following rule describes from which section the canonical labels should be extracted:<list list-type="bullet"><list-item><p>Rule A: The correspondence between the input atom order and the InChI canonical labels should be obtained from the reconnected metal layer (/R:) in preference to the initial layer, and then from the fixed hydrogen labels (/F:) in preference to the standard labels (/N:).</p><p>See the Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref> for a Python script that extracts the canonical labels from an InChI as described by Rule A.</p><p>Here only the fixed hydrogen and reconnected metal layers have been considered. Another layer that may be present is the isotopic layer, and there may be an updated canonical label section associated with this. As of writing, there is a known bug in the InChI output for this section [<xref ref-type="bibr" rid="CR40">40</xref>], and support for this additional layer will be added once this is addressed.</p></list-item></list></p>
+          </sec>
+          <sec id="Sec6">
+            <title>Graph traversal</title>
+            <p>A SMILES string is a linear representation of a molecule created from a traversal of the molecular graph. The most straightforward way to traverse the graph is using a depth-first search (this minimises bond closure symbols). As discussed by Weininger et al. [<xref ref-type="bibr" rid="CR22">22</xref>] the only questions that remain are where to start the traversal, and which branch to follow at each branch point:<list list-type="bullet"><list-item><p>Rule B: Start the graph traversal at the atom with the lowest canonical label. For disconnected structures, visit each structure in order of its lowest canonical label. (Modified by Rule E)</p></list-item><list-item><p>Rule C: At each branch point, multiple bonds are favoured over single or aromatic bonds, and lower canonical labels over higher. (Modified by Rule D)</p></list-item></list></p>
+            <p>Rule C follows Weininger et al. and reduces the probability of bond closures involving multiple bonds.</p>
+            <sec id="Sec7">
+              <title>Handling hydrogens</title>
+              <p>In general, hydrogens are neither given a canonical label by the InChI nor included in the connection layer. However, for certain specific cases involving species consisting wholly of hydrogen atoms or with bridging hydrogens, one or more hydrogens may be labelled. For its part, in general a Universal or Inchified SMILES string does not include hydrogens (or rather they are included implicitly) as prescribed by Rule F below. However explicit hydrogens are used when indicating isotopes of hydrogen (i.e. [2H], [3H]), hydrogens attached to tetrahedral stereocentres with defined stereochemistry, and for the special cases of dihydrogen and hydrogen ions ([H][H], [H-], [H+]).</p>
+              <p>For explicit hydrogen atoms that are labelled by the InChI, Rules B and C should be followed. The following rule describes how to handle unlabelled explicit hydrogens:<list list-type="bullet"><list-item><p>Rule D: An explicit hydrogen atom in the SMILES string which is unlabelled by the InChI should be visited prior to other singly-bonded branches of the preceding atom (and favouring deuterium first over tritium), or if present at a tetrahedral stereocentre with defined stereochemistry, it should be written inside the square brackets (that is, [C@H] rather than [C@]([H])).</p></list-item></list></p>
+              <p>Example:</p>
+              <p>C([2H])([3H])Cl rather than C(Cl)([3H])[2H]</p>
+              <p>In practice, the first clause of Rule D can be ensured by giving such hydrogens a low canonical number so that Rule B will work without modification.</p>
+            </sec>
+            <sec id="Sec8">
+              <title>Handling groups whose order is not canonical</title>
+              <p>As a consequence of its normalisation rules, the InChI treats certain groups as identical that have distinct representations in SMILES; the most common case is a doubly-bonded oxygen and an hydroxide anion attached to the same atom. The result of this is that the “canonical” labels for the individual groups will depend on their atom order. For example, different atom orders for a representation of the acetate anion will cause an interchange of the canonical labels for the hydroxyl group and the carbonyl group.</p>
+              <p>Fortunately this is not a problem in the general case, as Rule C ensures that the doubly-bonded atom is visited prior to the singly-bonded one. However, care must be taken when choosing the start atom:<list list-type="bullet"><list-item><p>Rule E: If the start atom is a negatively charged oxygen atom, start instead at any carbonyl oxygen attached to the same neighbour.</p></list-item></list></p>
+            </sec>
+          </sec>
+          <sec id="Sec9">
+            <title>Generation of SMILES string</title>
+            <sec id="Sec10">
+              <title>Use of standard form</title>
+              <p>Even given a particular atom order, many different SMILES strings may be written for the same molecule. Consider ethanol, represented by the Universal SMILES string CCO. Alternative valid representations include C-C-O, C1.C12.O2, C(C(O)), [CH3]CO, and [H]C([H][H])CO. The OpenSMILES specification [<xref ref-type="bibr" rid="CR21">21</xref>] describes a standard form for a SMILES string:<list list-type="bullet"><list-item><p>Rule F: SMILES strings should be written in the standard form described by the OpenSMILES specification.</p></list-item></list></p>
+              <p>For example, atoms in the “organic subset” (B, C, N, O, P, S, F, Cl, Br, and I) should be written as bare atomic symbols where possible (that is, CCO instead of [CH3][CH3][OH]); single bonds should be written explicitly when necessary to distinguish from an aromatic bond (that is, CCO instead of C-C-O).</p>
+            </sec>
+            <sec id="Sec11">
+              <title>Aromaticity</title>
+              <p>The OpenSMILES standard form referred to in Rule F indicates aromatic systems by lower case symbols rather than using the Kekulé form, for example c1ccccc1 rather than C1=CC=CC=C1 or C1C=CC=CC=1. To apply this rule it is necessary to first identify aromatic systems. Unfortunately, the OpenSMILES specification does not yet describe how to do this. Until this is described by the specification, differences between implementations of Universal SMILES will occur to the lack of a common aromatic model. Note that that this would be the case even if the Kekulé form were favoured over the aromatic form, as the choice of which Kekulé form to use relies on first identifying the associated aromatic system.</p>
+            </sec>
+            <sec id="Sec12">
+              <title>Cis/trans stereochemistry</title>
+              <p>The relative stereochemistry of all of the substituents around a double bond can be deduced if the relative stereochemistry of two substituents at either end is known. However, by providing explicit information on the relative stereochemistry of all substituents, the stereochemistry is clearer and errors can be more easily identified, although this comes at the expense of a longer string:<list list-type="bullet"><list-item><p>Rule G: For double bonds or allenes that exhibit a specified cis/trans stereochemistry, all of the explicit substituents should be preceded with a stereo symbol.</p></list-item></list></p>
+              <p>Example: Cl/C=C(\Br)/I not C/C=C(\Br)I</p>
+              <p>There are two choices for the direction of the slashes used for any particular cis/trans bond (or conjugated set of cis/trans bonds). To ensure a canonical representation, the same one must always be chosen:<list list-type="bullet"><list-item><p>Rule H: In any isolated or conjugated cis/trans stereochemistry system, the stereo symbol that occurs earliest should be a forward slash.</p></list-item></list></p>
+              <p>Example: Cl/C=C/I not Cl\C=C\I</p>
+              <p>The specific choice enforced by Rule H has the advantage that it minimises back slashes in the SMILES string (which in certain programming environments, e.g. the Unix command line or in Python, require a special treatment known as escaping). It also means that if a back slash <italic>is</italic> present in the string, then the (human) reader knows that there must be a corresponding forward slash preceding it.</p>
+              <p>Bond closures that occur at a double bond with defined stereochemistry require an additional rule as the stereo symbol can be present at one or both ends. Placing a stereo symbol at the bond closure symbol distant from the double bond should be avoided as it may lead to difficulties in interpretation:<list list-type="bullet"><list-item><p>Rule I: Cis/trans stereochemistry at a bond closure should only be indicated at the bond closure symbol attached to the double bond.</p></list-item></list></p>
+              <p>Example: C/C=C\1/NC1 not C/C=C\1/NC/1 or C/C=C1/NC/1</p>
+            </sec>
+            <sec id="Sec13">
+              <title>Bond closures</title>
+              <p>For every bond closure in a SMILES string, two bond closure symbols are included indicating the start and end of the bond, or the bond opening and bond closing. Once the bond is closed, the corresponding symbol is free for reuse:<list list-type="bullet"><list-item><p>Rule J: When choosing a bond closure symbol, the lowest value available should be used (where 1 is the lowest possible value). In other words, bond closure symbols should be reused once available.</p></list-item></list></p>
+              <p>When multiple bond closure symbols appear on the same atom, we need to consider the order in which the symbols should be listed:<list list-type="bullet"><list-item><p>Rule K: Where multiple bond closure symbols occur on the same atom, symbols describing bond openings are listed first, ordered by the canonical label of the corresponding neighbour atom (smallest first), followed by those describing bond closings, in the order in which the corresponding bond opening was made (i.e. the output order of the corresponding neighbour atom).</p></list-item></list></p>
+              <p>An advantage of writing out symbols for bond openings before those for bond closings is that it ensures that the same symbol does not appear twice (following the principle of reuse described by Rule J) on the same atom which, while valid according to the SMILES specification, may lead to confusion.</p>
+            </sec>
+          </sec>
+        </sec>
+        <sec id="Sec14" sec-type="results">
+          <title>Results</title>
+          <p>Support for Universal SMILES and Inchified SMILES was implemented in Open Babel version 2.3.2 [<xref ref-type="bibr" rid="CR23">23</xref>] as an option for SMILES output (either <italic>-xU</italic> or <italic>-xI</italic>). These implementations were tested using the ChEMBL database, release 13, which contains 1,142,974 compounds as a 2D SDF file [<xref ref-type="bibr" rid="CR41">41</xref>][<xref ref-type="bibr" rid="CR42">42</xref>], and with a subset of the PubChem Substance database [<xref ref-type="bibr" rid="CR4">4</xref>], the 1,041,575 compounds with SIDs from 1 to 2000000 (downloaded Aug. 7, 2012). The ChEMBL database is a highly-curated set of non-duplicate structures which have passed through a normalisation pipeline before entry. In contrast, the PubChem Substance database contains the original structures as deposited from a variety of sources; no normalisation procedure has been applied and duplicates and errors exist. For the analysis below, 11,881 (1.1%) compounds in the PubChem dataset had failures in InChI generation and so were discarded.</p>
+          <p>The following commands show how to use the <italic>obabel</italic> command-line program to generate Universal and Inchified SMILES strings for a structure stored in a Mol file:</p>
+          <p>C:\><bold>obabel figure1.mol -osmi –xU</bold></p>
+          <p>c1cc(/C=C/F)cc(c1)[N+](=O)[O-]</p>
+          <p>C:\><bold>obabel figure1.mol -osmi –xI</bold></p>
+          <p>c1cc(/C=C/F)cc(c1)N(=O)=O</p>
+          <p>The methods described above for generating the Universal SMILES and Inchified SMILES are such that the same SMILES string will be generated in each case in the absence of any normalisations introduced by the InChI for the Inchified SMILES. Such normalisations are quite common for the datasets studied; for only 52.5% of the ChEMBL database structures and 52.7% of the PubChem dataset are the Universal SMILES strings equal to the Inchified SMILES strings. A large proportion of the differences are due to normalisation of nitro ([N+](=O)[O-] to N(=O)=O). Normalisation of sulfoxide groups ([S+][O-] to S=O) groups also makes a small contribution. Most of the remainder is due to normalisation of tautomers. It should be noted that the normalised tautomer form may not be that which the chemist prefers; for example, all amides are converted to imidic acids.</p>
+          <sec id="Sec15">
+            <title>Shuffle test</title>
+            <p>The methods described above are recipes which, if followed, will result in a Universal SMILES or Inchified SMILES. What remains to be shown is that these methods produce a canonical identifier. The key feature of a canonical identifier is that it should be invariant to the order in which atoms are presented.</p>
+            <p>For each molecule in the dataset, the following procedure was used to test invariance to input atom order. Ten “anti-canonical” SMILES strings (using the <italic>-xC</italic> SMILES output option in Open Babel) were generated for the structure; these SMILES strings are generated by randomly assigning canonical labels to generate different output orderings. Each of these SMILES strings was then used as input to generate a Universal SMILES. If all of these were identical, the molecule was deemed to have passed the “shuffle test”. Afterwards, the whole procedure was repeated using Inchified SMILES and finally using Open Babel’s own canonical SMILES implementation. The value of ten used for the number of “anti-canonical” SMILES strings is sufficient to capture the majority of failures as shown by Figure <xref rid="Fig2" ref-type="fig">2</xref>.<fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>The effect of the number of repetitions used in the shuffle test on the number of canonicalisation failures found for Universal SMILES.</bold> This figure is based on the data from the ChEMBL database.</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_342_Fig2_HTML.jpg" /></fig></p>
+            <sec id="Sec16">
+              <title>ChEMBL database</title>
+              <p>When the shuffle test was applied to the ChEMBL database, there were 2,435 canonicalisation failures (0.21%) with Universal SMILES but only 141 for Inchified SMILES. This compares with 187 failures for Open Babel’s own canonical SMILES implementation. Many of these failures are due to kekulisation problems (rather than problems with the canonicalisation procedure itself), and so also affect the result for Inchified and Universal SMILES. When the failures for Open Babel’s canonical SMILES implementation are excluded, the total number of Universal SMILES failures is 2,248 while that for Inchified SMILES is zero. This value of zero is not unexpected; if the InChI successfully canonicalises the structure, the corresponding Inchified SMILES will also be canonical as a particular InChI will always yield the same Inchified SMILES.</p>
+              <p>For the Universal SMILES, a few main categories of failure could be identified. First, let us consider failures due to differences in the underlying chemical model between Open Babel and the InChI code. For example, 722 of the failures were due to disagreement on the number of tetrahedral stereocentres; typically, Open Babel identified an additional stereocentre which the InChI code correctly identified as non-stereogenic due to symmetry. Similar problems with stereogenic double bonds account for 1,105 failures. Together, these account for about 81% of the 2,248 failures.</p>
+              <p>Another category of failure involves handling of delocalised charges. According to the InChI FAQ [<xref ref-type="bibr" rid="CR43">43</xref>], when computing atom numbers (during canonicalisation), bond orders and charge positions are ignored. This means that where molecular graph symmetry is broken only by charge states in a delocalised system, the InChI will regard as equivalent atoms which appear as different charge states in the SMILES string. The result of this is a non-canonical representation for the Universal SMILES string. For example, two different Universal SMILES are generated for the structure shown in Figure <xref rid="Fig3" ref-type="fig">3</xref>, C[n+]1ccn(C)c1 and Cn1cc[n+](C)c1, differing only in the location of the charged nitrogen.<fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>The structure of CHEMBL1229272.</bold></p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_342_Fig3_HTML.jpg" /></fig></p>
+            </sec>
+            <sec id="Sec17">
+              <title>PubChem dataset</title>
+              <p>When the shuffle test was applied to the 1,029,694 molecules in the PubChem dataset, there were 2,410 canonicalisation failures (0.23%) with Universal SMILES but only 163 for Inchified SMILES. Once the 232 failures for Open Babel’s canonical SMILES implementation were excluded as before, there were 2,183 failures for Universal SMILES but none for Inchified SMILES.</p>
+              <p>About 72% of the Universal SMILES failures are due to stereochemical disagreements and the majority of the remainder involve the handling of delocalised charges discussed above for ChEMBL. An additional class of failures which occurred more often in the case of the PubChem subset than with ChEMBL (56 times versus 19 times) are failures related to non-canonicalisation of isotopes. These are caused by the current lack of support for the isotopic layer as discussed at the end of the Canonical labelling section in the Methods.</p>
+              <p>The greater diversity of the structures in PubChem yields some interesting failure cases. PubChem SID 425526 (Figure <xref rid="Fig4" ref-type="fig">4</xref>) is a thiopyran which Open Babel fails to canonicalise with Universal SMILES as its aromatic model differs from that of the InChI. The InChI regards the ring as aromatic and hence the molecule has two-fold graph symmetry. However, Open Babel treats the ring as a series of double bonds and so there is no graph symmetry. PubChem SID 853813 (Figure <xref rid="Fig4" ref-type="fig">4</xref>) is a deposited structure for the chromate ion. This structure is incorrect (one of the negative charges is on a doubly-bonded oxygen rather than a singly-bonded one) and indeed has been corrected in the PubChem Compound database. The InChI treats the charged and neutral doubly-bonded oxygens as equivalent but the graph traversal rules described in Section 3 of the Methods do not handle this situation and so their output order is not canonical.<fig id="Fig4"><label>Figure 4</label><caption xml:lang="en"><p><bold>Two canonicalisation failures from the PubChem subset.</bold></p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_342_Fig4_HTML.jpg" /></fig></p>
+            </sec>
+          </sec>
+          <sec id="Sec18">
+            <title>Duplicate test</title>
+            <p>The Universal and Inchified SMILES were used to identify duplicates in the two datasets. Such duplicates indicate either true duplicates, a shortcoming of the method or implementation, or else a normalisation of distinct structures.</p>
+            <sec id="Sec19">
+              <title>ChEMBL database</title>
+              <p>The ChEMBL database should not contain any true duplicates. However 63 sets of duplicates (mainly pairs) in terms of the InChI were identified and removed from further consideration. Communication with the ChEMBL team revealed these to be errors in the database which had already been identified and fixed in preparation for the next release.</p>
+              <p>There were 21 duplicates according to Inchified SMILES, but after inspection none of these were due to the method itself but rather due to the underlying toolkit. Eleven duplicates involve tetrahedral stereochemistry at a nitro group which is lost by Open Babel when the InChI code normalises [N+][O-] to N=O, as Open Babel then incorrectly considers the nitrogen to be sp<sup>2</sup>-hybridised and not a potential stereocentre. Six occur because the Open Babel SMILES writer does not output stereo symbols for double bonds in rings of size 8 or less as these are considered to be implicitly <italic>cis</italic> bonds. In fact, these all appear to be true duplicates and have been reported to ChEMBL; for example, a double bond in an 8-membered ring is marked as unknown stereochemistry in one instance (CHEMBL1730955) and <italic>cis</italic> in the other (CHEMBL1512517), but in the original datasource (PubChem) they both link to the same structure. The remaining 4 duplicates are due to a variety of errors in Open Babel such as lack of support for chirality at an sp<sup>3</sup>-hybridised carbon with a hydrogen and a deuterium.</p>
+              <p>With Universal SMILES, 29 duplicates are found which reduces to 21 after eliminating those which also occur for Inchified SMILES. The majority of these 21 appear to be true duplicates which, due to the specific way the structure is depicted in the Mol file, result in distinct InChIs. Nine of these duplicates result from the fact that the InChI software regards as undefined any tetrahedral stereocentre where one bond is implicit, there is one explicit stereo bond, and the two remaining bonds are at an angle close to 180° (Figure <xref rid="Fig5" ref-type="fig">5</xref>). Two other duplicates are due to poor geometry at a stereogenic double bond (two of the substituents form an angle of 60° rather than 120°) which is not accepted by the InChI software. Seven duplicates appear to be true duplicates that the InChI regards as different due to (sometimes small) variations in the angle between the two bonds of a nitrogen attached to a positively-charged pyridine (Figure <xref rid="Fig6" ref-type="fig">6</xref>). All of these have been reported to ChEMBL for correction. The remaining three duplicates appear to be errors in Open Babel’s handling of stereochemistry.<fig id="Fig5"><label>Figure 5</label><caption xml:lang="en"><p><bold>Three arrangements of the same atoms attached to a chiral carbon that differ in the angle between the two planar bonds that includes the stereobond.</bold> (<bold>a</bold>) The angle is > 180°: the hydrogen is considered to be below the plane and behind the wedge. (<bold>b</bold>) The angle is ~180°: some software will treat the stereochemistry as undefined depending on how close the angle is to 180°. (<bold>c</bold>) The angle is &lt; 180°: the hydrogen is considered to be opposite the wedge. This is an enantiomer of (<bold>a</bold>).</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_342_Fig5_HTML.jpg" /></fig><fig id="Fig6"><label>Figure 6</label><caption xml:lang="en"><p><bold>Two entries in the ChEMBL database with seemingly identical structures but whose InChIs are distinct.</bold> The InChIs differ in the double bond stereo layer: /b31-27+,32-28? versus /b31-27-,32-28+. The origin of the difference in InChIs is shown by the images to the right of the main structures which were generated by the <italic>winchi</italic> application (part of the InChI distribution).</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_342_Fig6_HTML.jpg" /></fig></p>
+            </sec>
+            <sec id="Sec20">
+              <title>PubChem dataset</title>
+              <p>Unlike the ChEMBL database, the PubChem Substance database contains a high number of duplicates. There are 143,157 sets of duplicates in the subset of just over 1 million according to the InChI.</p>
+              <p>All duplicates found by the InChI were also found by the Inchified SMILES, and an additional 33 duplicates were identified. Of these, there are six cases where the InChIs are different because of a perceived double-bond stereochemistry difference across a C=N-H bond; in each case the structures link to the same CID (that is, an entry in the PubChem Compound Database). Five cases occur due to the issue with stereochemistry in 8-membered rings discussed above for the ChEMBL database; here, however, two of these cases do involve a true <italic>trans</italic> double bond in cyclooctene (SID 589313 and SID 594496) and so this represents a current limitation in Open Babel. Seven cases involve structures with errors which were corrected by roundtripping through the InChI. For example, the PF<sub>6</sub><sup>7-</sup> anion in SID 539033 and the PF<sub>6</sub><sup>5-</sup> anion in SID 574771 are each corrected to PF<sub>6</sub><sup>-</sup>. Four cases involve normalisation of tautomers of heteroaromatic rings with a sulfonyl group to the same representation. For example, SIDs 221756 and 552031 (Figure <xref rid="Fig7" ref-type="fig">7</xref>) are tautomers (although they also have different CIDs). In three other cases the roundtrip procedure was not able to retain the original charge state and led to false positives. For example, the two structures shown in Figure <xref rid="Fig8" ref-type="fig">8</xref> were normalised to the same neutral molecule. As part of the Standard InChI normalisation procedure metals are disconnected; the Inchified SMILES identified a true duplicate in the case of a ruthenium complex (SIDs 581347 and 795494) and a molecule with a coordinated chromium (SIDs 574543 and 574571), but gave to a false positive in the case of Cu=O and [Cu].O.<fig id="Fig7"><label>Figure 7</label><caption xml:lang="en"><p><bold>Two tautomers identified as duplicates by Inchified SMILES but not by the InChI.</bold></p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_342_Fig7_HTML.jpg" /></fig><fig id="Fig8"><label>Figure 8</label><caption xml:lang="en"><p><bold>Two structures of different charge states normalised to the same neutral molecule by Inchified SMILES.</bold></p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_342_Fig8_HTML.jpg" /></fig></p>
+              <p>141,118 sets of duplicates were identified using Universal SMILES, of which all but 47 were also found by the InChI or Inchified SMILES. Of these there is one case involving the situation shown in Figure <xref rid="Fig5" ref-type="fig">5</xref>. 44 of the remaining cases involve a similar situation with 3D structures, where the InChI treats as undefined the stereochemistry at a tetrahedral centre as the three non-hydrogen atoms are almost in the same plane. The final two cases are further differences between the treatment of structures by Open Babel and InChI. In the case of SID 464705, Open Babel treats a molecule composed of a single hydrogen atom as a hydrogen radical, but when passed to the InChI it is interpreted as dihydrogen (this also occurs if the native InChI code is used to read the corresponding SDF file). When reading SID 823979, composed of a phosphorus atom with a double-bond to an oxygen and a single bond to an oxygen, Open Babel assumes an implicit valence of 5 for the phosphorus (indicating hypophosphorous acid) while the InChI assumes a valency of 3.</p>
+            </sec>
+          </sec>
+        </sec>
+        <sec id="Sec21" sec-type="discussion">
+          <title>Discussion</title>
+          <p>The implementation of Universal SMILES as part of Open Babel is able to generate canonical identifiers for 99.79% of the ChEMBL database and for 99.77% of a subset of the PubChem Substance database, a remarkable level of performance given that the InChI was never intended for such a use and that the only information taken from the InChI were the canonical labels. However, it may be possible to further improve the performance by extracting additional information. The canonicalisation failures due to stereo disagreement could be reduced by improving the ability of Open Babel to identify stereocentres. An alternative would be to try to extract information on the stereocentres from the InChI string and use that information when generating the Universal SMILES. On the other hand, there does not currently seem to be a way to resolve the failures due to delocalised charges, although future versions of the InChI could provide additional non-standard options to help here. An alternative approach would be to modify the InChI codebase itself to overcome these problems, for example as done by Cho et al. [<xref ref-type="bibr" rid="CR32">32</xref>], but that defeats the purpose of using the InChI canonicalisation in the first place, that it exists as a standard implementation which is available within most cheminformatics toolkits.</p>
+          <p>The InChI is often used to identify and remove duplicates in chemical databases. As shown by the results of the duplicate test, the InChI software is more sensitive than Open Babel to the specific geometry used when depicting a 2D structure, and what appear to be duplicates may not be considered as such by the InChI. By comparing the duplicates found using Inchified SMILES versus Universal SMILES, some of these cases may be identified. To find the full set of problematic structures, the entire database should then be searched for additional instances (e.g. all those structures with a 180° bond angle as shown in Figure <xref rid="Fig5" ref-type="fig">5</xref>). These structures should then be redrawn so that the calculated InChI accurately reflects the intended structure.</p>
+          <p>The implementation of a standard SMILES representation, such as the Universal SMILES described here, will make it easy to compare SMILES strings generated by various toolkits. Some differences will be due to bugs in file format readers or writers, and their exposure will lead to improvements in quality. Other differences will be due to variations between the chemical models used by the toolkits. These variations exist between all current cheminformatics toolkits but are somewhat hidden to the casual user. Exposing these differences will encourage the development of standards for chemical models. In particular, a major obstacle in the adoption of Universal SMILES is the lack of a standard aromatic model for SMILES. The aromatic model determines which ring systems are identified as aromatic and thus affects the representation of the corresponding atoms in the SMILES string. In the absence of a standard model, each software uses different rules to determine the aromatic systems. Another issue is how to determine stereocentres, which is a difficult problem in the general case. Should each toolkit use its own code, or work together on a common standard, or should it rely on the stereocentre perception of the InChI code?</p>
+          <p>While this study has been concerned only with the SMILES format, some of the ideas described here could be applied to other chemical file formats. For example, the use of roundtripping through InChI as a normalisation step is independent of any chemical file format and could be used as a ‘business rule’ to prepare structures for entry into a database system. The canonical labels obtained from the InChI could also be used for the generation of canonical forms of other file formats, in particular for other line notations. For file formats with 2D or 3D information, a canonical ordering of the atoms makes it simple to calculate the RMSD between two docked poses (for example) as equivalent atoms occur in the same order in the two files.</p>
+        </sec>
+        <sec id="Sec22" sec-type="conclusions">
+          <title>Conclusions</title>
+          <p>The normalisation and canonicalisation procedures developed by the InChI project can be used to generate a canonical form for other line notations, in particular the widely-used SMILES string. Two canonical forms were described: the Inchified SMILES incorporates the normalisations introduced by the InChI while the Universal SMILES retains the original structure. Both of these have been implemented as part of the open source toolkit Open Babel v2.3.2. For test sets of more than one million structures from the ChEMBL database and a similar-sized subset from the PubChem Substance database, no canonicalisation failures were found for Inchified SMILES, while the Universal SMILES achieved 99.8% success.</p>
+          <p>The description of these canonicalisation methods should not be considered complete, but rather as a first step in the development of an open standard for canonical SMILES. Once these methods are applied to larger and more diverse datasets, it is inevitable that further rules will be necessary to handle molecules whose structures are not currently canonicalised. Furthermore, rules for representing stereochemistries beyond tetrahedral and double-bond stereochemistry have not been considered in this work.</p>
+          <p>Although challenges remain – in particular, a description of a standard aromatic model for SMILES – the benefits to the community of a standard canonical SMILES and the ease with which it can be used to compare and contrast the chemical models used by toolkits will spur the resolution of these issues. For further discussion of the development of standards for SMILES, the interested reader is encouraged to join the OpenSMILES mailing list [<xref ref-type="bibr" rid="CR21">21</xref>].</p>
+        </sec>
+        <sec id="Sec23">
+          <title>Authors’ information</title>
+          <p>The author is a developer of Open Babel, the Open Source cheminformatics toolkit, and is a member of the Blue Obelisk [<xref ref-type="bibr" rid="CR44">44</xref>], a group which encourages interoperability and the development of standards in cheminformatics.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>This work was inspired by talks at the 5th Meeting on U.S. Government Chemical Databases and Open Chemistry, and I thank Marc Nicklaus (National Cancer Institute, NIH) for the invitation and support to attend. I am grateful for the work by Craig James (eMolecules, Inc.) in initiating and leading the OpenSMILES project, and additionally for donating the code to generate canonical SMILES in Open Babel. Several of the rules described here are based on this code. I thank Daniel Lowe and Roger Sayle (NextMove Software) for the observation that amides are converted to imidic acids on roundtripping through InChI. Finally, I thank the anonymous reviewers whose suggestions greatly improved the manuscript. This work is supported by a Health Research Board Career Development Fellowship (PD/2009/13).</p>
+        </ack>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Warr</surname>
+                    <given-names>WA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Representation of chemical structures</article-title>
+                <source>WIREs Comput Mol Sci</source>
+                <year>2011</year>
+                <volume>1</volume>
+                <fpage>557</fpage>
+                <lpage>579</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXns1Wksro%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1002/wcms.36</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ash</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Cline</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <name>
+                    <surname>Homer</surname>
+                    <given-names>RW</given-names>
+                  </name>
+                  <name>
+                    <surname>Hurst</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Smith</surname>
+                    <given-names>GB</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SYBYL Line Notation (SLN): A Versatile Language for Chemical Structure Representation</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1997</year>
+                <volume>37</volume>
+                <fpage>71</fpage>
+                <lpage>79</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2sXksVCitA%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci960109j</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Homer</surname>
+                    <given-names>RW</given-names>
+                  </name>
+                  <name>
+                    <surname>Swanson</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Jilek</surname>
+                    <given-names>RJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Hurst</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Clark</surname>
+                    <given-names>RD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SYBYL Line Notation (SLN): A Single Notation To Represent Chemical Structures, Queries, Reactions, and Virtual Libraries</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2008</year>
+                <volume>48</volume>
+                <fpage>2294</fpage>
+                <lpage>2307</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXhtlGrsr3M</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci7004687</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bolton</surname>
+                    <given-names>EE</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Thiessen</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                  <name>
+                    <surname>Bryant</surname>
+                    <given-names>SH</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chapter 12 PubChem: Integrated Platform of Small Molecules and Biological Activities</article-title>
+                <source>Annual Reports in Computational Chemistry</source>
+                <year>2008</year>
+                <fpage>217</fpage>
+                <lpage>241</lpage>
+                <comment>Elsevier</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <collab>International Union of Pure and Applied Chemistry. Commission on the Nomenclature of Organic Chemistry</collab>
+                  <name>
+                    <surname>Panico</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Powell</surname>
+                    <given-names>WH</given-names>
+                  </name>
+                  <name>
+                    <surname>Richer</surname>
+                    <given-names>J-C</given-names>
+                  </name>
+                </person-group>
+                <source>A guide to IUPAC nomenclature of organic compounds: recommendations 1993</source>
+                <year>1993</year>
+                <publisher-loc>Oxford; Boston; Boca Raton, Fla</publisher-loc>
+                <publisher-name>Blackwell Scientific Publications; CRC Press [distributor]</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Weininger</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SMILES, a chemical language and information system. 1. Introduction to methodology and encoding rules</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1988</year>
+                <volume>28</volume>
+                <fpage>31</fpage>
+                <lpage>36</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL1cXnsVeqsA%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci00057a005</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="other">Daylight Chemical Information Systems, Inc, <ext-link xlink:href="http://daylight.com" ext-link-type="uri">http://daylight.com</ext-link>,</mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="other">The IUPAC International Chemical Identifier (InChI). <ext-link xlink:href="http://www.iupac.org/home/publications/e-resources/inchi.html" ext-link-type="uri">http://www.iupac.org/home/publications/e-resources/inchi.html</ext-link>,</mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="other">The InChI Trust. <ext-link xlink:href="http://www.inchi-trust.org/" ext-link-type="uri">http://www.inchi-trust.org/</ext-link>,</mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rohbeck</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Gmehling</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Representation of Structure Description Arranged Linearly</article-title>
+                <source>Software development in chemistry 5: proceedings of the 5th Workshop “Computers in Chemistry</source>
+                <year>1991</year>
+                <publisher-loc>Berlin; New York</publisher-loc>
+                <publisher-name>Springer-Verlag</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Smith</surname>
+                    <given-names>EG</given-names>
+                  </name>
+                  <name>
+                    <surname>Baker</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                  <name>
+                    <surname>Wiswesser</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                </person-group>
+                <source>The Wiswesser Line-Formula Chemical Notation (WLN)</source>
+                <year>1975</year>
+                <edition>3</edition>
+                <publisher-loc>Cherry Hill, New Jersey, US</publisher-loc>
+                <publisher-name>Chemical Information Management Inc.</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gakh</surname>
+                    <given-names>AA</given-names>
+                  </name>
+                  <name>
+                    <surname>Burnett</surname>
+                    <given-names>MN</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Modular Chemical Descriptor Language (MCDL): Composition, Connectivity, and Supplementary Modules</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2001</year>
+                <volume>41</volume>
+                <fpage>1494</fpage>
+                <lpage>1499</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3MXnvVGmsb0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci000108y</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gakh</surname>
+                    <given-names>AA</given-names>
+                  </name>
+                  <name>
+                    <surname>Burnett</surname>
+                    <given-names>MN</given-names>
+                  </name>
+                  <name>
+                    <surname>Trepalin</surname>
+                    <given-names>SV</given-names>
+                  </name>
+                  <name>
+                    <surname>Yarkov</surname>
+                    <given-names>AV</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Modular Chemical Descriptor Language (MCDL): Stereochemical modules</article-title>
+                <source>J Cheminf</source>
+                <year>2011</year>
+                <volume>3</volume>
+                <fpage>5</fpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXitV2rtL0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-3-5</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Karabunarliev</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Ivanov</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Mekenyan</surname>
+                    <given-names>O</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Coding of chemical structures based on a line notation</article-title>
+                <source>Comput Chem</source>
+                <year>1994</year>
+                <volume>18</volume>
+                <fpage>189</fpage>
+                <lpage>193</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2cXktlCgu7w%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/0097-8485(94)85010-0</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Fujita</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Tanaka</surname>
+                    <given-names>N</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">XyM Notation for Electronic Communication of Organic Chemical Structures</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1999</year>
+                <volume>39</volume>
+                <fpage>903</fpage>
+                <lpage>914</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK1MXksFGitr0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci990018x</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Koichi</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Iwata</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Uno</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Koshino</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Satoh</surname>
+                    <given-names>H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Algorithm for Advanced Canonical Coding of Planar Chemical Structures That Considers Stereochemical and Symmetric Information</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <fpage>1734</fpage>
+                <lpage>1746</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXnslOmsrw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci600238j</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wentang</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Ying</surname>
+                    <given-names>Z</given-names>
+                  </name>
+                  <name>
+                    <surname>Feibai</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">New computer representation for chemical structures: Two-level compact connectivity tables</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1993</year>
+                <volume>33</volume>
+                <fpage>604</fpage>
+                <lpage>608</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK3sXkslWqsr8%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci00014a013</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Quadrelli</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Bareggi</surname>
+                    <given-names>V</given-names>
+                  </name>
+                  <name>
+                    <surname>Spiga</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A New Linear Representation of Chemical Structures</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1978</year>
+                <volume>18</volume>
+                <fpage>37</fpage>
+                <lpage>40</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaE1cXntlKrtg%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci60013a009</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Abe</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Kudo</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Yamasaki</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Tanaka</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Sasaki</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Sasaki</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A convenient notation system for organic structure on the basis of connectivity stack</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1984</year>
+                <volume>24</volume>
+                <fpage>212</fpage>
+                <lpage>216</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL2cXmt12nurg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci00044a005</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wiswesser</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">107 Years of Line-Formula Notations (1861–1968)</article-title>
+                <source>J Chem Doc</source>
+                <year>1968</year>
+                <volume>8</volume>
+                <fpage>146</fpage>
+                <lpage>150</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaF1cXkslertro%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/c160030a007</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="other">OpenSMILES Home Page. <ext-link xlink:href="http://www.opensmiles.org/" ext-link-type="uri">http://www.opensmiles.org/</ext-link>,</mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Weininger</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Weininger</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Weininger</surname>
+                    <given-names>JL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">MILES. 2. Algorithm for generation of unique SMILES notation</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1989</year>
+                <volume>29</volume>
+                <fpage>97</fpage>
+                <lpage>101</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL1MXitFWlt7s%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci00062a008</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>O’Boyle</surname>
+                    <given-names>NM</given-names>
+                  </name>
+                  <name>
+                    <surname>Banck</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>James</surname>
+                    <given-names>CA</given-names>
+                  </name>
+                  <name>
+                    <surname>Morley</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Vandermeersch</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Open Babel: An open chemical toolbox</article-title>
+                <source>J Cheminf</source>
+                <year>2011</year>
+                <volume>3</volume>
+                <fpage>33</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-3-33</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Hoppe</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuhn</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Floris</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Guha</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Recent Developments of the Chemistry Development Kit (CDK) - An Open-Source Java Library for Chemo- and Bioinformatics</article-title>
+                <source>Curr Pharm Des</source>
+                <year>2006</year>
+                <volume>12</volume>
+                <fpage>2111</fpage>
+                <lpage>2120</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28XmslWqsL0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.2174/138161206777585274</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="other">RDKit: Open-source cheminformatics. <ext-link xlink:href="http://rdkit.org/" ext-link-type="uri">http://rdkit.org/</ext-link>,</mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="other">Lutz K: Chemkit. <ext-link xlink:href="http://chemkit.org" ext-link-type="uri">http://chemkit.org</ext-link>,</mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="other">Indigo – GGA Software Services. <ext-link xlink:href="http://ggasoftware.com/opensource/indigo" ext-link-type="uri">http://ggasoftware.com/opensource/indigo</ext-link>,</mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="other">ACD/ChemSketch Freeware. Toronto, ON, Canada: Advanced Chemistry Development, Inc, <ext-link xlink:href="http://acdlabs.com/home/" ext-link-type="uri">http://acdlabs.com/home/</ext-link>,</mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ihlenfeldt</surname>
+                    <given-names>WD</given-names>
+                  </name>
+                  <name>
+                    <surname>Takahashi</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Abe</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Sasaki</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Computation and management of chemical properties in CACTVS: An extensible networked approach toward modularity and compatibility</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1994</year>
+                <volume>34</volume>
+                <fpage>109</fpage>
+                <lpage>116</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2cXns1GrtQ%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci00017a013</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="other">JChem, ChemAxon. <ext-link xlink:href="http://www.chemaxon.com/" ext-link-type="uri">http://www.chemaxon.com/</ext-link>,</mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="other">OEChem: Santa Fe, NM, USA: OpenEye Scientific Software, Inc, <ext-link xlink:href="http://eyesopen.com/" ext-link-type="uri">http://eyesopen.com/</ext-link>,</mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cho</surname>
+                    <given-names>YS</given-names>
+                  </name>
+                  <name>
+                    <surname>No</surname>
+                    <given-names>KT</given-names>
+                  </name>
+                  <name>
+                    <surname>Cho</surname>
+                    <given-names>K-H</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">yaInChI: Modified InChI string scheme for line notation of chemical structures</article-title>
+                <source>SAR QSAR Environ Res</source>
+                <year>2012</year>
+                <volume>23</volume>
+                <fpage>237</fpage>
+                <lpage>255</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC38XltVyjsLo%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1080/1062936X.2012.657677</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="other">Murray-Rust P: Open Babel mailing list archive. <ext-link xlink:href="http://sourceforge.net/mailarchive/message.php?msg_id=7048882" ext-link-type="uri">http://sourceforge.net/mailarchive/message.php?msg_id=7048882</ext-link>,</mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Thalheim</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Vollmer</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Ebert</surname>
+                    <given-names>R-U</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuähne</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Schuäuärmann</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Tautomer Identification and Tautomer Structure Generation Based on the InChI Code</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2010</year>
+                <volume>50</volume>
+                <fpage>1223</fpage>
+                <lpage>1232</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXotVOmsbk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci1001179</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Fábián</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Brock</surname>
+                    <given-names>CP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A list of organic kryptoracemates</article-title>
+                <source>Acta Cryst B</source>
+                <year>2010</year>
+                <volume>66</volume>
+                <fpage>94</fpage>
+                <lpage>103</lpage>
+                <pub-id pub-id-type="doi">10.1107/S0108768109053610</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Stein</surname>
+                    <given-names>SE</given-names>
+                  </name>
+                  <name>
+                    <surname>Heller</surname>
+                    <given-names>SR</given-names>
+                  </name>
+                  <name>
+                    <surname>Tchekhovskoi</surname>
+                    <given-names>DV</given-names>
+                  </name>
+                  <name>
+                    <surname>Pletnev</surname>
+                    <suffix>IV</suffix>
+                  </name>
+                </person-group>
+                <source>IUPAC International Chemical Identifier v1.04 Technical Manual</source>
+                <year>2011</year>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="other">Apodaca R: InChI Canonicalization Algorithm, Depth-First. <ext-link xlink:href="http://depth-first.com/articles/2006/08/12/inchi-canonicalization-algorithm/" ext-link-type="uri">http://depth-first.com/articles/2006/08/12/inchi-canonicalization-algorithm/</ext-link>,</mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Agarwal</surname>
+                    <given-names>KK</given-names>
+                  </name>
+                  <name>
+                    <surname>Gelernter</surname>
+                    <given-names>HL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A Computer-Oriented Linear Canonical Notational System for the Representation of Organic Structures with Stereochemistry</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1994</year>
+                <volume>34</volume>
+                <fpage>463</fpage>
+                <lpage>479</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2cXivFOls70%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci00019a001</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>McKay</surname>
+                    <given-names>BD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Practical Graph Isomorphism</article-title>
+                <source>Congressus Numerantium</source>
+                <year>1981</year>
+                <volume>30</volume>
+                <fpage>45</fpage>
+                <lpage>87</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="other">Pletnev I: InChI mailing list archive. <ext-link xlink:href="http://sourceforge.net/mailarchive/message.php?msg_id=28292914" ext-link-type="uri">http://sourceforge.net/mailarchive/message.php?msg_id=28292914</ext-link>,</mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gaulton</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Bellis</surname>
+                    <given-names>LJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Bento</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Chambers</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Davies</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Hersey</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Light</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>McGlinchey</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Michalovich</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Al-Lazikani</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Overington</surname>
+                    <given-names>JP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ChEMBL: A Large-Scale Bioactivity Database for Drug Discovery</article-title>
+                <source>Nucl Acids Res</source>
+                <year>2012</year>
+                <volume>40</volume>
+                <issue>Database issue</issue>
+                <fpage>D1100-7</fpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bellis</surname>
+                    <given-names>LJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Akhtar</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Al-Lazikani</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Atkinson</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Bento</surname>
+                    <given-names>AP</given-names>
+                  </name>
+                  <name>
+                    <surname>Chambers</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Davies</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Gaulton</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Hersey</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Ikeda</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Krüger</surname>
+                    <given-names>FA</given-names>
+                  </name>
+                  <name>
+                    <surname>Light</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>McGlinchey</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Santos</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Stauch</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Overington</surname>
+                    <given-names>JP</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Collation and data-mining of literature bioactivity data for drug discovery</article-title>
+                <source>Biochem Soc Trans</source>
+                <year>2011</year>
+                <volume>39</volume>
+                <fpage>1365</fpage>
+                <lpage>1370</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXht1ajs73L</pub-id>
+                <pub-id pub-id-type="doi">10.1042/BST0391365</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="other">InChI FAQ. <ext-link xlink:href="http://www.inchi-trust.org/fileadmin/user_upload/html/inchifaq/inchi-faq.html" ext-link-type="uri">http://www.inchi-trust.org/fileadmin/user_upload/html/inchifaq/inchi-faq.html</ext-link>,</mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>O’Boyle</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Guha</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Adams</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Alvarsson</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Bradley</surname>
+                    <given-names>J-C</given-names>
+                  </name>
+                  <name>
+                    <surname>Filippov</surname>
+                    <given-names>I</given-names>
+                  </name>
+                  <name>
+                    <surname>Hanson</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Hanwell</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>G</given-names>
+                  </name>
+                  <name>
+                    <surname>James</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Jeliazkova</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Lang</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Langner</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Lonie</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Lowe</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Pansanel</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Pavlov</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Spjuth</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Tenderholt</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Theisen</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Murray-Rust</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Open Data, Open Source and Open Standards in chemistry: The Blue Obelisk five years on</article-title>
+                <source>J Cheminf</source>
+                <year>2011</year>
+                <volume>3</volume>
+                <fpage>37</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-3-37</pub-id>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec24">
+              <title>Electronic supplementary material</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Electronic supplementary material">
+                  <media mimetype="text" mime-subtype="plain" xlink:href="MediaObjects/13321_2012_342_MOESM1_ESM.py" position="anchor">
+                    <caption xml:lang="en">
+                      <p>Additional file 1: Python script that shows how to parse the canonical labels from an InChI with auxiliary information.(PY 4 KB)</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+            <sec id="Sec25">
+              <title>Authors’ original submitted files for images</title>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2012_342_MOESM2_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2012_342_MOESM3_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2012_342_MOESM4_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2012_342_MOESM5_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2012_342_MOESM6_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2012_342_MOESM7_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM8" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2012_342_MOESM8_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 7</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM9" xlink:title="Authors’ original submitted files for images"><media mimetype="image" mime-subtype="png" xlink:href="MediaObjects/13321_2012_342_MOESM9_ESM.png" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 8</p></caption></media></supplementary-material></p>
+            </sec>
+          </app>
+        </app-group>
+        <notes notes-type="Misc">
+          <title>Competing interests</title>
+          <p>The author declares that he has no competing interests.</p>
+        </notes>
+      </back>
+    </article>

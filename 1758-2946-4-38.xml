@@ -1,0 +1,1234 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">BMC1758-2946-4-38</article-id>
+          <article-id pub-id-type="manuscript">459</article-id>
+          <article-id pub-id-type="doi">10.1186/1758-2946-4-38</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Methodology</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">chem<sup>f</sup>: A purely functional chemistry toolkit</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Höck</surname>
+                <given-names>Stefan</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes">
+              <name>
+                <surname>Riedl</surname>
+                <given-names>Rainer</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDBMC17582946438_cor2">b</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.19739.35</institution-id>
+                <institution-id institution-id-type="ISNI">0000000122291644</institution-id>
+                <institution content-type="org-division">Institute of Chemistry and Biological Chemistry</institution>
+                <institution content-type="org-name">ZHAW Zurich University of Applied Sciences</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Einsiedlerstrasse 31</addr-line>
+              <addr-line content-type="postcode">8820</addr-line>
+              <addr-line content-type="city">Wädenswil</addr-line>
+              <country country="CH">Switzerland</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDBMC17582946438_cor2">
+              <label>b</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>20</day>
+            <month>12</month>
+            <year>2012</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2012</year>
+          </pub-date>
+          <volume>4</volume>
+          <issue seq="39">1</issue>
+          <elocation-id>38</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>22</day>
+              <month>8</month>
+              <year>2012</year>
+            </date>
+            <date date-type="received">
+              <day>22</day>
+              <month>8</month>
+              <year>2012</year>
+            </date>
+            <date date-type="accepted">
+              <day>22</day>
+              <month>11</month>
+              <year>2012</year>
+            </date>
+            <date date-type="online">
+              <day>20</day>
+              <month>12</month>
+              <year>2012</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© Höck and Riedl; licensee Chemistry Central Ltd. 2012</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License(<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="uri">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-year>2012</copyright-year>
+            <copyright-holder>Höck and Riedl; licensee Chemistry Central Ltd.</copyright-holder>
+            <license license-type="open-access" xlink:href="https://creativecommons.org/licenses/by/2.0">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="uri">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <sec id="ASec1">
+              <title>Background</title>
+              <p>Although programming in a type-safe and referentially transparent style offers several advantages over working with mutable data structures and side effects, this style of programming has not seen much use in chemistry-related software. Since functional programming languages were designed with referential transparency in mind, these languages offer a lot of support when writing immutable data structures and side-effects free code. We therefore started implementing our own toolkit based on the above programming paradigms in a modern, versatile programming language.</p>
+            </sec>
+            <sec id="ASec2">
+              <title>Results</title>
+              <p>We present our initial results with functional programming in chemistry by first describing an immutable data structure for molecular graphs together with a couple of simple algorithms to calculate basic molecular properties before writing a complete SMILES parser in accordance with the OpenSMILES specification. Along the way we show how to deal with input validation, error handling, bulk operations, and parallelization in a purely functional way. At the end we also analyze and improve our algorithms and data structures in terms of performance and compare it to existing toolkits both object-oriented and purely functional. All code was written in <italic>Scala</italic>, a modern multi-paradigm programming language with a strong support for functional programming and a highly sophisticated type system.</p>
+            </sec>
+            <sec id="ASec3">
+              <title>Conclusions</title>
+              <p>We have successfully made the first important steps towards a purely functional chemistry toolkit. The data structures and algorithms presented in this article perform well while at the same time they can be safely used in parallelized applications, such as computer aided drug design experiments, without further adjustments. This stands in contrast to existing object-oriented toolkits where thread safety of data structures and algorithms is a deliberate design decision that can be hard to implement. Finally, the level of type-safety achieved by <italic>Scala</italic> highly increased the reliability of our code as well as the productivity of the programmers involved in this project.</p>
+            </sec>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Functional Programming</kwd>
+            <kwd>
+              <italic>chem</italic>
+              <sup>
+                <italic>f</italic>
+              </sup>
+            </kwd>
+            <kwd>Chemistry Toolkit</kwd>
+            <kwd>SMILES parser</kwd>
+            <kwd>Parallelization</kwd>
+            <kwd>Scala</kwd>
+            <kwd>Medicinal Chemistry</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Chemistry Central</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>39</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2012</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2012</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>8</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>22</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2012_Article_459.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:<ext-link xlink:href="10.1186/1758-2946-4-38" ext-link-type="doi">10.1186/1758-2946-4-38</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Background</title>
+          <p>Since there already exist a plethora of cheminformatics toolkits both open source and proprietary, one might wonder whether there is truly a need for another one. Most of the available toolkits such as the <italic>Chemistry Development Kit</italic>[<xref ref-type="bibr" rid="CR1">1</xref>] or <italic>OpenBabel</italic>[<xref ref-type="bibr" rid="CR2">2</xref>] are written in object-oriented languages using typical imperative concepts such as mutable data structures and opaque methods (see below) to implement chemical entities and algorithms. While the communities of many of the newer (and some of the older) programming languages start to appreciate the benefits of programming in a pure, referentially transparent fashion, these concepts have not yet had a big impact on software used in chemistry. We would therefore like to show some of the benefits of functional programming when applied to cheminformatics and talk about the type-safety and conciseness that can be achieved when using this programming paradigm.</p>
+          <sec id="Sec2">
+            <title>The dangers of side effects</title>
+            <p>Several widely used programming languages such as <italic>Java</italic>[<xref ref-type="bibr" rid="CR3">3</xref>] or <italic>C++</italic> use object-oriented programing as a means to structure code and build reusable components. Such code is typically (but not necessarily) written in an imperative style, where statements represent actions the computer should carry out sequentially. Although it is regarded as a best practise to favor immutable data structures over mutable ones [<xref ref-type="bibr" rid="CR4">4</xref>], imperative code is typically full of reassignment operations since these provide a convenient way to update fields in complex data structures. Mutable state can be hard to reason about when several seemingly unrelated parts of a program access and possibly modify the same piece of shared data. Special care needs to be taken when using mutable objects in parallelized algorithms [<xref ref-type="bibr" rid="CR5">5</xref>].</p>
+            <p>Not only mutable state makes parallelization and reasoning about programs difficult: Accessing any kind of shared resources such as files or database connections can lead to unexpected behavior depending on a whole bunch of factors such as access rights, security settings, file locks and so on. Software components that access shared resources can be difficult to test and require special precautions when being accessed from several threads simultaneously. Although this has been known for quite some time, most programming languages make no distinction between methods that perform side effects by accessing shared resources or mutable state and functions that perform pure calculations just from their input parameters. Methods and objects written in these languages are therefore <italic>a priori</italic> unsafe to be used in parallel computations unless their documentation explicitly states differently. It would of course be much safer if one could rely on the compiler omitting errors or at least warnings when calling some unsafe method instead of having to trust in the accuracy of third party library documentation.</p>
+          </sec>
+          <sec id="Sec3">
+            <title>Referential transparency [<xref ref-type="bibr" rid="CR6">6</xref>]</title>
+            <p>An expression in a program is said to be <italic>referentially transparent</italic> when all it does is calculating its result from its input parameters (possibly by calling other referentially transparent functions) and <italic>nothing else</italic>. A referentially transparent function may not access or alter mutable state, nor may it perform any other form of side-effects. In an expression, a call to a referentially transparent function can always be replaced with the function’s result for the given set of parameters without altering the behavior of the program. A method that performs any number of side effects is said to be <italic>opaque</italic>. Referentially transparent functions offer several advantages over opaque ones: They are typically easier to reason about, can easily be tested and sometimes even proved to be correct, can be composed at will to create more complex functions (which are then still referentially transparent), and they can be safely used in parallelized algorithms. Since they need no access to resources other than their input parameters in order to perform their tasks, they make for highly reusable building blocks for creating more complex functionality.</p>
+            <p>Since mutability breaks referential transparency, referentially transparent expressions can only work with immutable data structures. This can make writing referentially transparent expressions cumbersome in typical imperative languages where mutability is the rule rather than the exception and the language’s syntax provides only marginal support for working with deeply nested immutable data structures.</p>
+          </sec>
+          <sec id="Sec4">
+            <title>Functional programming</title>
+            <p>One programming paradigm that greatly facilitates writing referentially transparent functions and using immutable data structures is the one of <italic>functional programming</italic>. Functional programming languages were designed with referential transparency in mind, and they encourage a more declarative style of programming without the control statements and value assignments typically found in imperative ones. In functional programming, functions are first class values that can be passed as parameters to other functions (which are then called higher-order functions) or be the results of other functions. Functional programming languages typically are statically typed but use type inference to prevent type annotations from cluttering the code. Together with the above mentioned higher order functions this can lead to highly concise code. For instance, iterating over a list of integers to produce a list of their squares might look like this in an imperative language (the code is written in <italic>Scala</italic>[<xref ref-type="bibr" rid="CR7">7</xref>], a multi-paradigm language that is described in more detail below):</p>
+            <p>def squares (is: List[Int]): List[Int] ={val squares = new ListBuffer[Int]</p>
+            <p>{for i &lt;‐ is}{squares += i ⋆ i}</p>
+            <p>squares.toList}</p>
+            <p>It is typical for an imperative program to update a mutable data structure during iteration. The same program written in a more functional style might look like this:</p>
+            <p>def squares(is: List[Int]) =is map (x ⇒ x ⋆ x)</p>
+            <p>Here we make use of the higher-order function map that takes another function as its parameter, which is then applied to each element in the list. Not only is this expression much shorter than its imperative counterpart, function map also describes such a common pattern when working with collection-like data structures that it provides a plethora of functionality all of which can be used with almost no syntactic overhead.</p>
+            <p>Given that objects of type List are immutable, both code examples shown above are referentially transparent. Although the imperative example uses a (mutable) ListBuffer to accumulate its result, this is an implementation detail hidden behind the function’s interface.</p>
+            <p>Some functional programming languages like <italic>Haskell</italic>[<xref ref-type="bibr" rid="CR8">8</xref>] enforce referential transparency through their type system and can therefore exploit its advantages to their full extent. This includes several optimization techniques during compilation as well as memoization of a function’s results for given parameter sets at runtime.</p>
+            <p>Although the advantages of functional programming have been known for a long time [<xref ref-type="bibr" rid="CR9">9</xref>], many of the concepts described above where not or only partially implemented in the mainstream programming languages and a major part of the programming community does not exploit the benefits they provide.</p>
+          </sec>
+          <sec id="Sec5">
+            <title>Functional programming and chemistry</title>
+            <p>We believe that the above mentioned aspects of functional programming make this paradigm very well suited for writing scientific applications where the main focus often lies on running complex calculations rather than performing long cascades of side effects. For instance, the only side effects involved when running a high throughput screening with a typical command line based docking software are reading from and writing to files (and possibly to the console). The rest is pure, stateless calculations that are well suited to be written in a purely functional manner and run in parallel on a multi-core system. When we set out to write the first prototype of our in-house data management tool <italic>CyBy</italic><sup><italic>2</italic></sup>[<xref ref-type="bibr" rid="CR10">10</xref>], we used <italic>Java</italic> as the language of choice, since there already existed several chemistry toolkits written in that language. It was only after <italic>CyBy</italic><sup><italic>2</italic></sup> was already running on our servers and several hard to find bugs took us hours if not days to get rid of that we decided to go for a change in the style of programming. We decided to give the <italic>Scala</italic> programming language a try since programs written in <italic>Scala</italic> run on the Java Virtual Machine (JVM) and existing <italic>Java</italic> libraries can be accessed directly from within <italic>Scala</italic> source code. <italic>Scala</italic> is a modern multi-paradigm programming language that is fully object-oriented with a strong support for typical concepts from functional programming such as higher-order functions, type inference, and pattern matching. It also has one of the most sophisticated and expressive type systems written so far [<xref ref-type="bibr" rid="CR11">11</xref>]. <italic>Scala</italic> is not a pure functional programming language that enforces referential transparency through its type system (this can be achieved by using the effect system provided by <italic>scalaz</italic> though; see below), but programming in a pure manner as well as the use of immutable data structures are strongly encouraged and facilitated by the language.</p>
+            <p>While our style of programming moved from imperative to functional, we found it cumbersome and sometimes error prone to interact with the methods and classes coming from third-party <italic>Java</italic> libraries that make heavy use of mutable data structures and side effects. We therefore started looking for cheminformatics toolkits written in a more functional style and were surprised to find only one such toolkit at an early stage written in <italic>Haskell</italic>[<xref ref-type="bibr" rid="CR12">12</xref>]. It was this lack of purely functional third-party libraries that made us decide to go ahead and write our own toolkit. In this article we present our first experiences along that road. We will show how molecular graphs can be represented using persistent, immutable data structures and how parsing input can be done in a referentially transparent way leading to highly reusable code that can be run in parallel out of the box. We do this by implementing a purely functional SMILES parser [<xref ref-type="bibr" rid="CR13">13</xref>], a reasonable complex task to get a feeling for some of the higher-order abstractions typically used in functional programming. Along the way we will show how to deal with input validation, error handling, and parallelization in a purely functional, type-safe manner.</p>
+          </sec>
+          <sec id="Sec6">
+            <title>A short introduction to <italic>Scala</italic></title>
+            <p>In the remainder of this article we will often show snippets of code to discuss the aspects of functional programming when encountering certain problems. We will use <italic>Scala</italic> as the implementing language for the reasons given above. It will not be necessary to be fluent in <italic>Scala</italic> to grasp the concepts being presented here, yet we think that a short introduction to this deep language and its syntax will make it easier to understand the examples in this article. For a more thorough introduction please see [<xref ref-type="bibr" rid="CR14">14</xref>]. A note on terminology: In object-oriented programming languages, subroutines are typically called <italic>methods</italic> without making a distinction between those that perform side effects and those that do not. For the remainder of this article we use the term <italic>method</italic> for side-effect performing subroutines and <italic>function</italic> for pure calculations.</p>
+            <sec id="Sec7">
+              <title>Basic syntax</title>
+              <p><italic>Scala</italic>’s syntax is similar to the one of <italic>Java</italic> and other <italic>C</italic>-like languages. Statements are usually enclosed in curly braces and delimited by semicolons. Many of these structural delimiters can be inferred by the compiler leading to less cluttered code when writing the short expressions typically found in functional programming. The following two function definitions both compile:</p>
+              <p>def square (i: Int): Int = {i ⋆ i;}</p>
+              <p>def square (i: Int) = i ⋆ i</p>
+              <p>As can be seen in the example above, type annotations come after variable names and can in many cases be inferred by the compiler.</p>
+              <p>In terms of object-oriented programming, <italic>Scala</italic> – like <italic>Java</italic> – has classes and interfaces (which are called <italic>trait</italic>s and can contain method implementations and state). <italic>Scala</italic> also has singleton objects, which are defined using the object keyword. There are no static methods in <italic>Scala</italic>: Every method definition belongs to a class or an object. There is the special case of <italic>companion objects</italic>, which have the same name as their companion class and are typically used to define class-related constants and ’static’ functions:</p>
+              <p>class AClass {…}</p>
+              <p>object AClass {//a factory methoddef create: AClass = …}</p>
+              <p>A special case that is often used in functional programming to define algebraic data types [<xref ref-type="bibr" rid="CR15">15</xref>] is the sealed keyword: Subclasses of a sealed class or trait must be defined in the same file as the sealed class itself.</p>
+            </sec>
+            <sec id="Sec8">
+              <title>Function literals</title>
+              <p>In <italic>Scala</italic>, functions are first-class values and the language provides a lot of syntactic sugar to help declaring them. A typical function literal looks as follows:</p>
+              <p>val add: (Int,Int) ⇒ Int =(a: Int, b: Int) ⇒ a + b</p>
+              <p>(Int,Int) ⇒ Int is a type annotation: A function from two integers to another integer. Type inference lets us remove some code duplication:</p>
+              <p>val add: (Int,Int) ⇒ Int =(a,b) ⇒ a + b</p>
+              <p>If both parameters appear in the function’s body only once and in the same order as in the function’s parameter list, we can replace them with placeholders:</p>
+              <p>val add: (Int,Int) ⇒ Int = _ + _</p>
+              <p>We can use function literals to create anonymous functions as parameters for higher-order functions. For instance, we can double all the integers in a list like so:</p>
+              <p>def dbl (xs: List[Int]) = xs map (2⋆)</p>
+            </sec>
+            <sec id="Sec9">
+              <title>Lazy evaluation and by-name parameters</title>
+              <p>By default, <italic>Scala</italic> is a strict language, meaning function parameters are evaluated before the function’s body is executed. However, <italic>Scala</italic> facilitates lazy evaluation of values as well as by-name function parameters:</p>
+              <p>lazy val aVal = …</p>
+              <p>def aMethod (byNameParam: ⇒ Int) …</p>
+              <p>Values marked with the <italic>lazy</italic> keyword are not evaluated until they are accessed for the first time. They are evaluated only once. By-name parameters are also evaluated only when needed, but unlike lazy values they are reevaluated each time the parameter is accessed.</p>
+            </sec>
+            <sec id="Sec10">
+              <title>Parametric polymorphism</title>
+              <p>Similar to <italic>Java</italic>, <italic>Scala</italic> supports subtype polymorphism as well as parametric polymorphism (aka <italic>generics</italic>). Type parameters are declared within brackets and can be annotated with variance annotations:</p>
+              <p>trait Invariant[A]</p>
+              <p>trait Covariant[+A]</p>
+              <p>trait Contravariant[‐A]</p>
+              <p>Variance describes subtyping for classes with type parameters. In the case of covariance, Covariant[A] is a subtype of Covariant[B] if A is a subtype of B. On the other hand, Contravariant[A] is a subtype of Contravariant[B] if A is a supertype of B.</p>
+              <p>In contrast to many other programming languages, <italic>Scala</italic> does not stop at first-order parametric polymorphism, but also allows type constructors as type parameters (higher-kinded types) [<xref ref-type="bibr" rid="CR16">16</xref>]. Only these constructs make the implementation of some of the more powerful type classes possible (see below).</p>
+            </sec>
+            <sec id="Sec11">
+              <title>Case classes and pattern matching</title>
+              <p>In the tradition of other functional programming languages, <italic>Scala</italic> supports <italic>pattern matching</italic>, which can be used to query and match even complex nested data structures. <italic>Case Classes</italic> are like other classes in <italic>Scala</italic> but are enhanced automatically by pattern matching functionality by the compiler. Also, constructor parameters are automatically added as immutable fields with public scope to case classes. For instance, a simple setup of chemistry-relevant classes may look as follows:</p>
+              <p>sealed abstract class Element (val atomicNr: Int)…</p>
+              <p>case object C extends Element(6)case object N extends Element(7)…</p>
+              <p>case class Isotope (element: Element,massNumber: Int)</p>
+              <p>case class Atom (isotope: Isotope,charge: Int)</p>
+              <p>Pattern matching can now be used to count all carbon atoms in a molecule:</p>
+              <p>def isCarbon (a: Atom) = a match {case Atom(Isotope(C, _), _) ⇒ truecase _ ⇒ false}def carbonCount (m: Molecule): Int =m.atoms count isCarbon</p>
+              <p>Underscores act as placeholders that match any value while lower case identifiers can be used to access a value in the following code block:</p>
+              <p>def carbonMass (a: Atom): List[Int] =a match {case Atom(Isotope(C, mass) _) ⇒List(mass)case _ ⇒ Nil}</p>
+              <p>The first case statement matches carbon atoms of an arbitrary mass number and the mass number is returned wrapped in a List. In case of non-carbon atoms, the function returns the empty list Nil.</p>
+            </sec>
+            <sec id="Sec12">
+              <title>Implicits and the <italic>pimp my library</italic>-pattern</title>
+              <p><italic>Scala</italic> supports implicit conversions from one type to another in order to enrich classes from third-party libraries with additional functionality. This is called the <italic>pimp my library</italic> pattern [<xref ref-type="bibr" rid="CR17">17</xref>] within the <italic>Scala</italic> community.</p>
+              <p>For instance, if one wanted to add the ability to calculate the exact mass distribution to a class Molecule from a third-party library that does not yet provide such a function, one would first have to define a wrapper class that defines the function in question together with an implicit conversion from Molecule to MoleculeWrapper:</p>
+              <p>class MoleculeWrapper (m: Molecule) {def exactMasses = …}</p>
+              <p>implicit def mol2Wrapper (m: Molecule) =new MoleculeWrapper(m)</p>
+              <p>It is now possible to call exactMasses on Molecules as if the function was provided by class Molecule itself:</p>
+              <p>def printMasses (m: Molecule) {m.exactMasses foreach println}</p>
+            </sec>
+            <sec id="Sec13">
+              <title>Type classes</title>
+              <p>In addition to implicit conversions, <italic>Scala</italic> also supports implicit parameter lists for functions. These parameters need not be provided explicitly if an implementation of the type in question can be found in implicit scope. One use case for implicit parameters is the definition of <italic>type classes</italic>[<xref ref-type="bibr" rid="CR18">18</xref>] similar to those found in <italic>Haskell</italic>. Type classes are a way to implement ad-hoc polymorphism (method overloading) in purely functional programming languages. For instance, the <italic>scalaz</italic> library (see below) defines a type class Equal for type safe structural equality checking as follows:</p>
+              <p>trait Equal[‐A] {def equal(a1: A, a2: A): Boolean}</p>
+              <p>Via the <italic>pimp my library</italic>-pattern, <italic>scalaz</italic> then adds operators <inline-formula id="IEq1"><alternatives><mml:math id="IEq1_Math"><mml:mstyle mathvariant="monospace"><mml:mover><mml:mrow><mml:mo>=</mml:mo></mml:mrow><mml:mrow><mml:mo>?</mml:mo></mml:mrow></mml:mover></mml:mstyle></mml:math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_459_IEq1_HTML.gif" /></alternatives></inline-formula> and to all types. These are defined in wrapper class Identity and are implemented as follows:</p>
+              <p>def<inline-formula id="IEq2"><alternatives><mml:math id="IEq2_Math"><mml:mover><mml:mrow><mml:mo>=</mml:mo></mml:mrow><mml:mrow><mml:mo>?</mml:mo></mml:mrow></mml:mover></mml:math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_459_IEq2_HTML.gif" /></alternatives></inline-formula>(a: A)(implicit e: Equal[A]): Boolean = e equal (value, a)def and<inline-formula id="IEq3"><alternatives><mml:math id="IEq3_Math"><mml:mo>≠</mml:mo><mml:mover accent="true"><mml:mrow><mml:mtext mathvariant="monospace">a</mml:mtext></mml:mrow><mml:mo>̆</mml:mo></mml:mover></mml:math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_459_IEq3_HTML.gif" /></alternatives></inline-formula>(a: A)(implicit e: Equal[A]) : Boolean = !(<inline-formula id="IEq4"><alternatives><mml:math id="IEq4_Math"><mml:mover><mml:mrow><mml:mo>=</mml:mo></mml:mrow><mml:mrow><mml:mo>?</mml:mo></mml:mrow></mml:mover></mml:math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_459_IEq4_HTML.gif" /></alternatives></inline-formula>(a))</p>
+              <p>All objects for which an instance of type class Equal can be found in implicit scope can now be compared in a type-safe manner using these operators. There exists a shorthand notation using <italic>context bounds</italic> for functions that require an instance of a type class with a single type parameter to be in implicit scope:</p>
+              <p>def isEqual[A:Equal] (a1: A, a2: A) = a1<inline-formula id="IEq5"><alternatives><mml:math id="IEq5_Math"><mml:mover><mml:mrow><mml:mo>=</mml:mo></mml:mrow><mml:mrow><mml:mo>?</mml:mo></mml:mrow></mml:mover></mml:math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_459_IEq5_HTML.gif" /></alternatives></inline-formula>a2</p>
+            </sec>
+            <sec id="Sec14">
+              <title>The <italic>scalaz</italic> library [<xref ref-type="bibr" rid="CR19">19</xref>]</title>
+              <p>Several of the more advanced techniques and abstractions found in functional programming did not make it into the <italic>Scala</italic> standard library. Many of these are provided by <italic>scalaz</italic>, a collection of type classes and purely functional data structures. Many of the type classes defined in <italic>scalaz</italic> come from the world of <italic>Haskell</italic> where a lot of information on things like Monoids, Functors, Applicatives, Monads and others are available. For a gentle and highly entertaining introduction to some of these concepts see [<xref ref-type="bibr" rid="CR20">20</xref>].</p>
+            </sec>
+          </sec>
+        </sec>
+        <sec id="Sec15">
+          <title>Results and discussion</title>
+          <p>We studied the aspects and benefits of functional programming in cheminformatics by first designing an immutable data structure for representing molecules and then implementing a SMILES parser in accordance with the OpenSMILES specification [<xref ref-type="bibr" rid="CR21">21</xref>]. We then tested how immutable data structures and referentially transparent functions can be used in parallelized bulk operations out of the box and had a closer look at our algorithms in terms of performance. The full source code of the data structures and algorithms discussed in this section is available in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>. We also created a repository on <italic>github</italic> to further advance the development of our toolkit. The repository can be found at <ext-link xlink:href="https://github.com/stefan-hoeck/chemf" ext-link-type="uri">https://github.com/stefan-hoeck/chemf</ext-link>.</p>
+          <sec id="Sec16">
+            <title>Molecules as immutable data structures</title>
+            <p>There exist many ways to represent a chemical molecule in a computer, many of which depend on the concrete aspects one is focussing on. <italic>Lewis</italic> structures of molecules are typically represented as undirected labeled graphs with the atoms at the vertices and the bonds at the edges [<xref ref-type="bibr" rid="CR22">22</xref>].</p>
+            <sec id="Sec17">
+              <title>Immutable undirected graphs</title>
+              <p>We used a simple unlabeled connectivity list as the basis for our molecular graphs. The graph’s vertices are numbered from 0 to order ‐ 1 where order is the total number of vertices.</p>
+              <p>sealed trait Graph {def order: Intdef edges: Set[Edge]}</p>
+              <p>We provided a couple of helper functions for adding and removing edges and vertices, all of which return a new, immutable copy of the updated graph. Trait graph is backed by an immutable Set of Edges, which provides effective constant time add, remove, and lookup operations [<xref ref-type="bibr" rid="CR14">14</xref>]. Since all edges in the graph potentially have to be adjusted when removing a vertex, this operation takes linear time with respect to the size (= number of edges) of the graph.</p>
+              <p>Some of the typical graph algorithms make heavy use of adjacency lists [<xref ref-type="bibr" rid="CR23">23</xref>] which we provided as a lazily initialized value in trait Graph. Adjacency lists were implemented using <italic>scalaz</italic>’s ImmutableArray providing fast constant time random access.</p>
+              <p>lazy val adjacencyList: ImmutableArray[Set[Int]] = …</p>
+              <p>Edges in graphs were implemented as ordered pairs of integers:</p>
+              <p>sealed trait Edge {def a: Intdef b: Int}</p>
+              <p>To make it easier to compare and sort edges, we added an invariant to the edge class stating that vertex b is the higher of the edge’s two vertices. Edges can therefore only be instantiated via a factory method to guarantee that this invariant is fulfilled. This very basic graph implementation has a low memory footprint and can be used to determine structural parameters such as atom and bond count as well as number and size of rings in a molecule.</p>
+            </sec>
+            <sec id="Sec18">
+              <title>Molecules as labeled graphs</title>
+              <p>In order to represent the <italic>Lewis</italic> structures of molecules, we needed to label the vertices and edges of the graph with additional information. We therefore introduced trait LGraph:</p>
+              <p>trait LGraph[+E,+V] {def graph: Graphdef vLabel (v: Int): Vdef eLabel (e: Edge): E}</p>
+              <p>Trait LGraph is parameterized over the types of both the edge and vertex labels, giving us maximum flexibility when working with different representations of molecules. The trait again provides functions for adding and removing edges and vertices as well as some higher order functions like map and foldLeft typically found in functional data structures. We also implemented type classes Functor, Foldable, and Traverse (all defined in the <italic>scalaz</italic> library) for LGraph, giving us a lot of functional power when iterating over the elements of LGraph as we will show further below.</p>
+              <p>The core functionality of LGraph was implemented using a private case class LgImpl:</p>
+              <p>private case class LgImpl[+E,+V] (graph: Graph,vertices: IndexedSeq[V],eMap: Map[Edge,E]) extends LGraph[E,V] {def vLabel (v: Int) = vertices (v)def eLabel (e: Edge) = eMap (e)}</p>
+              <p>Implementing functions graph and eLabel was straight forward. For function vLabel there were several possible implementations to consider. We decided to use an IndexedSeq to store vertex labels, which provides effective constant time append, prepend, and random access operations. Using an Array would give us (fast) constant time random access but other operations might be considerably slower. Later it might be convenient to provide two or more different implementations depending on the performance characteristics needed by the algorithms working with our graphs.</p>
+            </sec>
+            <sec id="Sec19">
+              <title>Atoms and bonds</title>
+              <p>We favored composition over inheritance when implementing the core classes needed to represent typical chemical entities. At the root stands class Element:</p>
+              <p>sealed abstract class Element (val atomicNr: Int)</p>
+              <p>object Element {case object H extends Element (1)case object He extends Element (2)…}</p>
+              <p>A lot of additional information can be requested from Element objects, all of which is lazily loaded from the <italic>Blue Obelisk Element Repository</italic>[<xref ref-type="bibr" rid="CR24">24</xref>].</p>
+              <p>Next come the isotopes, which unlike the elements were not implemented as constants to give us a bit more flexibility when working with newly-discovered or purely hypothetical isotopes:</p>
+              <p>sealed trait Isotope {def element: Elementdef massNumber: Option[Int]}</p>
+              <p>Objects of type Isotope either represent a natural mixture of the isotopes of a given element or a single isotope with a concrete mass number. Value massNumber may therefore be undefined, which is represented by its type: Option[Int]. Option[A] is an algebraic data type with two possible values: Some(a) with a being a wrapped value of type A, or None. It is used as a type-safe alternative to using null as the result of unsuccessful calculations or for undefined values. Using Option makes checking for null and throwing NullPointerExceptions in client code obsolete.</p>
+              <p>Again additional information about isotopes is lazily loaded from a file, this time from the <italic>Blue Obelisk Isotope Repository</italic>. Since in chemistry we are usually dealing with the same (small) set of isotopes most of the time and since our isotopes are immutable they make good candidates for applying the <italic>Flyweight</italic> pattern [<xref ref-type="bibr" rid="CR25">25</xref>]. Instead of creating many new objects when assembling a molecular graph, the most commonly used isotopes are stored in an array and returned when new isotopes are requested by clients. Therefore we made isotopes only available through two factory methods:</p>
+              <p>object Isotope {def apply (e: Element): Isotope = …</p>
+              <p>def apply (e: Element, mn: Int): Isotope = …}</p>
+              <p><italic>Scala</italic> provides a shorthand notation for calling functions named apply. For instance a carbon isotope can be requested like so:</p>
+              <p>val c = Isotope(Element.C)</p>
+              <p>Here we truly profited form using immutable objects: Using the <italic>Flyweight</italic> pattern keeps the memory footprint of our molecules low while letting us store a lot of additional information for all isotopes and elements that has to be loaded and calculated only once.</p>
+              <p>We were now able to define a basic Atom implementation:</p>
+              <p>case class Atom (isotope: Isotope,charge: Int,hydrogens: Int,stereo: Stereo)</p>
+              <p>Further fields like hybridization or coordinates might be necessary for some algorithms but instead of cluttering Atoms with lots of optional fields, we argue that in those cases a more specialized class should be used which will lead to an increase in terms of type-safety. An algorithm requiring coordinates for atoms might be able to work with an object of type LGraph[Bond,Atom3D] but will reject LGraphs with other vertex types.</p>
+              <p>We distinguished between the different bonds possible in <italic>Lewis</italic>-structures via a couple of constants:</p>
+              <p>sealed trait Bondobject Bond {case object Single extends Bondcase object Double extends Bond…}</p>
+              <p>Molecules can now be defined as a simple type alias:</p>
+              <p>type Molecule = LGraph[Bond,Atom]</p>
+            </sec>
+            <sec id="Sec20">
+              <title>Some basic operations on molecules</title>
+              <p>We implemented a couple of basic operations on molecules to demonstrate some of the higher order concepts typically found in functional programming.</p>
+              <p>First, we wanted to calculate the molar mass of a chemical compound. For that we defined function mass that calculates the mass of a single Atom together with the masses of its implicit hydrogen atoms:</p>
+              <p>def mass (a: Atom): Double =a.isotope.mass + a.hydrogens ⋆ H.mass</p>
+              <p>The molar weight of a molecule could then be calculated as follows:</p>
+              <p>def molarMass (m: Molecule): Double =m foldMap mass</p>
+              <p>Method foldMap comes from the <italic>scalaz</italic> library and is similar to the reduce function described by <italic>McBride</italic> and <italic>Paterson</italic>[<xref ref-type="bibr" rid="CR26">26</xref>]. It requires two type class implementations to be in implicit scope: Foldable for the data structure over which we iterate (in our case this is LGraph) and type class Monoid for the return type of the function we pass as the sole parameter to foldMap. Foldable defines several functions for accumulating values when iterating over a data structure. We will not discuss it in more detail here but refer the reader to the <italic>scalaz</italic> source code. Type class Monoid has many applications in programming. It defines two functions: Function append defines some form of combining two values into a single value of the same type, while zero is the neutral element of this operation such that zero append x == x and x append zero == x. Here is the Monoid implementation for floating-point addition:</p>
+              <p>implicit val DoubleMonoid =new Monoid[Double] {val zero: Double = 0.0Ddef append (a: Double,b: ⇒ Double) = a + b}</p>
+              <p>While it is nice to implement molarMass with just a single line of code our implementation is not very safe. It could be that mass is not known for all possible isotopes. This should be reflected in the function’s return type, and the function was adjusted accordingly:</p>
+              <p>def mass (a: Atom): Option[Double] =</p>
+              <p>We dealt with the possibility of failure by returning a value of type Option[Double]. Interestingly, <italic>scalaz</italic> defines a Monoid instance for Options of Monoids. We therefore only had to change the return type of molarMass and our code still compiled and behaved as expected:</p>
+              <p>def molarMass (m: Molecule): Option[Double] = m foldMap mass</p>
+              <p>The molar mass of a molecule is now wrapped in a Some if the masses of all its isotopes were known, otherwise the function returns None. Unlike the many methods written in <italic>Java</italic> that return null in case of an unsuccessful calculation or an undefined value, function molarMass is absolutely type-safe and we can rely on the compiler to make sure we deal with the possibility of an unknown molar mass properly.</p>
+              <p>We could have gone even further and use <italic>scalaz</italic>’s Validation class instead of Option. In that case we would have either gotten the molar mass wrapped in a Success or a list of error messages explaining exactly for which isotopes the mass could not be determined. Even in this case we would have been able to use foldMap to accumulate the validated isotopic masses. We used Validation when implementing our SMILES parser and will describe its applications further below.</p>
+              <p>Next, we implemented a function to determine the total formula of a molecule. We represented this as a Map from Isotope to Int. First, we generated such a Map for a single atom:</p>
+              <p>type Formula = Map[Isotope,Int]</p>
+              <p>def atomFormula (a: Atom): Formula =Map(a.isotope ⇒ 1) ++ ((a.hydrogens > 0) ?Map(Isotope(H) ⇒ a.hydrogens) |Map.empty)</p>
+              <p>Since <italic>scalaz</italic> defines a Monoid for Maps for whose value type a Monoid is defined, we again were able to use foldMap:</p>
+              <p>def formula (m: Molecule): Formula == m foldMap atomFormula</p>
+              <p>We wanted to show with these examples how common abstractions like Monoid can be used to write highly reusable functions like foldMap. We also argue that it is almost impossible to achieve the same levels of abstraction and code reuse by using object-oriented concepts like inheritance instead of type classes.</p>
+            </sec>
+          </sec>
+          <sec id="Sec21">
+            <title>A purely functional SMILES parser</title>
+            <p>Now that we had a way to handle molecular graphs it was time to implement some parsing capabilities for text-based user input. SMILES is well suited for this task since its syntax is easy to learn and SMILES strings for reasonably small molecules can be generated by hand without the help of a computer.</p>
+            <p>In the following sections we will describe several issues that might come up when reading user input. Our focus always was more on type-safety, referential transparency, and code reuse than on optimizing performance, which we believe can still be done once one has a properly running application.</p>
+            <sec id="Sec22">
+              <title>First things first: The parser as a finite state automaton</title>
+              <p>Parsing a SMILES string means interpreting a single line of data one character at a time while accumulating an increasingly complex molecular structure. We therefore needed two things: A data type representing the accumulated molecule and a finite state automaton (FSA) where each state of the automaton takes a character and the last molecule as input and returns an updated molecule together with a new automaton state. The following code listing shows how we modeled such an FSA:</p>
+              <p>type FARes[A] = (FAState[A], A)sealed trait FAState[A] {def next(a: A, c: Char): FARes[A]}</p>
+              <p>object FAState {def apply[A](f: (A,Char) ⇒ FARes[A]): FAState[A] = new FAState[A] {</p>
+              <p>def next(a: A, c: Char) = f(a, c)</p>
+              <p>}}</p>
+              <p>Trait FAState represents the finite automaton’s actual state. Since this class describes a very general concept and might be used for different types of parsers, we abstracted over the type of the accumulated data using a type parameter. The return type of function next is a pair consisting of a new FAState and the updated data object. We defined a general-purpose factory method apply that takes a single function as its argument in the companion object of FAState.</p>
+              <p>We then defined function parse, which takes a single string and an initial automaton state and returns the parsed value:</p>
+              <p>val EOT = '0̆004'</p>
+              <p>@scala.annotation.tailrecdef parse[A] (s: String, fas: FAState[A], a: A): A = s match {case "" ⇒ fas.next(a, EOT)._2case cs ⇒ fas.next(a, cs.head) match {case (newFas, newA) ⇒parse(cs.tail, newFas, newA)}}</p>
+              <p>We used a tail-recursive function for parsing strings. A function is tail-recursive if the only place the function calls itself is the last operation of the function [<xref ref-type="bibr" rid="CR14">14</xref>]. The <italic>Scala</italic> compiler can optimize tail-recursive functions, so that in our parser the call stack will not overflow even when parsing strings with thousands of characters. Annotation tailrec is a safety measure to make sure that our function is indeed tail-recursive. If this is not the case, the code will not compile. The parser is informed that the end of the string is reached by passing value EOT (end of transmission) as a parameter. This is necessary since the parser might still expect further input. For instance, if the last character in a SMILES string is 'C' the parser will only know whether a carbon or chlorine atom must be added to the molecule upon parsing the next character in the string. If this happens to be EOT, a final carbon atom should be added.</p>
+              <p>The classes and functions presented here describe a general purpose incremental string parser. So far they are completely unrelated to molecules and chemistry.</p>
+            </sec>
+            <sec id="Sec23">
+              <title>Enhancing the <italic>Builder</italic>pattern with type classes</title>
+              <p>We distributed the responsibility for parsing SMILES strings over three classes. First, we defined type class SmilesBuilder[A] whose instances know how to accumulate molecular information using objects of type A. A SmilesBuilder provides all actions required when parsing a SMILES string:</p>
+              <p>trait SmilesBuilder[A] {type STrans = A ⇒ Aval empty: Adef addAtom (a: SmilesAtom): STransdef clear: STransdef closeBranch: STransdef openBranch: STransdef ring (i: Int): STransdef setBond (b: Bond): STransdef setDbStereo (c: Char): STrans}</p>
+              <p>It is important to note that the builder was designed to work on immutable data structures. All its methods return functions, while in an imperative implementation using mutable state their return type would be Unit (similar to void in <italic>Java</italic>).</p>
+              <p>Next, class SmilesParser[A] is responsible for traversing the SMILES string and interpreting the characters it encounters. Instead of directly accumulating a molecular graph, it delegates data accumulation to an implementation of SmilesBuilder[A], which must be in implicit scope when creating a new SmilesParser. Parts of the implementation of SmilesParser are shown below: <disp-formula id="Equ1"><graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_459_Equa_HTML.gif" /></disp-formula></p>
+              <p>First, we defined type alias STrans, which is just a function from one accumulated molecule to the next. The main entry point for parsing a SMILES string is the initial automaton state char, which performs a pattern match against the character to be parsed. Seven cases had to be distinguished: EOT returns the accumulated molecule without further modifications together with a dummy parser, 'C' and 'B' await the next character in order to decide between adding one of two possible atoms, '[' will start bracket accumulation while the next two cases have to do with ring formation. The final catch-all pattern looks up the character in map unique and applies the returned state transformer to molecule a. Map unique contains all characters that can be encountered outside of brackets in a valid SMILES string other than the few special ones just described.</p>
+              <p>For interpreting the detailed data coming in brackets, we used regular expressions together with <italic>Scala</italic>’s pattern matching capabilities to great effect. Thus, the whole parser consisted of less than one hundred lines of code and should be able to parse all strings in accordance with the <italic>OpenSMILES</italic> specification [<xref ref-type="bibr" rid="CR21">21</xref>] with the exception of chemical reactions, where the participating molecules are delimited by character '>'. Since we believe that a reaction is not the same thing as a molecule, parsing reactions will have to be treated separately. This is trivial though, since we can just split the string into three (possibly empty) parts at the proper places, and treat each part as a separate molecule. Finally we needed a class to represent the accumulated SMILES state:</p>
+              <p>type AtomInfo = (Int, Boolean)type RingInfo = (AtomInfo, Option[Bond])type Rings = Map[Int,RingInfo]</p>
+              <p>case class SmilesMol (graph: LGraph[Bond,SmilesAtom],keep: Boolean,stack: List[AtomInfo],bond: Option[Bond],dbStereo: Option[Char],rings: Rings)</p>
+              <p>Field graph stores the growing molecular graph. Flag keep is set to true when a new side chain is started, in which case the next atom’s index together with is information about aromaticity will be added to the atom stack. Fields bond and dbStereo are used when explicit information about bonds is encountered in a SMILES string, and map rings represents all currently opened rings including the type of the ring bond (if specified) and whether the first atom at the ring bond is aromatic. We thought that these fields will hardly ever be used outside of class SmilesMol, therefore we did not define a new data type for each of them but used tuples and type aliases instead. For class SmilesMol an implementation of SmilesBuilder was written in about one hundred lines of code so that we were finally able to define our first concrete SMILES parser:</p>
+              <p>val Default = SmilesParser[SmilesMol]</p>
+              <p>What we applied here is almost exactly the <italic>Builder</italic> pattern described by the famous <italic>Gang of Four</italic>[<xref ref-type="bibr" rid="CR25">25</xref>]. Class SmilesParser plays the role of the <italic>director</italic> with type class SmilesBuilder[A] being the <italic>builder</italic> for product type A. The only difference is that we used <italic>Scala</italic>’s type class mechanism to bring the <italic>builder</italic> to the <italic>director</italic>. The big advantage of the <italic>builder</italic> pattern is the decoupling of parsing and state accumulation. When parsing a SMILES string we might not always be interested in accumulating a full molecular graph. In that case we might go for a completely different product type A. All we had to do in such a case would be writing a new implementation of SmilesBuilder[A] which is typically much easier than writing a new parser from scratch.</p>
+            </sec>
+            <sec id="Sec24">
+              <title>Implicit hydrogen detection</title>
+              <p>A SMILES string has not only to be parsed according to syntactic rules, it usually also needs to be interpreted chemically. Typical additional calculations include perceiving aromaticity, interpreting stereochemical information, and detecting implicit hydrogen atoms. Implementing the latter was pretty straight forward: For the organic subset atoms, SMILES defines one or more valid default valences. We therefore only had to count the total number of bonds to organic subset elements and add implicit hydrogen atoms until we reached the next higher valid valence:</p>
+              <p>def implicitHydrogens (bs: List[Bond], e: Element): Int = {def calc (v: Int): Option[Int] =valences get e flatMap (_ find (v&lt;=))</p>
+              <p>calc (bs foldMap (_.valence)) get}</p>
+              <p>private val valences: Map[Element,Seq[Int]] = Map(B ⇒ Seq(3),C ⇒ Seq(4),N ⇒ Seq(3,5),…)</p>
+              <p>We used foldMap to sum up the valences of all bonds connected to the atom in question (this list is directly available from the molecular graph) and then search for the lowest valid valence equal to or greater than this value. The difference between the two are the implicit hydrogen atoms.</p>
+              <p>While the above code is nice and short, it goes horribly wrong in the presence of aromatic bonds. There is no single valence defined for an aromatic bond therefore they need to be interpreted on a case by case basis. We enhanced the above algorithm to check for the presence of aromatic bonds by first sorting list bs (aromatic bonds were at the head of the list after sorting) and then performing several pattern matches taking up about fifteen lines of code in total. This allowed us to finally transform a graph of type LGraph[Bond,SmilesAtom] to one of LGraph[Bond,Atom] which could then be used to calculate the molar mass and total formula of the parsed molecule using the functions described earlier in this article.</p>
+              <p>Using function implicitHydrogens it was straight forward to transform a SmilesMol to a Molecule and we defined function toMolecule for just that purpose:</p>
+              <p>object SmilesMol {def toMolecule (sm: SmilesMol): Molecue = …}</p>
+            </sec>
+          </sec>
+          <sec id="Sec25">
+            <title>Functionally handling exceptions: The ValidationApplicative Functor</title>
+            <p>We have stressed the usefulness and safety of using referentially transparent functions several times in this article. At the same time, our SMILES parser is not referentially transparent at all. For instance, the following expression in our parser will throw an exception if character c is not found in map unique:</p>
+            <p>lazy val char: FAS = FAState[A]((a, c) ⇒ c match {…case x ⇒ (char, unique(x)(a))})</p>
+            <p>This is not a type-safe solution. Clients of our code would have to rely on the documentation of our library in order to know what kinds of exceptions to expect when using our parser. We will now describe an alternative strategy for dealing with exceptions that is type-safe, purely functional and composable at the same time.</p>
+            <p>We have seen how the Option data type can be used in cases where a calculation might have no valid result. While this is already an improvement in terms of type-safety, it has one drawback: We cannot tell the client of our function what exactly went wrong. What we would like to have is a data type that lets us return the results of successful calculations while returning some information about what went wrong in case of a failure. We have actually two options to get this behavior: The <italic>Scala</italic> standard library defines the algebraic data type Either[A,B] which has two subclasses Left[A,B] and Right[A,B] where a Left wraps a single value of type A and a Right one of type B. By convention a Left is returned in case of a failed calculation and a Right in case of a success. While this is already very useful, Either was not designed to accumulate error messages. If we parsed a file of many strings using function traverse (see below) with Either[String,SmilesMol] as the return type, our program would stop at the first invalid string encountered in the file returning a single error message wrapped in a Left. The clients of our parser would not know if there were other erroneous SMILES strings in the file until the one that stopped the parser was fixed and the application run again. If possible, clients typically want to know about all things that went wrong during a calculation. This is especially the case when running bulks of independent calculations.</p>
+            <p>An alternative to Either is provided by <italic>scalaz</italic> in form of the Validation[E,A] data type. Again, two subclasses are available: Failure[E,A] which wraps a single value of type E and Success[E,A] wrapping a value of type A.</p>
+            <p>Unlike Either, Validation was designed to accumulate failures. We will show how this is done in a moment. First we had to change parts of our parser so that they no longer threw exceptions but returned validated values of type Validation[NonEmptyList[String],A] instead. A Non‐ EmptyList is just that: A list that contains at least one value. It is provided by <italic>scalaz</italic> and is often used as a means to accumulate error messages.</p>
+            <sec id="Sec26">
+              <title>A referentially transparent SMILES parser</title>
+              <p>First, we had to redefine some of our type aliases:</p>
+              <p>type ValRes[+A] =Validation[NonEmptyList[String],A]</p>
+              <p>type FARes[A] = ValRes[(FAState[A], A)]</p>
+              <p>trait SmilesBuilder[A] {type STrans = A ⇒ ValRes[A]…}</p>
+              <p>sealed abstract class SmilesParser[A] {type STrans = A ⇒ ValRes[A]…}</p>
+              <p>Of course we had to adjust some of the functions in classes SmilesBuilder and SmilesParser. For instance, the catch all case in FAStatechar was changed as shown below: <disp-formula id="Equ2"><graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_459_Equb_HTML.gif" /></disp-formula></p>
+              <p>unique get c returns an Option[STrans]. The two possible cases Some and None are handled in function fold: If a state transformer was found, it is applied to the last state a and the validated result is mapped to a pair consisting of the next automaton state and the updated molecule. This pattern came up several times in our SMILES parser therefore we moved it to helper function next. If no state transformer was found, the parser returns an error message wrapped in a Validation. Other functions in SmilesBuilder and SmilesParser were adjusted accordingly.</p>
+              <p>Finally, we adjust function parse in the companion object of class FAState as shown in the following code listing:<disp-formula id="Equ3"><graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_459_Equc_HTML.gif" /></disp-formula></p>
+              <p>This time we did the tail recursion using an inner function, since we also wanted to keep track of the position in the SMILES string. That way, if a string cannot be parsed, all error messages are adjusted to include the exact position at which the parsing failed.</p>
+              <p>We also adjusted function toMolecule in the companion object of class SmilesMol to return validated molecules, since some errors in a SMILES string can only be detected upon implicit hydrogen calculation. We were then able to go directly from a string to a validated molecule by defining function smiles:</p>
+              <p>def smiles (s: String): ValRes[Molecule] =SmilesParser.Default(s) flatMapSmilesMol.toMolecule</p>
+              <p>Function flatMap is a more powerful version of function map (which can actually be expressed in terms of flatMap) in that it does not take a function from A to B as its parameter but one from A to ValRes[B]. By the way, when using flatMap the error messages of the two functions will not be accumulated since the second can only be called if the first was successful.</p>
+              <p>In order to provide some human-readable output for our molecular graphs, we implemented type class Show for trait LGraph. We could then test our parser directly from the console by using the following function:</p>
+              <p>def smilesShow (s: String): String =smiles(s) fold (_.list mkString " n",_.shows)</p>
+              <p>This is typical when working with types like Option and Validation: At one point one has to break out of the context and either handle the successfully calculated results or deal with the accumulated error messages. In this case we do just that by converting both possible outcomes into strings: In case of a failed calculation we collect all error messages in a single string (one error per line), in case of a success we present the molecular graph in human readable form. Both possible outcomes are shown in Tables <xref rid="Tab1" ref-type="table">1</xref> and <xref rid="Tab2" ref-type="table">2</xref> for several input strings.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p><bold>Output when parsing valid SMILES strings</bold></p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>CCO</p></th><th align="left"><p>[cH+]1cc1</p></th><th align="left"><p>[NH3+][C@H](C)C(=O)[O-]</p></th></tr></thead><tbody><tr><td align="left"><p>LGraph:</p></td><td align="left"><p>LGraph:</p></td><td align="left"><p>LGraph:</p></td></tr><tr><td align="left"><p>0: CH3</p></td><td align="left"><p>0: CH(+1)</p></td><td align="left"><p>0: NH3(+1)</p></td></tr><tr><td align="left"><p>1: CH2</p></td><td align="left"><p>1: CH</p></td><td align="left"><p>1: CH(@)</p></td></tr><tr><td align="left"><p>2: OH</p></td><td align="left"><p>2: CH</p></td><td align="left"><p>2: CH3</p></td></tr><tr><td align="left" /><td align="left" /><td align="left"><p>3: C</p></td></tr><tr><td align="left"><p>0 - 1: -</p></td><td align="left"><p>0 - 1: :</p></td><td align="left"><p>4: O</p></td></tr><tr><td align="left"><p>1 - 2: -</p></td><td align="left"><p>0 - 2: :</p></td><td align="left"><p>5: O(-1)</p></td></tr><tr><td align="left" /><td align="left"><p>1 - 2: :</p></td><td align="left" /></tr><tr><td align="left" /><td align="left" /><td align="left"><p>0 - 1: -</p></td></tr><tr><td align="left" /><td align="left" /><td align="left"><p>1 - 2: -</p></td></tr><tr><td align="left" /><td align="left" /><td align="left"><p>1 - 3: -</p></td></tr><tr><td align="left" /><td align="left" /><td align="left"><p>3 - 4: =</p></td></tr><tr><td align="left" /><td align="left" /><td align="left"><p>3 - 5: -</p></td></tr></tbody></table><table-wrap-foot><p>Molecular graphs are displayed as lists of atoms followed by lists of bonds. Each bond shows the indices of the connected atoms followed by the SMILES symbol representing the type of the bond.</p></table-wrap-foot></table-wrap><table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p><bold>Output when parsing invalid SMILES strings</bold></p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>Input</p></th><th align="left"><p>Message</p></th></tr></thead><tbody><tr><td align="left"><p>CCuCC</p></td><td align="left"><p>Pos. 3 in CCuCC: Unknown character in SMILES-String: u</p></td></tr><tr><td align="left"><p>C%12CCCC%1</p></td><td align="left"><p>Pos. 11 in C%12CCCC%1: % is not followed by two digits</p></td></tr><tr><td align="left"><p>C#OC</p></td><td align="left"><p>Invalid bond set for element O: Triple,Single</p></td></tr></tbody></table><table-wrap-foot><p>In the last example no position is given since this failure did not happen during parsing but during implicit hydrogen detection which is a separate algorithm and therefore has not notion of a ’position in a string’.</p></table-wrap-foot></table-wrap></p>
+            </sec>
+            <sec id="Sec27">
+              <title>Bulk operations</title>
+              <p>This section describes some of the more advanced techniques used in functional programming. These were described in greater detail by <italic>McBride</italic> and <italic>Paterson</italic>[<xref ref-type="bibr" rid="CR26">26</xref>] as well as <italic>Gibbons</italic> and <italic>Oliveira</italic>[<xref ref-type="bibr" rid="CR27">27</xref>].</p>
+              <p>Given a file containing a large number of molecules each as a SMILES string on a separate line, we were now able to parse the whole sequence of lines in a single line of code:</p>
+              <p>import SmilesParser.Default</p>
+              <p>def bulkParse (ls: Seq[String]) =ls traverse Default.parse</p>
+              <p>The result of bulkParse will either be a sequence of SmilesMols wrapped in a Success or a NonEmptyList of error messages wrapped in a Failure. Method traverse is again provided by <italic>scalaz</italic> and has the following quite daunting signature:</p>
+              <p>def traverse[F[_],B](f: A => F[B])(implicit a: Applicative[F],t: Traverse[M]): F[M[B]] = …</p>
+              <p>It is added via the <italic>pimp my library</italic> pattern to an object of type M[A] and takes a function from A to a value of type B in a context F as its argument. It also takes two implicit parameters: An instance of type class Traverse must be defined for type constructor M (which is usually some kind of container such as a list or a tree) and one of type class Applicative for context F. Method traverse is highly versatile in that it not only abstracts over the input and output types of a function but also over the container over which we iterate as well as the context F in which the calculation runs. We will not describe how these type classes are defined and implemented any further but refer the interested reader to the articles given at the beginning of this section as well as the <italic>scalaz</italic> source code. Suffice to say that the Applicative for Validation requires a Semigroup (which like a Monoid defines a function append but without the zero value) to be defined for its error type E. Errors are then accumulated via Semigroup append. For instance there is a Semigroup for NonEmptyLists (append simply being list concatenation).</p>
+              <p>One good thing about Applicatives is that they compose very nicely. It can be shown that both the product (M[_],N[_]) and the composition M[N[_]] of two Applicatives M[_] and N[_] are again Applicatives [<xref ref-type="bibr" rid="CR26">26</xref>]. This gives us incredible flexibility in our code. We will demonstrate this by adding another piece of information to our error messages: The line number at which a certain error occurred. To keep track of the actual line number, we use the State Monad [<xref ref-type="bibr" rid="CR28">28</xref>]. We define a couple of new type aliases together with function parseLine:</p>
+              <p>type IntState[A] = State[Int,A]type ValIntState[A] = IntState[ValRes[A]]</p>
+              <p>implicit val ValIntStateApplicative =Comp.CompApplicative[IntState,ValRes]</p>
+              <p>def parseLine[A] (f: String ⇒ ValRes[A]): String ⇒ ValIntState[A] =s ⇒ state(i ⇒ (i + 1, f(s) fold (_ map ("Line %d: %s" format (i, _)) fail,_.success)))</p>
+              <p>Method parseLine parses a string and if this fails, prepends the actual line number to all error messages. At the same time the line number is increased by one. Since we are working with a composition of Applicatives, the <italic>Scala</italic> compiler needs some help to figure out that ValIntState is still an Applicative. <italic>scalaz</italic> defines function CompApplicative for just this purpose. We can now define a function parseSmilesLine and use it again in a bulk operation as before, but this time, our error messages will include the exact position (line and column), where in a file an error occurred:</p>
+              <p>def parseSmilesLine = parseLine(smiles)</p>
+              <p>def bulkParseSmiles(ss: Seq[String]) =(ss traverse parseSmilesLine) ! 1</p>
+              <p>We use the ! operator to run the computation with an initial line index of 1.</p>
+            </sec>
+          </sec>
+          <sec id="Sec28">
+            <title>Parallelization and performance</title>
+            <p>At the beginning of this article we claimed that referentially transparent functions can safely be used in parallel algorithms. Indeed, we were able to parse a reasonably large file (about 10 MB) of SMILES strings with only a few lines of code using <italic>Scala</italic>’s parallel collections:</p>
+            <p>val path = "/home/ …"</p>
+            <p>def src = io.Source fromFile path</p>
+            <p>def ls = src.getLines.toSeq</p>
+            <p>val results: ValRes[Molecule] =(ls.par map parseSmiles seq).sequence</p>
+            <p>Function par transforms a collection to a parallel one, while seq transforms it back to a single threaded one. Calling map and sequence in succession does the same as calling traverse but the list is traversed twice. On the other hand, the implementation of traverse is too strict to be run in parallel; <italic>scalaz</italic> provides function parMap for that purpose, but this makes use of Futures which we will not describe here in more detail. Table <xref rid="Tab3" ref-type="table">3</xref> shows the time used to count the implicit hydrogen atoms in all molecules (about 350’000) in a sample SMILES file downloaded from the <italic>ZINC</italic> database [<xref ref-type="bibr" rid="CR29">29</xref>] on a standard laptop with a quadcore processor, once when run in a single thread and once when run in parallel on all four cores. As can be seen, performance is increased by about a factor of two without any further tuning from our part.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p><bold>Performance of SMILES parsing</bold></p></caption><table frame="hsides" rules="groups"><thead><tr><th align="center"><p>Run</p></th><th align="center"><p>Singlethreaded</p></th><th align="center"><p>Multithreaded</p></th><th align="center"><p>Multithreaded</p></th></tr><tr><th align="left" /><th align="left" /><th align="left" /><th align="center"><p>(after profiling)</p></th></tr></thead><tbody><tr><td align="center"><p>1</p></td><td align="center"><p>17’149</p></td><td align="center"><p>10’295</p></td><td align="center"><p>7608</p></td></tr><tr><td align="center"><p>2</p></td><td align="center"><p>15’659</p></td><td align="center"><p>7123</p></td><td align="center"><p>5488</p></td></tr><tr><td align="center"><p>3</p></td><td align="center"><p>15’663</p></td><td align="center"><p>7248</p></td><td align="center"><p>5433</p></td></tr><tr><td align="center"><p>4</p></td><td align="center"><p>15’880</p></td><td align="center"><p>7508</p></td><td align="center"><p>5425</p></td></tr><tr><td align="center"><p>5</p></td><td align="center"><p>15’809</p></td><td align="center"><p>7669</p></td><td align="center"><p>5534</p></td></tr><tr><td align="center"><p>6</p></td><td align="center"><p>15’720</p></td><td align="center"><p>7197</p></td><td align="center"><p>5471</p></td></tr><tr><td align="center"><p>7</p></td><td align="center"><p>15’665</p></td><td align="center"><p>7174</p></td><td align="center"><p>5448</p></td></tr><tr><td align="center"><p>8</p></td><td align="center"><p>15’390</p></td><td align="center"><p>7296</p></td><td align="center"><p>5513</p></td></tr><tr><td align="center"><p>9</p></td><td align="center"><p>15’423</p></td><td align="center"><p>7687</p></td><td align="center"><p>5696</p></td></tr><tr><td align="center"><p>10</p></td><td align="center"><p>15’523</p></td><td align="center"><p>7564</p></td><td align="center"><p>5491</p></td></tr><tr><td align="center"><p><bold>average</bold></p></td><td align="center"><p>15’788</p></td><td align="center"><p>7676</p></td><td align="center"><p>5711</p></td></tr></tbody></table><table-wrap-foot><p>Time (in milliseconds) taken to parse part of the ZINC database containing about 350’000 structures on a quadcore laptop. The multi-threaded runs ran on all four cores without further optimization of <italic>Scala</italic>’s parallel collections settings.</p></table-wrap-foot></table-wrap></p>
+            <p>We also used <italic>VisualVM</italic>[<xref ref-type="bibr" rid="CR30">30</xref>] as a profiler to further improve the performance of our SMILES parser and our graph implementation. A couple of simple adjustments increased the performance by another 30%. Applying the <italic>Flyweight</italic> pattern to edges by caching the most commonly used ones as well as changing the order in the pattern match of the implicitHydrogens function each reduced the time needed to parse the <italic>ZINC</italic> library by about half a second. In the first case we could cache the commonly used edges’ hashCode which was otherwise reevaluated many times when they were being used as keys in the edge label map in our labeled graphs. In the second case we could restrict the sorting of a considerable amount of bond lists to only those cases where aromatic bonds were involved. Finally we saw that building the adjacency lists of our graphs took quite some time. This could be somewhat improved by changing their type from Array[Set[Int]] to Array[List[Int]]. It is not yet sure, whether we will have to undo this last change, since Sets have constant time random access, while for lists it is linear with respect to the list’s size. The effect on overall performance of our parser will not be very big if this change has to be undone in a future version.</p>
+            <p>Finally we tested the efficiency of parallelizing the parsing of large lists of SMILES strings on a hexacore processor supporting hyperthreading. The results are summarized in Table <xref rid="Tab4" ref-type="table">4</xref>. The drop in efficiency and reduced speedup when running more than nine threads in parallel might be related to the computer’s hardware architecture or <italic>Scala</italic>’s implementation of parallel collections but we did no further investigations along those lines.<table-wrap id="Tab4"><label>Table 4</label><caption xml:lang="en"><p><bold>Speedup and efficiency of parallelized SMILES parsing</bold></p></caption><table frame="hsides" rules="groups"><thead><tr><th align="center"><p>Number of Threads</p></th><th align="center"><p>Time [ms]</p></th><th align="center"><p>Speedup</p></th><th align="center"><p>Efficiency</p></th></tr></thead><tbody><tr><td align="center"><p>1</p></td><td align="center"><p>9493</p></td><td align="center"><p>1.00</p></td><td align="center"><p>1.00</p></td></tr><tr><td align="center"><p>2</p></td><td align="center"><p>5309</p></td><td align="center"><p>1.79</p></td><td align="center"><p>0.89</p></td></tr><tr><td align="center"><p>3</p></td><td align="center"><p>4134</p></td><td align="center"><p>2.30</p></td><td align="center"><p>0.77</p></td></tr><tr><td align="center"><p>4</p></td><td align="center"><p>2988</p></td><td align="center"><p>3.18</p></td><td align="center"><p>0.79</p></td></tr><tr><td align="center"><p>5</p></td><td align="center"><p>2785</p></td><td align="center"><p>3.41</p></td><td align="center"><p>0.68</p></td></tr><tr><td align="center"><p>6</p></td><td align="center"><p>2647</p></td><td align="center"><p>3.59</p></td><td align="center"><p>0.60</p></td></tr><tr><td align="center"><p>7</p></td><td align="center"><p>2273</p></td><td align="center"><p>4.18</p></td><td align="center"><p>0.60</p></td></tr><tr><td align="center"><p>8</p></td><td align="center"><p>2091</p></td><td align="center"><p>4.54</p></td><td align="center"><p>0.57</p></td></tr><tr><td align="center"><p>9</p></td><td align="center"><p>2037</p></td><td align="center"><p>4.66</p></td><td align="center"><p>0.52</p></td></tr><tr><td align="center"><p>10</p></td><td align="center"><p>2061</p></td><td align="center"><p>4.61</p></td><td align="center"><p>0.46</p></td></tr><tr><td align="center"><p>11</p></td><td align="center"><p>2061</p></td><td align="center"><p>4.61</p></td><td align="center"><p>0.42</p></td></tr><tr><td align="center"><p>12</p></td><td align="center"><p>2096</p></td><td align="center"><p>4.53</p></td><td align="center"><p>0.38</p></td></tr></tbody></table><table-wrap-foot><p>The test runs were performed on a hexacore processor supporting hyperthreading. Again our testing excerpt of the ZINC database was parsed using <italic>Scala</italic>’s parallel collections.</p></table-wrap-foot></table-wrap></p>
+          </sec>
+          <sec id="Sec29">
+            <title>Comparison with other open-source toolkits</title>
+            <p>In this section we are going to have a closer look at other cheminformatics toolkit implementations and compare their design with the one chosen for <italic>chem</italic><sup><italic>f</italic></sup>.</p>
+            <sec id="Sec30">
+              <title>Ouch: ouch uses chemical Haskell [<xref ref-type="bibr" rid="CR12">12</xref>]</title>
+              <p><italic>Ouch</italic> is the only other purely functional cheminformatics toolkit we are aware of. It is written in <italic>Haskell</italic> and is similar in functionality to <italic>chem</italic><sup><italic>f</italic></sup>. It also provides SMILES parsing capabilities that result in a basic molecular graph. In addtion, <italic>Ouch</italic> supports output to several file formats as well as some nice algorithms for enumerating chemical structures which are described in more detail in the author’s blog [<xref ref-type="bibr" rid="CR31">31</xref>]. There are several differences between <italic>chem</italic><sup><italic>f</italic></sup> and <italic>Ouch</italic> in terms of design decisions.</p>
+              <p>First, <italic>chem</italic><sup><italic>f</italic></sup> abstracts over the bond and atom types in its graph implementation through type parameters while in <italic>Ouch</italic> a molecule is simply a mapping from an integer to an atom plus a set of additional information in terms of molecular markers. All available information for a given atom is provided by the Atom data type which can again be annotated by various markers. This makes <italic>Ouch</italic>’s Atom and Molecule data types quite versatile but not really type safe. The presence or absence of a given type of marker is not visible at the type level, and algorithms that rely on certain markers will have to explicitly query the molecule and its atoms for their presence. Here we believe that the design of <italic>chem</italic><sup><italic>f</italic></sup> is somewhat superior in terms of flexibility and type safety. We can describe different aspects of a molecule simply by varying the type parameters of an LGraph and algorithms working on molecular graphs can define via the types of their parameters, which additional pieces of information about a molecule’s atoms and bonds are required. Parameterizing over the edge and node type of LGraph also allowed us to define some powerful type classes like Functor, Foldable, and Traverse for our labeled graphs. This makes many highly versatile higher order functions available for working with LGraphs as has been demonstrated when implementing a couple of basic operations on molecules.</p>
+              <p>Another difference is the implementation of the SMILES parser. <italic>Ouch</italic> makes use of the <italic>parsec</italic>[<xref ref-type="bibr" rid="CR32">32</xref>] library of parser combinators, meaning that the low level parsing capabilities of <italic>Ouch</italic>’s parser did not have to be implemented from scratch. On the other hand, <italic>Ouch</italic> does not abstract over the return type of its parser. The parser simply reads a SMILES string and returns a Molecule. In our implementation we abstracted over the parser’s return type by means of the builder pattern. This leads to greater flexibility when accumulating the information available from a SMILES string and will make a possible future change in the representation of molecules easier. <italic>Ouch</italic>’s SMILES parser also handles the potential of failure during parsing differently: Errors and warnings are stored as markers together with the parsed molecule. While this also allows for the accumulation of error messages when several things go wrong, the presence or absence of errors is not visible at the type level and can only be determined upon inspecting the molecule’s set of markers. Our implementation describes the potential of failure already in the parser’s return type. This gives us once more access to many useful higher order functions provided by the Validation data type and its various type class implementations as we have shown when performing bulk operations. It also makes error handling in follow-up algorithms obsolete. This is demonstrated in the following code listing:</p>
+              <p>def formula (m: Molecule): Formula == m foldMap atomFormula</p>
+              <p>def parseFormula (s: String) =smiles(s) map formula</p>
+              <p>Here, function formula is only called if the parsing was successful. Its implementation does not have to concern itself with the possibility of failure during parsing, and it is therefore not necessary to query the molecule for the presence or absence of errors.</p>
+            </sec>
+            <sec id="Sec31">
+              <title>CDK: the chemistry developement kit [<xref ref-type="bibr" rid="CR1">1</xref>]</title>
+              <p><italic>CDK</italic> is an open-source cheminformatics and bioinformatics toolkit written in <italic>Java</italic>. It provides a plethora of chemistry-related data structures and algorithms as well as UI widgets that can be used for structure drawing and editing in graphical user interfaces. It also supports reading from and writing to many file formats typically used in chemical applications.</p>
+              <p><italic>CDK</italic> was designed as a purely object-oriented toolkit, based on mutable data structures and subtyping for code reuse and loose coupling between components. The main data structures are defined as <italic>Java</italic> interfaces for which default implementations are provided. Algorithms typically operate on these interfaces which makes it possible to use them with tailor-made implementations. In <italic>chem</italic><sup><italic>f</italic></sup> we use type classes to achieve the same (or an even higher) degree of flexiblity. Theoretically, the algorithms provided by <italic>CDK</italic> could also be used from within <italic>chem</italic><sup><italic>f</italic></sup> by implementing the interfaces of the data structures in question. However, even <italic>CDK</italic>’s interfaces where designed with mutability in mind so that one has typically to provide getters (accessors) and setters (mutators) for all editable fields of a data structure. This of course does not go well with referential transparency and purely functional programming. It is also not always clear whether algorithms like substructure searching or ring detection mutate parts of the data structures they operate on. From a functional programmer’s point of view it might therefore be interesting to adjust <italic>CDK</italic>’s design so that two types of interfaces are defined for all data structures: One for accessing and one for mutating an object’s fields. Ideally, most algorithms would then work solely with the immutable interface of a data type, thereby guaranteeing via the type system that no inplace mutation will occur.</p>
+              <p><italic>CDK</italic>’s SMILES parser is similar in functionality to our parser, however an algorithm for aromaticity perception is provided as well. <italic>CDK</italic>’s parser is also implemented via the <italic>builder</italic> pattern though its return type is always IMolecule. The builder is only needed as a factory to create a new instance of IMolecule when parsing a new string. It is also worth noting that <italic>CDK</italic>’s SMILES parser, written in an imperative style in <italic>Java</italic> consists of more than ten times the number of lines of code than our implementation. While fewer lines of code is not necessarly a sign of quality or efficiency, less boiler plate code can well increase both the readability and maintainability of the code base escpecially when the difference is a whole order of magnitude.</p>
+              <p>We planned to compare the efficiency of <italic>CDK</italic>’s SMILES parser with our implementation when parsing bulks of SMILES strings in parallel. However, we found that <italic>CDK</italic>’s parser is not referentially transparent and operates on mutable state internally. In order to parse SMILES strings in parallel we had to create a new instance of SmilesParser for every string to be parsed instead of using the same instance for all strings. Even then <italic>CDK</italic>’s SMILES parser failed with a NullPointerException at irregular occasions when we used the singleton instance of DefaultChemObjectBuilder as described in the parser’s documentation. The code we used in this test is listed below:<disp-formula id="Equ4"><graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_459_Equd_HTML.gif" /></disp-formula></p>
+              <p>This demonstrates one of the major advantages of functional programming over classical object-oriented programming: Referentially transparent functions and immutable data structures can be used at will in parallel algorithms while with mutable data structures thread safety is a deliberate design decision and can be hard to implement and even harder to test.</p>
+            </sec>
+          </sec>
+        </sec>
+        <sec id="Sec32" sec-type="conclusions">
+          <title>Conclusions</title>
+          <p>In this article, we described our first steps in putting together a purely functional cheminformatics toolkit in <italic>Scala</italic>. We showed how typical calculations required in chemical applications can be written with a drastically reduced amount of code due to the increase in abstraction and type-safety gained by applying typical concepts from functional programming. We also showed how the resulting referentially transparent functions and immutable data types can be used at no risk in all parts of client code including multi-threaded algorithms. We also compared our code with existing toolkits, and showed how it is superior in terms of type-safety and flexibility as well as – when compare to a typical object-oriented toolkit – thread safety. Last but not least, we experienced a drastic increase in productivity when programming in a purely functional way. Typically, code that compiled ran as expected and passed all unit tests at first take.</p>
+          <p>Of course our work is by far not finished here. In a next step we will focus on supporting other file formats in our toolkit before moving to file output and (SMILES) canonicalization. Especially the latter will be interesting to implement since it is known to be performance critical. Once canonicalization is implemented to our satisfaction we will move our focus towards data storage and experiment with our own implementation of a chemical database system that should also support substructure and similarity searches embedded in our computer aided drug design projects.</p>
+        </sec>
+        <sec id="Sec33" sec-type="methods">
+          <title>Methods</title>
+          <sec id="Sec34">
+            <title>Benchmarking the SMILES parser</title>
+            <p>We used the scala.testing.Benchmark trait for benchmarking our application. For this task the block of code listed below was executed, either with or without using parallel collections.<disp-formula id="Equ5"><graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_459_Eque_HTML.gif" /></disp-formula></p>
+            <p>The first run was typically slower by a factor of at least two than the following ones. This is a known effect due to <italic>Java</italic>’s Just In Time compilation [<xref ref-type="bibr" rid="CR34">34</xref>].</p>
+          </sec>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>This project was financially supported by the ZHAW (Development of a cheminformatics toolkit as a basis for other chemistry-related software).</p>
+        </ack>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Han</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Kuhn</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Horlacher</surname>
+                    <given-names>O</given-names>
+                  </name>
+                  <name>
+                    <surname>Luttmann</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The Chemistry Development Kit (CDK): an open-source java library for Chemo- and bioinformatics</article-title>
+                <source>J Chemical Inf Comput Sci</source>
+                <year>2003</year>
+                <volume>43</volume>
+                <issue>2</issue>
+                <fpage>493</fpage>
+                <lpage>500</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3sXhtVaktbg%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci025584y</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>O’Boyle</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Banck</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>James</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Morley</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Vandermeersch</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Open babel: an open chemical toolbox</article-title>
+                <source>J Cheminformatics</source>
+                <year>2011</year>
+                <volume>3</volume>
+                <fpage>33</fpage>
+                <pub-id pub-id-type="doi">10.1186/1758-2946-3-33</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="other">The java programming language. [<ext-link xlink:href="http://www.java.com" ext-link-type="uri">http://www.java.com</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bloch</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <source>Effective Java</source>
+                <year>2008</year>
+                <publisher-loc>Boston</publisher-loc>
+                <publisher-name>Addison-Wesley</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Odersky</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Future-proofing collections: from mutable to persistent to parallel</article-title>
+                <source>Talk at Devoxx, Antwerp, Belgium</source>
+                <year>2010</year>
+                <comment>http://link.springer.com/chapter/10.1007 [âˆ–%2F978-3-642-19861-8_1]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sondergaard</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Sestoft</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Referential transparency, definiteness and unfoldability</article-title>
+                <source>Acta Informatica</source>
+                <year>1990</year>
+                <volume>27</volume>
+                <fpage>505</fpage>
+                <lpage>517</lpage>
+                <pub-id pub-id-type="doi">10.1007/BF00277387</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="other">Odersky M, Altherr P, Cremet V, Dragos I, Dubochet G, Emir B, McDirmid S, Micheloud S, Mihaylov N, Schinz M, Stenman E, Spoon L, Zenger M: An overview of the scala programming language. Tech. rep., EPFL, Lausanne, Switzerland 2006</mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Peyton Jones</surname>
+                    <given-names>S (Ed)</given-names>
+                  </name>
+                </person-group>
+                <source>Haskell 98 Language and Libraries – The Revised Report</source>
+                <year>2003</year>
+                <publisher-loc>Cambridge, England</publisher-loc>
+                <publisher-name>Cambridge University Press</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hughes</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Why functional programming matters</article-title>
+                <source>Comp J</source>
+                <year>1989</year>
+                <volume>32</volume>
+                <issue>2</issue>
+                <fpage>98</fpage>
+                <lpage>107</lpage>
+                <pub-id pub-id-type="doi">10.1093/comjnl/32.2.98</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Höck</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Riedl</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <source>Chimia</source>
+                <year>2012</year>
+                <volume>66</volume>
+                <issue>3</issue>
+                <fpage>132</fpage>
+                <lpage>134</lpage>
+                <pub-id pub-id-type="doi">10.2533/chimia.2012.132a</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wampler</surname>
+                    <given-names>D</given-names>
+                  </name>
+                  <name>
+                    <surname>Payne</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <source>Programming Scala</source>
+                <year>2009</year>
+                <publisher-loc>Sebastopol</publisher-loc>
+                <publisher-name>O’Reilly Media</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="other">Jankowski O: Ouch uses chemical Haskell. [<ext-link xlink:href="https://github.com/odj/Ouch" ext-link-type="uri">https://github.com/odj/Ouch</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Weininger</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Weinheim</surname>
+                  </name>
+                  <name>
+                    <surname>Gasteiger</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Weinheim</surname>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SMILES - a Language for molecules and reactions</article-title>
+                <source>Handbook of Cheminformatics</source>
+                <year>2003</year>
+                <publisher-loc>Germany</publisher-loc>
+                <publisher-name>Wiley-VCH</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Odersky</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Spoon</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Venners</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <source>Programming in Scala</source>
+                <year>2010</year>
+                <publisher-loc>Walnut Creek, USA</publisher-loc>
+                <publisher-name>Artima Press</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="other">FOLDOC: Free on-line dictionary of computing. [<ext-link xlink:href="http://foldoc.org/algebraic" ext-link-type="uri">http://foldoc.org/algebraic</ext-link>+data+type]</mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Moors</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Piessens</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Odersky</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Generics of a higher kind</article-title>
+                <source>Acm Sigplan Notices</source>
+                <year>2008</year>
+                <volume>43</volume>
+                <fpage>423</fpage>
+                <lpage>438</lpage>
+                <pub-id pub-id-type="doi">10.1145/1449955.1449798</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Odersky</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <source>Pimp my library</source>
+                <year>2006</year>
+                <comment>http://www.artima.com/weblogs/viewpost.jsp?thread=179766 []</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Oliveira</surname>
+                    <given-names>BCdS</given-names>
+                  </name>
+                  <name>
+                    <surname>Moors</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Odersky</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Type classes as objects and implicits</article-title>
+                <source>Proceedings of the ACM International Conference on Object Oriented Programming Systems Languages and Applications</source>
+                <year>2010</year>
+                <publisher-loc>Reno/Tahoe</publisher-loc>
+                <publisher-name>ACM</publisher-name>
+                <fpage>341</fpage>
+                <lpage>360</lpage>
+                <pub-id pub-id-type="doi">10.1145/1869459.1869489</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="other">Scalaz: Type classes and pure functional data structures for scala. [<ext-link xlink:href="http://code.google.com/p/scalaz/" ext-link-type="uri">http://code.google.com/p/scalaz/</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Lipovaca</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <source>Learn You a Haskell for Great Good</source>
+                <year>2011</year>
+                <publisher-loc>San Francisco</publisher-loc>
+                <publisher-name>No Starch Press, Inc.</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="other">OpenSMILES. [<ext-link xlink:href="http://www.opensmiles.org" ext-link-type="uri">http://www.opensmiles.org</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Barnard</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Weinheim</surname>
+                  </name>
+                  <name>
+                    <surname>Gasteiger</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Weinheim</surname>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Representation of molecular structures - overview</article-title>
+                <source>Handbook of Cheminformatics</source>
+                <year>2003</year>
+                <publisher-loc>Germany</publisher-loc>
+                <publisher-name>Wiley-VCH</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cormen</surname>
+                    <given-names>TH</given-names>
+                  </name>
+                  <name>
+                    <surname>Stein</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Rivest</surname>
+                    <given-names>RL</given-names>
+                  </name>
+                  <name>
+                    <surname>Leiserson</surname>
+                    <given-names>CE</given-names>
+                  </name>
+                </person-group>
+                <source>Introduction to Algorithms</source>
+                <year>2001</year>
+                <publisher-loc>Boston</publisher-loc>
+                <publisher-name>McGraw-Hill Higher Education</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Guha</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Howard</surname>
+                    <given-names>MT</given-names>
+                  </name>
+                  <name>
+                    <surname>Hutchison</surname>
+                    <given-names>GR</given-names>
+                  </name>
+                  <name>
+                    <surname>Murray-Rust</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Rzepa</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>Steinbeck</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Wegner</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Willighagen</surname>
+                    <given-names>EL</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The blue obelisk - interoperability in chemical informatics</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2006</year>
+                <volume>46</volume>
+                <issue>3</issue>
+                <fpage>991</fpage>
+                <lpage>998</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD28Xhs1Wjsbw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci050400b</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gamma</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Helm</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Johnson</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Vlissides</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <source>Design Patters: Elements of Reusable Object-Oriented Software</source>
+                <year>1995</year>
+                <publisher-loc>Boston</publisher-loc>
+                <publisher-name>Addison-Wesley</publisher-name>
+              </mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>McBride</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Paterson</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Applicative programming with effects</article-title>
+                <source>J Funct Program</source>
+                <year>2008</year>
+                <volume>18</volume>
+                <fpage>1</fpage>
+                <lpage>13</lpage>
+                <pub-id pub-id-type="doi">10.1017/S0956796807006326</pub-id>
+                <comment>http://dx.doi.org/10.1017/S0956796807006326 []</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gibbons</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Oliveira</surname>
+                    <given-names>Bcds</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The essence of the iterator pattern</article-title>
+                <source>J Funct Program</source>
+                <year>2009</year>
+                <volume>19</volume>
+                <issue>3-4</issue>
+                <fpage>377</fpage>
+                <lpage>402</lpage>
+                <pub-id pub-id-type="doi">10.1017/S0956796809007291</pub-id>
+                <comment>http://dx.doi.org/10.1017/S0956796809007291 []</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Wadler</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Monads for functional programming</article-title>
+                <source>Advanced Functional Programming, First International Spring School on Advanced Functional Programming Techniques-Tutorial Text</source>
+                <year>1995</year>
+                <publisher-loc>London</publisher-loc>
+                <publisher-name>Springer-Verlag</publisher-name>
+                <fpage>24</fpage>
+                <lpage>52</lpage>
+                <comment>http://dl.acm.org/citation.cfm?id=647698.734146 []</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="other">Zinc is not commercial. [<ext-link xlink:href="http://zinc.docking.org/" ext-link-type="uri">http://zinc.docking.org/</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="other">VisualVM: All-in-one java troubleshooting tool. [<ext-link xlink:href="http://visualvm.java.net/" ext-link-type="uri">http://visualvm.java.net/</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="other">Jankowski O: Pharmash. [<ext-link xlink:href="http://www.pharmash.com/index.html" ext-link-type="uri">http://www.pharmash.com/index.html</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="other">Leijen D, Meijer E: Parsec: direct style monadic parser combinators for the real world. Tech. rep. 2001</mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="other">sbt, a build tool for Scala. [<ext-link xlink:href="https://github.com/harrah/xsbt/wiki/" ext-link-type="uri">https://github.com/harrah/xsbt/wiki/</ext-link>]</mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="other">Goetz B: Java theory and practice: Dynamic compilation and performance measurement. [<ext-link xlink:href="http://www.ibm.com/developerworks/library/j-jtp12214/" ext-link-type="uri">http://www.ibm.com/developerworks/library/j-jtp12214/</ext-link>]</mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec35">
+              <title>Electronic supplementary material</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Electronic supplementary material">
+                  <media mimetype="application" mime-subtype="x-zip-compressed" xlink:href="MediaObjects/13321_2012_459_MOESM1_ESM.zip" position="anchor">
+                    <caption xml:lang="en">
+                      <p>Additional file 1: <bold>chemf_src.zip.</bold> This file contains the source code of the version of chem<sup>f</sup> described in this article as an <italic>SBT</italic>[<xref ref-type="bibr" rid="CR33">33</xref>] project. To try out some code samples, install <italic>SBT</italic> and start it from within the <italic>chemf</italic> directory. From within <italic>SBT</italic> start the console by typing console. Several functions are loaded and can be used out of the box: smiles(s) will parse SMILES string s, prettySmiles(s) will do the same but print the resulting molecule (or error messages) in human readable form. (ZIP 2 MB)</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+            <sec id="Sec36">
+              <title>Authors’ original submitted files for images</title>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM2" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_459_MOESM2_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM3" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_459_MOESM3_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_459_MOESM4_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_459_MOESM5_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_459_MOESM6_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material></p>
+            </sec>
+          </app>
+        </app-group>
+        <notes notes-type="Misc">
+          <title>Competing interests</title>
+          <p>The authors declare that they have no competing interests.</p>
+        </notes>
+        <notes notes-type="Misc">
+          <title>Authors’ contributions</title>
+          <p>SH did the programming and wrote the article. RR supervised the project. Both authors read and approved the final manuscript.</p>
+        </notes>
+      </back>
+    </article>

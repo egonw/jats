@@ -1,0 +1,2034 @@
+<?xml version="1.0"?>
+<!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
+      <front>
+        <journal-meta>
+          <journal-id journal-id-type="publisher-id">13321</journal-id>
+          <journal-title-group>
+            <journal-title>Journal of Cheminformatics</journal-title>
+            <abbrev-journal-title abbrev-type="publisher">J Cheminform</abbrev-journal-title>
+          </journal-title-group>
+          <issn pub-type="epub">1758-2946</issn>
+          <publisher>
+            <publisher-name>Springer International Publishing</publisher-name>
+            <publisher-loc>Cham</publisher-loc>
+          </publisher>
+        </journal-meta>
+        <article-meta>
+          <article-id pub-id-type="publisher-id">BMC1758-2946-4-13</article-id>
+          <article-id pub-id-type="manuscript">369</article-id>
+          <article-id pub-id-type="doi">10.1186/1758-2946-4-13</article-id>
+          <article-categories>
+            <subj-group subj-group-type="heading">
+              <subject>Research Article</subject>
+            </subj-group>
+          </article-categories>
+          <title-group>
+            <article-title xml:lang="en">Systematic benchmark of substructure search in molecular graphs - From Ullmann to VF2</article-title>
+          </title-group>
+          <contrib-group>
+            <contrib contrib-type="author">
+              <name>
+                <surname>Ehrlich</surname>
+                <given-names>Hans-Christian</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes">
+              <name>
+                <surname>Rarey</surname>
+                <given-names>Matthias</given-names>
+              </name>
+              <address>
+                <email>HIDDEN</email>
+              </address>
+              <xref ref-type="aff" rid="Aff1">1</xref>
+              <xref ref-type="corresp" rid="IDBMC17582946413_cor2">b</xref>
+            </contrib>
+            <aff id="Aff1">
+              <label>1</label>
+              <institution-wrap>
+                <institution-id institution-id-type="GRID">grid.9026.d</institution-id>
+                <institution-id institution-id-type="ISNI">0000000122872617</institution-id>
+                <institution content-type="org-division">Center for Bioinformatics</institution>
+                <institution content-type="org-name">University of Hamburg</institution>
+              </institution-wrap>
+              <addr-line content-type="street">Bundestraße 43</addr-line>
+              <addr-line content-type="postcode">20146</addr-line>
+              <addr-line content-type="city">Hamburg</addr-line>
+              <country country="DE">Germany</country>
+            </aff>
+          </contrib-group>
+          <author-notes>
+            <corresp id="IDBMC17582946413_cor2">
+              <label>b</label>
+              <email>HIDDEN</email>
+            </corresp>
+          </author-notes>
+          <pub-date date-type="pub" publication-format="electronic">
+            <day>31</day>
+            <month>7</month>
+            <year>2012</year>
+          </pub-date>
+          <pub-date date-type="collection" publication-format="electronic">
+            <month>12</month>
+            <year>2012</year>
+          </pub-date>
+          <volume>4</volume>
+          <issue seq="37">1</issue>
+          <elocation-id>13</elocation-id>
+          <history>
+            <date date-type="registration">
+              <day>17</day>
+              <month>2</month>
+              <year>2012</year>
+            </date>
+            <date date-type="received">
+              <day>17</day>
+              <month>2</month>
+              <year>2012</year>
+            </date>
+            <date date-type="accepted">
+              <day>27</day>
+              <month>4</month>
+              <year>2012</year>
+            </date>
+            <date date-type="online">
+              <day>31</day>
+              <month>7</month>
+              <year>2012</year>
+            </date>
+          </history>
+          <permissions>
+            <copyright-statement content-type="compact">© Ehrlich and Rarey; licensee Chemistry Central Ltd. 2012</copyright-statement>
+            <copyright-statement content-type="comment">This article is published under license to BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link xlink:href="http://creativecommons.org/licenses/by/2.0" ext-link-type="uri">http://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</copyright-statement>
+            <copyright-year>2012</copyright-year>
+            <copyright-holder>Ehrlich and Rarey; licensee Chemistry Central Ltd.</copyright-holder>
+            <license license-type="open-access" xlink:href="https://creativecommons.org/licenses/by/2.0">
+              <license-p><bold>Open Access</bold>This article is distributed under the terms of the Creative Commons Attribution 2.0 International License (<ext-link xlink:href="https://creativecommons.org/licenses/by/2.0" ext-link-type="uri">https://creativecommons.org/licenses/by/2.0</ext-link>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</license-p>
+            </license>
+          </permissions>
+          <abstract xml:lang="en" id="Abs1">
+            <title>Abstract</title>
+            <sec id="ASec1">
+              <title>Background</title>
+              <p>Searching for substructures in molecules belongs to the most elementary tasks in cheminformatics and is nowadays part of virtually every cheminformatics software. The underlying algorithms, used over several decades, are designed for the application to general graphs. Applied on molecular graphs, little effort has been spend on characterizing their performance. Therefore, it is not clear how current substructure search algorithms behave on such special graphs. One of the main reasons why such an evaluation was not performed in the past was the absence of appropriate data sets.</p>
+            </sec>
+            <sec id="ASec2">
+              <title>Results</title>
+              <p>In this paper, we present a systematic evaluation of Ullmann’s and the VF2 subgraph isomorphism algorithms on molecular data. The benchmark set consists of a collection of 1235 SMARTS substructure expressions and selected molecules from the ZINC database. The benchmark evaluates substructures search times for complete database scans as well as individual substructure-molecule pairs. In detail, we focus on the influence of substructure formulation and size, the impact of molecule size, and the ability of both algorithms to be used on multiple cores.</p>
+            </sec>
+            <sec id="ASec3">
+              <title>Conclusions</title>
+              <p>The results show a clear superiority of the VF2 algorithm in all test scenarios. In general, both algorithms solve most instances in less than one millisecond, which we consider to be acceptable. Still, in direct comparison, the VF2 is most often several folds faster than Ullmann’s algorithm. Additionally, Ullmann’s algorithm shows a surprising number of run time outliers.</p>
+            </sec>
+            <sec>
+              <fig id="Figa" position="anchor">
+                <graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_369_Figa_HTML.gif" position="anchor" />
+              </fig>
+            </sec>
+          </abstract>
+          <kwd-group xml:lang="en">
+            <title>Keywords</title>
+            <kwd>Substructure search</kwd>
+            <kwd>Subgraph isomorphism</kwd>
+            <kwd>Algorithm</kwd>
+            <kwd>Benchmark</kwd>
+            <kwd>SMARTS</kwd>
+            <kwd>Chemical pattern search</kwd>
+          </kwd-group>
+          <custom-meta-group>
+            <custom-meta>
+              <meta-name>publisher-imprint-name</meta-name>
+              <meta-value>Chemistry Central</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-issue-count</meta-name>
+              <meta-value>1</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-article-count</meta-name>
+              <meta-value>39</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-holder</meta-name>
+              <meta-value>The Author(s)</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-copyright-year</meta-name>
+              <meta-value>2012</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-contains-esm</meta-name>
+              <meta-value>Yes</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-year</meta-name>
+              <meta-value>2012</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-month</meta-name>
+              <meta-value>2</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-registration-date-day</meta-name>
+              <meta-value>17</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>toc-levels</meta-name>
+              <meta-value>0</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>volume-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-product</meta-name>
+              <meta-value>ArchiveJournal</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>numbering-style</meta-name>
+              <meta-value>Unnumbered</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-grants-type</meta-name>
+              <meta-value>OpenChoice</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>metadata-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>abstract-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodypdf-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bodyhtml-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>bibliography-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>esm-grant</meta-name>
+              <meta-value>OpenAccess</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>online-first</meta-name>
+              <meta-value>false</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-file-reference</meta-name>
+              <meta-value>BodyRef/PDF/13321_2012_Article_369.pdf</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>pdf-type</meta-name>
+              <meta-value>Typeset</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>target-type</meta-name>
+              <meta-value>OnlinePDF</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>issue-type</meta-name>
+              <meta-value>Regular</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>article-type</meta-name>
+              <meta-value>OriginalPaper</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-primary</meta-name>
+              <meta-value>Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computer Applications in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Documentation and Information in Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Theoretical and Computational Chemistry</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-secondary</meta-name>
+              <meta-value>Computational Biology/Bioinformatics</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>journal-subject-collection</meta-name>
+              <meta-value>Chemistry and Materials Science</meta-value>
+            </custom-meta>
+            <custom-meta>
+              <meta-name>open-access</meta-name>
+              <meta-value>true</meta-value>
+            </custom-meta>
+          </custom-meta-group>
+        </article-meta>
+        <notes notes-type="ESMHint">
+          <title>Electronic supplementary material</title>
+          <p>The online version of this article (doi:<ext-link xlink:href="10.1186/1758-2946-4-13" ext-link-type="doi">10.1186/1758-2946-4-13</ext-link>) contains supplementary material, which is available to authorized users.</p>
+        </notes>
+      </front>
+      <body>
+        <sec id="Sec1">
+          <title>Background</title>
+          <p>Today’s drug discovery faces a constantly growing number of commercially available or synthetically accessible compounds maintained in large databases [<xref ref-type="bibr" rid="CR1">1</xref>, <xref ref-type="bibr" rid="CR2">2</xref>]. In order to efficiently search such databases, computational search strategies comprising various search criteria have been developed over more than four decades [<xref ref-type="bibr" rid="CR3">3</xref>–<xref ref-type="bibr" rid="CR14">14</xref>]. Search criteria range from retrieving the one exact compound over selecting compounds via substructure features to the application of various similarity measures. In the following, we focus on methods that test compounds for the presence of certain functional groups or substructures.</p>
+          <p>Modeling molecular structures as labeled graphs has a long tradition and gives the basis for modern cheminformatics methods. A graph-based representation is chemically intuitive and forms a solid theoretical foundation for computer-aided processing. Furthermore, graphs allow the substructure search problem to be solved by graph isomorphism techniques, i.e., searching molecules for substructures is equivalent to testing two labeled graphs for subgraph isomorphism. The subgraph isomorphism problem is well studied [<xref ref-type="bibr" rid="CR15">15</xref>–<xref ref-type="bibr" rid="CR17">17</xref>] and one of the oldest and most applied algorithms [<xref ref-type="bibr" rid="CR18">18</xref>–<xref ref-type="bibr" rid="CR22">22</xref>] was introduced by Ullmann in 1976 [<xref ref-type="bibr" rid="CR7">7</xref>]. Over the years that followed, only a few subgraph isomorphism methods were introduced [<xref ref-type="bibr" rid="CR11">11</xref>, <xref ref-type="bibr" rid="CR16">16</xref>, <xref ref-type="bibr" rid="CR23">23</xref>], the most recent being the VF2 algorithm [<xref ref-type="bibr" rid="CR12">12</xref>].</p>
+          <p>Until now, each comparison of (sub-)graph isomorphism algorithms [<xref ref-type="bibr" rid="CR16">16</xref>, <xref ref-type="bibr" rid="CR17">17</xref>] only employs synthetic graph data. The data is most often constructed to show the algorithms’ behavior on medium to large graphs. Therefore, it is unclear how these algorithms behave on rather small graphs like molecular data. To our knowledge, no subgraph isomorphism comparison directly addresses the problem of searching chemical substructures in molecules. One of the main reasons why such a benchmark was not performed in the past was the lack of suitable and publicly available benchmark data sets.</p>
+          <p>This article describes such various data sets and discusses the differences between the Ullmann and the VF2 subgraph isomorphism algorithm applied on substructures and molecules. In the following, we introduce the graph theoretical concepts, summarize the two algorithms of interest, introduce different benchmark data sets and compare the algorithms’ performance in various molecular modeling scenarios.</p>
+        </sec>
+        <sec id="Sec2">
+          <title>Preliminaries</title>
+          <p>For almost 150 years, chemists have used chemical and structural formulas to represent molecules. A structural formula is closely related to the mathematical concepts of graphs which makes graph theory and algorithms directly applicable in cheminformatics.</p>
+          <sec id="Sec3">
+            <title>Graph theoretical background</title>
+            <p>A <italic>graph</italic><italic>G</italic>=(<italic>V</italic>,<italic>E</italic>) is defined by a set of nodes <italic>V</italic> and a set of connecting edges <italic>E</italic>. The edges of an <italic>undirected</italic> graph have no fixed orientation and if labels are assigned to nodes or edges the graph is denoted as <italic>labeled</italic>. If a path from each node to every other nodes exists, the graph is called <italic>connected</italic>. In the following, all graphs are labeled, undirected and connected except when stated otherwise.</p>
+            <sec id="Sec4">
+              <title>Subgraph isomorphism</title>
+              <p>Two graphs <italic>G</italic><sub>1</sub>=(<italic>V</italic><sub>1</sub>,<italic>E</italic><sub>1</sub>) and <italic>G</italic><sub>2</sub>=(<italic>V</italic><sub>2</sub>,<italic>E</italic><sub>2</sub>) are <italic>isomorphic</italic> if a bijective projection between nodes <italic>V</italic><sub>1</sub> and nodes <italic>V</italic><sub>2</sub> exists such that two nodes from <italic>V</italic><sub>1</sub> are connected by an edge from <italic>E</italic><sub>1</sub> if and only if their image nodes in <italic>V</italic><sub>2</sub> are connected by an edge from <italic>E</italic><sub>2</sub>. An <italic>induced subgraph</italic> of a graph <italic>G</italic>=(<italic>V</italic>,<italic>E</italic>) is defined as a graph <italic>G</italic><sup><italic>′</italic></sup>=(<italic>V</italic><sup><italic>′</italic></sup>,<italic>E</italic><sup><italic>′</italic></sup>) whose nodes <italic>V</italic><sup><italic>′</italic></sup> are a subset of <italic>V</italic> and whose edges <italic>E</italic><sup><italic>′</italic></sup> are all possible edges from <italic>E</italic> that connect two nodes in <italic>V</italic><sup><italic>′</italic></sup>. An <italic>induced subgraph isomorphism</italic> between a query graph <italic>G</italic><sub>1</sub> and a target graph <italic>G</italic><sub>2</sub> exists if <italic>G</italic><sub>1</sub> is isomorphic to an induced subgraph of <italic>G</italic><sub>2</sub>, i.e., the query graph <italic>G</italic><sub>1</sub> is a subgraph of the target graph <italic>G</italic><sub>2</sub>.</p>
+              <p>The problem of finding an isomorphic induced subgraph is believed to be a problem for which no efficient solution exists, i.e., it belongs to the class of NP-complete problems [<xref ref-type="bibr" rid="CR5">5</xref>, <xref ref-type="bibr" rid="CR24">24</xref>]. Therefore, every subgraph isomorphism algorithm will show exponential run times with respect to the input graph size.</p>
+            </sec>
+            <sec id="Sec5">
+              <title>Molecular graphs</title>
+              <p>A <italic>molecular graph</italic> is given by nodes and edges that represent atoms and bonds, respectively. Often nodes and edges are labeled with atom and bond properties. Obviously, molecular graphs are undirected. The number of edges connecting each node is limited by the number of covalent bonds an atom can form. Therefore, the number of edges in a molecular graph linearly depends on the number of nodes.</p>
+              <p>Molecules are equal or isomorphic if their molecular graphs are isomorphic and the labels of the atoms and bonds are equal to the labels of their mapped atoms and bonds respectively. When two molecules differ in size, one can be a substructure of the other, i.e., a subgraph isomorphism between the two molecules exists. The small number of atoms and the linear atom degree allow for a fast subgraph isomorphism test on molecules.</p>
+            </sec>
+            <sec id="Sec6">
+              <title>Substructure graphs</title>
+              <p>A <italic>substructure graph</italic> can be a molecule fragment, e.g., a functional group, or a more generalized construct. For example, a single halogen node might represent a fluorine, chlorine, bromine or iodine atom. The same applies to edges, e.g., an edge is either a single or a double bond. In the following, we will use substructure graphs with such general labels. Figure <xref rid="Fig1" ref-type="fig">1</xref> shows an example.<fig id="Fig1"><label>Figure 1</label><caption xml:lang="en"><p><bold>Carboxylic acid pattern and heptonic acid.</bold> A carboxylic acid pattern (left) with ‘*’ indicating any atom. Heptonic acid (right).</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_369_Fig1_HTML.jpg" /></fig></p>
+              <p>Substructure graphs are compared with molecules to detect subgraph isomorphisms. The goal is to determine the presence or location of a functional group or a specific molecular structure. Nodes and edges are mapped to atoms and bonds in accordance with their labels. Since edges are explicitly assigned to bonds, the detected isomorphic subgraph might not be induced, i.e., non-circular substructures can be mapped to circular molecule parts.</p>
+              <p>For a clear differentiation, we will use the terms atoms and bonds for molecular target graphs and nodes and edges for query substructure graphs.</p>
+            </sec>
+          </sec>
+          <sec id="Sec7">
+            <title>Algorithm 1</title>
+            <p>
+              <inline-formula id="IEq1">
+                <inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_369_IEq1_HTML.gif" />
+              </inline-formula>
+            </p>
+          </sec>
+        </sec>
+        <sec id="Sec8">
+          <title>Substructure pattern languages</title>
+          <p>A substructure graph can be formulated by using a substructure pattern language like SMILES Arbitrary Target Specification (SMARTS) [<xref ref-type="bibr" rid="CR25">25</xref>], Sybyl Line Notation (SLN) [<xref ref-type="bibr" rid="CR26">26</xref>] or Wiswesser Line Notation (WLN) [<xref ref-type="bibr" rid="CR27">27</xref>]. All languages define a substructure graph in a textual line notation similar to a molecule’s chemical formula. They allow the definition of a substructure’s topology and node and bond properties, including logical alternatives. SMARTS even provides the opportunity to specify additional information like a chemical environment. In this study, all substructures are formulated as SMARTS expressions.</p>
+        </sec>
+        <sec id="Sec9" sec-type="methods">
+          <title>Methods</title>
+          <p>The Ullmann and the VF2 algorithms are two algorithms that solve the subgraph isomorphism problem. Applied to substructure and molecular graphs, they can be used to detect substructures in molecules. Both algorithms calculate an exact solution, i.e., the exact substructure must be present, and their application is not restricted to a special class of graphs, i.e., is not limited to molecular graphs.</p>
+          <sec id="Sec10">
+            <title>Ullmann algorithm</title>
+            <p>The Ullmann algorithm [<xref ref-type="bibr" rid="CR7">7</xref>] is a backtracking procedure that employs a relaxation-based refinement step to reduce the search space. It operates on a <italic>n</italic>×<italic>m</italic>matrix <italic>M</italic> of boolean values, where <italic>n</italic> is the number of substructure nodes and <italic>m</italic> the number of molecule atoms. An entry at position (<italic>i</italic><italic>j</italic>) marks the compatibility of labels for substructure node <italic>i</italic> and molecule atom <italic>j</italic>. Additionally, it uses a boolean vector <italic>f</italic> of length <italic>m</italic> marking mapped atoms. Algorithms Algorithm 1 and Algorithm 2 show Ullmann’s match and refinement procedure. Figure <xref rid="Fig2" ref-type="fig">2</xref> illustrates one step of the algorithm. <fig id="Fig2"><label>Figure 2</label><caption xml:lang="en"><p><bold>Iteration of Ullmann algorithm.</bold> One step of the Ullmann algorithm. The initial compatibility matrix (left) shows carboxylic acid substructure nodes as rows and heptonic acid molecule atoms as columns. A non-zero entry indicates the compatibility of a node-atom pair. Zero entries are not shown. In the current row, indicated in gray, the algorithm choses one compatible node-atom mapping (middle) and refines all unprocessed rows (right). The algorithm continues with the next row. Figure <xref rid="Fig3" ref-type="fig">3</xref> illustrates the refinement.</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_369_Fig2_HTML.jpg" /></fig><fig id="Fig3"><label>Figure 3</label><caption xml:lang="en"><p><bold>Refinement of Ullmann algorithm.</bold> Ullmann refinement step. For a mapping of node <italic>i</italic> to atom <italic>j</italic>, all adjacent nodes <italic>x</italic> must have at least one valid mapping <italic>y</italic>. If this condition is not fulfilled, the mapping (<italic>i</italic>,<italic>j</italic>) is invalid and the corresponding matrix entry at (<italic>i</italic>,<italic>j</italic>) is set to zero.</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_369_Fig3_HTML.jpg" /></fig></p>
+          </sec>
+          <sec id="Sec11">
+            <title>Algorithm 2</title>
+            <p>
+              <inline-formula id="IEq2">
+                <inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_369_IEq2_HTML.gif" />
+              </inline-formula>
+            </p>
+            <p>The refinement is the crucial step of the algorithm. It evaluates the surrounding of every possible node-atom mapping. For a valid mapping, every neighbor node must have a compatible atom as illustrated in Figure <xref rid="Fig3" ref-type="fig">3</xref>. Otherwise, the mapping is invalid which is marked by setting the corresponding matrix entry to zero. The evaluation takes place for every possible mapping downstream the current row and is repeated until all remaining mappings are valid.</p>
+            <p>Although the refinement procedure is the key for an efficient reduction of the search space it does not take full advantage of topological constraints. For example, in the case of a small substructure and a large molecule, it evaluates entries topologically too far away from already mapped node-atom pairs.</p>
+          </sec>
+        </sec>
+        <sec id="Sec12">
+          <title>VF2 Algorithm</title>
+          <p>The VF2 algorithm [<xref ref-type="bibr" rid="CR12">12</xref>] iteratively extends a partial solution using a set of feasibility criteria to decide whether to extend or backtrack. It operates on an intermediate algorithm state <italic>s</italic> which is composed of a partial solution <italic>M(s)</italic> and adjacency sets <italic>T</italic><sub>1</sub>(<italic>s</italic>) and <italic>T</italic><sub>2</sub>(<italic>s</italic>). A pair (<italic>n</italic><italic>m</italic>)∈<italic>M</italic>(<italic>s</italic>) represents an atom-node mapping of the partial solution. <italic>M</italic><sub>1</sub>(<italic>s</italic>) and <italic>M</italic><sub>2</sub>(<italic>s</italic>) describe the atoms and nodes, respectively, that belong to the partial solution. <italic>T</italic><sub>1</sub>(<italic>s</italic>) and <italic>T</italic><sub>2</sub>(<italic>s</italic>) hold atoms and nodes adjacent to atoms in <italic>M</italic><sub>1</sub>(<italic>s</italic>) and nodes in <italic>M</italic><sub>2</sub>(2), respectively. The algorithm modifies the state <italic>s</italic> in two steps. From the sets <italic>T</italic><sub>1</sub>(<italic>s</italic>) and <italic>T</italic><sub>2</sub>(<italic>s</italic>), it creates a candidate set <italic>P(s)</italic> of atom-node pairs with compatible labels. Then, it explores every candidate (<italic>n</italic><italic>m</italic>)∈<italic>P</italic>(<italic>s</italic>) that fulfills the feasibility rules <italic>F</italic><sub><italic>syn</italic></sub>or backtracks if <italic>P(s)</italic> is empty. Figure <xref rid="Fig4" ref-type="fig">4</xref> graphically depicts one step of the algorithm. <fig id="Fig4"><label>Figure 4</label><caption xml:lang="en"><p><bold>Iteration of VF2 algorithm.</bold> One VF2 iteration. The algorithm extends the current solution <italic>M(s)</italic> of state <italic>s</italic> by one candidate <italic>(1,a)</italic> chosen from <italic>P(s)</italic>. <italic>T</italic><sub>1</sub>(<italic>s</italic>) and <italic>T</italic><sub>2</sub>(<italic>s</italic>) show the nodes adjacent to mapped atoms and nodes.</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_369_Fig4_HTML.jpg" /></fig></p>
+          <p><italic>F</italic><sub><italic>syn</italic></sub>(<italic>s</italic>,<italic>n</italic>,<italic>m</italic>) (Equation 1) describes the feasibility of candidates <italic>(n,m)</italic> in state <italic>s</italic>. It is composed out of two terms, <italic>R</italic><sub><italic>adj</italic></sub> (Equation 2) and <italic>R</italic><sub><italic>inout</italic></sub> (Equation 3). The first feasibility rule <italic>R</italic><sub><italic>adj</italic></sub> guarantees that each atom <italic>n</italic><sup><italic>′</italic></sup> and node <italic>m</italic><sup><italic>′</italic></sup> adjacent (<italic>Adj</italic>) to the atom <italic>n</italic> and node <italic>m</italic> of a candidate pair (<italic>n</italic>,<italic>m</italic>) are mapped to each other in the partial solution (<italic>n</italic><sup><italic>′</italic></sup>,<italic>m</italic><sup><italic>′</italic></sup>)∈<italic>M</italic>(<italic>s</italic>). The second rule <italic>R</italic><sub><italic>inout</italic></sub>performs a 1-look-ahead in the search procedure based on the nodes’ cardinality (<italic>Card</italic>) and allows an early pruning of the search tree. Figure <xref rid="Fig5" ref-type="fig">5</xref> and Figure <xref rid="Fig6" ref-type="fig">6</xref> give an illustration of the feasibility rules.<fig id="Fig5"><label>Figure 5</label><caption xml:lang="en"><p><bold>VF2 feasibility rule for node cardinality.</bold> VF2 feasibility rule for node cardinality. The rule guaranties a one-to-one mapping of edges in the current solution <italic>M</italic>(<italic>s</italic>). For a candidate mapping (<italic>n</italic>,<italic>m</italic>), all atoms (<italic>n</italic><sup><italic>′</italic></sup>and <italic>n</italic><sup><italic>′′</italic></sup>in <italic>M</italic><sub>1</sub> (<italic>s</italic>)) adjacent to <italic>n</italic> must be mapped to the corresponding nodes (<italic>m</italic><sup><italic>′</italic></sup>and <italic>m"</italic> in <italic>M</italic><sub>1</sub> (<italic>s</italic>)) adjacent to <italic>m</italic>. Otherwise the candidate mapping is not feasible.</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_369_Fig5_HTML.jpg" /></fig><fig id="Fig6"><label>Figure 6</label><caption xml:lang="en"><p><bold>VF2 feasibility rule for node cardinality (1-look-ahead).</bold> VF2 feasibility rule for node cardinality (1-look-ahead). The rule prohibits an extension of the current solution <italic>M</italic>(<italic>s</italic>) by candidates with a substructure cardinality that can not be fully mapped onto the graph. In the given example, node <italic>m</italic> has one edge into <italic>T</italic><sub>2</sub>(<italic>s</italic>) and is mapped to atom <italic>n</italic> with a cardinality of two. Therefore, the mapping is feasible.</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_369_Fig6_HTML.jpg" /></fig></p>
+          <p>
+            <disp-formula id="Equ1">
+              <label>1</label>
+              <alternatives>
+                <mml:math id="Equ1_Math">
+                  <mml:mtable>
+                    <mml:mtr>
+                      <mml:mtd>
+                        <mml:msub>
+                          <mml:mrow>
+                            <mml:mi>F</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mtext>syn</mml:mtext>
+                          </mml:mrow>
+                        </mml:msub>
+                        <mml:mo>(</mml:mo>
+                        <mml:mi>s</mml:mi>
+                        <mml:mo>,</mml:mo>
+                        <mml:mi>n</mml:mi>
+                        <mml:mo>,</mml:mo>
+                        <mml:mi>m</mml:mi>
+                        <mml:mo>)</mml:mo>
+                      </mml:mtd>
+                      <mml:mtd columnalign="left">
+                        <mml:mo>=</mml:mo>
+                        <mml:msub>
+                          <mml:mrow>
+                            <mml:mi>R</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mtext>adj</mml:mtext>
+                          </mml:mrow>
+                        </mml:msub>
+                        <mml:mo>∧</mml:mo>
+                        <mml:msub>
+                          <mml:mrow>
+                            <mml:mi>R</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mtext>inout</mml:mtext>
+                          </mml:mrow>
+                        </mml:msub>
+                      </mml:mtd>
+                    </mml:mtr>
+                  </mml:mtable>
+                </mml:math>
+                <graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_369_Equ1_HTML.gif" />
+              </alternatives>
+            </disp-formula>
+            <disp-formula id="Equ2">
+              <label>2</label>
+              <alternatives>
+                <mml:math id="Equ2_Math">
+                  <mml:mtable>
+                    <mml:mtr>
+                      <mml:mtd>
+                        <mml:msub>
+                          <mml:mrow>
+                            <mml:mi>R</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mtext>adj</mml:mtext>
+                          </mml:mrow>
+                        </mml:msub>
+                      </mml:mtd>
+                      <mml:mtd columnalign="left">
+                        <mml:mo>=</mml:mo>
+                        <mml:mo>(</mml:mo>
+                        <mml:mo>∀</mml:mo>
+                        <mml:msup>
+                          <mml:mrow>
+                            <mml:mi>n</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mi>′</mml:mi>
+                          </mml:mrow>
+                        </mml:msup>
+                        <mml:mo>∈</mml:mo>
+                        <mml:msub>
+                          <mml:mrow>
+                            <mml:mi>M</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mn>1</mml:mn>
+                          </mml:mrow>
+                        </mml:msub>
+                        <mml:mo>(</mml:mo>
+                        <mml:mi>s</mml:mi>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>∩</mml:mo>
+                        <mml:mtext>adj</mml:mtext>
+                        <mml:mo>(</mml:mo>
+                        <mml:msub>
+                          <mml:mrow>
+                            <mml:mi>G</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mn>1</mml:mn>
+                          </mml:mrow>
+                        </mml:msub>
+                        <mml:mo>,</mml:mo>
+                        <mml:mi>n</mml:mi>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>∃</mml:mo>
+                        <mml:msup>
+                          <mml:mrow>
+                            <mml:mi>m</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mi>′</mml:mi>
+                          </mml:mrow>
+                        </mml:msup>
+                        <mml:mo>∈</mml:mo>
+                        <mml:mtext>adj</mml:mtext>
+                        <mml:mo>(</mml:mo>
+                        <mml:msub>
+                          <mml:mrow>
+                            <mml:mi>G</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mn>2</mml:mn>
+                          </mml:mrow>
+                        </mml:msub>
+                        <mml:mo>,</mml:mo>
+                        <mml:mi>m</mml:mi>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>|</mml:mo>
+                        <mml:mo>(</mml:mo>
+                        <mml:msup>
+                          <mml:mrow>
+                            <mml:mi>n</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mi>′</mml:mi>
+                          </mml:mrow>
+                        </mml:msup>
+                        <mml:mo>,</mml:mo>
+                        <mml:msup>
+                          <mml:mrow>
+                            <mml:mi>m</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mi>′</mml:mi>
+                          </mml:mrow>
+                        </mml:msup>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>∈</mml:mo>
+                        <mml:mi>M</mml:mi>
+                        <mml:mo>(</mml:mo>
+                        <mml:mi>s</mml:mi>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>)</mml:mo>
+                        <mml:mspace width="1em" />
+                      </mml:mtd>
+                    </mml:mtr>
+                    <mml:mtr>
+                      <mml:mtd columnalign="left">
+                        <mml:mspace width="1em" />
+                        <mml:mo>∧</mml:mo>
+                        <mml:mo>(</mml:mo>
+                        <mml:mo>∀</mml:mo>
+                        <mml:msup>
+                          <mml:mrow>
+                            <mml:mi>m</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mi>′</mml:mi>
+                          </mml:mrow>
+                        </mml:msup>
+                        <mml:mo>∈</mml:mo>
+                        <mml:msub>
+                          <mml:mrow>
+                            <mml:mi>M</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mn>2</mml:mn>
+                          </mml:mrow>
+                        </mml:msub>
+                        <mml:mo>(</mml:mo>
+                        <mml:mi>s</mml:mi>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>∩</mml:mo>
+                        <mml:mtext>adj</mml:mtext>
+                        <mml:mo>(</mml:mo>
+                        <mml:msub>
+                          <mml:mrow>
+                            <mml:mi>G</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mn>2</mml:mn>
+                          </mml:mrow>
+                        </mml:msub>
+                        <mml:mo>,</mml:mo>
+                        <mml:mi>m</mml:mi>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>∃</mml:mo>
+                        <mml:msup>
+                          <mml:mrow>
+                            <mml:mi>n</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mi>′</mml:mi>
+                          </mml:mrow>
+                        </mml:msup>
+                        <mml:mo>∈</mml:mo>
+                        <mml:mtext>adj</mml:mtext>
+                        <mml:mo>(</mml:mo>
+                        <mml:msub>
+                          <mml:mrow>
+                            <mml:mi>G</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mn>1</mml:mn>
+                          </mml:mrow>
+                        </mml:msub>
+                        <mml:mo>,</mml:mo>
+                        <mml:mi>n</mml:mi>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>|</mml:mo>
+                        <mml:mo>(</mml:mo>
+                        <mml:msup>
+                          <mml:mrow>
+                            <mml:mi>n</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mi>′</mml:mi>
+                          </mml:mrow>
+                        </mml:msup>
+                        <mml:mo>,</mml:mo>
+                        <mml:msup>
+                          <mml:mrow>
+                            <mml:mi>m</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mi>′</mml:mi>
+                          </mml:mrow>
+                        </mml:msup>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>∈</mml:mo>
+                        <mml:mi>M</mml:mi>
+                        <mml:mo>(</mml:mo>
+                        <mml:mi>s</mml:mi>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>)</mml:mo>
+                      </mml:mtd>
+                    </mml:mtr>
+                  </mml:mtable>
+                </mml:math>
+                <graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_369_Equ2_HTML.gif" />
+              </alternatives>
+            </disp-formula>
+            <disp-formula id="Equ3">
+              <label>3</label>
+              <alternatives>
+                <mml:math id="Equ3_Math">
+                  <mml:mtable>
+                    <mml:mtr>
+                      <mml:mtd>
+                        <mml:msub>
+                          <mml:mrow>
+                            <mml:mi>R</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mtext>inout</mml:mtext>
+                          </mml:mrow>
+                        </mml:msub>
+                      </mml:mtd>
+                      <mml:mtd columnalign="left">
+                        <mml:mo>=</mml:mo>
+                        <mml:mtext>Card</mml:mtext>
+                        <mml:mo>(</mml:mo>
+                        <mml:mtext>adj</mml:mtext>
+                        <mml:mo>(</mml:mo>
+                        <mml:msub>
+                          <mml:mrow>
+                            <mml:mi>G</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mn>1</mml:mn>
+                          </mml:mrow>
+                        </mml:msub>
+                        <mml:mo>,</mml:mo>
+                        <mml:mi>n</mml:mi>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>∩</mml:mo>
+                        <mml:msub>
+                          <mml:mrow>
+                            <mml:mi>T</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mn>1</mml:mn>
+                          </mml:mrow>
+                        </mml:msub>
+                        <mml:mo>(</mml:mo>
+                        <mml:mi>s</mml:mi>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>)</mml:mo>
+                        <mml:mspace width="2.77695pt" />
+                        <mml:mo>≥</mml:mo>
+                        <mml:mspace width="0.3em" />
+                        <mml:mtext>Card</mml:mtext>
+                        <mml:mo>(</mml:mo>
+                        <mml:mtext>adj</mml:mtext>
+                        <mml:mo>(</mml:mo>
+                        <mml:msub>
+                          <mml:mrow>
+                            <mml:mi>G</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mn>2</mml:mn>
+                          </mml:mrow>
+                        </mml:msub>
+                        <mml:mo>,</mml:mo>
+                        <mml:mi>m</mml:mi>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>∩</mml:mo>
+                        <mml:msub>
+                          <mml:mrow>
+                            <mml:mi>T</mml:mi>
+                          </mml:mrow>
+                          <mml:mrow>
+                            <mml:mn>2</mml:mn>
+                          </mml:mrow>
+                        </mml:msub>
+                        <mml:mo>(</mml:mo>
+                        <mml:mi>s</mml:mi>
+                        <mml:mo>)</mml:mo>
+                        <mml:mo>)</mml:mo>
+                      </mml:mtd>
+                    </mml:mtr>
+                  </mml:mtable>
+                </mml:math>
+                <graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_369_Equ3_HTML.gif" />
+              </alternatives>
+            </disp-formula>
+          </p>
+          <p>The problem of reaching the same state, i.e., the same partial solution <italic>M(s)</italic>, via different paths is handled by imposing an arbitrary total order ≺ onto the subgraph nodes and processing only smallest feasible candidates with regard to that order. Therefore, feasible candidates (<italic>n</italic><sub><italic>i</italic></sub>,<italic>m</italic><sub><italic>j</italic></sub>) in <italic>P(s)</italic> are not processed if <italic>m</italic><sub><italic>k</italic></sub>≺<italic>m</italic><sub><italic>j</italic></sub>∈<italic>P</italic>(<italic>s</italic>).</p>
+          <p>The main difference between the two algorithms is the way they account for the topology of the substructure. The Ullmann algorithm processes a compatibility matrix top-down. In every step it fixes one node-atom mapping and checks all other possible assignments for validity. Therefore, it processes substructure nodes in an non-topological, arbitrary order. In contrast, the VF2 iteratively adds node-atom pairs to a current solution and therefore directly explores the substructure’s topology.</p>
+        </sec>
+        <sec id="Sec13">
+          <title>Algorithm 3</title>
+          <p>
+            <inline-formula id="IEq3">
+              <inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="MediaObjects/13321_2012_Article_369_IEq3_HTML.gif" />
+            </inline-formula>
+          </p>
+        </sec>
+        <sec id="Sec14">
+          <title>Substructure pattern formulation for efficient computation</title>
+          <p>The formulation of substructure patterns is a tedious task. Most pattern languages are difficult to read and even more difficult to write, especially when defining isomeric or tautomeric structures. As a result, substructure formulations are focused on a correct chemical representation of a pattern. That formulation might be suboptimal for computational processing. Therefore, we present simple guidelines to optimize patterns for the search in molecules.</p>
+          <p>For an optimal formulation, the substructure must be in an order that allows an early processing of unusual nodes and edges, rare fragments and functional groups. Obviously, certain elements are more common than others. The same applies for substructure nodes that define a high number of atom properties or are part of an aromatic system. Unusual edges define aromatic bonds or those with a high bond order. Therefore, we write optimized substructures such that nodes with the rarest element, highest property specification and aromaticity as well as high order or aromatic bond definitions occur first. Additionally, we place substructure parts that are rather common or difficult to process at the end of the formulation. Nodes that specify generic atoms, hydrogen atoms, carbon atoms, and ring atoms are common. Chemical environments are difficult to process for most search algorithms, since they enforce an additional search step.</p>
+          <p>In the following we perform every pattern reformulation by hand. Nevertheless, both algorithms are well suited for an automated optimization process. Ullmann’s algorithm processes substructure nodes according to their row numbers in the compatibility matrix. Since row numbers are assigned arbitrarily, they can resemble the order employed by applying the given optimization rules. The VF2 uses an arbitrary node relation to obtain a total order. Therefore, the optimized order can be directly used.</p>
+        </sec>
+        <sec id="Sec15">
+          <title>Data sets</title>
+          <p>Both algorithms are tested in different application setups like complete database scans, substructure-based filter scenarios and individual substructure-molecule searches. The tests show the dependency of the algorithm run times on substructure formulation, substructure size and molecule size.</p>
+          <p>The data sets comprise 1336 SMARTS from the literature [<xref ref-type="bibr" rid="CR28">28</xref>–<xref ref-type="bibr" rid="CR37">37</xref>] and molecules out of ZINC lead-like and ZINC everything database [<xref ref-type="bibr" rid="CR1">1</xref>]. All data sets are provided in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>.</p>
+          <sec id="Sec16">
+            <title>Substructure search set</title>
+            <p>Molecule size is a crucial factor with respect to the algorithmic search time. To explore the influence of molecule size, we select a subset from the initial 1336 SMARTS. All duplicate expressions, expressions with errors, extensions and those that define isotopes or are disconnected are removed. The resulting set comprises 1235 SMARTS whose property overview is given in the Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>: Table S1. SMARTS allows the explicit formulation of hydrogen atoms and the definition of atom environments. When explicit hydrogen atoms are used a search procedure must evaluate all hydrogen atoms, which roughly doubles the number of atoms to be evaluated. Atom environments induce an additional search step during the actual search procedure. In order to circumvent misinterpretations of the results, we group the SMARTS patterns by the presence/absence of explicit hydrogens and recursive environments into individual sets. The Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>: Table S2 – S19 give detailed statistics on SMARTS properties for every set.</p>
+            <p>The final sets contain all SMARTS patterns for which 100 molecules containing the pattern could be randomly selected from ZINC lead-like and ZINC everything. Table <xref rid="Tab1" ref-type="table">1</xref> shows the number of SMARTS for which the selection process was successful. The molecular property distribution of each set is similar to the corresponding ZINC database as shown in the Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>: Table S23 – S24.<table-wrap id="Tab1"><label>Table 1</label><caption xml:lang="en"><p><bold>SMARTS, ZINC lead-like, ZINC everything test sets</bold></p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" /><th align="center" colspan="2"><p>all SMARTS</p></th><th align="center" colspan="2"><p>ZINC lead-like set</p></th><th align="center" colspan="2"><p>ZINC everything set</p></th></tr><tr><th align="left" /><th align="center"><p>no H nodes</p></th><th align="center"><p>H nodes</p></th><th align="center"><p>no H nodes</p></th><th align="center"><p>H nodes</p></th><th align="center"><p>no H nodes</p></th><th align="center"><p>H nodes</p></th></tr></thead><tbody><tr><td align="left"><p>no recursion</p></td><td align="center"><p>504</p></td><td align="center"><p>432</p></td><td align="center"><p>347</p></td><td align="center"><p>56</p></td><td align="center"><p>400</p></td><td align="center"><p>43</p></td></tr><tr><td align="left"><p>recursion</p></td><td align="center"><p>234</p></td><td align="center"><p>65</p></td><td align="center"><p>48</p></td><td align="center"><p>18</p></td><td align="center"><p>106</p></td><td align="center"><p>39</p></td></tr></tbody></table><table-wrap-foot><p>All processable SMARTS split by the presence/absence of explicit hydrogen nodes and recursive environment specifications and the subsets used in the ZINC lead-like and ZINC everything set.</p></table-wrap-foot></table-wrap></p>
+          </sec>
+          <sec id="Sec17">
+            <title>Molecule search set</title>
+            <p>Substructure size is the second major factor regarding pattern matching time. A set to measure its impact is composed by randomly selecting molecules from ZINC lead-like containing all-in-all 80 different substructures of various size. The presence of so many substructures in a single molecule is rather rare but selecting molecules with less patterns gives poor results. A selection was only possible for the set of SMARTS having no explicit hydrogen nodes and no recursive environments. The other three sets contain patterns of much higher complexity which are rarely present in one molecule or patterns that are designed to be complementary to each other, e.g., PAINS.</p>
+          </sec>
+          <sec id="Sec18">
+            <title>PAINS substructure set</title>
+            <p>For a detailed case study, we choose 16 PanAssayINterferenceStructures(PAINS) described by Baell et al. [<xref ref-type="bibr" rid="CR38">38</xref>] as ‘filter family A’. The PAINS substructures should describe unspecific binders in protein-protein interaction assays. PAINS were originally given in SLN and converted to SMARTS by Rajarshi Guha using Cactvs [<xref ref-type="bibr" rid="CR39">39</xref>]. The converted PAINS patterns include hydrogen atoms and recursive environments. The PAINS’s property distribution is shown in the Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>: Table S20 and Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>: Figure S2 – S5 depict each substructure.</p>
+          </sec>
+          <sec id="Sec19">
+            <title>Worst-case test</title>
+            <p>Since highly symmetric molecules impose a challenge for substructure search algorithms, we test a phenylring query against a fulleren target as a worst-case search scenario.</p>
+          </sec>
+          <sec id="Sec20">
+            <title>Database subset</title>
+            <p>The database subset comprises the first 100.000 molecules from ZINC lead-like as of February 12th, 2011 and is designed to resemble a complete database. Its property distribution is similar to that of the full ZINC lead-like database as shown in Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>: Table S25.</p>
+          </sec>
+        </sec>
+        <sec id="Sec21">
+          <title>Results and discussion</title>
+          <p>Search speed is measured on a single Intel(R) Xeon(R) CPU E5630 2.53GHz core. Each matching is repeated 400 times and average values are recorded. Average matching times are raw matching times excluding File I/O, molecule initialization and post-processing of search results, i.e., matching time only.</p>
+          <p>We are aware of the fact that the evaluation is done with an example implementation of both algorithms that most likely has some room for optimization. Nevertheless, we believe that our results allow general conclusions regarding the algorithms’ behavior on molecular data.</p>
+          <sec id="Sec22">
+            <title>Overall search speed</title>
+            <p>An overview of the VF2 and Ullmann matching times is shown in Figure <xref rid="Fig7" ref-type="fig">7</xref>. The times are measured on the 46900 substructure-molecule pairs of the Substructure Search Set. Both substructure algorithms search for all occurrences of each substructure. The histograms show that both algorithms have most match times in a range below 1 milliseconds (ms) (92.3% VF2, 73,4% Ullmann) with a median of 0.04ms for the VF2 and 0.1ms for the Ullmann, respectively. While the maximum VF2 matching time is below 30ms, the Ullmann shows times of more than 100ms for 1.12% (5352 pairs) and more than 1000ms for 0.22% (104 pairs) of the data set. Interestingly, the Ullmann search times do not change drastically in the case where the search is constrained to the first occurrence of each substructure. In contrast, the VF2 outlier times drop down by one half. In conclusion, both algorithms can solve most instances in reasonable time and the median run times differ by a factor of 2.5 betwenn VF2 and Ullmann’s algorithm. In rare cases, the Ullmann algorithm is up to 1000 times slower than the VF2.<fig id="Fig7"><label>Figure 7</label><caption xml:lang="en"><p><bold>Overall run time histogram.</bold> Histogram over VF2 (top) and Ullmann (bottom) matching times on the Substructure Search Set. The algorithms search for the first (left) and all (right) occurrence(s) of the substructure. All plots are double logarithmic and times are given in milliseconds (ms).</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_369_Fig7_HTML.jpg" /></fig></p>
+          </sec>
+          <sec id="Sec23">
+            <title>Explicit vs. implicit hydrogens</title>
+            <p>A closer analysis of Ullmann and VF2 matching times reveals a slight increase in run times for SMARTS patterns with explicit hydrogens, which is documented by the histograms in Figure <xref rid="Fig8" ref-type="fig">8</xref>. The median search times of the VF2 are 0.08ms for substructures with only implicit hydrogens and 0.19ms with explicit hydrogens, 0.22ms and 1.09ms for the Ullmann, respectively. In accordance, the maximum run time of the VF2 doubles, while that of the Ullmann algorithm is roughly four times larger. The reason for an increase in run times is twofold. About 50% of atoms in a small molecule are hydrogens. Therefore, when matching patterns with explicit hydrogens, in contrast to patterns with only implicit hydrogens, all hydrogen atoms have to be evaluated. This doubles the number of evaluated atoms during the search, and hence, increases the run time. Additionally, for every hydrogen node, an explicit placement must be found, as opposed to the comparison of the sheer number of hydrogens attached to an atom. This raises the number of evaluated atoms as well as the number of found mappings, and therefore increases the run time.<fig id="Fig8"><label>Figure 8</label><caption xml:lang="en"><p><bold>Explicit vs. Implicit hydrogens run time histogram.</bold> Histogram of VF2 (up) and Ullmann (down) matching times with (left) and without (right) explicit hydrogens on the Substructure Search Set. The algorithms search for all occurrences of the substructure. All plots are double logarithmic and times are given in milliseconds (ms).</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_369_Fig8_HTML.jpg" /></fig></p>
+          </sec>
+          <sec id="Sec24">
+            <title>Recursion vs. no recursion</title>
+            <p>An interesting aspect of the SMARTS pattern language is the ability to recursively define the chemical environment of an atom. To match a pattern that includes one or more nodes with atom environments, a subgraph search algorithm has to recursively perform a subgraph isomorphism test during the actual search. Figure <xref rid="Fig9" ref-type="fig">9</xref> shows the impact on matching times when recursive environments are defined. Median run times for the VF2 are 0.04 ms for SMARTS without and 0.35 ms for SMARTS with environment specifications, 0.15 ms and 4.87 ms for Ullmann’s algorithm, respectively. Surprisingly, the Ullman algorithm is much more sensitive to recursive patterns. The presence of environment specifications can lead to a 30 times increase in Ullmann matching times while VF2 times maximal rise by a factor of two. The sensitivity is due to the fact that Ullmann’s algorithm creates a matrix that represents all possible mappings of nodes to atoms. Since most recursive environments are rather small, the construction and evaluation of such a matrix represents a computational overhead that is reflected in an increase of the overall search time.<fig id="Fig9"><label>Figure 9</label><caption xml:lang="en"><p><bold>Recursion vs. no Recursion run time histogram.</bold> Histogram of VF2 (up) and Ullmann (down) matching times with (left) and without (right) recursive environments on the Substructure Search Set. The algorithms search for all occurrences of the substructure. All plots are double logarithmic and times are given in milliseconds (ms).</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_369_Fig9_HTML.jpg" /></fig></p>
+          </sec>
+          <sec id="Sec25">
+            <title>Molecule size</title>
+            <p>In order to explore the influence of molecule size we examine 469 substructure-molecule pairs from the Substructure Search Set. As almost all results are similar, we chose only some representative substructure-molecule pairs shown in Figure <xref rid="Fig10" ref-type="fig">10</xref>. All figures, given in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>, show a significantly smaller matching time for the VF2 and a linear influence of the molecule size on the matching time. The difference between VF2 and Ullmann matching times becomes even more prominent when examining the cases where explicit hydrogens (Figure <xref rid="Fig11" ref-type="fig">11</xref> top-left), recursive environments (Figure <xref rid="Fig11" ref-type="fig">11</xref> bottom-right) or both (Figure <xref rid="Fig11" ref-type="fig">11</xref> bottom-left) are present. The linear impact of the molecule size on the run time is explained by the constant number of bonds an atom can form as can be obtained from a theoretical analysis of backtracking algorithms for subgraph isomorphism [<xref ref-type="bibr" rid="CR40">40</xref>, <xref ref-type="bibr" rid="CR41">41</xref>]. <fig id="Fig10"><label>Figure 10</label><caption xml:lang="en"><p><bold>Molecule size experiment patterns.</bold> Depiction of SMARTS pattern with no explicit hydrogens and no recursion (top-left), explicit hydrogens and no recursion (top-right), no explicit hydrogens and recursion (middle) and with explicit hydrogens and recursive atom environments (bottom). The legend can be found in the Additional file <xref ref-type="supplementary-material" rid="MOESM3">3</xref>: Figure S1. Depictions are created by SMARTSViewer [<xref ref-type="bibr" rid="CR42">42</xref>].</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_369_Fig10_HTML.jpg" /></fig><fig id="Fig11"><label>Figure 11</label><caption xml:lang="en"><p><bold>Molecule size search example.</bold> Run time comparison between Ullman and VF2 searching for all substructure occurrences with various molecule sizes. The different plots show a linear increase in run time with respect to the molecule size. The top-left pattern does not include explicit hydrogens nor recursive environments. The top-right pattern does include explicit hydrogens but not recursive environments. The bottom-left pattern does not include explicit hydrogens but recursive environments. The bottom-right pattern includes explicit hydrogens and recursive environments. Figure <xref rid="Fig10" ref-type="fig">10</xref> shows a graphical depiction of all four patterns. Times are given in milliseconds (ms).</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_369_Fig11_HTML.jpg" /></fig></p>
+          </sec>
+          <sec id="Sec26">
+            <title>Subgraph size</title>
+            <p>The impact of subgraph size regarding the matching time was evaluated with a meaningful test set for substructures with only implicit hydrogens and no recursive environments. Unfortunately, a suitable test set could only be constructed for SMARTS patterns without explicit hydrogens and recursive environments. From observing 100 molecules in which at least 80 substructures with different size could be matched, we assume an exponential run time development with increasing subgraph size for both algorithms. The exponential increase seems to be slower for the VF2 in all cases. An example is given in Figure <xref rid="Fig12" ref-type="fig">12</xref> and all plots are provided in Additional file <xref ref-type="supplementary-material" rid="MOESM1">1</xref>. The difference in matching times drastically decreases when only the presence of a substructure, rather than all occurrences, is of interests. The exponential match time of both algorithms regarding the substructure size is again in agreement with a theoretical analysis of the subgraph isomorphism problem [<xref ref-type="bibr" rid="CR40">40</xref>, <xref ref-type="bibr" rid="CR41">41</xref>]. <fig id="Fig12"><label>Figure 12</label><caption xml:lang="en"><p><bold>Subgraph size search example.</bold> Run time comparison between Ullman and VF2 searching for all (left) and the first (right) substructure occurrence(s) with varying subgraph size. The plots show an exponential increase in run time with respect to the substructure size. Times are given in milliseconds (ms).</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_369_Fig12_HTML.jpg" /></fig></p>
+          </sec>
+          <sec id="Sec27">
+            <title>Worse-case test</title>
+            <p>As a worse-case substructure search scenario, we test a phenyl-ring query against a C70 fullerene target. The Ullmann finds the first occurrence in 51.11 ms and all matches in 106.94 ms. The VF2 is about 130 times faster when it solves the problem for the first occurrence (0.39 ms) and about 5 times when searching for all matches (21.67ms). Clearly, the phenyl-fullerene example is not the worse-case when considering SMARTS substructures. Substructures with explicit hydrogen nodes or recursive atom environments yield much higher run times. Nevertheless, the phenyl-fullerene experiment gives good guidance on how the Ullmann and VF2 algorithms behave on highly symmetrical structures.</p>
+          </sec>
+          <sec id="Sec28">
+            <title>Complete database search</title>
+            <p>Often substructure search algorithms are used in database search scenarios in which a database is scanned for all molecules that contain a given query structure. Even though most database search systems are able to eliminate a large number of molecules from the actual subgraph isomorphism search using screening techniques [<xref ref-type="bibr" rid="CR10">10</xref>, <xref ref-type="bibr" rid="CR22">22</xref>, <xref ref-type="bibr" rid="CR41">41</xref>, <xref ref-type="bibr" rid="CR43">43</xref>–<xref ref-type="bibr" rid="CR46">46</xref>], a remarkable number of molecules might remain. The following test simulates a sequential subgraph isomorphism test over a large set of molecules. We search all 1235 patterns from the Substructure Search Set against the Database Subset and measure the complete time to identify all molecules which contain such a substructure. Since the majority of the first 100.000 molecules of the ZINC lead-like database do not contain a given pattern, the search time is dominated by the algorithm’s ability to quickly identify the non-occurrence of a substructure in a molecule. A good screening method would of course enrich the molecules submitted to the isomorphism test with molecules containing the substructure of interests. Nevertheless, testing both algorithms for the ability of quickly detecting molecules without a given pattern will reveal further insights into the algorithmic behavior. This test is only performed once, as minor changes in run time do not affect the order of magnitude.</p>
+            <p>From the two histograms in Figure <xref rid="Fig13" ref-type="fig">13</xref>, it is clear that the VF2 algorithm is much faster in sequentially scanning a large number of molecules. The median search time of the VF2 is 2.84 s and 38.7 s for the Ullmann. The VF2 algorithm finishes 53.06% of the search queries below 10s and 97.61% below 10<sup>2</sup> s, while the Ullmann completes 3.73% below 10s, 54.24% below 10<sup>2</sup> s, 92.36% below 10<sup>3</sup> s (16.6 min), 98.76% below 10<sup>4</sup> s (2.78 h) and 99.85% below 10<sup>5</sup>s (27.78 h). All in all, in rare instances a database search system that uses the Ullmann algorithm might need over a day to give results for a single query, even though, most of the molecules might be eliminated from the subgraph isomorphism test.<fig id="Fig13"><label>Figure 13</label><caption xml:lang="en"><p><bold>Database scan run time histogram.</bold> Run time histogram for the VF2 (left) and Ullmann (right) when searching the first 100.000 molecules from ZINC lead-like for the first substructure occurrences. Both plots are double logarithmic and times are given in seconds(s).</p></caption><graphic specific-use="web" mime-subtype="JPEG" xlink:href="MediaObjects/13321_2012_Article_369_Fig13_HTML.jpg" /></fig></p>
+          </sec>
+          <sec id="Sec29">
+            <title>Parallelization scaling</title>
+            <p>The subgraph isomorphism problem is nearly perfectly suited for parallel computing when matching one query structure against many target structures. One simple but effective solution is a parallelization by data separation of the target structures. An alternative is an algorithm level parallelization based on the algorithms’ recursion. Since most substructure searches are below 1ms and most molecules consist of less than 100 atoms, a parallelization of one substructure against one target search is most likely not as efficient as searching in parallel on the data level. The situation might change when searching large query substructures against large target structures, e.g., searching for motifs in proteins.</p>
+            <p>In order to evaluate the efficiency of data level parallelization, we test both algorithms with the same data separation strategy on the PAINS Substructure Set against the complete ZINC lead-like database on different numbers of CPU cores. The target structures are split into equal blocks such that each core gets the query structures and a the same number of molecules. The measurement on one core is performed in sequential and parallel mode so that the computational overhead for parallelization becomes directly present. Detailed tables on the matching times and scaling factors on different numbers of cores can be found in Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>: Table S26 – S27.</p>
+            <p>Both algorithm show good scaling behavior on all instances. On 8 cores the search times are decreased by an average factor of 5.6 for the VF2, and 6.92 for Ullmann’s algorithm respectively. The overall slightly better scaling of the Ullmann algorithm can be explained by the longer matching times. Longer matching times reduce the parallelization overhead relative to the matching time.</p>
+          </sec>
+          <sec id="Sec30">
+            <title>SMARTS pattern case studies</title>
+            <p>To explore the possibility of reducing search speed by rearranging the subgraph formulation we created three different formulations for each substructure of the PAINS Substructure Set. The <italic>original</italic> substructure formulation as created by Cactvs, an <italic>optimized</italic> version by applying the re-formulation guidelines described in the “Substructure Pattern Formulation” section, and an <italic>anti-optimized</italic> version by applying the rules in reverse. All three formulations are searched against the complete ZINC lead-like database.</p>
+            <p>As can be observed from the two most extreme cases shown in Table <xref rid="Tab2" ref-type="table">2</xref>, the VF2 algorithm shows run time decreases of up to 13.37 times for the optimized substructure formulations. In accordance, the run time increases up to 15.64 times for the anti-optimized formulation. Surprisingly, the Ullmann algorithm shows no significant change in run time, neither for the optimized nor for the anti-optimized version in all test cases.<table-wrap id="Tab2"><label>Table 2</label><caption xml:lang="en"><p><bold>Optimization run time examples</bold></p></caption><table frame="hsides" rules="groups"><thead><tr><th /><th align="right"><p>Ull. time [s]</p></th><th align="right"><p>Ull. speedup</p></th><th align="right"><p>VF2 time [s]</p></th><th align="right"><p>VF2 speedup</p></th><th align="right"><p>matches</p></th></tr></thead><tbody><tr><td align="left"><p><bold>PAINS 4</bold></p></td><td align="right" /><td align="right" /><td align="right" /><td align="right" /><td align="right" /></tr><tr><td align="left"><p>original</p></td><td align="right"><p>157139.71</p></td><td align="right"><p>1.00</p></td><td align="right"><p>170.42</p></td><td align="right"><p>1.00</p></td><td align="right"><p>11699</p></td></tr><tr><td align="left"><p>optimized</p></td><td align="right"><p>157027.63</p></td><td align="right"><p>1.00</p></td><td align="right"><p>168.56</p></td><td align="right"><p>1.01</p></td><td align="right"><p>11699</p></td></tr><tr><td align="left"><p>anti-opt.</p></td><td align="right"><p>154195.33</p></td><td align="right"><p>1.02</p></td><td align="right"><p>2664.49</p></td><td align="right"><p>-15.64</p></td><td align="right"><p>11699</p></td></tr><tr><td align="left"><p>PAINS 12 original</p></td><td align="right"><p>3119.04</p></td><td align="right"><p>1.00</p></td><td align="right"><p>1698.42</p></td><td align="right"><p>1.00</p></td><td align="right"><p>9056</p></td></tr><tr><td align="left"><p>optimized</p></td><td align="right"><p>2142.41</p></td><td align="right"><p>1.46</p></td><td align="right"><p>142.28</p></td><td align="right"><p>11.94</p></td><td align="right"><p>9056</p></td></tr><tr><td align="left"><p>anti-opt.</p></td><td align="right"><p>3077.34</p></td><td align="right"><p>1.01</p></td><td align="right"><p>1675.40</p></td><td align="right"><p>1.01</p></td><td align="right"><p>9056</p></td></tr></tbody></table><table-wrap-foot><p>Two examples of searching the PAINS Substructure Set against the complete ZINC lead-like database. Ullmann and VF2 times in seconds and speed ups are shown. Results for all 16 PAINS are given in the Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>: Table S28 – S29 and the re-formulated PAINS in Additional file <xref ref-type="supplementary-material" rid="MOESM2">2</xref>: Table S30.</p></table-wrap-foot></table-wrap></p>
+          </sec>
+          <sec id="Sec31">
+            <title>Ullman faster than VF2</title>
+            <p>In almost all test-cases, we see a superior matching performance of VF2 compared to Ullmann’s algorithm. In order to exclude the possibility of errors in our time measurements, we re-calculate the benchmarks for all cases in which Ullmann’s algorithm shows a smaller matching time than the VF2. The number of repetitions for each search call is increased to 100.000 to increase the time measurement accuracy. Table <xref rid="Tab3" ref-type="table">3</xref> shows the re-measurement for 10 examples. Clearly, the first measurements were sufficiently accurate and in all these cases the Ullmann outperformed the VF2. To investigated if the subgraph formulation might be unfortunate for the VF2 algorithm, the test is repeated with optimized substructure formulations. The matching times given in Table <xref rid="Tab3" ref-type="table">3</xref> show that the VF2 is faster in all cases when given an optimized substructure formulation.<table-wrap id="Tab3"><label>Table 3</label><caption xml:lang="en"><p><bold>Ullmann faster than VF2 without optimization examples</bold></p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left"><p>SMARTS</p></th><th align="center"><p>Ullmann time</p></th><th align="center"><p>VF2 time</p></th></tr><tr><th /><th align="center"><p>[ms]</p></th><th align="center"><p>[ms]</p></th></tr></thead><tbody><tr><td align="left"><p>[#6]C(=[O,SX2])[CX4]C(=[O,SX2])[#6]</p></td><td align="center"><p>0.868</p></td><td align="center"><p>0.948</p></td></tr><tr><td align="left"><p>[O,SX2]=C([#6])[CX4]C(=[O,SX2])[#6]</p></td><td align="center"><p>0.654</p></td><td align="center"><p>0.271</p></td></tr><tr><td align="left"><p>[#6]C(=[O,SX2])C(=[O,SX2])[#6]</p></td><td align="center"><p>0.938</p></td><td align="center"><p>1.046</p></td></tr><tr><td align="left"><p>[O,SX2]=C([#6])C(=[O,SX2])[#6]</p></td><td align="center"><p>0.668</p></td><td align="center"><p>0.203</p></td></tr><tr><td align="left"><p>[a]˜*˜*-[CH3]</p></td><td align="center"><p>0.479</p></td><td align="center"><p>0.601</p></td></tr><tr><td align="left"><p>[CH3]-*˜*˜[a]</p></td><td align="center"><p>0.209</p></td><td align="center"><p>0.074</p></td></tr><tr><td align="left"><p>[C](=O)([C,c,O,S])[C,c,O,S]</p></td><td align="center"><p>0.400</p></td><td align="center"><p>0.558</p></td></tr><tr><td align="left"><p>O=[C]([C,c,O,S])[C,c,O,S]</p></td><td align="center"><p>0.403</p></td><td align="center"><p>0.144</p></td></tr><tr><td align="left"><p>[CD3H0,R](=[SD1H0])([ND2H1,R])([ND2H1,R])</p></td><td align="center"><p>0.251</p></td><td align="center"><p>0.510</p></td></tr><tr><td align="left"><p>[SD1H0]=[CD3H0,R]([ND2H1,R])([ND2H1,R])</p></td><td align="center"><p>0.242</p></td><td align="center"><p>0.076</p></td></tr><tr><td align="left"><p>[nD3H0,R](˜[OD1H0])(a)a</p></td><td align="center"><p>0.290</p></td><td align="center"><p>0.435</p></td></tr><tr><td align="left"><p>[OD1H0]˜[nD3H0,R](a)a</p></td><td align="center"><p>0.290</p></td><td align="center"><p>0.091</p></td></tr><tr><td align="left"><p>[R](-*(-*))˜*˜*˜*˜[a]</p></td><td align="center"><p>2.082</p></td><td align="center"><p>2.774</p></td></tr><tr><td align="left"><p>[a]˜*˜*˜*˜[R](-*(-*))</p></td><td align="center"><p>1.764</p></td><td align="center"><p>0.906</p></td></tr><tr><td align="left"><p>c([OH])c([OH])c([OH])</p></td><td align="center"><p>0.581</p></td><td align="center"><p>0.708</p></td></tr><tr><td align="left"><p>[OH]cc([OH])c([OH])</p></td><td align="center"><p>0.581</p></td><td align="center"><p>0.274</p></td></tr><tr><td align="left"><p>c1([OH])c(O[CH3])cccc1</p></td><td align="center"><p>0.805</p></td><td align="center"><p>0.947</p></td></tr><tr><td align="left"><p>[OH]c1c(O[CH3])cccc1</p></td><td align="center"><p>0.797</p></td><td align="center"><p>0.169</p></td></tr><tr><td align="left"><p>c1([OH])ccc(O[CH3])cc1</p></td><td align="center"><p>0.74</p></td><td align="center"><p>0.922</p></td></tr><tr><td align="left"><p>[OH]c1ccc(O[CH3])cc1.</p></td><td align="center"><p>0.734</p></td><td align="center"><p>0.193</p></td></tr></tbody></table><table-wrap-foot><p>Examples for SMARTS without explicit hydrogens and recursive environments for which the Ullmann algorithm shows a superior run time compared to the VF2. Time measurements are averages over 100.000 search repetitions in milliseconds. Times are shown for the original SMARTS formulation (top) and an optimized version (bottom) according to our guidelines.</p></table-wrap-foot></table-wrap></p>
+          </sec>
+        </sec>
+        <sec id="Sec32" sec-type="conclusions">
+          <title>Conclusions</title>
+          <p>We presented, to our knowledge, the first comparison between Ullmann and VF2 subgraph isomorphism algorithm on molecular data and the first data set to perform such a benchmark. Using SMARTS as molecular substructure language, we explored the influence of substructure and molecular size as well as the usage of explicit hydrogen nodes and recursive environment specification on the matching time. Both algorithms where additionally tested for the use in complete database scans and their ability for data-based parallelization. Additionally, we presented an optimization strategy to reduce matching times by substructure pattern reformulation.</p>
+          <p>In conclusion, the VF2 algorithm outperforms the Ullman in all test cases when supplied with a favorable substructure formulation and seems to be more robust in terms of run time outliers. Even though the VF2 is generally faster, both algorithms perform most single substructure-molecule searches in times below one millisecond, which seems acceptable for most cheminformatics applications. Nevertheless, we recommend using the VF2 algorithm for molecular substructure searching in cheminformatics software because it shows a general run time superiority of about one order of magnitude.</p>
+          <p>The syntactic formulation of a substructure in terms of arrangement might be a critical point for the underlying subgraph isomorphism algorithm. Our experiments show that the VF2 algorithm is sensitive to the substructure’s formulation while the Ullmann algorithm is not. Therefore, other subgraph isomorphism algorithms might show the same sensitivity and need to be experimentally tested.</p>
+          <p>Fortunately, the subgraph reformulation rules as shown here have not to be done by hand. The VF2 algorithm is based on a precalculated node order which can be manipulated following the reformulation rules. Due to the sensitivity of the VF2 algorithm for node rearrangements, the algorithm has further room for optimization.</p>
+        </sec>
+      </body>
+      <back>
+        <ack>
+          <title>Acknowledgements</title>
+          <p>Many thanks to Angela M. Henzler for revising the manuscript, Karen Schomburg for the help on collecting the SMARTS expressions and Sascha Urbaczek, J. Robert Fischer, Adrian Kolodzik, Tobias Lippert, and Matthias Hilbig for their work on the molecule software components.</p>
+        </ack>
+        <ref-list id="Bib1">
+          <title>References</title>
+          <ref-list>
+            <ref id="CR1">
+              <label>1.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Irwin</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Shoichet</surname>
+                    <given-names>B</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">ZINC–a free database of commercially available compounds for virtual screening</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2005</year>
+                <volume>45</volume>
+                <fpage>177</fpage>
+                <lpage>182</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2cXhtVOjt77J</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci049714+</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR2">
+              <label>2.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Bolton</surname>
+                    <given-names>EE</given-names>
+                  </name>
+                  <name>
+                    <surname>Wang</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Thiessen</surname>
+                    <given-names>PA</given-names>
+                  </name>
+                  <name>
+                    <surname>Bryant</surname>
+                    <given-names>SH</given-names>
+                  </name>
+                </person-group>
+                <person-group person-group-type="editor">
+                  <name>
+                    <surname>Wheeler</surname>
+                    <given-names>RA</given-names>
+                  </name>
+                  <name>
+                    <surname>Spellmeyer</surname>
+                    <given-names>DC</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chapter 12 PubChem: Integrated Platform of Small Molecules and Biological Activities</article-title>
+                <source>Annual Reports in Computational Chemistry Volume 4, Volume 4 of, Annual Reports in Computational Chemistry</source>
+                <year>2008</year>
+                <fpage>217</fpage>
+                <lpage>241</lpage>
+                <pub-id pub-id-type="doi">10.1016/S1574-1400(08)00012-1</pub-id>
+                <comment>Elsevier, http://www.sciencedirect.com/science/article/pii/S1574140008000121</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR3">
+              <label>3.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Sussenguth</surname>
+                    <given-names>EH</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A graph-theoretic algorithm for matching chemical Structures</article-title>
+                <source>J Chem Documentation</source>
+                <year>1965</year>
+                <volume>5</volume>
+                <fpage>36</fpage>
+                <lpage>43</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaF2MXmvFOrug%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/c160016a007</pub-id>
+                <comment>http://pubs.acs.org/doi/abs/10.1021/c160016a007</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR4">
+              <label>4.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Figueras</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Substructure search by set reduction</article-title>
+                <source>J Chem Documentation</source>
+                <year>1972</year>
+                <volume>12</volume>
+                <issue>4</issue>
+                <fpage>237</fpage>
+                <lpage>244</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaE3sXlslWjtw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/c160047a010</pub-id>
+                <comment>http://pubs.acs.org/doi/abs/10.1021/c160047a010</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR5">
+              <label>5.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Read</surname>
+                    <given-names>RC</given-names>
+                  </name>
+                  <name>
+                    <surname>Corneil</surname>
+                    <given-names>DG</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The graph isomorphism disease</article-title>
+                <source>J Graph Theory</source>
+                <year>1977</year>
+                <volume>1</volume>
+                <issue>4</issue>
+                <fpage>339</fpage>
+                <lpage>363</lpage>
+                <pub-id pub-id-type="doi">10.1002/jgt.3190010410</pub-id>
+                <comment>http://dx.doi.org/10.1002/jgt.3190010410</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR6">
+              <label>6.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gati</surname>
+                    <given-names>G</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Further annotated bibliography on the isomorphism disease</article-title>
+                <source>J Graph Theory</source>
+                <year>1979</year>
+                <volume>3</volume>
+                <issue>2</issue>
+                <fpage>95</fpage>
+                <lpage>109</lpage>
+                <pub-id pub-id-type="doi">10.1002/jgt.3190030202</pub-id>
+                <comment>http://dx.doi.org/10.1002/jgt.3190030202</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR7">
+              <label>7.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ullmann</surname>
+                    <given-names>JR</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An algorithm for subgraph isomorphism</article-title>
+                <source>J Assoc Comput Mach</source>
+                <year>1976</year>
+                <volume>23</volume>
+                <fpage>31</fpage>
+                <lpage>42</lpage>
+                <pub-id pub-id-type="doi">10.1145/321921.321925</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR8">
+              <label>8.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Attias</surname>
+                    <given-names>R</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">DARC substructure search system: a new approach to chemical information</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1983</year>
+                <volume>23</volume>
+                <issue>3</issue>
+                <fpage>102</fpage>
+                <lpage>108</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL3sXltVCnsrw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci00039a003</pub-id>
+                <comment>http://pubs.acs.org/doi/abs/10.1021/ci00039a003</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR9">
+              <label>9.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Heyman</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Karasinskia</surname>
+                    <given-names>E</given-names>
+                  </name>
+                  <name>
+                    <surname>Giles</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">CAS information services for medicinal chemists</article-title>
+                <source>Drug Inf J</source>
+                <year>1982</year>
+                <volume>16</volume>
+                <issue>4</issue>
+                <fpage>185</fpage>
+                <lpage>190</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL3sXhsF2ktL8%3D</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR10">
+              <label>10.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Barnard</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                  <name>
+                    <surname>Downs</surname>
+                    <given-names>GM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chemical similarity searching</article-title>
+                <source>J Chem Inf Model</source>
+                <year>1998</year>
+                <volume>38</volume>
+                <issue>6</issue>
+                <fpage>983</fpage>
+                <lpage>996</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK1cXks1ynu74%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci9800211</pub-id>
+                <comment>http://dx.doi.org/10.1021/ci9800211</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR11">
+              <label>11.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cordella</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Foggia</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Sansone</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Vento</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Performance evaluation of the VF graph matching algorithm</article-title>
+                <source>Image Analysis and Processing, 1999. Proceedings. International Conference on</source>
+                <year>1999</year>
+                <fpage>1172</fpage>
+                <lpage>1177</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR12">
+              <label>12.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Cordella</surname>
+                    <given-names>LP</given-names>
+                  </name>
+                  <name>
+                    <surname>Foggia</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Sansone</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Vento</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A (sub)graph isomorphism algorithm for matching large graphs</article-title>
+                <source>IEEE Trans Pattern Anal Machine Intelligence</source>
+                <year>2004</year>
+                <volume>26</volume>
+                <issue>10</issue>
+                <fpage>1367</fpage>
+                <lpage>1372</lpage>
+                <pub-id pub-id-type="doi">10.1109/TPAMI.2004.75</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR13">
+              <label>13.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Yan</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Yu</surname>
+                    <given-names>PS</given-names>
+                  </name>
+                  <name>
+                    <surname>Han</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <source>Proceedings of the 2005 ACM SIGMOD international conference on, Management of data, SIGMOD ’05</source>
+                <year>2005</year>
+                <publisher-loc>New York, NY, USA</publisher-loc>
+                <publisher-name>ACM</publisher-name>
+                <fpage>766</fpage>
+                <lpage>777</lpage>
+                <pub-id pub-id-type="doi">10.1145/1066157.1066244</pub-id>
+                <comment>http://doi.acm.org/10.1145/1066157.1066244</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR14">
+              <label>14.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Golovin</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Henrick</surname>
+                    <given-names>K</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chemical substructure search in SQL</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2009</year>
+                <volume>49</volume>
+                <fpage>22</fpage>
+                <lpage>27</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXhsV2rtLvE</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci8003013</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR15">
+              <label>15.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilson</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Reddaway</surname>
+                    <given-names>SF</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Atom-by-atom searching using massive parallelism. Implementation of the Ullmann subgraph isomorphism algorithm on the distributed array processor</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1991</year>
+                <volume>31</volume>
+                <issue>2</issue>
+                <fpage>225</fpage>
+                <lpage>233</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK3MXit1yjtLc%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci00002a008</pub-id>
+                <comment>http://pubs.acs.org/doi/abs/10.1021/ci00002a008</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR16">
+              <label>16.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Messmer</surname>
+                    <given-names>BT</given-names>
+                  </name>
+                </person-group>
+                <source>Efficient Graph Matching Algorithms</source>
+                <year>1995</year>
+              </mixed-citation>
+            </ref>
+            <ref id="CR17">
+              <label>17.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Foggia</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Sansone</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Vento</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">A performance comparison of five algorithms for graph isomorphism</article-title>
+                <source>Proc of the 3rd IAPR TC-15 Workshop on Graph-based Representations in Pattern Recognition</source>
+                <year>2001</year>
+                <fpage>188</fpage>
+                <lpage>199</lpage>
+              </mixed-citation>
+            </ref>
+            <ref id="CR18">
+              <label>18.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Brint</surname>
+                    <given-names>AT</given-names>
+                  </name>
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Algorithms For the Identification of 3-dimensional Maximal Common Substructures</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1987</year>
+                <volume>27</volume>
+                <issue>4</issue>
+                <fpage>152</fpage>
+                <lpage>158</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL2sXmtFKkt7s%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci00056a002</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR19">
+              <label>19.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Downs</surname>
+                    <given-names>GM</given-names>
+                  </name>
+                  <name>
+                    <surname>Lynch</surname>
+                    <given-names>MF</given-names>
+                  </name>
+                  <name>
+                    <surname>Willett</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Manson</surname>
+                    <given-names>GA</given-names>
+                  </name>
+                  <name>
+                    <surname>Wilson</surname>
+                    <given-names>GA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Transputer implementations of chemical substructure searching algorithms</article-title>
+                <source>Tetrahedron Comput Methodology</source>
+                <year>1988</year>
+                <volume>1</volume>
+                <issue>3</issue>
+                <fpage>207</fpage>
+                <lpage>217</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaL1MXlsleit7g%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/0898-5529(88)90026-7</pub-id>
+                <comment>http://dx.doi.org/10.1016/0898-5529(88)90026-7</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR20">
+              <label>20.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Barnard</surname>
+                    <given-names>JM</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Substructure searching methods: old and new</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1993</year>
+                <volume>33</volume>
+                <issue>4</issue>
+                <fpage>532</fpage>
+                <lpage>538</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK3sXkslWrurY%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci00014a001</pub-id>
+                <comment>http://pubs.acs.org/doi/abs/10.1021/ci00014a001</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR21">
+              <label>21.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Oprea</surname>
+                    <given-names>TI</given-names>
+                  </name>
+                </person-group>
+                <source>Chemoinformatics in drug discovery</source>
+                <year>2005:</year>
+                <publisher-loc>Weinheim</publisher-loc>
+                <publisher-name>Wiley-VCH</publisher-name>
+                <pub-id pub-id-type="doi">10.1002/3527603743</pub-id>
+                <comment>76–79. chap. 4.4.2.1.</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR22">
+              <label>22.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Agrafiotis</surname>
+                    <given-names>DK</given-names>
+                  </name>
+                  <name>
+                    <surname>Lobanov</surname>
+                    <given-names>VS</given-names>
+                  </name>
+                  <name>
+                    <surname>Shemanarev</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Rassokhin</surname>
+                    <given-names>DN</given-names>
+                  </name>
+                  <name>
+                    <surname>Izrailev</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Jaeger</surname>
+                    <given-names>EP</given-names>
+                  </name>
+                  <name>
+                    <surname>Alex</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Farnum</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Efficient Substructure Searching of Large Chemical Libraries: The ABCD Chemical Cartridge</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2011</year>
+                <volume>51</volume>
+                <fpage>3113</fpage>
+                <lpage>3130</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhtlyhtbnJ</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci200413e</pub-id>
+                <comment>http://pubs.acs.org/doi/abs/10.1021/ci200413e</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR23">
+              <label>23.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Falkenhainer</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Forbus</surname>
+                    <given-names>KD</given-names>
+                  </name>
+                  <name>
+                    <surname>Gentner</surname>
+                    <given-names>D</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The structure-mapping engine: algorithm and examples</article-title>
+                <source>Artif Intelligence</source>
+                <year>1989</year>
+                <volume>41</volume>
+                <fpage>1</fpage>
+                <lpage>63</lpage>
+                <pub-id pub-id-type="doi">10.1016/0004-3702(89)90077-5</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR24">
+              <label>24.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Tarjan</surname>
+                    <given-names>RE</given-names>
+                  </name>
+                </person-group>
+                <source>Graph Algorithms in Chemical Computation</source>
+                <year>1977:</year>
+                <pub-id pub-id-type="doi">10.1021/bk-1977-0046.ch001</pub-id>
+                <comment>American Chemical Society, http://pubs.acs.org/doi/abs/10.1021/bk-1977-0046.ch001 1–20. chap. 2.</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR25">
+              <label>25.</label>
+              <mixed-citation publication-type="other">Daylight Theory Manual, Daylight Chemical Information Systems Inc. 2011</mixed-citation>
+            </ref>
+            <ref id="CR26">
+              <label>26.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ash</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Cline</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                  <name>
+                    <surname>Homer</surname>
+                    <given-names>RW</given-names>
+                  </name>
+                  <name>
+                    <surname>Hurst</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Smith</surname>
+                    <given-names>GB</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">SYBYL line notation (SLN): A versatile language for chemical structure representation</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1997</year>
+                <volume>37</volume>
+                <fpage>71</fpage>
+                <lpage>79</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2sXksVCitA%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci960109j</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR27">
+              <label>27.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Koniver</surname>
+                    <given-names>DA</given-names>
+                  </name>
+                  <name>
+                    <surname>Wiswesser</surname>
+                    <given-names>WJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Usdin</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Wiswesser line notation: simplified techniques for converting chemical structures to WLN</article-title>
+                <source>Science</source>
+                <year>1972</year>
+                <volume>176</volume>
+                <issue>4042</issue>
+                <fpage>1437</fpage>
+                <lpage>1439</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaE38Xks1Srt7c%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1126/science.176.4042.1437</pub-id>
+                <comment>http://dx.doi.org/10.1126/science.176.4042.1437</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR28">
+              <label>28.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Hann</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Hudson</surname>
+                    <given-names>B</given-names>
+                  </name>
+                  <name>
+                    <surname>Lewell</surname>
+                    <given-names>X</given-names>
+                  </name>
+                  <name>
+                    <surname>Lifely</surname>
+                    <given-names>R</given-names>
+                  </name>
+                  <name>
+                    <surname>Miller</surname>
+                    <given-names>L</given-names>
+                  </name>
+                  <name>
+                    <surname>Ramsden</surname>
+                    <given-names>N</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Strategic pooling of compounds for high-throughput screening</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1999</year>
+                <volume>39</volume>
+                <issue>5</issue>
+                <fpage>897</fpage>
+                <lpage>902</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK1MXksVWkt78%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci990423o</pub-id>
+                <comment>http://pubs.acs.org/doi/abs/10.1021/ci990423o</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR29">
+              <label>29.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Walters</surname>
+                    <given-names>W</given-names>
+                  </name>
+                  <name>
+                    <surname>Murcko</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Prediction of ‘drug-likeness’</article-title>
+                <source>Adv Drug Delivery Rev</source>
+                <year>2002</year>
+                <volume>54</volume>
+                <issue>3</issue>
+                <fpage>255</fpage>
+                <lpage>271</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38Xitlartbo%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1016/S0169-409X(02)00003-0</pub-id>
+                <comment>http://www.sciencedirect.com/science/article/pii/S0169409X02000030 []. [Computational Methods for the Prediction of ADME and Toxicity]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR30">
+              <label>30.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Abolmaali</surname>
+                    <given-names>SFB</given-names>
+                  </name>
+                  <name>
+                    <surname>Wegner</surname>
+                    <given-names>JK</given-names>
+                  </name>
+                  <name>
+                    <surname>Zell</surname>
+                    <given-names>A</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">The compressed feature matrix - a fast method for feature based substructure search</article-title>
+                <source>J Mol Model</source>
+                <year>2003</year>
+                <volume>9</volume>
+                <fpage>235</fpage>
+                <lpage>241</lpage>
+                <pub-id pub-id-type="doi">10.1007/s00894-003-0126-0</pub-id>
+                <comment>http://dx.doi.org/10.1007/s00894-003-0126-0 []. [10.1007/s00894-003-0126-0]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR31">
+              <label>31.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Olah</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Bologa</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Oprea</surname>
+                    <given-names>TI</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">An automated PLS search for biologically relevant QSAR descriptors</article-title>
+                <source>J Comput Aided Mol Des</source>
+                <year>2004</year>
+                <volume>18</volume>
+                <fpage>437</fpage>
+                <lpage>449</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2MXltVaruw%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1007/s10822-004-4060-8</pub-id>
+                <comment>http://dx.doi.org/10.1007/s10822-004-4060-8 []. [10.1007/s10822-004-4060-8]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR32">
+              <label>32.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Maass</surname>
+                    <given-names>P</given-names>
+                  </name>
+                  <name>
+                    <surname>Schulz-Gasch</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Stahl</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Recore: a fast and versatile method for scaffold hopping based on small molecule crystal structure conformations</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <issue>2</issue>
+                <fpage>390</fpage>
+                <lpage>399</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXhvVWjtbk%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci060094h</pub-id>
+                <comment>http://pubs.acs.org/doi/abs/10.1021/ci060094h []. [PMID: 17305328]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR33">
+              <label>33.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Degen</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <name>
+                    <surname>Wegscheid-Gerlach</surname>
+                    <given-names>C</given-names>
+                  </name>
+                  <name>
+                    <surname>Zaliani</surname>
+                    <given-names>A</given-names>
+                  </name>
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">On the art of compiling and using ‘drug-like’ chemical fragment spaces</article-title>
+                <source>Chem Med Chem</source>
+                <year>2008</year>
+                <volume>3</volume>
+                <fpage>1503</fpage>
+                <lpage>1507</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXhtlOgt73M</pub-id>
+                <pub-id pub-id-type="doi">10.1002/cmdc.200800178</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR34">
+              <label>34.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ahmed</surname>
+                    <given-names>HEA</given-names>
+                  </name>
+                  <name>
+                    <surname>Vogt</surname>
+                    <given-names>M</given-names>
+                  </name>
+                  <name>
+                    <surname>Bajorath</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Design and evaluation of bonded atom pair descriptors</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2010</year>
+                <volume>50</volume>
+                <fpage>487</fpage>
+                <lpage>499</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXjt1entbs%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci900512g</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR35">
+              <label>35.</label>
+              <mixed-citation publication-type="other">Daylight SMARTS examples; Daylight Chemical Information Systems, Inc. <ext-link xlink:href="http://www.daylight.com/dayhtml_tutorials/languages/smarts/smarts_examples.html" ext-link-type="uri">http://www.daylight.com/dayhtml_tutorials/languages/smarts/smarts_examples.html</ext-link>,</mixed-citation>
+            </ref>
+            <ref id="CR36">
+              <label>36.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Agrafiotis</surname>
+                    <given-names>DK</given-names>
+                  </name>
+                  <name>
+                    <surname>Gibbs</surname>
+                    <given-names>AC</given-names>
+                  </name>
+                  <name>
+                    <surname>Zhu</surname>
+                    <given-names>F</given-names>
+                  </name>
+                  <name>
+                    <surname>Izrailev</surname>
+                    <given-names>S</given-names>
+                  </name>
+                  <name>
+                    <surname>Martin</surname>
+                    <given-names>E</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Conformational sampling of bioactive molecules: a comparative study</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2007</year>
+                <volume>47</volume>
+                <issue>3</issue>
+                <fpage>1067</fpage>
+                <lpage>1086</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD2sXjvFKgt7s%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci6005454</pub-id>
+                <comment>http://pubs.acs.org/doi/abs/10.1021/ci6005454 []. [PMID: 17411028]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR37">
+              <label>37.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Enoch</surname>
+                    <given-names>SJ</given-names>
+                  </name>
+                  <name>
+                    <surname>Madden</surname>
+                    <given-names>JC</given-names>
+                  </name>
+                  <name>
+                    <surname>Cronin</surname>
+                    <given-names>MTD</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Identification of mechanisms of toxic action for skin sensitisation using a SMARTS pattern based approach</article-title>
+                <source>SAR QSAR Environ Res</source>
+                <year>2008</year>
+                <volume>19</volume>
+                <issue>5-6</issue>
+                <fpage>555</fpage>
+                <lpage>578</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD1cXht1Ciu7bE</pub-id>
+                <pub-id pub-id-type="doi">10.1080/10629360802348985</pub-id>
+                <comment>http://dx.doi.org/10.1080/10629360802348985</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR38">
+              <label>38.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Baell</surname>
+                    <given-names>JB</given-names>
+                  </name>
+                  <name>
+                    <surname>Holloway</surname>
+                    <given-names>GA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">New substructure filters for removal of Pan Assay Interference Compounds (PAINS) from screening libraries and for their exclusion in Bioassays</article-title>
+                <source>J Med Chem</source>
+                <year>2010</year>
+                <volume>53</volume>
+                <issue>7</issue>
+                <fpage>2719</fpage>
+                <lpage>2740</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXhsF2qsLw%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/jm901137j</pub-id>
+                <comment>http://pubs.acs.org/doi/abs/10.1021/jm901137j []. [PMID: 20131845]</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR39">
+              <label>39.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ihlenfeldt</surname>
+                    <given-names>WD</given-names>
+                  </name>
+                  <name>
+                    <surname>Takahashi</surname>
+                    <given-names>Y</given-names>
+                  </name>
+                  <name>
+                    <surname>Abe</surname>
+                    <given-names>H</given-names>
+                  </name>
+                  <name>
+                    <surname>ichi Sasaki</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Computation and management of chemical properties in CACTVS: An extensible networked approach toward modularity and compatibility</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1994</year>
+                <volume>34</volume>
+                <fpage>109</fpage>
+                <lpage>116</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2cXns1GrtQ%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci00017a013</pub-id>
+              </mixed-citation>
+            </ref>
+            <ref id="CR40">
+              <label>40.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Xu</surname>
+                    <given-names>J</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">GMA: a generic match algorithm for structural homomorphism, isomorphism, and maximal common substructure match and its applications</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1996</year>
+                <volume>36</volume>
+                <fpage>25</fpage>
+                <lpage>34</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK28XhsFGlsA%3D%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci950061u</pub-id>
+                <comment>http://pubs.acs.org/doi/abs/10.1021/ci950061u</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR41">
+              <label>41.</label>
+              <mixed-citation publication-type="book">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Gasteiger</surname>
+                    <given-names>J</given-names>
+                  </name>
+                  <collab>Engel, T (Eds)</collab>
+                </person-group>
+                <source>Chemoinformatics: A Textbook</source>
+                <year>2003</year>
+                <edition>1 edition</edition>
+                <pub-id pub-id-type="doi">10.1002/3527601643</pub-id>
+                <comment>Wiley-VCH, http://www.worldcat.org/isbn/3527306811</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR42">
+              <label>42.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Schomburg</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Ehrlich</surname>
+                    <given-names>HC</given-names>
+                  </name>
+                  <name>
+                    <surname>Stierand</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Rarey</surname>
+                    <given-names>M</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">From structure diagrams to visual chemical patterns</article-title>
+                <source>J Chem Inf Model</source>
+                <year>2010</year>
+                <volume>50</volume>
+                <issue>9</issue>
+                <fpage>1529</fpage>
+                <lpage>1535</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3cXhtVKrsbrF</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci100209a</pub-id>
+                <comment>http://dx.doi.org/10.1021/ci100209a</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR43">
+              <label>43.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Ozawa</surname>
+                    <given-names>K</given-names>
+                  </name>
+                  <name>
+                    <surname>Yasuda</surname>
+                    <given-names>T</given-names>
+                  </name>
+                  <name>
+                    <surname>Fujita</surname>
+                    <given-names>S</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Substructure search with tree-structured data</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>1997</year>
+                <volume>37</volume>
+                <issue>4</issue>
+                <fpage>688</fpage>
+                <lpage>695</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DyaK2sXktl2rsLc%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci960378+</pub-id>
+                <comment>http://pubs.acs.org/doi/abs/10.1021/ci960378%2B</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR44">
+              <label>44.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Rughooputh</surname>
+                    <given-names>SDDV</given-names>
+                  </name>
+                  <name>
+                    <surname>Rughooputh</surname>
+                    <given-names>HCS</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Neural network based chemical structure indexing</article-title>
+                <source>J Chem Inf Comput Sci</source>
+                <year>2001</year>
+                <volume>41</volume>
+                <issue>3</issue>
+                <fpage>713</fpage>
+                <lpage>717</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD3MXhslSrtr0%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1021/ci000394d</pub-id>
+                <comment>http://pubs.acs.org/doi/abs/10.1021/ci000394d</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR45">
+              <label>45.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Miller</surname>
+                    <given-names>MA</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">Chemical database techniques in drug discovery</article-title>
+                <source>Nat Rev Drug Discov</source>
+                <year>2002</year>
+                <volume>1</volume>
+                <issue>3</issue>
+                <fpage>220</fpage>
+                <lpage>227</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BD38XitFClt78%3D</pub-id>
+                <pub-id pub-id-type="doi">10.1038/nrd745</pub-id>
+                <comment>http://dx.doi.org/10.1038/nrd745</comment>
+              </mixed-citation>
+            </ref>
+            <ref id="CR46">
+              <label>46.</label>
+              <mixed-citation publication-type="journal">
+                <person-group person-group-type="author">
+                  <name>
+                    <surname>Jeliazkova</surname>
+                    <given-names>N</given-names>
+                  </name>
+                  <name>
+                    <surname>Kochev</surname>
+                    <given-names>N</given-names>
+                  </name>
+                </person-group>
+                <article-title xml:lang="en">AMBIT-SMARTS: efficient searching of chemical structures and fragments</article-title>
+                <source>Mol Informatics</source>
+                <year>2011</year>
+                <volume>30</volume>
+                <issue>8</issue>
+                <fpage>707</fpage>
+                <lpage>720</lpage>
+                <pub-id pub-id-type="other" assigning-authority="ChemPort ( Chemical Abstract Service )">1:CAS:528:DC%2BC3MXhtVKltLnM</pub-id>
+                <comment>http://dx.doi.org/10.1002/minf.201100028</comment>
+              </mixed-citation>
+            </ref>
+          </ref-list>
+        </ref-list>
+        <app-group>
+          <app id="App1">
+            <sec id="Sec33">
+              <title>Electronic supplementary material</title>
+              <p>
+                <supplementary-material content-type="local-data" id="MOESM1" xlink:title="Electronic supplementary material">
+                  <media mimetype="application" mime-subtype="x-zip-compressed" xlink:href="MediaObjects/13321_2012_369_MOESM1_ESM.zip" position="anchor">
+                    <caption xml:lang="en">
+                      <p>Additional file 1: <bold>Additional data (Additional file</bold><xref ref-type="supplementary-material" rid="MOESM1">1</xref><bold>). /datasets/smarts/literature_Hs_noRec.smarts. SMARTS substructures with hydrogens and no recursion.</bold> SMARTS substructure patterns with hydrogens and no recursive atom environments. /datasets/smarts/literature_Hs_rec.smarts. SMARTS substructures with hydrogens and recursion. SMARTS substructure patterns with hydrogens and with recursive atom environments. /datasets/smarts/literature_noHs_noRec.smarts. SMARTS substructures without hydrogens and no recursion. SMARTS substructure patterns without hydrogens and no recursive atom environments. /datasets/smarts/literature_noHs_rec.smarts. SMARTS substructures without hydrogens and with recursion. SMARTS substructure patterns without hydrogens and with recursive atom environments. /datasets/smarts/pains_p_m150_antioptimized.txt. PAINS substructures anti-optimized. PAINS substructures as SMARTS in anti-optimized formulation. /datasets/smarts/pains_p_m150_antioptimized.txt. PAINS substructures anti-optimized. PAINS substructures as SMARTS in anti-optimized formulation. /datasets/smarts/pains_p_m150_original.txt. PAINS substructures original. PAINS substructures as SMARTS in original formulation as obtained from the literature. /datasets/substructure_search_set/literature_Hs_noRec.smarts.everything.benchmarkset. Substructure Search Set, explicit hydrogens and no recursion, ZINC everything Search set to test the run time influence of the molecule size. Substructures are in SMARTS and do contain explicit hydrogens but no recursive atom environments. For each substructure pattern 100 molecules that contain the pattern were selected at random from ZINC everything. Substructures and molecules are given as space separated SMARTS and SMILES. /datasets/substructure_search_set/literature_Hs_rec.smarts.everything.benchmarkset. Substructure Search Set, explicit hydrogens and with recursion, ZINC everything. Search set to test the run time influence of the molecule size. Substructures are in SMARTS and do contain explicit hydrogens and recursive atom environments. For each substructure pattern 100 molecules that contain the pattern were selected at random from ZINC everything. Substructures and molecules are given as space separated SMARTS and SMILES. /datasets/substructure_search_set/literature_noHs_noRec.smarts.everything.benchmarkset. Substructure Search Set, no explicit hydrogens and no recursion, ZINC everything. Search set to test the run time influence of the molecule size. Substructures are in SMARTS and do not contain explicit hydrogens or recursive atom environments. For each substructure pattern 100 molecules that contain the pattern were selected at random from ZINC everything. Substructures and molecules are given as space separated SMARTS and SMILES. /datasets/substructure_search_set/literature_noHs_rec.smarts.everything.benchmarkset. Substructure Search Set, no explicit hydrogens and with recursion, ZINC everything. Search set to test the run time influence of the molecule size. Substructures are in SMARTS and do not contain explicit hydrogens but recursive atom environments. For each substructure pattern 100 molecules that contain the pattern were selected at random from ZINC everything. Substructures and molecules are given as space separated SMARTS and SMILES. /datasets/substructure_search_set/literature_Hs_noRec.smarts.lead-like.benchmarkset. Substructure Search Set, explicit hydrogens and no recursion, ZINC lead-like. Search set to test the run time influence of the molecule size. Substructures are in SMARTS and do contain explicit hydrogens but no recursive atom environments. For each substructure pattern 100 molecules that contain the pattern were selected at random from ZINC lead-like. Substructures and molecules are given as space separated SMARTS and SMILES. /datasets/substructure_search_set/literature_Hs_rec.smarts.lead-like.benchmarkset. Substructure Search Set, explicit hydrogens and with recursion, ZINC lead-like. Search set to test the run time influence of the molecule size. Substructures are in SMARTS and do contain explicit hydrogens and recursive atom environments. For each substructure pattern 100 molecules that contain the pattern were selected at random from ZINC lead-like. Substructures and molecules are given as space separated SMARTS and SMILES. /datasets/substructure_search_set/literature_noHs_noRec.smarts.lead-like.benchmarkset. Substructure Search Set, no explicit hydrogens and no recursion, ZINC lead-like. Search set to test the run time influence of the molecule size. Substructures are in SMARTS and do not contain explicit hydrogens or recursive atom environments. For each substructure pattern 100 molecules that contain the pattern were selected at random from ZINC lead-like. Substructures and molecules are given as space separated SMARTS and SMILES. /datasets/substructure_search_set/literature_noHs_rec.smarts.lead-like.benchmarkset. Substructure Search Set, no explicit hydrogens and with recursion, ZINC lead-like. Search set to test the run time influence of the molecule size. Substructures are in SMARTS and do not contain explicit hydrogens but recursive atom environments. For each substructure pattern 100 molecules that contain the pattern were selected at random from ZINC lead-like. Substructures and molecules are given as space separated SMARTS and SMILES. /datasets/substructure_search_set/literature_noHs_rec.smarts.lead-like.benchmarkset. Substructure Search Set, no explicit hydrogens and with recursion, ZINC lead-like. Search set to test the run time influence of the molecule size. Substructures are in SMARTS and do not contain explicit hydrogens but recursive atom environments. For each substructure pattern 100 molecules that contain the pattern were selected at random from ZINC lead-like. Substructures and molecules are given as space separated SMARTS and SMILES. /datasets/molecule_search_set/literature_noHs_noRec.smarts.everything.80.benchmarkset. Molecule Search Set ZINC everything. Search set to test the run time influence of the substructure size. Substructures are in SMARTS and do not include explicit hydrogen nodes or recursive atom environments. For each molecule 80 substructures that are contained in the molecule were selected at random from ZINC everything. Molecules and substructures are given as space separated SMILES and SMARTS. /datasets/worst_case.benchmarkset. Worst Case Set. A worst-case substructure search scenario of searching for a phenyl-ring in a highly symmetrical fullerene. Substructure and molecule are in SMARTS and SMILES./datasets/zinc_lead-like_2011-02-12_first100k.smi. First 100k Molecules of ZINC lead-like. The first 100.000 molecules of the ZINC lead-like database. Molecules are in SMILES. /results/molecule/allPlots.lead-like.all.eps. Molecule Search Experiment ZINC lead-like. Experiment to test the run time influence of the substructure size. Plots are box plots showing subgraph size vs. run time for Ullmann and VF2. Both algorithms are set to find all occurrences of a substructure. Molecules were chosen at random from ZINC lead-like. /results/molecule/allPlots.lead-like.first.eps. Molecule Search Experiment ZINC lead-like. Experiment to test the run time influence of the substructure size. Plots are box plots showing subgraph size vs. run time for Ullmann and VF2. Both algorithms are set to find first occurrences of a substructure. Molecules were chosen at random from ZINC lead-like. /results/subgraph/allPlots.lead-like.all.eps. Subgraph Search Experiment ZINC lead-like. Experiment to test the run time influence of the molecule size. Plots are box plots showing molecule size vs. run time for Ullmann and VF2. Both algorithms are set to find all occurrences of a substructure. Molecules were chosen at random from ZINC lead-like. /results/subgraph/allPlots.lead-like.first.eps. Subgraph Search Experiment ZINC lead-like. Experiment to test the run time influence of the molecule size. Plots are box plots showing molecule size vs. run time for Ullmann and VF2. Both algorithms are set to find first occurrences of a substructure. Molecules were chosen at random from ZINC lead-like. (ZIP 4 MB)</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM2" xlink:title="Electronic supplementary material">
+                  <media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM2_ESM.pdf" position="anchor">
+                    <caption xml:lang="en">
+                      <p>Additional file 2: <bold>Supplementary Information (Additional file</bold><xref ref-type="supplementary-material" rid="MOESM2">2</xref><bold>). Table S1.</bold> Profile over the number of property occurrences of all 1235 SMARTS sub-structures. Table S2. Profile over the number of property occurrences of 738 SMARTS substructures without explicit hydrogens. Table S3. Profile over the number of property occurrences of 497 SMARTS substructures with explicit hydrogens. Table S4. Profile over the number of property occurrences of 936 SMARTS substructures without recursive atom environments. Table S5. Profile over the number of property occurrences of 299 SMARTS substructures with recursive atom environments. Table S6. Profile over the number of property occurrences of 504 SMARTS substructures without hydrogen atoms and without recursion. Table S7. Profile over the number of property occurrences of 234 SMARTS substructures without hydrogen atoms and with recursion. Table S8. Profile over the number of property occurrences of 432 SMARTS substructures with hydrogen atoms and without recursion. Table S9. Profile over the number of property occurrences of 65 SMARTS substructures with hydrogen atom and with recursion. Table S10. Profile over the number of property occurrences of 469 SMARTS substructures used in ZINC lead-like benchmark set. Table S11. Profile over the number of property occurrences of 347 SMARTS substructures with no hydrogen atoms and no recursion in ZINC lead-like benchmark set. Table S12. Profile over the number of property occurrences of 48 SMARTS substructures with no hydrogen atoms and recursion in ZINC lead-like benchmark set. Table S13. Profile over the number of property occurrences of 56 SMARTS substructures with hydrogen atoms and no recursion in ZINC lead-like benchmark set. Table S14. Profile over the number of property occurrences of 18 SMARTS substructures with hydrogen atoms and recursion in ZINC lead-like benchmark set. Table S15. Profile over the number of property occurrences of 588 SMARTS substructures used in ZINC everything benchmark set. Table S16. Profile over the number of property occurrences of 400 SMARTS substructures with no hydrogen atoms and no recursion in ZINC everything benchmark set. Table S17. Profile over the number of property occurrences of 106 SMARTS substructures with no hydrogen atoms and recursion in ZINC everything benchmark set. Table S18. Profile over the number of property occurrences of 43 SMARTS substructures with hydrogen atoms and no recursion in ZINC everything benchmark set. Table S19. Profile over the number of property occurrences of 39 SMARTS substructures with hydrogen atoms and recursion in ZINC everything benchmark set. Table S20. Profile over the number of property occurrences of 16 PAINS patterns. Table S21. Profile for all 2516375 from ZINC lead-like. Table S22. Profile for all 14059666 form ZINC everything. Table S23. Profile 61500 molecules selected from ZINC lead-like for the substructure search set. Table S24. Profile 76800 molecules selected from ZINC everything for substructure search set. Table S25. Profile first 100000 molecules selected from ZINC lead-like. Table S26. Ullmann search times in seconds for PAINS substructures as SMARTS in optimized formulation against the complete ZINC lead-like. Scaling factors (SFs) represent the speed up in comparison to the sequential time. Table S27. VF2 search times in seconds for PAINS substructures as SMARTS in optimized formulation against the complete ZINC lead-like. Scaling factors (SFs) represent the speed up in comparison to the sequential time. Table S28. Ullmann match times in seconds of the PAINS Substructure Set against the complete ZINC lead-like database. All 16 PAINS are given in the original, an optimized, and an anti-optimized substructure formulation in the SI. Table S29. VF2 match times in seconds of the PAINS Substructure Set against the complete ZINC lead-like database. All 16 PAINS are given in the original, an optimized, and an anti-optimized substructure formulation in Table 30. Table S30. SMARTS expressions used in optimization experiment given as taken from literature (original), optimized by the given rule set (optimized) and anti-optimized applying the rule set in reverse (anti-optimized). (PDF 101 KB)</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+                <supplementary-material content-type="local-data" id="MOESM3" xlink:title="Electronic supplementary material">
+                  <media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM3_ESM.pdf" position="anchor">
+                    <caption xml:lang="en">
+                      <p>Additional file 3: <bold>Supplementary Information (Additional file</bold><xref ref-type="supplementary-material" rid="MOESM3">3</xref><bold>). Figure S1.</bold> Depiction of SMARTS pattern with no explicit hydrogens and no recursion (top-left), explicit hydrogens and no recursion (top-right), no explicit hydrogens and recursion (bottom-left), and with explicit hydrogens and recursive atom environments (bottom-right). Depictions are created by SMARTSViewer [<xref ref-type="bibr" rid="CR42">42</xref>]. <bold>Figure S2.</bold> Visual dipiction of PAINS patterns 1-4 created with SMARTSViewer [<xref ref-type="bibr" rid="CR42">42</xref>]. <bold>Figure S3.</bold> Visual dipiction of PAINS patterns 5-8 created with SMARTSViewer [<xref ref-type="bibr" rid="CR42">42</xref>]. <bold>Figure S4.</bold> Visual dipiction of PAINS patterns 9-12 created with SMARTSViewer [<xref ref-type="bibr" rid="CR42">42</xref>]. <bold>Figure S5.</bold> Visual dipiction of PAINS patterns 13-16 created with SMARTSViewer [<xref ref-type="bibr" rid="CR42">42</xref>]. (PDF 2 MB)</p>
+                    </caption>
+                  </media>
+                </supplementary-material>
+              </p>
+            </sec>
+            <sec id="Sec34">
+              <title>Authors’ original submitted files for images</title>
+              <p>Below are the links to the authors’ original submitted files for images.<supplementary-material content-type="local-data" id="MOESM4" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM4_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 1</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM5" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM5_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 2</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM6" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM6_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 3</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM7" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM7_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 4</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM8" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM8_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 5</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM9" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM9_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 6</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM10" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM10_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 7</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM11" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM11_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 8</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM12" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM12_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 9</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM13" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM13_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 10</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM14" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM14_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 11</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM15" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM15_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 12</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM16" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM16_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 13</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM17" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM17_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 14</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM18" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM18_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 15</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM19" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM19_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 16</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM20" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM20_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 17</p></caption></media></supplementary-material><supplementary-material content-type="local-data" id="MOESM21" xlink:title="Authors’ original submitted files for images"><media mimetype="application" mime-subtype="pdf" xlink:href="MediaObjects/13321_2012_369_MOESM21_ESM.pdf" position="anchor"><caption xml:lang="en"><p>Authors’ original file for figure 18</p></caption></media></supplementary-material></p>
+            </sec>
+          </app>
+        </app-group>
+        <notes notes-type="Misc">
+          <title>Competing interests</title>
+          <p>The authors declare that they have no competing interests.</p>
+        </notes>
+        <notes notes-type="Misc">
+          <title>Authors’ contributions</title>
+          <p>H-CE implemented the presented software components, collected the data and performed the comparison studies. MR supervised the project. Both authors read and approved the final manuscript.</p>
+        </notes>
+      </back>
+    </article>
