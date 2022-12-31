@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <!ENTITY % article SYSTEM "http://jats.nlm.nih.gov/archiving/1.2/JATS-archivearticle1.dtd">
 <article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="research-article" xml:lang="en">
-      <?properties open_access?>
       <front>
         <journal-meta>
           <journal-id journal-id-type="publisher-id">13321</journal-id>
@@ -319,8 +318,8 @@
             <title>System description</title>
             <p id="Par29">In this section we describe our system. Our approach implements a two-stage application of long short-term memory (LSTM) using a conglomerate of sequence labelers for the detection of chemical mentions.</p>
             <p id="Par30">In the first stage, we trained and optimized five tools for NER for tackling this task, namely <italic>Stanford Named Entity Recognizer</italic> [<xref ref-type="bibr" rid="CR18">18</xref>], <italic>MarMoT</italic> [<xref ref-type="bibr" rid="CR19">19</xref>], <italic>CRF++</italic> [<xref ref-type="bibr" rid="CR20">20</xref>], <italic>MITIE</italic> [<xref ref-type="bibr" rid="CR21">21</xref>] and <italic>Glample</italic> [<xref ref-type="bibr" rid="CR22">22</xref>]. For each of them, we optimized the corresponding hyperparameter settings. Generally speaking, hyperparameter tuning is a challenging task in machine learning. The optimal set of hyperparameters depends on the model, the dataset and the domain [<xref ref-type="bibr" rid="CR23">23</xref>]. Our experiments focused on optimizing the hyperparameters of each NER system independently, which led to a noticeable increase in F-score compared to the default settings. For each NER, we performed the Tree-structured Parzen Estimator (TPE) [<xref ref-type="bibr" rid="CR24">24</xref>] with 200 iterations. The results of the best performing model for each of these NER is listed in Table <xref rid="Tab2" ref-type="table">2</xref>.</p>
-            <p id="Par31">The NER tools are more or less independent of each other in the sense that one can find a subset of test cases that are correctly processed by one of them, but not by another. Therefore, combining these NERs is a promising candidate for increasing performance. We started with computing combinations of these NERs by means of a simple majority vote [<xref ref-type="bibr" rid="CR25">25</xref>], where the target label is selected, that is assigned by the majority of classifiers. Our experiments show that a simple majority vote brings no gain in performance compared to the best performing reference systems being examined in our study (see Table <xref rid="Tab2" ref-type="table">2</xref>). Thus, we developed a two-stage model, the so-called LSTMVoter, which trains a recurrent neural network (RNN) with attention mechanism to learn the best combination of the underlying sequence labeling tools from stage one.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Architecture of LSTMVoter</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_327_Fig1_HTML.png" /></fig></p>
-            <p id="Par32">In the second stage, we combine the sequence labelers of stage one with two bidirectional <italic>long short-term memory</italic> (LSTM) networks with attention mechanism and a conditional random field (CRF) network to form LSTMVoter. The architecture of LSTMVoter is illustrated in Fig. <xref rid="Fig1" ref-type="fig">1</xref>. The core of LSTMVoter is based on [<xref ref-type="bibr" rid="CR22">22</xref>].<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>A long short-term memory cell</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_327_Fig2_HTML.png" /></fig><fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>A bidirectional LSTM network</p></caption><graphic specific-use="HTML" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_327_Fig3_HTML.png" /></fig></p>
+            <p id="Par31">The NER tools are more or less independent of each other in the sense that one can find a subset of test cases that are correctly processed by one of them, but not by another. Therefore, combining these NERs is a promising candidate for increasing performance. We started with computing combinations of these NERs by means of a simple majority vote [<xref ref-type="bibr" rid="CR25">25</xref>], where the target label is selected, that is assigned by the majority of classifiers. Our experiments show that a simple majority vote brings no gain in performance compared to the best performing reference systems being examined in our study (see Table <xref rid="Tab2" ref-type="table">2</xref>). Thus, we developed a two-stage model, the so-called LSTMVoter, which trains a recurrent neural network (RNN) with attention mechanism to learn the best combination of the underlying sequence labeling tools from stage one.<fig id="Fig1"><label>Fig. 1</label><caption xml:lang="en"><p>Architecture of LSTMVoter</p></caption><graphic specific-use="web" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_327_Fig1_HTML.png" id="MO1" /></fig></p>
+            <p id="Par32">In the second stage, we combine the sequence labelers of stage one with two bidirectional <italic>long short-term memory</italic> (LSTM) networks with attention mechanism and a conditional random field (CRF) network to form LSTMVoter. The architecture of LSTMVoter is illustrated in Fig. <xref rid="Fig1" ref-type="fig">1</xref>. The core of LSTMVoter is based on [<xref ref-type="bibr" rid="CR22">22</xref>].<fig id="Fig2"><label>Fig. 2</label><caption xml:lang="en"><p>A long short-term memory cell</p></caption><graphic specific-use="web" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_327_Fig2_HTML.png" id="MO2" /></fig><fig id="Fig3"><label>Fig. 3</label><caption xml:lang="en"><p>A bidirectional LSTM network</p></caption><graphic specific-use="web" mime-subtype="PNG" xlink:href="MediaObjects/13321_2018_327_Fig3_HTML.png" id="MO3" /></fig></p>
             <p id="Par33">LSTM networks are a type of RNN [<xref ref-type="bibr" rid="CR26">26</xref>]. RNN allow the computation of fixed-size vector representations for sequences of arbitrary length. An RNN is, so to speak, a function that reads an input sequence <inline-formula id="IEq1"><alternatives><mml:math id="IEq1_Math"><mml:mrow><mml:msub><mml:mi>x</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mo>…</mml:mo><mml:mo>,</mml:mo><mml:msub><mml:mi>x</mml:mi><mml:mi>n</mml:mi></mml:msub></mml:mrow></mml:math><tex-math id="IEq1_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
@@ -330,7 +329,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$x_1, \ldots , x_n$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq1.gif" /></alternatives></inline-formula> of length <italic>n</italic> and produces an output vector <inline-formula id="IEq2"><alternatives><mml:math id="IEq2_Math"><mml:msub><mml:mi>h</mml:mi><mml:mi>n</mml:mi></mml:msub></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$x_1, \ldots , x_n$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq1.gif" /></alternatives></inline-formula> of length <italic>n</italic> and produces an output vector <inline-formula id="IEq2"><alternatives><mml:math id="IEq2_Math"><mml:msub><mml:mi>h</mml:mi><mml:mi>n</mml:mi></mml:msub></mml:math><tex-math id="IEq2_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -339,7 +338,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$h_n$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq2.gif" /></alternatives></inline-formula>, which depends on the entire input sequence. Though, in theory, an RNN is capable of capturing long-distance dependencies in the input sequence, in practice, they may fail due to the problem of vanishing gradients [<xref ref-type="bibr" rid="CR27">27</xref>, <xref ref-type="bibr" rid="CR28">28</xref>]. On the other hand, LSTMs include a memory cell, which can maintain information in memory for long periods of time [<xref ref-type="bibr" rid="CR29">29</xref>, <xref ref-type="bibr" rid="CR30">30</xref>]. This enables finding and exploiting long range dependencies in the input sequences to cope with the problem of vanishing gradients. Figure <xref rid="Fig2" ref-type="fig">2</xref> illustrates an LSTM memory cell, which is implemented as follows:<disp-formula id="Equ1"><alternatives><mml:math display="block" id="Equ1_Math"><mml:mrow><mml:mtable><mml:mtr><mml:mtd columnalign="right"><mml:msub><mml:mi>i</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:mi>σ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xi</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hi</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>h</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">ci</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>c</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mrow /><mml:msub><mml:mi>f</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mrow></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:mi>σ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xf</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hf</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>h</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">cf</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>c</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mi>f</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mrow /><mml:msub><mml:mi>c</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mrow></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:msub><mml:mi>f</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:msub><mml:mi>c</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>i</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>tanh</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xc</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hc</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>h</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mi>c</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mrow /><mml:msub><mml:mi>o</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mrow></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:mi>σ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xo</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">ho</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>h</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">co</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>c</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mi>o</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mrow /><mml:msub><mml:mi>h</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mrow></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:msub><mml:mi>o</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>tanh</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>c</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math><tex-math id="Equ1_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$h_n$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq2.gif" /></alternatives></inline-formula>, which depends on the entire input sequence. Though, in theory, an RNN is capable of capturing long-distance dependencies in the input sequence, in practice, they may fail due to the problem of vanishing gradients [<xref ref-type="bibr" rid="CR27">27</xref>, <xref ref-type="bibr" rid="CR28">28</xref>]. On the other hand, LSTMs include a memory cell, which can maintain information in memory for long periods of time [<xref ref-type="bibr" rid="CR29">29</xref>, <xref ref-type="bibr" rid="CR30">30</xref>]. This enables finding and exploiting long range dependencies in the input sequences to cope with the problem of vanishing gradients. Figure <xref rid="Fig2" ref-type="fig">2</xref> illustrates an LSTM memory cell, which is implemented as follows:<disp-formula id="Equ1"><alternatives><mml:math display="block" id="Equ1_Math"><mml:mrow><mml:mtable><mml:mtr><mml:mtd columnalign="right"><mml:msub><mml:mi>i</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:mi>σ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xi</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hi</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>h</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">ci</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>c</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mrow /><mml:msub><mml:mi>f</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mrow></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:mi>σ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xf</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hf</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>h</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">cf</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>c</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mi>f</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mrow /><mml:msub><mml:mi>c</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mrow></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:msub><mml:mi>f</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:msub><mml:mi>c</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>i</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>tanh</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xc</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hc</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>h</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mi>c</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mrow /><mml:msub><mml:mi>o</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mrow></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:mi>σ</mml:mi><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xo</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">ho</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>h</mml:mi><mml:mrow><mml:mi>t</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">co</mml:mi></mml:mrow></mml:msub><mml:msub><mml:mi>c</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>b</mml:mi><mml:mi>o</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mrow /><mml:msub><mml:mi>h</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mrow></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mo>=</mml:mo><mml:msub><mml:mi>o</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo>tanh</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>c</mml:mi><mml:mi>t</mml:mi></mml:msub><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math><tex-math id="Equ1_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -348,7 +347,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$\begin{aligned} i_t&amp;= \sigma (W_{xi}x_t + W_{hi}h_{t-1} + W_{ci}c_{t-1} + b_i)\\ f_t&amp;= \sigma (W_{xf}x_t + W_{hf}h_{t-1} + W_{cf}c_{t-1} + b_f )\\ c_t&amp;= f_tc_{t-1} + i_t \tanh (W_{xc}x_t + W_{hc}h_{t-1} + b_c)\\ o_t&amp;= \sigma (W_{xo}x_t + W_{ho}h_{t-1} + W_{co}c_t + b_o)\\ h_t&amp;= o_t \tanh (c_t) \end{aligned}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2018_327_Article_Equ1.gif" /></alternatives></disp-formula>where <inline-formula id="IEq3"><alternatives><mml:math id="IEq3_Math"><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$\begin{aligned} i_t&amp;= \sigma (W_{xi}x_t + W_{hi}h_{t-1} + W_{ci}c_{t-1} + b_i)\\ f_t&amp;= \sigma (W_{xf}x_t + W_{hf}h_{t-1} + W_{cf}c_{t-1} + b_f )\\ c_t&amp;= f_tc_{t-1} + i_t \tanh (W_{xc}x_t + W_{hc}h_{t-1} + b_c)\\ o_t&amp;= \sigma (W_{xo}x_t + W_{ho}h_{t-1} + W_{co}c_t + b_o)\\ h_t&amp;= o_t \tanh (c_t) \end{aligned}$$\end{document}</tex-math><graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_Equ1.gif" /></alternatives></disp-formula>where <inline-formula id="IEq3"><alternatives><mml:math id="IEq3_Math"><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq3_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -357,7 +356,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$x_t$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq3.gif" /></alternatives></inline-formula> is the input vector (e.g. word embedding) at time <italic>t</italic>. <inline-formula id="IEq4"><alternatives><mml:math id="IEq4_Math"><mml:msub><mml:mi>h</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq4_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$x_t$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq3.gif" /></alternatives></inline-formula> is the input vector (e.g. word embedding) at time <italic>t</italic>. <inline-formula id="IEq4"><alternatives><mml:math id="IEq4_Math"><mml:msub><mml:mi>h</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq4_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -366,7 +365,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$h_t$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq4.gif" /></alternatives></inline-formula> is the hidden state vector, also called output vector, that contains information at time <italic>t</italic> and all time steps before <italic>t</italic>. <inline-formula id="IEq5"><alternatives><mml:math id="IEq5_Math"><mml:mi>σ</mml:mi></mml:math><tex-math id="IEq5_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$h_t$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq4.gif" /></alternatives></inline-formula> is the hidden state vector, also called output vector, that contains information at time <italic>t</italic> and all time steps before <italic>t</italic>. <inline-formula id="IEq5"><alternatives><mml:math id="IEq5_Math"><mml:mi>σ</mml:mi></mml:math><tex-math id="IEq5_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -375,7 +374,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$\sigma$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq5.gif" /></alternatives></inline-formula> is the logistic sigmoid function [<xref ref-type="bibr" rid="CR31">31</xref>]. Input gate <italic>i</italic>, forget gate <italic>f</italic>, output gate <italic>o</italic> and cell vector <italic>c</italic> are of the same size as the hidden state vector <italic>h</italic>. <inline-formula id="IEq6"><alternatives><mml:math id="IEq6_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hi</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq6_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$\sigma$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq5.gif" /></alternatives></inline-formula> is the logistic sigmoid function [<xref ref-type="bibr" rid="CR31">31</xref>]. Input gate <italic>i</italic>, forget gate <italic>f</italic>, output gate <italic>o</italic> and cell vector <italic>c</italic> are of the same size as the hidden state vector <italic>h</italic>. <inline-formula id="IEq6"><alternatives><mml:math id="IEq6_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hi</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq6_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -384,7 +383,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$W_{hi}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq6.gif" /></alternatives></inline-formula>, <inline-formula id="IEq7"><alternatives><mml:math id="IEq7_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hf</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq7_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$W_{hi}$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq6.gif" /></alternatives></inline-formula>, <inline-formula id="IEq7"><alternatives><mml:math id="IEq7_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hf</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq7_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -393,7 +392,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$W_{hf}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq7.gif" /></alternatives></inline-formula>, <inline-formula id="IEq8"><alternatives><mml:math id="IEq8_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hc</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq8_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$W_{hf}$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq7.gif" /></alternatives></inline-formula>, <inline-formula id="IEq8"><alternatives><mml:math id="IEq8_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">hc</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq8_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -402,7 +401,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$W_{hc}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq8.gif" /></alternatives></inline-formula> and <inline-formula id="IEq9"><alternatives><mml:math id="IEq9_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">ho</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq9_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$W_{hc}$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq8.gif" /></alternatives></inline-formula> and <inline-formula id="IEq9"><alternatives><mml:math id="IEq9_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">ho</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq9_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -411,7 +410,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$W_{ho}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq9.gif" /></alternatives></inline-formula> are the weight matrices for the hidden state <inline-formula id="IEq10"><alternatives><mml:math id="IEq10_Math"><mml:msub><mml:mi>h</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq10_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$W_{ho}$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq9.gif" /></alternatives></inline-formula> are the weight matrices for the hidden state <inline-formula id="IEq10"><alternatives><mml:math id="IEq10_Math"><mml:msub><mml:mi>h</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq10_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -420,7 +419,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$h_t$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq10.gif" /></alternatives></inline-formula>. <inline-formula id="IEq11"><alternatives><mml:math id="IEq11_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xi</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq11_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$h_t$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq10.gif" /></alternatives></inline-formula>. <inline-formula id="IEq11"><alternatives><mml:math id="IEq11_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xi</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq11_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -429,7 +428,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$W_{xi}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq11.gif" /></alternatives></inline-formula>, <inline-formula id="IEq12"><alternatives><mml:math id="IEq12_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xf</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq12_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$W_{xi}$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq11.gif" /></alternatives></inline-formula>, <inline-formula id="IEq12"><alternatives><mml:math id="IEq12_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xf</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq12_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -438,7 +437,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$W_{xf}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq12.gif" /></alternatives></inline-formula>, <inline-formula id="IEq13"><alternatives><mml:math id="IEq13_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xc</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq13_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$W_{xf}$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq12.gif" /></alternatives></inline-formula>, <inline-formula id="IEq13"><alternatives><mml:math id="IEq13_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xc</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq13_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -447,7 +446,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$W_{xc}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq13.gif" /></alternatives></inline-formula> and <inline-formula id="IEq14"><alternatives><mml:math id="IEq14_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xo</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq14_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$W_{xc}$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq13.gif" /></alternatives></inline-formula> and <inline-formula id="IEq14"><alternatives><mml:math id="IEq14_Math"><mml:msub><mml:mi>W</mml:mi><mml:mrow><mml:mi mathvariant="italic">xo</mml:mi></mml:mrow></mml:msub></mml:math><tex-math id="IEq14_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -456,7 +455,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$W_{xo}$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq14.gif" /></alternatives></inline-formula> denote the weight matrices of different gates for input <inline-formula id="IEq15"><alternatives><mml:math id="IEq15_Math"><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq15_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$W_{xo}$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq14.gif" /></alternatives></inline-formula> denote the weight matrices of different gates for input <inline-formula id="IEq15"><alternatives><mml:math id="IEq15_Math"><mml:msub><mml:mi>x</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:math><tex-math id="IEq15_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -465,7 +464,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$x_t$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq15.gif" /></alternatives></inline-formula>.</p>
+				\begin{document}$$x_t$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq15.gif" /></alternatives></inline-formula>.</p>
             <p id="Par34">For LSTMVoter, we apply an LSTM to sequence tagging. Additionally, as proposed by [<xref ref-type="bibr" rid="CR32">32</xref>], we utilize bidirectional LSTM networks. Figure <xref rid="Fig3" ref-type="fig">3</xref> illustrates a bidirectionalLong short-term memory (Bi-LSTM) network, where the input sequence (<italic>Treatment with haloperidol or reserpine ...</italic>) and the output sequence (<italic>O, O, B-Trivial, O, B-Trivial, ...</italic>) are fed as a training instance to a Bi-LSTM. In Bi-LSTMs, the input sequence is presented forward and backward to two separate hidden states to capture past and future information. To efficiently make use of past features (via forward states) and future features (via backward states) for a specific time frame, the two hidden states are concatenated to form the final output. In the final output of a Bi-LSTM, all information of the complete sequence is compressed into a fixed-length hidden state vector, which may result in information loss. To overcome this information loss, an attention mechanism is introduced, which partially fixes the problem.</p>
             <p id="Par35">The method of attention mechanism has recently gained popularity in image caption generation [<xref ref-type="bibr" rid="CR33">33</xref>], visual question answering [<xref ref-type="bibr" rid="CR34">34</xref>] and language modeling tasks [<xref ref-type="bibr" rid="CR35">35</xref>–<xref ref-type="bibr" rid="CR38">38</xref>]. The attention mechanism plugs a context vector on top of a layer, which enables to take all cells’ outputs as input to compute a probability distribution. This enables to capture global information rather then to infer based on one output vector.</p>
             <p id="Par36">For LSTMVoter, we utilized Bi-LSTM with attention mechanism to model character-level features (see Fig. <xref rid="Fig1" ref-type="fig">1</xref>, <italic>Char-Bi-LSTM</italic>). Character-level features in chemical named entities contain rich structure information, such as prefix, suffix and n-grams. Unlike previous methods [<xref ref-type="bibr" rid="CR39">39</xref>–<xref ref-type="bibr" rid="CR41">41</xref>], character-level features do not have to be defined manually, rather they can be learned during training. Unlike [<xref ref-type="bibr" rid="CR22">22</xref>], who encodes the entire character sequence into a fixed-size vector for each word, we utilize the character-level attention mechanism introduced by [<xref ref-type="bibr" rid="CR36">36</xref>]. This has the advantage, that by using the attention mechanism, the model is able to dynamically decide how much information and which part of a token to use.</p>
@@ -481,7 +480,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$\begin{aligned} P(y|x) = \frac{1}{Z_x}exp\left( \sum \limits _{j=1}^n \sum \limits _{m=1}^l \lambda _m f_m(y_{j-1},y_j,x,j)\right) \end{aligned}$$\end{document}</tex-math><graphic position="anchor" xlink:href="13321_2018_327_Article_Equ2.gif" /></alternatives></disp-formula>where <inline-formula id="IEq16"><alternatives><mml:math id="IEq16_Math"><mml:msub><mml:mi>Z</mml:mi><mml:mi>x</mml:mi></mml:msub></mml:math><tex-math id="IEq16_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$\begin{aligned} P(y|x) = \frac{1}{Z_x}exp\left( \sum \limits _{j=1}^n \sum \limits _{m=1}^l \lambda _m f_m(y_{j-1},y_j,x,j)\right) \end{aligned}$$\end{document}</tex-math><graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_Equ2.gif" /></alternatives></disp-formula>where <inline-formula id="IEq16"><alternatives><mml:math id="IEq16_Math"><mml:msub><mml:mi>Z</mml:mi><mml:mi>x</mml:mi></mml:msub></mml:math><tex-math id="IEq16_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -490,7 +489,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$Z_x$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq16.gif" /></alternatives></inline-formula> is the normalization factor that makes the probability of all state sequences sum to one; <inline-formula id="IEq17"><alternatives><mml:math id="IEq17_Math"><mml:mrow><mml:msub><mml:mi>f</mml:mi><mml:mi>m</mml:mi></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:math><tex-math id="IEq17_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$Z_x$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq16.gif" /></alternatives></inline-formula> is the normalization factor that makes the probability of all state sequences sum to one; <inline-formula id="IEq17"><alternatives><mml:math id="IEq17_Math"><mml:mrow><mml:msub><mml:mi>f</mml:mi><mml:mi>m</mml:mi></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo>,</mml:mo><mml:mi>x</mml:mi><mml:mo>,</mml:mo><mml:mi>j</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:math><tex-math id="IEq17_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -499,7 +498,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$f_m(y_{j-1},y_j,x,j)$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq17.gif" /></alternatives></inline-formula> is a feature function, and <inline-formula id="IEq18"><alternatives><mml:math id="IEq18_Math"><mml:msub><mml:mi>λ</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq18_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$f_m(y_{j-1},y_j,x,j)$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq17.gif" /></alternatives></inline-formula> is a feature function, and <inline-formula id="IEq18"><alternatives><mml:math id="IEq18_Math"><mml:msub><mml:mi>λ</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq18_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -508,7 +507,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$\lambda _m$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq18.gif" /></alternatives></inline-formula> is a learned weight associated with feature <inline-formula id="IEq19"><alternatives><mml:math id="IEq19_Math"><mml:msub><mml:mi>f</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq19_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$\lambda _m$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq18.gif" /></alternatives></inline-formula> is a learned weight associated with feature <inline-formula id="IEq19"><alternatives><mml:math id="IEq19_Math"><mml:msub><mml:mi>f</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq19_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -517,7 +516,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$f_m$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq19.gif" /></alternatives></inline-formula>. Feature functions measure the aspect of a state transition, <inline-formula id="IEq20"><alternatives><mml:math id="IEq20_Math"><mml:mrow><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo stretchy="false">→</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mrow></mml:math><tex-math id="IEq20_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$f_m$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq19.gif" /></alternatives></inline-formula>. Feature functions measure the aspect of a state transition, <inline-formula id="IEq20"><alternatives><mml:math id="IEq20_Math"><mml:mrow><mml:msub><mml:mi>y</mml:mi><mml:mrow><mml:mi>j</mml:mi><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mo stretchy="false">→</mml:mo><mml:msub><mml:mi>y</mml:mi><mml:mi>t</mml:mi></mml:msub></mml:mrow></mml:math><tex-math id="IEq20_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -526,7 +525,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$y_{j-1},y_j \rightarrow y_t$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq20.gif" /></alternatives></inline-formula>, and the entire observation sequence, <italic>x</italic>, centered at the current time step, <italic>j</italic>. Large positive values for <inline-formula id="IEq21"><alternatives><mml:math id="IEq21_Math"><mml:msub><mml:mi>λ</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq21_TeX">\documentclass[12pt]{minimal}
+				\begin{document}$$y_{j-1},y_j \rightarrow y_t$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq20.gif" /></alternatives></inline-formula>, and the entire observation sequence, <italic>x</italic>, centered at the current time step, <italic>j</italic>. Large positive values for <inline-formula id="IEq21"><alternatives><mml:math id="IEq21_Math"><mml:msub><mml:mi>λ</mml:mi><mml:mi>m</mml:mi></mml:msub></mml:math><tex-math id="IEq21_TeX">\documentclass[12pt]{minimal}
 				\usepackage{amsmath}
 				\usepackage{wasysym}
 				\usepackage{amsfonts}
@@ -535,7 +534,7 @@
 				\usepackage{mathrsfs}
 				\usepackage{upgreek}
 				\setlength{\oddsidemargin}{-69pt}
-				\begin{document}$$\lambda _m$$\end{document}</tex-math><inline-graphic xlink:href="13321_2018_327_Article_IEq21.gif" /></alternatives></inline-formula> indicate a preference for such an event, whereas large negative values make the event unlikely.</p>
+				\begin{document}$$\lambda _m$$\end{document}</tex-math><inline-graphic specific-use="web" mime-subtype="GIF" xlink:href="13321_2018_327_Article_IEq21.gif" /></alternatives></inline-formula> indicate a preference for such an event, whereas large negative values make the event unlikely.</p>
             <p id="Par41">Finally, to optimize the hyperparameters, the Tree Structure Parzen estimator was used.</p>
           </sec>
         </sec>
